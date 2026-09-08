@@ -1,0 +1,16 @@
+node_modules
+dist
+.output
+.vinxi
+.tanstack
+.cache
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+ridge-local.zip
+artifacts
+attachments
+screenshots
+.grok

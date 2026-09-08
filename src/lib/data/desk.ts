@@ -1,0 +1,163 @@
+import type { NewsItem } from "./types";
+
+export const DESK_FRESH_DAYS = 7;
+
+export function isFresh(date: string, asOf = "2026-09-07"): boolean {
+  const a = Date.parse(`${date}T00:00:00Z`);
+  const b = Date.parse(`${asOf}T00:00:00Z`);
+  if (Number.isNaN(a) || Number.isNaN(b)) return false;
+  return b - a <= DESK_FRESH_DAYS * 86_400_000;
+}
+
+export const NEWS: NewsItem[] = [
+  {
+    id: "astra-v42",
+    kind: "release",
+    title: "Astra is second. The Index got rewritten.",
+    dek: "GPT-6 Astra shipped 3 September. AA Index v4.2, posted 4 September, puts Fable 5.1 at 57 and Astra at 55.",
+    pull: "Do not compare a 55 on v4.2 to last week’s 61. The ruler changed.",
+    summary:
+      "Monday board: Fable 5.1 57, Astra 55, Opus 54, Spark max 53. Old 60s-scale rows are retired.",
+    date: "2026-09-07",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
+    models: ["gpt-6-astra", "claude-fable-5.1", "claude-opus-5", "muse-spark-1.3", "gpt-5.6-sol"],
+    tags: ["release", "ranking"],
+    body: [
+      "The weekly poll never ran, so this is the Monday cut by hand. Two things happened after Ridge’s last seed: OpenAI shipped GPT-6 Astra on 3 September, and Artificial Analysis rebased the Intelligence Index to v4.2 on 4 September.",
+      "Live AA board this morning, one public row per model at its best cited effort: Fable 5.1 57 (max with fallback), Astra 55 (max), Opus 5 54 (max), Fable 5 and Spark 1.3 max 53, Sol max and Grok 4.6 high 51, Kimi K3 50, Gemini 3.8 Flash high 47. Spark xhigh is 52 if you want the non-max cut.",
+      "v4.2 is not a restatement of last week’s 66 / 63 / 61 ladder. AA added AA-Briefcase (agentic knowledge work, private test set) and GDP.pdf (long-context document work), dropped saturated GPQA Diamond, and pushed private held-out weight to 40%. Fable is still first. The numbers are just smaller.",
+      "Astra is the first OpenAI flagship since Sol that belongs on the same page as Fable. It does not take first. On the old v4.1.1 table OpenAI itself printed, Astra was 61.2 against Fable 5.1 at 65.7. On v4.2 the gap is two points instead of four, with Astra clearly ahead of Sol (51).",
+      "The invoice is Fable-shaped: $10 / $50 per million tokens, about 2.5× Sol’s current menu. Context is a million-plus tokens. Cyber-capable work stays behind Daybreak. AA’s coding-agent note from 3 September is the friendlier table — Astra matching Fable 5 on that index at lower cost per task.",
+      "Grok 4.7 did not show up on the live Index this morning. Neither did Gemini 3.5 Pro. The Monday story is Astra plus a new ruler, not a new Google or xAI flagship.",
+    ],
+  },
+  {
+    id: "muse-13",
+    kind: "release",
+    title: "Muse Spark 1.3 puts Meta on the closed composite",
+    dek: "Public xhigh ties Sol and Grok at 61. The 62 is max, and it is still a partner preview.",
+    pull: "Meta did not leapfrog Fable. It walked into the room where Sol and Grok already sit and sat down with a smaller invoice.",
+    summary:
+      "Fourth Muse Spark in five months. Shipping cut is 61. The 62 everyone quotes is max and not generally available.",
+    date: "2026-09-02",
+    sourceName: "Artificial Analysis / SiliconANGLE",
+    sourceUrl: "https://artificialanalysis.ai/models/muse-spark-1-3",
+    models: ["muse-spark-1.3", "claude-fable-5.1", "claude-opus-5", "gpt-5.6-sol", "grok-4.6"],
+    tags: ["release", "meta"],
+    body: [
+      "Meta shipped Muse Spark 1.3 on 2 September, about four weeks after 1.2, inside Muse Code and the Meta Model API. It is the fourth Spark in five months. That cadence is not a side note. After a year of watching Llama lag the closed board, Superintelligence Labs is trying to buy relevance with release velocity instead of another open-weight apology.",
+      "Artificial Analysis measured two rows and people immediately mixed them up. The public xhigh cut is 61 on the Intelligence Index — the same number as GPT-5.6 Sol at max and Grok 4.6 at high. The max-effort cut is 62. That row sits behind only Fable 5.1 (66) and Opus 5 (63). It is also still limited preview for Meta partners. Ridge cites 61 unless a source labels the row as public. If a headline says ‘Meta is third overall,’ check which effort they used.",
+      "Price did not move with the bump: $1.25 input and $4.25 output per million tokens, million-token context, text plus image and video in. AA’s cost-per-task figure for xhigh is about $0.55. That is why Spark suddenly belongs in a conversation that used to be Grok’s alone. Sol still invoices $5 / $30. Grok is $2 / $6. Spark undercuts Sol hard and undercuts Grok on output while looking like a product team wrote the menu.",
+      "The agentic gains are the part Meta will sell. Reporting around the launch points at long-running coding in Muse Code, DeepSWE, Terminal-Bench 2.1 (85% at xhigh in the AA note we cite), and fewer overconfident errors than 1.2. Alexandr Wang’s line is usability over a single leaderboard screenshot. Fair. Also convenient, because the screenshot that matters — Fable 5.1 at 66 — did not move.",
+      "What this does to the field: the closed composite is no longer a two-lab sport. Anthropic still owns the ceiling. OpenAI still owns the expensive reasoning seat. xAI still owns the cheap 61. Meta now owns a fourth chair at that table without shipping Llama weights to get there. That is a strategy change, not a rounding error.",
+      "What it does not do: it does not make Spark the default coding hire. Opus 5 is still first on the August Vals SWE-bench cut in this ledger. It does not make 62 a number you can call from a normal API key. And it does not retire the question of whether Meta can keep this pace without the model becoming a new family every month that nobody’s harness has rerun.",
+      "Read Spark 1.3 as Meta paying rent on the frontier. The rent is real. The lease on first place is not included.",
+    ],
+  },
+  {
+    id: "gemini-38",
+    kind: "release",
+    title: "Gemini 3.8 Flash is the fourth Flash in four months",
+    dek: "AA Index 59 at high. Same intro price. The Pro flagship is still a rumor with a calendar.",
+    pull: "Google is winning the iteration war at the affordable end and losing the calendar war at the top.",
+    summary:
+      "Three points over 3.7, Pareto on cost-per-task, 3.5 Pro still missing.",
+    date: "2026-09-02",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://artificialanalysis.ai/articles/gemini-3-8-flash",
+    models: ["gemini-3.8-flash", "gemini-3.7-flash", "gpt-5.6-sol", "grok-4.6", "gpt-5.6-terra"],
+    tags: ["release", "google"],
+    body: [
+      "Google DeepMind released Gemini 3.8 Flash on 2 September. Fourth Flash in under four months. The Pro Sundar previewed at I/O in May — ‘next month’ then, a leaked July window after that — is still unreleased. The cheap seat keeps shipping. The expensive nameplate does not.",
+      "At high reasoning, 3.8 scores 59 on the Artificial Analysis Intelligence Index, three points over 3.7 Flash at high (56). That is the same 59 AA assigns to Sol at xhigh and Grok 4.6 at medium — not their top effort rows. Medium 3.8 is 57, level with Terra max and last month’s Spark 1.2 xhigh. Low is 52, matching 3.6 Flash high, at about 30% lower cost per task and roughly a third of the time.",
+      "AA says the three-point jump is mostly agentic: τ³-Banking, Terminal-Bench 2.1, GDPval-AA v2. Banking is the loud one, 45%, twelve points over 3.7. That is a tool-use story, not a trivia story. If your workload looks like a loop with tools, 3.8 is the first Flash in this line that belongs in the same sentence as the mid-tier closed models.",
+      "Sticker price is frozen at the intro rate: $0.75 / $3.75 through 31 December, then $1.50 / $7.50. Cached input keeps the 90% discount. High still lands around $0.58 per Index task, which is why it touches the Intelligence-versus-cost Pareto. Medium is $0.41. Low is $0.24. Context stays a million tokens. Inputs include text, image, video, and speech.",
+      "The catch AA also printed: 3.8 talks more. Average output tokens per task rose about 30% to ~48k, agentic evals took more turns, and cost per task is up ~40% versus 3.7 high ($0.40 → $0.58) even though the menu price did not move. Speed is still a Flash number — on the order of 300 tok/s at high, about 2.5 minutes per Index task. Low sits on the time Pareto at 0.8 minutes. The Cyber twin is Fairwind-only. Do not treat a defender-only row as the public model.",
+      "How this shapes the week: Google is the lab that can publish a new workhorse every few weeks without a keynote. That is an advantage in IDEs, batch jobs, and anything that dies if the token bill looks like Fable. It is not an advantage on the ‘best model in the world’ headline. Fable 5.1 is 66. Opus is 63. A 59 Flash does not close that gap, and every week 3.5 Pro stays in the wings, Anthropic keeps the top of the page.",
+      "If you already run 3.7, the upgrade is real on agents and free on the sticker. If you were waiting for Pro, you are still waiting. Ridge will not pretend those are the same customer.",
+    ],
+  },
+  {
+    id: "fable-51",
+    kind: "release",
+    title: "Fable 5.1 takes the Intelligence Index at 66",
+    dek: "Highest AA score they have published. Cache reads cut 75%. The max row still spends like a flagship.",
+    pull: "Anthropic took first place again with a refresh, not a new pretrain. Everyone else is arguing about the 59–63 band.",
+    summary:
+      "1 September pair: public Fable, trusted-access Mythos. First place is not close.",
+    date: "2026-09-01",
+    sourceName: "Anthropic / Artificial Analysis",
+    sourceUrl: "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    models: ["claude-fable-5.1", "claude-fable-5", "claude-opus-5", "gpt-5.6-sol"],
+    tags: ["release", "anthropic"],
+    body: [
+      "Anthropic shipped Claude Fable 5.1 and Claude Mythos 5.1 on 1 September, twelve weeks after the June pair that spent nineteen days offline under a US export order. Same underlying model, two safeguard stacks. Fable is generally available as `claude-fable-5-1`. Mythos stays on trusted access for cyber and life-science work. Million-token context, 128k max output, adaptive thinking always on. Defaults: High in Claude Code, Medium on Claude.ai and Cowork.",
+      "Artificial Analysis’s pre-release eval put 5.1 at 66 on the Intelligence Index at max effort — the highest number they have published. Next is Opus 5 at 63, then original Fable 5 at 62. Sol and Grok sit at 61. A three-point gap at the top of this board is not noise. AA ran the default server-side fallback, which routes safety-flagged requests to Opus 4.8 or Opus 5. Fallback ate about 4% of output tokens. If you cite 66, cite the fallback.",
+      "Anthropic’s own science seat is louder than the composite. Terminal-Bench-Science 0.1: 52.6% for 5.1 against 24.7% for Fable 5, 29.0% for Opus 5, 22.4% for Sol. Standard error is 3.5–4.5 points, so treat the margin as the claim. On their agentic coding board, Terminal-Bench 4.0, they print 55.8% for Fable 5.1 and 60.9% for Mythos 5.1. CursorBench 3.2.0: 73.4%. Arena+ listed 5.1 first at Elo 1516 the day it appeared.",
+      "The invoice is the other half of the launch. List price did not move: $10 input, $50 output. Cache reads fell 75%, $1.00 to $0.25. Anthropic says that is ~25% cheaper on typical workloads and up to 45% on agentic ones. AA still measured max-effort 5.1 at about 1.7× the output tokens and 20% more cost per task than Fable 5. Cheaper cache is not a cheap max row. Early users also reported subscription allowances burning fast. That is a product fight, not a benchmark fight, and it is already back.",
+      "There is a hallucination note in the independent write-ups: 5.1 attempted answers more often when it was wrong. That is the kind of regression that does not show up in an Index point and does show up in a research loop. Worth watching on Omniscience-style evals as they rerun.",
+      "The game after 1 September is a stacked board with a lonely first place. Anthropic owns the ceiling with a mid-cycle cut. Opus remains the coding closer on the August Vals SWE-bench number in this ledger. Everyone from Spark to 3.8 Flash is competing in the band underneath. That is a healthier market than June, when Fable and Mythos vanished for nineteen days and the top of the page went blank.",
+    ],
+  },
+  {
+    id: "value-band",
+    kind: "ranking",
+    title: "The 61 club is now a three-lab fight",
+    dek: "Sol, Grok 4.6, and Spark 1.3 xhigh share a number and not a bill.",
+    pull: "The Index stopped being the discriminator in this band. Effort level, harness, and the invoice did the job instead.",
+    summary:
+      "Same Intelligence Index, three invoices. This is the argument builders are actually having.",
+    date: "2026-09-02",
+    sourceName: "Ridge cut of AA",
+    sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
+    models: ["gpt-5.6-sol", "grok-4.6", "muse-spark-1.3"],
+    tags: ["ranking"],
+    body: [
+      "Look past first place. Fable 5.1 is 66 and that argument is over for the week. The live argument is the cluster at 61.",
+      "GPT-5.6 Sol at max is 61 and $5 / $30. Grok 4.6 at high is 61 and $2 / $6. Muse Spark 1.3 at xhigh is 61 and $1.25 / $4.25. Same composite, five-fold spread on output tokens. Anyone still shopping ‘the 61 model’ as if that were one SKU is going to buy the wrong thing.",
+      "The three seats are not interchangeable even when the Index agrees. Sol still leads the hard reasoning benches in this ledger — ARC-AGI-2, LiveBench-style work, BrowseComp — and still invoices like a flagship. Grok got to 61 first, on 12 August, as a post-training refresh of 4.5, not a new pretrain. Spark arrived 2 September and made the value seat crowded. Spark’s 62 is real and not a number most keys can call.",
+      "Effort labels matter more than lab marketing. Sol’s 61 is max. Grok’s 61 is high. Spark’s 61 is xhigh. Drop Grok to medium and AA has shown 59, which is also 3.8 Flash high. Raise Spark to max and you get 62 in preview. Compare those rows without the effort tag and you are writing fiction.",
+      "For a daily driver the question is now: do you need Sol’s reasoning tail, Grok’s price-to-score, or Spark’s multimodal window at Meta’s menu. The Index will not answer that. The harness will. Ridge keeps the three rows separate so a fuzzy match cannot collapse Grok 4.6 onto Grok 4 (46) or Spark max onto Spark xhigh. That collapse already happened once on this site. It will not happen again on purpose.",
+    ],
+  },
+  {
+    id: "grok-46",
+    kind: "release",
+    title: "Grok 4.6 is still the cheap 61 — 4.7 is already teed up",
+    dek: "Shipped 12 August as a post-train of 4.5. Ties Sol. Musk has already pointed at the next cut.",
+    pull: "xAI’s summer was not ‘win the pretrain.’ It was ‘sell a frontier-shaped score at a workhorse bill.’",
+    summary:
+      "The silver bar is the price gap, not a claim that Grok won coding.",
+    date: "2026-08-12",
+    sourceName: "Artificial Analysis / xAI",
+    sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
+    models: ["grok-4.6", "grok-4.5", "gpt-5.6-sol"],
+    tags: ["release", "xai"],
+    body: [
+      "Grok 4.6 landed 12 August as a post-training refresh of 4.5. Same $2 / $6, same 500K context. Artificial Analysis has it at 61 high, tied with Sol max. On 18 August Musk posted that 4.7 is a major upgrade and coming soon. The next cut is already part of the product story, which is either confidence or a tell that 4.6 was never meant to sit still.",
+      "That is the whole xAI pitch this summer. Do not win the pretrain race. Win the bill for a frontier-shaped score. SWE-bench in the August Vals cut was 95.6% — close to Sol at 96.2, not Opus at 97.0. Terminal-Bench in this ledger is 88.4%, a hair under Sol. GPQA is in the mid-94s. None of those are a blowout. Together they are ‘good enough to replace Sol in a lot of production loops.’",
+      "Spark 1.3 arriving at 61 xhigh does not retire Grok. It makes Grok prove the $2 / $6 still means something when Meta is $1.25 / $4.25 with a million-token window. Grok’s remaining edge is simplicity: one number, generally available, no partner-preview asterisk, no Flash-versus-Pro identity crisis. 4.7 will have to keep that or the value seat moves.",
+      "The mistake this site already made once is reading an older Grok 4 row (46) as 4.6. Version-aware matching exists because that collapse is how you publish a lie with a straight face. 4.6 is 61. 4 is 46. They are not the same model.",
+    ],
+  },
+  {
+    id: "pro-still-missing",
+    kind: "rumor",
+    title: "3.5 Pro is still missing. That is now part of Google’s personality.",
+    dek: "I/O said next month. July leaked. September shipped another Flash instead.",
+    pull: "A lab that can mint a new Flash every few weeks and cannot mint a Pro is telling you which product it actually has.",
+    summary:
+      "The delay is no longer a scheduling note. It is the shape of Google’s autumn.",
+    date: "2026-09-02",
+    sourceName: "Forbes / DeepMind calendar",
+    sourceUrl: "https://www.forbes.com/sites/johnwerner/2026/08/13/gemini-35-pro-delay-continues/",
+    models: ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.1-pro"],
+    tags: ["rumor", "google"],
+    body: [
+      "Sundar Pichai previewed Gemini 3.5 Pro for ‘next month’ at I/O on 19 May. That window passed. A leaked 17 July target passed. Forbes was still writing the delay on 13 August. On 2 September Google shipped 3.8 Flash. The named Pro on the public board is still 3.1.",
+      "This would be a footnote if Flash were a toy. It is not. 3.8 high is 59, on the cost Pareto, fast, multimodal, a million tokens. For a lot of production it is the model. That success makes the missing Pro louder, not quieter. The industry sentence is still ‘who has the best model,’ and that sentence currently starts with Fable 5.1.",
+      "Independent forecasts have slid toward late September. Treat them as forecasts. Ridge will put 3.5 Pro on the ledger the day a third party prints a number with a source URL and an as-of date. Until then the Google story is iteration at the workhorse layer and absence at the flagship layer. Both can be true. Only one of them is shipping.",
+    ],
+  },
+];

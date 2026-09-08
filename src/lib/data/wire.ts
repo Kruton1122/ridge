@@ -1,0 +1,189 @@
+export interface WireItem {
+  id: string;
+  title: string;
+  blurb: string;
+  date: string;
+  outlet: string;
+  url: string;
+  beat: "release" | "ranking" | "policy" | "rumor" | "labs";
+  models: string[];
+}
+
+export const WIRE: WireItem[] = [
+  {
+    id: "aa-v42-board",
+    title: "AA Index v4.2: Fable 5.1 57, Astra 55, Opus 54",
+    blurb:
+      "Rebased 4 September. Briefcase and GDP.pdf in, GPQA Diamond out. Live table as of this morning.",
+    date: "2026-09-07",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/leaderboards/models",
+    beat: "ranking",
+    models: ["claude-fable-5.1", "gpt-6-astra"],
+  },
+  {
+    id: "aa-v42-article",
+    title: "What changed in Intelligence Index v4.2",
+    blurb:
+      "AA-Briefcase, GDP.pdf, more private holdout, GPQA Diamond retired. Scores are not 1:1 with the August 60s scale.",
+    date: "2026-09-04",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-2",
+    beat: "ranking",
+    models: ["claude-fable-5.1", "gpt-6-astra"],
+  },
+  {
+    id: "oai-astra",
+    title: "OpenAI ships GPT-6 Astra",
+    blurb:
+      "3 September. $10 / $50, Plus/Pro/API rollout over days. Daybreak still gates the cyber seat.",
+    date: "2026-09-03",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/gpt-6-astra/",
+    beat: "release",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "aa-astra",
+    title: "AA on Astra: behind Fable on intelligence, sharp on coding-agent cost",
+    blurb:
+      "Equals Fable 5 on the Coding Agent Index at less than half the cost. Intelligence still trails 5.1.",
+    date: "2026-09-03",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/benchmarking-gpt-6-astra",
+    beat: "ranking",
+    models: ["gpt-6-astra", "claude-fable-5.1"],
+  },
+  {
+    id: "aa-muse-13",
+    title: "AA: Muse Spark 1.3 max is 62 in partner preview",
+    blurb:
+      "Fourth Spark in five months. Public xhigh is 61. Max sits behind only Fable 5.1 and Opus 5 — and is not a general API row.",
+    date: "2026-09-02",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/models/muse-spark-1-3",
+    beat: "release",
+    models: ["muse-spark-1.3"],
+  },
+  {
+    id: "sa-meta-caught-up",
+    title: "Meta says Spark 1.3 has caught the closed frontier",
+    blurb:
+      "SiliconANGLE on the Superintelligence Labs cadence and the $14B Scale bet. Independent board: 61 public, 62 preview.",
+    date: "2026-09-02",
+    outlet: "SiliconANGLE",
+    url: "https://siliconangle.com/2026/09/02/meta-says-it-has-caught-up-with-anthropic-and-openai-after-releasing-muse-spark-1-3-its-most-powerful-llm-so-far/",
+    beat: "labs",
+    models: ["muse-spark-1.3"],
+  },
+  {
+    id: "aa-gemini-38",
+    title: "Gemini 3.8 Flash scores 59 and hits the cost Pareto",
+    blurb:
+      "Fourth Flash in four months. High is 59 (+3 vs 3.7). Same $0.75 / $3.75 intro price. Cost per task still rose because it talks more.",
+    date: "2026-09-02",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/gemini-3-8-flash",
+    beat: "release",
+    models: ["gemini-3.8-flash"],
+  },
+  {
+    id: "vb-fable-51",
+    title: "VentureBeat: Fable 5.1 ships with a 75% cache-read cut",
+    blurb:
+      "Public Fable, trusted-access Mythos. AA already had max at 66 — highest Index they have printed.",
+    date: "2026-09-01",
+    outlet: "VentureBeat",
+    url: "https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads",
+    beat: "release",
+    models: ["claude-fable-5.1"],
+  },
+  {
+    id: "anth-fable-post",
+    title: "Anthropic introduces Fable 5.1 and Mythos 5.1",
+    blurb:
+      "Same model, two safeguard stacks. Terminal-Bench-Science 52.6% vs 24.7% on Fable 5. List price unchanged at $10 / $50.",
+    date: "2026-09-01",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    beat: "release",
+    models: ["claude-fable-5.1"],
+  },
+  {
+    id: "rd-science-double",
+    title: "Fable 5.1 doubles a science bench — and spends more tokens",
+    blurb:
+      "R&D World on Terminal-Bench-Science and AA’s note that max-effort 5.1 costs ~20% more per task than Fable 5.",
+    date: "2026-09-01",
+    outlet: "R&D World",
+    url: "https://www.rdworldonline.com/anthropic-doubles-a-science-benchmark-score-with-fable-5-1-while-openai-says-its-astra-models-crosses-critical-cyber-threshold/",
+    beat: "ranking",
+    models: ["claude-fable-5.1"],
+  },
+  {
+    id: "aa-fable-x",
+    title: "AA pre-release: Fable 5.1 max is 66 with Opus fallback",
+    blurb:
+      "Fallback served ~4% of output tokens. Cite that if you cite the 66. Next is Opus 5 at 63.",
+    date: "2026-09-01",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2094881171066978525",
+    beat: "ranking",
+    models: ["claude-fable-5.1", "claude-opus-5"],
+  },
+  {
+    id: "yotta-astra",
+    title: "GPT-6 has not been announced. Astra is the named next model.",
+    blurb:
+      "Yotta Labs recap: GPT-5.6 family is what you can call. Astra is confirmed as upcoming; the GPT-6 label is still rumor.",
+    date: "2026-09-03",
+    outlet: "Yotta Labs",
+    url: "https://www.yottalabs.ai/post/gpt-6-release-date-rumors-what-is-known-2026",
+    beat: "rumor",
+    models: ["gpt-5.6-sol"],
+  },
+  {
+    id: "oai-cyber",
+    title: "OpenAI cannot rule out critical cyber capability on Astra",
+    blurb:
+      "7 August preparedness note. Training and tool-using inference on Astra were tightened. No ship date attached.",
+    date: "2026-08-07",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities/",
+    beat: "policy",
+    models: ["gpt-5.6-sol"],
+  },
+  {
+    id: "yahoo-polymarket",
+    title: "Prediction markets still lean September for Astra",
+    blurb:
+      "Yahoo on Polymarket: about 59% by 15 September, higher by month-end. Resolves on OpenAI’s own announcement.",
+    date: "2026-08-18",
+    outlet: "Yahoo Finance",
+    url: "https://finance.yahoo.com/technology/ai/articles/markets-confident-openai-releases-next-191526916.html",
+    beat: "rumor",
+    models: ["gpt-5.6-sol"],
+  },
+  {
+    id: "forbes-35",
+    title: "Gemini 3.5 Pro delay continues — then 3.8 Flash ships instead",
+    blurb:
+      "I/O ‘next month’ and a leaked July window both passed. 2 September brought another Flash, not Pro.",
+    date: "2026-08-13",
+    outlet: "Forbes",
+    url: "https://www.forbes.com/sites/johnwerner/2026/08/13/gemini-35-pro-delay-continues/",
+    beat: "rumor",
+    models: ["gemini-3.8-flash", "gemini-3.1-pro"],
+  },
+  {
+    id: "rohit-aug14",
+    title: "August 14 field guide: Sol, Fable 5, Grok 4.6, 3.7 Flash, V4 Pro",
+    blurb:
+      "What a normal customer could actually call mid-August — before 5.1, 3.8, and Spark 1.3 landed.",
+    date: "2026-08-14",
+    outlet: "Rohit AI",
+    url: "https://rohitai.com/blog/best-ai-models-2026-openai-anthropic-google-xai-deepseek",
+    beat: "ranking",
+    models: ["gpt-5.6-sol", "claude-fable-5", "grok-4.6"],
+  },
+];
