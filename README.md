@@ -19,6 +19,8 @@ Open [http://localhost:8080](http://localhost:8080).
 - News wire + Ridge notes
 - Machine endpoints: `/api/ledger.json`, `/api/ledger.csv`, `/api/v1`, `/llms.txt`
 
+**If you are Claude, Grok, or another agent editing this repo, read [RIDGE.md](./RIDGE.md) first.**
+
 Cite the source URL and the as-of date. Scores live in `src/lib/data/catalog.ts`.
 
 AA v4.2 is not 1:1 with the old ~60s scale. Spark xhigh (GA, 52) and Spark max (partner, 53) are separate rows.
