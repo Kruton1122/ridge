@@ -25,7 +25,7 @@ git pull --ff-only origin main || git pull --ff-only
 
 export XAI_API_KEY="${XAI_API_KEY:-}"
 
-"$GROK_BIN" -p "$(cat "$REPO/scripts/monday-prompt.txt")" --directory "$REPO"
+"$GROK_BIN" -p "$(cat "$REPO/scripts/monday-prompt.txt")" --cwd "$REPO" --always-approve
 
 if [[ "${RIDGE_PUSH:-0}" == "1" ]]; then
   if ! git diff --quiet || ! git diff --cached --quiet; then
