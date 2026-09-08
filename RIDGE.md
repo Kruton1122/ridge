@@ -2,7 +2,8 @@
 
 Read this before editing. The site is a **frontier LLM ledger**, not a generic dashboard.
 
-Live public repo: https://github.com/Kruton1122/ridge  
+Live site: https://ridgebench.com  
+Public repo: https://github.com/Kruton1122/ridge
 Owner runs it locally with `npm install && npm run dev` (port **8080**).
 
 ## What Ridge is

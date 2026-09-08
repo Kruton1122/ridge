@@ -2,7 +2,8 @@
 
 Frontier model benchmark ledger. Independent cut of Artificial Analysis, Arena+, and Vals.
 
-Live snapshot in this tree: **7 September 2026** (AA Intelligence Index **v4.2**).
+Live site: **[ridgebench.com](https://ridgebench.com)**  
+Repo: [github.com/Kruton1122/ridge](https://github.com/Kruton1122/ridge)
 
 ## Run locally
 
