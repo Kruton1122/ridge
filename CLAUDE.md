@@ -1,5 +1,7 @@
 # Claude / local agents
 
-This is Ridge. Full working notes: [RIDGE.md](./RIDGE.md).
+This is Ridge. Product rules: [RIDGE.md](./RIDGE.md).
 
-Do not invent benchmark numbers. Do not mix AA Index v4.1.1 with v4.2. Edit `src/lib/data/catalog.ts` for scores.
+**Agent lanes:** [RIDGE-BOT.md](./RIDGE-BOT.md) — Ridge Bot (Grok Bot) owns daily scrape, board freshness, wire/desk news, and opinion stars. Claude expanding the site should read that handoff first so pipelines and content passes are not overwritten.
+
+Do not invent benchmark numbers. Do not mix AA Index v4.1.1 with v4.2+. Prefer reading live `catalog.ts` / `llms.txt` for scores rather than hand-competing with the daily apply script.

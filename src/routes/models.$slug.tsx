@@ -42,6 +42,27 @@ function ModelPage() {
           <h1 className="mt-3 font-serif text-5xl">{model.name}</h1>
           <p className="mt-4 max-w-xl leading-relaxed text-muted">{profile.voice}</p>
           <p className="mt-3 text-xs text-faint">{theme.motif}</p>
+          {model.publicOpinionStars != null ? (
+            <div className="mt-5 max-w-xl">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-faint">Public opinion</p>
+              <p
+                className="mt-1 font-serif text-xl leading-none tracking-[0.12em] text-primary"
+                aria-label={`${model.publicOpinionStars} out of 5 stars`}
+              >
+                {"★".repeat(model.publicOpinionStars)}
+              </p>
+              {model.publicOpinionNote ? (
+                <p className="mt-2 text-xs leading-relaxed text-muted">
+                  {model.publicOpinionNote}
+                  {model.publicOpinionAsOf ? (
+                    <span className="text-faint"> · {model.publicOpinionAsOf}</span>
+                  ) : null}
+                </p>
+              ) : model.publicOpinionAsOf ? (
+                <p className="mt-2 text-xs text-faint">{model.publicOpinionAsOf}</p>
+              ) : null}
+            </div>
+          ) : null}
           <dl className="mt-8 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
             <div>
               <dt className="text-faint">Released</dt>

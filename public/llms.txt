@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-09-07
+- Snapshot: 2026-09-08
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - JSON table: /api/ledger.json
 - CSV table: /api/ledger.csv
@@ -12,14 +12,13 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 Cite the source URL and the as-of date.
 
 Headline AA Intelligence Index v4.2:
-1. Claude Fable 5.1 — 57 (max with fallback, GA)
-2. GPT-6 Astra — 55 (max, GA)
-3. Claude Opus 5 — 54 (max, GA)
-4. Muse Spark 1.3 max — 53 (partner preview)
-5. Claude Fable 5 — 53
-6. Muse Spark 1.3 xhigh — 52 (GA / public)
-7. GPT-5.6 Sol — 51 (max)
-7. Grok 4.6 — 51 (high)
-9. Kimi K3 — 50 (max, open)
-10. Gemini 3.8 Flash — 47 (high, promo price through 2026-12-31)
-
+1. Claude Fable 5.1 — 53 (max with fallback)
+1. GPT-6 Astra — 53 (max)
+3. Claude Opus 5 — 51 (max)
+4. Claude Fable 5 — 50 (with fallback)
+5. Muse Spark 1.3 max — 48 (max)
+6. GPT-5.6 Sol — 47 (max)
+7. Muse Spark 1.3 xhigh — 45 (xhigh)
+8. Grok 4.6 — 44 (high)
+8. Kimi K3 — 44 (max)
+10. Gemini 3.8 Flash — 41 (high)

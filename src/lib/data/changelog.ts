@@ -1,5 +1,24 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-08",
+    title: "Half-week news + public-opinion pass",
+    items: [
+      "Wire: AA v4.3 methodology, NVIDIA↔Hugging Face, Jensen on Astra, Mythos CWI, Vellum TB 4.0 cliff.",
+      "Desk: halfweek-opinion-0908 — Fable/Astra/K3 at 4★; mixed 3★ baseline elsewhere; Spark max skipped.",
+      "publicOpinionStars set from Grok Build X scrape (logs/news-pass-grok-20260908.txt). No invented stars.",
+      "Catalog summaries aligned to live AA board (53/53/…) — scores still owned by daily pipeline.",
+    ],
+  },
+  {
+    date: "2026-09-08",
+    title: "Daily scrape - sourced score refresh",
+    items: [
+      "aa-intelligence: Fable 5.1 57->53, Astra 55->53, Opus 5 54->51, Fable 5 53->50, Spark max 53->48, Sol 51->47.",
+      "arena-elo: Fable 5.1 1516->1520, 3.8 Flash 1503->1505, Grok 4.5 1505->1504.",
+      "Scores sourced from daily briefing scrape (AA / Arena+ / Vals).",
+    ],
+  },
+  {
     date: "2026-09-07",
     title: "Monday cut — Astra in, Index rebased",
     items: [

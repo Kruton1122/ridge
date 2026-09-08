@@ -11,10 +11,76 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-v43",
+    title: "AA Index v4.3: Terminal-Bench 4.0 in, AutomationBench-AA in",
+    blurb:
+      "7 September. TB 2.1 → 4.0; τ³-Banking replaced by AutomationBench-AA. Live board still shows Fable 5.1 and Astra tied at 53 — same headline, harder agent suite. Private-eval weight 45%.",
+    date: "2026-09-07",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+    beat: "ranking",
+    models: ["claude-fable-5.1", "gpt-6-astra", "grok-4.6", "muse-spark-1.3", "gemini-3.8-flash"],
+  },
+  {
+    id: "nvidia-hf",
+    title: "NVIDIA agrees to buy Hugging Face for $12.93B",
+    blurb:
+      "Definitive agreement disclosed 2–3 September. ~$11.9B to stockholders plus up to $1B retention equity. Close targeted 1H 2027 pending HSR/EU review. Platform to stay open.",
+    date: "2026-09-03",
+    outlet: "NVIDIA",
+    url: "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+    beat: "labs",
+    models: [],
+  },
+  {
+    id: "jensen-agi-astra",
+    title: "Jensen Huang: ‘AGI has arrived’ — congratulates OpenAI on Astra",
+    blurb:
+      "6 September X post. Credits Astra’s GB200 training run. Public chatter already split between the demos and quota burn.",
+    date: "2026-09-06",
+    outlet: "Business Insider",
+    url: "https://www.businessinsider.com/nvidia-jensen-huang-agi-openai-astra-ai-2026-9",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "register-mythos-cwi",
+    title: "Booz Allen CWI: Mythos only model to finish a full cyber kill chain",
+    blurb:
+      "Register on the Cyber Weapon Index. Mythos CWI 80; next cluster in the 40s. Trusted-access sibling to Fable 5.1 — not a public GA row.",
+    date: "2026-09-02",
+    outlet: "The Register",
+    url: "https://www.theregister.com/security/2026/09/02/claude-mythos-only-model-to-complete-full-cyber-kill-chain-experts-say/5294071",
+    beat: "policy",
+    models: ["claude-fable-5.1"],
+  },
+  {
+    id: "vellum-38-tb4",
+    title: "Vellum: 3.8 Flash leads TB 2.1, collapses on Terminal-Bench 4.0",
+    blurb:
+      "89.4% on TB 2.1 vs 19.1% on TB 4.0 (Opus 5 at 51.8%). Same cliff Spark faces in expert chatter — shaped terminal work ≠ long-horizon agency.",
+    date: "2026-09-02",
+    outlet: "Vellum",
+    url: "https://www.vellum.ai/blog/gemini-3-8-flash-benchmarks-explained",
+    beat: "ranking",
+    models: ["gemini-3.8-flash", "muse-spark-1.3", "claude-opus-5"],
+  },
+  {
+    id: "aa-v42-sept8",
+    title: "AA Index v4.2 refresh: Fable 5.1 and Astra both 53",
+    blurb:
+      "8 September scrape. Opus 51, Fable 5 50, Spark max 48. OpenLM AAII can still read ~57 — Ridge cites AA.",
+    date: "2026-09-08",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/leaderboards/models",
+    beat: "ranking",
+    models: ["claude-fable-5.1", "gpt-6-astra"],
+  },
+  {
     id: "aa-v42-board",
     title: "AA Index v4.2: Fable 5.1 57, Astra 55, Opus 54",
     blurb:
-      "Rebased 4 September. Briefcase and GDP.pdf in, GPQA Diamond out. Live table as of this morning.",
+      "Rebased 4 September. Briefcase and GDP.pdf in, GPQA Diamond out. Live table as of 7 September.",
     date: "2026-09-07",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/leaderboards/models",

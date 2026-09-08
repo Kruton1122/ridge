@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-07"): boolean {
+export function isFresh(date: string, asOf = "2026-09-08"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -11,25 +11,54 @@ export function isFresh(date: string, asOf = "2026-09-07"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-opinion-0908",
+    kind: "ranking",
+    title: "Half-week opinion: Fable is the daily driver, Astra is the spectacle",
+    dek: "Grok Build X scrape as of 8 September. Stars only where the chatter is thick enough to defend.",
+    pull: "Quota rage and demos can share a timeline. That does not make either side invented.",
+    summary:
+      "Public affection this half-week: Fable 5.1 and Astra both at 4★; Kimi K3 practitioner love at 4★; Opus, Spark xhigh, Sol, Grok 4.6, and 3.8 Flash hold the mixed 3★ baseline. Spark max skipped — no separate public conversation.",
+    date: "2026-09-08",
+    sourceName: "Ridge / Grok Build X scrape",
+    sourceUrl: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
+    models: [
+      "claude-fable-5.1",
+      "gpt-6-astra",
+      "claude-opus-5",
+      "muse-spark-1.3",
+      "gpt-5.6-sol",
+      "grok-4.6",
+      "kimi-k3",
+      "gemini-3.8-flash",
+    ],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Ridge Bot ran an immediate half-week news and public-opinion pass on 8 September. Grok Build scraped Latest/Top X plus web coverage for the headline board. Stars go on catalog rows only when the signal is real; invented affection is worse than a blank.",
+      "Volume ranking this window: Astra first (launch virals, Jensen ‘AGI has arrived,’ computer-use/3D demos, and weekly-limit rage in the same timeline), Fable 5.1 second (practitioner daily-driver talk from Shipper, Osmani, Willison, Theo — plus credit-burn and refusal complaints), then Spark 1.3 and Gemini 3.8 Flash (OpenCode token charts and the Terminal-Bench 4.0 cliff), Opus 5 (the model people say they are leaving), Grok 4.6 (price/AutomationBench), Sol (Astra’s shadow), Kimi K3 (steady frontend/open-weight love, not this week’s meme).",
+      "AA also published Index v4.3 on 7 September — Terminal-Bench 4.0 and AutomationBench-AA in, τ³-Banking out. Headline numbers on the live board still read Fable 5.1 and Astra tied at 53. Ridge does not silently overwrite the ruler; the daily pipeline owns score rows. Wire carries the methodology note.",
+      "Non-model story of the week: NVIDIA’s definitive agreement to acquire Hugging Face for $12.93B. Mythos 5.1 remains the trusted-access cyber sibling — Booz Allen’s CWI is the policy beat, not a public GA seat.",
+    ],
+  },
+  {
     id: "astra-v42",
     kind: "release",
-    title: "Astra is second. The Index got rewritten.",
-    dek: "GPT-6 Astra shipped 3 September. AA Index v4.2, posted 4 September, puts Fable 5.1 at 57 and Astra at 55.",
-    pull: "Do not compare a 55 on v4.2 to last week’s 61. The ruler changed.",
+    title: "Astra tied for first. The Index got rewritten.",
+    dek: "GPT-6 Astra shipped 3 September. AA Index v4.2, as of 8 September, puts Fable 5.1 and Astra both at 53.",
+    pull: "Do not compare a 53 on v4.2 to last week’s 61. The ruler changed.",
     summary:
-      "Monday board: Fable 5.1 57, Astra 55, Opus 54, Spark max 53. Old 60s-scale rows are retired.",
+      "8 September board: Fable 5.1 and Astra 53, Opus 51, Fable 5 50. OpenLM’s AAII column can still read ~57 — Ridge cites AA for the board.",
     date: "2026-09-07",
     sourceName: "Artificial Analysis",
     sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
     models: ["gpt-6-astra", "claude-fable-5.1", "claude-opus-5", "muse-spark-1.3", "gpt-5.6-sol"],
     tags: ["release", "ranking"],
     body: [
-      "The weekly poll never ran, so this is the Monday cut by hand. Two things happened after Ridge’s last seed: OpenAI shipped GPT-6 Astra on 3 September, and Artificial Analysis rebased the Intelligence Index to v4.2 on 4 September.",
-      "Live AA board this morning, one public row per model at its best cited effort: Fable 5.1 57 (max with fallback), Astra 55 (max), Opus 5 54 (max), Fable 5 and Spark 1.3 max 53, Sol max and Grok 4.6 high 51, Kimi K3 50, Gemini 3.8 Flash high 47. Spark xhigh is 52 if you want the non-max cut.",
-      "v4.2 is not a restatement of last week’s 66 / 63 / 61 ladder. AA added AA-Briefcase (agentic knowledge work, private test set) and GDP.pdf (long-context document work), dropped saturated GPQA Diamond, and pushed private held-out weight to 40%. Fable is still first. The numbers are just smaller.",
-      "Astra is the first OpenAI flagship since Sol that belongs on the same page as Fable. It does not take first. On the old v4.1.1 table OpenAI itself printed, Astra was 61.2 against Fable 5.1 at 65.7. On v4.2 the gap is two points instead of four, with Astra clearly ahead of Sol (51).",
+      "The weekly poll never ran, so this started as the Monday cut by hand — numbers below refreshed against the 8 September AA scrape. Two things happened after Ridge’s last seed: OpenAI shipped GPT-6 Astra on 3 September, and Artificial Analysis rebased the Intelligence Index to v4.2 on 4 September.",
+      "Live AA board as of 8 September, one public row per model at its best cited effort: Fable 5.1 53 (max with fallback), Astra 53 (max), Opus 5 51 (max), Fable 5 50 (with fallback), Spark 1.3 max 48, Sol max 47, Spark xhigh 45, Grok 4.6 high and Kimi K3 max 44, Gemini 3.8 Flash high 41.",
+      "v4.2 is not a restatement of last week’s 66 / 63 / 61 ladder. AA added AA-Briefcase (agentic knowledge work, private test set) and GDP.pdf (long-context document work), dropped saturated GPQA Diamond, and pushed private held-out weight to 40%. Fable and Astra share first. The numbers are just smaller. OpenLM’s AAII column can still print ~57 for Fable — different scrape, different column. Ridge cites Artificial Analysis for the board.",
+      "Astra is the first OpenAI flagship since Sol that belongs on the same page as Fable. It does not take the seat alone. On the old v4.1.1 table OpenAI itself printed, Astra was 61.2 against Fable 5.1 at 65.7. On the live v4.2 board as of 8 September they sit tied at 53, with Astra clearly ahead of Sol (47).",
       "The invoice is Fable-shaped: $10 / $50 per million tokens, about 2.5× Sol’s current menu. Context is a million-plus tokens. Cyber-capable work stays behind Daybreak. AA’s coding-agent note from 3 September is the friendlier table — Astra matching Fable 5 on that index at lower cost per task.",
-      "Grok 4.7 did not show up on the live Index this morning. Neither did Gemini 3.5 Pro. The Monday story is Astra plus a new ruler, not a new Google or xAI flagship.",
+      "Grok 4.7 did not show up on the live Index in this scrape. Neither did Gemini 3.5 Pro. The story is Astra plus a new ruler, not a new Google or xAI flagship.",
     ],
   },
   {

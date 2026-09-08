@@ -27,6 +27,12 @@ export interface Model {
   promoPricing?: { inputPerM: number; outputPerM: number; until: string } | null;
   aliases: string[];
   summary: string;
+  /** 1–5 public-opinion stars. Omit until sourced — never invent. */
+  publicOpinionStars?: 1 | 2 | 3 | 4 | 5;
+  /** One short sourced line for the stars. */
+  publicOpinionNote?: string;
+  /** YYYY-MM-DD when the opinion scrape was taken. */
+  publicOpinionAsOf?: string;
 }
 
 export interface Benchmark {

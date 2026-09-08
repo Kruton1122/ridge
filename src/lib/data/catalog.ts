@@ -1,8 +1,8 @@
 import type { Benchmark, Model, Score } from "./types";
 export { NEWS, isFresh } from "./desk";
 
-export const SNAPSHOT_DATE = "2026-09-07";
-export const SNAPSHOT_LABEL = "7 September 2026";
+export const SNAPSHOT_DATE = "2026-09-08";
+export const SNAPSHOT_LABEL = "8 September 2026";
 export const SCHEMA_VERSION = "1.1.0";
 
 export const LABS: Record<Model["lab"], { name: string; short: string; color: string }> = {
@@ -18,6 +18,8 @@ export const LABS: Record<Model["lab"], { name: string; short: string; color: st
   other: { name: "Other", short: "Other", color: "#8EA0B0" },
 };
 
+// publicOpinionStars / Note / AsOf ride through m({...}) when set.
+// Leave them undefined for now — Ridge Bot / half-week routine fills them from Grok Build X scrapes. Do not invent.
 function m(
   partial: Omit<Model, "status"> & { status?: Model["status"] },
 ): Model {
@@ -36,7 +38,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 10, outputPerM: 50 },
     license: "proprietary",
     aliases: ["fable 5.1", "claude-fable-5.1", "claude fable 5.1", "fable-5-1"],
-    summary: "1 September refresh. Leads AA Intelligence Index v4.2 at 57 (max with fallback). Cache reads 75% cheaper than Fable 5.",
+    summary: "1 September refresh. Tied with Astra atop AA Intelligence Index at 53 (max with fallback, v4.2/v4.3 as of 8 Sept). Cache reads 75% cheaper than Fable 5.",
+    publicOpinionStars: 4,
+    publicOpinionNote: 'Practitioner daily driver / Opus-5 successor on coding and prose; credit burn and refusals block a clean 5. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "claude-opus-5",
@@ -49,7 +54,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 5, outputPerM: 25 },
     license: "proprietary",
     aliases: ["opus 5", "claude-opus-5", "claude opus 5"],
-    summary: "Coding closer. AA Index v4.2 54 max. Still the SWE-bench closer in the August Vals cut.",
+    summary: "Coding closer. AA Index 51 max (v4.2/v4.3 as of 8 Sept). Still the SWE-bench closer in the August Vals cut.",
+    publicOpinionStars: 3,
+    publicOpinionNote: 'Still a coding closer on paper; public affection has moved to Fable 5.1, and the writing-slop meme is sticky. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "claude-fable-5",
@@ -62,7 +70,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 10, outputPerM: 50 },
     license: "proprietary",
     aliases: ["fable 5", "claude-fable-5", "claude fable 5"],
-    summary: "June Mythos-class model. AA v4.2 53. Succeeded by 5.1 on 1 September.",
+    summary: "June Mythos-class model. AA Index 50 with fallback (as of 8 Sept). Succeeded by 5.1 on 1 September.",
   }),
   m({
     id: "muse-spark-1.3",
@@ -75,8 +83,11 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 1.25, outputPerM: 4.25 },
     license: "proprietary",
     aliases: ["muse spark 1.3", "muse-spark-1.3", "spark 1.3", "spark 1.3 xhigh"],
-    summary: "Public xhigh cut. AA v4.2 52. v4.1.1 was 61 — do not mix the rulers.",
+    summary: "Public xhigh cut. AA Index 45 (as of 8 Sept). v4.1.1 was 61 — do not mix the rulers.",
     status: "ga",
+    publicOpinionStars: 3,
+    publicOpinionNote: 'OpenCode workhorse at a fraction of Fable/Astra cost; this week’s expert story is the Terminal-Bench 4.0 / benchmaxx fight, not a love wave. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "muse-spark-1.3-max",
@@ -89,7 +100,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 1.25, outputPerM: 4.25 },
     license: "proprietary",
     aliases: ["spark 1.3 max", "muse-spark-1.3-max", "spark max"],
-    summary: "Partner-preview max row. AA v4.2 53. v4.1.1 was 62. Not the public API default.",
+    summary: "Partner-preview max row. AA Index 48 (as of 8 Sept). v4.1.1 was 62. Not the public API default.",
     status: "partner",
   }),
   m({
@@ -103,7 +114,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 10, outputPerM: 50 },
     license: "proprietary",
     aliases: ["gpt-6", "gpt 6 astra", "astra", "gpt-6-astra", "gpt6 astra"],
-    summary: "Shipped 3 September. AA Index v4.2 55 max — second on the live board. $10 / $50, same sticker as Fable.",
+    summary: "Shipped 3 September. AA Index 53 max — tied with Fable 5.1 on the live board (as of 8 Sept). $10 / $50, same sticker as Fable.",
+    publicOpinionStars: 4,
+    publicOpinionNote: 'Computer-use and 3D demos look like a step-change; quota burn and spiky failures are the other half of the conversation. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "gpt-5.6-sol",
@@ -116,7 +130,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 5, outputPerM: 30 },
     license: "proprietary",
     aliases: ["sol", "gpt-5.6", "gpt 5.6 sol", "gpt-5.6-sol"],
-    summary: "Previous OpenAI flagship. AA v4.2 51 max. Astra is the new 5-point step on this board.",
+    summary: "Previous OpenAI flagship. AA Index 47 max (as of 8 Sept). Astra is the new step on this board.",
+    publicOpinionStars: 3,
+    publicOpinionNote: 'Respectable leftover flagship; public talk is what Astra replaced, not a new verdict. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "grok-4.6",
@@ -129,7 +146,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 2, outputPerM: 6 },
     license: "proprietary",
     aliases: ["grok 4.6", "grok-4.6", "grok-4-6", "grok4.6"],
-    summary: "AA v4.2 51 high. Not Grok 4 (that older row is 46). $2 / $6.",
+    summary: "AA Index 44 high (as of 8 Sept). Not Grok 4 (that older row is 46). $2 / $6.",
+    publicOpinionStars: 3,
+    publicOpinionNote: 'Price/speed and AutomationBench-AA #2; capability still read as a tier behind Astra/Fable, and eyes are already on 4.7. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "kimi-k3",
@@ -142,7 +162,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 3, outputPerM: 15 },
     license: "open-weight",
     aliases: ["kimi k3", "k3", "kimi-k3"],
-    summary: "Highest open-weight on this v4.2 cut (50 max).",
+    summary: "Open-weight on this board at 44 max (as of 8 Sept). Frontend/practitioner favorite.",
+    publicOpinionStars: 4,
+    publicOpinionNote: 'Practitioner favorite for frontend and cheap open-weight agents; not this week’s viral model. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "glm-5.3",
@@ -168,9 +191,12 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 1.5, outputPerM: 7.5 },
     license: "proprietary",
     aliases: ["gemini 3.8", "3.8 flash", "gemini-3.8-flash", "gemini 3.8 flash"],
-    summary: "Fourth Flash in four months. AA v4.2 47 high. Intro $0.75 / $3.75 through 31 Dec, then $1.50 / $7.50.",
+    summary: "Fourth Flash in four months. AA Index 41 high (as of 8 Sept). Intro $0.75 / $3.75 through 31 Dec, then $1.50 / $7.50.",
     status: "promo",
     promoPricing: { inputPerM: 0.75, outputPerM: 3.75, until: "2026-12-31" },
+    publicOpinionStars: 3,
+    publicOpinionNote: 'Fast cheap demo machine and Copilot budget seat; expert week was the Terminal-Bench 4.0 cliff, not a love wave. (Grok Build X, 2026-09-08)',
+    publicOpinionAsOf: "2026-09-08",
   }),
   m({
     id: "qwen-3.8-max",
@@ -302,7 +328,7 @@ export const BENCHMARKS: Benchmark[] = [
     description: "OpenLM / Arena+ pairwise Elo.",
     sourceName: "Arena+",
     sourceUrl: "https://openlm.ai/chatbot-arena/",
-    asOf: "2026-08-16",
+    asOf: "2026-09-08",
   },
   {
     id: "swe-bench",
@@ -314,7 +340,7 @@ export const BENCHMARKS: Benchmark[] = [
     description: "Resolved GitHub issues under Mini-SWE-agent on Vals.",
     sourceName: "Vals AI",
     sourceUrl: "https://vals.ai/benchmarks/swebench",
-    asOf: "2026-08-14",
+    asOf: "2026-09-08",
   },
   {
     id: "terminal-bench",
@@ -343,39 +369,39 @@ function s(
 }
 
 export const SCORES: Score[] = [
-  s("claude-fable-5.1", "aa-intelligence", 57, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max with fallback"),
-  s("gpt-6-astra", "aa-intelligence", 55, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max"),
-  s("claude-opus-5", "aa-intelligence", 54, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max"),
-  s("claude-fable-5", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2"),
-  s("muse-spark-1.3", "aa-intelligence", 52, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 xhigh public; v4.1.1 was 61"),
-  s("muse-spark-1.3-max", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max partner preview; v4.1.1 was 62"),
-  s("gpt-5.6-sol", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max"),
-  s("grok-4.6", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 high — not Grok 4"),
-  s("kimi-k3", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 max"),
-  s("gemini-3.8-flash", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-07", "v4.2 high"),
+  s("claude-fable-5.1", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max with fallback"),
+  s("gpt-6-astra", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
+  s("claude-opus-5", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
+  s("claude-fable-5", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: with fallback"),
+  s("muse-spark-1.3", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: xhigh"),
+  s("muse-spark-1.3-max", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
+  s("gpt-5.6-sol", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
+  s("grok-4.6", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: high"),
+  s("kimi-k3", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
+  s("gemini-3.8-flash", "aa-intelligence", 41, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: high"),
 
-  s("claude-fable-5.1", "arena-elo", 1516, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-01"),
-  s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("qwen-3.8-max", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("gpt-5.6-terra", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("grok-4.5", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("gemini-3.1-pro", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("gemini-3.7-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-08-16"),
-  s("gemini-3.8-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-02", "early listing"),
+  s("claude-fable-5.1", "arena-elo", 1520, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("qwen-3.8-max", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("gpt-5.6-terra", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("grok-4.5", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("gemini-3.1-pro", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("gemini-3.7-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
+  s("gemini-3.8-flash", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08", "early listing"),
 
-  s("claude-opus-5", "swe-bench", 97.0, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("gpt-5.6-sol", "swe-bench", 96.2, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("grok-4.6", "swe-bench", 95.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("claude-fable-5", "swe-bench", 95.0, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("kimi-k3", "swe-bench", 93.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("gpt-5.6-luna", "swe-bench", 93.0, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("qwen-3.8-max", "swe-bench", 85.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
-  s("grok-4.5", "swe-bench", 86.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-08-14"),
+  s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("gpt-5.6-sol", "swe-bench", 96.2, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("grok-4.6", "swe-bench", 95.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("claude-fable-5", "swe-bench", 95, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("kimi-k3", "swe-bench", 93.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("gpt-5.6-luna", "swe-bench", 93, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("qwen-3.8-max", "swe-bench", 85.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("grok-4.5", "swe-bench", 86.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
 
   s("gpt-5.6-sol", "terminal-bench", 88.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("grok-4.6", "terminal-bench", 88.4, "Artificial Analysis", "https://felloai.com/best-ai-models/", "2026-08-13"),
