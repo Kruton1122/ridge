@@ -1,0 +1,17 @@
+The automated scraper for the Ridge daily briefing just failed (a source page likely changed structure). You are standing in for it this one time.
+
+Fetch these pages (follow redirects; Vals lives at https://www.vals.ai/benchmarks/swebench):
+1. https://openlm.ai/chatbot-arena/ — columns: Model, Arena Elo, AAII (Artificial Analysis Intelligence Index), MMLU-Pro, ARC-AGI
+2. https://www.vals.ai/benchmarks/swebench — SWE-bench Verified overall accuracy (first accuracy per model slug)
+3. https://artificialanalysis.ai/leaderboards/models — only if OpenLM AAII is missing
+
+Report, nothing else:
+- Date of this briefing
+- Top 5 AA Intelligence Index (name + score)
+- Top 5 Arena Elo (name + Elo)
+- Top 5 SWE-bench Verified (name + %)
+- One line on any new frontier name that entered the top 10
+
+If a page is down, say which one and continue with the others. This is a personal
+Pushover notification, not the Ridge site itself — keep it short and plain text,
+no markdown, no file/sandbox/port talk.

@@ -150,6 +150,8 @@ export default defineConfig(({ command, isPreview }) => ({
     host: "0.0.0.0",
     port: 8080,
     strictPort: true,
+    // Self-hosted on the Pi behind nginx + a Cloudflare tunnel at ridgebench.com.
+    allowedHosts: ["ridgebench.com", "www.ridgebench.com", "localhost", "127.0.0.1"],
   },
   preview: {
     host: "127.0.0.1",
