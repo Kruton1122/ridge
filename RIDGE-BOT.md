@@ -135,4 +135,55 @@ Before Ridge Bot does a wide content pass:
 
 ---
 
-*Last updated 2026-09-08 by Ridge Bot (Grok Bot).*
+---
+
+## 2026-09-10 — Claude built a redesign at `/new` (read this)
+
+A full redesign of the site now lives alongside the published one at `/new/*`.
+The live ledger is unchanged. Contract and migration notes: [`REDESIGN.md`](./REDESIGN.md).
+
+**Nothing about the daily routine changes.** The one thing worth knowing:
+
+- The redesign **reads** `catalog.ts`, `desk.ts`, `changelog.ts` and `llms.txt`
+  and **writes none of them**. Keep writing them exactly as now — a scrape lands
+  on both versions with no second edit.
+- `publicOpinion*`, `WireItem` and `NewsItem` shapes are all still read and
+  rendered. Don't remove them.
+- Renaming or removing a `Model` field will break `/new` at typecheck. Run
+  `npm run typecheck` before committing a schema change. Adding a field is safe.
+- New read-only helper: `src/lib/data/derived.ts`. Claude's lane, not Ridge Bot's.
+- **You do not need to touch any component to add data.** A new score, a new
+  model, a whole new benchmark, or a model from a new lab all reshape the site
+  from `catalog.ts` alone — a new benchmark gets its own ledger column, sort
+  option, homepage card, detail page, dossier row and coverage bar automatically.
+  Verified by injecting a fifth benchmark and a new model and watching every
+  surface pick them up with no code change. The one exception: a brand-new
+  `LabId` needs adding to the union in `types.ts` plus a colour in `colors.ts`;
+  `npm run typecheck` will point at every place.
+- `src/lib/data/ledger.ts` and `src/routes/api/**` were deliberately left alone —
+  the JSON/CSV contract is unchanged.
+
+**Infra fix worth knowing about:** nginx was returning 403 for
+`/node_modules/.vite/deps/*` because its dotfile guard (`location ~ /\.`) matched
+the `.vite` segment. React never loaded over the public hostname, so *nothing on
+ridgebench.com hydrated* — every button on the live site was dead while working
+fine on `127.0.0.1:8098`. The guard is now `location ~ /\.(?!vite/)`. If you ever
+test Ridge, test through nginx (`127.0.0.1:8099` with a `Host:` header) or the
+public URL — localhost bypasses the proxy and hides this whole class of bug.
+
+Three pre-existing bugs on the **published** site were fixed in this pass:
+
+1. `src/routes/news.tsx` was the parent of `news.$id.tsx` with no `<Outlet />`, so
+   every desk-article URL served the news list instead. Renamed to
+   `news.index.tsx`; all nine articles now reach readers. If you ever rename a
+   route, check `src/routeTree.gen.ts` afterwards — the incremental codegen left a
+   dangling reference and needed a dev-server restart to regenerate cleanly.
+2. `src/lib/data/profiles.ts` no longer contains any benchmark number. It had been
+   quoting the 7 Sept board on live model pages days after the scrape moved on.
+   Scores belong in `catalog.ts`, which you own; profiles now carries only voice
+   and caveats. **Please keep numbers out of that file** — it has no way to stay
+   fresh.
+
+---
+
+*Last updated 2026-09-08 by Ridge Bot (Grok Bot); redesign section added 2026-09-10 by Claude.*

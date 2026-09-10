@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/news")({ component: NewsPage });
+export const Route = createFileRoute("/news/")({ component: NewsPage });
 
 function NewsPage() {
   return (

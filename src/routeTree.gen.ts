@@ -10,24 +10,38 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as NewsRouteImport } from './routes/news'
+import { Route as NewRouteRouteImport } from './routes/new/route'
 import { Route as SourceRouteImport } from './routes/source'
 import { Route as ApiLedgerRouteImport } from './routes/api/ledger'
 import { Route as ApiLedgerDotcsvRouteImport } from './routes/api/ledger[.]csv'
 import { Route as ApiLedgerDotjsonRouteImport } from './routes/api/ledger[.]json'
 import { Route as ModelsSlugRouteImport } from './routes/models.$slug'
+import { Route as NewIndexRouteImport } from './routes/new/index'
+import { Route as NewApiRouteImport } from './routes/new/api'
+import { Route as NewChangelogRouteImport } from './routes/new/changelog'
+import { Route as NewCompareRouteImport } from './routes/new/compare'
+import { Route as NewMethodologyRouteImport } from './routes/new/methodology'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsIdRouteImport } from './routes/news.$id'
 import { Route as ApiV1IndexRouteImport } from './routes/api/v1/index'
 import { Route as ApiV1LeaderboardRouteImport } from './routes/api/v1/leaderboard'
+import { Route as NewBenchmarksIndexRouteImport } from './routes/new/benchmarks.index'
+import { Route as NewBenchmarksIdRouteImport } from './routes/new/benchmarks.$id'
+import { Route as NewLabsIndexRouteImport } from './routes/new/labs.index'
+import { Route as NewLabsIdRouteImport } from './routes/new/labs.$id'
+import { Route as NewModelsIndexRouteImport } from './routes/new/models.index'
+import { Route as NewModelsSlugRouteImport } from './routes/new/models.$slug'
+import { Route as NewNewsIndexRouteImport } from './routes/new/news.index'
+import { Route as NewNewsIdRouteImport } from './routes/new/news.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewsRoute = NewsRouteImport.update({
-  id: '/news',
-  path: '/news',
+const NewRouteRoute = NewRouteRouteImport.update({
+  id: '/new',
+  path: '/new',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SourceRoute = SourceRouteImport.update({
@@ -55,10 +69,40 @@ const ModelsSlugRoute = ModelsSlugRouteImport.update({
   path: '/models/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewIndexRoute = NewIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewApiRoute = NewApiRouteImport.update({
+  id: '/api',
+  path: '/api',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewChangelogRoute = NewChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewCompareRoute = NewCompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewMethodologyRoute = NewMethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIdRoute = NewsIdRouteImport.update({
-  id: '/$id',
-  path: '/$id',
-  getParentRoute: () => NewsRoute,
+  id: '/news/$id',
+  path: '/news/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const ApiV1IndexRoute = ApiV1IndexRouteImport.update({
   id: '/api/v1/',
@@ -70,91 +114,215 @@ const ApiV1LeaderboardRoute = ApiV1LeaderboardRouteImport.update({
   path: '/api/v1/leaderboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewBenchmarksIndexRoute = NewBenchmarksIndexRouteImport.update({
+  id: '/benchmarks/',
+  path: '/benchmarks/',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewBenchmarksIdRoute = NewBenchmarksIdRouteImport.update({
+  id: '/benchmarks/$id',
+  path: '/benchmarks/$id',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewLabsIndexRoute = NewLabsIndexRouteImport.update({
+  id: '/labs/',
+  path: '/labs/',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewLabsIdRoute = NewLabsIdRouteImport.update({
+  id: '/labs/$id',
+  path: '/labs/$id',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewModelsIndexRoute = NewModelsIndexRouteImport.update({
+  id: '/models/',
+  path: '/models/',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewModelsSlugRoute = NewModelsSlugRouteImport.update({
+  id: '/models/$slug',
+  path: '/models/$slug',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewNewsIndexRoute = NewNewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => NewRouteRoute,
+} as any)
+const NewNewsIdRoute = NewNewsIdRouteImport.update({
+  id: '/news/$id',
+  path: '/news/$id',
+  getParentRoute: () => NewRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/news': typeof NewsRouteWithChildren
+  '/new': typeof NewRouteRouteWithChildren
   '/source': typeof SourceRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
   '/models/$slug': typeof ModelsSlugRoute
+  '/new/api': typeof NewApiRoute
+  '/new/changelog': typeof NewChangelogRoute
+  '/new/compare': typeof NewCompareRoute
+  '/new/methodology': typeof NewMethodologyRoute
   '/news/$id': typeof NewsIdRoute
+  '/new/': typeof NewIndexRoute
+  '/news/': typeof NewsIndexRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
+  '/new/benchmarks/$id': typeof NewBenchmarksIdRoute
+  '/new/labs/$id': typeof NewLabsIdRoute
+  '/new/models/$slug': typeof NewModelsSlugRoute
+  '/new/news/$id': typeof NewNewsIdRoute
   '/api/v1/': typeof ApiV1IndexRoute
+  '/new/benchmarks/': typeof NewBenchmarksIndexRoute
+  '/new/labs/': typeof NewLabsIndexRoute
+  '/new/models/': typeof NewModelsIndexRoute
+  '/new/news/': typeof NewNewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/news': typeof NewsRouteWithChildren
   '/source': typeof SourceRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
   '/models/$slug': typeof ModelsSlugRoute
+  '/new/api': typeof NewApiRoute
+  '/new/changelog': typeof NewChangelogRoute
+  '/new/compare': typeof NewCompareRoute
+  '/new/methodology': typeof NewMethodologyRoute
   '/news/$id': typeof NewsIdRoute
+  '/new': typeof NewIndexRoute
+  '/news': typeof NewsIndexRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
+  '/new/benchmarks/$id': typeof NewBenchmarksIdRoute
+  '/new/labs/$id': typeof NewLabsIdRoute
+  '/new/models/$slug': typeof NewModelsSlugRoute
+  '/new/news/$id': typeof NewNewsIdRoute
   '/api/v1': typeof ApiV1IndexRoute
+  '/new/benchmarks': typeof NewBenchmarksIndexRoute
+  '/new/labs': typeof NewLabsIndexRoute
+  '/new/models': typeof NewModelsIndexRoute
+  '/new/news': typeof NewNewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/news': typeof NewsRouteWithChildren
+  '/new': typeof NewRouteRouteWithChildren
   '/source': typeof SourceRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
   '/models/$slug': typeof ModelsSlugRoute
+  '/new/api': typeof NewApiRoute
+  '/new/changelog': typeof NewChangelogRoute
+  '/new/compare': typeof NewCompareRoute
+  '/new/methodology': typeof NewMethodologyRoute
   '/news/$id': typeof NewsIdRoute
+  '/new/': typeof NewIndexRoute
+  '/news/': typeof NewsIndexRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
+  '/new/benchmarks/$id': typeof NewBenchmarksIdRoute
+  '/new/labs/$id': typeof NewLabsIdRoute
+  '/new/models/$slug': typeof NewModelsSlugRoute
+  '/new/news/$id': typeof NewNewsIdRoute
   '/api/v1/': typeof ApiV1IndexRoute
+  '/new/benchmarks/': typeof NewBenchmarksIndexRoute
+  '/new/labs/': typeof NewLabsIndexRoute
+  '/new/models/': typeof NewModelsIndexRoute
+  '/new/news/': typeof NewNewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/news'
+    | '/new'
     | '/source'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
     | '/models/$slug'
+    | '/new/api'
+    | '/new/changelog'
+    | '/new/compare'
+    | '/new/methodology'
     | '/news/$id'
+    | '/new/'
+    | '/news/'
     | '/api/v1/leaderboard'
+    | '/new/benchmarks/$id'
+    | '/new/labs/$id'
+    | '/new/models/$slug'
+    | '/new/news/$id'
     | '/api/v1/'
+    | '/new/benchmarks/'
+    | '/new/labs/'
+    | '/new/models/'
+    | '/new/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/news'
     | '/source'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
     | '/models/$slug'
+    | '/new/api'
+    | '/new/changelog'
+    | '/new/compare'
+    | '/new/methodology'
     | '/news/$id'
+    | '/new'
+    | '/news'
     | '/api/v1/leaderboard'
+    | '/new/benchmarks/$id'
+    | '/new/labs/$id'
+    | '/new/models/$slug'
+    | '/new/news/$id'
     | '/api/v1'
+    | '/new/benchmarks'
+    | '/new/labs'
+    | '/new/models'
+    | '/new/news'
   id:
     | '__root__'
     | '/'
-    | '/news'
+    | '/new'
     | '/source'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
     | '/models/$slug'
+    | '/new/api'
+    | '/new/changelog'
+    | '/new/compare'
+    | '/new/methodology'
     | '/news/$id'
+    | '/new/'
+    | '/news/'
     | '/api/v1/leaderboard'
+    | '/new/benchmarks/$id'
+    | '/new/labs/$id'
+    | '/new/models/$slug'
+    | '/new/news/$id'
     | '/api/v1/'
+    | '/new/benchmarks/'
+    | '/new/labs/'
+    | '/new/models/'
+    | '/new/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  NewsRoute: typeof NewsRouteWithChildren
+  NewRouteRoute: typeof NewRouteRouteWithChildren
   SourceRoute: typeof SourceRoute
   ApiLedgerRoute: typeof ApiLedgerRoute
   ApiLedgerDotcsvRoute: typeof ApiLedgerDotcsvRoute
   ApiLedgerDotjsonRoute: typeof ApiLedgerDotjsonRoute
   ModelsSlugRoute: typeof ModelsSlugRoute
+  NewsIdRoute: typeof NewsIdRoute
+  NewsIndexRoute: typeof NewsIndexRoute
   ApiV1LeaderboardRoute: typeof ApiV1LeaderboardRoute
   ApiV1IndexRoute: typeof ApiV1IndexRoute
 }
@@ -168,11 +336,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/news': {
-      id: '/news'
-      path: '/news'
-      fullPath: '/news'
-      preLoaderRoute: typeof NewsRouteImport
+    '/new': {
+      id: '/new'
+      path: '/new'
+      fullPath: '/new'
+      preLoaderRoute: typeof NewRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/source': {
@@ -210,12 +378,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ModelsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new/': {
+      id: '/new/'
+      path: '/'
+      fullPath: '/new/'
+      preLoaderRoute: typeof NewIndexRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/api': {
+      id: '/new/api'
+      path: '/api'
+      fullPath: '/new/api'
+      preLoaderRoute: typeof NewApiRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/changelog': {
+      id: '/new/changelog'
+      path: '/changelog'
+      fullPath: '/new/changelog'
+      preLoaderRoute: typeof NewChangelogRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/compare': {
+      id: '/new/compare'
+      path: '/compare'
+      fullPath: '/new/compare'
+      preLoaderRoute: typeof NewCompareRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/methodology': {
+      id: '/new/methodology'
+      path: '/methodology'
+      fullPath: '/new/methodology'
+      preLoaderRoute: typeof NewMethodologyRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/$id': {
       id: '/news/$id'
-      path: '/$id'
+      path: '/news/$id'
       fullPath: '/news/$id'
       preLoaderRoute: typeof NewsIdRouteImport
-      parentRoute: typeof NewsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/api/v1/': {
       id: '/api/v1/'
@@ -231,27 +441,111 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiV1LeaderboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/new/benchmarks/': {
+      id: '/new/benchmarks/'
+      path: '/benchmarks'
+      fullPath: '/new/benchmarks/'
+      preLoaderRoute: typeof NewBenchmarksIndexRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/benchmarks/$id': {
+      id: '/new/benchmarks/$id'
+      path: '/benchmarks/$id'
+      fullPath: '/new/benchmarks/$id'
+      preLoaderRoute: typeof NewBenchmarksIdRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/labs/': {
+      id: '/new/labs/'
+      path: '/labs'
+      fullPath: '/new/labs/'
+      preLoaderRoute: typeof NewLabsIndexRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/labs/$id': {
+      id: '/new/labs/$id'
+      path: '/labs/$id'
+      fullPath: '/new/labs/$id'
+      preLoaderRoute: typeof NewLabsIdRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/models/': {
+      id: '/new/models/'
+      path: '/models'
+      fullPath: '/new/models/'
+      preLoaderRoute: typeof NewModelsIndexRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/models/$slug': {
+      id: '/new/models/$slug'
+      path: '/models/$slug'
+      fullPath: '/new/models/$slug'
+      preLoaderRoute: typeof NewModelsSlugRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/news/': {
+      id: '/new/news/'
+      path: '/news'
+      fullPath: '/new/news/'
+      preLoaderRoute: typeof NewNewsIndexRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
+    '/new/news/$id': {
+      id: '/new/news/$id'
+      path: '/news/$id'
+      fullPath: '/new/news/$id'
+      preLoaderRoute: typeof NewNewsIdRouteImport
+      parentRoute: typeof NewRouteRoute
+    }
   }
 }
 
-interface NewsRouteChildren {
-  NewsIdRoute: typeof NewsIdRoute
+interface NewRouteRouteChildren {
+  NewApiRoute: typeof NewApiRoute
+  NewChangelogRoute: typeof NewChangelogRoute
+  NewCompareRoute: typeof NewCompareRoute
+  NewMethodologyRoute: typeof NewMethodologyRoute
+  NewIndexRoute: typeof NewIndexRoute
+  NewBenchmarksIdRoute: typeof NewBenchmarksIdRoute
+  NewLabsIdRoute: typeof NewLabsIdRoute
+  NewModelsSlugRoute: typeof NewModelsSlugRoute
+  NewNewsIdRoute: typeof NewNewsIdRoute
+  NewBenchmarksIndexRoute: typeof NewBenchmarksIndexRoute
+  NewLabsIndexRoute: typeof NewLabsIndexRoute
+  NewModelsIndexRoute: typeof NewModelsIndexRoute
+  NewNewsIndexRoute: typeof NewNewsIndexRoute
 }
 
-const NewsRouteChildren: NewsRouteChildren = {
-  NewsIdRoute: NewsIdRoute,
+const NewRouteRouteChildren: NewRouteRouteChildren = {
+  NewApiRoute: NewApiRoute,
+  NewChangelogRoute: NewChangelogRoute,
+  NewCompareRoute: NewCompareRoute,
+  NewMethodologyRoute: NewMethodologyRoute,
+  NewIndexRoute: NewIndexRoute,
+  NewBenchmarksIdRoute: NewBenchmarksIdRoute,
+  NewLabsIdRoute: NewLabsIdRoute,
+  NewModelsSlugRoute: NewModelsSlugRoute,
+  NewNewsIdRoute: NewNewsIdRoute,
+  NewBenchmarksIndexRoute: NewBenchmarksIndexRoute,
+  NewLabsIndexRoute: NewLabsIndexRoute,
+  NewModelsIndexRoute: NewModelsIndexRoute,
+  NewNewsIndexRoute: NewNewsIndexRoute,
 }
 
-const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
+const NewRouteRouteWithChildren = NewRouteRoute._addFileChildren(
+  NewRouteRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  NewsRoute: NewsRouteWithChildren,
+  NewRouteRoute: NewRouteRouteWithChildren,
   SourceRoute: SourceRoute,
   ApiLedgerRoute: ApiLedgerRoute,
   ApiLedgerDotcsvRoute: ApiLedgerDotcsvRoute,
   ApiLedgerDotjsonRoute: ApiLedgerDotjsonRoute,
   ModelsSlugRoute: ModelsSlugRoute,
+  NewsIdRoute: NewsIdRoute,
+  NewsIndexRoute: NewsIndexRoute,
   ApiV1LeaderboardRoute: ApiV1LeaderboardRoute,
   ApiV1IndexRoute: ApiV1IndexRoute,
 }

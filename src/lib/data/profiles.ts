@@ -1,5 +1,18 @@
 import type { LabId, Model } from "./types";
 
+/**
+ * Editorial voice for model pages.
+ *
+ * **No benchmark numbers live in this file.** They used to, and they went stale
+ * the moment the daily pull moved a score — the published pages spent days
+ * quoting a 7 September board against a 10 September catalog. Scores belong to
+ * `catalog.ts`, which the scrape owns; this file carries only the parts that do
+ * not drift: temperament, positioning, and the caveats a reader needs.
+ *
+ * Prices and context windows are fine here — they change on a lab announcement,
+ * not on a rerun — but even those are better read live from the catalog where a
+ * page can manage it.
+ */
 export interface ModelProfile {
   epithet: string;
   voice: string;
@@ -11,67 +24,107 @@ const PROFILES: Record<string, ModelProfile> = {
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
-      "The 10 September cut is a cheaper MoE with vision and a Pro retirement clock — not a scored AA seat yet. Cite the API card; leave the board blank until AA / Vals / Arena move.",
-    strengths: ["Peak list $0.30 / $1.20 with off-peak half", "MIT weights + native multimodal", "1M context, deepseek-flash API"],
-    watch: ["No independent AA / Arena / Vals on Ridge yet", "Lab agent benches stay off the ledger", "Pro alias routes to Flash after 14 Sept"],
+      "A cheaper MoE with vision and a Pro retirement clock attached — and, so far, no seat on any independent board. Cite the API card and leave the benchmark cells blank until Artificial Analysis, Vals or Arena publish one.",
+    strengths: [
+      "Peak list $0.30 / $1.20 per 1M, off-peak at half",
+      "MIT weights and native multimodal input",
+      "Million-token context, served as deepseek-flash",
+    ],
+    watch: [
+      "No independent AA / Arena / Vals row on Ridge yet",
+      "The lab's own agent tables stay off this ledger",
+      "The v4-pro alias routes here from 14 September",
+    ],
   },
   "deepseek-v4-pro": {
     epithet: "The Pro on notice",
     voice:
-      "Still the Vals SWE-bench 96.4 row in this ledger. After 14 September the API name keeps working — the model behind it becomes Flash until V4.1-Pro ships.",
-    strengths: ["Vals SWE-bench 96.4", "Existing open-weight Pro checkpoint"],
-    watch: ["Routing to V4.1-Flash from 2026-09-14 04:00 UTC", "Do not overwrite this id with Flash"],
+      "The open-weight coding row in this ledger. After 14 September the API name keeps working — the model behind it becomes Flash until V4.1-Pro ships, which is exactly the kind of substitution a version-aware catalog exists to survive.",
+    strengths: ["A published Vals SWE-bench row", "Existing open-weight Pro checkpoint"],
+    watch: [
+      "Routes to V4.1-Flash from 2026-09-14 04:00 UTC",
+      "Do not overwrite this id with Flash",
+    ],
   },
   "gpt-6-astra": {
     epithet: "The September flagship",
     voice:
-      "Astra is OpenAI’s Fable-priced answer, not Sol with a new coat. $10 / $50, a million-token window, second on AA Index v4.2 at 55. First place is still terracotta.",
-    strengths: ["AA v4.2 55 max", "Coding-agent cost vs Fable 5", "Clear step over Sol at 51"],
-    watch: ["Does not lead the Intelligence Index", "Cyber work is Daybreak-gated", "2.5× Sol’s sticker"],
+      "OpenAI's Fable-priced answer rather than Sol with a new coat — the first flagship since Sol that belongs on the same line as Anthropic's top cut, and priced level with it instead of under it.",
+    strengths: [
+      "Priced level with Fable, not beneath it",
+      "A clear step over Sol on the live board",
+      "Million-token-plus context",
+    ],
+    watch: [
+      "Cyber-capable work stays Daybreak-gated",
+      "About 2.5× Sol's sticker",
+      "Effort variant changes the number — cite which one",
+    ],
   },
   "claude-fable-5.1": {
     epithet: "The September cut",
     voice:
-      "Fable 5.1 is a refresh, not a new pretrain. Cheaper cache reads, higher Arena Elo, same terracotta temperament. It took the composite the week it shipped.",
-    strengths: ["AA Index v4.2 57 max with fallback", "Arena Elo still first in the last listing", "Cache reads 75% under Fable 5"],
-    watch: ["Output tokens are still dear", "Days old on some harnesses"],
+      "A refresh, not a new pretrain: cheaper cache reads, the same terracotta temperament, and the composite taken the week it shipped. Artificial Analysis measures it with the default server-side fallback engaged, so a citation of the headline number should carry the fallback too.",
+    strengths: [
+      "Cache reads roughly 75% under Fable 5",
+      "Million-token context, 128k max output",
+    ],
+    watch: [
+      "Output tokens are still dear",
+      "The headline row runs with a safety fallback",
+      "Independent write-ups flagged more confident wrong answers",
+    ],
   },
   "claude-opus-5": {
     epithet: "The careful closer",
-    voice: "Opus is the Claude you hire when the diff has to land. First on SWE-bench Verified in this ledger.",
-    strengths: ["SWE-bench 97.0%", "AA v4.2 54 max"],
-    watch: ["Loses the overall board to Fable 5.1"],
+    voice:
+      "The Claude you hire when the diff has to land. It has held the SWE-bench seat in this ledger since July even as the composite moved on around it, which is a reminder that the composite is not the only question.",
+    strengths: ["The coding row in this catalog", "Half Fable's sticker"],
+    watch: ["No longer the leading Anthropic row on the composite"],
   },
   "muse-spark-1.3": {
     epithet: "Meta at the frontier",
     voice:
-      "Public xhigh is 52 on v4.2. Last week’s 61 was v4.1.1. Max is a different row and still partner-preview.",
-    strengths: ["AA v4.2 52 xhigh", "List price $1.25 / $4.25"],
-    watch: ["Do not treat max 53 as the public API default"],
+      "The public xhigh cut, and the one a normal API key actually reaches. The figure people quote in headlines is usually the partner max row — a different tier, a different number, and not a seat you can buy.",
+    strengths: [
+      "List price $1.25 / $4.25 per 1M",
+      "Million-token context with image and video in",
+    ],
+    watch: ["Do not read the partner max row as the public default"],
   },
   "muse-spark-1.3-max": {
     epithet: "The preview peak",
-    voice: "Partner max is 53 on v4.2 (62 on the old ruler). Cite the status if you cite the number.",
-    strengths: ["AA v4.2 53 max"],
-    watch: ["Partner preview"],
+    voice:
+      "Partner max. Higher than the public xhigh row on every board that has measured both, and not callable from a standard key. Cite the access status if you cite the number.",
+    strengths: ["The higher of Meta's two measured rows"],
+    watch: ["Partner preview — not generally available"],
   },
   "gpt-5.6-sol": {
     epithet: "The reasoning seat",
-    voice: "Sol keeps taking the hard benches. It does not always win the composite. It does win ARC and the coding index.",
-    strengths: ["AA v4.2 51 max", "SWE-bench 96.2%", "Terminal-Bench leader here"],
-    watch: ["$30 / 1M output"],
+    voice:
+      "Sol keeps taking the hard benches, does not always win the composite, and still invoices like a flagship. Astra is the newer OpenAI step; Sol is the one already sitting in production loops.",
+    strengths: ["Published SWE-bench and Terminal-Bench rows", "Established in production"],
+    watch: ["$30 per 1M output", "Superseded at the top of OpenAI's range by Astra"],
   },
   "grok-4.6": {
     epithet: "The value flagship",
-    voice: "A post-training refresh of 4.5. Ties Sol on the Intelligence Index at $2 / $6. Not Grok 4 (that older row is 46).",
-    strengths: ["AA v4.2 51 high", "$2 / $6", "500K context"],
-    watch: ["4.7 already teased"],
+    voice:
+      "A post-training refresh of 4.5, sold on price-to-score rather than a pretrain win. Not Grok 4 — that older row sits well below this one, and folding the two together is how a board publishes a wrong number with a straight face.",
+    strengths: ["$2 / $6 per 1M", "500K context", "Generally available, no preview asterisk"],
+    watch: ["4.7 already teased", "Never collapse this row onto Grok 4"],
   },
   "gemini-3.8-flash": {
     epithet: "The September Flash",
-    voice: "Fourth Flash in four months. 47 at high on v4.2. Promo price through 31 Dec.",
-    strengths: ["AA v4.2 47 high", "Promo $0.75 / $3.75"],
-    watch: ["Cost per task rose vs 3.7 because it talks more"],
+    voice:
+      "The fourth Flash in four months, and the reason the missing Pro reads louder rather than quieter. Google can mint a workhorse every few weeks; it has not minted a flagship.",
+    strengths: [
+      "Promo $0.75 / $3.75 per 1M through 31 December",
+      "Million-token context; text, image, video and speech in",
+    ],
+    watch: [
+      "Cost per task rose against 3.7 because it emits more tokens",
+      "Promo reverts to $1.50 / $7.50",
+    ],
   },
 };
 
