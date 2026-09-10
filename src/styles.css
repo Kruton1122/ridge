@@ -22,6 +22,11 @@
   html {
     background: var(--color-bg);
     color: var(--color-fg);
+    /* Ridge is dark-only. Without this, iOS Safari (and some Chromium
+       builds) guess a light form-control theme, rendering input/caret
+       text in a color that's invisible against this background — the
+       command palette's search box looks blank while typing. */
+    color-scheme: dark;
   }
   body {
     margin: 0;

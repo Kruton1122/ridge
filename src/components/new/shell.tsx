@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { RidgeMark } from "@/components/ridge-mark";
 import { CommandPalette } from "@/components/new/command-palette";
-import { useCommandPalette } from "@/components/new/use-command-palette";
+import { useCommandPalette, useShortcutLabel } from "@/components/new/use-command-palette";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { nextPullLabel } from "@/lib/data/ledger";
 import { cn } from "@/lib/utils";
@@ -46,6 +46,7 @@ function SnapshotChip({ className }: { className?: string }) {
 export function SiteShell({ children }: { children: ReactNode }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const palette = useCommandPalette();
+  const shortcutLabel = useShortcutLabel();
 
   return (
     <div className="min-h-dvh bg-n-base text-n-text antialiased">
@@ -89,7 +90,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
               className="n-focus inline-flex h-8 items-center gap-2 rounded-md border border-n-line px-2 text-[12px] text-n-text-3 transition-colors duration-150 hover:border-n-line-2 hover:text-n-text-2"
             >
               <Search className="size-3.5" aria-hidden="true" />
-              <kbd className="hidden font-sans text-[11px] sm:inline">⌘K</kbd>
+              <kbd className="hidden font-sans text-[11px] sm:inline">{shortcutLabel}</kbd>
             </button>
           </div>
         </div>
