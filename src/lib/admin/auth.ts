@@ -6,13 +6,18 @@
  *
  * Features: email/password (bootstrap) + WebAuthn passkeys via `@better-auth/passkey`.
  * Allowlist: RIDGE_ADMIN_EMAIL (comma-separated). No public signup.
+ *
+ * Crypto: Better Auth hashes passwords with scrypt (node:crypto) — do not roll your own.
+ * Cookies: HttpOnly + Secure (https) + SameSite=Strict via defaultCookieAttributes.
+ * CSRF/origin: Better Auth originCheck + formCsrf middleware on state-changing routes.
  */
 import { betterAuth } from "better-auth";
 import { passkey } from "@better-auth/passkey";
 import { tanstackStartCookies } from "better-auth/tanstack-start";
 import Database from "better-sqlite3";
 import { loadAdminEnv } from "./load-env";
-import { ADMIN_AUTH_DB_PATH, ensureAdminDataDir } from "./paths";
+import { ADMIN_AUTH_DB_PATH, ensureAdminDataDir, hardenDbFilePerms } from "./paths";
+import { isCommonPassword } from "./security";
 
 loadAdminEnv();
 
@@ -75,6 +80,7 @@ function openAuthDb(): Database.Database {
   ensureAdminDataDir();
   const db = new Database(ADMIN_AUTH_DB_PATH);
   db.pragma("journal_mode = WAL");
+  hardenDbFilePerms(ADMIN_AUTH_DB_PATH);
   globalRef.__ridgeAdminAuthDb__ = db;
   return db;
 }
@@ -82,6 +88,7 @@ function openAuthDb(): Database.Database {
 function buildAuth() {
   const baseURL = adminBaseURL();
   const origin = baseURL.replace(/\/+$/, "");
+  const secure = origin.startsWith("https://");
   const localOrigins = [
     "http://127.0.0.1:8098",
     "http://localhost:8098",
@@ -101,6 +108,14 @@ function buildAuth() {
       disableSignUp: true,
       minPasswordLength: 12,
     },
+    session: {
+      expiresIn: 60 * 60 * 24 * 7, // 7 days
+      updateAge: 60 * 60 * 24, // refresh daily when active
+      cookieCache: {
+        enabled: true,
+        maxAge: 5 * 60,
+      },
+    },
     databaseHooks: {
       user: {
         create: {
@@ -115,7 +130,13 @@ function buildAuth() {
     },
     advanced: {
       cookiePrefix: "ridge-admin",
-      useSecureCookies: origin.startsWith("https://"),
+      useSecureCookies: secure,
+      defaultCookieAttributes: {
+        httpOnly: true,
+        secure,
+        sameSite: "strict",
+        path: "/",
+      },
     },
     plugins: [
       passkey({
@@ -142,6 +163,7 @@ export async function ensureAdminAuthMigrated(): Promise<void> {
       const auth = getAdminAuth();
       const ctx = await auth.$context;
       await ctx.runMigrations();
+      hardenDbFilePerms(ADMIN_AUTH_DB_PATH);
     })();
   }
   await globalRef.__ridgeAdminAuthMigrated__;
@@ -169,6 +191,7 @@ export async function getAdminSession(headers: Headers) {
 /**
  * Create the first admin user when the auth DB is empty.
  * Password bootstrap only — register a passkey after first login.
+ * Disabled once any user exists.
  */
 export async function bootstrapAdminUser(input: {
   email: string;
@@ -177,21 +200,26 @@ export async function bootstrapAdminUser(input: {
 }): Promise<{ ok: true } | { ok: false; error: string }> {
   await ensureAdminAuthMigrated();
   const email = input.email.trim().toLowerCase();
+  // Uniform messages — do not reveal allowlist membership vs empty DB vs exists.
+  const genericDeny = "Bootstrap unavailable";
   if (!isAdminEmailAllowed(email)) {
-    return { ok: false, error: "Email is not on RIDGE_ADMIN_EMAIL allowlist" };
+    return { ok: false, error: genericDeny };
   }
   if ((await adminUserCount()) > 0) {
-    return { ok: false, error: "Admin user already exists" };
+    return { ok: false, error: genericDeny };
   }
   if (!input.password || input.password.length < 12) {
     return { ok: false, error: "Password must be at least 12 characters" };
+  }
+  if (isCommonPassword(input.password)) {
+    return { ok: false, error: "Choose a stronger password" };
   }
 
   const auth = getAdminAuth();
   const ctx = await auth.$context;
   const existing = await ctx.internalAdapter.findUserByEmail(email);
   if (existing) {
-    return { ok: false, error: "User already exists" };
+    return { ok: false, error: genericDeny };
   }
   const hashed = await ctx.password.hash(input.password);
   const user = await ctx.internalAdapter.createUser({

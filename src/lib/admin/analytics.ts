@@ -4,7 +4,11 @@
  */
 import Database from "better-sqlite3";
 import { loadAdminEnv } from "./load-env";
-import { ADMIN_ANALYTICS_DB_PATH, ensureAdminDataDir } from "./paths";
+import {
+  ADMIN_ANALYTICS_DB_PATH,
+  ensureAdminDataDir,
+  hardenDbFilePerms,
+} from "./paths";
 
 loadAdminEnv();
 
@@ -34,6 +38,8 @@ export type StatsPayload = {
 
 type RangeStats = {
   pageviews: number;
+  /** Approximate uniques: distinct (UA|country|lang) fingerprints — not true UVs. */
+  uniqueApprox: number;
   topPaths: { path: string; count: number }[];
   topReferrers: { host: string; count: number }[];
   topCountries: { country: string; count: number }[];
@@ -66,6 +72,7 @@ function openDb(): Database.Database {
     CREATE INDEX IF NOT EXISTS hits_referrer_host_idx ON hits(referrer_host);
     CREATE INDEX IF NOT EXISTS hits_country_idx ON hits(country);
   `);
+  hardenDbFilePerms(ADMIN_ANALYTICS_DB_PATH);
   globalRef.__ridgeAdminAnalyticsDb__ = db;
   return db;
 }
@@ -137,10 +144,11 @@ function topN(
   since: number,
   limit: number,
 ): { key: string; count: number }[] {
-  const nullLabel = column === "referrer_host" ? "(direct)" : column === "country" ? "(unknown)" : "(none)";
+  const nullLabel =
+    column === "referrer_host" ? "(direct)" : column === "country" ? "(unknown)" : "(none)";
   const rows = db
     .prepare(
-      `SELECT COALESCE(NULLIF(${column}, ), ?) AS key, COUNT(*) AS count
+      `SELECT COALESCE(NULLIF(${column}, ''), ?) AS key, COUNT(*) AS count
        FROM hits
        WHERE ts >= ?
        GROUP BY key
@@ -151,10 +159,14 @@ function topN(
   return rows;
 }
 
-function hourlyBuckets(db: Database.Database, since: number, hours: number): { hour: string; count: number }[] {
+function hourlyBuckets(
+  db: Database.Database,
+  since: number,
+  hours: number,
+): { hour: string; count: number }[] {
   const rows = db
     .prepare(
-      `SELECT strftime(%Y-%m-%dT%H:00:00Z, ts / 1000, unixepoch) AS hour, COUNT(*) AS count
+      `SELECT strftime('%Y-%m-%dT%H:00:00Z', ts / 1000, 'unixepoch') AS hour, COUNT(*) AS count
        FROM hits
        WHERE ts >= ?
        GROUP BY hour
@@ -175,15 +187,37 @@ function hourlyBuckets(db: Database.Database, since: number, hours: number): { h
   return out;
 }
 
+function uniqueApprox(db: Database.Database, sinceMs: number): number {
+  const row = db
+    .prepare(
+      `SELECT COUNT(DISTINCT (
+         COALESCE(user_agent, '') || '|' ||
+         COALESCE(country, '') || '|' ||
+         COALESCE(language, '')
+       )) AS c
+       FROM hits
+       WHERE ts >= ?`,
+    )
+    .get(sinceMs) as { c: number };
+  return row.c;
+}
+
 function rangeStats(db: Database.Database, sinceMs: number, hours: number): RangeStats {
   const pageviews = (
     db.prepare(`SELECT COUNT(*) AS c FROM hits WHERE ts >= ?`).get(sinceMs) as { c: number }
   ).c;
   return {
     pageviews,
+    uniqueApprox: uniqueApprox(db, sinceMs),
     topPaths: topN(db, "path", sinceMs, 20).map((r) => ({ path: r.key, count: r.count })),
-    topReferrers: topN(db, "referrer_host", sinceMs, 20).map((r) => ({ host: r.key, count: r.count })),
-    topCountries: topN(db, "country", sinceMs, 20).map((r) => ({ country: r.key, count: r.count })),
+    topReferrers: topN(db, "referrer_host", sinceMs, 20).map((r) => ({
+      host: r.key,
+      count: r.count,
+    })),
+    topCountries: topN(db, "country", sinceMs, 20).map((r) => ({
+      country: r.key,
+      count: r.count,
+    })),
     hourly: hourlyBuckets(db, sinceMs, hours),
   };
 }

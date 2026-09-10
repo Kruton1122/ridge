@@ -12,10 +12,10 @@ scripts.
 | Route | Access | Purpose |
 |---|---|---|
 | `POST /api/t` | Public | Tiny pageview beacon (no cookies) |
-| `/admin/login` | Public | Password bootstrap + passkey sign-in |
-| `/admin` | Admin session | Traffic charts / tables |
+| `/admin/login` | Public | Passkey-first sign-in (+ password fallback / bootstrap) |
+| `/admin` | Admin session | Traffic charts / tables (“Ridge Ops”) |
 | `/api/admin/stats` | Admin session | JSON aggregates |
-| `/api/admin/bootstrap` | Public (empty DB only) | Create first allowlisted admin |
+| `/api/admin/bootstrap` | Public (empty DB only) | Create first allowlisted admin — disabled after |
 | `/api/admin/auth/*` | Better Auth | Dedicated admin auth (not Grok broker) |
 
 Public contracts stay public: `/api/ledger.json`, `/api/v1`, `/llms.txt`.
@@ -26,9 +26,26 @@ Dedicated **Better Auth** instance (not the scaffold Grok-broker auth in
 `src/lib/auth/`):
 
 - **Passkeys / WebAuthn** via `@better-auth/passkey` (preferred after bootstrap)
-- **Email + password** for first-user bootstrap and fallback
+- **Email + password** for first-user bootstrap and fallback (scrypt via Better Auth)
 - Allowlist: `RIDGE_ADMIN_EMAIL` (comma-separated). No public signup.
 - Cookie prefix: `ridge-admin` · base path: `/api/admin/auth`
+- Cookies: **HttpOnly**, **Secure** (https), **SameSite=Strict**
+- CSRF / origin checks: Better Auth `originCheck` + `formCsrf` on state-changing routes
+
+## Hardening (summary)
+
+| Control | Behavior |
+|---|---|
+| Rate limit + lockout | `/api/admin/auth/*` sensitive POSTs and `/api/admin/bootstrap` — per IP (+ email when present). ~5 failures / 15 min → 429 + lockout; soft volume cap; progressive delay on repeated fails. Counters in `admin-auth.sqlite` (`auth_rate_limit`). Optional `RIDGE_ADMIN_RATE_WINDOW_MS` (≥5s) for tests. |
+| Uniform failures | Login / bootstrap errors do not reveal whether an email exists. |
+| Password policy | ≥12 chars; small common-password blocklist on bootstrap. |
+| Bootstrap | Disabled once any admin user exists. |
+| DB file perms | `data/` → `0700`; `admin-*.sqlite` → `0600` (best-effort on open). |
+| Security headers | `X-Frame-Options: DENY`, `nosniff`, `Referrer-Policy: no-referrer`, `Cache-Control: no-store`, COOP, Permissions-Policy on admin API + `/admin` HTML. |
+
+**Do not** permanently lock yourself out while testing rate limits — use a
+non-allowlisted test email, or wipe `auth_rate_limit` rows, or temporarily set
+`RIDGE_ADMIN_RATE_WINDOW_MS=10000` and restart `ridge.service`.
 
 ## Bootstrap (Pi)
 
@@ -54,7 +71,7 @@ sudo systemctl restart ridge.service
 
 SQLite files (gitignored):
 
-- `data/admin-auth.sqlite` — users, sessions, passkeys
+- `data/admin-auth.sqlite` — users, sessions, passkeys, rate-limit counters
 - `data/admin-analytics.sqlite` — pageview hits
 
 ## Beacon
@@ -76,3 +93,4 @@ the MVP source of truth.
 - Do not commit `.env` or `data/*.sqlite`.
 - Do not reuse the Grok-broker Better Auth for admin — keep this path dedicated
   so the public site stays ungated.
+- Prefer passkeys; treat password as break-glass.
