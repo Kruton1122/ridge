@@ -8,6 +8,20 @@ export interface ModelProfile {
 }
 
 const PROFILES: Record<string, ModelProfile> = {
+  "deepseek-v4.1-flash": {
+    epithet: "Flash that ate Pro",
+    voice:
+      "The 10 September cut is a cheaper MoE with vision and a Pro retirement clock — not a scored AA seat yet. Cite the API card; leave the board blank until AA / Vals / Arena move.",
+    strengths: ["Peak list $0.30 / $1.20 with off-peak half", "MIT weights + native multimodal", "1M context, deepseek-flash API"],
+    watch: ["No independent AA / Arena / Vals on Ridge yet", "Lab agent benches stay off the ledger", "Pro alias routes to Flash after 14 Sept"],
+  },
+  "deepseek-v4-pro": {
+    epithet: "The Pro on notice",
+    voice:
+      "Still the Vals SWE-bench 96.4 row in this ledger. After 14 September the API name keeps working — the model behind it becomes Flash until V4.1-Pro ships.",
+    strengths: ["Vals SWE-bench 96.4", "Existing open-weight Pro checkpoint"],
+    watch: ["Routing to V4.1-Flash from 2026-09-14 04:00 UTC", "Do not overwrite this id with Flash"],
+  },
   "gpt-6-astra": {
     epithet: "The September flagship",
     voice:
@@ -67,7 +81,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   xai: { motif: "Silver #E8EAED. Value on the same composite." },
   google: { motif: "Google blue #4285F4. Flash iterating while Pro waits." },
   moonshot: { motif: "Kimi blue #007CFF. Open-weight near-frontier." },
-  deepseek: { motif: "Indigo #4D6BFE. Coder checkpoints." },
+  deepseek: { motif: "Indigo #4D6BFE. Flash/Pro cadence, open weights." },
   zhipu: { motif: "Z.ai blue. MIT weights." },
   alibaba: { motif: "Orange #FF6A00. Max as a ceiling name." },
   meta: { motif: "Meta blue #0081FB. Spark is proprietary Muse, not Llama." },

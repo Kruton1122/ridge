@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-10",
+    title: "DeepSeek V4.1 Flash — new catalog id",
+    items: [
+      "Added deepseek-v4.1-flash (API deepseek-flash): GA, open-weight MIT, 1M context, peak list $0.30 / $1.20; off-peak half; cache-hit noted in summary.",
+      "No AA / Arena / Vals score rows yet — briefing scrape 2026-09-10 had no Flash listing. deepseek-v4-pro kept; summary notes 14 Sept routing to Flash.",
+      "Wire: launch, API pricing/routing, HF weights, WorkBuddy/CodeBuddy + OpenCode partners, API news note.",
+      "Desk: ds-v41-flash-desk. Snapshot / llms.txt / isFresh asOf → 2026-09-10. publicOpinionStars left unset (no Grok Build scrape this pass).",
+    ],
+  },
+  {
     date: "2026-09-08",
     title: "Half-week news + public-opinion pass",
     items: [

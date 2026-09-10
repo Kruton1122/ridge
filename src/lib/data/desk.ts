@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-08"): boolean {
+export function isFresh(date: string, asOf = "2026-09-10"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,26 @@ export function isFresh(date: string, asOf = "2026-09-08"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "ds-v41-flash-desk",
+    kind: "release",
+    title: "DeepSeek put Flash ahead of Pro — and priced the handoff",
+    dek: "V4.1-Flash is live as deepseek-flash. MIT weights on HF. Independent AA / Arena / Vals rows are still blank on Ridge.",
+    pull: "A smaller MoE that the lab says beats its own Pro is a product story first. Wait for the public harnesses.",
+    summary:
+      "10 September: 552B MoE with 8B/16B active, native vision, peak list $0.30 / $1.20 with off-peak at half. Pro routes to Flash after 14 September. Ridge cites the lab and API docs — not vendor agent benches.",
+    date: "2026-09-10",
+    sourceName: "DeepSeek",
+    sourceUrl: "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+    tags: ["release", "deepseek", "pricing"],
+    body: [
+      "DeepSeek shipped V4.1-Flash on 10 September as the smallest model in its new architecture family, with native multimodal vision and a million-token context. The Causal Encoder–Decoder layout activates about 8B parameters on input and 16B on output inside a 552B MoE. Hugging Face has MIT-licensed weights; the live API name is deepseek-flash.",
+      "The invoice that matters for ledgers is peak cache-miss input at $0.30 and peak output at $1.20 per million tokens, with off-peak at half and a much cheaper cache-hit tier ($0.006 peak / $0.003 off-peak). Peak windows are weekday 01:00–04:00 and 06:00–10:00 UTC. That is the published API card, not a promo.",
+      "The sharper product move is the Pro handoff. DeepSeek says third-party tests put Flash ahead of V4-Pro on performance, cost, speed, and total runtime. V4-Flash and V4-Flash-Vision-Exp are already retired into compatibility aliases. From 04:00 UTC on 14 September, deepseek-v4-pro requests route to V4.1-Flash at Flash rates until V4.1-Pro lands. Partners named on the launch note: WorkBuddy (including CodeBuddy) and OpenCode.",
+      "Ridge does not copy the lab’s agent tables onto the board. Artificial Analysis, Arena+, and Vals had no V4.1-Flash row in the 10 September briefing scrape. The catalog adds the model with pricing and architecture sourced; AA / Arena / SWE stay blank until those pages move. Keep deepseek-v4-pro as its own id — new version, new row.",
+    ],
+  },
   {
     id: "halfweek-opinion-0908",
     kind: "ranking",

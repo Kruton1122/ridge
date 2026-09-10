@@ -11,6 +11,61 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "ds-v41-flash-launch",
+    title: "DeepSeek launches V4.1-Flash — API id deepseek-flash",
+    blurb:
+      "10 September. Smallest model in the new arch family; native vision; 552B MoE with 8B/16B active. V4-Flash and Vision-Exp retired into compat aliases.",
+    date: "2026-09-10",
+    outlet: "DeepSeek",
+    url: "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+    beat: "release",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+  },
+  {
+    id: "ds-v41-flash-api-pricing",
+    title: "Flash pricing live; Pro routes to Flash after 14 Sept",
+    blurb:
+      "Peak cache-miss $0.30 / output $1.20 per 1M; off-peak half; cache-hit $0.006/$0.003. From 04:00 UTC 14 Sept, deepseek-v4-pro → V4.1-Flash at Flash rates until V4.1-Pro.",
+    date: "2026-09-10",
+    outlet: "DeepSeek API Docs",
+    url: "https://api-docs.deepseek.com/quick_start/pricing",
+    beat: "release",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+  },
+  {
+    id: "ds-v41-flash-hf",
+    title: "DeepSeek-V4.1-Flash weights on Hugging Face (MIT)",
+    blurb:
+      "Open-weight multimodal MoE, 1M context, Causal Encoder–Decoder + CSA2 KV compression. Lab exploring broader inference/deploy options.",
+    date: "2026-09-10",
+    outlet: "Hugging Face",
+    url: "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
+    beat: "release",
+    models: ["deepseek-v4.1-flash"],
+  },
+  {
+    id: "ds-v41-flash-partners",
+    title: "WorkBuddy / CodeBuddy and OpenCode support V4.1-Flash",
+    blurb:
+      "Launch note names Tencent WorkBuddy (including CodeBuddy) and OpenCode as official partners with full support on day one.",
+    date: "2026-09-10",
+    outlet: "DeepSeek",
+    url: "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
+    beat: "labs",
+    models: ["deepseek-v4.1-flash"],
+  },
+  {
+    id: "ds-v41-flash-api-news",
+    title: "API docs: V4.1-Flash release note and routing FAQ",
+    blurb:
+      "deepseek-flash is the live name. Legacy deepseek-v4-flash and deepseek-v4-flash-vision-exp temporarily served by V4.1-Flash. Same Pro→Flash cutover dated 14 Sept.",
+    date: "2026-09-10",
+    outlet: "DeepSeek API Docs",
+    url: "https://api-docs.deepseek.com/news/news260910",
+    beat: "release",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+  },
+  {
     id: "aa-v43",
     title: "AA Index v4.3: Terminal-Bench 4.0 in, AutomationBench-AA in",
     blurb:

@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-09-08
+- Snapshot: 2026-09-10
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - JSON table: /api/ledger.json
 - CSV table: /api/ledger.csv
@@ -22,3 +22,5 @@ Headline AA Intelligence Index v4.2:
 8. Grok 4.6 — 44 (high)
 8. Kimi K3 — 44 (max)
 10. Gemini 3.8 Flash — 41 (high)
+
+Catalog note (2026-09-10): DeepSeek V4.1 Flash (`deepseek-v4.1-flash` / API `deepseek-flash`) added — peak list $0.30 / $1.20; no AA/Arena/Vals yet. V4 Pro retained; routes to Flash after 14 Sept.

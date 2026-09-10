@@ -1,8 +1,8 @@
 import type { Benchmark, Model, Score } from "./types";
 export { NEWS, isFresh } from "./desk";
 
-export const SNAPSHOT_DATE = "2026-09-08";
-export const SNAPSHOT_LABEL = "8 September 2026";
+export const SNAPSHOT_DATE = "2026-09-10";
+export const SNAPSHOT_LABEL = "10 September 2026";
 export const SCHEMA_VERSION = "1.1.0";
 
 export const LABS: Record<Model["lab"], { name: string; short: string; color: string }> = {
@@ -264,6 +264,29 @@ export const MODELS: Model[] = [
     summary: "Workhorse Claude. AA 55.",
   }),
   m({
+    id: "deepseek-v4.1-flash",
+    name: "DeepSeek V4.1 Flash",
+    shortName: "V4.1 Flash",
+    lab: "deepseek",
+    labName: "DeepSeek",
+    released: "2026-09-10",
+    contextTokens: 1_000_000,
+    pricing: { inputPerM: 0.3, outputPerM: 1.2 },
+    license: "open-weight",
+    status: "ga",
+    aliases: [
+      "deepseek-flash",
+      "deepseek flash",
+      "v4.1 flash",
+      "deepseek-v4.1-flash",
+      "deepseek v4.1 flash",
+      "deepseek-v4-flash",
+      "deepseek-v4-flash-vision-exp",
+    ],
+    summary:
+      "552B MoE (8B active in / 16B out), native multimodal, 1M context. API id deepseek-flash. List pair is peak cache-miss $0.30 / peak output $1.20 per 1M; off-peak is half; cache-hit peak $0.006 / off-peak $0.003 (API docs as of 2026-09-10). MIT weights on HF. No independent AA / Arena / Vals row yet.",
+  }),
+  m({
     id: "deepseek-v4-pro",
     name: "DeepSeek V4 Pro",
     shortName: "V4 Pro",
@@ -274,7 +297,8 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 1.32, outputPerM: 3.96 },
     license: "open-weight",
     aliases: ["deepseek v4", "v4 pro", "deepseek-v4-pro"],
-    summary: "Open-weight coder. Near-frontier SWE-bench.",
+    summary:
+      "Open-weight coder. Vals SWE-bench 96.4 (as of 10 Sept). DeepSeek is phasing Pro: from 2026-09-14 04:00 UTC, deepseek-v4-pro routes to V4.1-Flash at Flash pricing until V4.1-Pro ships (API docs / launch note).",
   }),
   m({
     id: "gpt-5.6-luna",
@@ -328,7 +352,7 @@ export const BENCHMARKS: Benchmark[] = [
     description: "OpenLM / Arena+ pairwise Elo.",
     sourceName: "Arena+",
     sourceUrl: "https://openlm.ai/chatbot-arena/",
-    asOf: "2026-09-08",
+    asOf: "2026-09-10",
   },
   {
     id: "swe-bench",
@@ -340,7 +364,7 @@ export const BENCHMARKS: Benchmark[] = [
     description: "Resolved GitHub issues under Mini-SWE-agent on Vals.",
     sourceName: "Vals AI",
     sourceUrl: "https://vals.ai/benchmarks/swebench",
-    asOf: "2026-09-08",
+    asOf: "2026-09-10",
   },
   {
     id: "terminal-bench",
@@ -369,39 +393,39 @@ function s(
 }
 
 export const SCORES: Score[] = [
-  s("claude-fable-5.1", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max with fallback"),
-  s("gpt-6-astra", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
-  s("claude-opus-5", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
-  s("claude-fable-5", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: with fallback"),
-  s("muse-spark-1.3", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: xhigh"),
-  s("muse-spark-1.3-max", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
-  s("gpt-5.6-sol", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
-  s("grok-4.6", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: high"),
-  s("kimi-k3", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: max"),
-  s("gemini-3.8-flash", "aa-intelligence", 41, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-08", "best effort/variant: high"),
+  s("claude-fable-5.1", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max with fallback"),
+  s("gpt-6-astra", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max"),
+  s("claude-opus-5", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max"),
+  s("claude-fable-5", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: with fallback"),
+  s("muse-spark-1.3", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: xhigh"),
+  s("muse-spark-1.3-max", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max"),
+  s("gpt-5.6-sol", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max"),
+  s("grok-4.6", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: high"),
+  s("kimi-k3", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: max"),
+  s("gemini-3.8-flash", "aa-intelligence", 41, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-10", "best effort/variant: high"),
 
-  s("claude-fable-5.1", "arena-elo", 1520, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("qwen-3.8-max", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("gpt-5.6-terra", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("grok-4.5", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("gemini-3.1-pro", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("gemini-3.7-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08"),
-  s("gemini-3.8-flash", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-08", "early listing"),
+  s("claude-fable-5.1", "arena-elo", 1520, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("qwen-3.8-max", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("gpt-5.6-terra", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("grok-4.5", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("gemini-3.1-pro", "arena-elo", 1504, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("gemini-3.7-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10"),
+  s("gemini-3.8-flash", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-10", "early listing"),
 
-  s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("gpt-5.6-sol", "swe-bench", 96.2, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("grok-4.6", "swe-bench", 95.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("claude-fable-5", "swe-bench", 95, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("kimi-k3", "swe-bench", 93.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("gpt-5.6-luna", "swe-bench", 93, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("qwen-3.8-max", "swe-bench", 85.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
-  s("grok-4.5", "swe-bench", 86.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-08"),
+  s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("gpt-5.6-sol", "swe-bench", 96.2, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("grok-4.6", "swe-bench", 95.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("claude-fable-5", "swe-bench", 95, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("kimi-k3", "swe-bench", 93.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("gpt-5.6-luna", "swe-bench", 93, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("qwen-3.8-max", "swe-bench", 85.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
+  s("grok-4.5", "swe-bench", 86.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-09-10"),
 
   s("gpt-5.6-sol", "terminal-bench", 88.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("grok-4.6", "terminal-bench", 88.4, "Artificial Analysis", "https://felloai.com/best-ai-models/", "2026-08-13"),
