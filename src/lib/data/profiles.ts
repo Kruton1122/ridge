@@ -1,3 +1,5 @@
+import type { ModelAbout } from "./abouts";
+import { ABOUTS } from "./abouts";
 import type { LabId, Model } from "./types";
 
 /**
@@ -9,6 +11,10 @@ import type { LabId, Model } from "./types";
  * `catalog.ts`, which the scrape owns; this file carries only the parts that do
  * not drift: temperament, positioning, and the caveats a reader needs.
  *
+ * Structured About dossiers live in `abouts.ts` and attach here as optional
+ * `about`. Vendor claims in those dossiers must stay labeled as company claims;
+ * live board numbers never belong in either file.
+ *
  * Prices and context windows are fine here — they change on a lab announcement,
  * not on a rerun — but even those are better read live from the catalog where a
  * page can manage it.
@@ -18,7 +24,10 @@ export interface ModelProfile {
   voice: string;
   strengths: string[];
   watch: string[];
+  about?: ModelAbout;
 }
+
+export type { ModelAbout };
 
 const PROFILES: Record<string, ModelProfile> = {
   "deepseek-v4.1-flash": {
@@ -142,12 +151,13 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
 };
 
 export function profileFor(model: Model): ModelProfile {
-  return (
+  const base =
     PROFILES[model.id] ?? {
       epithet: model.license === "open-weight" ? "Open weights" : "Closed weights",
       voice: model.summary,
       strengths: [],
       watch: [],
-    }
-  );
+    };
+  const about = ABOUTS[model.id];
+  return about ? { ...base, about } : base;
 }

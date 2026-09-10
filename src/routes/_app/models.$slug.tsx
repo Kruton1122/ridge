@@ -1,5 +1,5 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowRight, Check, Minus } from "lucide-react";
+import { ArrowRight, Check, ExternalLink, Minus } from "lucide-react";
 import {
   Blank,
   Card,
@@ -161,6 +161,180 @@ function ModelPage() {
           </div>
         </Container>
       </section>
+
+
+      {/* About dossier — structured editorial when present; thin voice otherwise. */}
+      {profile.about ? (
+        <Container className="pt-12">
+          <Reveal>
+            <SectionHead
+              eyebrow="About"
+              title={profile.epithet}
+              sub={profile.about.framing}
+            />
+
+            <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+              <div className="flex flex-col gap-6">
+                <Card className="p-5 sm:p-6">
+                  <Eyebrow>Overview</Eyebrow>
+                  <div className="mt-4 flex flex-col gap-3">
+                    {profile.about.lede.split("\n\n").map((para) => (
+                      <p
+                        key={para.slice(0, 48)}
+                        className="max-w-[68ch] text-[14.5px] leading-relaxed text-n-text-2"
+                      >
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </Card>
+
+                {profile.about.claims && profile.about.claims.length > 0 ? (
+                  <Card className="p-5 sm:p-6">
+                    <Eyebrow className="text-n-amber">Company claims</Eyebrow>
+                    <h3 className="mt-2 font-serif text-[20px] text-n-text">What they claim</h3>
+                    <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                      {profile.about.claims.map((claim) => (
+                        <li
+                          key={claim}
+                          className="rounded-lg border border-n-line bg-n-overlay/40 px-3.5 py-3 text-[13px] leading-snug text-n-text-2"
+                        >
+                          {claim}
+                        </li>
+                      ))}
+                    </ul>
+                    {profile.about.vendorEvalsNote ? (
+                      <p className="mt-4 max-w-[68ch] text-[12px] leading-relaxed text-n-text-3">
+                        {profile.about.vendorEvalsNote}
+                      </p>
+                    ) : null}
+                  </Card>
+                ) : null}
+
+                {profile.about.whereUsed && profile.about.whereUsed.length > 0 ? (
+                  <Card className="p-5 sm:p-6">
+                    <Eyebrow>Surfaces</Eyebrow>
+                    <h3 className="mt-2 font-serif text-[20px] text-n-text">Where it is used</h3>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {profile.about.whereUsed.map((place) => (
+                        <li key={place}>
+                          <span className="inline-flex items-center rounded-full border border-n-line bg-n-overlay/50 px-2.5 py-1 text-[12px] text-n-text-2">
+                            {place}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                ) : null}
+              </div>
+
+              <div className="flex flex-col gap-6">
+                {profile.about.rollout && profile.about.rollout.length > 0 ? (
+                  <Card className="p-5 sm:p-6">
+                    <Eyebrow>Timeline</Eyebrow>
+                    <h3 className="mt-2 font-serif text-[20px] text-n-text">Rollout</h3>
+                    <ol className="relative mt-5 ml-1.5 border-l border-n-line-amber/50 pl-5">
+                      {profile.about.rollout.map((item) => (
+                        <li key={`${item.date}-${item.text.slice(0, 24)}`} className="relative pb-5 last:pb-0">
+                          <span
+                            aria-hidden="true"
+                            className="absolute -left-[1.4rem] top-1.5 size-2 rounded-full bg-n-amber shadow-[0_0_0_3px_rgba(245,158,11,0.15)]"
+                          />
+                          <p className="n-num text-[11.5px] text-n-amber">{item.date}</p>
+                          <p className="mt-1 text-[13px] leading-snug text-n-text-2">{item.text}</p>
+                        </li>
+                      ))}
+                    </ol>
+                    {profile.about.rolloutNote ? (
+                      <p className="mt-4 border-t border-n-line pt-3 text-[12px] leading-relaxed text-n-text-3">
+                        {profile.about.rolloutNote}
+                      </p>
+                    ) : null}
+                  </Card>
+                ) : null}
+
+                {profile.about.specs && profile.about.specs.length > 0 ? (
+                  <Card className="p-5 sm:p-6">
+                    <Eyebrow>Card</Eyebrow>
+                    <h3 className="mt-2 font-serif text-[20px] text-n-text">Specs</h3>
+                    <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {profile.about.specs.map((row) => (
+                        <div
+                          key={row.label}
+                          className="rounded-lg border border-n-line/80 bg-n-overlay/30 px-3 py-2.5"
+                        >
+                          <dt className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-n-text-3">
+                            {row.label}
+                          </dt>
+                          <dd className="mt-1 text-[13px] leading-snug text-n-text-2">{row.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </Card>
+                ) : null}
+
+                {profile.about.sources && profile.about.sources.length > 0 ? (
+                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 px-1">
+                    {profile.about.sources.map((source) => (
+                      <a
+                        key={source.url}
+                        href={source.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="n-focus inline-flex items-center gap-1 text-[11.5px] text-n-text-3 hover:text-n-amber"
+                      >
+                        {source.label}
+                        <ExternalLink className="size-3" aria-hidden="true" />
+                      </a>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      ) : (
+        <Container className="pt-12">
+          <Reveal>
+            <Card className="p-5 sm:p-6">
+              <Eyebrow>Editorial</Eyebrow>
+              <p className="mt-3 max-w-[68ch] text-[14.5px] leading-relaxed text-n-text-2">
+                {profile.voice}
+              </p>
+              {profile.strengths.length > 0 || profile.watch.length > 0 ? (
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  {profile.strengths.length > 0 ? (
+                    <div>
+                      <Eyebrow>Strengths</Eyebrow>
+                      <ul className="mt-3 flex flex-col gap-2">
+                        {profile.strengths.map((item) => (
+                          <li key={item} className="flex gap-2 text-[13px] leading-snug text-n-text-2">
+                            <Check className="mt-0.5 size-3.5 shrink-0 text-n-up" aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                  {profile.watch.length > 0 ? (
+                    <div>
+                      <Eyebrow>Watch</Eyebrow>
+                      <ul className="mt-3 flex flex-col gap-2">
+                        {profile.watch.map((item) => (
+                          <li key={item} className="flex gap-2 text-[13px] leading-snug text-n-text-2">
+                            <Minus className="mt-0.5 size-3.5 shrink-0 text-n-down" aria-hidden="true" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+            </Card>
+          </Reveal>
+        </Container>
+      )}
 
       {/* Specifications */}
       <Container className="pt-12">
