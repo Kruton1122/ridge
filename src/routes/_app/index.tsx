@@ -65,7 +65,14 @@ function Board() {
           <p className="mt-4 max-w-[62ch] text-[14.5px] leading-relaxed text-n-text-2">
             An independent cut of Artificial Analysis, Arena+ and Vals, held to one
             rule: every number carries a source URL and an as-of date, and anything
-            unpublished stays blank. Snapshot {SNAPSHOT_LABEL}.
+            unpublished stays blank. Snapshot {SNAPSHOT_LABEL}. This is a working
+            set — {CATALOG_STATS.models} models, {CATALOG_STATS.benchmarks} rulers
+            — not a census of every weight on the internet.
+          </p>
+          <p className="mt-2.5 max-w-[62ch] text-[13px] leading-relaxed text-n-text-3">
+            If you want a pick off this snapshot: Fable 5.1 and Astra share the
+            ceiling, Gemini 3.8 Flash is the cheap point on the frontier, Grok 4.6
+            is the mid-price coding seat.
           </p>
           <dl className="mt-7 flex flex-wrap gap-x-8 gap-y-3">
             {[
