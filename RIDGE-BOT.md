@@ -137,29 +137,28 @@ Before Ridge Bot does a wide content pass:
 
 ---
 
-## 2026-09-10 — Claude built a redesign at `/new` (read this)
+## 2026-09-10 — redesign is now the live site (read this)
 
-A full redesign of the site now lives alongside the published one at `/new/*`.
-The live ledger is unchanged. Contract and migration notes: [`REDESIGN.md`](./REDESIGN.md).
+The redesign shipped at `/`. The previous site is archived at `/old`.
+Contract: [`REDESIGN.md`](./REDESIGN.md). `/new/*` redirects to the new URLs.
+`/source` redirects to `/api` (the docs page). JSON/CSV endpoints are unchanged.
 
 **Nothing about the daily routine changes.** The one thing worth knowing:
 
-- The redesign **reads** `catalog.ts`, `desk.ts`, `changelog.ts` and `llms.txt`
+- The live site **reads** `catalog.ts`, `desk.ts`, `changelog.ts` and `llms.txt`
   and **writes none of them**. Keep writing them exactly as now — a scrape lands
-  on both versions with no second edit.
+  on the site with no second edit.
 - `publicOpinion*`, `WireItem` and `NewsItem` shapes are all still read and
   rendered. Don't remove them.
-- Renaming or removing a `Model` field will break `/new` at typecheck. Run
+- Renaming or removing a `Model` field will break the site at typecheck. Run
   `npm run typecheck` before committing a schema change. Adding a field is safe.
-- New read-only helper: `src/lib/data/derived.ts`. Claude's lane, not Ridge Bot's.
+- Read-only helper: `src/lib/data/derived.ts`. Not Ridge Bot's lane.
 - **You do not need to touch any component to add data.** A new score, a new
   model, a whole new benchmark, or a model from a new lab all reshape the site
   from `catalog.ts` alone — a new benchmark gets its own ledger column, sort
   option, homepage card, detail page, dossier row and coverage bar automatically.
-  Verified by injecting a fifth benchmark and a new model and watching every
-  surface pick them up with no code change. The one exception: a brand-new
-  `LabId` needs adding to the union in `types.ts` plus a colour in `colors.ts`;
-  `npm run typecheck` will point at every place.
+  The one exception: a brand-new `LabId` needs adding to the union in `types.ts`
+  plus a colour in `colors.ts`; `npm run typecheck` will point at every place.
 - `src/lib/data/ledger.ts` and `src/routes/api/**` were deliberately left alone —
   the JSON/CSV contract is unchanged.
 
@@ -186,4 +185,4 @@ Three pre-existing bugs on the **published** site were fixed in this pass:
 
 ---
 
-*Last updated 2026-09-08 by Ridge Bot (Grok Bot); redesign section added 2026-09-10 by Claude.*
+*Last updated 2026-09-08 by Ridge Bot (Grok Bot); redesign shipped to `/` 2026-09-10.*

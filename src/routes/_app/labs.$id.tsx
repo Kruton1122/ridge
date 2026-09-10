@@ -16,7 +16,7 @@ import { labStats, moneyPair, rankOf } from "@/lib/data/derived";
 import { LAB_THEME } from "@/lib/data/profiles";
 import type { LabId } from "@/lib/data/types";
 
-export const Route = createFileRoute("/new/labs/$id")({
+export const Route = createFileRoute("/_app/labs/$id")({
   component: LabPage,
   head: ({ params }) => {
     const lab = labStats().find((l) => l.lab === params.id);
@@ -36,7 +36,7 @@ export const Route = createFileRoute("/new/labs/$id")({
     <Container width="prose" className="py-24">
       <h1 className="font-serif text-[32px] text-n-text">No such lab</h1>
       <Link
-        to="/new/labs"
+        to="/labs"
         className="n-focus n-tap text-[13.5px] text-n-amber hover:underline"
       >
         Every lab on the ledger
@@ -129,7 +129,7 @@ function LabPage() {
               return (
                 <li key={model.id}>
                   <Link
-                    to="/new/models/$slug"
+                    to="/models/$slug"
                     params={{ slug: model.id }}
                     className="n-focus block rounded-lg border border-n-line bg-n-raised p-3.5 active:bg-n-overlay"
                   >
@@ -214,7 +214,7 @@ function LabPage() {
                         <div className="flex items-center gap-2.5">
                           <LabDot model={model} />
                           <Link
-                            to="/new/models/$slug"
+                            to="/models/$slug"
                             params={{ slug: model.id }}
                             className="n-focus n-tap max-w-full truncate font-medium text-n-text hover:text-n-amber"
                           >

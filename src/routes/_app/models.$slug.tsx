@@ -21,7 +21,7 @@ import { benchmarksWithScores, dossier, money, moneyPair } from "@/lib/data/deri
 import { LAB_THEME, profileFor } from "@/lib/data/profiles";
 import { isFresh } from "@/lib/data/desk";
 
-export const Route = createFileRoute("/new/models/$slug")({
+export const Route = createFileRoute("/_app/models/$slug")({
   component: ModelPage,
   head: ({ params }) => {
     const model = getModel(params.slug);
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/new/models/$slug")({
         Ridge has no catalog row under that id. It may have been renamed, or it may
         never have had one.
       </p>
-      <Link to="/new/models" className="n-focus n-tap text-[13.5px] text-n-amber hover:underline">
+      <Link to="/models" className="n-focus n-tap text-[13.5px] text-n-amber hover:underline">
         Every model on the ledger
       </Link>
     </Container>
@@ -83,7 +83,7 @@ function ModelPage() {
           <div className="flex flex-wrap items-center gap-2.5">
             <LabDot model={model} className="size-2" />
             <Link
-              to="/new/labs/$id"
+              to="/labs/$id"
               params={{ id: model.lab }}
               className="n-focus n-tap text-[12px] uppercase tracking-[0.14em] hover:underline"
               style={{ color }}
@@ -348,7 +348,7 @@ function ModelPage() {
                 .map((benchmark) => (
                   <Card key={benchmark.id} className="p-4 sm:p-5">
                     <Link
-                      to="/new/benchmarks/$id"
+                      to="/benchmarks/$id"
                       params={{ id: benchmark.id }}
                       className="n-focus n-tap font-serif text-[17px] text-n-text hover:text-n-amber"
                     >
@@ -382,7 +382,7 @@ function ModelPage() {
               {data.siblings.map((sibling) => (
                 <li key={sibling.id}>
                   <Link
-                    to="/new/models/$slug"
+                    to="/models/$slug"
                     params={{ slug: sibling.id }}
                     className="n-focus block"
                   >
@@ -414,7 +414,7 @@ function ModelPage() {
               {data.news.map((item) => (
                 <Link
                   key={item.id}
-                  to="/new/news/$id"
+                  to="/news/$id"
                   params={{ id: item.id }}
                   className="n-focus block"
                 >
@@ -499,7 +499,7 @@ function ModelPage() {
               </p>
             </Prose>
             <Link
-              to="/new/compare"
+              to="/compare"
               search={{ ids: model.id }}
               className="n-focus inline-flex items-center gap-2 rounded-md border border-n-line-amber bg-n-amber/10 px-3.5 py-2 text-[13px] text-n-amber transition-colors duration-150 hover:bg-n-amber/[0.16]"
             >

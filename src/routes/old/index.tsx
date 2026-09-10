@@ -17,7 +17,7 @@ import {
 } from "@/lib/data/catalog";
 import { modelColor } from "@/lib/data/colors";
 
-export const Route = createFileRoute("/")({ component: Home });
+export const Route = createFileRoute("/old/")({ component: Home });
 
 function Home() {
   const aa = rankBenchmark("aa-intelligence", SCORES);
@@ -89,7 +89,7 @@ function Home() {
       <Reveal className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="flex items-end justify-between">
           <h2 className="font-serif text-3xl">News</h2>
-          <Link to="/news" className="text-sm text-primary">
+          <Link to="/old/news" className="text-sm text-primary">
             All items
           </Link>
         </div>
@@ -97,7 +97,7 @@ function Home() {
           {NEWS.slice(0, 3).map((item) => (
             <li key={item.id}>
               <Link
-                to="/news/$id"
+                to="/old/news/$id"
                 params={{ id: item.id }}
                 className="block rounded-2xl bg-surface p-5 shadow-[0_0_0_1px_var(--color-border)] hover:shadow-[0_0_0_1px_var(--color-primary)]"
               >
@@ -134,7 +134,7 @@ function WinnerCard({
     >
       <p className="text-xs uppercase tracking-wider text-faint">{place}</p>
       <Link
-        to="/models/$slug"
+        to="/old/models/$slug"
         params={{ slug: model.id }}
         className="mt-2 block font-serif text-3xl hover:text-primary"
       >

@@ -14,7 +14,7 @@ import { Container } from "@/components/new/shell";
 import { formatContext } from "@/lib/data/catalog";
 import { labStats, moneyPair, rankOf } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/new/models/")({
+export const Route = createFileRoute("/_app/models/")({
   component: ModelIndex,
   head: () => ({
     meta: [
@@ -62,7 +62,7 @@ function ModelIndex() {
                 }
                 right={
                   <Link
-                    to="/new/labs/$id"
+                    to="/labs/$id"
                     params={{ id: lab.lab }}
                     className="n-focus n-tap text-[13px] text-n-amber hover:underline"
                   >
@@ -76,7 +76,7 @@ function ModelIndex() {
                   return (
                     <li key={model.id}>
                       <Link
-                        to="/new/models/$slug"
+                        to="/models/$slug"
                         params={{ slug: model.id }}
                         className="n-focus block h-full"
                       >

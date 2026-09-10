@@ -5,7 +5,7 @@ import { Container } from "@/components/new/shell";
 import { LAB_COLORS } from "@/lib/data/colors";
 import { labStats } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/new/labs/")({
+export const Route = createFileRoute("/_app/labs/")({
   component: LabIndex,
   head: () => ({
     meta: [
@@ -43,7 +43,7 @@ function LabIndex() {
           {labs.map((lab) => (
             <li key={lab.lab}>
               <Reveal>
-                <Link to="/new/labs/$id" params={{ id: lab.lab }} className="n-focus block h-full">
+                <Link to="/labs/$id" params={{ id: lab.lab }} className="n-focus block h-full">
                   <Card interactive className="h-full p-5">
                     <div className="flex items-center gap-2.5">
                       <span

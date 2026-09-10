@@ -7,7 +7,10 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 text-sm text-faint sm:flex-row sm:items-center sm:justify-between sm:px-6">
         <p>Ridge · seed {SNAPSHOT_LABEL}. Cite the source URL and the as-of date.</p>
         <nav className="flex gap-4">
-          <Link to="/source" className="hover:text-fg">
+          <Link to="/" className="hover:text-fg">
+            Current ledger
+          </Link>
+          <Link to="/old/source" className="hover:text-fg">
             For models
           </Link>
           <a href="/api/v1/leaderboard" className="hover:text-fg">

@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ArrowUpRight, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import type { ReactNode } from "react";
 import { RidgeMark } from "@/components/ridge-mark";
 import { CommandPalette } from "@/components/new/command-palette";
@@ -9,18 +9,18 @@ import { nextPullLabel } from "@/lib/data/ledger";
 import { cn } from "@/lib/utils";
 
 const NAV = [
-  { to: "/new", label: "Ledger", match: (p: string) => p === "/new" || p === "/new/" },
-  { to: "/new/models", label: "Models", match: (p: string) => p.startsWith("/new/models") },
-  { to: "/new/compare", label: "Compare", match: (p: string) => p.startsWith("/new/compare") },
-  { to: "/new/benchmarks", label: "Benchmarks", match: (p: string) => p.startsWith("/new/benchmarks") },
-  { to: "/new/news", label: "News", match: (p: string) => p.startsWith("/new/news") },
+  { to: "/", label: "Ledger", match: (p: string) => p === "/" },
+  { to: "/models", label: "Models", match: (p: string) => p.startsWith("/models") },
+  { to: "/compare", label: "Compare", match: (p: string) => p.startsWith("/compare") },
+  { to: "/benchmarks", label: "Benchmarks", match: (p: string) => p.startsWith("/benchmarks") },
+  { to: "/news", label: "News", match: (p: string) => p.startsWith("/news") },
 ] as const;
 
 const FOOTER_LINKS = [
-  { to: "/new/methodology", label: "Methodology" },
-  { to: "/new/changelog", label: "Changelog" },
-  { to: "/new/labs", label: "Labs" },
-  { to: "/new/api", label: "API" },
+  { to: "/methodology", label: "Methodology" },
+  { to: "/changelog", label: "Changelog" },
+  { to: "/labs", label: "Labs" },
+  { to: "/api", label: "API" },
 ] as const;
 
 /**
@@ -30,7 +30,7 @@ const FOOTER_LINKS = [
 function SnapshotChip({ className }: { className?: string }) {
   return (
     <Link
-      to="/new/methodology"
+      to="/methodology"
       className={cn(
         "n-focus n-num inline-flex items-center gap-1.5 rounded border border-n-line-amber bg-n-amber/[0.06] px-2 py-1 text-[11px] text-n-amber transition-colors duration-150 hover:bg-n-amber/[0.12]",
         className,
@@ -49,22 +49,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh bg-n-base text-n-text antialiased">
-      {/* Migration strip — delete this block when /new becomes the site. */}
-      <div className="border-b border-n-line bg-n-overlay/60">
-        <div className="mx-auto flex max-w-[1280px] flex-wrap items-center justify-between gap-2 px-4 py-1.5 text-[11px] text-n-text-3 sm:px-6">
-          <span>
-            Redesign preview. The published ledger is unchanged and still authoritative.
-          </span>
-          <a href="/" className="n-focus n-tap gap-1 hover:text-n-text-2">
-            Current site
-            <ArrowUpRight className="size-3" aria-hidden="true" />
-          </a>
-        </div>
-      </div>
-
       <header className="sticky top-0 z-40 border-b border-n-line bg-n-base/85 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-[1280px] items-center gap-4 px-4 sm:px-6">
-          <Link from="/" to="/new" className="n-focus flex shrink-0 items-center gap-2.5">
+          <Link from="/" to="/" className="n-focus flex shrink-0 items-center gap-2.5">
             <RidgeMark className="size-6 rounded" />
             <span className="font-serif text-[19px] leading-none tracking-tight">Ridge</span>
           </Link>
@@ -142,6 +129,12 @@ export function SiteShell({ children }: { children: ReactNode }) {
               <a href="/llms.txt" className="n-focus n-tap text-n-text-2 hover:text-n-text">
                 llms.txt
               </a>
+              <Link
+                to="/old"
+                className="n-focus n-tap text-n-text-2 transition-colors duration-150 hover:text-n-text"
+              >
+                Archived site
+              </Link>
             </nav>
           </div>
 

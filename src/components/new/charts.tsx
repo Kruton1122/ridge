@@ -44,7 +44,7 @@ export function BarBoard({
                   dropping it. Hiding the bar below a breakpoint meant the whole
                   point of the module only existed in landscape. */}
               <Link
-                to="/new/models/$slug"
+                to="/models/$slug"
                 params={{ slug: row.model.id }}
                 className="n-focus group block py-2.5 transition-colors duration-150 hover:bg-n-overlay/40 sm:flex sm:items-center sm:gap-3"
               >

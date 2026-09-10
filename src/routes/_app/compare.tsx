@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 const MAX = 4;
 
-export const Route = createFileRoute("/new/compare")({
+export const Route = createFileRoute("/_app/compare")({
   validateSearch: (search: Record<string, unknown>): { ids: string } => ({
     ids: typeof search.ids === "string" ? search.ids : "",
   }),
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/new/compare")({
 
 function ComparePage() {
   const { ids } = Route.useSearch();
-  const navigate = useNavigate({ from: "/new/compare" });
+  const navigate = useNavigate({ from: "/compare" });
 
   const selected = ids.split(",").map((s) => s.trim()).filter(Boolean).slice(0, MAX);
   const { models, rows } = compare(selected);
@@ -156,7 +156,7 @@ function ComparePage() {
                         style={{ borderTop: `2px solid ${modelColor(model)}` }}
                       >
                         <Link
-                          to="/new/models/$slug"
+                          to="/models/$slug"
                           params={{ slug: model.id }}
                           className="n-focus n-tap text-[14px] font-medium text-n-text hover:text-n-amber"
                         >

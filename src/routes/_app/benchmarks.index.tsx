@@ -6,7 +6,7 @@ import { Container } from "@/components/new/shell";
 import { MODELS } from "@/lib/data/catalog";
 import { coverage } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/new/benchmarks/")({
+export const Route = createFileRoute("/_app/benchmarks/")({
   component: BenchmarkIndex,
   head: () => ({
     meta: [
@@ -53,7 +53,7 @@ function BenchmarkIndex() {
                 <li key={row.benchmark.id}>
                   <div className="flex items-baseline justify-between gap-4">
                     <Link
-                      to="/new/benchmarks/$id"
+                      to="/benchmarks/$id"
                       params={{ id: row.benchmark.id }}
                       className="n-focus n-tap text-[13.5px] text-n-text-2 hover:text-n-amber"
                     >
@@ -85,7 +85,7 @@ function BenchmarkIndex() {
                   <div className="min-w-0">
                     <Eyebrow>{row.benchmark.category}</Eyebrow>
                     <Link
-                      to="/new/benchmarks/$id"
+                      to="/benchmarks/$id"
                       params={{ id: row.benchmark.id }}
                       className="n-focus mt-1.5 block font-serif text-[22px] leading-tight text-n-text hover:text-n-amber"
                     >
@@ -112,7 +112,7 @@ function BenchmarkIndex() {
                     asOf={row.benchmark.asOf}
                   />
                   <Link
-                    to="/new/benchmarks/$id"
+                    to="/benchmarks/$id"
                     params={{ id: row.benchmark.id }}
                     className="n-focus n-tap shrink-0 text-[12.5px] text-n-amber hover:underline"
                   >
@@ -142,7 +142,7 @@ function BenchmarkIndex() {
               time is plotted entirely on v4.2.
             </p>
             <Link
-              to="/new/methodology"
+              to="/methodology"
               className="n-focus n-tap text-[13px] text-n-amber hover:underline"
             >
               The full methodology

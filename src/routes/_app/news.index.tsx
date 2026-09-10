@@ -7,7 +7,7 @@ import { getModel } from "@/lib/data/catalog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/new/news/")({
+export const Route = createFileRoute("/_app/news/")({
   component: NewsIndex,
   head: () => ({
     meta: [
@@ -43,7 +43,7 @@ function NewsIndex() {
       {lead ? (
         <Container className="pt-10">
           <Reveal>
-            <Link to="/new/news/$id" params={{ id: lead.id }} className="n-focus block">
+            <Link to="/news/$id" params={{ id: lead.id }} className="n-focus block">
               <Card interactive className="overflow-hidden">
                 <div className="grid gap-0 lg:grid-cols-[1.15fr_1fr]">
                   <div className="p-6 sm:p-8">
@@ -104,7 +104,7 @@ function NewsIndex() {
                 {rest.map((item) => (
                   <li key={item.id}>
                     <Link
-                      to="/new/news/$id"
+                      to="/news/$id"
                       params={{ id: item.id }}
                       className="n-focus block"
                     >

@@ -334,7 +334,7 @@ function LedgerCard({ row, expanded }: { row: Row; expanded: boolean }) {
 
   return (
     <Link
-      to="/new/models/$slug"
+      to="/models/$slug"
       params={{ slug: model.id }}
       className="n-focus block rounded-lg border border-n-line bg-n-raised transition-colors duration-150 active:bg-n-overlay"
       style={top ? { borderLeftColor: color, borderLeftWidth: "2px" } : undefined}
@@ -432,7 +432,7 @@ function LedgerRow({
           </span>
           <LabDot model={model} />
           <Link
-            to="/new/models/$slug"
+            to="/models/$slug"
             params={{ slug: model.id }}
             className="n-focus inline-flex min-h-6 min-w-0 items-center truncate font-medium text-n-text transition-colors duration-150 hover:text-n-amber"
           >

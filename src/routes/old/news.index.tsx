@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/news/")({ component: NewsPage });
+export const Route = createFileRoute("/old/news/")({ component: NewsPage });
 
 function NewsPage() {
   return (
@@ -56,7 +56,7 @@ function NewsPage() {
             {NEWS.map((item) => (
               <li key={item.id}>
                 <Link
-                  to="/news/$id"
+                  to="/old/news/$id"
                   params={{ id: item.id }}
                   className="block rounded-2xl bg-surface p-5 shadow-[0_0_0_1px_var(--color-border)] hover:shadow-[0_0_0_1px_var(--color-primary)]"
                 >

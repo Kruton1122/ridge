@@ -533,7 +533,7 @@ export function searchIndex(): SearchEntry[] {
       sub: aa
         ? `${model.labName} · AA ${aa.value} · ${aa.tied ? "=" : ""}#${aa.rank} of ${aa.of}`
         : `${model.labName} · unscored`,
-      to: `/new/models/${model.id}`,
+      to: `/models/${model.id}`,
       keywords: [model.id, model.shortName, model.labName, ...model.aliases].join(" "),
     });
   }
@@ -543,7 +543,7 @@ export function searchIndex(): SearchEntry[] {
       kind: "news",
       title: item.title,
       sub: `Desk · ${item.date}`,
-      to: `/new/news/${item.id}`,
+      to: `/news/${item.id}`,
       keywords: [item.kind, ...item.tags, item.dek].join(" "),
     });
   }
@@ -553,7 +553,7 @@ export function searchIndex(): SearchEntry[] {
       kind: "benchmark",
       title: benchmark.name,
       sub: `${benchmark.sourceName} · as of ${benchmark.asOf}`,
-      to: `/new/benchmarks/${benchmark.id}`,
+      to: `/benchmarks/${benchmark.id}`,
       keywords: [benchmark.short, benchmark.category, benchmark.sourceName].join(" "),
     });
   }
@@ -563,19 +563,19 @@ export function searchIndex(): SearchEntry[] {
       kind: "lab",
       title: lab.name,
       sub: `${lab.models.length} model${lab.models.length === 1 ? "" : "s"} on the ledger`,
-      to: `/new/labs/${lab.lab}`,
+      to: `/labs/${lab.lab}`,
       keywords: lab.models.map((m) => m.shortName).join(" "),
     });
   }
   for (const page of [
-    { title: "Ledger", to: "/new", sub: "The full board" },
-    { title: "Models", to: "/new/models", sub: "Every row in the catalog" },
-    { title: "Compare", to: "/new/compare", sub: "Two to four models, side by side" },
-    { title: "Benchmarks", to: "/new/benchmarks", sub: "What each index measures" },
-    { title: "News", to: "/new/news", sub: "Wire and Ridge desk" },
-    { title: "Methodology", to: "/new/methodology", sub: "How the ledger is built" },
-    { title: "Changelog", to: "/new/changelog", sub: "Every cut since the seed" },
-    { title: "API", to: "/new/api", sub: "Machine-readable endpoints" },
+    { title: "Ledger", to: "/", sub: "The full board" },
+    { title: "Models", to: "/models", sub: "Every row in the catalog" },
+    { title: "Compare", to: "/compare", sub: "Two to four models, side by side" },
+    { title: "Benchmarks", to: "/benchmarks", sub: "What each index measures" },
+    { title: "News", to: "/news", sub: "Wire and Ridge desk" },
+    { title: "Methodology", to: "/methodology", sub: "How the ledger is built" },
+    { title: "Changelog", to: "/changelog", sub: "Every cut since the seed" },
+    { title: "API", to: "/api", sub: "Machine-readable endpoints" },
   ]) {
     entries.push({
       id: `page:${page.to}`,

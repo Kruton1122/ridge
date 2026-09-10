@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { getModel } from "@/lib/data/catalog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 
-export const Route = createFileRoute("/news/$id")({
+export const Route = createFileRoute("/old/news/$id")({
   component: DeskArticle,
 });
 
@@ -18,7 +18,7 @@ function DeskArticle() {
       <div className="min-h-dvh bg-bg px-6 py-16 text-fg">
         <SiteHeader current="news" />
         <h1 className="mt-10 font-serif text-3xl">That note is not on the desk</h1>
-        <Link to="/news" className="mt-4 inline-block text-sm text-primary">
+        <Link to="/old/news" className="mt-4 inline-block text-sm text-primary">
           All items
         </Link>
       </div>
@@ -60,7 +60,7 @@ function DeskArticle() {
               return (
                 <li key={id}>
                   <Link
-                    to="/models/$slug"
+                    to="/old/models/$slug"
                     params={{ slug: model.id }}
                     className="rounded-md bg-raised px-3 py-1.5 text-sm hover:text-primary"
                   >

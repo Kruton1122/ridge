@@ -6,7 +6,7 @@ import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { CATALOG_STATS, benchmarksWithScores, coverage } from "@/lib/data/derived";
 import { LEDGER_SOURCES, nextPullLabel } from "@/lib/data/ledger";
 
-export const Route = createFileRoute("/new/methodology")({
+export const Route = createFileRoute("/_app/methodology")({
   component: Methodology,
   head: () => ({
     meta: [
@@ -160,13 +160,13 @@ function Methodology() {
               </Prose>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  to="/new/changelog"
+                  to="/changelog"
                   className="n-focus rounded-md border border-n-line px-3.5 py-2 text-[13px] text-n-text-2 transition-colors duration-150 hover:border-n-line-2 hover:text-n-text"
                 >
                   Read the changelog
                 </Link>
                 <Link
-                  to="/new/api"
+                  to="/api"
                   className="n-focus rounded-md border border-n-line px-3.5 py-2 text-[13px] text-n-text-2 transition-colors duration-150 hover:border-n-line-2 hover:text-n-text"
                 >
                   Machine endpoints
@@ -214,7 +214,7 @@ function Methodology() {
                 {benchmarksWithScores().map((benchmark) => (
                   <li key={benchmark.id}>
                     <Link
-                      to="/new/benchmarks/$id"
+                      to="/benchmarks/$id"
                       params={{ id: benchmark.id }}
                       className="n-focus n-tap text-[13px] text-n-text-2 hover:text-n-amber"
                     >

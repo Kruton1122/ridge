@@ -1,4 +1,4 @@
-// QA sweep for the /new redesign. Not part of any pipeline — run by hand.
+// QA sweep for the live site. Not part of any pipeline — run by hand.
 import { mkdirSync } from "node:fs";
 import { chromium } from "playwright";
 
@@ -7,20 +7,20 @@ const OUT = new URL("../screenshots/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 
 const PAGES = [
-  ["board", "/new"],
-  ["models", "/new/models"],
-  ["model", "/new/models/claude-fable-5.1"],
-  ["model-unscored", "/new/models/deepseek-v4.1-flash"],
-  ["compare", "/new/compare?ids=claude-fable-5.1,gpt-6-astra,grok-4.6"],
-  ["benchmarks", "/new/benchmarks"],
-  ["benchmark", "/new/benchmarks/aa-intelligence"],
-  ["labs", "/new/labs"],
-  ["lab", "/new/labs/anthropic"],
-  ["news", "/new/news"],
-  ["note", "/new/news/astra-v42"],
-  ["methodology", "/new/methodology"],
-  ["changelog", "/new/changelog"],
-  ["api", "/new/api"],
+  ["board", "/"],
+  ["models", "/models"],
+  ["model", "/models/claude-fable-5.1"],
+  ["model-unscored", "/models/deepseek-v4.1-flash"],
+  ["compare", "/compare?ids=claude-fable-5.1,gpt-6-astra,grok-4.6"],
+  ["benchmarks", "/benchmarks"],
+  ["benchmark", "/benchmarks/aa-intelligence"],
+  ["labs", "/labs"],
+  ["lab", "/labs/anthropic"],
+  ["news", "/news"],
+  ["note", "/news/astra-v42"],
+  ["methodology", "/methodology"],
+  ["changelog", "/changelog"],
+  ["api", "/api"],
 ];
 
 const VIEWPORTS = [
@@ -46,7 +46,7 @@ async function checkThroughProxy() {
     "/node_modules/.vite/deps/react.js",
     "/node_modules/.vite/deps/react-dom_client.js",
     "/@vite/client",
-    "/new",
+    "/",
   ];
   const mustDeny = ["/.env", "/.git/config"];
 
@@ -65,6 +65,32 @@ async function checkThroughProxy() {
 }
 
 await checkThroughProxy();
+
+async function checkRedirectsAndArchive() {
+  const cases = [
+    ["/new", "/"],
+    ["/new/models/claude-fable-5.1", "/models/claude-fable-5.1"],
+    ["/source", "/api"],
+  ];
+  for (const [from, expect] of cases) {
+    const res = await fetch(BASE + from, { redirect: "follow" }).catch(() => null);
+    const url = res?.url ?? "";
+    if (!res || res.status >= 400 || !url.includes(expect)) {
+      problems.push(`[redirect] ${from} did not land on ${expect} (got ${res?.status ?? "no response"} ${url})`);
+    }
+  }
+  const archive = await fetch(BASE + "/old").catch(() => null);
+  if (!archive || archive.status >= 400) {
+    problems.push(`[archive] /old returns ${archive?.status ?? "no response"}`);
+  }
+  const json = await fetch(BASE + "/api/ledger.json").catch(() => null);
+  const type = json?.headers.get("content-type") ?? "";
+  if (!json || json.status >= 400 || !type.includes("json")) {
+    problems.push(`[api] /api/ledger.json is not JSON (${json?.status ?? "no response"} ${type})`);
+  }
+}
+
+await checkRedirectsAndArchive();
 
 // The Pi already has a system Chromium; skip Playwright's own download.
 const browser = await chromium.launch({
@@ -175,7 +201,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
   const page = await context.newPage();
   page.on("pageerror", (err) => problems.push(`[pageerror interact] ${err.message}`));
 
-  await page.goto(BASE + "/new", { waitUntil: "networkidle" });
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
 
   const firstBefore = await page.evaluate(
     () => document.querySelector("tbody tr td a")?.textContent?.trim() ?? "",
@@ -224,7 +250,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
     await page.screenshot({ path: `${OUT}interact-palette.png` });
     await page.keyboard.press("Enter");
     await page.waitForTimeout(700);
-    if (!page.url().includes("/new/models/")) {
+    if (!page.url().includes("/models/")) {
       problems.push(`[palette] Enter did not navigate to a model (${page.url()})`);
     }
   }
@@ -251,7 +277,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
   const page = await context.newPage();
   page.on("pageerror", (err) => problems.push(`[pageerror mobile] ${err.message}`));
 
-  await page.goto(BASE + "/new", { waitUntil: "networkidle" });
+  await page.goto(BASE + "/", { waitUntil: "networkidle" });
   await page.waitForTimeout(700);
 
   const bars = await page.evaluate(
@@ -306,7 +332,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
   // Data tables must collapse to cards on a phone. The comparison matrix is the
   // one exception — it is genuinely two-dimensional, so it keeps a scrolling
   // table with a frozen metric column.
-  for (const path of ["/new", "/new/benchmarks/aa-intelligence", "/new/labs/anthropic", "/new/models"]) {
+  for (const path of ["/", "/benchmarks/aa-intelligence", "/labs/anthropic", "/models"]) {
     await page.goto(BASE + path, { waitUntil: "networkidle" });
     await page.waitForTimeout(400);
 

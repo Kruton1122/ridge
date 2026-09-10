@@ -33,7 +33,7 @@ const ENDPOINTS = [
   },
 ];
 
-export const Route = createFileRoute("/new/api")({
+export const Route = createFileRoute("/_app/api")({
   component: ApiPage,
   head: () => ({
     meta: [
@@ -132,7 +132,7 @@ function ApiPage() {
             </p>
           </Prose>
           <Link
-            to="/new/methodology"
+            to="/methodology"
             className="n-focus n-tap text-[13.5px] text-n-amber hover:underline"
           >
             Full methodology

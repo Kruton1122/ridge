@@ -14,7 +14,7 @@ import { MODELS, getBenchmark } from "@/lib/data/catalog";
 import { modelColor } from "@/lib/data/colors";
 import { board, formatValue } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/new/benchmarks/$id")({
+export const Route = createFileRoute("/_app/benchmarks/$id")({
   component: BenchmarkPage,
   head: ({ params }) => {
     const benchmark = getBenchmark(params.id);
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/new/benchmarks/$id")({
     <Container width="prose" className="py-24">
       <h1 className="font-serif text-[32px] text-n-text">No such board</h1>
       <Link
-        to="/new/benchmarks"
+        to="/benchmarks"
         className="n-focus n-tap text-[13.5px] text-n-amber hover:underline"
       >
         Every benchmark Ridge tracks
@@ -112,7 +112,7 @@ function BenchmarkPage() {
                   <LabDot model={row.model} className="mt-[7px]" />
                   <div className="min-w-0 flex-1">
                     <Link
-                      to="/new/models/$slug"
+                      to="/models/$slug"
                       params={{ slug: row.model.id }}
                       className="n-focus n-tap flex min-h-9 items-center text-[15px] font-medium leading-snug text-n-text"
                     >
@@ -185,7 +185,7 @@ function BenchmarkPage() {
                         </span>
                         <LabDot model={row.model} />
                         <Link
-                          to="/new/models/$slug"
+                          to="/models/$slug"
                           params={{ slug: row.model.id }}
                           className="n-focus n-tap max-w-full truncate font-medium text-n-text hover:text-n-amber"
                         >
@@ -248,7 +248,7 @@ function BenchmarkPage() {
                 {missing.map((model) => (
                   <li key={model.id}>
                     <Link
-                      to="/new/models/$slug"
+                      to="/models/$slug"
                       params={{ slug: model.id }}
                       className="n-focus inline-flex items-center gap-2 rounded-md border border-n-line px-2.5 py-1.5 text-[12.5px] text-n-text-2 transition-colors duration-150 hover:border-n-line-2 hover:text-n-text"
                     >

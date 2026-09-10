@@ -46,10 +46,11 @@ App code is under `src/`. Scaffold leftovers (auth, PWA, multiplayer) exist; **d
 | Monday delta copy | `src/lib/data/changelog.ts` |
 | Lab hex colors | `src/lib/data/colors.ts` |
 | Types (`status`, `promoPricing`) | `src/lib/data/types.ts` |
-| Homepage | `src/routes/index.tsx` |
-| News list / article | `src/routes/news.tsx`, `src/routes/news.$id.tsx` |
-| Model dossier | `src/routes/models.$slug.tsx` |
-| Ledger UI (sort, lab filter, promo toggle) | `src/components/ledger-table.tsx` |
+| Homepage | `src/routes/_app/index.tsx` |
+| News list / article | `src/routes/_app/news.index.tsx`, `src/routes/_app/news.$id.tsx` |
+| Model dossier | `src/routes/_app/models.$slug.tsx` |
+| Ledger UI (sort, lab filter, promo toggle) | `src/components/new/ledger.tsx` |
+| Archived 2026-09 site | `src/routes/old/*` (`/old`) |
 | AA-style bars | `src/components/score-bars.tsx` |
 | Theme tokens | `src/styles.css` |
 | Tab icon | `public/favicon.svg` + `src/components/ridge-mark.tsx` |

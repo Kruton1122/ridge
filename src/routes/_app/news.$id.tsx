@@ -15,7 +15,7 @@ import { getModel } from "@/lib/data/catalog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { rankOf } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/new/news/$id")({
+export const Route = createFileRoute("/_app/news/$id")({
   component: DeskNote,
   head: ({ params }) => {
     const item = NEWS.find((n) => n.id === params.id);
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/new/news/$id")({
     <Container width="prose" className="py-24">
       <h1 className="font-serif text-[32px] text-n-text">Not on the desk</h1>
       <Link
-        to="/new/news"
+        to="/news"
         className="n-focus n-tap text-[13.5px] text-n-amber hover:underline"
       >
         Every note and wire item
@@ -114,7 +114,7 @@ function DeskNote() {
                 return (
                   <li key={model.id}>
                     <Link
-                      to="/new/models/$slug"
+                      to="/models/$slug"
                       params={{ slug: model.id }}
                       className="n-focus block h-full"
                     >
@@ -150,7 +150,7 @@ function DeskNote() {
         <Container className="pt-14">
           <Reveal>
             <Eyebrow>Next note</Eyebrow>
-            <Link to="/new/news/$id" params={{ id: next.id }} className="n-focus mt-3 block">
+            <Link to="/news/$id" params={{ id: next.id }} className="n-focus mt-3 block">
               <Card interactive className="p-5">
                 <div className="flex flex-wrap items-center gap-2">
                   <Tag>{next.kind}</Tag>

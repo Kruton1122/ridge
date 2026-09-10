@@ -6,7 +6,7 @@ import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { CHANGELOG } from "@/lib/data/changelog";
 import { nextPullLabel } from "@/lib/data/ledger";
 
-export const Route = createFileRoute("/new/changelog")({
+export const Route = createFileRoute("/_app/changelog")({
   component: Changelog,
   head: () => ({
     meta: [

@@ -7,7 +7,7 @@ import { BENCHMARKS, MODELS, SCORES, formatScore, getModel } from "@/lib/data/ca
 import { modelColor } from "@/lib/data/colors";
 import { LAB_THEME, profileFor } from "@/lib/data/profiles";
 
-export const Route = createFileRoute("/models/$slug")({
+export const Route = createFileRoute("/old/models/$slug")({
   component: ModelPage,
 });
 
@@ -19,7 +19,7 @@ function ModelPage() {
       <div className="min-h-dvh bg-bg px-6 py-16 text-fg">
         <SiteHeader />
         <h1 className="mt-10 font-serif text-3xl">Model not in this snapshot</h1>
-        <Link to="/" className="mt-4 inline-block text-sm text-primary">
+        <Link to="/old" className="mt-4 inline-block text-sm text-primary">
           Back to the ledger
         </Link>
       </div>

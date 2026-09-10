@@ -1,11 +1,11 @@
-# Ridge redesign — the `/new` tree
+# Ridge redesign
 
-A full visual and structural redesign of ridgebench.com, built **alongside** the
-published site at `/new/*`. Nothing about the live ledger changed. This file is
-the contract between agents while both versions exist.
+The redesign **is** the live site as of 2026-09-10. The previous site is archived
+at `/old`. `/new/*` redirects to the same path without the prefix. `/source`
+redirects to `/api`.
 
-*Built by Claude, 2026-09-10. Product rules still live in [`RIDGE.md`](./RIDGE.md);
-agent ownership in [`RIDGE-BOT.md`](./RIDGE-BOT.md).*
+*Built by Claude, 2026-09-10; promoted the same day. Product rules still live in
+[`RIDGE.md`](./RIDGE.md); agent ownership in [`RIDGE-BOT.md`](./RIDGE-BOT.md).*
 
 ---
 
@@ -32,15 +32,16 @@ lands on the redesign with no second edit and no merge conflict. The 7:30am cron
 ```
 src/lib/data/derived.ts          read-only derivations over the catalog
 src/components/new/*.tsx         reveal, bits, shell, command-palette, ledger, charts
-src/routes/new/*.tsx             12 routes (see below)
+src/routes/_app/*.tsx            live routes (pathless layout)
+src/routes/old/*.tsx             archived 2026-09 site
 scripts/new-qa.mjs               Playwright QA sweep, run by hand, not wired to anything
-public/ridge-crest.jpg           new masthead art (+ two -alt- variants)
+public/ridge-crest.jpg           masthead art (+ two -alt- variants)
 REDESIGN.md                      this file
 ```
 
-Routes: `/new` · `/new/models` · `/new/models/$slug` · `/new/compare` ·
-`/new/benchmarks` · `/new/benchmarks/$id` · `/new/labs` · `/new/labs/$id` ·
-`/new/news` · `/new/news/$id` · `/new/methodology` · `/new/changelog` · `/new/api`
+Routes: `/` · `/models` · `/models/$slug` · `/compare` · `/benchmarks` ·
+`/benchmarks/$id` · `/labs` · `/labs/$id` · `/news` · `/news/$id` ·
+`/methodology` · `/changelog` · `/api` (docs) · `/old` (archive)
 
 ## What was modified
 
@@ -226,19 +227,12 @@ failed requests, horizontal overflow, a missing `h1`, invisible content, and
 sub-24px tap targets, then exercises sort, column expand, lab filter and the
 command palette. Screenshots land in `screenshots/` (gitignored).
 
-## Migrating, when the word is given
+## Migrated 2026-09-10
 
-1. Delete the migration strip in `src/components/new/shell.tsx` (marked with a
-   comment).
-2. Move `src/routes/new/*` up to `src/routes/`, dropping the old
-   `index.tsx`, `news.tsx`, `news.$id.tsx`, `models.$slug.tsx`, `source.tsx`.
-3. Rewrite the `/new/...` paths in `NAV`, `FOOTER_LINKS`, `searchIndex()` in
-   `derived.ts`, and the `Link to=` props throughout — `rg -n '"/new' src` finds
-   all of them.
-4. Keep `src/routes/api/**` exactly as is. Those are the public contract.
-5. Add a `/source` → `/api` redirect so existing links survive.
-6. `npm run typecheck && node scripts/new-qa.mjs`.
+The preview at `/new` is now `/`. The previous site lives at `/old` with its own
+header/footer and an archive banner. JSON/CSV under `src/routes/api/**` was not
+moved. `/source` redirects to the API docs page at `/api`.
 
-**Rollback at any point:** delete `src/routes/new/`, `src/components/new/`,
-`src/lib/data/derived.ts` and the fenced block at the end of `src/styles.css`.
-Nothing else depends on them.
+**Rollback:** restore `src/routes/old/*` to the root route files and move
+`src/routes/_app/*` back under a `/new` layout. The archive is the previous
+published tree, not a reconstruction.
