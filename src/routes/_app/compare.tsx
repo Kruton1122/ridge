@@ -1,6 +1,6 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Check, Copy, Search, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Blank,
   Card,
@@ -54,6 +54,13 @@ function ComparePage() {
   const [lab, setLab] = useState<LabId | "all">("all");
   const [mode, setMode] = useState<PriceMode>("promo");
   const [copied, setCopied] = useState(false);
+  const scrollGuardRef = useRef<{ cancelled: boolean } | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (scrollGuardRef.current) scrollGuardRef.current.cancelled = true;
+    };
+  }, []);
 
   const selected = ids.split(",").map((s) => s.trim()).filter(Boolean).slice(0, MAX);
   const { models, rows } = compare(selected, mode);
@@ -81,11 +88,15 @@ function ComparePage() {
       return;
     }
     const y = window.scrollY;
+    if (scrollGuardRef.current) scrollGuardRef.current.cancelled = true;
+    const guard = { cancelled: false };
+    scrollGuardRef.current = guard;
     void navigate({
       search: { ids: next.join(",") },
       replace: true,
       resetScroll: false,
     }).then(() => {
+      if (guard.cancelled) return;
       // `resetScroll: false` stops the router's own scroll-to-top, but the page
       // keeps reflowing after this promise resolves — new cards mounting, the
       // Reveal observer firing, the scatter chart laying out — and any of those
@@ -94,12 +105,15 @@ function ComparePage() {
       // under load a "frame" can take well over 100ms, so 8 of them might cover
       // 60ms or 900ms depending on the machine. Bound the reassertion by wall
       // clock instead, and back it with a plain timer in case rAF itself gets
-      // deprioritized on a busy tab.
+      // deprioritized on a busy tab. Both are cancelled if the user navigates
+      // away (or this component unmounts) before the deadline — see guard.
       const deadline = Date.now() + 700;
       const correct = () => {
+        if (guard.cancelled) return;
         if (Math.abs(window.scrollY - y) > 1) window.scrollTo(0, y);
       };
       const reassert = () => {
+        if (guard.cancelled) return;
         correct();
         if (Date.now() < deadline) requestAnimationFrame(reassert);
       };

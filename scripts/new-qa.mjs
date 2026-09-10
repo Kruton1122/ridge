@@ -119,6 +119,11 @@ for (const [vpName, viewport] of VIEWPORTS) {
   const context = await browser.newContext({ viewport, deviceScaleFactor: 1 });
   const page = await context.newPage();
 
+  // Only true while a goto() is in flight — narrows the ERR_ABORTED
+  // suppression below to actual navigation cancellations, not aborts that
+  // happen once a page has settled and is being interacted with.
+  let navigating = false;
+
   page.on("console", (msg) => {
     if (msg.type() !== "error" && msg.type() !== "warning") return;
     const text = msg.text();
@@ -133,14 +138,18 @@ for (const [vpName, viewport] of VIEWPORTS) {
     // ERR_ABORTED is the browser cancelling a still-in-flight request from the
     // *previous* page the moment `page.goto()` fires for the next one — normal
     // navigation behaviour, not a failed request. The page walk reuses one
-    // page across 14 routes, so this fires constantly and is not a bug.
-    if (req.failure()?.errorText === "net::ERR_ABORTED") return;
+    // page across 14 routes, so this fires constantly and is not a bug. Only
+    // suppress it while a navigation is actually in flight, so an aborted
+    // request on a settled page still surfaces as a real problem.
+    if (navigating && req.failure()?.errorText === "net::ERR_ABORTED") return;
     problems.push(`[requestfailed] ${vpName} ${req.url()} :: ${req.failure()?.errorText}`);
   });
 
   for (const [name, path] of PAGES) {
+    navigating = true;
     const res = await page.goto(BASE + path, { waitUntil: "networkidle", timeout: 45000 });
     if (!res || res.status() >= 400) {
+      navigating = false;
       problems.push(`[http ${res?.status()}] ${vpName} ${path}`);
       continue;
     }
@@ -149,6 +158,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
     // that settle before evaluating anything against the page.
     await page.waitForLoadState("networkidle").catch(() => {});
     await page.waitForTimeout(150);
+    navigating = false;
 
     // Horizontal overflow is the classic mobile failure.
     const overflow = await page.evaluate(() => {
