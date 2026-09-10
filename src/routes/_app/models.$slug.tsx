@@ -233,15 +233,20 @@ function ModelPage() {
                   <Card className="p-5 sm:p-6">
                     <Eyebrow>Timeline</Eyebrow>
                     <h3 className="mt-2 font-serif text-[20px] text-n-text">Rollout</h3>
-                    <ol className="relative mt-5 ml-1.5 border-l border-n-line-amber/50 pl-5">
+                    <ol className="mt-5 flex flex-col">
                       {profile.about.rollout.map((item) => (
-                        <li key={`${item.date}-${item.text.slice(0, 24)}`} className="relative pb-5 last:pb-0">
-                          <span
-                            aria-hidden="true"
-                            className="absolute -left-[1.4rem] top-1.5 size-2 rounded-full bg-n-amber shadow-[0_0_0_3px_rgba(245,158,11,0.15)]"
-                          />
-                          <p className="n-num text-[11.5px] text-n-amber">{item.date}</p>
-                          <p className="mt-1 text-[13px] leading-snug text-n-text-2">{item.text}</p>
+                        <li
+                          key={`${item.date}-${item.text.slice(0, 24)}`}
+                          className="group/item grid grid-cols-[0.75rem_minmax(0,1fr)] gap-x-3"
+                        >
+                          <div className="relative flex justify-center" aria-hidden="true">
+                            <span className="absolute bottom-0 left-1/2 top-2.5 w-px -translate-x-1/2 bg-n-line-amber/50 group-last/item:hidden" />
+                            <span className="relative z-10 mt-1.5 size-2.5 shrink-0 rounded-full bg-n-amber shadow-[0_0_0_3px_rgba(245,158,11,0.15)]" />
+                          </div>
+                          <div className="pb-5 group-last/item:pb-0">
+                            <p className="n-num text-[11.5px] text-n-amber">{item.date}</p>
+                            <p className="mt-1 text-[13px] leading-snug text-n-text-2">{item.text}</p>
+                          </div>
                         </li>
                       ))}
                     </ol>
