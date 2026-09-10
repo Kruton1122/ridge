@@ -1,6 +1,15 @@
 export const CHANGELOG = [
   {
     date: "2026-09-10",
+    title: "Fill blank score coverage + enable briefing inserts",
+    items: [
+      "Seeded missing SCORES from 2026-09-10 briefing-pull: Sonnet 5 (AA 38 / Arena Thinking 1485 / SWE 79.6), GLM-5.3 (45 / 1505 / 95.4), plus Astra Arena 1520, Spark 1.3 Arena 1507, Terra AA 42 + SWE 95.4, Qwen3.8 Max AA 40, 3.7/3.8 Flash SWE, Grok 4.5 AA 39, V4 Pro AA 36 + Arena 1502, Luna AA 38 + Arena 1451.",
+      "apply-briefing-staging.py now INSERTs matched catalog models missing a SCORES row (keeps claim-on-first-match, fuzzy safety rails, non-main Arena skips). Thinking→base when aliased; max-model gate also reads scraped title.",
+      "Left blank: deepseek-v4.1-flash (no clear V4.1 Flash row), muse-spark-1.3-max Arena (no explicit max row), gemini-3.1-pro AA/SWE (Preview-only in pull), Terminal-Bench, Fable 5.1 SWE from Fable 5. Fixed stale Sonnet/GLM/Qwen/Terra/3.7/Grok/Luna summaries.",
+    ],
+  },
+  {
+    date: "2026-09-10",
     title: "Fix briefing apply fuzzy-match score corruption",
     items: [
       "Hardened apply-briefing-staging matching: prefer exact/alias, reject weak fuzzy, claim model on first good match, safety-rail large Arena/SWE/AA jumps without high-confidence name match.",

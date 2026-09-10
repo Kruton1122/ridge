@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-"""Apply briefing-pull.json to catalog SCORES."""
+"""Apply briefing-pull.json to catalog SCORES.
+
+Updates existing score rows and INSERTs new ones when a scrape row matches a
+catalog model that has no SCORES entry yet. Unmatched names, ambiguous ties,
+non-main Arena junk, duplicate/lower claims, and low-confidence fuzzy large
+deltas are still skipped (claim-on-first-match + safety rails from 4f6425b).
+"X Thinking" may map to model X when aliased or the Thinking strip matches.
+"""
 from __future__ import annotations
 import json, os, re, subprocess, sys
 from pathlib import Path
@@ -101,7 +108,10 @@ def parse_scores(src):
     return scores
 
 def is_high_confidence(why, score):
-    return why in ("exact", "exact-norm", "exact-alias", "exact-short") or score >= 95
+    return why in (
+        "exact", "exact-norm", "exact-alias", "exact-short",
+        "thinking-strip", "thinking-alias",
+    ) or score >= 95
 
 def score_confidence(scraped_name, model, variant_hint):
     sn = normalize(scraped_name)
@@ -116,8 +126,9 @@ def score_confidence(scraped_name, model, variant_hint):
         elif re.search(r"\bmax\b", v) and not re.search(r"\bxhigh\b", v):
             return 0, "spark-xhigh rejected max-only"
     # Models whose id/name includes max should see max in the scrape
+    # (check name AND variant hint — notes like "best listed row" must not hide Max in the title)
     if re.search(r"\bmax\b", model["id"] + " " + model["name"].lower()):
-        v = (variant_hint or scraped_name or "").lower()
+        v = f"{variant_hint or ''} {scraped_name or ''}".lower()
         if not re.search(r"\bmax\b", v):
             return 0, "max-model needs max token"
 
@@ -207,9 +218,29 @@ def score_confidence(scraped_name, model, variant_hint):
 
 def match_model(scraped_name, models, variant_hint):
     scraped_name = re.sub(r"\s*\b\d{4}\b\s*$", "", scraped_name or "").strip()
+    thinking_base = None
+    tm = re.match(r"^(.*?)\s+Thinking\s*$", scraped_name or "", re.I)
+    if tm:
+        thinking_base = tm.group(1).strip()
     ranked = []
     for model in models:
         sc, why = score_confidence(scraped_name, model, variant_hint)
+        if thinking_base:
+            sc2, why2 = score_confidence(thinking_base, model, variant_hint)
+            aliases_l = {a.lower() for a in model["aliases"]}
+            full_l = (scraped_name or "").lower()
+            aliased_thinking = full_l in aliases_l or full_l in {
+                (model["name"] + " Thinking").lower(),
+                (model["shortName"] + " Thinking").lower(),
+            }
+            # Accept Thinking→base when alias lists Thinking name, or base is exact
+            if aliased_thinking and sc2 >= 80:
+                if sc2 >= sc:
+                    sc, why = sc2, "thinking-alias"
+            elif is_high_confidence(why2, sc2) and sc2 > sc:
+                sc, why = sc2, "thinking-strip"
+            elif sc2 >= 100 and sc2 > sc:
+                sc, why = sc2, "thinking-strip"
         ranked.append((sc, why, model))
     ranked.sort(key=lambda x: -x[0])
     # Prefer exact / strong matches; reject weak fuzzy
@@ -270,6 +301,35 @@ def replace_score_call(catalog_src, existing, next_row):
     if existing["raw"] not in catalog_src:
         die(f'could not locate score for {existing["modelId"]}/{existing["benchmarkId"]}')
     return catalog_src.replace(existing["raw"], replacement, 1)
+
+
+def insert_score_call(catalog_src, next_row):
+    """Insert a new s(...) call into SCORES, grouped with the same benchmark."""
+    note = next_row.get("note")
+    note_part = f', "{note}"' if note else ""
+    if note and '"' in note:
+        note_part = ', "' + note.replace('"', '\\"') + '"'
+    line = (
+        f'  s("{next_row["modelId"]}", "{next_row["benchmarkId"]}", {format_num(next_row["value"])}, '
+        f'"{next_row["sourceName"]}", "{next_row["sourceUrl"]}", "{next_row["asOf"]}"{note_part}),'
+    )
+    bench = next_row["benchmarkId"]
+    last = None
+    for m in re.finditer(
+        rf'^\s*s\(\s*"[^"]+"\s*,\s*"{re.escape(bench)}"\s*,[^\n]+\)',
+        catalog_src,
+        re.M,
+    ):
+        last = m
+    if last:
+        end = last.end()
+        if end < len(catalog_src) and catalog_src[end] == ",":
+            end += 1
+        return catalog_src[:end] + "\n" + line + catalog_src[end:]
+    m = re.search(r"(export const SCORES: Score\[\] = \[[\s\S]*?)(\n\];)", catalog_src)
+    if not m:
+        die("could not locate SCORES array for insert")
+    return catalog_src[: m.start(2)] + "\n" + line + catalog_src[m.start(2) :]
 
 def build_headline(aa_scores, models_by_id):
     lines = []
@@ -371,7 +431,39 @@ def main():
             else:
                 source_name, source_url = "Vals AI", SWE_URL
             if not prev:
-                logs.append(f"no existing {benchmark_id} row for {model_id} ({name}) — skip insert in v1")
+                next_note = note if benchmark_id == "aa-intelligence" else (
+                    "Arena lists Thinking" if (
+                        benchmark_id == "arena-elo"
+                        and re.search(r"\bThinking\b", name or "", re.I)
+                    ) else None
+                )
+                next_row = {
+                    "modelId": model_id, "benchmarkId": benchmark_id, "value": num_val,
+                    "sourceName": source_name, "sourceUrl": source_url, "asOf": as_of,
+                    "note": next_note,
+                }
+                note_part = f', "{next_note}"' if next_note else ""
+                raw = (
+                    f's("{model_id}", "{benchmark_id}", {format_num(num_val)}, '
+                    f'"{source_name}", "{source_url}", "{as_of}"{note_part})'
+                )
+                if not DRY_RUN:
+                    catalog_src = insert_score_call(catalog_src, next_row)
+                existing_scores.append({
+                    "modelId": model_id, "benchmarkId": benchmark_id, "value": num_val,
+                    "sourceName": source_name, "sourceUrl": source_url, "asOf": as_of,
+                    "note": next_note, "raw": raw,
+                })
+                updates.append({
+                    "benchmarkId": benchmark_id, "modelId": model_id,
+                    "name": model["shortName"] or model["name"],
+                    "from": None, "to": num_val, "changedVal": True,
+                    "matchWhy": matched["why"], "note": next_note, "scrapedName": name,
+                    "inserted": True,
+                })
+                logs.append(
+                    f"insert {benchmark_id} row for {model_id} ({name}) = {format_num(num_val)}"
+                )
                 continue
             from_val = prev["value"]
             high_conf = is_high_confidence(matched["why"], matched["score"])
@@ -477,7 +569,12 @@ def main():
             items = []
             for bench, rows in by_bench.items():
                 bits = ", ".join(
-                    "%s %s->%s" % (u["name"], format_num(u["from"]), format_num(u["to"])) for u in rows[:6]
+                    (
+                        "%s INSERT %s" % (u["name"], format_num(u["to"]))
+                        if u.get("from") is None
+                        else "%s %s->%s" % (u["name"], format_num(u["from"]), format_num(u["to"]))
+                    )
+                    for u in rows[:6]
                 )
                 items.append("%s: %s." % (bench, bits))
             items.append("Scores sourced from daily briefing scrape (AA / Arena+ / Vals).")
@@ -519,6 +616,12 @@ def main():
             % (len(updates), len(material))
         )
         for u in updates:
+            if u.get("inserted") or u.get("from") is None:
+                print(
+                    "  INSERT %s %s: %s [%s] scraped=%r"
+                    % (u["benchmarkId"], u["modelId"], format_num(u["to"]), u["matchWhy"], u.get("scrapedName"))
+                )
+                continue
             extra = "" if u["changedVal"] else " (asOf/source only)"
             print(
                 "  %s %s: %s -> %s%s [%s] scraped=%r"

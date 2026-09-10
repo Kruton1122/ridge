@@ -198,7 +198,11 @@ Three pre-existing bugs on the **published** site were fixed in this pass:
    rows (style-control, deprecated, ancient Claude-1/2) are skipped outright, and
    any fuzzy match moving a score past a per-benchmark delta ceiling without high
    confidence is rejected and logged instead of applied — see `safety_skips` in
-   the script's dry-run output. Full write-up: `CHANGELOG` entry "Fix briefing
+   the script's dry-run output. **Inserts are now enabled**: when a scrape row
+   confidently matches a catalog model that has no SCORES row yet, apply writes
+   an INSERT (still skips unmatched / ambiguous / non-main Arena / low-confidence
+   fuzzy). "X Thinking" may map to model X when aliased or the Thinking strip
+   matches the base name. Full write-up: `CHANGELOG` entry "Fix briefing
    apply fuzzy-match score corruption" in `src/lib/data/changelog.ts`. If a
    future correction looks like a score swung far outside its normal
    week-to-week range, check `matchWhy` / the safety-skip log before assuming
@@ -206,4 +210,4 @@ Three pre-existing bugs on the **published** site were fixed in this pass:
 
 ---
 
-*Last updated 2026-09-08 by Ridge Bot (Grok Bot); redesign shipped to `/` 2026-09-10.*
+*Last updated 2026-09-10 by Ridge Bot (Grok Bot); score-coverage inserts enabled.*
