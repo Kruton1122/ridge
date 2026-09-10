@@ -329,10 +329,16 @@ for (const [vpName, viewport] of VIEWPORTS) {
 
   await page.screenshot({ path: `${OUT}iphone-ledger.png` });
 
-  // Data tables must collapse to cards on a phone. The comparison matrix is the
-  // one exception — it is genuinely two-dimensional, so it keeps a scrolling
-  // table with a frozen metric column.
-  for (const path of ["/", "/benchmarks/aa-intelligence", "/labs/anthropic", "/models"]) {
+  // Data tables must collapse to cards on a phone. Compare used to keep a
+  // frozen-column table; iOS sticky-in-overflow painted labels on top of
+  // each other, so it stacks like the ledger now.
+  for (const path of [
+    "/",
+    "/benchmarks/aa-intelligence",
+    "/labs/anthropic",
+    "/models",
+    "/compare?ids=claude-fable-5.1,gpt-6-astra,grok-4.6",
+  ]) {
     await page.goto(BASE + path, { waitUntil: "networkidle" });
     await page.waitForTimeout(400);
 
@@ -363,6 +369,98 @@ for (const [vpName, viewport] of VIEWPORTS) {
     }
   }
 
+  await context.close();
+}
+
+{
+  // iPhone 17 Pro: 402×874 @3×, touch + coarse pointer. A resized desktop
+  // Chromium window will not show the sticky-column overlap or the
+  // search-param scroll jump.
+  const context = await browser.newContext({
+    viewport: { width: 402, height: 874 },
+    deviceScaleFactor: 3,
+    isMobile: true,
+    hasTouch: true,
+  });
+  const page = await context.newPage();
+  page.on("pageerror", (err) => problems.push(`[pageerror iphone17] ${err.message}`));
+
+  await page.goto(BASE + "/compare", { waitUntil: "networkidle" });
+  await page.waitForTimeout(500);
+
+  await page.evaluate(() => window.scrollTo(0, 420));
+  const yBefore = await page.evaluate(() => window.scrollY);
+  await page.getByRole("button", { name: "Fable 5.1", exact: true }).click();
+  await page.waitForTimeout(400);
+  const yAfter = await page.evaluate(() => window.scrollY);
+  if (yBefore > 200 && yAfter < 80) {
+    problems.push(
+      `[iphone17] picking a model reset scroll (${yBefore} -> ${yAfter})`,
+    );
+  }
+
+  await page.getByRole("button", { name: "Astra", exact: true }).click();
+  await page.waitForTimeout(600);
+
+  const tables = await page.evaluate(
+    () =>
+      [...document.querySelectorAll("table")].filter((t) => t.getBoundingClientRect().width > 0)
+        .length,
+  );
+  if (tables > 0) problems.push("[iphone17] compare still renders a data table");
+
+  const cards = await page.evaluate(
+    () => document.querySelectorAll('[data-testid="compare-cards"]').length,
+  );
+  if (cards === 0) problems.push("[iphone17] compare cards did not render");
+
+  const overflow = await page.evaluate(() => ({
+    scroll: document.documentElement.scrollWidth,
+    client: document.documentElement.clientWidth,
+  }));
+  if (overflow.scroll > overflow.client + 1) {
+    problems.push(
+      `[iphone17] compare overflows horizontally (${overflow.scroll} > ${overflow.client})`,
+    );
+  }
+
+  const overlaps = await page.evaluate(() => {
+    const nodes = [...document.querySelectorAll("main a, main button, main p, main h1, main h2")].filter(
+      (el) => {
+        const r = el.getBoundingClientRect();
+        const cs = getComputedStyle(el);
+        return (
+          r.width > 10 &&
+          r.height > 8 &&
+          r.bottom > 0 &&
+          r.top < window.innerHeight &&
+          cs.visibility !== "hidden" &&
+          Number(cs.opacity) > 0.1
+        );
+      },
+    );
+    const hits = [];
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i].getBoundingClientRect();
+      for (let j = i + 1; j < nodes.length; j++) {
+        if (nodes[i].contains(nodes[j]) || nodes[j].contains(nodes[i])) continue;
+        const b = nodes[j].getBoundingClientRect();
+        const ox = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+        const oy = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+        if (ox > 6 && oy > 6) {
+          hits.push(
+            `${(nodes[i].textContent ?? "").trim().slice(0, 22)} × ${(nodes[j].textContent ?? "").trim().slice(0, 22)}`,
+          );
+        }
+      }
+    }
+    return [...new Set(hits)].slice(0, 4);
+  });
+  if (overlaps.length) {
+    problems.push(`[iphone17] overlapping text :: ${overlaps.join(" | ")}`);
+  }
+
+  await page.screenshot({ path: `${OUT}iphone-compare.png`, fullPage: true });
   await context.close();
 }
 

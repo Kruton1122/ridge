@@ -76,7 +76,16 @@ function ComparePage() {
   }, [query, lab]);
 
   function setSelection(next: string[]) {
-    void navigate({ search: { ids: next.join(",") }, replace: true });
+    const y = typeof window !== "undefined" ? window.scrollY : 0;
+    void navigate({
+      search: { ids: next.join(",") },
+      replace: true,
+      resetScroll: false,
+    }).then(() => {
+      if (typeof window !== "undefined" && Math.abs(window.scrollY - y) > 1) {
+        window.scrollTo(0, y);
+      }
+    });
   }
 
   function toggle(id: string) {
@@ -181,7 +190,11 @@ function ComparePage() {
                 aria-hidden="true"
               />
               <input
-                type="search"
+                type="text"
+                inputMode="search"
+                autoComplete="off"
+                autoCorrect="off"
+                spellCheck={false}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Filter by name, lab, alias"
@@ -280,7 +293,8 @@ function ComparePage() {
             ) : null}
 
             <Reveal>
-              <div className="overflow-x-auto rounded-lg border border-n-line">
+              <MobileMatrix models={models} rows={rows} onRemove={toggle} />
+              <div className="mt-0 hidden overflow-x-auto rounded-lg border border-n-line md:block">
                 <table className="w-full border-collapse text-[13px]">
                   <thead>
                     <tr className="bg-n-raised">
@@ -492,14 +506,16 @@ function AmongThese({ models }: { models: Model[] }) {
           <Link
             to="/models/$slug"
             params={{ slug: row.model.id }}
-            className="n-focus flex min-h-9 items-center gap-3 py-2.5 hover:bg-n-overlay/40"
+            className="n-focus flex min-h-9 flex-wrap items-center gap-x-3 gap-y-1 py-2.5 hover:bg-n-overlay/40"
           >
             <LabDot model={row.model} />
             <span className="min-w-0 flex-1 truncate text-[13.5px] text-n-text-2">
               {row.model.shortName}
             </span>
-            <span className="n-num shrink-0 text-[13.5px] text-n-text">{row.rank.value}</span>
-            <RankBadge rank={row.rank.rank} of={row.rank.of} tied={row.rank.tied} />
+            <span className="ml-auto flex shrink-0 items-baseline gap-2">
+              <span className="n-num text-[13.5px] text-n-text">{row.rank.value}</span>
+              <RankBadge rank={row.rank.rank} of={row.rank.of} tied={row.rank.tied} />
+            </span>
           </Link>
           <div className="mb-2 h-[4px] overflow-hidden rounded-full bg-n-overlay">
             <div
@@ -514,6 +530,132 @@ function AmongThese({ models }: { models: Model[] }) {
         </li>
       ))}
     </ol>
+  );
+}
+
+function MobileMatrix({
+  models,
+  rows,
+  onRemove,
+}: {
+  models: Model[];
+  rows: ReturnType<typeof compare>["rows"];
+  onRemove: (id: string) => void;
+}) {
+  const sections: { id: "boards" | "cost" | "access"; label: string }[] = [
+    { id: "boards", label: "Boards" },
+    { id: "cost", label: "Cost" },
+    { id: "access", label: "Access" },
+  ];
+
+  return (
+    <div className="md:hidden" data-testid="compare-cards">
+      <ul className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {models.map((model) => (
+          <li
+            key={model.id}
+            className="flex shrink-0 items-center gap-2 rounded-md border border-n-line bg-n-raised px-2.5 py-1.5"
+            style={{ borderTop: `2px solid ${modelColor(model)}` }}
+          >
+            <LabDot model={model} />
+            <Link
+              to="/models/$slug"
+              params={{ slug: model.id }}
+              className="n-focus n-tap text-[13px] text-n-text"
+            >
+              {model.shortName}
+            </Link>
+            <button
+              type="button"
+              onClick={() => onRemove(model.id)}
+              aria-label={`Remove ${model.shortName}`}
+              className="n-focus n-tap inline-flex size-7 items-center justify-center text-n-text-3"
+            >
+              <X className="size-3.5" aria-hidden="true" />
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      {sections.map((section) => {
+        const sectionRows = rows.filter((row) => row.section === section.id);
+        if (sectionRows.length === 0) return null;
+        return (
+          <div key={section.id} className="mt-5">
+            <Eyebrow>{section.label}</Eyebrow>
+            <ul className="mt-2 flex flex-col gap-2">
+              {sectionRows.map((row) => (
+                <li key={row.id} className="rounded-lg border border-n-line bg-n-raised p-3.5">
+                  <p className="text-[13px] font-medium text-n-text">{row.label}</p>
+                  {row.note ? (
+                    <p className="mt-0.5 text-[11px] leading-snug text-n-text-3">{row.note}</p>
+                  ) : null}
+                  <ul className="mt-3 flex flex-col gap-2.5">
+                    {models.map((model, i) => {
+                      const cell = row.cells[i];
+                      return (
+                        <li key={model.id}>
+                          <div className="flex items-start gap-2">
+                            <LabDot model={model} className="mt-1.5" />
+                            <span className="min-w-0 flex-1 truncate pt-0.5 text-[13px] text-n-text-2">
+                              {model.shortName}
+                            </span>
+                            <div className="shrink-0 text-right">
+                              {cell?.text == null ? (
+                                <Blank />
+                              ) : (
+                                <>
+                                  <p
+                                    className={cn(
+                                      "n-num text-[15px] leading-none",
+                                      cell.best ? "text-n-amber" : "text-n-text",
+                                    )}
+                                  >
+                                    {cell.text}
+                                  </p>
+                                  {cell.rank ? (
+                                    <RankBadge
+                                      rank={cell.rank.rank}
+                                      of={cell.rank.of}
+                                      tied={cell.rank.tied}
+                                      className="mt-1 justify-end"
+                                    />
+                                  ) : null}
+                                  {cell.delta ? (
+                                    <p className="n-num mt-1 text-[11px] text-n-text-3">{cell.delta}</p>
+                                  ) : null}
+                                </>
+                              )}
+                            </div>
+                          </div>
+                          {cell?.share != null ? (
+                            <span className="mt-1.5 block h-[4px] overflow-hidden rounded-full bg-n-overlay">
+                              <span
+                                className="block h-full rounded-full"
+                                style={{
+                                  width: `${cell.share * 100}%`,
+                                  backgroundColor: modelColor(model),
+                                  opacity: cell.best ? 1 : 0.75,
+                                }}
+                              />
+                            </span>
+                          ) : null}
+                          {cell?.hint ? (
+                            <p className="mt-1 pl-[15px] text-[10.5px] leading-snug text-n-text-3">
+                              {cell.hint}
+                            </p>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
