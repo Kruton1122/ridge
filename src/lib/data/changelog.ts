@@ -1,6 +1,15 @@
 export const CHANGELOG = [
   {
     date: "2026-09-10",
+    title: "Fix briefing apply fuzzy-match score corruption",
+    items: [
+      "Hardened apply-briefing-staging matching: prefer exact/alias, reject weak fuzzy, claim model on first good match, safety-rail large Arena/SWE/AA jumps without high-confidence name match.",
+      "Restored Arena Elo and SWE-bench after bad 2026-09-10 apply (e.g. Fable 5.1 1520←1178, Opus SWE 97←76.4). AA best-variant tops kept (scrape max/high).",
+      "Skipped Arena non-main rows (style-control / deprecated / Claude-1/2). DeepSeek V4 Pro keeps Verified 96.4 over lower Pro slug.",
+    ],
+  },
+  {
+    date: "2026-09-10",
     title: "DeepSeek V4.1 Flash — new catalog id",
     items: [
       "Added deepseek-v4.1-flash (API deepseek-flash): GA, open-weight MIT, 1M context, peak list $0.30 / $1.20; off-peak half; cache-hit noted in summary.",

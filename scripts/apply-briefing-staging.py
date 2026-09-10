@@ -14,6 +14,12 @@ AA_URL = "https://artificialanalysis.ai/leaderboards/models"
 ARENA_URL = "https://openlm.ai/chatbot-arena/"
 SWE_URL = "https://vals.ai/benchmarks/swebench"
 
+# Large-delta safety rails (absolute points). Exceeding these without a
+# high-confidence exact/alias match → log and skip.
+ARENA_DELTA_MAX = 80
+SWE_DELTA_MAX = 5
+AA_DELTA_MAX = 8
+
 def die(msg, code=1):
     print(msg, file=sys.stderr)
     raise SystemExit(code)
@@ -27,11 +33,46 @@ def normalize(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
-BRANDS = ("claude", "gpt", "gemini", "grok", "muse", "spark", "kimi", "qwen", "glm", "deepseek", "llama", "command", "gemma", "sonnet", "opus", "fable", "astra", "sol", "terra", "luna")
+BRANDS = (
+    "claude", "gpt", "gemini", "gemma", "grok", "muse", "spark", "kimi", "qwen",
+    "glm", "deepseek", "llama", "command", "sonnet", "opus", "fable", "astra",
+    "sol", "terra", "luna", "phi", "step", "intellect", "mistral", "nova",
+)
 
 def brands_in(s):
     low = (s or "").lower()
     return {b for b in BRANDS if b in low}
+
+def version_tokens(s):
+    """Whole version tokens only (no substring digit tricks)."""
+    return re.findall(r"\d+(?:\.\d+)+|\d+", (s or "").lower())
+
+def versions_compatible(scraped_name, model):
+    """Require at least one exact shared version token when both sides have versions."""
+    vs = set(version_tokens(re.sub(r"\([^)]*\)", " ", scraped_name or "")))
+    vm = set(version_tokens(f"{model['name']} {model['shortName']} {model['id']}"))
+    if not vs or not vm:
+        return True
+    return bool(vs & vm)
+
+def brands_compatible(scraped_name, model):
+    sb = brands_in(scraped_name)
+    mb = brands_in(model["name"] + " " + model["id"] + " " + " ".join(model["aliases"]))
+    if sb and mb and sb.isdisjoint(mb):
+        return False
+    return True
+
+def arena_row_skippable(name):
+    """Skip Arena rows that are style-control / deprecated / clearly non-main."""
+    n = (name or "").lower()
+    if re.search(r"style[\s-]?control", n):
+        return True
+    if re.search(r"\bdeprecated\b", n):
+        return True
+    # Ancient single-digit Claude (Claude-1 / Claude-2) — not frontier Fable/Opus
+    if re.match(r"^claude[\s_-]*[12]\b", n):
+        return True
+    return False
 
 def parse_models(src):
 
@@ -59,6 +100,9 @@ def parse_scores(src):
         })
     return scores
 
+def is_high_confidence(why, score):
+    return why in ("exact", "exact-norm", "exact-alias", "exact-short") or score >= 95
+
 def score_confidence(scraped_name, model, variant_hint):
     sn = normalize(scraped_name)
     candidates = [normalize(x) for x in [model["id"], model["name"], model["shortName"], *model["aliases"]]]
@@ -76,44 +120,89 @@ def score_confidence(scraped_name, model, variant_hint):
         v = (variant_hint or scraped_name or "").lower()
         if not re.search(r"\bmax\b", v):
             return 0, "max-model needs max token"
-    if sn in candidates:
+
+    if not brands_compatible(scraped_name, model):
+        return 0, "brand-mismatch"
+    if not versions_compatible(scraped_name, model):
+        return 0, "version-mismatch"
+
+    # Exact on normalized id / name / shortName / aliases
+    raw_lower = re.sub(r"\s+", " ", re.sub(r"\([^)]*\)", " ", (scraped_name or "").lower())).strip()
+    exact_raw = {model["id"].lower(), model["name"].lower(), model["shortName"].lower(), *[a.lower() for a in model["aliases"]]}
+    if raw_lower in exact_raw or (scraped_name or "").strip().lower() in exact_raw:
         return 100, "exact"
-    raw_tokens = [
-        t.replace(".", "")
-        for t in re.sub(r"[^a-z0-9.]+", " ", re.sub(r"\([^)]*\)", " ", scraped_name.lower())).split()
-        if t
-    ]
-    st = set(raw_tokens) | set(normalize(scraped_name).split())
+    if sn and sn in candidates:
+        # Avoid ultra-short alias traps (e.g. alias "k3" vs random "...3")
+        if len(sn) <= 2:
+            return 0, "short-norm"
+        return 100, "exact-norm"
+
+    # Reject contains when scraped norm is tiny / digits-only (Claude-1 → "1" ⊂ "fable 5 1")
+    if not sn or len(sn) <= 2 or sn.isdigit():
+        return 0, "too-short"
+
     best, why = 0, "none"
     for c in candidates:
-        if not c:
+        if not c or len(c) <= 2:
             continue
         if c == sn:
             return 100, "exact-norm"
         if sn in c or c in sn:
-            # reject contains when brand tokens disagree (Qwen3.8-Flash vs Gemini 3.8 Flash)
-            sb, mb = brands_in(scraped_name), brands_in(model["name"] + " " + model["id"] + " " + " ".join(model["aliases"]))
-            if sb and mb and sb.isdisjoint(mb):
+            # contained side must be meaningful
+            shorter = sn if len(sn) <= len(c) else c
+            if len(shorter) < 4 and not re.search(r"\d", shorter):
                 continue
             ratio = min(len(c), len(sn)) / max(len(c), len(sn))
-            sc = 70 + round(ratio * 25)
+            # Prefer near-equal contains (Deepseek v4 Pro ⊂ Deepseek v4 Pro 0813)
+            sc = 80 + round(ratio * 15)
             if sc > best:
                 best, why = sc, "contains"
+
+    # Token overlap — stricter: need brand overlap when model has brands,
+    # and solid coverage (not a single shared digit).
+    sb, mb = brands_in(scraped_name), brands_in(model["name"] + " " + model["id"] + " " + " ".join(model["aliases"]))
+    if mb and not (sb & mb):
+        # No shared brand → do not allow weak token matches
+        return (best, why) if best >= 80 else (0, "token-no-brand")
+
+    raw_tokens = [
+        t.replace(".", "")
+        for t in re.sub(r"[^a-z0-9.]+", " ", re.sub(r"\([^)]*\)", " ", scraped_name.lower())).split()
+        if t and t not in {"thinking", "instruct", "preview", "it", "chat"}
+    ]
+    # Drop bare brand tokens from comparison set noise
+    st = {t for t in (set(raw_tokens) | set(sn.split())) if t and not t.isdigit()}
+    st_digits = {t for t in raw_tokens if any(ch.isdigit() for ch in t)}
+    st = st | st_digits
+
+    for c in candidates:
+        if not c or len(c) <= 2:
+            continue
         ct = set(c.split())
         if not ct:
             continue
-        inter = sum(1 for t in ct if t in st or any(t in x or x in t for x in st))
+        # Ignore pure brand-only candidate tokens already stripped by normalize
+        inter_tokens = []
+        for t in ct:
+            if t in st or any(t == x for x in st):
+                inter_tokens.append(t)
+            elif any((not t.isdigit() and not x.isdigit() and (t in x or x in t) and min(len(t), len(x)) >= 3) for x in st):
+                inter_tokens.append(t)
+        inter = len(set(inter_tokens))
+        if inter == 0:
+            continue
+        # Single shared numeric token alone is not enough (Step-3 vs k3)
+        if inter == 1:
+            only = next(iter(set(inter_tokens)))
+            if only.isdigit() or len(only) <= 2:
+                continue
         jaccard = inter / len(ct | st)
         coverage = inter / len(ct)
-        sc = round(coverage * 60 + jaccard * 40)
+        sc = round(coverage * 55 + jaccard * 35)
+        if mb and sb & mb:
+            sc += 5
         if sc > best:
             best, why = sc, f"token({inter}/{len(ct)})"
-    dig_s = " ".join(re.findall(r"\d+(?:\.\d+)*", scraped_name))
-    dig_m = re.findall(r"\d+(?:\.\d+)*", f"{model['name']} {model['shortName']}")
-    if dig_s and dig_m:
-        ok = any(d in dig_s or dig_s.split()[0] in d for d in dig_m)
-        if not ok:
-            return min(best, 40), "version-mismatch"
     return best, why
 
 def match_model(scraped_name, models, variant_hint):
@@ -123,21 +212,30 @@ def match_model(scraped_name, models, variant_hint):
         sc, why = score_confidence(scraped_name, model, variant_hint)
         ranked.append((sc, why, model))
     ranked.sort(key=lambda x: -x[0])
-    if not ranked or ranked[0][0] < 72:
+    # Prefer exact / strong matches; reject weak fuzzy
+    if not ranked or ranked[0][0] < 80:
         return None
-    if ranked[0][0] < 90 and ranked[0][1] == "contains":
-        top = ranked[0][2]
-        sb, mb = brands_in(scraped_name), brands_in(top["name"] + " " + top["id"])
-        dig_s = " ".join(re.findall(r"\d+(?:\.\d+)*", scraped_name or ""))
-        dig_m = " ".join(re.findall(r"\d+(?:\.\d+)*", top["name"] + " " + top["shortName"]))
-        if not (sb and mb and not sb.isdisjoint(mb) and dig_s and dig_m and dig_s.split()[0] in dig_m):
-            return None
     top_sc, top_why, top = ranked[0]
+    # Non-exact fuzzy must clear a higher bar and prove brand+version
+    if not is_high_confidence(top_why, top_sc):
+        if top_sc < 88:
+            return None
+        if not brands_compatible(scraped_name, top) or not versions_compatible(scraped_name, top):
+            return None
+        # contains with strong ratio only
+        if top_why == "contains" and top_sc < 90:
+            return None
+        if top_why.startswith("token") and top_sc < 92:
+            return None
     if len(ranked) > 1:
         sec_sc, _, sec = ranked[1]
         if (sec_sc >= top_sc - 5 and sec["id"] != top["id"]
             and not (top["id"].startswith("muse-spark") and sec["id"].startswith("muse-spark"))):
-            return {"ambiguous": True, "top": top, "second": sec}
+            # Exact top beats near-tied fuzzy second
+            if is_high_confidence(top_why, top_sc) and sec_sc < 95:
+                pass
+            else:
+                return {"ambiguous": True, "top": top, "second": sec}
     return {"model": top, "score": top_sc, "why": top_why}
 
 def format_snapshot_label(iso):
@@ -191,6 +289,15 @@ def build_headline(aa_scores, models_by_id):
         lines.append(f"{display_rank}. {name} — {format_num(row['value'])}{suffix}")
     return lines
 
+def safety_delta_limit(benchmark_id):
+    if benchmark_id == "arena-elo":
+        return ARENA_DELTA_MAX
+    if benchmark_id == "swe-bench":
+        return SWE_DELTA_MAX
+    if benchmark_id == "aa-intelligence":
+        return AA_DELTA_MAX
+    return None
+
 def main():
     if not PULL_PATH.exists():
         die(f"missing {PULL_PATH} — run briefing.py first")
@@ -204,6 +311,7 @@ def main():
     models_by_id = {m["id"]: m for m in models}
     existing_scores = parse_scores(catalog_src)
     unmatched, ambiguous, updates, logs = [], [], [], []
+    safety_skips = []
 
     def apply_bucket(benchmark_id, rows, mapper):
         nonlocal catalog_src
@@ -227,6 +335,9 @@ def main():
                 num_val = float(value)
             except (TypeError, ValueError):
                 continue
+            if benchmark_id == "arena-elo" and arena_row_skippable(name):
+                (logs.append("skip arena non-main row %r" % name) if DRY_RUN else None)
+                continue
             matched = match_model(name, models, variant_hint or note)
             if not matched:
                 unmatched.append({"benchmarkId": benchmark_id, "name": name, "value": num_val})
@@ -239,10 +350,18 @@ def main():
             if model_id in used:
                 # keep higher sourced value for this model/benchmark
                 prev_u = next((u for u in updates if u["modelId"]==model_id and u["benchmarkId"]==benchmark_id), None)
+                # Also respect claim-only matches (no update row) — higher already claimed
                 if prev_u is not None and num_val <= prev_u["to"]:
-                    logs.append("skip duplicate match %s %s -> %s" % (benchmark_id, name, model_id))
+                    logs.append("skip duplicate match %s %s -> %s" % (benchmark_id, name, model_id)) if DRY_RUN else None
+                    continue
+                if prev_u is None:
+                    # claimed by a no-op higher/equal match
+                    logs.append("skip duplicate match %s %s -> %s (already claimed)" % (benchmark_id, name, model_id)) if DRY_RUN else None
                     continue
                 # else fall through to overwrite with higher value
+            # Claim this model as soon as we accept a confident match — even if
+            # the catalog value is unchanged — so a later weaker/lower row cannot
+            # overwrite (root cause of 2026-09-10 Arena/SWE corruption).
             used.add(model_id)
             prev = next((s for s in existing_scores if s["modelId"] == model_id and s["benchmarkId"] == benchmark_id), None)
             if benchmark_id == "aa-intelligence":
@@ -255,6 +374,18 @@ def main():
                 logs.append(f"no existing {benchmark_id} row for {model_id} ({name}) — skip insert in v1")
                 continue
             from_val = prev["value"]
+            high_conf = is_high_confidence(matched["why"], matched["score"])
+            lim = safety_delta_limit(benchmark_id)
+            if lim is not None and abs(num_val - from_val) > lim and not high_conf:
+                msg = (
+                    "safety skip %s %s: %s->%s (delta %.1f > %s) matched %r via %s conf=%s"
+                    % (benchmark_id, model_id, format_num(from_val), format_num(num_val),
+                       abs(num_val - from_val), lim, name, matched["why"], matched["score"])
+                )
+                logs.append(msg)
+                safety_skips.append(msg)
+                # Keep claim so an even worse later row cannot apply either
+                continue
             next_note = (note or prev.get("note")) if benchmark_id == "aa-intelligence" else prev.get("note")
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
@@ -277,7 +408,7 @@ def main():
                 "benchmarkId": benchmark_id, "modelId": model_id,
                 "name": model["shortName"] or model["name"],
                 "from": from_val, "to": num_val, "changedVal": changed_val,
-                "matchWhy": matched["why"], "note": next_note,
+                "matchWhy": matched["why"], "note": next_note, "scrapedName": name,
             })
     # aa-intelligence from AA site ONLY — never aaii_openlm
     apply_bucket("aa-intelligence", pull.get("aa_index") or [], lambda r: {
@@ -300,6 +431,8 @@ def main():
             print(line, file=sys.stderr)
         if unmatched:
             print("unmatched (skipped): " + ", ".join(f'{u["benchmarkId"]}:{u["name"]}' for u in unmatched[:20]), file=sys.stderr)
+        if safety_skips:
+            print("safety skips: %d" % len(safety_skips), file=sys.stderr)
         print("no catalog changes")
         return
 
@@ -388,14 +521,18 @@ def main():
         for u in updates:
             extra = "" if u["changedVal"] else " (asOf/source only)"
             print(
-                "  %s %s: %s -> %s%s [%s]"
-                % (u["benchmarkId"], u["modelId"], format_num(u["from"]), format_num(u["to"]), extra, u["matchWhy"])
+                "  %s %s: %s -> %s%s [%s] scraped=%r"
+                % (u["benchmarkId"], u["modelId"], format_num(u["from"]), format_num(u["to"]), extra, u["matchWhy"], u.get("scrapedName"))
             )
         if unmatched:
             names = sorted({("%s:%s" % (u["benchmarkId"], u["name"])) for u in unmatched})
             print("unmatched: " + ", ".join(names[:25]))
         if ambiguous:
             print("ambiguous: " + ", ".join("%s->%s|%s" % (u["name"], u["a"], u["b"]) for u in ambiguous))
+        if safety_skips:
+            print("safety skips:")
+            for line in safety_skips[:40]:
+                print("  " + line)
         for line in logs[:30]:
             print(line)
         return
@@ -410,6 +547,8 @@ def main():
         print("  %s %s: %s->%s" % (u["benchmarkId"], u["modelId"], format_num(u["from"]), format_num(u["to"])))
     if unmatched:
         print("unmatched skipped: " + ", ".join(sorted({u["name"] for u in unmatched})[:15]))
+    if safety_skips:
+        print("safety skipped: %d" % len(safety_skips))
 
 if __name__ == "__main__":
     main()
