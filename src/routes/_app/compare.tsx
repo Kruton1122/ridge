@@ -76,15 +76,35 @@ function ComparePage() {
   }, [query, lab]);
 
   function setSelection(next: string[]) {
-    const y = typeof window !== "undefined" ? window.scrollY : 0;
+    if (typeof window === "undefined") {
+      void navigate({ search: { ids: next.join(",") }, replace: true, resetScroll: false });
+      return;
+    }
+    const y = window.scrollY;
     void navigate({
       search: { ids: next.join(",") },
       replace: true,
       resetScroll: false,
     }).then(() => {
-      if (typeof window !== "undefined" && Math.abs(window.scrollY - y) > 1) {
-        window.scrollTo(0, y);
-      }
+      // `resetScroll: false` stops the router's own scroll-to-top, but the page
+      // keeps reflowing after this promise resolves — new cards mounting, the
+      // Reveal observer firing, the scatter chart laying out — and any of those
+      // can still shove the page back to 0. A single correction checked once
+      // races that reflow and loses it. A fixed frame *count* isn't safe either:
+      // under load a "frame" can take well over 100ms, so 8 of them might cover
+      // 60ms or 900ms depending on the machine. Bound the reassertion by wall
+      // clock instead, and back it with a plain timer in case rAF itself gets
+      // deprioritized on a busy tab.
+      const deadline = Date.now() + 700;
+      const correct = () => {
+        if (Math.abs(window.scrollY - y) > 1) window.scrollTo(0, y);
+      };
+      const reassert = () => {
+        correct();
+        if (Date.now() < deadline) requestAnimationFrame(reassert);
+      };
+      requestAnimationFrame(reassert);
+      window.setTimeout(correct, 750);
     });
   }
 

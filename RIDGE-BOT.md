@@ -182,6 +182,20 @@ Three pre-existing bugs on the **published** site were fixed in this pass:
    Scores belong in `catalog.ts`, which you own; profiles now carries only voice
    and caveats. **Please keep numbers out of that file** — it has no way to stay
    fresh.
+3. **The daily apply matcher itself corrupted scores it should have skipped.**
+   Weak fuzzy matches in `scripts/apply-briefing-staging.py` let a low-confidence
+   Arena/SWE row overwrite a good one — the 07:30 cron on 2026-09-10 dropped
+   Fable 5.1's Arena Elo from 1520 to 1178 and Opus 5's SWE-bench from 97 to
+   76.4. Fixed: exact/alias matches are preferred, a model is "claimed" by its
+   first confident match so a later weak row cannot overwrite it, non-main Arena
+   rows (style-control, deprecated, ancient Claude-1/2) are skipped outright, and
+   any fuzzy match moving a score past a per-benchmark delta ceiling without high
+   confidence is rejected and logged instead of applied — see `safety_skips` in
+   the script's dry-run output. Full write-up: `CHANGELOG` entry "Fix briefing
+   apply fuzzy-match score corruption" in `src/lib/data/changelog.ts`. If a
+   future correction looks like a score swung far outside its normal
+   week-to-week range, check `matchWhy` / the safety-skip log before assuming
+   the source moved that much.
 
 ---
 

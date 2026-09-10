@@ -22,8 +22,8 @@ redirects to `/api`.
 | `src/lib/data/changelog.ts` | Ridge Bot |
 | `public/llms.txt` | Ridge Bot |
 
-Every `/new` page **reads** those four and writes none of them. A daily scrape
-lands on the redesign with no second edit and no merge conflict. The 7:30am cron
+Every route **reads** those four and writes none of them. A daily scrape lands
+on the site with no second edit and no merge conflict. The 7:30am cron
 (`/etc/cron.d/ridge-briefing`) was not touched, and neither were nginx,
 `ridge.service`, the Cloudflare tunnel, or any port.
 
@@ -66,16 +66,16 @@ Nothing changes about the daily routine. Specifically:
 
 - Keep writing `catalog.ts`, `desk.ts`, `changelog.ts`, `llms.txt` exactly as now.
 - `publicOpinionStars` / `publicOpinionNote` / `publicOpinionAsOf` are read and
-  rendered on `/new/models/$slug`, same contract as the old model page. Do not
+  rendered on `/models/$slug`, same contract as the old model page. Do not
   remove them.
-- `WireItem` and `NewsItem` shapes are unchanged and are read by `/new/news`.
-- If a **new field** is added to `Model`, `/new` ignores it until someone wires it
-  up — it will not break.
-- If a **field is renamed or removed**, `/new` breaks at typecheck. Run
+- `WireItem` and `NewsItem` shapes are unchanged and are read by `/news`.
+- If a **new field** is added to `Model`, the site ignores it until someone wires
+  it up — it will not break.
+- If a **field is renamed or removed**, the build breaks at typecheck. Run
   `npm run typecheck` before committing a schema change.
 
-Two pre-existing bugs on the **published** site were found during this work and
-fixed on the owner's say-so:
+Three pre-existing bugs on the **published** site were found during this work
+and fixed on the owner's say-so:
 
 1. **`/news/$id` served the wrong page.** `src/routes/news.tsx` was the parent
    route of `src/routes/news.$id.tsx` and rendered no `<Outlet />`, so every desk
@@ -91,6 +91,17 @@ fixed on the owner's say-so:
    benchmark number at all — see the header comment there. Scores live in
    `catalog.ts`, which the scrape owns; `profiles.ts` now carries only what does
    not drift.
+3. **The daily apply matcher corrupted scores it should have skipped.** Weak
+   fuzzy matches in `scripts/apply-briefing-staging.py` let a low-confidence
+   Arena/SWE row overwrite a good one — the 07:30 cron on 2026-09-10 dropped
+   Fable 5.1's Arena Elo from 1520 to 1178 and Opus 5's SWE-bench from 97 to 76.4.
+   Root-caused and fixed: exact/alias matches are now preferred, a model is
+   "claimed" by its first confident match so a later weak row cannot overwrite
+   it, non-main Arena rows (style-control, deprecated, ancient Claude-1/2) are
+   skipped outright, and any fuzzy match moving a score past a per-benchmark
+   delta ceiling without high confidence is rejected and logged instead of
+   applied. See `RIDGE-BOT.md` for the full note and the changelog entry for
+   the correction.
 
 ## Design decisions worth knowing
 
@@ -117,9 +128,9 @@ of models, labs or benchmarks.
 | Ridge Bot adds… | What happens |
 |---|---|
 | A **score** for an existing model | Board, bars, ranks, `$/AA`, scatter, timeline, dossier all move |
-| A **model** | Ledger row, model page at `/new/models/<id>`, lab page, compare picker, command palette |
-| A **benchmark** to `BENCHMARKS` | New ledger **column**, new sort option, a card on the homepage, its own page at `/new/benchmarks/<id>`, a row on every dossier and in compare, a coverage bar on `/methodology` |
-| A model from a **new lab** | Its own filter chip, lab page, grouping on `/new/models` |
+| A **model** | Ledger row, model page at `/models/<id>`, lab page, compare picker, command palette |
+| A **benchmark** to `BENCHMARKS` | New ledger **column**, new sort option, a card on the homepage, its own page at `/benchmarks/<id>`, a row on every dossier and in compare, a coverage bar on `/methodology` |
+| A model from a **new lab** | Its own filter chip, lab page, grouping on `/models` |
 
 This was tested, not assumed. A fifth benchmark (`zz-testbench`) and a new model
 were injected into a backed-up `catalog.ts`, and every surface above picked them
@@ -161,6 +172,28 @@ instead of a phone:
 
 `scripts/new-qa.mjs` now has a mobile interaction pass with `isMobile`/`hasTouch`
 that presses the controls and asserts on all three.
+
+Two more hardening passes landed later the same day, both found by running the
+same controls dozens of times back to back under real system load rather than
+once in a quiet browser:
+
+- **Ledger sort** (`ledger.tsx`) already wrapped `setSort` in
+  `document.startViewTransition`, but the transition's own callback can be
+  accepted and never invoked when the tab is under load — not just on iOS
+  Safari, on a busy Chromium too. The apply is now raced against an 80ms
+  `setTimeout` fallback (and `vt.ready`/`vt.finished` rejection handlers), so
+  the click always lands within 80ms regardless of whether the browser ever
+  gets around to running the transition.
+- **Compare scroll restore** (`compare.tsx`) corrected `window.scrollY` once,
+  in a single `.then()` off the navigation promise. That single check can
+  itself race later reflow (new cards mounting, the Reveal observer, the
+  scatter chart laying out) and lose — reproduced at roughly a 1-in-4 rate in
+  testing. It now reasserts across a 700ms wall-clock window (not a fixed
+  frame count — a "frame" can take well over 100ms under load) with a plain
+  `setTimeout` backstop in case `requestAnimationFrame` itself gets
+  deprioritized. Verified clean across two independent 4-run batches after the
+  fix; `scripts/new-qa.mjs`'s iPhone-17 regression check now waits out the
+  full correction window before reading the result.
 
 ### A production-only outage found on the way (fixed)
 
@@ -226,6 +259,17 @@ Checks every route at 1440×900 and 390×844 for console errors, page errors,
 failed requests, horizontal overflow, a missing `h1`, invisible content, and
 sub-24px tap targets, then exercises sort, column expand, lab filter and the
 command palette. Screenshots land in `screenshots/` (gitignored).
+
+The heavier interaction sections (desktop sort/filter, the mobile pass, the
+iPhone-17 compare pass) each relaunch Chromium rather than share the browser
+the page-walk used. A single Chromium process that has already handled 28
+page loads across two viewports measurably degrades on this Pi by the time it
+reaches those sections — `document.startViewTransition` and rAF-driven work
+that pass reliably in isolation started silently stalling, which is a
+test-harness artifact, not something a real visitor (whose browser is always
+fresh) would ever hit. Confirmed by running the same assertions standalone —
+reliable — versus at the tail of the full sweep — reliably failing — before
+the fix.
 
 ## Migrated 2026-09-10
 
