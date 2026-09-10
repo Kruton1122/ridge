@@ -215,14 +215,18 @@ function ChartKey({
 function ScatterSvg({
   mode,
   highlightId,
+  highlightIds,
   layout,
   className,
 }: {
   mode: PriceMode;
   highlightId?: string;
+  highlightIds?: string[];
   layout: Layout;
   className?: string;
 }) {
+  const activeIds = new Set([highlightId, ...(highlightIds ?? [])].filter((id): id is string => Boolean(id)));
+  const dimOthers = activeIds.size >= 2;
   const { W, H, PAD, fs, labels: showLabels } = layout;
   const points = scatter(mode);
   if (points.length < 2) return null;
@@ -339,13 +343,15 @@ function ScatterSvg({
         {(() => {
           const dots = fanOut(points, (p) => ({ x: px(p.x), y: py(p.y) }));
           // A highlighted model is labeled even when it is nowhere near the frontier.
-          const labeled = dots.filter((d) => d.item.frontier || d.item.model.id === highlightId);
+          const labeled = dots.filter(
+            (d) => d.item.frontier || activeIds.has(d.item.model.id),
+          );
           const labelY = placeLabels(labeled);
 
           return (
             <>
               {dots.map(({ item: p, cx, cy, nudged }) => {
-                const active = p.model.id === highlightId;
+                const active = activeIds.has(p.model.id);
                 return (
                   <g key={p.model.id}>
                     {nudged ? (
@@ -374,7 +380,15 @@ function ScatterSvg({
                       cy={cy}
                       r={p.frontier || active ? 6 : 4.5}
                       fill={modelColor(p.model)}
-                      fillOpacity={p.frontier || active ? 0.95 : 0.5}
+                      fillOpacity={
+                        active
+                          ? 0.95
+                          : dimOthers
+                            ? 0.18
+                            : p.frontier
+                              ? 0.95
+                              : 0.5
+                      }
                       stroke={p.frontier ? "var(--color-n-amber)" : "transparent"}
                       strokeWidth="1.5"
                     />
@@ -388,7 +402,7 @@ function ScatterSvg({
               {showLabels &&
                 labeled.map((d, i) => {
                   const p = d.item;
-                  const active = p.model.id === highlightId;
+                  const active = activeIds.has(p.model.id);
                   const flip = d.cx > W - 190;
                   const y = labelY[i];
                   return (
@@ -427,27 +441,32 @@ function ScatterSvg({
 export function PriceScatter({
   mode = "promo",
   highlightId,
+  highlightIds,
 }: {
   mode?: PriceMode;
   highlightId?: string;
+  highlightIds?: string[];
 }) {
+  const activeIds = new Set([highlightId, ...(highlightIds ?? [])].filter((id): id is string => Boolean(id)));
   return (
     <figure className="m-0">
       <ScatterSvg
         mode={mode}
         highlightId={highlightId}
+        highlightIds={highlightIds}
         layout={NARROW}
         className="w-full md:hidden"
       />
       <ScatterSvg
         mode={mode}
         highlightId={highlightId}
+        highlightIds={highlightIds}
         layout={WIDE}
         className="hidden w-full md:block"
       />
       <ChartKey
         items={scatter(mode)
-          .filter((p) => p.frontier || p.model.id === highlightId)
+          .filter((p) => p.frontier || activeIds.has(p.model.id))
           .map((p) => ({
             id: p.model.id,
             name: p.model.shortName,

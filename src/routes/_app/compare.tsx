@@ -1,11 +1,31 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
-import { X } from "lucide-react";
-import { Blank, Card, Eyebrow, LabDot, StatusPill } from "@/components/new/bits";
+import { Check, Copy, Search, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  Blank,
+  Card,
+  Eyebrow,
+  LabDot,
+  RankBadge,
+  SectionHead,
+  StatusPill,
+} from "@/components/new/bits";
+import { PriceScatter } from "@/components/new/charts";
 import { Reveal } from "@/components/new/reveal";
 import { Container } from "@/components/new/shell";
 import { MODELS } from "@/lib/data/catalog";
 import { modelColor } from "@/lib/data/colors";
-import { compare } from "@/lib/data/derived";
+import {
+  HEADLINE_BENCHMARK,
+  compare,
+  compareLeads,
+  comparePresets,
+  labsPresent,
+  promoIsLive,
+  rankOf,
+  type PriceMode,
+} from "@/lib/data/derived";
+import type { LabId, Model } from "@/lib/data/types";
 import { cn } from "@/lib/utils";
 
 const MAX = 4;
@@ -21,7 +41,7 @@ export const Route = createFileRoute("/_app/compare")({
       {
         name: "description",
         content:
-          "Put two to four frontier models side by side: index scores with ranks, price, cost per index point, context window and access status.",
+          "Put two to four frontier models side by side: index scores with ranks and gaps, price, cost per index point, context window and access status.",
       },
     ],
   }),
@@ -30,9 +50,30 @@ export const Route = createFileRoute("/_app/compare")({
 function ComparePage() {
   const { ids } = Route.useSearch();
   const navigate = useNavigate({ from: "/compare" });
+  const [query, setQuery] = useState("");
+  const [lab, setLab] = useState<LabId | "all">("all");
+  const [mode, setMode] = useState<PriceMode>("promo");
+  const [copied, setCopied] = useState(false);
 
   const selected = ids.split(",").map((s) => s.trim()).filter(Boolean).slice(0, MAX);
-  const { models, rows } = compare(selected);
+  const { models, rows } = compare(selected, mode);
+  const leads = compareLeads(selected, mode);
+  const presets = comparePresets();
+  const anyPromo = models.some(promoIsLive);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return MODELS.filter((model) => {
+      if (lab !== "all" && model.lab !== lab) return false;
+      if (!q) return true;
+      return (
+        model.name.toLowerCase().includes(q) ||
+        model.shortName.toLowerCase().includes(q) ||
+        model.labName.toLowerCase().includes(q) ||
+        model.aliases.some((alias) => alias.toLowerCase().includes(q))
+      );
+    });
+  }, [query, lab]);
 
   function setSelection(next: string[]) {
     void navigate({ search: { ids: next.join(",") }, replace: true });
@@ -42,6 +83,22 @@ function ComparePage() {
     if (selected.includes(id)) setSelection(selected.filter((s) => s !== id));
     else if (selected.length < MAX) setSelection([...selected, id]);
   }
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      setCopied(false);
+    }
+  }
+
+  const sections: { id: "boards" | "cost" | "access"; label: string }[] = [
+    { id: "boards", label: "Boards" },
+    { id: "cost", label: "Cost" },
+    { id: "access", label: "Access" },
+  ];
 
   return (
     <>
@@ -53,8 +110,9 @@ function ComparePage() {
           </h1>
           <p className="mt-4 max-w-[68ch] text-[14.5px] leading-relaxed text-n-text-2">
             Up to four rows at once. Metrics run down the page and models across it,
-            because that is the direction a comparison actually gets read. A highlighted
-            cell is the best value in its row; ties are left unmarked.
+            because that is the direction a comparison actually gets read. Amber is the
+            unique leader of a row; ties are left unmarked, and a dash means the publisher
+            has nothing for that pairing on this snapshot.
           </p>
         </Container>
       </section>
@@ -65,18 +123,90 @@ function ComparePage() {
             <Eyebrow>
               Pick models — {selected.length} of {MAX}
             </Eyebrow>
-            {selected.length > 0 ? (
-              <button
-                type="button"
-                onClick={() => setSelection([])}
-                className="n-focus n-tap text-[12px] text-n-text-3 hover:text-n-text-2"
-              >
-                Clear
-              </button>
-            ) : null}
+            <div className="flex flex-wrap items-center gap-2">
+              {selected.length >= 2 ? (
+                <button
+                  type="button"
+                  onClick={() => void copyLink()}
+                  className="n-focus n-tap inline-flex items-center gap-1.5 text-[12px] text-n-text-3 hover:text-n-text-2"
+                >
+                  {copied ? <Check className="size-3" aria-hidden="true" /> : <Copy className="size-3" aria-hidden="true" />}
+                  {copied ? "Copied" : "Copy link"}
+                </button>
+              ) : null}
+              {selected.length > 0 ? (
+                <button
+                  type="button"
+                  onClick={() => setSelection([])}
+                  className="n-focus n-tap text-[12px] text-n-text-3 hover:text-n-text-2"
+                >
+                  Clear
+                </button>
+              ) : null}
+            </div>
           </div>
+
+          {presets.length > 0 ? (
+            <ul className="mt-3 flex flex-wrap gap-1.5">
+              {presets.map((preset) => {
+                const active =
+                  preset.ids.length === selected.length &&
+                  preset.ids.every((id) => selected.includes(id));
+                return (
+                  <li key={preset.id}>
+                    <button
+                      type="button"
+                      onClick={() => setSelection(preset.ids)}
+                      title={preset.sub}
+                      className={cn(
+                        "n-focus rounded-md border px-2.5 py-1.5 text-[12.5px]",
+                        active
+                          ? "border-n-line-amber bg-n-amber/10 text-n-amber"
+                          : "border-n-line text-n-text-2 hover:border-n-line-2 hover:text-n-text",
+                      )}
+                    >
+                      {preset.label}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : null}
+
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <label className="relative min-w-0 flex-1">
+              <span className="sr-only">Filter models</span>
+              <Search
+                className="pointer-events-none absolute left-2.5 top-1/2 size-3.5 -translate-y-1/2 text-n-text-3"
+                aria-hidden="true"
+              />
+              <input
+                type="search"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                placeholder="Filter by name, lab, alias"
+                className="n-focus h-9 w-full rounded-md border border-n-line bg-n-base pl-8 pr-3 text-[13px] text-n-text placeholder:text-n-text-3"
+              />
+            </label>
+            <div className="flex flex-wrap gap-1">
+              <FilterChip
+                label="All labs"
+                active={lab === "all"}
+                onClick={() => setLab("all")}
+              />
+              {labsPresent().map((item) => (
+                <FilterChip
+                  key={item.id}
+                  label={item.label}
+                  active={lab === item.id}
+                  onClick={() => setLab(item.id)}
+                />
+              ))}
+            </div>
+          </div>
+
           <ul className="mt-3.5 flex flex-wrap gap-1.5">
-            {MODELS.map((model) => {
+            {filtered.map((model) => {
               const active = selected.includes(model.id);
               const full = !active && selected.length >= MAX;
               return (
@@ -87,7 +217,7 @@ function ComparePage() {
                     disabled={full}
                     aria-pressed={active}
                     className={cn(
-                      "n-focus inline-flex items-center gap-2 rounded-md border px-2.5 py-1.5 text-[12.5px]",
+                      "n-focus inline-flex min-h-9 items-center gap-2 rounded-md border px-2.5 py-1.5 text-[12.5px]",
                       active
                         ? "border-n-line-amber bg-n-amber/10 text-n-amber"
                         : full
@@ -103,113 +233,312 @@ function ComparePage() {
               );
             })}
           </ul>
+          {filtered.length === 0 ? (
+            <p className="mt-3 text-[12.5px] text-n-text-3">No models match that filter.</p>
+          ) : null}
         </Card>
       </Container>
 
       <Container className="pt-8">
-        {models.length < 2 ? (
+        {models.length === 0 ? (
           <Card className="px-6 py-16 text-center">
-            <p className="text-[14px] text-n-text-2">
-              Choose at least two models to see the table.
-            </p>
+            <p className="text-[14px] text-n-text-2">Pick at least two models to fill the matrix.</p>
             <p className="mt-2 text-[12.5px] text-n-text-3">
-              Or start from a suggestion below.
+              The starting sets above are derived from this snapshot, not a hand-picked list.
             </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-2">
-              {[
-                { label: "The two at the top", ids: ["claude-fable-5.1", "gpt-6-astra"] },
-                {
-                  label: "Value seats",
-                  ids: ["grok-4.6", "muse-spark-1.3", "gemini-3.8-flash"],
-                },
-                {
-                  label: "Open weights",
-                  ids: ["kimi-k3", "deepseek-v4-pro", "deepseek-v4.1-flash"],
-                },
-              ].map((preset) => (
-                <li key={preset.label}>
-                  <button
-                    type="button"
-                    onClick={() => setSelection(preset.ids)}
-                    className="n-focus rounded-md border border-n-line px-3 py-1.5 text-[12.5px] text-n-text-2 hover:border-n-line-2 hover:text-n-text"
-                  >
-                    {preset.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
           </Card>
         ) : (
-          <Reveal>
-            <div className="overflow-x-auto rounded-lg border border-n-line">
-              <table className="w-full border-collapse text-[13px]">
-                <thead>
-                  <tr className="bg-n-raised">
-                    <th className="n-freeze sticky left-0 bg-n-raised px-4 py-3 text-left text-[10.5px] font-medium uppercase tracking-[0.12em] text-n-text-3">
-                      Metric
-                    </th>
-                    {models.map((model) => (
-                      <th
-                        key={model.id}
-                        scope="col"
-                        className="min-w-[180px] px-4 py-3 text-left align-top"
-                        style={{ borderTop: `2px solid ${modelColor(model)}` }}
+          <>
+            {anyPromo ? (
+              <div className="mb-4 flex flex-wrap items-center gap-2">
+                <Eyebrow className="mr-1">Price</Eyebrow>
+                <FilterChip label="Promo where live" active={mode === "promo"} onClick={() => setMode("promo")} />
+                <FilterChip label="List price" active={mode === "list"} onClick={() => setMode("list")} />
+              </div>
+            ) : null}
+
+            {leads.length > 0 ? (
+              <Reveal>
+                <Card className="mb-6 p-5">
+                  <Eyebrow>On this snapshot</Eyebrow>
+                  <ul className="mt-3 flex flex-col gap-2">
+                    {leads.map((line) => (
+                      <li
+                        key={line}
+                        className="border-l-2 border-n-line pl-3 text-[13.5px] leading-snug text-n-text-2"
                       >
-                        <Link
-                          to="/models/$slug"
-                          params={{ slug: model.id }}
-                          className="n-focus n-tap text-[14px] font-medium text-n-text hover:text-n-amber"
-                        >
-                          {model.name}
-                        </Link>
-                        <p className="mt-1 text-[11px] font-normal normal-case tracking-normal text-n-text-3">
-                          {model.labName}
-                        </p>
-                        <div className="mt-1.5">
-                          <StatusPill status={model.status} />
-                        </div>
-                      </th>
+                        {line}
+                      </li>
                     ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((row) => (
-                    <tr key={row.label} className="border-t border-n-line">
-                      <th
-                        scope="row"
-                        className="n-freeze sticky left-0 bg-n-base px-4 py-3 text-left align-top font-normal"
-                      >
-                        <span className="text-[13px] text-n-text-2">{row.label}</span>
-                        {row.note ? (
-                          <span className="mt-0.5 block max-w-[22ch] text-[10.5px] leading-snug text-n-text-3">
-                            {row.note}
-                          </span>
-                        ) : null}
+                  </ul>
+                </Card>
+              </Reveal>
+            ) : models.length === 1 ? (
+              <p className="mb-6 text-[13.5px] text-n-text-3">
+                Add a second model and the gaps fill in. Amber only marks a unique leader.
+              </p>
+            ) : null}
+
+            <Reveal>
+              <div className="overflow-x-auto rounded-lg border border-n-line">
+                <table className="w-full border-collapse text-[13px]">
+                  <thead>
+                    <tr className="bg-n-raised">
+                      <th className="n-freeze sticky left-0 bg-n-raised px-4 py-3 text-left text-[10.5px] font-medium uppercase tracking-[0.12em] text-n-text-3">
+                        Metric
                       </th>
-                      {row.values.map((value, i) => (
-                        <td
-                          key={models[i]?.id ?? i}
-                          className={cn(
-                            "n-num px-4 py-3 align-top",
-                            row.best === i ? "text-n-amber" : "text-n-text-2",
-                          )}
+                      {models.map((model) => (
+                        <th
+                          key={model.id}
+                          scope="col"
+                          className="min-w-[188px] px-4 py-3 text-left align-top"
+                          style={{ borderTop: `2px solid ${modelColor(model)}` }}
                         >
-                          {value ?? <Blank />}
-                        </td>
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <Link
+                                to="/models/$slug"
+                                params={{ slug: model.id }}
+                                className="n-focus n-tap text-[14px] font-medium text-n-text hover:text-n-amber"
+                              >
+                                {model.name}
+                              </Link>
+                              <p className="mt-1 flex items-center gap-1.5 text-[11px] font-normal normal-case tracking-normal text-n-text-3">
+                                <LabDot model={model} />
+                                {model.labName}
+                              </p>
+                              <div className="mt-1.5">
+                                <StatusPill status={model.status} />
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => toggle(model.id)}
+                              aria-label={`Remove ${model.shortName}`}
+                              className="n-focus n-tap inline-flex size-7 shrink-0 items-center justify-center rounded-md text-n-text-3 hover:bg-n-overlay hover:text-n-text"
+                            >
+                              <X className="size-3.5" aria-hidden="true" />
+                            </button>
+                          </div>
+                        </th>
                       ))}
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p className="mt-3 text-[11.5px] leading-relaxed text-n-text-3">
-              Amber marks the leading value in a row. Rows where two or more models tie
-              are left unmarked rather than picking one arbitrarily, and a dash means the
-              publisher has nothing for that pairing on this snapshot.
-            </p>
-          </Reveal>
+                  </thead>
+                  <tbody>
+                    {sections.map((section) => {
+                      const sectionRows = rows.filter((row) => row.section === section.id);
+                      if (sectionRows.length === 0) return null;
+                      return (
+                        <SectionBlock
+                          key={section.id}
+                          label={section.label}
+                          columns={models.length}
+                          rows={sectionRows}
+                          models={models}
+                        />
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+              <p className="mt-3 text-[11.5px] leading-relaxed text-n-text-3">
+                Gaps are versus the leader of that row, not versus a made-up average. Bars
+                are magnitude among the selected set only. A dash means the publisher has
+                not printed a number for that pairing on this snapshot.
+              </p>
+            </Reveal>
+
+            {models.length >= 2 ? (
+              <div className="mt-12 grid gap-10 lg:grid-cols-2">
+                <Reveal>
+                  <SectionHead
+                    title="Among these"
+                    sub="Headline AA Index, ranked inside this comparison, not against the whole board."
+                  />
+                  <div className="mt-5">
+                    <AmongThese models={models} />
+                  </div>
+                </Reveal>
+                <Reveal>
+                  <SectionHead
+                    title="On the price map"
+                    sub="The same scatter as the homepage, with this set ringed and the rest dimmed."
+                  />
+                  <div className="mt-5">
+                    <PriceScatter mode={mode} highlightIds={models.map((m) => m.id)} />
+                  </div>
+                </Reveal>
+              </div>
+            ) : null}
+          </>
         )}
       </Container>
     </>
+  );
+}
+
+function SectionBlock({
+  label,
+  columns,
+  rows,
+  models,
+}: {
+  label: string;
+  columns: number;
+  rows: ReturnType<typeof compare>["rows"];
+  models: Model[];
+}) {
+  return (
+    <>
+      <tr className="border-t border-n-line">
+        <th
+          colSpan={columns + 1}
+          className="bg-n-raised/80 px-4 py-2 text-left text-[10.5px] font-medium uppercase tracking-[0.14em] text-n-text-3"
+        >
+          {label}
+        </th>
+      </tr>
+      {rows.map((row) => (
+        <tr key={row.id} className="border-t border-n-line">
+          <th
+            scope="row"
+            className="n-freeze sticky left-0 bg-n-base px-4 py-3 text-left align-top font-normal"
+          >
+            {row.sourceUrl ? (
+              <a
+                href={row.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="n-focus n-tap text-[13px] text-n-text-2 hover:text-n-amber"
+              >
+                {row.label}
+              </a>
+            ) : (
+              <span className="text-[13px] text-n-text-2">{row.label}</span>
+            )}
+            {row.note ? (
+              <span className="mt-0.5 block max-w-[22ch] text-[10.5px] leading-snug text-n-text-3">
+                {row.note}
+              </span>
+            ) : null}
+          </th>
+          {row.cells.map((cell, i) => (
+            <td
+              key={models[i]?.id ?? i}
+              className={cn("px-4 py-3 align-top", cell.best ? "text-n-amber" : "text-n-text-2")}
+            >
+              {cell.text == null ? (
+                <Blank />
+              ) : (
+                <div>
+                  <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                    <span className="n-num text-[15px] leading-none">{cell.text}</span>
+                    {cell.rank ? (
+                      <RankBadge rank={cell.rank.rank} of={cell.rank.of} tied={cell.rank.tied} />
+                    ) : null}
+                  </div>
+                  {cell.delta ? (
+                    <p className="n-num mt-1 text-[11px] text-n-text-3">{cell.delta}</p>
+                  ) : null}
+                  {cell.share != null ? (
+                    <span className="mt-2 block h-[4px] overflow-hidden rounded-full bg-n-overlay">
+                      <span
+                        className="block h-full rounded-full"
+                        style={{
+                          width: `${cell.share * 100}%`,
+                          backgroundColor: modelColor(models[i]!),
+                          opacity: cell.best ? 1 : 0.75,
+                        }}
+                      />
+                    </span>
+                  ) : null}
+                  {cell.hint ? (
+                    <p className="mt-1.5 max-w-[28ch] text-[10.5px] leading-snug text-n-text-3">
+                      {cell.hint}
+                    </p>
+                  ) : null}
+                </div>
+              )}
+            </td>
+          ))}
+        </tr>
+      ))}
+    </>
+  );
+}
+
+function AmongThese({ models }: { models: Model[] }) {
+  const ranked = models
+    .map((model) => ({ model, rank: rankOf(model.id, HEADLINE_BENCHMARK) }))
+    .filter((row): row is { model: Model; rank: NonNullable<ReturnType<typeof rankOf>> } =>
+      Boolean(row.rank),
+    )
+    .sort((a, b) => b.rank.value - a.rank.value);
+
+  if (ranked.length < 2) {
+    return (
+      <p className="text-[13px] text-n-text-3">
+        Need two published AA scores in this set to rank them against each other.
+      </p>
+    );
+  }
+
+  const peak = ranked[0].rank.value;
+
+  return (
+    <ol className="flex flex-col">
+      {ranked.map((row) => (
+        <li key={row.model.id} className="border-t border-n-line first:border-t-0">
+          <Link
+            to="/models/$slug"
+            params={{ slug: row.model.id }}
+            className="n-focus flex min-h-9 items-center gap-3 py-2.5 hover:bg-n-overlay/40"
+          >
+            <LabDot model={row.model} />
+            <span className="min-w-0 flex-1 truncate text-[13.5px] text-n-text-2">
+              {row.model.shortName}
+            </span>
+            <span className="n-num shrink-0 text-[13.5px] text-n-text">{row.rank.value}</span>
+            <RankBadge rank={row.rank.rank} of={row.rank.of} tied={row.rank.tied} />
+          </Link>
+          <div className="mb-2 h-[4px] overflow-hidden rounded-full bg-n-overlay">
+            <div
+              className="h-full rounded-full"
+              style={{
+                width: `${Math.max(4, (row.rank.value / peak) * 100)}%`,
+                backgroundColor: modelColor(row.model),
+                opacity: 0.85,
+              }}
+            />
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+function FilterChip({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={cn(
+        "n-focus inline-flex min-h-8 items-center rounded-md border px-2.5 text-[12px]",
+        active
+          ? "border-n-line-amber bg-n-amber/10 text-n-amber"
+          : "border-n-line text-n-text-3 hover:border-n-line-2 hover:text-n-text-2",
+      )}
+    >
+      {label}
+    </button>
   );
 }

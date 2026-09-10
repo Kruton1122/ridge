@@ -6,7 +6,7 @@
  * computed from those files at render time, so a scrape lands on this site
  * without a second edit.
  */
-import { BENCHMARKS, MODELS, SCORES, SNAPSHOT_DATE, getModel } from "./catalog";
+import { BENCHMARKS, MODELS, SCORES, SNAPSHOT_DATE, formatContext, getModel } from "./catalog";
 import { CHANGELOG } from "./changelog";
 import { NEWS } from "./desk";
 import { listDollarPerAa } from "./ledger";
@@ -589,12 +589,26 @@ export function searchIndex(): SearchEntry[] {
   return entries;
 }
 
-export interface CompareCell {
+export interface CompareValue {
+  text: string | null;
+  number: number | null;
+  /** Bar length among the selected set, high-is-better rows only. */
+  share: number | null;
+  /** Signed gap versus the leader of this row. Null on the leader, a tie, or a blank. */
+  delta: string | null;
+  rank: Rank | null;
+  hint: string | null;
+  best: boolean;
+}
+
+export interface CompareRow {
+  id: string;
   label: string;
-  values: (string | null)[];
-  /** Index of the best value, when one column clearly wins. */
-  best: number | null;
+  kind: "score" | "money" | "text";
+  section: "boards" | "cost" | "access";
   note?: string;
+  sourceUrl?: string;
+  cells: CompareValue[];
 }
 
 const MAX_COMPARE = 4;
@@ -604,7 +618,7 @@ export function compare(
   mode: PriceMode = "promo",
 ): {
   models: Model[];
-  rows: CompareCell[];
+  rows: CompareRow[];
 } {
   const models = ids
     .slice(0, MAX_COMPARE)
@@ -612,84 +626,343 @@ export function compare(
     .filter((m): m is Model => Boolean(m));
   if (models.length === 0) return { models: [], rows: [] };
 
-  const rows: CompareCell[] = [];
+  const rows: CompareRow[] = [];
 
   for (const benchmark of benchmarksWithScores()) {
     const ranks = models.map((m) => rankOf(m.id, benchmark.id));
-    const values = ranks.map((r) =>
-      r ? `${formatValue(benchmark, r.value)}  ·  ${r.tied ? "=" : ""}#${r.rank}/${r.of}` : null,
+    rows.push(
+      finishRow(
+        {
+          id: benchmark.id,
+          label: benchmark.short,
+          kind: "score",
+          section: "boards",
+          note: `${benchmark.sourceName} · as of ${benchmark.asOf}`,
+          sourceUrl: benchmark.sourceUrl,
+          cells: ranks.map((r) => ({
+            text: r ? formatValue(benchmark, r.value) : null,
+            number: r?.value ?? null,
+            share: null,
+            delta: null,
+            rank: r,
+            hint: r?.score.note ?? null,
+            best: false,
+          })),
+        },
+        "high",
+        "score",
+      ),
     );
-    const numbers = ranks.map((r) => r?.value ?? null);
-    rows.push({
-      label: benchmark.name,
-      values,
-      best: bestIndex(numbers, "high"),
-      note: `${benchmark.sourceName} · as of ${benchmark.asOf}`,
-    });
+  }
+
+  rows.push(
+    finishRow(
+      {
+        id: "price",
+        label: "Price in / out per 1M",
+        kind: "money",
+        section: "cost",
+        cells: models.map((m) => {
+          const promo = mode === "promo" && promoIsLive(m) ? m.promoPricing! : m.pricing;
+          return {
+            text: promo ? moneyPair(promo.inputPerM, promo.outputPerM) : null,
+            number: midPrice(m, mode),
+            share: null,
+            delta: null,
+            rank: null,
+            hint: mode === "promo" && promoIsLive(m) ? `Promo through ${m.promoPricing!.until}` : null,
+            best: false,
+          };
+        }),
+      },
+      "low",
+      "money",
+    ),
+  );
+
+  rows.push(
+    finishRow(
+      {
+        id: "dpa",
+        label: "$ per AA point",
+        kind: "money",
+        section: "cost",
+        note: "Ridge proxy: list mid-price ÷ AA Index. Not AA cost-per-task.",
+        cells: models.map((m) => {
+          const aa = rankOf(m.id, "aa-intelligence");
+          const dpa = aa ? listDollarPerAa(m, aa.value, mode) : null;
+          return {
+            text: dpa == null ? null : `$${dpa.toFixed(2)}`,
+            number: dpa,
+            share: null,
+            delta: null,
+            rank: null,
+            hint: null,
+            best: false,
+          };
+        }),
+      },
+      "low",
+      "money",
+    ),
+  );
+
+  rows.push(
+    finishRow(
+      {
+        id: "context",
+        label: "Context window",
+        kind: "text",
+        section: "cost",
+        cells: models.map((m) => ({
+          text: m.contextTokens ? formatContext(m.contextTokens) : null,
+          number: m.contextTokens,
+          share: null,
+          delta: null,
+          rank: null,
+          hint: m.contextTokens ? `${m.contextTokens.toLocaleString()} tokens` : null,
+          best: false,
+        })),
+      },
+      "high",
+      "tokens",
+    ),
+  );
+
+  if (models.some((m) => m.publicOpinionStars != null)) {
+    rows.push(
+      finishRow(
+        {
+          id: "opinion",
+          label: "Public opinion",
+          kind: "text",
+          section: "access",
+          note: "Sourced stars only. Blank means Ridge has not published a scrape for that row.",
+          cells: models.map((m) => ({
+            text: m.publicOpinionStars != null ? `${m.publicOpinionStars} / 5` : null,
+            number: m.publicOpinionStars ?? null,
+            share: null,
+            delta: null,
+            rank: null,
+            hint: m.publicOpinionAsOf ? `as of ${m.publicOpinionAsOf}` : null,
+            best: false,
+          })),
+        },
+        "high",
+        null,
+      ),
+    );
   }
 
   rows.push({
-    label: "Price in / out per 1M",
-    values: models.map((m) => {
-      const promo = mode === "promo" && promoIsLive(m) ? m.promoPricing! : m.pricing;
-      return promo ? moneyPair(promo.inputPerM, promo.outputPerM) : null;
-    }),
-    best: bestIndex(
-      models.map((m) => midPrice(m, mode)),
-      "low",
-    ),
-  });
-
-  rows.push({
-    label: "$ per AA point",
-    values: models.map((m) => {
-      const aa = rankOf(m.id, "aa-intelligence");
-      const dpa = aa ? listDollarPerAa(m, aa.value, mode) : null;
-      return dpa == null ? null : `$${dpa.toFixed(2)}`;
-    }),
-    best: bestIndex(
-      models.map((m) => {
-        const aa = rankOf(m.id, "aa-intelligence");
-        return aa ? listDollarPerAa(m, aa.value, mode) : null;
-      }),
-      "low",
-    ),
-    note: "Ridge proxy: list mid-price ÷ AA Index. Not AA cost-per-task.",
-  });
-
-  rows.push({
-    label: "Context window",
-    values: models.map((m) =>
-      m.contextTokens ? `${m.contextTokens.toLocaleString()} tokens` : null,
-    ),
-    best: bestIndex(
-      models.map((m) => m.contextTokens),
-      "high",
-    ),
-  });
-
-  rows.push({
+    id: "weights",
     label: "Weights",
-    values: models.map((m) => (m.license === "open-weight" ? "Open" : "Closed")),
-    best: null,
+    kind: "text",
+    section: "access",
+    cells: models.map((m) => ({
+      text: m.license === "open-weight" ? "Open" : "Closed",
+      number: null,
+      share: null,
+      delta: null,
+      rank: null,
+      hint: null,
+      best: false,
+    })),
   });
 
   rows.push({
+    id: "access",
     label: "Access",
-    values: models.map((m) => m.status.toUpperCase()),
-    best: null,
+    kind: "text",
+    section: "access",
+    cells: models.map((m) => ({
+      text: m.status === "ga" ? "GA" : m.status === "preview" ? "Preview" : m.status === "partner" ? "Partner" : "Promo",
+      number: null,
+      share: null,
+      delta: null,
+      rank: null,
+      hint: null,
+      best: false,
+    })),
   });
 
-  rows.push({
-    label: "Released",
-    values: models.map((m) => m.released),
-    best: bestIndex(
-      models.map((m) => Date.parse(`${m.released}T00:00:00Z`)),
+  rows.push(
+    finishRow(
+      {
+        id: "released",
+        label: "Released",
+        kind: "text",
+        section: "access",
+        cells: models.map((m) => ({
+          text: m.released,
+          number: Date.parse(`${m.released}T00:00:00Z`),
+          share: null,
+          delta: null,
+          rank: null,
+          hint: null,
+          best: false,
+        })),
+      },
       "high",
+      null,
     ),
-  });
+  );
 
   return { models, rows };
+}
+
+function finishRow(
+  row: CompareRow,
+  dir: "high" | "low",
+  format: "score" | "money" | "tokens" | null,
+): CompareRow {
+  const numbers = row.cells.map((c) => c.number);
+  const winner = bestIndex(numbers, dir);
+  const defined = numbers.filter((n): n is number => n != null);
+  const leader = defined.length
+    ? dir === "low"
+      ? Math.min(...defined)
+      : Math.max(...defined)
+    : null;
+  return {
+    ...row,
+    cells: row.cells.map((cell, i) => ({
+      ...cell,
+      best: winner === i,
+      share:
+        dir === "high" && cell.number != null && leader != null && leader !== 0
+          ? Math.max(0.04, cell.number / leader)
+          : null,
+      delta:
+        format === "tokens" &&
+        cell.number != null &&
+        leader != null &&
+        formatContext(cell.number) === formatContext(leader)
+          ? null
+          : format
+            ? deltaText(cell.number, leader, format)
+            : null,
+    })),
+  };
+}
+
+function deltaText(
+  value: number | null,
+  leader: number | null,
+  format: "score" | "money" | "tokens",
+): string | null {
+  if (value == null || leader == null || value === leader) return null;
+  const diff = value - leader;
+  const sign = diff > 0 ? "+" : "−";
+  const mag = Math.abs(diff);
+  if (format === "money") return `${sign}${money(mag)}`;
+  if (format === "tokens") return `${sign}${formatContext(mag)}`;
+  const shown = Number.isInteger(mag) ? String(mag) : mag.toFixed(1).replace(/\.0$/, "");
+  return `${sign}${shown}`;
+}
+
+/**
+ * Catalog-driven starting sets. A fifth model on the AA board, a cheaper $/AA
+ * seat, or a new open-weight row reshapes these without a code change.
+ */
+export function comparePresets(): { id: string; label: string; sub: string; ids: string[] }[] {
+  const aa = board("aa-intelligence");
+  const top: string[] = [];
+  for (const row of aa) {
+    if (top.length === 0) {
+      top.push(row.model.id);
+      continue;
+    }
+    const firstRank = aa.find((r) => r.model.id === top[0])?.rank ?? 1;
+    if (row.rank === firstRank) {
+      top.push(row.model.id);
+      continue;
+    }
+    if (top.length < 2) top.push(row.model.id);
+    break;
+  }
+
+  const value = ledgerRows()
+    .filter((row) => row.dollarPerAa != null)
+    .sort((a, b) => a.dollarPerAa! - b.dollarPerAa!)
+    .slice(0, 3)
+    .map((row) => row.model.id);
+
+  const open = MODELS.filter((m) => m.license === "open-weight")
+    .slice(0, 4)
+    .map((m) => m.id);
+
+  const out: { id: string; label: string; sub: string; ids: string[] }[] = [];
+  if (top.length >= 2) {
+    out.push({
+      id: "top",
+      label: "Top of the board",
+      sub: "Headline AA ranks, including ties",
+      ids: top.slice(0, MAX_COMPARE),
+    });
+  }
+  if (value.length >= 2) {
+    out.push({
+      id: "value",
+      label: "Value seats",
+      sub: "Lowest $ per AA point on this snapshot",
+      ids: value,
+    });
+  }
+  if (open.length >= 2) {
+    out.push({
+      id: "open",
+      label: "Open weights",
+      sub: "Every open-weight row, scored or not",
+      ids: open,
+    });
+  }
+  return out;
+}
+
+/**
+ * Short sourced sentences about who leads each row. Ties are named as ties.
+ * Never picks a "winner" of the comparison as a whole.
+ */
+export function compareLeads(ids: string[], mode: PriceMode = "promo"): string[] {
+  const { models, rows } = compare(ids, mode);
+  if (models.length < 2) return [];
+  const out: string[] = [];
+
+  for (const row of rows) {
+    const named = row.cells
+      .map((cell, i) => ({ cell, model: models[i] }))
+      .filter((x) => x.cell.number != null);
+    if (named.length < 2) continue;
+
+    const winners = named.filter((x) => x.cell.best);
+    if (winners.length === 1) {
+      const w = winners[0];
+      if (row.kind === "score") {
+        const rank = w.cell.rank
+          ? ` (${w.cell.rank.tied ? "=" : ""}#${w.cell.rank.rank} of ${w.cell.rank.of})`
+          : "";
+        out.push(`${w.model.name} leads ${row.label} at ${w.cell.text}${rank}.`);
+      } else if (row.id === "dpa") {
+        out.push(`${w.model.name} is cheapest per AA point at ${w.cell.text}.`);
+      } else if (row.id === "price") {
+        out.push(`${w.model.name} has the lowest mid-price at ${w.cell.text}.`);
+      } else if (row.id === "context") {
+        if (named.every((x) => x.cell.text === w.cell.text)) continue;
+        out.push(`${w.model.name} has the widest context window (${w.cell.text}).`);
+      }
+    } else if (winners.length === 0 && row.kind === "score") {
+      const nums = named.map((x) => x.cell.number!);
+      const peak = Math.max(...nums);
+      const tied = named.filter((x) => x.cell.number === peak);
+      if (tied.length >= 2) {
+        const names = tied.map((t) => t.model.shortName).join(" and ");
+        out.push(`${names} tie on ${row.label} at ${tied[0].cell.text}.`);
+      }
+    }
+    if (out.length >= 4) break;
+  }
+  return out;
 }
 
 function bestIndex(values: (number | null)[], dir: "high" | "low"): number | null {
