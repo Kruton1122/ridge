@@ -502,11 +502,7 @@ export function headlines(mode: PriceMode = "promo"): Headline[] {
       label: "Newest entry",
       model: newest,
       value: newestRank ? String(newestRank.value) : "—",
-      sub: newest
-        ? newestRank
-          ? `Released ${newest.released}`
-          : `Released ${newest.released} · unscored`
-        : "—",
+      sub: newest ? `Released ${newest.released}` : "—",
     },
   ];
 }

@@ -97,9 +97,15 @@ function Board() {
                   className="n-focus block"
                 >
                   <Eyebrow>{card.label}</Eyebrow>
-                  <p className="n-num mt-3 text-[30px] leading-none text-n-text">
-                    {card.value}
-                  </p>
+                  {card.value === "—" ? (
+                    <p className="n-num mt-3 text-[19px] leading-none text-n-text-3">
+                      Unscored
+                    </p>
+                  ) : (
+                    <p className="n-num mt-3 text-[30px] leading-none text-n-text">
+                      {card.value}
+                    </p>
+                  )}
                   <p className="mt-2.5 truncate text-[13.5px] font-medium text-n-text">
                     {card.model.name}
                   </p>
