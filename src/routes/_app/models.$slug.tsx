@@ -242,7 +242,7 @@ function ModelPage() {
             />
             <div className="mt-6 grid gap-3 lg:grid-cols-2">
               <Card className="p-5">
-                <Eyebrow>In its favour</Eyebrow>
+                <Eyebrow>In its favor</Eyebrow>
                 {data.strengths.length > 0 ? (
                   <ul className="mt-4 flex flex-col gap-3">
                     {data.strengths.map((fact) => (

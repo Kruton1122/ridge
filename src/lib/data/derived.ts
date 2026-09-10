@@ -184,7 +184,7 @@ export interface TimelinePoint {
 /**
  * Release date against the *current* v4.2 score — one ruler, no back-dated
  * numbers. Ridge has no historical index series, so this is deliberately not
- * a "score over time" chart and must not be labelled as one.
+ * a "score over time" chart and must not be labeled as one.
  */
 export function timeline(): TimelinePoint[] {
   const points = board("aa-intelligence")

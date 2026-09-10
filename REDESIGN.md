@@ -97,7 +97,7 @@ fixed on the owner's say-so:
 - **No hero.** A masthead band, then the board. Peer ledger sites go
   near-straight to data; a hero with a CTA reads as a SaaS landing page.
 - **Amber is signal only** — active state, rank 1, links, bars. Never decoration.
-  Lab brand colours appear only as a 7px dot and as bar fill, never as a row
+  Lab brand colors appear only as a 7px dot and as bar fill, never as a row
   background, or the table turns into a clown suit.
 - **Serif for voice, sans for numbers.** Newsreader on headlines and essays;
   Source Sans with `tabular-nums` on every figure. Serif numerals in a data table
@@ -133,7 +133,7 @@ The only things still named in code:
   *ranks by*. Changing which index is the headline is a deliberate act.
 - `BOARD_ORDER_HINT` — display order only. Unlisted benchmarks still render, they
   just sort to the end.
-- A **new `LabId`** must be added to the union in `types.ts`, plus a colour in
+- A **new `LabId`** must be added to the union in `types.ts`, plus a color in
   `colors.ts` and a motif in `profiles.ts`. `npm run typecheck` names every spot.
 
 ### Mobile

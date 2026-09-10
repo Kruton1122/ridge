@@ -338,9 +338,9 @@ function ScatterSvg({
 
         {(() => {
           const dots = fanOut(points, (p) => ({ x: px(p.x), y: py(p.y) }));
-          // A highlighted model is labelled even when it is nowhere near the frontier.
-          const labelled = dots.filter((d) => d.item.frontier || d.item.model.id === highlightId);
-          const labelY = placeLabels(labelled);
+          // A highlighted model is labeled even when it is nowhere near the frontier.
+          const labeled = dots.filter((d) => d.item.frontier || d.item.model.id === highlightId);
+          const labelY = placeLabels(labeled);
 
           return (
             <>
@@ -386,7 +386,7 @@ function ScatterSvg({
               })}
 
               {showLabels &&
-                labelled.map((d, i) => {
+                labeled.map((d, i) => {
                   const p = d.item;
                   const active = p.model.id === highlightId;
                   const flip = d.cx > W - 190;
@@ -580,8 +580,8 @@ function TimelineSvg({ layout, className }: { layout: Layout; className?: string
         {(() => {
           // Several models share a launch date — three landed on 2 September.
           const dots = fanOut(points, (p) => ({ x: px(p.t), y: py(p.aa) }));
-          const labelled = dots.filter((d) => d.item.setsHigh);
-          const labelY = placeLabels(labelled);
+          const labeled = dots.filter((d) => d.item.setsHigh);
+          const labelY = placeLabels(labeled);
 
           return (
             <>
@@ -611,7 +611,7 @@ function TimelineSvg({ layout, className }: { layout: Layout; className?: string
               ))}
 
               {showLabels &&
-                labelled.map((d, i) => {
+                labeled.map((d, i) => {
                   const flip = d.cx > W - 150;
                   return (
                     <text

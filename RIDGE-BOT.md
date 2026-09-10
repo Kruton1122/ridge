@@ -158,7 +158,7 @@ Contract: [`REDESIGN.md`](./REDESIGN.md). `/new/*` redirects to the new URLs.
   from `catalog.ts` alone — a new benchmark gets its own ledger column, sort
   option, homepage card, detail page, dossier row and coverage bar automatically.
   The one exception: a brand-new `LabId` needs adding to the union in `types.ts`
-  plus a colour in `colors.ts`; `npm run typecheck` will point at every place.
+  plus a color in `colors.ts`; `npm run typecheck` will point at every place.
 - `src/lib/data/ledger.ts` and `src/routes/api/**` were deliberately left alone —
   the JSON/CSV contract is unchanged.
 

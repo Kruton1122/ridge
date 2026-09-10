@@ -179,7 +179,7 @@
 
 /* Frozen first column during horizontal scroll. The hairline and the short
    shadow make it read as an edge that content passes beneath, rather than as a
-   column that is clipping its neighbour. */
+   column that is clipping its neighbor. */
 .n-freeze {
   position: sticky;
   left: 0;

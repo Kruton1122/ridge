@@ -48,7 +48,7 @@ function Methodology() {
                 <p>
                   If Artificial Analysis, Arena+ or Vals has not published a number for a
                   model, the cell reads — and stays that way. Not a zero, not an estimate
-                  interpolated from a neighbouring model, not a figure lifted from the
+                  interpolated from a neighboring model, not a figure lifted from the
                   lab's own launch post. Vendor-run agent tables are marketing with a
                   y-axis; they do not become board rows here.
                 </p>

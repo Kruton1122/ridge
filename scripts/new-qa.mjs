@@ -122,7 +122,7 @@ for (const [vpName, viewport] of VIEWPORTS) {
       continue;
     }
 
-    // Routes that normalise their search params navigate again on mount; let
+    // Routes that normalize their search params navigate again on mount; let
     // that settle before evaluating anything against the page.
     await page.waitForLoadState("networkidle").catch(() => {});
     await page.waitForTimeout(150);

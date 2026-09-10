@@ -4,7 +4,7 @@ import { statusLabel } from "@/lib/data/ledger";
 import type { AccessStatus, Model } from "@/lib/data/types";
 import { cn } from "@/lib/utils";
 
-/** The one place a lab's brand colour is allowed to appear at full chroma. */
+/** The one place a lab's brand color is allowed to appear at full chroma. */
 export function LabDot({ model, className }: { model: Model; className?: string }) {
   return (
     <span

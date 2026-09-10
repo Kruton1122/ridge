@@ -70,7 +70,7 @@ const PROFILES: Record<string, ModelProfile> = {
       "Million-token context, 128k max output",
     ],
     watch: [
-      "Output tokens are still dear",
+      "Output tokens are still expensive",
       "The headline row runs with a safety fallback",
       "Independent write-ups flagged more confident wrong answers",
     ],
