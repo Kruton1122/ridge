@@ -15,3 +15,9 @@ artifacts
 attachments
 screenshots
 .grok
+
+# Admin analytics / auth SQLite (local to the Pi; recreate on boot)
+data/*
+!data/.gitkeep
+*.sqlite
+*.sqlite-*

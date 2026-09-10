@@ -27,6 +27,12 @@ on the site with no second edit and no merge conflict. The 7:30am cron
 (`/etc/cron.d/ridge-briefing`) was not touched, and neither were nginx,
 `ridge.service`, the Cloudflare tunnel, or any port.
 
+## Admin traffic dashboard
+
+`/admin` is a separate owner-only traffic dashboard (passkey/password auth,
+first-party beacon). It is **not** part of the redesign scrape contract and must
+not write Ridge Bot pipeline files. See [`ADMIN.md`](./ADMIN.md).
+
 ## What was added
 
 ```

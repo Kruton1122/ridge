@@ -55,6 +55,13 @@ python3 scripts/apply-briefing-staging.py
 
 ---
 
+## Admin dashboard (not Ridge Bot)
+
+`/admin` traffic analytics + dedicated admin auth live in `src/lib/admin/*`,
+`src/routes/admin/*`, and `src/routes/api/admin/*` / `src/routes/api/t.ts`.
+Documented in [`ADMIN.md`](./ADMIN.md). **Out of scope for Ridge Bot** unless
+the owner asks — do not gate public APIs or touch briefing pipeline files for it.
+
 ## What Ridge Bot does **not** touch (leave for Claude / humans)
 
 Unless the owner explicitly asks Ridge Bot:

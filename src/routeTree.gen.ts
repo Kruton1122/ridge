@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteRouteImport } from './routes/_app/route'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as NewRouteRouteImport } from './routes/new/route'
 import { Route as OldRouteRouteImport } from './routes/old/route'
 import { Route as SourceRouteImport } from './routes/source'
@@ -18,9 +19,12 @@ import { Route as AppApiRouteImport } from './routes/_app/api'
 import { Route as AppChangelogRouteImport } from './routes/_app/changelog'
 import { Route as AppCompareRouteImport } from './routes/_app/compare'
 import { Route as AppMethodologyRouteImport } from './routes/_app/methodology'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as ApiLedgerRouteImport } from './routes/api/ledger'
 import { Route as ApiLedgerDotcsvRouteImport } from './routes/api/ledger[.]csv'
 import { Route as ApiLedgerDotjsonRouteImport } from './routes/api/ledger[.]json'
+import { Route as ApiTRouteImport } from './routes/api/t'
 import { Route as NewIndexRouteImport } from './routes/new/index'
 import { Route as NewSplatRouteImport } from './routes/new/$'
 import { Route as OldIndexRouteImport } from './routes/old/index'
@@ -33,14 +37,22 @@ import { Route as AppModelsIndexRouteImport } from './routes/_app/models.index'
 import { Route as AppModelsSlugRouteImport } from './routes/_app/models.$slug'
 import { Route as AppNewsIndexRouteImport } from './routes/_app/news.index'
 import { Route as AppNewsIdRouteImport } from './routes/_app/news.$id'
+import { Route as ApiAdminBootstrapRouteImport } from './routes/api/admin/bootstrap'
+import { Route as ApiAdminStatsRouteImport } from './routes/api/admin/stats'
 import { Route as ApiV1IndexRouteImport } from './routes/api/v1/index'
 import { Route as ApiV1LeaderboardRouteImport } from './routes/api/v1/leaderboard'
 import { Route as OldModelsSlugRouteImport } from './routes/old/models.$slug'
 import { Route as OldNewsIndexRouteImport } from './routes/old/news.index'
 import { Route as OldNewsIdRouteImport } from './routes/old/news.$id'
+import { Route as ApiAdminAuthSplatRouteImport } from './routes/api/admin/auth/$'
 
 const AppRouteRoute = AppRouteRouteImport.update({
   id: '/_app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewRouteRoute = NewRouteRouteImport.update({
@@ -83,6 +95,16 @@ const AppMethodologyRoute = AppMethodologyRouteImport.update({
   path: '/methodology',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const ApiLedgerRoute = ApiLedgerRouteImport.update({
   id: '/api/ledger',
   path: '/api/ledger',
@@ -96,6 +118,11 @@ const ApiLedgerDotcsvRoute = ApiLedgerDotcsvRouteImport.update({
 const ApiLedgerDotjsonRoute = ApiLedgerDotjsonRouteImport.update({
   id: '/api/ledger.json',
   path: '/api/ledger.json',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTRoute = ApiTRouteImport.update({
+  id: '/api/t',
+  path: '/api/t',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NewIndexRoute = NewIndexRouteImport.update({
@@ -158,6 +185,16 @@ const AppNewsIdRoute = AppNewsIdRouteImport.update({
   path: '/news/$id',
   getParentRoute: () => AppRouteRoute,
 } as any)
+const ApiAdminBootstrapRoute = ApiAdminBootstrapRouteImport.update({
+  id: '/api/admin/bootstrap',
+  path: '/api/admin/bootstrap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAdminStatsRoute = ApiAdminStatsRouteImport.update({
+  id: '/api/admin/stats',
+  path: '/api/admin/stats',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiV1IndexRoute = ApiV1IndexRouteImport.update({
   id: '/api/v1/',
   path: '/api/v1/',
@@ -183,9 +220,15 @@ const OldNewsIdRoute = OldNewsIdRouteImport.update({
   path: '/news/$id',
   getParentRoute: () => OldRouteRoute,
 } as any)
+const ApiAdminAuthSplatRoute = ApiAdminAuthSplatRouteImport.update({
+  id: '/api/admin/auth/$',
+  path: '/api/admin/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/new': typeof NewRouteRouteWithChildren
   '/old': typeof OldRouteRouteWithChildren
   '/source': typeof SourceRoute
@@ -193,17 +236,22 @@ export interface FileRoutesByFullPath {
   '/changelog': typeof AppChangelogRoute
   '/compare': typeof AppCompareRoute
   '/methodology': typeof AppMethodologyRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
+  '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
+  '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
   '/old/': typeof OldIndexRoute
   '/benchmarks/$id': typeof AppBenchmarksIdRoute
   '/labs/$id': typeof AppLabsIdRoute
   '/models/$slug': typeof AppModelsSlugRoute
   '/news/$id': typeof AppNewsIdRoute
+  '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
+  '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
@@ -213,6 +261,7 @@ export interface FileRoutesByFullPath {
   '/news/': typeof AppNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
+  '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/source': typeof SourceRoute
@@ -220,18 +269,23 @@ export interface FileRoutesByTo {
   '/changelog': typeof AppChangelogRoute
   '/compare': typeof AppCompareRoute
   '/methodology': typeof AppMethodologyRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
+  '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
   '/': typeof AppIndexRoute
+  '/admin': typeof AdminIndexRoute
   '/new': typeof NewIndexRoute
   '/old': typeof OldIndexRoute
   '/benchmarks/$id': typeof AppBenchmarksIdRoute
   '/labs/$id': typeof AppLabsIdRoute
   '/models/$slug': typeof AppModelsSlugRoute
   '/news/$id': typeof AppNewsIdRoute
+  '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
+  '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
@@ -241,10 +295,12 @@ export interface FileRoutesByTo {
   '/news': typeof AppNewsIndexRoute
   '/api/v1': typeof ApiV1IndexRoute
   '/old/news': typeof OldNewsIndexRoute
+  '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteRouteWithChildren
+  '/admin': typeof AdminRouteRouteWithChildren
   '/new': typeof NewRouteRouteWithChildren
   '/old': typeof OldRouteRouteWithChildren
   '/source': typeof SourceRoute
@@ -252,18 +308,23 @@ export interface FileRoutesById {
   '/_app/changelog': typeof AppChangelogRoute
   '/_app/compare': typeof AppCompareRoute
   '/_app/methodology': typeof AppMethodologyRoute
+  '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
   '/api/ledger.json': typeof ApiLedgerDotjsonRoute
+  '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
   '/_app/': typeof AppIndexRoute
+  '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
   '/old/': typeof OldIndexRoute
   '/_app/benchmarks/$id': typeof AppBenchmarksIdRoute
   '/_app/labs/$id': typeof AppLabsIdRoute
   '/_app/models/$slug': typeof AppModelsSlugRoute
   '/_app/news/$id': typeof AppNewsIdRoute
+  '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
+  '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
@@ -273,11 +334,13 @@ export interface FileRoutesById {
   '/_app/news/': typeof AppNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
+  '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/new'
     | '/old'
     | '/source'
@@ -285,17 +348,22 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/compare'
     | '/methodology'
+    | '/admin/login'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
+    | '/api/t'
     | '/new/$'
     | '/old/source'
+    | '/admin/'
     | '/new/'
     | '/old/'
     | '/benchmarks/$id'
     | '/labs/$id'
     | '/models/$slug'
     | '/news/$id'
+    | '/api/admin/bootstrap'
+    | '/api/admin/stats'
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
@@ -305,6 +373,7 @@ export interface FileRouteTypes {
     | '/news/'
     | '/api/v1/'
     | '/old/news/'
+    | '/api/admin/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/source'
@@ -312,18 +381,23 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/compare'
     | '/methodology'
+    | '/admin/login'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
+    | '/api/t'
     | '/new/$'
     | '/old/source'
     | '/'
+    | '/admin'
     | '/new'
     | '/old'
     | '/benchmarks/$id'
     | '/labs/$id'
     | '/models/$slug'
     | '/news/$id'
+    | '/api/admin/bootstrap'
+    | '/api/admin/stats'
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
@@ -333,9 +407,11 @@ export interface FileRouteTypes {
     | '/news'
     | '/api/v1'
     | '/old/news'
+    | '/api/admin/auth/$'
   id:
     | '__root__'
     | '/_app'
+    | '/admin'
     | '/new'
     | '/old'
     | '/source'
@@ -343,18 +419,23 @@ export interface FileRouteTypes {
     | '/_app/changelog'
     | '/_app/compare'
     | '/_app/methodology'
+    | '/admin/login'
     | '/api/ledger'
     | '/api/ledger.csv'
     | '/api/ledger.json'
+    | '/api/t'
     | '/new/$'
     | '/old/source'
     | '/_app/'
+    | '/admin/'
     | '/new/'
     | '/old/'
     | '/_app/benchmarks/$id'
     | '/_app/labs/$id'
     | '/_app/models/$slug'
     | '/_app/news/$id'
+    | '/api/admin/bootstrap'
+    | '/api/admin/stats'
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
@@ -364,18 +445,24 @@ export interface FileRouteTypes {
     | '/_app/news/'
     | '/api/v1/'
     | '/old/news/'
+    | '/api/admin/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   AppRouteRoute: typeof AppRouteRouteWithChildren
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   NewRouteRoute: typeof NewRouteRouteWithChildren
   OldRouteRoute: typeof OldRouteRouteWithChildren
   SourceRoute: typeof SourceRoute
   ApiLedgerRoute: typeof ApiLedgerRoute
   ApiLedgerDotcsvRoute: typeof ApiLedgerDotcsvRoute
   ApiLedgerDotjsonRoute: typeof ApiLedgerDotjsonRoute
+  ApiTRoute: typeof ApiTRoute
+  ApiAdminBootstrapRoute: typeof ApiAdminBootstrapRoute
+  ApiAdminStatsRoute: typeof ApiAdminStatsRoute
   ApiV1LeaderboardRoute: typeof ApiV1LeaderboardRoute
   ApiV1IndexRoute: typeof ApiV1IndexRoute
+  ApiAdminAuthSplatRoute: typeof ApiAdminAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -385,6 +472,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new': {
@@ -443,6 +537,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppMethodologyRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/api/ledger': {
       id: '/api/ledger'
       path: '/api/ledger'
@@ -462,6 +570,13 @@ declare module '@tanstack/react-router' {
       path: '/api/ledger.json'
       fullPath: '/api/ledger.json'
       preLoaderRoute: typeof ApiLedgerDotjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/t': {
+      id: '/api/t'
+      path: '/api/t'
+      fullPath: '/api/t'
+      preLoaderRoute: typeof ApiTRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/new/': {
@@ -548,6 +663,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppNewsIdRouteImport
       parentRoute: typeof AppRouteRoute
     }
+    '/api/admin/bootstrap': {
+      id: '/api/admin/bootstrap'
+      path: '/api/admin/bootstrap'
+      fullPath: '/api/admin/bootstrap'
+      preLoaderRoute: typeof ApiAdminBootstrapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/admin/stats': {
+      id: '/api/admin/stats'
+      path: '/api/admin/stats'
+      fullPath: '/api/admin/stats'
+      preLoaderRoute: typeof ApiAdminStatsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/v1/': {
       id: '/api/v1/'
       path: '/api/v1'
@@ -582,6 +711,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/old/news/$id'
       preLoaderRoute: typeof OldNewsIdRouteImport
       parentRoute: typeof OldRouteRoute
+    }
+    '/api/admin/auth/$': {
+      id: '/api/admin/auth/$'
+      path: '/api/admin/auth/$'
+      fullPath: '/api/admin/auth/$'
+      preLoaderRoute: typeof ApiAdminAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -622,6 +758,20 @@ const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
   AppRouteRouteChildren,
 )
 
+interface AdminRouteRouteChildren {
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminLoginRoute: AdminLoginRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 interface NewRouteRouteChildren {
   NewSplatRoute: typeof NewSplatRoute
   NewIndexRoute: typeof NewIndexRoute
@@ -658,14 +808,19 @@ const OldRouteRouteWithChildren = OldRouteRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   AppRouteRoute: AppRouteRouteWithChildren,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   NewRouteRoute: NewRouteRouteWithChildren,
   OldRouteRoute: OldRouteRouteWithChildren,
   SourceRoute: SourceRoute,
   ApiLedgerRoute: ApiLedgerRoute,
   ApiLedgerDotcsvRoute: ApiLedgerDotcsvRoute,
   ApiLedgerDotjsonRoute: ApiLedgerDotjsonRoute,
+  ApiTRoute: ApiTRoute,
+  ApiAdminBootstrapRoute: ApiAdminBootstrapRoute,
+  ApiAdminStatsRoute: ApiAdminStatsRoute,
   ApiV1LeaderboardRoute: ApiV1LeaderboardRoute,
   ApiV1IndexRoute: ApiV1IndexRoute,
+  ApiAdminAuthSplatRoute: ApiAdminAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
