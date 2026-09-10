@@ -1,9 +1,13 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
+import { BootCover } from "@/components/boot-cover";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Ridge";
+
+/** Critical boot-cover CSS so the overlay paints before styles.css arrives. */
+const BOOT_CRITICAL_CSS = `#ridge-boot{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;background:#07111c;color:#e8eef4}#ridge-boot .ridge-boot__inner{display:flex;flex-direction:column;align-items:center;gap:14px}#ridge-boot .ridge-boot__word{font-family:Georgia,serif;font-size:22px;letter-spacing:-0.02em}html[data-boot="ready"] #ridge-boot,.ridge-boot--exit{opacity:0;visibility:hidden;pointer-events:none}`;
 
 function publicShareHost(): string {
   const raw = process.env.VITE_PUBLIC_HOSTNAME ?? "";
@@ -36,6 +40,7 @@ export const Route = createRootRoute({
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
     ],
+    styles: [{ children: BOOT_CRITICAL_CSS }],
   }),
   component: () => (
     <html lang="en" suppressHydrationWarning>
@@ -43,10 +48,16 @@ export const Route = createRootRoute({
         <HeadContent />
       </head>
       <body>
-        <PreviewHostBridge />
-        <AuthProvider>
-          <Outlet />
-        </AuthProvider>
+        <noscript>
+          <style>{`#ridge-boot{display:none!important}html,body{overflow:auto!important}`}</style>
+        </noscript>
+        <BootCover />
+        <div id="ridge-app" className="ridge-app">
+          <PreviewHostBridge />
+          <AuthProvider>
+            <Outlet />
+          </AuthProvider>
+        </div>
         <Scripts />
       </body>
     </html>
