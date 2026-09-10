@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Blank, RankBadge, SourceLine } from "@/components/new/bits";
-import { modelColor } from "@/lib/data/colors";
-import { board, formatValue, scatter, timeline, type PriceMode } from "@/lib/data/derived";
+import { labColor, modelColor } from "@/lib/data/colors";
+import { board, formatValue, labsPresent, scatter, timeline, type PriceMode } from "@/lib/data/derived";
 import { getBenchmark } from "@/lib/data/catalog";
 import { cn } from "@/lib/utils";
 
@@ -191,21 +191,26 @@ function placeLabels(slots: { cx: number; cy: number }[]): number[] {
  */
 function ChartKey({
   items,
+  className,
 }: {
-  items: { id: string; name: string; color: string; note: string }[];
+  items: { id: string; name: string; color: string; note?: string; ring?: boolean }[];
+  className?: string;
 }) {
   if (items.length === 0) return null;
   return (
-    <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 md:hidden">
+    <ul className={cn("flex flex-wrap gap-x-4 gap-y-1.5", className)}>
       {items.map((item) => (
         <li key={item.id} className="flex items-center gap-1.5 text-[11.5px] text-n-text-2">
           <span
             aria-hidden="true"
-            className="size-2 shrink-0 rounded-full"
+            className={cn(
+              "size-2 shrink-0 rounded-full",
+              item.ring && "outline outline-1 outline-offset-1 outline-n-amber",
+            )}
             style={{ backgroundColor: item.color }}
           />
           {item.name}
-          <span className="n-num text-n-text-3">{item.note}</span>
+          {item.note ? <span className="n-num text-n-text-3">{item.note}</span> : null}
         </li>
       ))}
     </ul>
@@ -465,6 +470,7 @@ export function PriceScatter({
         className="hidden w-full md:block"
       />
       <ChartKey
+        className="mt-3 md:hidden"
         items={scatter(mode)
           .filter((p) => p.frontier || activeIds.has(p.model.id))
           .map((p) => ({
@@ -654,25 +660,48 @@ function TimelineSvg({ layout, className }: { layout: Layout; className?: string
 }
 
 export function ReleaseTimeline() {
+  const points = timeline();
+  const plottedLabs = new Set(points.map((p) => p.model.lab));
+  // Lab colors explain the scatter cloud; model-level tints stay close to these bases.
+  const labItems = labsPresent()
+    .filter((lab) => plottedLabs.has(lab.id))
+    .map((lab) => ({
+      id: lab.id,
+      name: lab.label,
+      color: labColor(lab.id),
+    }));
+  const frontierItems = points
+    .filter((p) => p.setsHigh)
+    .map((p) => ({
+      id: p.model.id,
+      name: p.model.shortName,
+      color: modelColor(p.model),
+      note: p.released,
+      ring: true,
+    }));
+
   return (
     <figure className="m-0">
       <TimelineSvg layout={NARROW} className="w-full md:hidden" />
       <TimelineSvg layout={WIDE} className="hidden w-full md:block" />
-      <ChartKey
-        items={timeline()
-          .filter((p) => p.setsHigh)
-          .map((p) => ({
-            id: p.model.id,
-            name: p.model.shortName,
-            color: modelColor(p.model),
-            note: p.released,
-          }))}
-      />
+      <div className="mt-3 flex flex-col gap-2.5">
+        <div>
+          <p className="mb-1.5 text-[11px] uppercase tracking-[0.08em] text-n-text-3">Labs</p>
+          <ChartKey items={labItems} />
+        </div>
+        <div>
+          <p className="mb-1.5 text-[11px] uppercase tracking-[0.08em] text-n-text-3">
+            Frontier high · stepped line
+          </p>
+          <ChartKey items={frontierItems} />
+        </div>
+      </div>
       <figcaption className="mt-3 max-w-[74ch] text-[12px] leading-relaxed text-n-text-3">
         Every point is a model's <em>current</em> v4.2 score plotted at its release date — one ruler
-        across the whole chart. This is not a history of the index: Ridge keeps no back-dated
-        series, and the v4.1.1 numbers these models launched against sat on a different scale
-        entirely. The stepped line tracks the running high among models released so far.
+        across the whole chart. Dot color is by lab. This is not a history of the index: Ridge keeps
+        no back-dated series, and the v4.1.1 numbers these models launched against sat on a different
+        scale entirely. The stepped amber line tracks the running high among models released so far;
+        ringed markers are the models that set it.
       </figcaption>
     </figure>
   );
