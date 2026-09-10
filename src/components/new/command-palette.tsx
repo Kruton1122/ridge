@@ -35,7 +35,6 @@ export function CommandPalette({
       open={open}
       onOpenChange={onOpenChange}
       label="Search Ridge"
-      className="fixed inset-0 z-50"
       overlayClassName="fixed inset-0 bg-black/60 backdrop-blur-[2px]"
       contentClassName="fixed left-1/2 top-[12vh] z-50 w-[min(92vw,560px)] -translate-x-1/2 overflow-hidden rounded-xl border border-n-line-2 bg-n-modal shadow-2xl"
     >
