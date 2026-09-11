@@ -94,6 +94,10 @@ Never collapse **Grok 4** (old ~46) onto **Grok 4.6**.
 5. Write a changelog entry and a Desk note.  
 6. Do not draw sparklines across index versions.
 
+## Public Vite / HMR
+
+`ridge.service` runs Vite **dev** on 8098 behind nginx. **HMR is off by default** (`RIDGE_DISABLE_HMR=1` in the unit; `vite.config.ts` sets `server.hmr: false` unless `RIDGE_DISABLE_HMR=0`). Leaving HMR on full-reloaded every open ridgebench.com tab on each save.
+
 ## Owned board columns
 
 | id | name | source | refresh |

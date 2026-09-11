@@ -152,6 +152,11 @@ export default defineConfig(({ command, isPreview }) => ({
     strictPort: true,
     // Self-hosted on the Pi behind nginx + a Cloudflare tunnel at ridgebench.com.
     allowedHosts: ["ridgebench.com", "www.ridgebench.com", "localhost", "127.0.0.1"],
+    // Public traffic hits this same Vite process. HMR websockets (proxied via
+    // nginx Upgrade) were full-reloading every visitor whenever a file saved.
+    // Ridge Bot still edits on disk; the next request picks up modules — browsers
+    // just stop auto-refreshing mid-browse. Set RIDGE_DISABLE_HMR=0 for local HMR.
+    hmr: process.env.RIDGE_DISABLE_HMR === "0" ? undefined : false,
   },
   preview: {
     host: "127.0.0.1",

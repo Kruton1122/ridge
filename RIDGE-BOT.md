@@ -3,7 +3,7 @@
 **Ridge Bot** is the Grok Bot agent that maintains [ridgebench.com](https://ridgebench.com) on this Pi.
 
 - Repo: `/home/pi/ridge` (remote `github.com/Kruton1122/ridge`)
-- Live: Cloudflare tunnel → nginx → `ridge.service` (Vite hot-reload; **no build/deploy step**)
+- Live: Cloudflare tunnel → nginx → `ridge.service` (Vite dev on **8098** (no build/deploy); **HMR disabled** via `RIDGE_DISABLE_HMR` so public browsers do not full-reload on every save)
 - Product rules still live in [`RIDGE.md`](./RIDGE.md) (AA index versions, don’t invent numbers, edit map). Read that before any board edit.
 - `CLAUDE.md` points at `RIDGE.md` for product rules; **this file** is who-does-what between agents.
 
