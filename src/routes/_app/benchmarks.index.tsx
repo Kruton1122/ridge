@@ -32,7 +32,7 @@ function BenchmarkIndex() {
             What the numbers measure
           </h1>
           <p className="mt-4 max-w-[68ch] text-[14.5px] leading-relaxed text-n-text-2">
-            Four boards, four publishers, four different questions. None of them is the
+            Five boards, five publishers, five different questions. None of them is the
             answer on its own, and the gap between what they cover and what the catalog
             holds is as informative as the scores.
           </p>

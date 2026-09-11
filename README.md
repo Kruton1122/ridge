@@ -1,6 +1,6 @@
 # Ridge
 
-Frontier model benchmark ledger. Independent cut of Artificial Analysis, Arena+, and Vals.
+Frontier model benchmark ledger. Independent cut of Artificial Analysis, Arena+, Vals, and CursorBench.
 
 Live site: **[ridgebench.com](https://ridgebench.com)**  
 Repo: [github.com/Kruton1122/ridge](https://github.com/Kruton1122/ridge)
