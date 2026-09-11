@@ -1,8 +1,8 @@
 import type { Benchmark, Model, Score } from "./types";
 export { NEWS, isFresh } from "./desk";
 
-export const SNAPSHOT_DATE = "2026-09-10";
-export const SNAPSHOT_LABEL = "10 September 2026";
+export const SNAPSHOT_DATE = "2026-09-11";
+export const SNAPSHOT_LABEL = "11 September 2026";
 export const SCHEMA_VERSION = "1.1.0";
 
 export const LABS: Record<Model["lab"], { name: string; short: string; color: string }> = {
@@ -378,6 +378,19 @@ export const BENCHMARKS: Benchmark[] = [
     sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
     asOf: SNAPSHOT_DATE,
   },
+  {
+    id: "cursor-bench",
+    name: "CursorBench 4.0",
+    short: "CB 4.0",
+    category: "coding",
+    unit: "percent",
+    higherIsBetter: true,
+    description:
+      "Ambiguous multi-file coding-agent tasks from real Cursor sessions; first-party Cursor harness. Not comparable to CursorBench 3.x.",
+    sourceName: "Cursor",
+    sourceUrl: "https://cursor.com/cursorbench",
+    asOf: "2026-09-11",
+  },
 ];
 
 function s(
@@ -452,6 +465,17 @@ export const SCORES: Score[] = [
   s("gemini-3.7-flash", "terminal-bench", 85.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("muse-spark-1.3", "terminal-bench", 85, "Artificial Analysis", "https://artificialanalysis.ai/articles/muse-spark-1-3", "2026-09-02", "v2.1 xhigh"),
   s("claude-fable-5", "terminal-bench", 84.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
+
+  s("claude-fable-5.1", "cursor-bench", 51.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("claude-opus-5", "cursor-bench", 46.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("gpt-5.6-sol", "cursor-bench", 41.7, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("muse-spark-1.3-max", "cursor-bench", 41.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort (maps to catalog partner-max row)"),
+  s("grok-4.6", "cursor-bench", 41.4, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (best published; Grok has no max run)"),
+  s("gpt-5.6-terra", "cursor-bench", 41.3, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("gemini-3.8-flash", "cursor-bench", 39.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "high (best published)"),
+  s("muse-spark-1.3", "cursor-bench", 37.5, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (catalog public row is xhigh; do NOT put max 41.6 here)"),
+  s("gpt-5.6-luna", "cursor-bench", 35.9, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("claude-sonnet-5", "cursor-bench", 34.1, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
 ];
 
 export function getModel(id: string, models: Model[] = MODELS) {

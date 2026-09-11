@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-11",
+    title: "CursorBench 4.0 board column",
+    items: [
+      "Added CursorBench 4.0 (`cursor-bench`) as a fifth ledger board column from cursor.com/cursorbench (first-party Cursor harness; not comparable to CursorBench 3.x).",
+      "Seeded 10 max/best-effort published rows (Fable 5.1 51.8 … Sonnet 5 34.1). Composer 2.5 omitted (not in catalog). No invented blanks filled.",
+      "Snapshot / llms.txt / isFresh asOf → 2026-09-11. Scrape remains manual from the vendor page for now.",
+    ],
+  },
+
+  {
     date: "2026-09-10",
     title: "Fill blank score coverage + enable briefing inserts",
     items: [

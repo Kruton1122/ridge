@@ -9,7 +9,7 @@ Owner runs it locally with `npm install && npm run dev` (port **8080**).
 ## What Ridge is
 
 - Headline board: **Artificial Analysis Intelligence Index v4.2** (rebased 4 Sept 2026).
-- Also shows: Vals SWE-bench, Arena Elo, Terminal-Bench.
+- Also shows: Vals SWE-bench, **CursorBench 4.0** (first-party; not comparable to 3.x), Arena Elo, Terminal-Bench.
 - News tab = curated external wire + original Ridge notes.
 - Machine-readable: `/api/ledger.json`, `/api/ledger.csv`, `/api/v1`, `/llms.txt`.
 - Voice: short, sourced, no vendor slogans. Always cite **source URL + as-of date**.
@@ -38,7 +38,7 @@ App code is under `src/`. Scaffold leftovers (auth, PWA, multiplayer) exist; **d
 
 | Change | File |
 |---|---|
-| Models, prices, AA/SWE/Arena/TB scores, snapshot date | `src/lib/data/catalog.ts` |
+| Models, prices, AA/SWE/CursorBench/Arena/TB scores, snapshot date | `src/lib/data/catalog.ts` |
 | Ridge essays | `src/lib/data/desk.ts` |
 | External headlines | `src/lib/data/wire.ts` |
 | Model page voice | `src/lib/data/profiles.ts` |
@@ -93,6 +93,18 @@ Never collapse **Grok 4** (old ~46) onto **Grok 4.6**.
 4. Leave SWE / Arena / TB alone unless that source moved.  
 5. Write a changelog entry and a Desk note.  
 6. Do not draw sparklines across index versions.
+
+## Owned board columns
+
+| id | name | source | refresh |
+|---|---|---|---|
+| `aa-intelligence` | AA Intelligence Index v4.2 | artificialanalysis.ai | daily briefing scrape |
+| `swe-bench` | SWE-bench Verified | vals.ai | daily briefing scrape |
+| `cursor-bench` | CursorBench **4.0** | cursor.com/cursorbench | **manual** from vendor page for now (JS/RSC payload; no auto-scrape yet) |
+| `arena-elo` | Arena Elo | openlm.ai | daily briefing scrape |
+| `terminal-bench` | Terminal-Bench 2.1 | AA / Vellum | mostly static; leave unless sourced |
+
+CursorBench is first-party Cursor. Do not invent rows; do not backfill 3.x numbers onto the 4.0 column.
 
 ## Things we already refused to fake
 
