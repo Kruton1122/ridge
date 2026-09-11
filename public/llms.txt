@@ -25,7 +25,6 @@ Headline AA Intelligence Index v4.2:
 9. Kimi K3 — 44 (max)
 11. GPT-5.6 Terra — 42 (max)
 12. Gemini 3.8 Flash — 41 (high)
-
 CursorBench 4.0 (first-party Cursor harness; not comparable to 3.x; https://cursor.com/cursorbench, as-of 2026-09-11):
 1. Claude Fable 5.1 — 51.8% (max effort)
 2. Claude Opus 5 — 46.6% (max effort)
@@ -38,6 +37,7 @@ CursorBench 4.0 (first-party Cursor harness; not comparable to 3.x; https://curs
 9. GPT-5.6 Luna — 35.9% (max effort)
 10. Claude Sonnet 5 — 34.1% (max effort)
 
+Catalog note (2026-09-11): Gemini 3.1 Pro Preview board scores mapped to GA catalog id `gemini-3.1-pro` (AA 30, SWE 78.8; Arena plain 1504). Aliases include preview variants; boards still label Preview.
 Catalog note (2026-09-11): CursorBench 4.0 added as a fifth board column. Composer 2.5 not in catalog (omitted). Other catalog models left blank where Cursor published no row.
 Catalog note (2026-09-10): DeepSeek V4.1 Flash (`deepseek-v4.1-flash` / API `deepseek-flash`) added — peak list $0.30 / $1.20; no AA/Arena/Vals yet. V4 Pro retained; routes to Flash after 14 Sept.
 Catalog note (2026-09-10): Arena Elo and SWE-bench values corrected after a briefing apply matcher bug (weak fuzzy rows overwrote good tops). AA best-variant scores unchanged from scrape max/high.

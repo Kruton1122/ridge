@@ -1,6 +1,16 @@
 export const CHANGELOG = [
   {
     date: "2026-09-11",
+    title: "Gemini 3.1 Pro — map Preview board scores to GA catalog id",
+    items: [
+      "Mapped AA Intelligence 30 and Vals SWE-bench 78.8 (boards still label Preview) onto catalog id gemini-3.1-pro; kept Arena Elo 1504 (plain Gemini-3.1-Pro).",
+      "Expanded aliases for preview variants so apply-briefing-staging can match Preview-named scrape rows to the GA id.",
+      "Summary notes GA since Feb 2026; AA/SWE still publish under Preview label as of 11 Sept.",
+    ],
+  },
+
+  {
+    date: "2026-09-11",
     title: "CursorBench 4.0 board column",
     items: [
       "Added CursorBench 4.0 (`cursor-bench`) as a fifth ledger board column from cursor.com/cursorbench (first-party Cursor harness; not comparable to CursorBench 3.x).",
