@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-09-11",
+    title: "Wire: AA Devin Fusion on Coding Agent Index",
+    items: [
+      "Wire aa-devin-fusion from Artificial Analysis X post: first multi-model coding agent; Fable 5.1+SWE-2 62, Astra+SWE-2 59. Coding Agent Index only; no desk, catalog, or SNAPSHOT bump.",
+    ],
+  },
+
+  {
+    date: "2026-09-11",
     title: "Desk + wire: Grok 4.7 still cooking (Musk)",
     items: [
       "Desk rumor grok-47-cook from Elon 11 Sept ~17:22 UTC reply: few more days; suspected RL length penalty; early abort; weak self-check.",

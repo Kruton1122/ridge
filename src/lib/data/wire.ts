@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-devin-fusion",
+    title: "AA: Devin Fusion first multi-model on Coding Agent Index",
+    blurb:
+      "11 September. Independent AA bench for Cognition release. Frontier lead + SWE-2 medium sidekick; Fable 5.1 (xhigh) + SWE-2 scores 62 on Coding Agent Index v1.5; Astra (xhigh) + SWE-2 scores 59, ~43% cheaper and ~31% faster.",
+    date: "2026-09-11",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2098504936984293447",
+    beat: "labs",
+    models: ["claude-fable-5.1", "gpt-6-astra"],
+  },
+  {
     id: "grok-47-cook",
     title: "Musk: Grok 4.7 needs a few more days to cook",
     blurb:
