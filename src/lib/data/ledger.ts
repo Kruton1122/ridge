@@ -14,6 +14,7 @@ export const LEDGER_SOURCES = [
   { name: "Artificial Analysis", url: "https://artificialanalysis.ai/leaderboards/models" },
   { name: "LMArena / OpenLM", url: "https://openlm.ai/chatbot-arena/" },
   { name: "Vals AI", url: "https://vals.ai/benchmarks/swebench" },
+  { name: "Cursor (CursorBench 4.0)", url: "https://cursor.com/cursorbench" },
 ];
 
 export const NEXT_PULL_WEEKDAY = 1;

@@ -107,9 +107,9 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 <span className="font-serif text-[17px] leading-none">Ridge</span>
               </div>
               <p className="mt-3 text-[12.5px] leading-relaxed text-n-text-3">
-                An independent cut of Artificial Analysis, Arena+, and Vals. Every number
-                on this site carries a source URL and an as-of date. Where a source has
-                published nothing, the cell reads —.
+                An independent cut of Artificial Analysis, Arena+, Vals, and CursorBench.
+                Every number on this site carries a source URL and an as-of date. Where a
+                source has published nothing, the cell reads —.
               </p>
               <SnapshotChip className="mt-4" />
             </div>

@@ -46,11 +46,12 @@ function Methodology() {
               <SectionHead eyebrow="Rule one" title="Nothing gets invented" />
               <Prose className="mt-5">
                 <p>
-                  If Artificial Analysis, Arena+ or Vals has not published a number for a
-                  model, the cell reads — and stays that way. Not a zero, not an estimate
-                  interpolated from a neighboring model, not a figure lifted from the
-                  lab's own launch post. Vendor-run agent tables are marketing with a
-                  y-axis; they do not become board rows here.
+                  If Artificial Analysis, Arena+, Vals, or Cursor has not published a number
+                  for a model on a board we track, the cell reads — and stays that way.
+                  Not a zero, not an estimate interpolated from a neighboring model, not a
+                  figure lifted from a lab launch post. CursorBench 4.0 is the one
+                  first-party harness we carry as its own column, labeled as Cursor's;
+                  other vendor-run agent tables stay off the board.
                 </p>
                 <p>
                   This is why the ledger looks sparser than it could. Of{" "}

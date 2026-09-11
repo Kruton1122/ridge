@@ -24,7 +24,7 @@ export const Route = createFileRoute("/_app/")({
       {
         name: "description",
         content:
-          "An independent ledger of frontier model benchmarks. Artificial Analysis Intelligence Index v4.2, Vals SWE-bench, Arena Elo and Terminal-Bench, each row carrying its source and as-of date.",
+          "An independent ledger of frontier model benchmarks. Artificial Analysis Intelligence Index v4.2, Vals SWE-bench, CursorBench 4.0, Arena Elo and Terminal-Bench, each row carrying its source and as-of date.",
       },
     ],
   }),
@@ -63,9 +63,9 @@ function Board() {
             The frontier, scored.
           </h1>
           <p className="mt-4 max-w-[62ch] text-[14.5px] leading-relaxed text-n-text-2">
-            An independent cut of Artificial Analysis, Arena+ and Vals, held to one
-            rule: every number carries a source URL and an as-of date, and anything
-            unpublished stays blank. Snapshot {SNAPSHOT_LABEL}. This is a working
+            An independent cut of Artificial Analysis, Arena+, Vals, and CursorBench,
+            held to one rule: every number carries a source URL and an as-of date,
+            and anything unpublished stays blank. Snapshot {SNAPSHOT_LABEL}. This is a working
             set — {CATALOG_STATS.models} models, {CATALOG_STATS.benchmarks} rulers
             — not a census of every weight on the internet.
           </p>
@@ -233,8 +233,9 @@ function Board() {
               <p className="mt-3 max-w-[68ch] text-[13.5px] leading-relaxed text-n-text-2">
                 These are in the catalog with pricing and specifications sourced from the
                 lab, and nothing else. Vendor-run agent tables do not become board rows
-                here. The cells fill the day Artificial Analysis, Arena+ or Vals publishes
-                one.
+                here — except CursorBench 4.0, which we list as a labeled first-party column.
+                The cells fill the day Artificial Analysis, Arena+, Vals, or Cursor
+                publishes one.
               </p>
               <ul className="mt-5 flex flex-wrap gap-2">
                 {unscored.map((model) => (

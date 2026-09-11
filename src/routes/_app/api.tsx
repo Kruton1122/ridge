@@ -9,7 +9,7 @@ const ENDPOINTS = [
   {
     path: "/api/ledger.json",
     title: "Full ledger, JSON",
-    body: "Every ranked row with AA, SWE-bench, Arena, $/AA, list price and context, wrapped in a header that carries the snapshot timestamp, the index version, the source list and the next scheduled pull.",
+    body: "Every ranked row with AA, SWE-bench, CursorBench, Arena, $/AA, list price and context, wrapped in a header that carries the snapshot timestamp, the index version, the source list and the next scheduled pull.",
   },
   {
     path: "/api/ledger.csv",
@@ -113,9 +113,9 @@ function ApiPage() {
           <Prose className="mt-5">
             <p>
               Ridge runs no evaluations. Every score belongs to Artificial Analysis,
-              Arena+ or Vals, and the correct citation names them and the as-of date, not
-              this domain. Reproducing the ledger is fine; presenting it as an original
-              measurement is not.
+              Arena+, Vals, or Cursor (for CursorBench), and the correct citation names
+              them and the as-of date, not this domain. Reproducing the ledger is fine;
+              presenting it as an original measurement is not.
             </p>
             <p>
               Two failure modes are worth naming because they are the ones that actually
