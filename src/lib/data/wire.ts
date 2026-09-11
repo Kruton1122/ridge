@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "grok-47-cook",
+    title: "Musk: Grok 4.7 needs a few more days to cook",
+    blurb:
+      "11 September ~17:22 UTC. Reply to @farzyness. Suspected RL length penalty; early give-up on hard tasks; weak self-check. Not a ship date. Live xAI row stays 4.6.",
+    date: "2026-09-11",
+    outlet: "Elon Musk / X",
+    url: "https://x.com/elonmusk/status/2098462085973741960",
+    beat: "rumor",
+    models: ["grok-4.6"],
+  },
+  {
     id: "ds-v41-flash-launch",
     title: "DeepSeek launches V4.1-Flash — API id deepseek-flash",
     blurb:

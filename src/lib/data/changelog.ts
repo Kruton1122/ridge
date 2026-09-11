@@ -1,6 +1,15 @@
 export const CHANGELOG = [
   {
     date: "2026-09-11",
+    title: "Desk + wire: Grok 4.7 still cooking (Musk)",
+    items: [
+      "Desk rumor grok-47-cook from Elon 11 Sept ~17:22 UTC reply: few more days; suspected RL length penalty; early abort; weak self-check.",
+      "Wire blurb same source. models: grok-4.6 only. No catalog row, no invented board scores, SNAPSHOT_DATE untouched.",
+    ],
+  },
+
+  {
+    date: "2026-09-11",
     title: "Gemini 3.1 Pro — map Preview board scores to GA catalog id",
     items: [
       "Mapped AA Intelligence 30 and Vals SWE-bench 78.8 (boards still label Preview) onto catalog id gemini-3.1-pro; kept Arena Elo 1504 (plain Gemini-3.1-Pro).",

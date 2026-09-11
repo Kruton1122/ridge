@@ -11,6 +11,27 @@ export function isFresh(date: string, asOf = "2026-09-11"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "grok-47-cook",
+    kind: "rumor",
+    title: "Musk: Grok 4.7 needs a few more days to cook",
+    dek: "Reply to @farzyness. Suspected RL length penalty. Still quits hard tasks early. Self-check not rigorous enough.",
+    pull: "A few more days is not a ship date. Ridge keeps 4.6 as the live xAI row until independents print numbers.",
+    summary:
+      "11 September ~17:22 UTC: Elon says Grok 4.7 needs more cook time. Suspects RL penalized response length too hard. Model still gives up early on hard work it can do, and is not rigorous enough checking its work.",
+    date: "2026-09-11",
+    sourceName: "Elon Musk / X",
+    sourceUrl: "https://x.com/elonmusk/status/2098462085973741960",
+    models: ["grok-4.6"],
+    tags: ["rumor", "xai", "grok"],
+    body: [
+      "Elon Musk replied to @farzyness on 11 September at about 17:22 UTC: Grok 4.7 needs a few more days to cook. The parent post was a media-only meme. The useful text is the reply.",
+      "His diagnosis is post-training, not a new pretrain tease. He suspects they penalized response length too much in RL (or something adjacent). The model still gives up on hard tasks it can actually do, and is not yet rigorous enough checking its own work.",
+      "For Ridge that means the live xAI seat stays Grok 4.6. No grok-4.7 catalog row, no invented AA / Arena / SWE cells, no board score until Artificial Analysis, Arena+, or Vals publish under a named cut.",
+      "The failure mode he named matters for agentic work. Early abort is how you lose Terminal-Bench, AutomationBench, and long coding loops even when the model has the capability somewhere in the trajectory. Length penalties that teach quit early are a tax on the exact evals that moved the Index this month.",
+      "Treat few more days as mood, not a calendar. xAI has been teeing up 4.7 since mid-August. Ridge will move the row when the API or an independent harness does, not when a reply says the oven is warm.",
+    ],
+  },
+  {
     id: "ds-v41-flash-desk",
     kind: "release",
     title: "DeepSeek put Flash ahead of Pro — and priced the handoff",
