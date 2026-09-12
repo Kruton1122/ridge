@@ -12,14 +12,14 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
   {
     id: "pace-frontier-0912",
-    title: "Amodei: pace the frontier. Musk: \"Dario is right\"",
+    title: "Amodei: pace the frontier. Musk and Altman agree",
     blurb:
-      "12 September. Essay: slow capability gains so safety/alignment/eval keep up (not a halt). Triggers: RSI since ~summer 2026; OAI-HF agent swarm. Anthropic commits to embedded evaluators now. Musk QT: \"Dario is right.\"",
+      "12 September. Essay: slow capability gains so safety/alignment/eval keep up (not a halt). Triggers: RSI since ~summer 2026; OAI-HF agent swarm. Anthropic commits to embedded evaluators now. Musk QT: \"Dario is right.\" Altman QT ~16:30 UTC: agrees on pacing; OpenAI will match independent evaluators with employee-like access.",
     date: "2026-09-12",
     outlet: "Dario Amodei",
     url: "https://darioamodei.com/post/we-must-pace-the-frontier",
     beat: "policy",
-    models: ["claude-fable-5.1", "claude-opus-5", "grok-4.6"],
+    models: ["claude-fable-5.1", "claude-opus-5", "grok-4.6", "gpt-6-astra"],
   },
   {
     id: "aa-devin-fusion",

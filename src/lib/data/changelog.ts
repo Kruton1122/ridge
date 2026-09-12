@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-09-12",
+    title: "Desk + wire: Altman matches embedded evaluators",
+    items: [
+      "pace-frontier-0912: Altman QT agrees on pacing; OpenAI will commit to independent evaluators with employee-like access. Same-day cosigns now Musk + Altman. models +gpt-6-astra. No catalog/SNAPSHOT.",
+    ],
+  },
+
+  {
+    date: "2026-09-12",
     title: "Desk + wire: Amodei paces the frontier (Musk agrees)",
     items: [
       "Desk policy pace-frontier-0912 from Dario essay We Must Pace the Frontier; Musk QT \"Dario is right.\"",
