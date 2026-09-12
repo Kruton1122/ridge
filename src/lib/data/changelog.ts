@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-12",
+    title: "Desk + wire: Amodei paces the frontier (Musk agrees)",
+    items: [
+      "Desk policy pace-frontier-0912 from Dario essay We Must Pace the Frontier; Musk QT \"Dario is right.\"",
+      "Wire same id, beat policy. models: claude-fable-5.1, claude-opus-5, grok-4.6. No catalog/SNAPSHOT bump.",
+    ],
+  },
+
+  {
     date: "2026-09-11",
     title: "Wire: AA Devin Fusion on Coding Agent Index",
     items: [
