@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-09-12",
+    title: "Desk + wire: Altman IPO delay folded into pacing",
+    items: [
+      "pace-frontier-0912: Altman tells Fortune 2026 IPO ill-advised amid safety; fold into pacing desk. Wire openai-ipo-delay-0912 (Fortune primary; Polymarket alert). No catalog/SNAPSHOT.",
+    ],
+  },
+
+  {
+    date: "2026-09-12",
     title: "Desk + wire: Altman matches embedded evaluators",
     items: [
       "pace-frontier-0912: Altman QT agrees on pacing; OpenAI will commit to independent evaluators with employee-like access. Same-day cosigns now Musk + Altman. models +gpt-6-astra. No catalog/SNAPSHOT.",

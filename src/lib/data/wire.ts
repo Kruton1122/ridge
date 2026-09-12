@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-ipo-delay-0912",
+    title: "Altman: OpenAI IPO not in 2026; ill-advised amid safety",
+    blurb:
+      "12 September. Fortune interview: given safety concerns, now is an \"ill-advised moment\" to go public; not 2026. Ties to same-day pacing thread. Polymarket relayed; Fortune is primary.",
+    date: "2026-09-12",
+    outlet: "Fortune",
+    url: "https://fortune.com/2026/09/12/sam-altman-openai-ipo-delay-ill-advised-moment-safety-concerns/",
+    beat: "policy",
+    models: ["gpt-6-astra"],
+  },
+  {
     id: "pace-frontier-0912",
     title: "Amodei: pace the frontier. Musk and Altman agree",
     blurb:
