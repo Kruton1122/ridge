@@ -139,11 +139,34 @@ export function SiteShell({ children }: { children: ReactNode }) {
             </nav>
           </div>
 
-          <p className="mt-10 border-t border-n-line pt-6 text-[11.5px] text-n-text-3">
-            Ridge is not affiliated with any lab or benchmark operator. Scores belong to
-            their publishers; cite them, not this page. Next scheduled pull{" "}
-            <span className="n-num">{nextPullLabel()}</span>.
-          </p>
+          <div className="mt-10 flex flex-col gap-4 border-t border-n-line pt-6 text-[11.5px] text-n-text-3 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              Ridge is not affiliated with any lab or benchmark operator. Scores belong to
+              their publishers; cite them, not this page. Next scheduled pull{" "}
+              <span className="n-num">{nextPullLabel()}</span>.
+            </p>
+            <div className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1">
+              <a
+                href="https://x.com/ridgebench"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ridge on X"
+                className="n-focus inline-flex text-n-text-3 transition-colors duration-150 hover:text-n-text-2"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  className="size-3.5"
+                >
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              <span>Proudly Made in The United States 🇺🇸</span>
+            </div>
+          </div>
         </div>
       </footer>
 
