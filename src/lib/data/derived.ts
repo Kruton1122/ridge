@@ -527,7 +527,7 @@ export function searchIndex(): SearchEntry[] {
       kind: "model",
       title: model.name,
       sub: aa
-        ? `${model.labName} · AA ${aa.value} · ${aa.tied ? "=" : ""}#${aa.rank} of ${aa.of}`
+        ? `${model.labName} · AA ${aa.value} · ${aa.tied ? "tied for #" : "#"}${aa.rank} of ${aa.of}`
         : `${model.labName} · unscored`,
       to: `/models/${model.id}`,
       keywords: [model.id, model.shortName, model.labName, ...model.aliases].join(" "),
@@ -936,7 +936,7 @@ export function compareLeads(ids: string[], mode: PriceMode = "promo"): string[]
       const w = winners[0];
       if (row.kind === "score") {
         const rank = w.cell.rank
-          ? ` (${w.cell.rank.tied ? "=" : ""}#${w.cell.rank.rank} of ${w.cell.rank.of})`
+          ? ` (${w.cell.rank.tied ? "tied for #" : "#"}${w.cell.rank.rank} of ${w.cell.rank.of})`
           : "";
         out.push(`${w.model.name} leads ${row.label} at ${w.cell.text}${rank}.`);
       } else if (row.id === "dpa") {

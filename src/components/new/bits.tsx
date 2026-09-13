@@ -106,8 +106,8 @@ export function SourceLine({
 
 /**
  * `#3 of 10` — the denominator is what turns a score into a measurement.
- * `=#1` when another row holds the same value: ranking tied scores 1 and 2 would
- * assert a separation the publisher never measured.
+ * `tied for #1 of 10` when another row holds the same value: ranking tied scores
+ * 1 and 2 would assert a separation the publisher never measured.
  */
 export function RankBadge({
   rank,
@@ -127,10 +127,9 @@ export function RankBadge({
         rank === 1 ? "text-n-amber" : "text-n-text-3",
         className,
       )}
-      title={tied ? `Tied for ${rank} of ${of}` : undefined}
     >
       <span className="font-medium">
-        {tied ? <span className="text-n-text-3">=</span> : null}#{rank}
+        {tied ? <span className="text-n-text-3 font-normal">tied for </span> : null}#{rank}
       </span>
       <span className="text-n-text-3">of {of}</span>
     </span>
