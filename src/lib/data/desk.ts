@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-12"): boolean {
+export function isFresh(date: string, asOf = "2026-09-13"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -56,23 +56,65 @@ export const NEWS: NewsItem[] = [
     ],
   },
   {
+    id: "anthropic-threat-intel-0910",
+    kind: "controversy",
+    title: "Anthropic threat intel names Alibaba, Moonshot, DeepSeek",
+    dek: "Fourth misuse dump. Distillation and silent Claude relays at industrial scale. API keys are the loot.",
+    pull: "Security beat next to the board, not a pacing essay. Stolen keys and unauthorized CoT harvests are the story.",
+    summary:
+      "10 September: Anthropic publishes its densest Claude-misuse report (Dec 2025-Aug 2026). Headline cases: Alibaba/Tongyi CoT distillation of Opus (~151M exchanges May-Jul); Moonshot silently forwarding Kimi traffic to Claude; DeepSeek relaying ~12.1M exchanges in 14 days in July. API-key theft runs through the cyber cases.",
+    date: "2026-09-10",
+    sourceName: "Anthropic",
+    sourceUrl: "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    models: ["claude-opus-5", "kimi-k3", "deepseek-v4.1-flash", "deepseek-v4-pro"],
+    tags: ["controversy", "anthropic", "security", "distillation"],
+    body: [
+      "Anthropic's September 2026 threat-intelligence report covers disrupted misuse from December 2025 through August 2026 across cyber, influence, surveillance, scams, bio, conventional weapons, and illicit distillation. The lab says it disrupted every listed operation. Haiku, Sonnet, and Opus show up in the cases. Fable and Mythos are almost absent from misuse, with one illicit-distillation exception.",
+      "Illicit distillation is the board-adjacent punch. Anthropic defines it as industrial-scale, covert extraction of capabilities into another model without authorization, usually via fake accounts, stolen cards, and stolen API keys. Alibaba / Tongyi (GTG-16005) ran what Anthropic calls its largest measured CoT distillation attack on Opus 4.6 and 4.7: a fixed prompt forced inline reasoning traces for SFT into Qwen 3.5-3.7. Scale cited for May-July 2026: over 151 million exchanges.",
+      "Moonshot (GTG-16002): Anthropic says Kimi customer requests were silently forwarded to Claude (mostly Opus), then shown as Kimi answers, with CoT harvested via cross-session replay of thinking signatures. One ten-day window: almost 300,000 relayed requests. May-July scale attributed to Moonshot: over 23 million exchanges.",
+      "DeepSeek: same relay-and-harvest pattern, including tagging third-party coding harness traffic (Claude Code, Agent SDK, OpenCode) and routing selected sessions to Opus. Scale cited: over 12.1 million exchanges in 14 days in July 2026. Anthropic also flags sensitive user and enterprise data inside those relays.",
+      "Cyber chapters treat AI API keys as target, loot, and free attack compute. Stolen customer keys powered secondary campaigns; Anthropic says its own systems were not compromised in the key-theft cases it describes. Fraudulent reseller and credential-harvester networks sit in the same supply chain.",
+      "Ridge angle: this is a security / trust beat beside the ledger, not a rewrite of pace-frontier-0912. Distillation and silent relays are why export-control and weight-theft lines keep showing up in policy essays. No catalog score moves from a threat report. Hold the lab's attribution as Anthropic's claim, sourced to the primary PDF/page.",
+    ],
+  },
+  {
+    id: "gpt-live-1-0910",
+    kind: "release",
+    title: "GPT-Live-1 hits the API: full-duplex voice as a front end",
+    dek: "Listens while it speaks. Delegates reasoning and tools to Astra or a third-party backend. $0.05/min for the voice layer.",
+    pull: "Voice is the product surface. The board still belongs to the backend model.",
+    summary:
+      "10 September: OpenAI puts GPT-Live-1 in the API. Full-duplex voice front end; backend billed separately. OpenAI: Full Duplex Bench +30pp vs GPT-Realtime-2.1; Tau3 #1 with Astra medium; AA Conversational Dynamics 97.3%. Cognition wired Devin Voice the same day.",
+    date: "2026-09-10",
+    sourceName: "OpenAI",
+    sourceUrl: "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+    models: ["gpt-6-astra"],
+    tags: ["release", "openai", "voice"],
+    body: [
+      "OpenAI launched GPT-Live-1 in the API on 10 September. It is a full-duplex voice front end: it can listen and speak at the same time, handle interruptions in one model, and skip the brittle STT-LLM-TTS chain for the spoken layer. Deeper reasoning and tool calls go to a backend text model (GPT-6 Astra in the examples, or a third-party model).",
+      "Pricing on the API card and launch note: $0.05 per minute for the front-end voice layer. Backend tokens and tools bill separately. Telephony is in scope. OpenAI expanded the real-time voice set across accents and languages; the launch page demos a dozen named voices.",
+      "Vendor benches on the launch page (not Ridge board columns): Full Duplex Bench improves by 30 percentage points over GPT-Realtime-2.1. With Astra at medium reasoning effort, OpenAI says Live-1 ranks #1 on Tau3 (voice agent end-to-end). Artificial Analysis Conversational Dynamics on the same page: 97.3% for Live-1 vs 95.7% for Realtime-2.1.",
+      "Same-day color, not the lead: Cognition showed up as a launch customer and wired Live-1 into Devin Voice alongside SWE-2. Ridge keeps this as a product/API story. No new catalog flagship row for a voice front end; Astra remains the OpenAI board seat.",
+    ],
+  },
+  {
     id: "ds-v41-flash-desk",
     kind: "release",
-    title: "DeepSeek put Flash ahead of Pro — and priced the handoff",
-    dek: "V4.1-Flash is live as deepseek-flash. MIT weights on HF. Independent AA / Arena / Vals rows are still blank on Ridge.",
-    pull: "A smaller MoE that the lab says beats its own Pro is a product story first. Wait for the public harnesses.",
+    title: "DeepSeek put Flash ahead of Pro - and priced the handoff",
+    dek: "V4.1-Flash is live as deepseek-flash. MIT weights on HF. AA Intelligence Index 40; Arena Elo 1503.",
+    pull: "A smaller MoE that undercuts the lab's own Pro on price, with AA already printing a row.",
     summary:
-      "10 September: 552B MoE with 8B/16B active, native vision, peak list $0.30 / $1.20 with off-peak at half. Pro routes to Flash after 14 September. Ridge cites the lab and API docs — not vendor agent benches.",
+      "10 September: 552B MoE with 8B/16B active, native vision, peak list $0.30 / $1.20 with off-peak at half. Pro routes to Flash after 14 September. Artificial Analysis lists Intelligence Index 40 (overtakes V4-Pro); Arena+ Elo 1503.",
     date: "2026-09-10",
     sourceName: "DeepSeek",
     sourceUrl: "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
     models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
     tags: ["release", "deepseek", "pricing"],
     body: [
-      "DeepSeek shipped V4.1-Flash on 10 September as the smallest model in its new architecture family, with native multimodal vision and a million-token context. The Causal Encoder–Decoder layout activates about 8B parameters on input and 16B on output inside a 552B MoE. Hugging Face has MIT-licensed weights; the live API name is deepseek-flash.",
-      "The invoice that matters for ledgers is peak cache-miss input at $0.30 and peak output at $1.20 per million tokens, with off-peak at half and a much cheaper cache-hit tier ($0.006 peak / $0.003 off-peak). Peak windows are weekday 01:00–04:00 and 06:00–10:00 UTC. That is the published API card, not a promo.",
+      "DeepSeek shipped V4.1-Flash on 10 September as the smallest model in its new architecture family, with native multimodal vision and a million-token context. The Causal Encoder-Decoder layout activates about 8B parameters on input and 16B on output inside a 552B MoE. Hugging Face has MIT-licensed weights; the live API name is deepseek-flash.",
+      "The invoice that matters for ledgers is peak cache-miss input at $0.30 and peak output at $1.20 per million tokens, with off-peak at half and a much cheaper cache-hit tier ($0.006 peak / $0.003 off-peak). Peak windows are weekday 01:00-04:00 and 06:00-10:00 UTC. That is the published API card, not a promo.",
       "The sharper product move is the Pro handoff. DeepSeek says third-party tests put Flash ahead of V4-Pro on performance, cost, speed, and total runtime. V4-Flash and V4-Flash-Vision-Exp are already retired into compatibility aliases. From 04:00 UTC on 14 September, deepseek-v4-pro requests route to V4.1-Flash at Flash rates until V4.1-Pro lands. Partners named on the launch note: WorkBuddy (including CodeBuddy) and OpenCode.",
-      "Ridge does not copy the lab’s agent tables onto the board. Artificial Analysis, Arena+, and Vals had no V4.1-Flash row in the 10 September briefing scrape. The catalog adds the model with pricing and architecture sourced; AA / Arena / SWE stay blank until those pages move. Keep deepseek-v4-pro as its own id — new version, new row.",
+      "Independent rows landed after the launch note. Artificial Analysis lists V4.1-Flash at Intelligence Index 40 (max), ahead of the live V4-Pro row at 36. Arena+ Elo sits at 1503. Vals SWE-bench still has no Flash row on Ridge. Keep deepseek-v4-pro as its own id until the cutover and V4.1-Pro ship story settles.",
     ],
   },
   {

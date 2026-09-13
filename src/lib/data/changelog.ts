@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-13",
+    title: "Desk + wire: Sep 10 threat intel, Live-1, Agents, Flash AA, SWE-2",
+    items: [
+      "Desk controversy anthropic-threat-intel-0910 + matching wire from Anthropic Sep 2026 threat report (Alibaba/Tongyi, Moonshot relay, DeepSeek 12.1M, API-key theft). Security beat; not pace-frontier.",
+      "Desk release gpt-live-1-0910 (full-duplex API voice; $0.05/min; OpenAI benches cited). Wire openai-agents-api-0910 public beta same morning.",
+      "Updated ds-v41-flash-desk for AA Index 40 / Arena 1503 (model row already present). Wire aa-ds-v41-flash. Wire cognition-swe-2-0910 (launch; distinct from aa-devin-fusion).",
+      "Snapshot / llms.txt / isFresh asOf → 2026-09-13. No new Flash catalog row. Skipped: Financial Services, RubyGems attribution, Cursor Projects.",
+    ],
+  },
+
+  {
     date: "2026-09-12",
     title: "Desk + wire: Altman IPO delay folded into pacing",
     items: [

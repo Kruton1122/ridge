@@ -55,6 +55,61 @@ export const WIRE: WireItem[] = [
     models: ["grok-4.6"],
   },
   {
+    id: "anthropic-threat-intel-0910",
+    title: "Anthropic threat report: Alibaba, Moonshot, DeepSeek distillation",
+    blurb:
+      "10 September. Fourth misuse dump (Dec 2025-Aug 2026). Alibaba/Tongyi ~151M Opus CoT exchanges May-Jul; Moonshot silent Kimi→Claude relay; DeepSeek ~12.1M relays in 14 days July. API-key theft as cyber loot.",
+    date: "2026-09-10",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/threat-intelligence-report-september-2026",
+    beat: "policy",
+    models: ["claude-opus-5", "kimi-k3", "deepseek-v4.1-flash"],
+  },
+  {
+    id: "gpt-live-1-0910",
+    title: "OpenAI: GPT-Live-1 full-duplex voice in the API",
+    blurb:
+      "10 September. Voice front end at $0.05/min; backend separate. Full Duplex Bench +30pp vs Realtime-2.1; Tau3 #1 with Astra medium; AA Conversational Dynamics 97.3%.",
+    date: "2026-09-10",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+    beat: "release",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "openai-agents-api-0910",
+    title: "OpenAI Agents API public beta (Codex harness as a service)",
+    blurb:
+      "10 September. Managed sessions, sandboxes, MCP, subagents. No extra API fee; pay tokens + tools + sandbox. Same morning as GPT-Live-1. Example model: gpt-6-astra.",
+    date: "2026-09-10",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/introducing-the-agents-api/",
+    beat: "release",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "cognition-swe-2-0910",
+    title: "Cognition SWE-2: Kimi K3 post-train near Fable on cost curve",
+    blurb:
+      "10 September. FrontierCode 1.1 Main 50.0% vs Fable 5.1 50.9% at 64% lower cost; DeepSWE 1.1 73.0%. In Devin Desktop/CLI. Distinct from the later AA Fusion / Coding Agent Index wire.",
+    date: "2026-09-10",
+    outlet: "Cognition",
+    url: "https://cognition.com/blog/swe-2",
+    beat: "labs",
+    models: ["kimi-k3", "claude-fable-5.1", "gpt-6-astra"],
+  },
+  {
+    id: "aa-ds-v41-flash",
+    title: "AA: DeepSeek V4.1-Flash Intelligence Index 40",
+    blurb:
+      "Independent AA row after the 10 Sept launch. Index 40 (max) overtakes V4-Pro 36; ~4× cheaper on AA's read. Arena Elo 1503 on Ridge. AutomationBench-AA chatter secondary.",
+    date: "2026-09-10",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/leaderboards/models",
+    beat: "ranking",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+  },
+  {
     id: "ds-v41-flash-launch",
     title: "DeepSeek launches V4.1-Flash — API id deepseek-flash",
     blurb:
