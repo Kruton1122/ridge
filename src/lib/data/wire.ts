@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "trump-ai-guardrails-0914",
+    title: "Trump: AI guardrails = strong President; names Dario",
+    blurb:
+      "14 September. Truth Social @realDonaldTrump (screenshot; no public post URL found): only AI control or \"guardrails\" needed is a \"STRONG AND SMART (High IQ!) PRESIDENT.\" Admin stopped AI people from doing bad things; names \"Dario (Anthropic!)\" pretending to be a \"perfect little angel.\" Claims tremendous criminal and regulatory power over the companies; \"SICK conspiracy\" against AI and data centers that only China likes; \"WHOEVER WINS AI, WINS!\" Leading China; beware conspiracy theorists, treasonists, traitors, leakers. Ridge: same-day counter to Amodei pacing + China MFA fearmongering thread.",
+    date: "2026-09-14",
+    outlet: "Truth Social / @realDonaldTrump",
+    url: "",
+    beat: "policy",
+    models: ["claude-fable-5.1", "claude-opus-5", "grok-4.6", "gpt-6-astra"],
+  },
+  {
     id: "anthropic-dod-restrict-0914",
     title: "DoD: ~90% of classified AI workloads off Anthropic by month-end",
     blurb:

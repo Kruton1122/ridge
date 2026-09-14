@@ -3,6 +3,7 @@ export const CHANGELOG = [
     date: "2026-09-14",
     title: "Half-week news: Grok 4.8 ladder, Pro→Flash live, opinion stars",
     items: [
+      "Wire trump-ai-guardrails-0914 (Truth Social screenshot; no public URL): President as AI guardrails; names Dario/Anthropic; criminal/regulatory power; China-wins framing. Folded into pace-frontier-0912. No catalog/SNAPSHOT.",
       "Wire anthropic-dod-restrict-0914 (DefenseScoop): ~90% classified AI off Anthropic by month-end; usage fight / supply-chain risk, not Polymarket data-exposure framing. No desk/catalog/SNAPSHOT.",
       "Wire + desk grok-48-ladder-0914 (Musk X: 4.8 2.5T/C++ stack; 4.7 ≈ Opus 5 not Fable). No catalog row.",
       "Wire ds-pro-route-live-0914 (DeepSeek Pro→Flash routing live 04:00 UTC). Wire openai-astra-skills-0911 + design-arena-spark-0909.",
