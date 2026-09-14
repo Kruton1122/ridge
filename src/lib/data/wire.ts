@@ -5,11 +5,44 @@ export interface WireItem {
   date: string;
   outlet: string;
   url: string;
-  beat: "release" | "ranking" | "policy" | "rumor" | "labs";
+  beat: "release" | "ranking" | "policy" | "rumor" | "labs" | "industry";
   models: string[];
 }
 
 export const WIRE: WireItem[] = [
+  {
+    id: "microsoft-mai-conduct-0914",
+    title: "Microsoft: provisional MAI code of conduct",
+    blurb:
+      "14 September. Microsoft posts provisional limits for future MAI models: no autonomous goals; no tampering with or concealing chain-of-thought / action traces; no weapons manufacturing or dangerous-substance help; human control and human-readable communication. Suleyman (CNBC): respond to feedback that AI should serve people, not replace them or create dependence. Consult outside input now; update informs training from 2027. Primary: CNBC; also Reuters. Polymarket alert. Same-day pacing-adjacent move after Amodei/Altman/Musk and Nadella welcome deliberate pacing.",
+    date: "2026-09-14",
+    outlet: "CNBC",
+    url: "https://www.cnbc.com/2026/09/14/microsoft-ai-model-limits-anthropic-openai.html",
+    beat: "policy",
+    models: [],
+  },
+  {
+    id: "anthropic-rum-compute-0914",
+    title: "RUM $13.7B GPU deal reportedly Anthropic (unconfirmed)",
+    blurb:
+      "13-14 September. Caveat wire: RUM Group (Rumble / Truth-linked) Aug 8-K disclosed an unnamed US cloud customer ~$13.7B six-year GPU services deal for Maysville, GA site under development (three tranches; third needs customer OK on delivery date). Reuters covered the unnamed filing 24 Aug. The Information (13 Sep) reportedly IDs Anthropic; MarketWatch notes RUM shares jumped on that report. Neither Anthropic nor RUM has confirmed the customer. Ridge: treat as reported ID on a real SEC contract, not a confirmed Anthropic buy.",
+    date: "2026-09-14",
+    outlet: "MarketWatch / The Information",
+    url: "https://www.marketwatch.com/story/rum-group-shares-gain-on-report-of-13-7-billion-computing-deal-with-anthropic-a35cb053",
+    beat: "industry",
+    models: ["claude-fable-5.1", "claude-opus-5"],
+  },
+  {
+    id: "latham-sovereign-ai-0913",
+    title: "Latham: Nvidia servers to customize open-weight in-house",
+    blurb:
+      "10-13 September. FT: Latham & Watkins buys Nvidia GPU servers and fine-tunes open-weight models (incl. Nemotron 3) on-prem in a staff-only data center, first big-law public example of owning AI hardware vs routing all work through OpenAI/Anthropic/Harvey clouds. CIO Mendoza: keep ultra-sensitive client data off third-party clouds; flexibility as token costs rise. Still uses commercial tools. Ridge / AI: sovereign-on-prem pattern spreading past hyperscalers into professional services; open-weight customization as the alternative stack.",
+    date: "2026-09-13",
+    outlet: "Financial Times",
+    url: "https://www.ft.com/content/a2aaa848-92c3-4f7a-b758-5858bfb29e70",
+    beat: "industry",
+    models: [],
+  },
   {
     id: "trump-ai-guardrails-0914",
     title: "Trump: AI guardrails = strong President; names Dario",
