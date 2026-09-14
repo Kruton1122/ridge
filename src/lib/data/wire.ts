@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "anthropic-dod-restrict-0914",
+    title: "DoD: ~90% of classified AI workloads off Anthropic by month-end",
+    blurb:
+      "11-14 September. Polymarket alert framed Nvidia, Palantir, and others restricting Anthropic as sensitive data exposure. Ridge: Under Sec Emil Michael told DefenseScoop ~90% of classified AI workloads already transitioned, on track for end of month. Root is the usage fight: Anthropic refused unrestricted all-lawful-purposes DoD use (surveillance and autonomous-weapons safeguards); DoD designated a supply-chain risk; contractors are migrating. Nvidia-Palantir sovereign AI / Nemotron (10 Sep) is the sensitive/on-prem replacement path, not a leak story. CryptoBriefing summarizes Nvidia/Palantir/Booz Allen restricting in defense ops.",
+    date: "2026-09-14",
+    outlet: "DefenseScoop",
+    url: "https://defensescoop.com/2026/09/11/dod-poised-to-move-all-classified-ai-workloads-off-anthropic-by-october/",
+    beat: "policy",
+    models: ["claude-fable-5.1", "claude-opus-5"],
+  },
+  {
     id: "china-pace-pushback-0914",
     title: "China MFA: US AI CEO slowdown calls are fearmongering",
     blurb:
