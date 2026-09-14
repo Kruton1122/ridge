@@ -11,6 +11,50 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "grok-48-ladder-0914",
+    title: "Musk: Grok 4.8 is 2.5T on new C++ stack; 4.7 ≈ Opus 5",
+    blurb:
+      "14 September. Two X posts: 4.8 finishes training this week then RL (2.5T, new C++ stack). Later: 4.7 roughly on par with Opus 5.0 not Fable 5.1; 4.8 a noticeable step; 4.9 probably Astra/Fable class. Neither shipped. No board row.",
+    date: "2026-09-14",
+    outlet: "Elon Musk / X",
+    url: "https://x.com/elonmusk/status/2099308197802631191",
+    beat: "rumor",
+    models: ["grok-4.6"],
+  },
+  {
+    id: "ds-pro-route-live-0914",
+    title: "DeepSeek: deepseek-v4-pro now routes to V4.1-Flash",
+    blurb:
+      "14 September 04:00 UTC. As announced 10 Sep: requests naming deepseek-v4-pro go to V4.1-Flash at Flash rates until V4.1-Pro. Primary: DeepSeek API docs news260910.",
+    date: "2026-09-14",
+    outlet: "DeepSeek API Docs",
+    url: "https://api-docs.deepseek.com/news/news260910",
+    beat: "release",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro"],
+  },
+  {
+    id: "openai-astra-skills-0911",
+    title: "OpenAI: rethink skills and AGENTS.md for GPT-6 Astra",
+    blurb:
+      "11 September. Dev blog: stop prompting Astra like GPT-5.6 Sol. Long skills and over-constrained AGENTS.md make Astra stop early. Define done. Primary: OpenAI Developers.",
+    date: "2026-09-11",
+    outlet: "OpenAI Developers",
+    url: "https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "design-arena-spark-0909",
+    title: "Design Arena Website: Muse Spark 1.3 xhigh Elo 1362 #1",
+    blurb:
+      "9 September. Design Arena puts Spark 1.3 xhigh first overall on Website; Elo 1362, up five places from 1.2. Preference arena, not AA Index. Astra still pending on that board.",
+    date: "2026-09-09",
+    outlet: "Design Arena / X",
+    url: "https://x.com/DesignArena/status/2097754795838951752",
+    beat: "ranking",
+    models: ["muse-spark-1.3"],
+  },
+  {
     id: "openai-ipo-delay-0912",
     title: "Altman: OpenAI IPO not in 2026; ill-advised amid safety",
     blurb:

@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-13"): boolean {
+export function isFresh(date: string, asOf = "2026-09-14"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,56 @@ export function isFresh(date: string, asOf = "2026-09-13"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "grok-48-ladder-0914",
+    kind: "rumor",
+    title: "Musk names Grok 4.8 (2.5T) while 4.7 is still cooking",
+    dek: "14 Sep X: 4.8 finishes training this week then RL. Same day: 4.7 ≈ Opus 5.0 not Fable 5.1; 4.9 Astra/Fable class. Neither shipped.",
+    pull: "Roadmap chatter is not a catalog row. Live xAI seat stays Grok 4.6 until independents score a named cut.",
+    summary:
+      "14 September: Elon posts that Grok 4.8 is a 2.5T model on xAI's new C++ software stack, finishing training this week then starting RL. Later the same day he ranks 4.7 roughly with Opus 5.0 (not Fable 5.1), calls 4.8 a noticeable improvement, and floats 4.9 as probably Astra/Fable class. No API id, price, or independent bench.",
+    date: "2026-09-14",
+    sourceName: "Elon Musk / X",
+    sourceUrl: "https://x.com/elonmusk/status/2099308197802631191",
+    models: ["grok-4.6"],
+    tags: ["rumor", "xai", "grok"],
+    body: [
+      "Two Elon posts on 14 September extend the 11 September cook-time note. First (~01:24 UTC): Grok 4.8, a 2.5T model trained with xAI's new C++ software stack, will finish training this week and start RL. URL: https://x.com/elonmusk/status/2099308197802631191.",
+      "Second (~11:19 UTC): Grok 4.7 should be roughly on par with Opus 5.0, not 5.1; better in some ways, worse in others; multimodal still needs work. 4.8 is a noticeable improvement. 4.9 is probably Astra/Fable class. Grok 5 maybe better than anything. URL: https://x.com/elonmusk/status/2099458047408013751.",
+      "xAI surfaces still list Grok 4.6 as the released flagship. No grok-4.7 or grok-4.8 catalog row, no invented AA / Arena / SWE / Terminal-Bench cells. Parameter counts and stack claims are founder posts, not xAI model cards.",
+      "Ridge angle: keep the 11 September cook piece for the RL length-penalty diagnosis. This desk is the roadmap extension. Same-week irony with pace-frontier-0912 still stands: Musk agrees on pacing while posting a 4.7/4.8/4.9 ladder.",
+    ],
+  },
+  {
+    id: "halfweek-opinion-0914",
+    kind: "ranking",
+    title: "Half-week opinion: Spark climbs, Flash gets its first stars",
+    dek: "Grok Build X scrape as of 14 September. Stars only where this window's chatter is thick enough to defend.",
+    pull: "Blank beats a guess. Thin signal means leave the stars alone.",
+    summary:
+      "Public affection this half-week: Muse Spark 1.3 xhigh bumps 3→4★ (Design Arena #1, Cursor, cheap OpenCode seat). DeepSeek V4.1 Flash gets a first fill at 4★ (viral cheap worker; real-code testers put it near/under Opus, not Astra). Fable 5.1, Astra, and Kimi K3 hold 4★. Opus, Sol, Grok 4.6, and Gemini 3.8 Flash hold 3★. Spark max and V4 Pro skipped.",
+    date: "2026-09-14",
+    sourceName: "Ridge / Grok Build X scrape",
+    sourceUrl: "https://x.com/DesignArena/status/2097754795838951752",
+    models: [
+      "muse-spark-1.3",
+      "deepseek-v4.1-flash",
+      "claude-fable-5.1",
+      "gpt-6-astra",
+      "claude-opus-5",
+      "gpt-5.6-sol",
+      "grok-4.6",
+      "kimi-k3",
+      "gemini-3.8-flash",
+    ],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Ridge Bot ran the Monday half-week news and public-opinion pass on 14 September. Grok Build on Frank scraped Latest/Top X plus lab docs for the headline board. Log: logs/news-pass-grok-20260914.txt. Stars move only on sourced signal.",
+      "Volume this window: Astra still first (3D/computer-use plus quota rage, plus OpenAI's skills/AGENTS.md reset). Grok 4.7/4.8/4.9 roadmap second (founder posts, not a ship). DeepSeek V4.1 Flash third (launch swarm and Pro→Flash cutover). Fable 5.1 denser practitioner talk. Muse Spark 1.3 fifth (Website Arena #1, Cursor, OpenCode).",
+      "Star moves: Spark xhigh 3→4 on Design Arena Website #1 plus Cursor/OpenCode adoption, with pretentious-code complaints keeping it off 5. DeepSeek V4.1 Flash first fill at 4 as the cheap agent worker and live Pro replacement; not 5 because real-code testers put it near/under Opus. Kept: Fable/Astra/Kimi at 4; Opus/Sol/Grok 4.6/3.8 Flash at 3 with refreshed notes. Skipped: Spark max (no public max/xhigh split), V4 Pro (routing away), GLM-5.3 / Qwen 3.8 Max / Sonnet 5 / Gemini 3.1 Pro (thin).",
+      "Board numbers unchanged by this pass. SNAPSHOT already 2026-09-14 from the morning briefing. No invented AA Index cells from lab launch graphics.",
+    ],
+  },
   {
     id: "pace-frontier-0912",
     kind: "policy",
@@ -101,7 +151,7 @@ export const NEWS: NewsItem[] = [
     id: "ds-v41-flash-desk",
     kind: "release",
     title: "DeepSeek put Flash ahead of Pro - and priced the handoff",
-    dek: "V4.1-Flash is live as deepseek-flash. MIT weights on HF. AA Intelligence Index 40; Arena Elo 1503.",
+    dek: "V4.1-Flash is live as deepseek-flash. Pro→Flash routing live as of 14 Sep 04:00 UTC. AA 40; Arena Elo 1503.",
     pull: "A smaller MoE that undercuts the lab's own Pro on price, with AA already printing a row.",
     summary:
       "10 September: 552B MoE with 8B/16B active, native vision, peak list $0.30 / $1.20 with off-peak at half. Pro routes to Flash after 14 September. Artificial Analysis lists Intelligence Index 40 (overtakes V4-Pro); Arena+ Elo 1503.",

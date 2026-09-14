@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-14",
+    title: "Half-week news: Grok 4.8 ladder, Pro→Flash live, opinion stars",
+    items: [
+      "Wire + desk grok-48-ladder-0914 (Musk X: 4.8 2.5T/C++ stack; 4.7 ≈ Opus 5 not Fable). No catalog row.",
+      "Wire ds-pro-route-live-0914 (DeepSeek Pro→Flash routing live 04:00 UTC). Wire openai-astra-skills-0911 + design-arena-spark-0909.",
+      "Desk halfweek-opinion-0914. Catalog: Spark xhigh 3→4★; DeepSeek V4.1 Flash first fill 4★; refreshed notes/asOf for Fable/Astra/Opus/Sol/Grok4.6/Kimi/3.8Flash. Skipped Spark max, V4 Pro, thin rows. SNAPSHOT already 2026-09-14.",
+    ],
+  },
+
+  {
     date: "2026-09-13",
     title: "Desk + wire: Sep 10 threat intel, Live-1, Agents, Flash AA, SWE-2",
     items: [
