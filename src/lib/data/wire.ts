@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "china-pace-pushback-0914",
+    title: "China MFA: US AI CEO slowdown calls are fearmongering",
+    blurb:
+      "14 September. MFA spokesperson Guo Jiakun rejects the Amodei/Altman/Musk pacing chorus: fearmongering, confrontation, and malicious competition disrupt global AI governance. Primary: CNBC (MFA via Reuters) and BBC. Polymarket alert.",
+    date: "2026-09-14",
+    outlet: "CNBC",
+    url: "https://www.cnbc.com/2026/09/14/china-ai-slowdown-us-tech-ceos.html",
+    beat: "policy",
+    models: ["claude-fable-5.1", "claude-opus-5", "grok-4.6", "gpt-6-astra"],
+  },
+  {
     id: "grok-48-ladder-0914",
     title: "Musk: Grok 4.8 is 2.5T on new C++ stack; 4.7 ≈ Opus 5",
     blurb:

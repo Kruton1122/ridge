@@ -6,6 +6,7 @@ export const CHANGELOG = [
       "Wire + desk grok-48-ladder-0914 (Musk X: 4.8 2.5T/C++ stack; 4.7 ≈ Opus 5 not Fable). No catalog row.",
       "Wire ds-pro-route-live-0914 (DeepSeek Pro→Flash routing live 04:00 UTC). Wire openai-astra-skills-0911 + design-arena-spark-0909.",
       "Desk halfweek-opinion-0914. Catalog: Spark xhigh 3→4★; DeepSeek V4.1 Flash first fill 4★; refreshed notes/asOf for Fable/Astra/Opus/Sol/Grok4.6/Kimi/3.8Flash. Skipped Spark max, V4 Pro, thin rows. SNAPSHOT already 2026-09-14.",
+      "Wire + desk fold china-pace-pushback-0914: China MFA Guo Jiakun rejects US CEO pacing chorus as fearmongering (CNBC/BBC). Folded into pace-frontier-0912. No catalog/SNAPSHOT.",
     ],
   },
 
