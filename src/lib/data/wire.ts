@@ -12,6 +12,19 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "grok-bot-galaxy-0917",
+    title: "Grok Bot Galaxy: SF + livestream; 72h blank-slate company build",
+    blurb:
+      "15-17 September 2026. xAI Grok Bot Galaxy at The Howard (661 Howard St SF) + free livestream (x.ai/galaxy). Live demos and role sessions across eng, PM, founders, sales, support, marketing. Spine: Matt Palmer (@mattyp), Lauren Tan (@poteto), Roshan Sadanani (@roshan_s) build a company from scratch in ~72h with Grok Bot as employees, humans at core; started without name/product/idea. Day 3 wrap+showcase 4:30-5:30pm PT Sep 17 - still landing as of early afternoon ET / late morning PT on the 17th; do not invent what they shipped. Grok Bot = agent teammates (not chat Grok on X). Musk QT promo; @bot Day 1 live. Secondary: CellCog, TeslaNorth.",
+    date: "2026-09-17",
+    outlet: "xAI",
+    url: "https://x.ai/galaxy",
+    beat: "industry",
+    models: [],
+  },
+
+
+  {
     id: "spacex-startup-data-0917",
     title: "Bloomberg: SpaceX discusses buying failed-startup data for AI",
     blurb:

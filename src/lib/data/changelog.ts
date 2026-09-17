@@ -1,4 +1,13 @@
 export const CHANGELOG = [
+
+  {
+    date: "2026-09-17",
+    title: "Desk + wire: Grok Bot Galaxy",
+    items: [
+      "Wire + desk grok-bot-galaxy-0917: xAI Galaxy SF+livestream; Palmer/Tan/Sadanani 72h blank-slate build; showcase still landing; Bot != chat Grok. No catalog/SNAPSHOT.",
+    ],
+  },
+
   {
     date: "2026-09-17",
     title: "Wire: SpaceX startup-data talks",

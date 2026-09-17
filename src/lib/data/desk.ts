@@ -12,6 +12,29 @@ export function isFresh(date: string, asOf = "2026-09-17"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "grok-bot-galaxy-0917",
+    kind: "release",
+    title: "Grok Bot Galaxy: 72-hour company build, showcase still landing",
+    dek: "xAI stages SF + livestream Sep 15-17. Palmer / Tan / Sadanani start blank. Demo day is agent-workflow theater, not a model leaderboard.",
+    pull: "Interesting as a live test of bots-as-employees. Do not invent the Day 3 product - the wrap was still ahead when this note went up.",
+    summary:
+      "15-17 September 2026: Grok Bot Galaxy at The Howard (661 Howard St, SF) plus free livestream (x.ai/galaxy). Pitch: Grok Bot as a team of capable AI agents, with live demos and role sessions (eng, PM, founders, sales eng, sales, SDRs, support, marketing ops, post-sales, marketing). Spine: Matt Palmer (@mattyp), Lauren Tan (@poteto), Roshan Sadanani (@roshan_s) build a company from scratch in ~72h using Grok Bot as employees, humans at the core; they started without name, product, or idea. Day 3 wrap + showcase scheduled 4:30-5:30pm PT Sep 17. As of early afternoon ET / late morning PT on the 17th, that showcase had not landed in a citable form. Ridge does not invent what they shipped. Distinguish Grok Bot (agent teammates / Cursor-adjacent product) from chat Grok on X. Musk amplified related Bot promo; @bot posted Day 1 live. Secondary: CellCog, TeslaNorth.",
+    date: "2026-09-17",
+    sourceName: "xAI Galaxy / CellCog / TeslaNorth",
+    sourceUrl: "https://x.ai/galaxy",
+    models: [],
+    tags: ["release", "xai", "agents", "industry", "grok-bot"],
+    body: [
+      "Official hub: https://x.ai/galaxy. Three days in San Francisco at The Howard, 661 Howard Street, with a free public livestream. The pitch on the page and in secondary writeups is practical: put Grok Bot on real work, watch live demos, and run role-shaped sessions across eng, PM, founders, sales eng, sales, SDRs, support, marketing ops, post-sales, and marketing.",
+      "The stream spine is the blank-slate build. Matt Palmer (@mattyp), Lauren Tan (@poteto), and Roshan Sadanani (@roshan_s) said ahead of the event they would go from nothing to a business in about 72 hours, use @bot as employees, and keep real people at the core. Palmer: no name, product, or idea yet. That framing is the product test. Not a canned demo reel.",
+      "Musk quote-tweeted related Bot promo (https://x.com/elonmusk/status/2099256569737207873). @bot posted a Day 1 live note (https://x.com/bot/status/2099883726444610030). Secondary schedule and venue detail: CellCog, TeslaNorth. Ridge is not folding unverified seat-price chatter into this note.",
+      "Timing matters for the claim. Day 3 wrap and final showcase sit 4:30-5:30pm PT on 17 September. This desk went up earlier the same day (early afternoon ET / late morning PT). Showcase result was still landing. Do not invent a company name or product SKU. Blank-slate framing holds until a primary source or the builders publish what shipped.",
+      "Ridge opinion: this is interesting as agent-workflow theater. Demo day is not a model leaderboard row. Grok Bot here is the agent-teammate product (Cursor-adjacent), not chat Grok on X. Keep those seats separate. No catalog or SNAPSHOT bump from an event that has not yet posted a finished artifact.",
+    ],
+  },
+
+
+  {
     id: "typesafe-jev-0917",
     kind: "release",
     title: "TypeSafe ships Jev: System One, no string generation",
