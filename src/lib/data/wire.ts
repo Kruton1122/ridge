@@ -12,6 +12,29 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "typesafe-jev-0917",
+    title: "TypeSafe: System One Models + Jev early access",
+    blurb:
+      "15 September. TypeSafe AI opens early access for Jev, first System One model: unstructured state + typed Choice/Score/Noul questions in; type-safe values with calibrated probs/confidence out in parallel. No string generation. Claims 70–500ms E2E, $0.042/MTok input, output free, RLCD. Workflow evals vs LLMs (System One wrapper); reference = avg Astra + Fable 5.1; Pareto ~193×/444× vs frontier on those workflows. Founder Diogo Almeida (InstructGPT / instruction-following at OpenAI). Skeptical: The Decoder, Kingy, novcog/jev note accuracy trails Sol/Opus on aggregate and labels are model-generated. Not a chat/coding replacement. Primary: TypeSafe blog.",
+    date: "2026-09-15",
+    outlet: "TypeSafe AI",
+    url: "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    beat: "industry",
+    models: [],
+  },
+  {
+    id: "astra-enigma-0917",
+    title: "Claimed: Astra Extra High agents crack Enigma MVUEH in ~10h",
+    blurb:
+      "17 September. Carter Leffen (Bloomberg product-dev coach) claims GPT-6 Astra Extra High + agents spent ~10 hours on unsolved 82-char Wehrmacht Enigma MVUEH (1941-07-10). Built simulator, cryptanalysis code, parallel key search; crib Rosenow from same-day solved message; recovered German plaintext (march route / Sofort Funkantwort); typos cited as authenticity. Code/site released per The Decoder. Derya amplify of Leffen's thread. Independent expert verification pending. Agentic harness demo, not an OpenAI official result or board score.",
+    date: "2026-09-17",
+    outlet: "The Decoder / Carter Leffen",
+    url: "https://the-decoder.com/openais-gpt-6-astra-decrypts-a-nazi-radio-message-in-ten-hours-that-went-unsolved-for-83-years/",
+    beat: "industry",
+    models: ["gpt-6-astra"],
+  },
+
+  {
     id: "openai-misalign-0916",
     title: "OpenAI: misalignment reporting framework + six cases",
     blurb:

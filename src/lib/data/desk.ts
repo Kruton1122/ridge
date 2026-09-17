@@ -12,6 +12,48 @@ export function isFresh(date: string, asOf = "2026-09-17"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "typesafe-jev-0917",
+    kind: "release",
+    title: "TypeSafe ships Jev: System One, no string generation",
+    dek: "Early access ~15 Sep. Typed Choice / Score / Noul out; calibrated probs in parallel. Product-shaped model class, not a chat seat.",
+    pull: "Interesting decision API. No board row yet: no AA / Arena / SWE, and the headline Pareto is against frontier on their own workflows.",
+    summary:
+      "15 September: TypeSafe AI (founder Diogo Almeida; InstructGPT / instruction-following work at OpenAI) opens early access for Jev, first of a class they call System One Models. No string generation. Unstructured state plus typed questions in; type-safe values with calibrated probabilities and confidence out. Claims 70–500ms E2E, $0.042/MTok input, output free, RLCD training. Own workflow evals vs LLMs via a System One wrapper; reference = avg of GPT-6 Astra + Claude Fable 5.1. Pareto 193×/444× is against frontier on those workflows. Skeptical reads (The Decoder, Kingy, novcog/jev file): accuracy trails Sol/Opus on the aggregate; labels are model-generated; not a chat/coding replacement. Name nods: William Stanley Jevons + Kahneman System 1.",
+    date: "2026-09-15",
+    sourceName: "TypeSafe AI / Diogo Almeida",
+    sourceUrl: "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+    models: [],
+    tags: ["release", "typesafe", "system-one", "industry"],
+    body: [
+      "TypeSafe AI announced System One Models and early access for Jev around 14–15 September 2026. Primary: Diogo Almeida on the TypeSafe blog. Almeida is a founder with InstructGPT / instruction-following credits from OpenAI; cite that carefully. He did not invent ChatGPT solo.",
+      "The product bet is deliberate: Jev gives up string generation. You pass unstructured state plus typed questions (Choice, Score, Noul). You get type-safe values plus calibrated probabilities and confidence scores, sampled in parallel rather than token-by-token. Training pitch is RLCD (Reinforcement Learning for Calibrated Decisions). Pricing on the launch note: $0.042 per million input tokens; output free. Speed claim: 70–500ms end-to-end on System One-shaped queries.",
+      "\"Can't hallucinate\" in their framing is a schema / type guarantee, not a semantic truth claim. Their own nuance: the 0% type-error figure is not empirical; malformed outsides are ruled out by construction. A wrong-but-valid Choice is still wrong.",
+      "Workflow evals are TypeSafe's own harness. LLMs are constrained through a System One wrapper. The reference answer is the average of GPT-6 Astra and Claude Fable 5.1. Homepage Pareto claims (about 193× faster / 444× cheaper) are against frontier models on those workflows, and TypeSafe says those are on the high end of real-world gains.",
+      "Secondary / skeptical: The Decoder flags the self-built workflows and model-as-reference setup. Kingy's review puts aggregate accuracy behind Sol / Opus on the published table and stresses model-generated labels. The novcog/jev file makes the same Pareto-not-peak point. Ridge angle: this is an interesting product-shaped model class for high-volume triage, routing, and scoring inside code. It is not a chat or coding replacement, and we are not inventing AA Index, Arena, or SWE rows. No catalog seat until independents publish numbers that fit the board.",
+      "Naming: Jev after William Stanley Jevons (efficiency unlocking demand). System One after Kahneman's fast System 1 framing.",
+    ],
+  },
+  {
+    id: "astra-enigma-0917",
+    kind: "rumor",
+    title: "Astra Extra High + agents: claimed Enigma MVUEH break",
+    dek: "Carter Leffen says ~10h on an 82-char 1941 Wehrmacht message. Agentic harness demo. Independent crypto review still pending.",
+    pull: "Cool agent story. Not an OpenAI official result, and not a board score.",
+    summary:
+      "17 September coverage (The Decoder; Derya amplify of Carter Leffen's thread): Bloomberg product-dev coach Carter Leffen claims GPT-6 Astra Extra High plus agents spent about ten hours on unsolved Enigma ciphertext MVUEH (1941-07-10, 82 chars). Built simulator, cryptanalysis code, parallel key search. Crib \"Rosenow\" from a same-day solved message. Recovered German plaintext about march route / Sofort Funkantwort; typos cited as authenticity. Code and site released per coverage. Expert verification still pending.",
+    date: "2026-09-17",
+    sourceName: "The Decoder / Carter Leffen",
+    sourceUrl: "https://the-decoder.com/openais-gpt-6-astra-decrypts-a-nazi-radio-message-in-ten-hours-that-went-unsolved-for-83-years/",
+    models: ["gpt-6-astra"],
+    tags: ["rumor", "openai", "agents", "enigma"],
+    body: [
+      "Primary claim is from Carter Leffen (Bloomberg product-dev coach), threaded on X and amplified by Derya. The Decoder summarized on 17 September. Ridge treats this as a third-party agentic harness writeup, not an OpenAI lab announcement.",
+      "Claimed setup: GPT-6 Astra Extra High plus specialized agents over roughly ten hours. Work included archive search, an Enigma simulator, cryptanalysis code, and parallel key search. The crib was the town name Rosenow, taken from a same-day already-solved message. Recovered plaintext is described as German march-route / Sofort Funkantwort content; operator-style typos (e.g. BTTE) are offered as authenticity evidence.",
+      "Code, search data, and a simulator are said to be public so others can replay the search. That is necessary but not sufficient. Independent cryptanalyst verification is still pending. Do not read this as \"OpenAI solved Enigma\" or as a new AA / Arena / SWE cell. Keep it on the industry / research beat next to the matching wire.",
+    ],
+  },
+
+  {
     id: "halfweek-opinion-0917",
     kind: "ranking",
     title: "Half-week opinion: stars hold; safety talk dominates volume",

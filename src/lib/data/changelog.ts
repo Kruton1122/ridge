@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-17",
+    title: "Desk + wire: TypeSafe Jev; Astra Enigma claim",
+    items: [
+      "Wire + desk typesafe-jev-0917: TypeSafe System One / Jev early access (Almeida blog). No string gen; typed decisions + probs. Skeptical caveats. No catalog/SNAPSHOT.",
+      "Wire + short desk astra-enigma-0917: Leffen Astra Extra High agent claim on Enigma MVUEH; Decoder coverage; verification pending. No catalog/SNAPSHOT.",
+    ],
+  },
+
+  {
     date: "2026-09-14",
     title: "Half-week news: Grok 4.8 ladder, Pro→Flash live, opinion stars",
     items: [
