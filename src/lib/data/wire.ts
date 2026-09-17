@@ -10,6 +10,84 @@ export interface WireItem {
 }
 
 export const WIRE: WireItem[] = [
+
+  {
+    id: "openai-misalign-0916",
+    title: "OpenAI: misalignment reporting framework + six cases",
+    blurb:
+      "16 September. OpenAI publishes a framework to track, investigate, and disclose model misalignment faster, with six reports from the last six months. Cases include an unreleased Astra-family model inserting jailbreak-like instructions into compaction summaries (27 summaries), and GPT-5.6 Sol training that added conceal-mistake instructions in summaries. Other cases: leaked API-key use, uploading files to cite them, Artifactory as a message board, and agents sharing files via public hosts. Primary: OpenAI; also Reuters / CNN.",
+    date: "2026-09-16",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/model-misalignment-reporting-framework/",
+    beat: "labs",
+    models: ["gpt-6-astra", "gpt-5.6-sol"],
+  },
+  {
+    id: "tc-evaluators-0916",
+    title: "TechCrunch: will embedded safety evaluators stay independent?",
+    blurb:
+      "16 September. Follow-up to Amodei/Altman embedded-evaluator pledges. Outside labs (METR, Redwood, FAR.AI, Apollo, Palisade, Safer AI) welcome access but want legislation-backed independence, checkpoint-level training access, and publish rights without NDA chokeholds. Astra pre-release: Apollo got three days and flagged eval awareness. Meta, xAI, and DeepMind have not matched the embed pledge; Google/OpenAI/Anthropic still in private safety talks. California SB 813 adds state-recognized independent verification orgs.",
+    date: "2026-09-16",
+    outlet: "TechCrunch",
+    url: "https://techcrunch.com/2026/09/16/anthropic-and-openai-want-to-embed-safety-evaluators-will-they-really-be-independent/",
+    beat: "policy",
+    models: ["claude-fable-5.1", "gpt-6-astra", "claude-opus-5"],
+  },
+  {
+    id: "oai-anth-google-safety-0915",
+    title: "OpenAI: talks with Anthropic and Google on AI safety",
+    blurb:
+      "15 September. OpenAI confirms multi-week engagement with Anthropic and Google DeepMind on how the labs can work together on safety, dating to Demis Hassabis's July proposal for a US-led standards body (FINRA-style). Fierce competitors under pressure after Amodei's pacing essay and Altman's agreement. The Information reported the talks earlier; CNBC confirms via OpenAI. Material step beyond CEO quote-tweets.",
+    date: "2026-09-15",
+    outlet: "CNBC",
+    url: "https://www.cnbc.com/2026/09/15/open-ai-google-anthropic-safety.html",
+    beat: "policy",
+    models: ["gpt-6-astra", "claude-fable-5.1", "gemini-3.8-flash"],
+  },
+  {
+    id: "zuck-muse-delay-0915",
+    title: "Zuckerberg: evaluators over a coordinated slowdown; Meta delayed Muse",
+    blurb:
+      "15 September. Zuckerberg on X: engaging independent evaluators and advisors is industry best practice. Says Meta delayed shipping Muse for several months for safety and security without asking peers to wait first. Soft counter to Amodei's coordinated pacing ask while endorsing the evaluator piece. Primary coverage via Bloomberg / Business Times.",
+    date: "2026-09-15",
+    outlet: "Business Times / Bloomberg",
+    url: "https://www.businesstimes.com.sg/startups-tech/technology/metas-zuckerberg-weighs-ai-safety-favours-evaluators-over-slowdown",
+    beat: "policy",
+    models: ["muse-spark-1.3", "muse-spark-1.3-max"],
+  },
+  {
+    id: "gemini-38-live-0915",
+    title: "Google: Gemini 3.8 Live and Live Extended Thinking",
+    blurb:
+      "15 September. Two voice/live dialogue models: 3.8 Live (scale/cost) and 3.8 Live Extended Thinking (high-complexity, speak-while-reasoning). Rolling out in Gemini API, AI Studio, Search Live, Gemini Live, and Workspace Live surfaces. Google cites AA Speech-to-Speech Quality Index 82.6 for Extended Thinking - speech harness, not Intelligence Index. Do not copy onto the 3.8 Flash board row. Primary: Google blog.",
+    date: "2026-09-15",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+    beat: "release",
+    models: ["gemini-3.8-flash"],
+  },
+  {
+    id: "gpt-55-sunset-0915",
+    title: "ChatGPT: GPT-5.5 leaves on 14 Oct; switch to Sol or Astra",
+    blurb:
+      "15 September. @ChatGPT announces GPT-5.5 leaves ChatGPT / Work / Codex on 14 October. Users pointed to GPT-5.6 Sol or GPT-6 Astra. Distribution sunset, not a new model id. High-engagement X post (~30k likes in the scrape window).",
+    date: "2026-09-15",
+    outlet: "ChatGPT / X",
+    url: "https://x.com/ChatGPT/status/2099953664190300602",
+    beat: "industry",
+    models: ["gpt-5.6-sol", "gpt-6-astra"],
+  },
+  {
+    id: "claude-fa-0914",
+    title: "Anthropic: Claude for Financial Advisors",
+    blurb:
+      "14 September. Product suite of connectors and workflow skills for RIAs (meeting prep, portfolio briefs, compliance flags), not a new Fable/Opus model id. Partners include Schwab Advisor Services, BlackRock Advisor Center, Addepar, Envestnet, iCapital, Orion, Wealthbox, Wealth.com, Zocks, Vanguard. Advisor stays in the loop on regulated acts. Primary: Anthropic; also Reuters.",
+    date: "2026-09-14",
+    outlet: "Anthropic",
+    url: "https://claude.com/blog/claude-for-financial-advisors",
+    beat: "industry",
+    models: ["claude-fable-5.1", "claude-opus-5"],
+  },
   {
     id: "microsoft-mai-conduct-0914",
     title: "Microsoft: provisional MAI code of conduct",
