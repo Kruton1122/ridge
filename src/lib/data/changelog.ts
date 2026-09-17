@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-09-17",
+    title: "Wire: SpaceX startup-data talks",
+    items: [
+      "Wire spacex-startup-data-0917 (Bloomberg; TNW): informal SpaceX/SpaceXAI talks on buying troubled/defunct startup customer+ops data for AI; may not deal. Squawk plans framing corrected. No desk/catalog/SNAPSHOT.",
+    ],
+  },
+
+  {
+    date: "2026-09-17",
     title: "Desk + wire: TypeSafe Jev; Astra Enigma claim",
     items: [
       "Wire + desk typesafe-jev-0917: TypeSafe System One / Jev early access (Almeida blog). No string gen; typed decisions + probs. Skeptical caveats. No catalog/SNAPSHOT.",

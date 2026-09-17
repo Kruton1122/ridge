@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "spacex-startup-data-0917",
+    title: "Bloomberg: SpaceX discusses buying failed-startup data for AI",
+    blurb:
+      "17 September. Informal internal talks at SpaceX / SpaceXAI about buying customer and operational info from troubled or defunct startups to train AI models (Grok). Bloomberg: discussions only; may not produce a deal. SpaceX no comment. Compared to Google's ~$10M Spirit Airlines data offer. First Squawk framed as plans; primary is discussions, not a signed buy. Secondary: TNW.",
+    date: "2026-09-17",
+    outlet: "Bloomberg",
+    url: "https://www.bloomberg.com/news/articles/2026-09-17/spacex-discusses-buying-data-for-ai-models-from-failed-startups",
+    beat: "industry",
+    models: ["grok-4.6"],
+  },
+
+  {
     id: "typesafe-jev-0917",
     title: "TypeSafe: System One Models + Jev early access",
     blurb:
