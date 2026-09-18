@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-17"): boolean {
+export function isFresh(date: string, asOf = "2026-09-18"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,29 @@ export function isFresh(date: string, asOf = "2026-09-17"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+
+  {
+    id: "grok-transcribe-2-0918",
+    kind: "release",
+    title: "Transcribe 2.0: opt-in STT, flat price, separate from Think Fast",
+    dek: "New pinned STT slug. 1.0 stays default. Pricing unchanged. Vendor accuracy claim, no public 1-to-2 bench.",
+    pull: "Canary-friendly. Do not paste Think Fast 2.0 speech-to-speech tables onto this seat.",
+    summary:
+      "18 September: xAI adds grok-voice-transcribe-2.0 for Speech to Text (batch REST + streaming WebSocket) alongside 1.0. Docs keep grok-voice-transcribe-1.0 as the default when model is omitted. Published STT list price stays $0.10/hr REST and $0.20/hr streaming. SpaceXAI frames it as the world's most accurate speech transcription model; Ridge treats that as a vendor claim. No public independent Transcribe 1-to-2 accuracy table as of this note (DataNorth same read). Separate product from Grok Voice Think Fast 2.0 (speech-to-speech / conversational).",
+    date: "2026-09-18",
+    sourceName: "xAI docs / SpaceXAI / DataNorth",
+    sourceUrl: "https://docs.x.ai/developers/release-notes",
+    models: [],
+    tags: ["release", "xai", "stt", "voice", "industry"],
+    body: [
+      "Primary ship signal is in xAI release notes and the Speech to Text API docs: model may be grok-voice-transcribe-1.0 or grok-voice-transcribe-2.0; default when omitted is still 1.0. That matters for production pins. Teams can canary 2.0 without an unannounced swap.",
+      "Pricing on the models / voice page is unchanged for Speech to Text: $0.10 per hour REST, $0.20 per hour streaming. Flat across 1.0 and 2.0 at the published list. Not a price event.",
+      "SpaceXAI's Introducing post claims world's most accurate speech transcription. Ridge labels that vendor marketing. Unlike Think Fast 2.0's lab-reported speech-to-speech accuracy tables, there is no published independent Transcribe 1-to-2 quality bench in the docs or DataNorth's 18 Sep note.",
+      "Keep the products apart. Grok Voice Think Fast 2.0 (x.ai/news/grok-voice-think-fast-2) is speech-to-speech / conversational voice, priced per minute of audio. Transcribe 2.0 is dedicated STT. Do not mash those benches or copy Think Fast WER-style claims onto the Transcribe row. No catalog or SNAPSHOT bump: no AA / Arena / SWE seat for an STT SKU.",
+    ],
+  },
+
 
   {
     id: "grok-bot-galaxy-0917",

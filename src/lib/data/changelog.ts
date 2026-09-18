@@ -1,5 +1,15 @@
 export const CHANGELOG = [
 
+
+  {
+    date: "2026-09-18",
+    title: "Wire + short desk: Grok Voice Transcribe 2.0",
+    items: [
+      "Wire + short desk grok-transcribe-2-0918: STT 2.0 opt-in; 1.0 default; $0.10/$0.20 flat; != Think Fast 2.0; vendor accuracy claim, no public 1-to-2 bench. isFresh asOf -> 2026-09-18. No catalog/SNAPSHOT.",
+    ],
+  },
+
+
   {
     date: "2026-09-17",
     title: "Desk + wire: Grok Bot Galaxy",

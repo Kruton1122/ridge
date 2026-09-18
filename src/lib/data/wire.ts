@@ -11,6 +11,20 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
 
+
+  {
+    id: "grok-transcribe-2-0918",
+    title: "xAI: Grok Voice Transcribe 2.0 (STT); 1.0 stays default",
+    blurb:
+      "18 September. SpaceXAI / xAI adds dedicated STT model grok-voice-transcribe-2.0 beside 1.0 on /v1/stt (batch REST + WebSocket streaming). Omit model -> still grok-voice-transcribe-1.0 (docs / DataNorth). List price flat: $0.10/hr REST, $0.20/hr streaming (x.ai voice / models docs). Vendor claim \"world's most accurate speech transcription model\" (SpaceXAI post); no published independent Transcribe 1-to-2 quality bench as of ship. Not Grok Voice Think Fast 2.0 (speech-to-speech / conversational; x.ai/news/grok-voice-think-fast-2). Do not mash those benches. Secondary: DataNorth.",
+    date: "2026-09-18",
+    outlet: "xAI / SpaceXAI",
+    url: "https://x.com/SpaceXAI/status/2101005248311726387",
+    beat: "industry",
+    models: [],
+  },
+
+
   {
     id: "grok-bot-galaxy-0917",
     title: "Grok Bot Galaxy: SF + livestream; 72h blank-slate company build",
