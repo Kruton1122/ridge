@@ -7,6 +7,9 @@ Pulls:
   - artificialanalysis.ai/leaderboards/models -> AA Intelligence Index (SSR table)
   - vals.ai/benchmarks/swebench           -> SWE-bench Verified overall accuracy
 
+CursorBench (cursor.com/cursorbench) is NOT scraped here — Next.js/RSC payload;
+keep cursor-bench catalog rows manual / link-drop for now (see RIDGE.md).
+
 Hard rules:
   - Never invent scores. Missing number => skip / leave —.
   - aa-intelligence catalog values MUST come from AA site, NOT OpenLM AAII
@@ -40,6 +43,101 @@ SEED_ASOF = "2026-08-18"
 SEED_OVERALL = [("Claude Opus 5", 63), ("Claude Fable 5", 62)]
 SEED_SWE = [("Claude Opus 5", 97.0), ("DeepSeek V4 Pro", 96.4)]
 SEED_ARENA = [("Claude Opus 5", 1511), ("Claude Fable 5", 1510)]
+
+# Explicit morning board-watch ids (blank seats / fresh board). Matched against
+# today's scrape via catalog aliases so Colton sees them every notify even when
+# they are no longer "new frontier" spam.
+BOARD_WATCH = (
+    "grok-4.7",            # blank SWE/TB; AA+Arena live
+    "muse-spark-1.3-max",  # partner max row; Arena often blank
+)
+
+
+def _norm_watch_name(s: str) -> str:
+    s = (s or "").lower()
+    s = re.sub(r"\([^)]*\)", " ", s)
+    s = re.sub(r"[^a-z0-9]+", " ", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def load_catalog_alias_map():
+    """id -> set of normalized alias/name/id tokens from catalog.ts."""
+    catalog = REPO / "src" / "lib" / "data" / "catalog.ts"
+    if not catalog.exists():
+        return {}
+    text = catalog.read_text()
+    out = {}
+    for m in re.finditer(
+        r'm\(\{\s*id:\s*"([^"]+)"\s*,\s*name:\s*"([^"]+)"\s*,\s*shortName:\s*"([^"]+)"[\s\S]*?aliases:\s*\[([^\]]*)\]',
+        text,
+    ):
+        mid, name, short, raw_aliases = m.group(1), m.group(2), m.group(3), m.group(4)
+        aliases = re.findall(r'"([^"]+)"', raw_aliases)
+        keys = {_norm_watch_name(x) for x in [mid, name, short, *aliases] if x}
+        out[mid] = keys
+    return out
+
+
+def match_scrape_value(entries, value_key, alias_keys):
+    """Best (highest) numeric value among scrape rows whose name matches aliases.
+
+    AA strips "(max)" / "(xhigh)" into `note`; recombine so muse-spark-1.3-max
+    still matches a row named "Muse Spark 1.3" with note "...variant: max".
+    """
+    best = None
+    best_name = None
+    for e in entries or []:
+        name = e.get("name") or ""
+        note = e.get("note") or ""
+        n = _norm_watch_name(name)
+        hit = n in alias_keys
+        if not hit and note:
+            vm = re.search(r"variant:\s*([^\s(;]+)", note, re.I)
+            if vm:
+                variant = vm.group(1).strip().lower()
+                variant = variant.split()[0] if variant else ""
+                combined = _norm_watch_name(f"{name} {variant}")
+                if combined in alias_keys:
+                    hit = True
+        if not hit:
+            continue
+        val = e.get(value_key)
+        if val is None:
+            continue
+        try:
+            num_val = float(val)
+        except (TypeError, ValueError):
+            continue
+        if best is None or num_val > best:
+            best = num_val
+            best_name = name
+    return best, best_name
+
+
+def board_watch_lines(aa_entries, arena_entries, swe_entries):
+    """Short notify lines for BOARD_WATCH models from today's scrape."""
+    alias_map = load_catalog_alias_map()
+    lines = []
+    for mid in BOARD_WATCH:
+        keys = alias_map.get(mid)
+        if not keys:
+            keys = {_norm_watch_name(mid), _norm_watch_name(mid.replace("-", " "))}
+        aa, _ = match_scrape_value(aa_entries, "score", keys)
+        arena, _ = match_scrape_value(arena_entries, "elo", keys)
+        swe, _ = match_scrape_value(swe_entries, "accuracy", keys)
+
+        def fmt(v, kind):
+            if v is None:
+                return "(none in scrape)"
+            if kind == "swe":
+                return f"{v:g}%"
+            return f"{v:g}"
+
+        lines.append(
+            f"Board watch {mid}: AA={fmt(aa, 'aa')} Arena={fmt(arena, 'arena')} "
+            f"SWE={fmt(swe, 'swe')}"
+        )
+    return lines
 
 
 def fetch(url: str) -> str:
@@ -246,6 +344,8 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gpt 5.6 sol",
         "grok-4.6",
         "grok 4.6",
+        "grok-4.7",
+        "grok 4.7",
         "kimi-k3",
         "kimi k3",
         "qwen3.8-max",
@@ -446,6 +546,7 @@ def main():
         )
     else:
         msg_lines.append("No new frontier names flagged in top 10.")
+    msg_lines.extend(board_watch_lines(aa_entries, arena_entries, swe_entries))
     if deltas:
         msg_lines.append("Since last run: " + " | ".join(deltas))
     else:

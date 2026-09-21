@@ -145,7 +145,7 @@ export const MODELS: Model[] = [
     contextTokens: 500_000,
     pricing: { inputPerM: 2, outputPerM: 6 },
     license: "proprietary",
-    aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7"],
+    aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7", "Grok-4.7", "Grok 4.7 (high)", "Grok 4.7 (xhigh)", "grok 4.7 high", "grok 4.7 xhigh"],
     summary:
       "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Same $2 / $6 list as Grok 4.6. Vals SWE-bench and Terminal-Bench 2.1 remain blank; do not paste vendor launch-chart cells.",
   }),
