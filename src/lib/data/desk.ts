@@ -11,6 +11,52 @@ export function isFresh(date: string, asOf = "2026-09-21"): boolean {
 
 export const NEWS: NewsItem[] = [
 
+
+  {
+    id: "bc-openai-tumbler-0921",
+    kind: "policy",
+    title: "B.C. sues OpenAI over Tumbler Ridge ChatGPT threats",
+    dek: "21 Sep California filing. Failure-to-notify and unsafe-product claims. Separate from Buist. Allegations only.",
+    pull: "Policy beat. Do not invent board scores. Keep language as allegations.",
+    summary:
+      "21 September 2026: British Columbia Attorney General Niki Sharma announces that the province is filing a lawsuit against OpenAI in California over the 10 February 2026 Tumbler Ridge Secondary mass shooting. The province alleges OpenAI failed to notify law enforcement of ChatGPT threats that triggered an internal review, and alleges an unsafe product design. Families already filed private California suits. Sharma says the province asked for the chats and OpenAI refused. Seeking accountability and reimbursement toward a replacement school. Separate from Buist antitrust already on the desk. No catalog or SNAPSHOT invent.",
+    date: "2026-09-21",
+    sourceName: "BC Gov / CBC",
+    sourceUrl: "https://news.gov.bc.ca/releases/2026AG0067-001105",
+    models: ["gpt-6-astra"],
+    tags: ["policy", "openai", "lawsuit", "safety"],
+    body: [
+      "Primary: BC Government statement 21 Sep 11:45 AM PT. https://news.gov.bc.ca/releases/2026AG0067-001105 AG Niki Sharma: B.C. is filing in California for failure to notify law enforcement of threats on ChatGPT before the Tumbler Ridge Secondary shooting.",
+      "CBC 21 Sep: https://www.cbc.ca/news/canada/british-columbia/bc-government-announce-update-openai-legal-action-9.7352395 Six children and two adults killed 10 Feb 2026; shooter Jesse Van Rootselaar died of a self-inflicted wound. Sharma also frames an unsafe-product claim and says the province seeks reimbursement for building a new school after the old one was demolished. Conversation with ChatGPT was alarming enough to trigger an internal OpenAI review but was not reported to RCMP, per Sharma; she has not read the chats herself.",
+      "Secondary X local desk during afternoon scrape: CityNewsVAN and CJDC. Thin likes. Not a model-quality story.",
+      "Keep seats separate from buist-antitrust-0919 (Sherman section 1 slowdown class action). This is a product-safety / duty-to-warn style claim about a real-world violent crime, not a board or star move.",
+      "Ridge: allegations only. No AA / Arena / CursorBench / Terminal-Bench invent. Stars hold.",
+    ],
+  },
+
+  {
+    id: "openai-agmai-0921",
+    kind: "policy",
+    title: "AGMAI: independent math advisory after OpenAI ask",
+    dek: "21 Sep. IAS-hosted unpaid group will advise on how AI math results get reviewed and released. No board scores.",
+    pull: "Labs / policy process story. Do not invent a model SKU or AA cell from the announcement.",
+    summary:
+      "21 September 2026: The Advisory Group on Mathematics and Artificial Intelligence (agmai.org), hosted at the Institute for Advanced Study, announces itself as an independent unpaid body that advises AI companies on interactions with mathematical research, including responsible presentation and release of results. Formed after OpenAI approached some members about an external advisory board; they chose an independent group. Current task is advising OpenAI on coordinating release of many significant math results OpenAI reports an internal model produced. OpenAI amplified on X. No named frontier SKU and no Ridge board invent.",
+    date: "2026-09-21",
+    sourceName: "AGMAI / OpenAI / X",
+    sourceUrl: "https://agmai.org/",
+    models: ["gpt-6-astra"],
+    tags: ["labs", "openai", "math", "policy"],
+    body: [
+      "Primary charter: https://agmai.org/ Purpose is advising AI companies on math research interactions and responsible release. Independent of any AI company; members unpaid; recommendations published on the site; no decision power inside labs.",
+      "Members named on the site: Francois Charles, Camillo De Lellis, Timothy Gowers, Martin Hairer, Nikhil Srivastava, Ulrike Tillmann, Ravi Vakil, Edward Witten, Melanie Matchett Wood. Hosted at IAS (Princeton).",
+      "Current task on the site: advise OpenAI on coordinating release of a large number of significant math results OpenAI says were produced by an internal model. Community input invited via form; responses not public without approval.",
+      "Amplification: OpenAI X https://x.com/OpenAI/status/2102093145051943229 (~3.6k likes / ~598k views in the afternoon scrape). Guest announcement also on Terence Tao's blog 21 Sep.",
+      "Ridge: process / labs beat, not a board fill. Do not invent which internal model produced the claimed results, and do not paste anything into AA / Arena / CursorBench / Terminal-Bench.",
+    ],
+  },
+
+
   {
     id: "vals-grok47-0921",
     kind: "ranking",

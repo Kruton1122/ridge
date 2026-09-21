@@ -1,5 +1,18 @@
 export const CHANGELOG = [
 
+
+  {
+    date: "2026-09-21",
+    title: "Afternoon X scrape: B.C. OpenAI suit + AGMAI math advisory",
+    items: [
+      "Ad-hoc Grok Build X scrape since ~09:50 ET (log: logs/news-pass-grok-20260921-pm.txt). Grok 4.7 launch swarm already desked; no new Ridge board cells; stars SKIP.",
+      "Wire + desk bc-openai-tumbler-0921: B.C. California filing vs OpenAI over Tumbler Ridge shooting (failure-to-notify / unsafe product claims). Primary BC Gov + CBC. Separate from Buist.",
+      "Wire + desk openai-agmai-0921: independent AGMAI math advisory (agmai.org) after OpenAI ask; current task is release coordination for claimed internal-model math results. No SKU / no board invent.",
+      "llms.txt news line notes the two afternoon policy/labs wires. No catalog score edits.",
+    ],
+  },
+
+
   {
     date: "2026-09-21",
     title: "Vals Terminal-Bench 2.1: Grok 4.7 at 76.03",

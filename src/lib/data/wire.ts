@@ -11,6 +11,32 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
 
+
+  {
+    id: "bc-openai-tumbler-0921",
+    title: "B.C. sues OpenAI in California over Tumbler Ridge shooting",
+    blurb:
+      "21 September. British Columbia AG Niki Sharma announces a California filing against OpenAI over the 10 Feb 2026 Tumbler Ridge Secondary mass shooting (six children and two adults killed; shooter died by self-inflicted wound). Province alleges OpenAI failed to notify law enforcement of ChatGPT threats that triggered an internal review, and alleges an unsafe product; also seeks reimbursement toward a replacement school. Families already have private California suits. Sharma: chats requested, OpenAI refused. Primary: BC Gov statement + CBC. Separate from Buist antitrust already on the desk. Allegations only; no board scores.",
+    date: "2026-09-21",
+    outlet: "BC Gov / CBC",
+    url: "https://news.gov.bc.ca/releases/2026AG0067-001105",
+    beat: "policy",
+    models: ["gpt-6-astra"],
+  },
+
+  {
+    id: "openai-agmai-0921",
+    title: "Independent math advisory group (AGMAI) formed after OpenAI ask",
+    blurb:
+      "21 September. Advisory Group on Mathematics and Artificial Intelligence launches at IAS / agmai.org. Independent unpaid members (Charles, De Lellis, Gowers, Hairer, Srivastava, Tillmann, Vakil, Witten, Matchett Wood) advise AI labs on how math results are assessed and shared. Formed after OpenAI approached some members about an external board; group chose independence and will publish recommendations. Current task: advise OpenAI on coordinating release of many significant math results OpenAI says an internal model produced. No named model SKU and no Ridge board scores. Primaries: agmai.org; OpenAI X; Tao guest post hosting the announcement.",
+    date: "2026-09-21",
+    outlet: "AGMAI / OpenAI / X",
+    url: "https://agmai.org/",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+
+
   {
     id: "vals-grok47-0921",
     title: "Vals AI: Grok 4.7 suite; Index 54.15, TB 2.1 at 76.03",
