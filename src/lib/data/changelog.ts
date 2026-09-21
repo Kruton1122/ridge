@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "Vals Terminal-Bench 2.1: Grok 4.7 at 76.03",
+    items: [
+      "Added grok-4.7 terminal-bench 76.03, Vals AI, as of 2026-09-21; note xhigh / #14 of 67 / Terminal-Bench 2.1. Source: https://vals.ai/ (Grok 4.7 suite report) + https://x.com/valsai/status/2102086608476590432.",
+      "Wire + desk vals-grok47-0921. Vals Index 54.15 is suite context only; do not paste into AA / Arena / CursorBench. SWE-bench Verified stays blank (Vals stopped new runs; Grok 4.7 report omits SWE).",
+      "Updated grok-4.7 summary and patched grok-47-0921 launch copy so Terminal-Bench is no longer described as blank.",
+    ],
+  },
+
+
+  {
+    date: "2026-09-21",
     title: "Arena+ Elo: Grok 4.7 at 1507",
     items: [
       "Added grok-4.7 arena-elo 1507, Arena+, as of 2026-09-21; Grok 4.6 arena-elo 1507 remains unchanged.",

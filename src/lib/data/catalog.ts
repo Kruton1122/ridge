@@ -147,7 +147,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7", "Grok-4.7", "Grok 4.7 (high)", "Grok 4.7 (xhigh)", "grok 4.7 high", "grok 4.7 xhigh"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Same $2 / $6 list as Grok 4.6. Vals SWE-bench and Terminal-Bench 2.1 remain blank; do not paste vendor launch-chart cells.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. Vals SWE-bench Verified stays blank (Vals stopped new runs). Do not paste Vals Index or vendor launch-chart cells into other board seats.",
   }),
   m({
     id: "grok-4.6",
@@ -490,6 +490,7 @@ export const SCORES: Score[] = [
 
   s("gpt-5.6-sol", "terminal-bench", 88.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("grok-4.6", "terminal-bench", 88.4, "Artificial Analysis", "https://felloai.com/best-ai-models/", "2026-08-13"),
+  s("grok-4.7", "terminal-bench", 76.03, "Vals AI", "https://vals.ai/", "2026-09-21", "xhigh; #14 of 67; Terminal-Bench 2.1"),
   s("kimi-k3", "terminal-bench", 88.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("gemini-3.7-flash", "terminal-bench", 85.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("muse-spark-1.3", "terminal-bench", 85, "Artificial Analysis", "https://artificialanalysis.ai/articles/muse-spark-1-3", "2026-09-02", "v2.1 xhigh"),
