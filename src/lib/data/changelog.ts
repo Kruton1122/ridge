@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "Arena+ Elo: Grok 4.7 at 1507",
+    items: [
+      "Added grok-4.7 arena-elo 1507, Arena+, as of 2026-09-21; Grok 4.6 arena-elo 1507 remains unchanged.",
+      "Updated the Grok 4.7 summary plus grok-47-0921 desk/wire. AA Intelligence 46 and CursorBench 46.3 remain separately sourced; Vals SWE-bench stays blank.",
+      "Vals says it no longer runs SWE-bench Verified on new model releases (benchmark page updated 2026-09-01), so no Grok 4.7 SWE value is invented.",
+      "Source: https://openlm.ai/chatbot-arena/. OpenLM's AAII 47 is not used; the Artificial Analysis AA Intelligence 46 row remains authoritative.",
+    ],
+  },
+
+  {
+    date: "2026-09-21",
     title: "CursorBench 4.0: Grok 4.7 at 46.3 (xhigh)",
     items: [
       "Added grok-4.7 cursor-bench 46.3, Cursor, as of 2026-09-21; xhigh / Extra High (best published; Grok has no max run). Cursor.com's first-party table confirms the 46.3 cell shown in SpaceXAI's launch chart.",

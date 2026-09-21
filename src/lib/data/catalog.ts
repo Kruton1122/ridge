@@ -147,7 +147,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Same $2 / $6 list as Grok 4.6. Arena Elo, Vals SWE-bench, and Terminal-Bench 2.1 remain blank; do not paste vendor launch-chart cells.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Same $2 / $6 list as Grok 4.6. Vals SWE-bench and Terminal-Bench 2.1 remain blank; do not paste vendor launch-chart cells.",
   }),
   m({
     id: "grok-4.6",
@@ -455,6 +455,7 @@ export const SCORES: Score[] = [
   s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
+  s("grok-4.7", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("qwen-3.8-max", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
