@@ -147,7 +147,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). Same $2 / $6 list as Grok 4.6. Board seats blank until independent AA / Arena / Vals / Cursor.com / Terminal-Bench 2.1 sources; do not paste vendor launch-chart cells.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). Same $2 / $6 list as Grok 4.6. Arena Elo, Vals SWE-bench, CursorBench, and Terminal-Bench 2.1 remain blank pending independent sources; do not paste vendor launch-chart cells.",
   }),
   m({
     id: "grok-4.6",
@@ -436,6 +436,7 @@ export const SCORES: Score[] = [
   s("muse-spark-1.3", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: xhigh"),
   s("muse-spark-1.3-max", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("gpt-5.6-sol", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
+  s("grok-4.7", "aa-intelligence", 46, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: high"),
   s("grok-4.6", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: high"),
   s("kimi-k3", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("gemini-3.8-flash", "aa-intelligence", 41, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: high"),

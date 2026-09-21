@@ -118,7 +118,7 @@ const PROFILES: Record<string, ModelProfile> = {
   "grok-4.7": {
     epithet: "The September value cut",
     voice:
-      "SpaceXAI's 21 September follow-on to 4.6 at the same $2 / $6 sticker. Vendor launch chart exists; Ridge board seats stay blank until Artificial Analysis, Arena+, Vals, Cursor.com, or a Terminal-Bench 2.1 source publishes under this cut.",
+      "SpaceXAI's 21 September follow-on to 4.6 at the same $2 / $6 sticker. Artificial Analysis now places the high/xhigh cut at 46; Arena+, Vals, Cursor.com, and Terminal-Bench 2.1 seats remain blank under this cut.",
     strengths: ["Same $2 / $6 list as 4.6", "Generally available ship signal from SpaceXAI"],
     watch: [
       "Do not paste vendor chart cells (TB 4.0, DeepSWE, Harvey, etc.) onto Ridge columns",

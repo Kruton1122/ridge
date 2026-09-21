@@ -2,6 +2,16 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "AA Index: Grok 4.7 at 46 (high)",
+    items: [
+      "Added grok-4.7 aa-intelligence 46, Artificial Analysis, as of 2026-09-21; note uses the high variant (xhigh also 46). Context remains 500K and price remains $2/$6.",
+      "Arena Elo, Vals SWE-bench, CursorBench, and Ridge Terminal-Bench 2.1 stay blank. AA Index v4.3.2's Terminal-Bench 4.0 is an internal AA component, not a Ridge Terminal-Bench score.",
+      "Source: https://artificialanalysis.ai/leaderboards/models. No other Grok 4.7 board cells invented.",
+    ],
+  },
+
+  {
+    date: "2026-09-21",
     title: "Catalog: Grok 4.7 ships (blank board seats)",
     items: [
       "Catalog MODELS: add grok-4.7 (name Grok 4.7, lab xAI, released 2026-09-21, $2/$6, aliases). No SCORES rows (AA / Arena / Vals SWE / CursorBench / Terminal-Bench blank). No publicOpinionStars.",

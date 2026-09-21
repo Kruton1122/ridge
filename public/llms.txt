@@ -26,4 +26,4 @@ Headline AA Intelligence Index v4.2:
 10. Kimi K3 — 44 (max)
 12. GPT-5.6 Terra — 42 (max)
 
-News (2026-09-21): Grok 4.7 shipped (SpaceXAI). Same $2 / $6 as Grok 4.6. Catalog row `grok-4.7` present; AA / Arena / Vals SWE / CursorBench / Terminal-Bench cells blank until independent sources. Vendor launch chart (incl. Terminal-Bench 4.0, DeepSWE) is not mapped onto Ridge board columns (board Term is 2.1).
+News (2026-09-21): Grok 4.7 shipped (SpaceXAI) at the same $2 / $6 as Grok 4.6. Artificial Analysis publishes AA Index 46 high (xhigh also 46), context 500K. Catalog row `grok-4.7` has Arena / Vals SWE / CursorBench / Ridge Terminal-Bench 2.1 cells blank. AA Index v4.3.2's Terminal-Bench 4.0 component is not mapped onto Ridge's Terminal-Bench 2.1 column.
