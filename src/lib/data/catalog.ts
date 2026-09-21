@@ -136,6 +136,20 @@ export const MODELS: Model[] = [
     publicOpinionAsOf: "2026-09-21",
   }),
   m({
+    id: "grok-4.7",
+    name: "Grok 4.7",
+    shortName: "Grok 4.7",
+    lab: "xai",
+    labName: "xAI",
+    released: "2026-09-21",
+    contextTokens: 500_000,
+    pricing: { inputPerM: 2, outputPerM: 6 },
+    license: "proprietary",
+    aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7"],
+    summary:
+      "Shipped 21 September 2026 (SpaceXAI). Same $2 / $6 list as Grok 4.6. Board seats blank until independent AA / Arena / Vals / Cursor.com / Terminal-Bench 2.1 sources; do not paste vendor launch-chart cells.",
+  }),
+  m({
     id: "grok-4.6",
     name: "Grok 4.6",
     shortName: "Grok 4.6",
@@ -148,7 +162,7 @@ export const MODELS: Model[] = [
     aliases: ["grok 4.6", "grok-4.6", "grok-4-6", "grok4.6"],
     summary: "AA Index 44 high (as of 8 Sept). Not Grok 4 (that older row is 46). $2 / $6.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'Price/speed leftover and the daily-coder seat; this window xAI heat is Grok Bot voice/Galaxy wrap plus an unshipped 4.7. (Grok Build X, 2026-09-21)',
+    publicOpinionNote: 'Prior high seat with independent AA/Arena/Vals/CB scores; Grok 4.7 shipped 21 Sep at the same $2/$6. Keep rows separate. (Grok Build X + SpaceXAI, 2026-09-21)',
     publicOpinionAsOf: "2026-09-21",
   }),
   m({

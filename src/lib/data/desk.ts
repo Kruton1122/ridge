@@ -12,6 +12,28 @@ export function isFresh(date: string, asOf = "2026-09-21"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "grok-47-0921",
+    kind: "release",
+    title: "Grok 4.7 ships: same bill, vendor chart, blank Ridge seats",
+    dek: "SpaceXAI posted the cut on 21 Sep. $2/$6 holds. Launch chart is vendor self-report. Independent AA / Arena / Vals / Cursor.com / TB 2.1 still ahead.",
+    pull: "Add the row. Do not paste the chart onto the board. Blanks beat guesses.",
+    summary:
+      "21 September 2026: SpaceXAI announces Grok 4.7 as a notable improvement over Grok 4.6 at the same price and speed. Catalog adds grok-4.7 at $2 / $6 with blank AA Index, Arena Elo, Vals SWE-bench, CursorBench, and Terminal-Bench cells until those sources publish under this cut. The attached vendor chart is useful context, not a Ridge score source.",
+    date: "2026-09-21",
+    sourceName: "SpaceXAI / X",
+    sourceUrl: "https://x.com/spacexai/status/2102069815225586149",
+    models: ["grok-4.7", "grok-4.6"],
+    tags: ["release", "xai", "grok"],
+    body: [
+      "Primary: https://x.com/spacexai/status/2102069815225586149 (~12:17 PM ET, 21 Sep). Copy: Grok 4.7 is here; notable improvement over Grok 4.6 at the same price and speed. Chart columns: Grok 4.7 xHigh, Grok 4.6 High, GPT-5.6 Sol Max, Fable 5.1 Max. Price row on the chart matches the prior list: $2 input / $6 output for both Grok cuts (Sol $4/$20; Fable $10/$50).",
+      "Vendor chart benches (company-reported; not pasted into Ridge SCORES): CursorBench 4.0 46.3% (4.7 xHigh) vs 40.4% (4.6 High) vs 41.7% Sol Max vs 51.8% Fable Max. DeepSWE v1.1 71.0%* High Effort / 65.2 / 72.7 / 70.0. EEBench 64.0 / 53.0 / 39.4 / 56.4. AA-Briefcase v1.1 1657 / 1546 / 1487 / 1678. Terminal-Bench 4.0 38.0% / 20.3% / 37.3% / 57.9%. Harvey Legal Agent 19.6 / 15.8 / 2.5 / 6.7. HealthBench Pro 56.7 / 48.5 / 60.5 / 62.1.",
+      "Why those numbers stay off the ledger cells. Ridge Terminal-Bench is 2.1, not Terminal-Bench 4.0 - do not map 38.0% onto the Term column. DeepSWE is not Vals SWE-bench Verified. AA-Briefcase is a component inside AA Index work, not a substitute for a published AA Intelligence Index row for this cut. Harvey / HealthBench / EEBench are not owned board columns. CursorBench on the chart is a SpaceXAI launch figure for xHigh; Ridge cursor-bench rows come from Cursor.com first-party (as of 11 Sep Grok 4.6 was 41.4 xhigh there). Prefer blank for grok-4.7 until Cursor republishes.",
+      "What Ridge waits for before filling cells: Artificial Analysis Intelligence Index v4.2 under a named Grok 4.7 / effort label; Arena+ Elo; Vals SWE-bench Verified; Cursor.com CursorBench 4.0; a Terminal-Bench 2.1 figure with a source URL and as-of. Until then the new row is a ship + price event. Grok 4.6 keeps its independent scores. Prior rumor desks grok-47-cook and grok-48-ladder stay historical.",
+      "SNAPSHOT_DATE stays 2026-09-21 (already set). No invented publicOpinionStars on 4.7 until a sourced half-week pass.",
+    ],
+  },
+
+  {
     id: "halfweek-opinion-0921",
     kind: "ranking",
     title: "Half-week opinion: stars hold; Muse connectors lead volume",

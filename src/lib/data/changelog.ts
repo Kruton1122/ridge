@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "Catalog: Grok 4.7 ships (blank board seats)",
+    items: [
+      "Catalog MODELS: add grok-4.7 (name Grok 4.7, lab xAI, released 2026-09-21, $2/$6, aliases). No SCORES rows (AA / Arena / Vals SWE / CursorBench / Terminal-Bench blank). No publicOpinionStars.",
+      "Update grok-4.6 publicOpinionNote: 4.7 shipped; keep rows separate (was unshipped 4.7).",
+      "Wire + desk grok-47-0921 from SpaceXAI X post https://x.com/spacexai/status/2102069815225586149. Vendor chart cited in copy only; TB 4.0 != board TB 2.1; DeepSWE != Vals; vendor CB != Cursor.com yet.",
+      "SNAPSHOT stays 2026-09-21; isFresh asOf already 2026-09-21. llms.txt notes the ship.",
+    ],
+  },
+
+  {
+    date: "2026-09-21",
     title: "Half-week news: Muse connectors, Buist suit, Gemini breakout, opinion hold",
     items: [
       "Wire buist-antitrust-0919 (Fortune/CourtListener): Buist v Anthropic Sherman section 1 slowdown class action; allegations only.",

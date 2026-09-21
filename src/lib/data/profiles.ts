@@ -115,12 +115,22 @@ const PROFILES: Record<string, ModelProfile> = {
     strengths: ["Published SWE-bench and Terminal-Bench rows", "Established in production"],
     watch: ["$30 per 1M output", "Superseded at the top of OpenAI's range by Astra"],
   },
+  "grok-4.7": {
+    epithet: "The September value cut",
+    voice:
+      "SpaceXAI's 21 September follow-on to 4.6 at the same $2 / $6 sticker. Vendor launch chart exists; Ridge board seats stay blank until Artificial Analysis, Arena+, Vals, Cursor.com, or a Terminal-Bench 2.1 source publishes under this cut.",
+    strengths: ["Same $2 / $6 list as 4.6", "Generally available ship signal from SpaceXAI"],
+    watch: [
+      "Do not paste vendor chart cells (TB 4.0, DeepSWE, Harvey, etc.) onto Ridge columns",
+      "Keep separate from Grok 4.6 and from older Grok 4",
+    ],
+  },
   "grok-4.6": {
     epithet: "The value flagship",
     voice:
       "A post-training refresh of 4.5, sold on price-to-score rather than a pretrain win. Not Grok 4 — that older row sits well below this one, and folding the two together is how a board publishes a wrong number with a straight face.",
     strengths: ["$2 / $6 per 1M", "500K context", "Generally available, no preview asterisk"],
-    watch: ["4.7 already teased", "Never collapse this row onto Grok 4"],
+    watch: ["4.7 shipped 21 Sep; keep this row separate", "Never collapse this row onto Grok 4"],
   },
   "gemini-3.8-flash": {
     epithet: "The September Flash",
