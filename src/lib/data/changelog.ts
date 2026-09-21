@@ -3,6 +3,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "Grok 4.7 launch-day X reception (@notjazii qualitative scoreboard)",
+    items: [
+      "Wire + desk grok47-reception-0921 from https://x.com/notjazii/status/2102108793266172378 (~2:52 PM ET). Qualitative 8/8 scoreboard (jazii.dev); explicitly not a poll; modest engagement.",
+      "Notes alignment with afternoon AA token-usage chatter (81k vs 36k on 4.6). Reception only; no board fills from the graphic.",
+      "Optional one-line early-reception pointer on grok-47-0921 launch desk/wire. Catalog scores and publicOpinionStars untouched. SNAPSHOT stays 2026-09-21.",
+    ],
+  },
+
+
+  {
+    date: "2026-09-21",
     title: "Afternoon X scrape: B.C. OpenAI suit + AGMAI math advisory",
     items: [
       "Ad-hoc Grok Build X scrape since ~09:50 ET (log: logs/news-pass-grok-20260921-pm.txt). Grok 4.7 launch swarm already desked; no new Ridge board cells; stars SKIP.",

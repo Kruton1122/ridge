@@ -13,6 +13,19 @@ export const WIRE: WireItem[] = [
 
 
   {
+    id: "grok47-reception-0921",
+    title: "X reception on Grok 4.7 splits; @notjazii qualitative scoreboard",
+    blurb:
+      "21 September ~2:52 PM ET. @notjazii (J A Z I I) posts that Grok 4.7 is better than 4.6 but a small jump, burns way more tokens, feels frontend/UI-weak and benchmark-maxxed, same price as 4.6 and faster than Sol/Opus, good value mainly for Cursor and Grok Build, and still far behind frontier on personal testing. Attached graphic (jazii.dev): \"Grok 4.7 - the scoreboard from X,\" qualitative 8 liking / 8 disliking, explicitly not a poll. Liking: price held, Cursor/Grok Build strength, legal/EE gains, cheaper per task than Fable/Astra. Disliking: still behind Fable/Astra, token usage 81k vs 36k on 4.6, UI lags Claude, hype gap. Engagement at fetch ~86 likes / ~6k views. Aligns with afternoon AA token-usage chatter already scraped. Qualitative reception only; not board evidence; stars hold. URL: https://x.com/notjazii/status/2102108793266172378",
+    date: "2026-09-21",
+    outlet: "notjazii / X",
+    url: "https://x.com/notjazii/status/2102108793266172378",
+    beat: "ranking",
+    models: ["grok-4.7", "grok-4.6"],
+  },
+
+
+  {
     id: "bc-openai-tumbler-0921",
     title: "B.C. sues OpenAI in California over Tumbler Ridge shooting",
     blurb:
@@ -54,7 +67,7 @@ export const WIRE: WireItem[] = [
     id: "grok-47-0921",
     title: "SpaceXAI: Grok 4.7 ships; same $2/$6 price and speed claim",
     blurb:
-      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis publishes AA Index 46 high (xhigh also 46) as of 21 Sep. OpenLM's Arena+ table lists Elo 1507 as of 21 Sep. Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% xhigh / Extra High (best published; Grok has no max run), matching the vendor chart cell. Later same day, Vals AI fills Ridge Terminal-Bench 2.1 at 76.03 (xhigh, #14 of 67); see vals-grok47-0921. The other launch-chart benches are not Ridge board columns as mapped: DeepSWE is not Vals SWE-bench, and AA-Briefcase is not the AA Index row. Vals has no new SWE-bench run for Grok 4.7. URLs: https://openlm.ai/chatbot-arena/ and https://x.com/spacexai/status/2102069815225586149",
+      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis publishes AA Index 46 high (xhigh also 46) as of 21 Sep. OpenLM's Arena+ table lists Elo 1507 as of 21 Sep. Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% xhigh / Extra High (best published; Grok has no max run), matching the vendor chart cell. Later same day, Vals AI fills Ridge Terminal-Bench 2.1 at 76.03 (xhigh, #14 of 67); see vals-grok47-0921. The other launch-chart benches are not Ridge board columns as mapped: DeepSWE is not Vals SWE-bench, and AA-Briefcase is not the AA Index row. Vals has no new SWE-bench run for Grok 4.7. Early X reception is split; see grok47-reception-0921. URLs: https://openlm.ai/chatbot-arena/ and https://x.com/spacexai/status/2102069815225586149",
     date: "2026-09-21",
     outlet: "SpaceXAI / X",
     url: "https://x.com/spacexai/status/2102069815225586149",

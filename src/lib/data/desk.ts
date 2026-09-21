@@ -13,6 +13,29 @@ export const NEWS: NewsItem[] = [
 
 
   {
+    id: "grok47-reception-0921",
+    kind: "ranking",
+    title: "Grok 4.7 launch-day X reception: split room, token bill loud",
+    dek: "21 Sep mid-afternoon. @notjazii qualitative scoreboard is 8/8 and not a poll. Aligns with AA 81k-vs-36k chatter. No board fills. Stars hold.",
+    pull: "Reception note only. Do not paste the graphic into AA / Arena / CB / TB / SWE. Do not move publicOpinionStars mid-engagement.",
+    summary:
+      "21 September 2026, about 2:52 PM ET: launch-day public reaction to Grok 4.7 on X is split. @notjazii (J A Z I I) frames it as better than 4.6 but a small jump, heavier on tokens, weak on frontend/UI, benchmark-maxxed, same $2/$6 as 4.6 and faster than Sol and Opus, with the main value seat still Cursor and Grok Build. Personal testing still far behind frontier. The attached jazii.dev graphic is an explicit qualitative scoreboard (8 liking / 8 disliking), not a poll. Token-usage complaint (81k vs 36k on 4.6) matches the Artificial Analysis chatter already noted in the afternoon scrape. Modest engagement (~86 likes / ~6k views at fetch). Not board evidence.",
+    date: "2026-09-21",
+    sourceName: "notjazii / X",
+    sourceUrl: "https://x.com/notjazii/status/2102108793266172378",
+    models: ["grok-4.7", "grok-4.6"],
+    tags: ["opinion", "ranking", "xai", "grok", "reception"],
+    body: [
+      "Primary: https://x.com/notjazii/status/2102108793266172378 (~18:52 UTC / ~2:52 PM ET, 21 Sep). Author @notjazii (J A Z I I). Text: Grok 4.7 is not looking good in the sense that the hop from 4.6 is small; token spend is way up; frontend and UI feel weak; the cut feels benchmark-maxxed; price matches 4.6 and speed beats Sol and Opus; the practical value case is mostly Cursor and Grok Build; personal testing still trails the frontier. Asks others for experience.",
+      "Attached graphic (jazii.dev): \"Grok 4.7 - the scoreboard from X.\" Subtitle calls it a qualitative scoreboard from the first hours after launch, what early testers and posters flagged, ranked by @notjazii. Footer: not a poll; qualitative mix of posts, quote-tweets, and early tests. Liking (8): price held stable; no premature done on red tests; cheaper per task than Fable 5.1 / Astra; strong in Grok Build + Cursor; fast mode genuinely fast; sharp gains on legal / EE evals; generous rate limits; better on long office + audit tasks. Disliking (8): still does not beat Fable or Astra; felt average after the hype; token usage way up (81k vs 36k on 4.6); xHigh/High chart looks worse; UI still lags Claude; some tasks slower at launch; consumer app got the update last; next models arrive soon anyway. Closing line: 8 and 8, the room split evenly; gap is tone (speed and price vs hype it never earned).",
+      "Why this lands on Ridge as reception, not board: the graphic is one author's qualitative mix, mid-engagement (~86 likes / ~6k views at fetch), and explicitly not a poll. Ridge does not fill AA Index, Arena Elo, CursorBench, Terminal-Bench, or SWE from liking/disliking bullets. Legal/EE and cost-per-task lines are chatter about evals already desked elsewhere; they are not new cells.",
+      "Alignment with the afternoon scrape: logs/news-pass-grok-20260921-pm.txt already flagged a real token-cost critique from the Artificial Analysis thread (~81k output tokens per Index task vs ~36k on Grok 4.6 high/xhigh). The @notjazii disliking bullet repeats that number. Same story, different voice. Still not an AA Index rewrite.",
+      "Stars: leave publicOpinionStars alone. Launch-day swarm plus one qualitative scoreboard is not a half-week pass. Catalog scores already sourced (AA 46, Arena 1507, CB 46.3, TB 2.1 76.03; SWE blank) stay as previously filled. Follow-up to grok-47-0921 and vals-grok47-0921, not a replacement.",
+    ],
+  },
+
+
+  {
     id: "bc-openai-tumbler-0921",
     kind: "policy",
     title: "B.C. sues OpenAI over Tumbler Ridge ChatGPT threats",
@@ -99,7 +122,7 @@ export const NEWS: NewsItem[] = [
       "Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% for Grok 4.7 xHigh / Extra High (best published; Grok has no max run), the same cell shown in SpaceXAI's launch chart. The remaining chart benches are company-reported context: DeepSWE v1.1 71.0%* High Effort / 65.2 / 72.7 / 70.0; EEBench 64.0 / 53.0 / 39.4 / 56.4; AA-Briefcase v1.1 1657 / 1546 / 1487 / 1678; Terminal-Bench 4.0 38.0% / 20.3% / 37.3% / 57.9%; Harvey Legal Agent 19.6 / 15.8 / 2.5 / 6.7; HealthBench Pro 56.7 / 48.5 / 60.5 / 62.1.",
       "Why the remaining numbers stay off the ledger cells. Ridge Terminal-Bench is 2.1, not Terminal-Bench 4.0 - do not map 38.0% onto the Term column. DeepSWE is not Vals SWE-bench Verified. AA-Briefcase is a component inside AA Index work, not a substitute for a published AA Intelligence Index row for this cut. Harvey / HealthBench / EEBench are not owned board columns. CursorBench is now sourced from Cursor.com first-party: Grok 4.7 is 46.3 xhigh / Extra High, while Grok 4.6 remains 41.4 xhigh from the 11 Sep table.",
       "OpenLM's Arena+ table lists Grok 4.7 at Elo 1507 as of 21 September, so that cell is filled. Vals has no new SWE-bench Verified run for new model releases (the benchmark page says new releases are no longer being run; updated 1 September), so leave that cell blank. Same-day Vals report supplies Terminal-Bench 2.1 at 76.03 (xhigh, #14 of 67); that cell is filled under vals-grok47-0921. Artificial Analysis has published Grok 4.7 at 46 high (xhigh also 46), and Cursor.com has published CursorBench 4.0 at 46.3 xhigh / Extra High, so those cells are filled. AA Index v4.3.2 includes Terminal-Bench 4.0 internally; that does not map to Ridge Terminal-Bench 2.1. Grok 4.6 keeps its independent scores. Prior rumor desks grok-47-cook and grok-48-ladder stay historical.",
-      "SNAPSHOT_DATE stays 2026-09-21 (already set). No invented publicOpinionStars on 4.7 until a sourced half-week pass.",
+      "SNAPSHOT_DATE stays 2026-09-21 (already set). Early X reception is split; see grok47-reception-0921. No invented publicOpinionStars on 4.7 until a sourced half-week pass.",
     ],
   },
 
