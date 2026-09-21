@@ -1,5 +1,20 @@
 export const CHANGELOG = [
 
+  {
+    date: "2026-09-21",
+    title: "Half-week news: Muse connectors, Buist suit, Gemini breakout, opinion hold",
+    items: [
+      "Wire buist-antitrust-0919 (Fortune/CourtListener): Buist v Anthropic Sherman section 1 slowdown class action; allegations only.",
+      "Wire gemini-breakout-0918 (Reuters/WSJ/CNBC): Gemini May Irregular eval hit three real firms; Google says stopped; not Flash board invent.",
+      "Wire muse-connectors-0918 (Zuck X / RuntimeWire): developer Muse connectors; agent platform != Spark stars.",
+      "Wire plugin4shell-0917 (Air Security): zero-click SHA-pin bypass on Claude Code/Codex/Copilot/Gemini CLI.",
+      "Wire reuters-ten-days-0919: narrative wrap on the safety cascade.",
+      "Desk halfweek-opinion-0921 + safety-cluster-0921 + muse-connectors-0918. publicOpinionStars unchanged; notes/asOf refreshed from logs/news-pass-grok-20260921.txt.",
+      "Morning briefing already set SNAPSHOT / isFresh asOf to 2026-09-21 and AA as-of refreshes (Luna 38 to 37, V4.1 Flash 40 to 39).",
+    ],
+  },
+
+
 
   {
     date: "2026-09-18",

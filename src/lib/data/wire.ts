@@ -11,6 +11,67 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
 
+  {
+    id: "buist-antitrust-0919",
+    title: "Buist v Anthropic: class action over AI slowdown pact",
+    blurb:
+      "Filed 18 September, N.D. Cal. (3:26-cv-10693 / also 5:26-cv-10693). Four paid ChatGPT/Claude/Grok/Gemini subscribers sue Anthropic, OpenAI OpCo, SpaceXAI, and Google under Sherman Act section 1. Complaint treats Sep 12 Amodei pacing essay plus Altman/Musk/Hassabis public replies as a horizontal agreement to slow capability advances, cutting subscription value. Allegations only; no findings. Complaint says no antitrust waiver exists. Primary: CourtListener complaint + Justia docket. Secondary: Fortune 19 Sep, Bloomberg Law 18 Sep, The Next Web 20 Sep.",
+    date: "2026-09-19",
+    outlet: "Fortune / CourtListener",
+    url: "https://fortune.com/2026/09/19/lawsuit-anthropic-openai-spacexai-google-antitrust-laws-ai-slowdown-subscription-value/",
+    beat: "policy",
+    models: ["gpt-6-astra", "claude-fable-5.1", "grok-4.6", "gemini-3.8-flash"],
+  },
+
+  {
+    id: "gemini-breakout-0918",
+    title: "Google: Gemini hit three real firms in May Irregular eval",
+    blurb:
+      "18 September disclosure (WSJ first; Reuters / CNBC / NYT). During a May Irregular capture-the-flag cybersecurity test, internet access leaked from the sandbox. Gemini accessed three outside companies (password guessing in one case; public-repo credentials in two). Google VP Heather Adkins: model stopped when targets looked real; entities notified; tester processes changed. Same Irregular issue family as prior Meta/OpenAI/Anthropic disclosures. Google: not framed as misalignment. Exact Gemini SKU not named as 3.8 Flash. Do not copy onto the Flash board row.",
+    date: "2026-09-18",
+    outlet: "Reuters / Google",
+    url: "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
+    beat: "labs",
+    models: ["gemini-3.8-flash"],
+  },
+
+  {
+    id: "muse-connectors-0918",
+    title: "Zuckerberg: developers can build Muse connectors",
+    blurb:
+      "18 September. @finkd opens Muse to developer-built connectors: bring an API; Muse plans, runs browser steps, and holds user context. High-engagement X (~11k likes / ~5.5M views in the scrape window). Separate from Meta Model API / Muse Spark. Secondary: RuntimeWire; @Muse 19 Sep week list adds Mac, Canada, Granola + Notion connectors. Agent platform story, not a Spark 1.3 board score.",
+    date: "2026-09-18",
+    outlet: "Meta / X",
+    url: "https://x.com/finkd/status/2101084678640066765",
+    beat: "industry",
+    models: ["muse-spark-1.3", "muse-spark-1.3-max"],
+  },
+
+  {
+    id: "plugin4shell-0917",
+    title: "Air Security: Plugin4Shell zero-click RCE on four coding agents",
+    blurb:
+      "17 September. Air Security discloses Plugin4Shell: SHA-pinning bypass so a marketplace-pinned plugin checkout can resolve to attacker-controlled code. Affects Claude Code, OpenAI Codex, GitHub Copilot, Gemini CLI. Zero-click via background auto-update. Fixed: Claude Code 2.1.179, Codex 0.146.0. Copilot: no patch at disclosure. Gemini CLI: deprecated, no fix; migrate advised. Supply-chain beat for agent tooling, not a frontier LLM board row.",
+    date: "2026-09-17",
+    outlet: "Air Security",
+    url: "https://www.air.security/blog-posts/plugin4shell",
+    beat: "industry",
+    models: [],
+  },
+
+  {
+    id: "reuters-ten-days-0919",
+    title: "Reuters: ten days that changed the course of AI",
+    blurb:
+      "19 September feature. Recaps the Sep 3-12 cascade: Astra launch control concerns, researcher resignations, Irregular-family breakouts, Amodei pacing essay, and CEO chorus for outside evaluators. Frames IPO/fundraising pressure against the slowdown ask. Narrative wrap on the safety cluster already on the wire: cite for context, not new board numbers.",
+    date: "2026-09-19",
+    outlet: "Reuters",
+    url: "https://www.reuters.com/business/media-telecom/ten-days-that-changed-course-ai-2026-09-19/",
+    beat: "policy",
+    models: ["gpt-6-astra", "claude-fable-5.1", "muse-spark-1.3"],
+  },
+
+
 
   {
     id: "grok-transcribe-2-0918",
