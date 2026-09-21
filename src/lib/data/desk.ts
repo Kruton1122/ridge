@@ -14,11 +14,11 @@ export const NEWS: NewsItem[] = [
   {
     id: "grok-47-0921",
     kind: "release",
-    title: "Grok 4.7 ships: AA 46, same bill, vendor chart",
-    dek: "SpaceXAI posted the cut on 21 Sep. $2/$6 holds. Artificial Analysis now publishes AA 46 high. Other Ridge seats stay blank; launch chart is vendor self-report.",
-    pull: "Add the sourced AA row. Do not paste the chart onto the board. Blanks beat guesses.",
+    title: "Grok 4.7 ships: AA 46, CursorBench 46.3, same bill",
+    dek: "SpaceXAI posted the cut on 21 Sep. $2/$6 holds. Artificial Analysis publishes AA 46 high; Cursor.com now confirms CursorBench 46.3 xhigh. Arena, Vals, and Ridge Terminal-Bench stay blank.",
+    pull: "Add the sourced AA and Cursor.com rows. Do not paste the remaining launch-chart cells onto the board. Blanks beat guesses.",
     summary:
-      "21 September 2026: SpaceXAI announces Grok 4.7 as a notable improvement over Grok 4.6 at the same price and speed. Artificial Analysis now lists AA Intelligence Index 46 high (xhigh also 46). Catalog adds that row; Arena Elo, Vals SWE-bench, CursorBench, and Terminal-Bench 2.1 remain blank. The attached vendor chart is useful context, not a Ridge score source.",
+      "21 September 2026: SpaceXAI announces Grok 4.7 as a notable improvement over Grok 4.6 at the same price and speed. Artificial Analysis now lists AA Intelligence Index 46 high (xhigh also 46), and Cursor.com publishes CursorBench 4.0 at 46.3% xhigh / Extra High. Catalog adds both sourced rows; Arena Elo, Vals SWE-bench, and Terminal-Bench 2.1 remain blank. The Cursor.com chart confirms the launch chart's CursorBench cell; the other vendor cells remain context, not Ridge score sources.",
     date: "2026-09-21",
     sourceName: "SpaceXAI / X",
     sourceUrl: "https://x.com/spacexai/status/2102069815225586149",
@@ -26,9 +26,9 @@ export const NEWS: NewsItem[] = [
     tags: ["release", "xai", "grok"],
     body: [
       "Primary: https://x.com/spacexai/status/2102069815225586149 (~12:17 PM ET, 21 Sep). Copy: Grok 4.7 is here; notable improvement over Grok 4.6 at the same price and speed. Chart columns: Grok 4.7 xHigh, Grok 4.6 High, GPT-5.6 Sol Max, Fable 5.1 Max. Price row on the chart matches the prior list: $2 input / $6 output for both Grok cuts (Sol $4/$20; Fable $10/$50).",
-      "Vendor chart benches (company-reported; not pasted into Ridge SCORES): CursorBench 4.0 46.3% (4.7 xHigh) vs 40.4% (4.6 High) vs 41.7% Sol Max vs 51.8% Fable Max. DeepSWE v1.1 71.0%* High Effort / 65.2 / 72.7 / 70.0. EEBench 64.0 / 53.0 / 39.4 / 56.4. AA-Briefcase v1.1 1657 / 1546 / 1487 / 1678. Terminal-Bench 4.0 38.0% / 20.3% / 37.3% / 57.9%. Harvey Legal Agent 19.6 / 15.8 / 2.5 / 6.7. HealthBench Pro 56.7 / 48.5 / 60.5 / 62.1.",
-      "Why those numbers stay off the ledger cells. Ridge Terminal-Bench is 2.1, not Terminal-Bench 4.0 - do not map 38.0% onto the Term column. DeepSWE is not Vals SWE-bench Verified. AA-Briefcase is a component inside AA Index work, not a substitute for a published AA Intelligence Index row for this cut. Harvey / HealthBench / EEBench are not owned board columns. CursorBench on the chart is a SpaceXAI launch figure for xHigh; Ridge cursor-bench rows come from Cursor.com first-party (as of 11 Sep Grok 4.6 was 41.4 xhigh there). Prefer blank for grok-4.7 until Cursor republishes.",
-      "What Ridge waits for before filling cells: Arena+ Elo; Vals SWE-bench Verified; Cursor.com CursorBench 4.0; and a Terminal-Bench 2.1 figure with a source URL and as-of. Artificial Analysis has now published Grok 4.7 at 46 high (xhigh also 46), so that cell is filled. AA Index v4.3.2 includes Terminal-Bench 4.0 internally; that does not map to Ridge Terminal-Bench 2.1. Grok 4.6 keeps its independent scores. Prior rumor desks grok-47-cook and grok-48-ladder stay historical.",
+      "Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% for Grok 4.7 xHigh / Extra High (best published; Grok has no max run), the same cell shown in SpaceXAI's launch chart. The remaining chart benches are company-reported context: DeepSWE v1.1 71.0%* High Effort / 65.2 / 72.7 / 70.0; EEBench 64.0 / 53.0 / 39.4 / 56.4; AA-Briefcase v1.1 1657 / 1546 / 1487 / 1678; Terminal-Bench 4.0 38.0% / 20.3% / 37.3% / 57.9%; Harvey Legal Agent 19.6 / 15.8 / 2.5 / 6.7; HealthBench Pro 56.7 / 48.5 / 60.5 / 62.1.",
+      "Why the remaining numbers stay off the ledger cells. Ridge Terminal-Bench is 2.1, not Terminal-Bench 4.0 - do not map 38.0% onto the Term column. DeepSWE is not Vals SWE-bench Verified. AA-Briefcase is a component inside AA Index work, not a substitute for a published AA Intelligence Index row for this cut. Harvey / HealthBench / EEBench are not owned board columns. CursorBench is now sourced from Cursor.com first-party: Grok 4.7 is 46.3 xhigh / Extra High, while Grok 4.6 remains 41.4 xhigh from the 11 Sep table.",
+      "What Ridge still waits for before filling cells: Arena+ Elo, Vals SWE-bench Verified, and a Terminal-Bench 2.1 figure with a source URL and as-of. Artificial Analysis has published Grok 4.7 at 46 high (xhigh also 46), and Cursor.com has published CursorBench 4.0 at 46.3 xhigh / Extra High, so those cells are filled. AA Index v4.3.2 includes Terminal-Bench 4.0 internally; that does not map to Ridge Terminal-Bench 2.1. Grok 4.6 keeps its independent scores. Prior rumor desks grok-47-cook and grok-48-ladder stay historical.",
       "SNAPSHOT_DATE stays 2026-09-21 (already set). No invented publicOpinionStars on 4.7 until a sourced half-week pass.",
     ],
   },

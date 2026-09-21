@@ -15,7 +15,7 @@ export const WIRE: WireItem[] = [
     id: "grok-47-0921",
     title: "SpaceXAI: Grok 4.7 ships; same $2/$6 price and speed claim",
     blurb:
-      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis now publishes AA Index 46 high (xhigh also 46) as of 21 Sep. The vendor launch chart cites CursorBench 4.0, DeepSWE v1.1, EEBench, AA-Briefcase v1.1, Terminal-Bench 4.0, Harvey Legal Agent, and HealthBench Pro; those are not Ridge board columns as mapped. Ridge Terminal-Bench is 2.1, DeepSWE is not Vals SWE-bench, and vendor CursorBench is not Cursor.com first-party. Arena Elo, Vals SWE, CursorBench, and Terminal-Bench remain blank. URL: https://x.com/spacexai/status/2102069815225586149",
+      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis publishes AA Index 46 high (xhigh also 46) as of 21 Sep. Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% xhigh / Extra High (best published; Grok has no max run), matching the vendor chart cell. The other launch-chart benches are not Ridge board columns as mapped: Ridge Terminal-Bench is 2.1, DeepSWE is not Vals SWE-bench, and AA-Briefcase is not the AA Index row. Arena Elo, Vals SWE, and Terminal-Bench remain blank. URL: https://x.com/spacexai/status/2102069815225586149",
     date: "2026-09-21",
     outlet: "SpaceXAI / X",
     url: "https://x.com/spacexai/status/2102069815225586149",

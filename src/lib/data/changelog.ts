@@ -2,6 +2,16 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-21",
+    title: "CursorBench 4.0: Grok 4.7 at 46.3 (xhigh)",
+    items: [
+      "Added grok-4.7 cursor-bench 46.3, Cursor, as of 2026-09-21; xhigh / Extra High (best published; Grok has no max run). Cursor.com's first-party table confirms the 46.3 cell shown in SpaceXAI's launch chart.",
+      "Updated the Grok 4.7 summary plus grok-47-0921 desk/wire. AA 46 high/xhigh remains separately sourced; Arena Elo, Vals SWE-bench, and Ridge Terminal-Bench 2.1 remain blank.",
+      "Source: https://cursor.com/cursorbench. No Arena, Vals, or Terminal-Bench score invented.",
+    ],
+  },
+
+  {
+    date: "2026-09-21",
     title: "AA Index: Grok 4.7 at 46 (high)",
     items: [
       "Added grok-4.7 aa-intelligence 46, Artificial Analysis, as of 2026-09-21; note uses the high variant (xhigh also 46). Context remains 500K and price remains $2/$6.",

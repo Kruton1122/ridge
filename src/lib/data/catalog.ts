@@ -147,7 +147,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). Same $2 / $6 list as Grok 4.6. Arena Elo, Vals SWE-bench, CursorBench, and Terminal-Bench 2.1 remain blank pending independent sources; do not paste vendor launch-chart cells.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Same $2 / $6 list as Grok 4.6. Arena Elo, Vals SWE-bench, and Terminal-Bench 2.1 remain blank; do not paste vendor launch-chart cells.",
   }),
   m({
     id: "grok-4.6",
@@ -496,6 +496,7 @@ export const SCORES: Score[] = [
 
   s("claude-fable-5.1", "cursor-bench", 51.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("claude-opus-5", "cursor-bench", 46.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
+  s("grok-4.7", "cursor-bench", 46.3, "Cursor", "https://cursor.com/cursorbench", "2026-09-21", "xhigh / Extra High (best published; Grok has no max run)"),
   s("gpt-5.6-sol", "cursor-bench", 41.7, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("muse-spark-1.3-max", "cursor-bench", 41.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort (maps to catalog partner-max row)"),
   s("grok-4.6", "cursor-bench", 41.4, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (best published; Grok has no max run)"),
