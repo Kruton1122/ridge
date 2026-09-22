@@ -9,7 +9,7 @@ export function isFresh(date: string, asOf = "2026-09-22"): boolean {
   return b - a <= DESK_FRESH_DAYS * 86_400_000;
 }
 
-export const NEWS: NewsItem[
+export const NEWS: NewsItem[] = [
 
   {
     id: "opus-55-0922",
@@ -55,8 +55,6 @@ export const NEWS: NewsItem[
       "Matcher hygiene: keep gpt-6-sol and gpt-6-luna aliases specific; do not let a bare 'sol' or 'luna' steal the 5.6 rows until scrape names are unambiguous.",
     ],
   },
-
-] = [
 
 
   {

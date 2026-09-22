@@ -9,7 +9,7 @@ export interface WireItem {
   models: string[];
 }
 
-export const WIRE: WireItem[
+export const WIRE: WireItem[] = [
 
   {
     id: "opus-55-0922",
@@ -35,8 +35,6 @@ export const WIRE: WireItem[
     beat: "release",
     models: ["gpt-6-sol", "gpt-6-luna", "gpt-6-astra", "gpt-5.6-sol", "gpt-5.6-luna"],
   },
-
-] = [
 
 
   {
