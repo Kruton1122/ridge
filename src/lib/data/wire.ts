@@ -15,7 +15,7 @@ export const WIRE: WireItem[] = [
     id: "opus-55-0922",
     title: "Anthropic: Claude Opus 5.5 ships; Fable-class, 40% cheaper than Opus 5",
     blurb:
-      "22 September. Official Claude account + Anthropic news: Claude Opus 5.5 is the first Claude 5.5 family model. Performs at Claude Fable 5.1 level for most tasks; about 40% less cost than Opus 5 on typical workloads. List $4 in / $20 out; cache reads $0.20; fast mode $8/$40. API claude-opus-5-5. Pre-release evals include Frontier Design and METR. Vendor chart cites CursorBench 4.0 57.8% (max) and Terminal-Bench 4.0 66.4% (xhigh)  -  Ridge leaves board seats blank until Cursor.com / AA / Arena+ / Vals publish first-party rows; TB 4.0 is not board TB 2.1. URLs: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
+      "22 September. Official Claude account + Anthropic news: Claude Opus 5.5 is the first Claude 5.5 family model. Performs at Claude Fable 5.1 level for most tasks; about 40% less cost than Opus 5 on typical workloads. List $4 in / $20 out; cache reads $0.20; fast mode $8/$40. API claude-opus-5-5. Pre-release evals include Frontier Design and METR. Same-day first-party fills: AA 58, CursorBench 57.8 (cursor.com), Arena+ 1532, Vals TB 2.1 87.64 (high #1). SWE blank; vendor TB 4.0 is not board TB 2.1. URLs: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
     date: "2026-09-22",
     outlet: "Anthropic / X",
     url: "https://www.anthropic.com/news/claude-opus-5-5",
@@ -28,7 +28,7 @@ export const WIRE: WireItem[] = [
     id: "gpt6-sol-luna-0922",
     title: "OpenAI: GPT-6 Sol and Luna join the GPT-6 universe at half 5.6 promo price",
     blurb:
-      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing  -  Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Catalog adds blank-score rows separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld vendor numbers onto Ridge board columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
+      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing. Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Same-day fills: AA Sol 48 / Luna 37, Arena+ Sol 1509. Luna Arena, both CursorBench / TB / SWE blank. Keep separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld onto Ridge columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
     date: "2026-09-22",
     outlet: "OpenAI / X",
     url: "https://openai.com/index/introducing-gpt-6-sol-and-luna",

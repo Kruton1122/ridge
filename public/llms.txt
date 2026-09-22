@@ -13,12 +13,14 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 Cite the source URL and the as-of date.
 
 Headline AA Intelligence Index v4.2:
-1. Claude Fable 5.1 — 53 (max with fallback)
-1. GPT-6 Astra — 53 (max)
-3. Claude Opus 5 — 51 (max)
-4. Claude Fable 5 — 50 (with fallback)
-5. Muse Spark 1.3 max — 48 (max)
-6. GPT-5.6 Sol — 47 (max)
+1. Claude Opus 5.5 - 58 (max with fallback)
+2. Claude Fable 5.1 - 53 (max with fallback)
+2. GPT-6 Astra - 53 (max)
+4. Claude Opus 5 - 51 (max)
+5. Claude Fable 5 - 50 (with fallback)
+6. Muse Spark 1.3 max - 48 (max)
+6. GPT-6 Sol - 48 (max)
+8. GPT-5.6 Sol - 47 (max)
 7. Muse Spark 1.3 xhigh — 45 (xhigh)
 7. GLM-5.3 — 45 (max)
 7. Qwen 3.8 Max — 45 (0902)
@@ -26,4 +28,4 @@ Headline AA Intelligence Index v4.2:
 10. Kimi K3 — 44 (max)
 12. GPT-5.6 Terra — 42 (max)
 
-News (2026-09-22): Anthropic ships Claude Opus 5.5 (first Claude 5.5 family model; Fable-class on most work; ~40% cheaper than Opus 5; list $4/$20; API claude-opus-5-5). OpenAI ships GPT-6 Sol ($2/$10) and GPT-6 Luna ($0.10/$0.50), 50% below GPT-5.6 promo pricing; API gpt-6-sol / gpt-6-luna; Astra remains top GPT-6 seat. Catalog rows `claude-opus-5.5`, `gpt-6-sol`, `gpt-6-luna` added with blank board seats (AA / Arena / Vals SWE / Terminal-Bench 2.1 / CursorBench) until first-party sources publish. Vendor CursorBench 4.0 57.8% and Terminal-Bench 4.0 for Opus 5.5 are launch context only; TB 4.0 is not Ridge TB 2.1. Prior 21 Sep: Grok 4.7 board fills AA 46 / Arena 1507 / CB 46.3 / TB 2.1 76.03; SWE blank.
+News (2026-09-22): Anthropic ships Claude Opus 5.5 (first Claude 5.5 family model; Fable-class on most work; ~40% cheaper than Opus 5; list $4/$20; API claude-opus-5-5). OpenAI ships GPT-6 Sol ($2/$10) and GPT-6 Luna ($0.10/$0.50), 50% below GPT-5.6 promo pricing; API gpt-6-sol / gpt-6-luna; Astra remains top GPT-6 seat. Board fills same day: Opus 5.5 AA 58 / CB 57.8 / Arena 1532 / TB 2.1 87.64 (SWE blank); GPT-6 Sol AA 48 / Arena 1509 (CB/TB/SWE blank); GPT-6 Luna AA 37 only (Arena/CB/TB/SWE blank). Vendor TB 4.0 is not Ridge TB 2.1. Prior 21 Sep: Grok 4.7 board fills AA 46 / Arena 1507 / CB 46.3 / TB 2.1 76.03; SWE blank.

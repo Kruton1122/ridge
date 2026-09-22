@@ -61,7 +61,7 @@ export const MODELS: Model[] = [
       "claude-opus-5-5",
     ],
     summary:
-      "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. Board seats blank until AA / Arena+ / Vals / Cursor.com publish first-party rows. Vendor CursorBench 4.0 57.8% (max) is launch-chart context only until cursor.com confirms.",
+      "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index 58 (max with fallback). CursorBench 4.0 57.8 (max, cursor.com). Arena+ Elo 1532. Terminal-Bench 2.1 87.64 (Vals, high, #1). SWE still blank.",
   }),
   m({
     id: "claude-opus-5",
@@ -157,7 +157,7 @@ export const MODELS: Model[] = [
       "sol 6",
     ],
     summary:
-      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Keep separate from gpt-5.6-sol and gpt-6-astra. Board seats blank until first-party AA / Arena+ / Vals / Cursor.com rows.",
+      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Keep separate from gpt-5.6-sol and gpt-6-astra. AA Intelligence Index 48 (max). Arena+ Elo 1509. Vals SWE, Terminal-Bench 2.1, and CursorBench still blank.",
   }),
   m({
     id: "gpt-5.6-sol",
@@ -375,7 +375,7 @@ export const MODELS: Model[] = [
       "luna 6",
     ],
     summary:
-      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Keep separate from gpt-5.6-luna. Board seats blank until first-party AA / Arena+ / Vals / Cursor.com rows.",
+      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Keep separate from gpt-5.6-luna. AA Intelligence Index 37 (max). Arena Elo, Vals SWE, Terminal-Bench 2.1, and CursorBench still blank.",
   }),
   m({
     id: "gpt-5.6-luna",
@@ -489,12 +489,14 @@ function s(
 }
 
 export const SCORES: Score[] = [
+  s("claude-opus-5.5", "aa-intelligence", 58, "Artificial Analysis", "https://artificialanalysis.ai/models/claude-opus-5-5", "2026-09-22", "best effort/variant: max with fallback"),
   s("claude-fable-5.1", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max with fallback"),
   s("gpt-6-astra", "aa-intelligence", 53, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("claude-opus-5", "aa-intelligence", 51, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("claude-fable-5", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-16", "best effort/variant: with fallback"),
   s("muse-spark-1.3", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: xhigh"),
   s("muse-spark-1.3-max", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
+  s("gpt-6-sol", "aa-intelligence", 48, "Artificial Analysis", "https://artificialanalysis.ai/models/gpt-6-sol", "2026-09-22", "best effort/variant: max"),
   s("gpt-5.6-sol", "aa-intelligence", 47, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("grok-4.7", "aa-intelligence", 46, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: high"),
   s("grok-4.6", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: high"),
@@ -507,14 +509,17 @@ export const SCORES: Score[] = [
   s("grok-4.5", "aa-intelligence", 39, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-16", "best effort/variant: high"),
   s("claude-sonnet-5", "aa-intelligence", 38, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("gpt-5.6-luna", "aa-intelligence", 37, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
+  s("gpt-6-luna", "aa-intelligence", 37, "Artificial Analysis", "https://artificialanalysis.ai/models/gpt-6-luna", "2026-09-22", "best effort/variant: max"),
   s("deepseek-v4-pro", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("deepseek-v4.1-flash", "aa-intelligence", 39, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("gemini-3.1-pro", "aa-intelligence", 30, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best listed row"),
 
+  s("claude-opus-5.5", "arena-elo", 1532, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-22"),
   s("claude-fable-5.1", "arena-elo", 1520, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("claude-opus-5", "arena-elo", 1511, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("claude-fable-5", "arena-elo", 1510, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("gpt-5.6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
+  s("gpt-6-sol", "arena-elo", 1509, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-22"),
   s("grok-4.7", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("grok-4.6", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
   s("kimi-k3", "arena-elo", 1506, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-09-21"),
@@ -552,10 +557,12 @@ export const SCORES: Score[] = [
   s("grok-4.6", "terminal-bench", 88.4, "Artificial Analysis", "https://felloai.com/best-ai-models/", "2026-08-13"),
   s("grok-4.7", "terminal-bench", 76.03, "Vals AI", "https://vals.ai/", "2026-09-21", "xhigh; #14 of 67; Terminal-Bench 2.1"),
   s("kimi-k3", "terminal-bench", 88.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
+  s("claude-opus-5.5", "terminal-bench", 87.64, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-09-22", "high; #1; 26/267 tasks used Opus 5 / Opus 4.8 fallbacks; fallbacks-as-fail = 79.77"),
   s("gemini-3.7-flash", "terminal-bench", 85.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("muse-spark-1.3", "terminal-bench", 85, "Artificial Analysis", "https://artificialanalysis.ai/articles/muse-spark-1-3", "2026-09-02", "v2.1 xhigh"),
   s("claude-fable-5", "terminal-bench", 84.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
 
+  s("claude-opus-5.5", "cursor-bench", 57.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-22", "max effort"),
   s("claude-fable-5.1", "cursor-bench", 51.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("claude-opus-5", "cursor-bench", 46.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("grok-4.7", "cursor-bench", 46.3, "Cursor", "https://cursor.com/cursorbench", "2026-09-21", "xhigh / Extra High (best published; Grok has no max run)"),

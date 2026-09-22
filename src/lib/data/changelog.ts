@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-22",
+    title: "Board fills: Opus 5.5 / GPT-6 Sol Luna from first-party sources",
+    items: [
+      "claude-opus-5.5: aa-intelligence 58 (AA model page), cursor-bench 57.8 (cursor.com), arena-elo 1532 (OpenLM Arena+), terminal-bench 87.64 (Vals TB 2.1 high #1). SWE blank.",
+      "gpt-6-sol: aa-intelligence 48 (AA model page), arena-elo 1509 (OpenLM; distinct from gpt-5.6-sol). No CursorBench / TB / SWE.",
+      "gpt-6-luna: aa-intelligence 37 (AA model page). Arena / CursorBench / TB / SWE blank.",
+      "Updated model summaries, desk/wire opus-55-0922 and gpt6-sol-luna-0922, and llms.txt news/headline. SNAPSHOT_DATE already 2026-09-22.",
+    ],
+  },
+
+  {
+    date: "2026-09-22",
     title: "Claude Opus 5.5 + GPT-6 Sol/Luna catalog (blank board seats)",
     items: [
       "Catalog MODELS: add claude-opus-5.5 ($4/$20, released 2026-09-22), gpt-6-sol ($2/$10), gpt-6-luna ($0.10/$0.50). No SCORES rows. No publicOpinionStars.",
