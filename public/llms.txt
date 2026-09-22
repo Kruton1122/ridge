@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-09-21
+- Snapshot: 2026-09-22
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench
 - JSON table: /api/ledger.json
@@ -26,4 +26,4 @@ Headline AA Intelligence Index v4.2:
 10. Kimi K3 — 44 (max)
 12. GPT-5.6 Terra — 42 (max)
 
-News (2026-09-21 afternoon): Grok 4.7 X reception split (@notjazii qualitative 8/8 scoreboard, not a poll; aligns with AA 81k-vs-36k token chatter; no board/star edits). B.C. AG announces California suit vs OpenAI over Tumbler Ridge shooting (failure-to-notify / unsafe-product claims; BC Gov + CBC). Independent AGMAI math advisory launches (agmai.org) after OpenAI ask; no named SKU. Morning: Grok 4.7 shipped (SpaceXAI) at the same $2 / $6 as Grok 4.6. Artificial Analysis publishes AA Index 46 high (xhigh also 46), context 500K. OpenLM's Arena+ table lists Arena Elo 1507 as of 21 Sep. Cursor.com publishes first-party CursorBench 4.0 at 46.3% xhigh / Extra High (best published; Grok has no max run). Vals AI suite eval (xhigh) fills Ridge Terminal-Bench 2.1 at 76.03 (#14 of 67, asOf 2026-09-21); Vals Index 54.15 is not an AA/Arena/CB seat. Catalog row `grok-4.7` leaves Vals SWE-bench Verified blank because Vals no longer runs the benchmark on new model releases (page updated 2026-09-01) and the Grok 4.7 report omits SWE. AA Index v4.3.2's Terminal-Bench 4.0 component is not mapped onto Ridge's Terminal-Bench 2.1 column.
+News (2026-09-22): Anthropic ships Claude Opus 5.5 (first Claude 5.5 family model; Fable-class on most work; ~40% cheaper than Opus 5; list $4/$20; API claude-opus-5-5). OpenAI ships GPT-6 Sol ($2/$10) and GPT-6 Luna ($0.10/$0.50), 50% below GPT-5.6 promo pricing; API gpt-6-sol / gpt-6-luna; Astra remains top GPT-6 seat. Catalog rows `claude-opus-5.5`, `gpt-6-sol`, `gpt-6-luna` added with blank board seats (AA / Arena / Vals SWE / Terminal-Bench 2.1 / CursorBench) until first-party sources publish. Vendor CursorBench 4.0 57.8% and Terminal-Bench 4.0 for Opus 5.5 are launch context only; TB 4.0 is not Ridge TB 2.1. Prior 21 Sep: Grok 4.7 board fills AA 46 / Arena 1507 / CB 46.3 / TB 2.1 76.03; SWE blank.

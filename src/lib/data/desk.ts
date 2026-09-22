@@ -2,14 +2,61 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-21"): boolean {
+export function isFresh(date: string, asOf = "2026-09-22"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
   return b - a <= DESK_FRESH_DAYS * 86_400_000;
 }
 
-export const NEWS: NewsItem[] = [
+export const NEWS: NewsItem[
+
+  {
+    id: "opus-55-0922",
+    kind: "release",
+    title: "Claude Opus 5.5: Fable-class work at Opus-5-minus-40% cost",
+    dek: "22 Sep. First Claude 5.5 family model. $4/$20 list. Board seats blank until first-party benches publish.",
+    pull: "Add catalog row claude-opus-5.5 with blank SCORES. Do not paste vendor CursorBench 57.8 or Terminal-Bench 4.0 onto the board. Blanks beat guesses.",
+    summary:
+      "22 September 2026: Anthropic ships Claude Opus 5.5, the first Claude 5.5 family model. It says the cut performs at Claude Fable 5.1 level on most work and costs about 40% less than Opus 5 on typical workloads. List is $4 in / $20 out with cache reads at $0.20. Fast mode is $8/$40. API id claude-opus-5-5. Pre-release testing named Frontier Design and METR. Catalog adds a blank-score row. Vendor chart CursorBench 4.0 57.8% (max) and Terminal-Bench 4.0 66.4% stay launch context until Cursor.com and a board-aligned TB 2.1 source publish.",
+    date: "2026-09-22",
+    sourceName: "Anthropic",
+    sourceUrl: "https://www.anthropic.com/news/claude-opus-5-5",
+    models: ["claude-opus-5.5", "claude-opus-5", "claude-fable-5.1"],
+    tags: ["release", "anthropic", "opus"],
+    body: [
+      "Primary: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
+      "Pricing table on the post: cache reads $0.20 (was $0.50 on Opus 5), input $4 (was $5), output $20 (was $25), cache writes $5. Fast mode $8/$40 up to 2.5x speed.",
+      "Vendor benches (context only): CursorBench 4.0 57.8% max vs Fable 5.1 51.8% / Opus 5 46.6%; Terminal-Bench 4.0 66.4% at xhigh. Ridge Terminal-Bench column is 2.1, not 4.0. Do not invent AA / Arena / Vals SWE / TB 2.1 / Cursor.com cells from the launch page.",
+      "Safety: first Opus with Fable-class cyber/biology safeguards and preserved thinking. Sonnet 5.5 and Haiku 5.5 said to follow in coming weeks.",
+      "Keep claude-opus-5 and claude-fable-5.1 rows. No publicOpinionStars on 5.5 until a sourced half-week pass.",
+    ],
+  },
+
+
+  {
+    id: "gpt6-sol-luna-0922",
+    kind: "release",
+    title: "GPT-6 Sol and Luna: Astra methods at half the 5.6 promo price",
+    dek: "22 Sep. New GPT-6 mid and cheap seats. API gpt-6-sol / gpt-6-luna. Keep separate from 5.6 Sol/Luna and Astra.",
+    pull: "Add catalog rows gpt-6-sol and gpt-6-luna with blank SCORES. Do not overwrite gpt-5.6-sol or gpt-5.6-luna. Blanks beat guesses.",
+    summary:
+      "22 September 2026: OpenAI expands the GPT-6 universe with GPT-6 Sol and GPT-6 Luna, trained with similar methods to GPT-6 Astra for faster and cheaper work at scale. API prices drop 50% versus GPT-5.6 promotional pricing: Sol $2/$10 (from $4/$20), Luna $0.10/$0.50 (from $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Catalog adds two blank-score rows. Do not mix with gpt-5.6-sol / gpt-5.6-luna or paste vendor AutomationBench / DeepSWE / OSWorld numbers onto Ridge board seats.",
+    date: "2026-09-22",
+    sourceName: "OpenAI",
+    sourceUrl: "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+    models: ["gpt-6-sol", "gpt-6-luna", "gpt-6-astra", "gpt-5.6-sol", "gpt-5.6-luna"],
+    tags: ["release", "openai", "gpt-6"],
+    body: [
+      "Primary: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
+      "Astra remains the top GPT-6 seat for uncompromising work. Sol and Luna are the cost-efficiency distribution of Astra-class methods.",
+      "Caching: higher default cache hit rates; 90% discount on cached input reads called out. Alignment claim: improvements over 5.6 counterparts on OpenAI's coding deception eval (details in Astra system card).",
+      "Board: leave AA / Arena / Vals SWE / Terminal-Bench 2.1 / CursorBench blank until first-party sources list these SKUs. DeepSWE and AutomationBench are not Ridge columns.",
+      "Matcher hygiene: keep gpt-6-sol and gpt-6-luna aliases specific; do not let a bare 'sol' or 'luna' steal the 5.6 rows until scrape names are unambiguous.",
+    ],
+  },
+
+] = [
 
 
   {

@@ -1,5 +1,18 @@
 export const CHANGELOG = [
 
+  {
+    date: "2026-09-22",
+    title: "Claude Opus 5.5 + GPT-6 Sol/Luna catalog (blank board seats)",
+    items: [
+      "Catalog MODELS: add claude-opus-5.5 ($4/$20, released 2026-09-22), gpt-6-sol ($2/$10), gpt-6-luna ($0.10/$0.50). No SCORES rows. No publicOpinionStars.",
+      "Keep gpt-5.6-sol / gpt-5.6-luna / claude-opus-5 rows; update summaries so the new SKUs are not confused with predecessors.",
+      "Wire + desk opus-55-0922 (Anthropic news + X) and gpt6-sol-luna-0922 (OpenAI index + X). Vendor CursorBench / TB 4.0 / DeepSWE cited as context only.",
+      "SNAPSHOT_DATE / SNAPSHOT_LABEL / isFresh asOf → 2026-09-22. llms.txt notes the three ships.",
+    ],
+  },
+
+
+
 
   {
     date: "2026-09-21",

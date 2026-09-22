@@ -9,7 +9,34 @@ export interface WireItem {
   models: string[];
 }
 
-export const WIRE: WireItem[] = [
+export const WIRE: WireItem[
+
+  {
+    id: "opus-55-0922",
+    title: "Anthropic: Claude Opus 5.5 ships; Fable-class, 40% cheaper than Opus 5",
+    blurb:
+      "22 September. Official Claude account + Anthropic news: Claude Opus 5.5 is the first Claude 5.5 family model. Performs at Claude Fable 5.1 level for most tasks; about 40% less cost than Opus 5 on typical workloads. List $4 in / $20 out; cache reads $0.20; fast mode $8/$40. API claude-opus-5-5. Pre-release evals include Frontier Design and METR. Vendor chart cites CursorBench 4.0 57.8% (max) and Terminal-Bench 4.0 66.4% (xhigh)  -  Ridge leaves board seats blank until Cursor.com / AA / Arena+ / Vals publish first-party rows; TB 4.0 is not board TB 2.1. URLs: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
+    date: "2026-09-22",
+    outlet: "Anthropic / X",
+    url: "https://www.anthropic.com/news/claude-opus-5-5",
+    beat: "release",
+    models: ["claude-opus-5.5", "claude-opus-5", "claude-fable-5.1"],
+  },
+
+
+  {
+    id: "gpt6-sol-luna-0922",
+    title: "OpenAI: GPT-6 Sol and Luna join the GPT-6 universe at half 5.6 promo price",
+    blurb:
+      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing  -  Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Catalog adds blank-score rows separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld vendor numbers onto Ridge board columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
+    date: "2026-09-22",
+    outlet: "OpenAI / X",
+    url: "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+    beat: "release",
+    models: ["gpt-6-sol", "gpt-6-luna", "gpt-6-astra", "gpt-5.6-sol", "gpt-5.6-luna"],
+  },
+
+] = [
 
 
   {
@@ -486,7 +513,7 @@ export const WIRE: WireItem[] = [
   },
   {
     id: "ds-v41-flash-launch",
-    title: "DeepSeek launches V4.1-Flash — API id deepseek-flash",
+    title: "DeepSeek launches V4.1-Flash  -  API id deepseek-flash",
     blurb:
       "10 September. Smallest model in the new arch family; native vision; 552B MoE with 8B/16B active. V4-Flash and Vision-Exp retired into compat aliases.",
     date: "2026-09-10",
@@ -543,7 +570,7 @@ export const WIRE: WireItem[] = [
     id: "aa-v43",
     title: "AA Index v4.3: Terminal-Bench 4.0 in, AutomationBench-AA in",
     blurb:
-      "7 September. TB 2.1 → 4.0; τ³-Banking replaced by AutomationBench-AA. Live board still shows Fable 5.1 and Astra tied at 53 — same headline, harder agent suite. Private-eval weight 45%.",
+      "7 September. TB 2.1 → 4.0; τ³-Banking replaced by AutomationBench-AA. Live board still shows Fable 5.1 and Astra tied at 53  -  same headline, harder agent suite. Private-eval weight 45%.",
     date: "2026-09-07",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v4-3",
@@ -563,7 +590,7 @@ export const WIRE: WireItem[] = [
   },
   {
     id: "jensen-agi-astra",
-    title: "Jensen Huang: ‘AGI has arrived’ — congratulates OpenAI on Astra",
+    title: "Jensen Huang: ‘AGI has arrived’  -  congratulates OpenAI on Astra",
     blurb:
       "6 September X post. Credits Astra’s GB200 training run. Public chatter already split between the demos and quota burn.",
     date: "2026-09-06",
@@ -576,7 +603,7 @@ export const WIRE: WireItem[] = [
     id: "register-mythos-cwi",
     title: "Booz Allen CWI: Mythos only model to finish a full cyber kill chain",
     blurb:
-      "Register on the Cyber Weapon Index. Mythos CWI 80; next cluster in the 40s. Trusted-access sibling to Fable 5.1 — not a public GA row.",
+      "Register on the Cyber Weapon Index. Mythos CWI 80; next cluster in the 40s. Trusted-access sibling to Fable 5.1  -  not a public GA row.",
     date: "2026-09-02",
     outlet: "The Register",
     url: "https://www.theregister.com/security/2026/09/02/claude-mythos-only-model-to-complete-full-cyber-kill-chain-experts-say/5294071",
@@ -587,7 +614,7 @@ export const WIRE: WireItem[] = [
     id: "vellum-38-tb4",
     title: "Vellum: 3.8 Flash leads TB 2.1, collapses on Terminal-Bench 4.0",
     blurb:
-      "89.4% on TB 2.1 vs 19.1% on TB 4.0 (Opus 5 at 51.8%). Same cliff Spark faces in expert chatter — shaped terminal work ≠ long-horizon agency.",
+      "89.4% on TB 2.1 vs 19.1% on TB 4.0 (Opus 5 at 51.8%). Same cliff Spark faces in expert chatter  -  shaped terminal work ≠ long-horizon agency.",
     date: "2026-09-02",
     outlet: "Vellum",
     url: "https://www.vellum.ai/blog/gemini-3-8-flash-benchmarks-explained",
@@ -598,7 +625,7 @@ export const WIRE: WireItem[] = [
     id: "aa-v42-sept8",
     title: "AA Index v4.2 refresh: Fable 5.1 and Astra both 53",
     blurb:
-      "8 September scrape. Opus 51, Fable 5 50, Spark max 48. OpenLM AAII can still read ~57 — Ridge cites AA.",
+      "8 September scrape. Opus 51, Fable 5 50, Spark max 48. OpenLM AAII can still read ~57  -  Ridge cites AA.",
     date: "2026-09-08",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/leaderboards/models",
@@ -653,7 +680,7 @@ export const WIRE: WireItem[] = [
     id: "aa-muse-13",
     title: "AA: Muse Spark 1.3 max is 62 in partner preview",
     blurb:
-      "Fourth Spark in five months. Public xhigh is 61. Max sits behind only Fable 5.1 and Opus 5 — and is not a general API row.",
+      "Fourth Spark in five months. Public xhigh is 61. Max sits behind only Fable 5.1 and Opus 5  -  and is not a general API row.",
     date: "2026-09-02",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/models/muse-spark-1-3",
@@ -686,7 +713,7 @@ export const WIRE: WireItem[] = [
     id: "vb-fable-51",
     title: "VentureBeat: Fable 5.1 ships with a 75% cache-read cut",
     blurb:
-      "Public Fable, trusted-access Mythos. AA already had max at 66 — highest Index they have printed.",
+      "Public Fable, trusted-access Mythos. AA already had max at 66  -  highest Index they have printed.",
     date: "2026-09-01",
     outlet: "VentureBeat",
     url: "https://venturebeat.com/technology/anthropics-claude-fable-5-1-and-mythos-5-1-arrive-with-a-75-cost-reduction-for-fable-cache-reads",
@@ -706,7 +733,7 @@ export const WIRE: WireItem[] = [
   },
   {
     id: "rd-science-double",
-    title: "Fable 5.1 doubles a science bench — and spends more tokens",
+    title: "Fable 5.1 doubles a science bench  -  and spends more tokens",
     blurb:
       "R&D World on Terminal-Bench-Science and AA’s note that max-effort 5.1 costs ~20% more per task than Fable 5.",
     date: "2026-09-01",
@@ -761,7 +788,7 @@ export const WIRE: WireItem[] = [
   },
   {
     id: "forbes-35",
-    title: "Gemini 3.5 Pro delay continues — then 3.8 Flash ships instead",
+    title: "Gemini 3.5 Pro delay continues  -  then 3.8 Flash ships instead",
     blurb:
       "I/O ‘next month’ and a leaked July window both passed. 2 September brought another Flash, not Pro.",
     date: "2026-08-13",
@@ -774,7 +801,7 @@ export const WIRE: WireItem[] = [
     id: "rohit-aug14",
     title: "August 14 field guide: Sol, Fable 5, Grok 4.6, 3.7 Flash, V4 Pro",
     blurb:
-      "What a normal customer could actually call mid-August — before 5.1, 3.8, and Spark 1.3 landed.",
+      "What a normal customer could actually call mid-August  -  before 5.1, 3.8, and Spark 1.3 landed.",
     date: "2026-08-14",
     outlet: "Rohit AI",
     url: "https://rohitai.com/blog/best-ai-models-2026-openai-anthropic-google-xai-deepseek",
