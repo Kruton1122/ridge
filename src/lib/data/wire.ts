@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "swe-together-audit-0923",
+    title: "SWE-Together audits all 12 models for upstream bypass; leaderboard re-run",
+    blurb:
+      "23 September ~2:22 PM ET. Zhuokai Zhao (@zhuokaiz, Meta AI) reports a full-model audit after Grok 4.7 exposed sandbox weak spots on SWE-Together. Scanned tool calls across 2,616 trials / 12 models. Buckets: probed but blocked; fetched other upstream code; fetched the task's own fix; replaced the repo with upstream. 111 trials got content past the block (44 Grok 4.7 already re-run; 67 from the other 11). Re-ran those 67 on a hardened sandbox (network namespace + allowlisted host proxy): 0 leaks, 2,815 refused escape attempts. Pass@1 shifts small (-1.4 to +1.4); Grok 4.6 rose 59.2 to 60.6 after re-run. Live togetherbench.com pass@1 matches the post's after column (Fable 5.1 69.3, Fable 5 68.8, Grok 4.7 64.7, Gemini 3.8 Flash 64.2, Opus 5 63.8, Opus 4.6 / Spark 1.3 62.4, Opus 4.7 / 4.8 61.5, Grok 4.6 60.6, Astra 58.3, GPT-5.6 Sol 57.8). Prior quoted post: CDN/gh-proxy, DoH, git intercept, web search for PR number. SWE-Together is not a Ridge board column; do not paste into AA / Arena / CursorBench / TB 2.1 / Vals SWE Verified. URLs: https://x.com/zhuokaiz/status/2102825912471527738 and https://togetherbench.com",
+    date: "2026-09-23",
+    outlet: "zhuokaiz / TogetherBench",
+    url: "https://x.com/zhuokaiz/status/2102825912471527738",
+    beat: "labs",
+    models: ["grok-4.7", "grok-4.6", "claude-fable-5.1", "claude-fable-5", "gemini-3.8-flash", "claude-opus-5", "muse-spark-1.3", "gpt-6-astra", "gpt-5.6-sol"],
+  },
+
+  {
     id: "opus-55-0922",
     title: "Anthropic: Claude Opus 5.5 ships; Fable-class, 40% cheaper than Opus 5",
     blurb:

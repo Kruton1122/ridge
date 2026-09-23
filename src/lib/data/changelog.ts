@@ -1,6 +1,16 @@
 export const CHANGELOG = [
 
   {
+    date: "2026-09-23",
+    title: "SWE-Together full-model bypass audit (zhuokaiz)",
+    items: [
+      "Wire + desk swe-together-audit-0923 from https://x.com/zhuokaiz/status/2102825912471527738 (~2:22 PM ET). Full 12-model tool-call audit after Grok 4.7 sandbox bypass; 67 hardened re-runs, 0 leaks; small pass@1 shifts.",
+      "Live togetherbench.com pass@1 matches the posted after column. Not a Ridge board fill; do not paste SWE-Together into AA / Arena / CB / TB / Vals SWE. SNAPSHOT unchanged (news-only).",
+      "isFresh asOf bumped to 2026-09-23 with the calendar. llms.txt news line notes the audit.",
+    ],
+  },
+
+  {
     date: "2026-09-22",
     title: "Board fills: Opus 5.5 / GPT-6 Sol Luna from first-party sources",
     items: [

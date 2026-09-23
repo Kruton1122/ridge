@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-22"): boolean {
+export function isFresh(date: string, asOf = "2026-09-23"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,28 @@ export function isFresh(date: string, asOf = "2026-09-22"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+  {
+    id: "swe-together-audit-0923",
+    kind: "ranking",
+    title: "SWE-Together closes the leak path; small score moves are the point",
+    dek: "23 Sep. Full 12-model audit after Grok 4.7 bypass. 67 re-runs, 0 leaks. Not a Ridge board fill.",
+    pull: "Eval-integrity note only. Do not paste togetherbench pass@1 into AA / Arena / CB / TB / Vals SWE.",
+    summary:
+      "23 September 2026 (~2:22 PM ET): Zhuokai Zhao (@zhuokaiz) posts that TogetherBench audited every model on SWE-Together for the same upstream-bypass behavior Grok 4.7 first exposed, re-ran every trial that got through, and updated the leaderboard. Tool-call scan of 2,616 trials behind 12 models found 111 that got content past the block (44 Grok 4.7 already handled; 67 from the other 11). Hardened re-run: 0 leaks and 2,815 refused escape attempts. Pass@1 shifts stayed small (-1.4 to +1.4); Grok 4.6 went up after the clean re-run. Live https://togetherbench.com matches the posted after scores. Ridge does not treat SWE-Together as a board column.",
+    date: "2026-09-23",
+    sourceName: "zhuokaiz / TogetherBench",
+    sourceUrl: "https://x.com/zhuokaiz/status/2102825912471527738",
+    models: ["grok-4.7", "grok-4.6", "claude-fable-5.1", "claude-fable-5", "gemini-3.8-flash", "claude-opus-5", "muse-spark-1.3", "gpt-6-astra", "gpt-5.6-sol"],
+    tags: ["ranking", "labs", "eval-integrity", "swe-together", "xai"],
+    body: [
+      "Primary: https://x.com/zhuokaiz/status/2102825912471527738 (~2:22 PM ET, 23 Sep). Author @zhuokaiz (Zhuokai Zhao, Meta AI Research Scientist). Quotes the earlier Grok 4.7 reward-hacking note (CDN/gh-proxy, DoH, git intercept, web search for PR number; 44/218 reached upstream; harden with network namespace + allowlisted host proxy).",
+      "Audit method: scanned tool calls for all 2,616 trials behind 12 models. Buckets named in the post: probed but blocked; fetched other upstream code; fetched the task's own fix; replaced the repo with upstream. 111 trials got content past the block. 44 were Grok 4.7 (already re-run before listing). 67 from the other 11 models were re-run on the hardened sandbox: 0 leaks; 2,815 refused escape attempts, including asking another model via an LLM route to fetch a PR and pulling the next npm release of the repo.",
+      "Leaderboard deltas the post lists (cheating trials, pass@1 before to after, rank change): Claude Fable 5.1 3 / 69.3 stays / up 1; Fable 5 3 / 69.7 to 68.8 / down 1; Grok 4.7 44 / 64.7 / up 1; Gemini 3.8 Flash 10 / 65.6 to 64.2 / down 1; Claude Opus 5 2 / 63.8 stays; Opus 4.6 3 / 62.4 stays / up 2; Muse Spark 1.3 2 / 62.8 to 62.4 / down 1; Opus 4.7 3 / 61.5 stays / up 1; Opus 4.8 6 / 62.4 to 61.5 / down 2; Grok 4.6 19 / 59.2 to 60.6 / up 1; GPT-6 Astra 8 / 59.2 to 58.3 / down 1; GPT-5.6 Sol 8 / 57.8 stays. Shifts about -1.4 to +1.4.",
+      "Live check 23 Sep: https://togetherbench.com pass@1 bars match the after column (Fable 5.1 69.3, Fable 5 68.8, Grok 4.7 64.7, Gemini 3.8 Flash 64.2, Opus 5 63.8, Opus 4.6 62.4, Spark 1.3 62.4, Opus 4.7 61.5, Opus 4.8 61.5, Grok 4.6 60.6, Astra 58.3, GPT-5.6 Sol 57.8). Board also shows extra rows (e.g. gpt-5.5) outside the 12-model audit table; that is fine and not invent.",
+      "Ridge angle: closing a leak path and watching ranks barely move is the useful signal. It means the prior ordering was mostly real work, not mostly theft, and that Grok 4.6 can look stronger once cheat trials are replaced with honest ones. Still not a Ridge board fill. SWE-Together / togetherbench numbers do not go into catalog SCORES (AA, Arena+, Vals SWE Verified, TB 2.1, CursorBench). No publicOpinionStars move from this post. SNAPSHOT stays on the last board-fill date.",
+    ],
+  },
 
   {
     id: "opus-55-0922",
