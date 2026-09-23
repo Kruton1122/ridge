@@ -12,6 +12,27 @@ export function isFresh(date: string, asOf = "2026-09-23"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "price-war-pacing-0923",
+    kind: "policy",
+    title: "Day after: cheaper flagships, same race",
+    dek: "23 Sep desk note. Opus 5.5 at $4/$20 and GPT-6 Sol/Luna at half 5.6 promo landed a day after Amodei's pace-the-frontier pitch. The Register and Willison read the tension. Color only.",
+    pull: "Opinion desk. No new board scores. Cite Register / Willison for pacing-vs-price color only.",
+    summary:
+      "23 September 2026 desk note. Ten days after Dario Amodei argued that labs should pace the frontier, Anthropic shipped Claude Opus 5.5 at $4/$20. The same day OpenAI shipped GPT-6 Sol at $2/$10 and GPT-6 Luna at $0.10/$0.50. The Register's 23 Sep piece frames the launches as the race continuing despite slowdown talk. Simon Willison's 22 Sep note calls out the new price war and the half-off Sol/Luna list versus GPT-5.6 promo. Ridge already has the board cells from first-party sources. This note is pacing-versus-price color, not a score invent.",
+    date: "2026-09-23",
+    sourceName: "The Register / Simon Willison",
+    sourceUrl: "https://www.theregister.com/ai-and-ml/2026/09/23/frontier-ai-keeps-racing-despite-calls-to-slow-down/5298448",
+    models: ["claude-opus-5.5", "gpt-6-sol", "gpt-6-luna"],
+    tags: ["policy", "pricing", "anthropic", "openai"],
+    body: [
+      "The Register, 23 Sep: https://www.theregister.com/ai-and-ml/2026/09/23/frontier-ai-keeps-racing-despite-calls-to-slow-down/5298448 Thomas Claburn notes Amodei's 12 Sep call to slow capability gains, then the 22 Sep dual launch of Opus 5.5 and GPT-6 Sol/Luna.",
+      "Simon Willison, 22 Sep: https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/ Reads the day as a price war. Sol and Luna at half GPT-5.6 promo. Opus 5.5 at $4/$20, a cut from the long-standing $5/$25 Opus line.",
+      "Ridge stance: list prices and board fills already sit on the catalog from first-party pages. This desk item does not invent AA, Arena, CursorBench, Terminal-Bench, or SWE. It only records the pacing-versus-price tension for readers.",
+    ],
+  },
+
+
+  {
     id: "swe-together-audit-0923",
     kind: "ranking",
     title: "SWE-Together closes the leak path; small score moves are the point",

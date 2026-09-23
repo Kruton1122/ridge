@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-23",
+    title: "News: METR Opus 5.5 eval, price-war desk, ChatGPT Voice on GPT-6",
+    items: [
+      "Wire metr-opus55-0922 from https://metr.org/blog/2026-09-22-claude-opus-5-5/ : modest step over Fable 5.1 on AI R&D; unlikely full automation; ~1.5× development acceleration estimate with caveats; unpaid agreement; Anthropic could review text.",
+      "Desk price-war-pacing-0923: day-after pacing vs cheaper launches. The Register 23 Sep + Simon Willison 22 Sep for color only. No board invent.",
+      "Wire openai-voice-gpt6-0923 from https://x.com/OpenAI/status/2102808325742322002 : ChatGPT Voice on Astra/Sol/Luna with plugins / Work. Short product note. SNAPSHOT unchanged (news-only).",
+    ],
+  },
+
+
+  {
+    date: "2026-09-23",
     title: "Vals Terminal-Bench 2.1: GPT-6 Sol 83.15, Luna 73.03",
     items: [
       "Added gpt-6-sol terminal-bench 83.15, Vals AI, as of 2026-09-23; note max effort / #6 of 73 / ±1.30 / Terminal-Bench 2.1. Source: https://www.vals.ai/models/openai_gpt-6-sol + https://x.com/ValsAI/status/2102629857972932819.",

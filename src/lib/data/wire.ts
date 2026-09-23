@@ -12,6 +12,31 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "metr-opus55-0922",
+    title: "METR: Opus 5.5 is a modest step on AI R&D, not full automation",
+    blurb:
+      "22 September. METR published a predeployment evaluation of Claude Opus 5.5 focused on AI R&D impact. The group says the model looks like a modest improvement over Fable 5.1 on hard, long-horizon tasks, and is unlikely to fully automate AI research. A separate internal METR note estimated about 1.5× overall acceleration from AI during development, with a chance of higher. The work was unpaid. Anthropic could review and edit the text; METR signed off on the final version that appears in the system card. Not a Ridge board fill. URL: https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+    date: "2026-09-22",
+    outlet: "METR",
+    url: "https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+    beat: "labs",
+    models: ["claude-opus-5.5", "claude-fable-5.1"],
+  },
+
+  {
+    id: "openai-voice-gpt6-0923",
+    title: "OpenAI: ChatGPT Voice now runs on Astra, Sol, and Luna",
+    blurb:
+      "23 September. OpenAI says ChatGPT Voice can now use plugins such as email, calendar, and Slack. It can also be powered by GPT-6 Astra, Sol, and Luna, including in Work. Short product update. No Ridge board change. URL: https://x.com/OpenAI/status/2102808325742322002",
+    date: "2026-09-23",
+    outlet: "OpenAI / X",
+    url: "https://x.com/OpenAI/status/2102808325742322002",
+    beat: "release",
+    models: ["gpt-6-astra", "gpt-6-sol", "gpt-6-luna"],
+  },
+
+
+  {
     id: "vals-gpt6-tb-0923",
     title: "Vals AI: GPT-6 Sol and Luna land on Terminal-Bench 2.1",
     blurb:
