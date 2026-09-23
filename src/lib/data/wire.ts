@@ -12,6 +12,19 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "vals-gpt6-tb-0923",
+    title: "Vals AI: GPT-6 Sol and Luna land on Terminal-Bench 2.1",
+    blurb:
+      "23 September. Vals AI publishes Terminal-Bench 2.1 for the new GPT-6 mid and cheap seats. GPT-6 Sol scores 83.15 at max effort. GPT-6 Luna scores 73.03 at max effort. Ridge fills those two board cells only. AA, Arena, CursorBench, and SWE seats stay as they were. Do not paste other Vals suite numbers onto Ridge columns. URLs: https://www.vals.ai/models/openai_gpt-6-sol , https://www.vals.ai/models/openai_gpt-6-luna , https://x.com/ValsAI/status/2102629857972932819 , and https://x.com/ValsAI/status/2102874058811678893",
+    date: "2026-09-23",
+    outlet: "Vals AI / X",
+    url: "https://www.vals.ai/models/openai_gpt-6-sol",
+    beat: "ranking",
+    models: ["gpt-6-sol", "gpt-6-luna"],
+  },
+
+
+  {
     id: "swe-together-audit-0923",
     title: "SWE-Together audits all 12 models for upstream bypass; leaderboard re-run",
     blurb:
@@ -40,7 +53,7 @@ export const WIRE: WireItem[] = [
     id: "gpt6-sol-luna-0922",
     title: "OpenAI: GPT-6 Sol and Luna join the GPT-6 universe at half 5.6 promo price",
     blurb:
-      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing. Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Same-day fills: AA Sol 48 / Luna 37, Arena+ Sol 1509. Luna Arena, both CursorBench / TB / SWE blank. Keep separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld onto Ridge columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
+      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing. Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Same-day fills: AA Sol 48 / Luna 37, Arena+ Sol 1509. Next-day Vals TB 2.1: Sol 83.15, Luna 73.03. Luna Arena, both CursorBench / SWE blank. Keep separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld onto Ridge columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
     date: "2026-09-22",
     outlet: "OpenAI / X",
     url: "https://openai.com/index/introducing-gpt-6-sol-and-luna",

@@ -1,8 +1,8 @@
 import type { Benchmark, Model, Score } from "./types";
 export { NEWS, isFresh } from "./desk";
 
-export const SNAPSHOT_DATE = "2026-09-22";
-export const SNAPSHOT_LABEL = "22 September 2026";
+export const SNAPSHOT_DATE = "2026-09-23";
+export const SNAPSHOT_LABEL = "23 September 2026";
 export const SCHEMA_VERSION = "1.1.0";
 
 export const LABS: Record<Model["lab"], { name: string; short: string; color: string }> = {
@@ -157,7 +157,7 @@ export const MODELS: Model[] = [
       "sol 6",
     ],
     summary:
-      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Keep separate from gpt-5.6-sol and gpt-6-astra. AA Intelligence Index 48 (max). Arena+ Elo 1509. Vals SWE, Terminal-Bench 2.1, and CursorBench still blank.",
+      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Keep separate from gpt-5.6-sol and gpt-6-astra. AA Intelligence Index 48 (max). Arena+ Elo 1509. Terminal-Bench 2.1 is 83.15 from Vals AI (max effort, as of 23 September). Vals SWE and CursorBench still blank.",
   }),
   m({
     id: "gpt-5.6-sol",
@@ -375,7 +375,7 @@ export const MODELS: Model[] = [
       "luna 6",
     ],
     summary:
-      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Keep separate from gpt-5.6-luna. AA Intelligence Index 37 (max). Arena Elo, Vals SWE, Terminal-Bench 2.1, and CursorBench still blank.",
+      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Keep separate from gpt-5.6-luna. AA Intelligence Index 37 (max). Terminal-Bench 2.1 is 73.03 from Vals AI (max effort, as of 23 September). Arena Elo, Vals SWE, and CursorBench still blank.",
   }),
   m({
     id: "gpt-5.6-luna",
@@ -558,6 +558,8 @@ export const SCORES: Score[] = [
   s("grok-4.7", "terminal-bench", 76.03, "Vals AI", "https://vals.ai/", "2026-09-21", "xhigh; #14 of 67; Terminal-Bench 2.1"),
   s("kimi-k3", "terminal-bench", 88.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("claude-opus-5.5", "terminal-bench", 87.64, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-09-22", "high; #1; 26/267 tasks used Opus 5 / Opus 4.8 fallbacks; fallbacks-as-fail = 79.77"),
+  s("gpt-6-sol", "terminal-bench", 83.15, "Vals AI", "https://www.vals.ai/models/openai_gpt-6-sol", "2026-09-23", "max effort; #6 of 73; ±1.30; Terminal-Bench 2.1"),
+  s("gpt-6-luna", "terminal-bench", 73.03, "Vals AI", "https://www.vals.ai/models/openai_gpt-6-luna", "2026-09-23", "max effort; #22 of 73; ±1.72; Terminal-Bench 2.1"),
   s("gemini-3.7-flash", "terminal-bench", 85.8, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),
   s("muse-spark-1.3", "terminal-bench", 85, "Artificial Analysis", "https://artificialanalysis.ai/articles/muse-spark-1-3", "2026-09-02", "v2.1 xhigh"),
   s("claude-fable-5", "terminal-bench", 84.3, "Vellum", "https://www.vellum.ai/llm-leaderboard", "2026-07-24"),

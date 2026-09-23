@@ -2,6 +2,17 @@ export const CHANGELOG = [
 
   {
     date: "2026-09-23",
+    title: "Vals Terminal-Bench 2.1: GPT-6 Sol 83.15, Luna 73.03",
+    items: [
+      "Added gpt-6-sol terminal-bench 83.15, Vals AI, as of 2026-09-23; note max effort / #6 of 73 / ±1.30 / Terminal-Bench 2.1. Source: https://www.vals.ai/models/openai_gpt-6-sol + https://x.com/ValsAI/status/2102629857972932819.",
+      "Added gpt-6-luna terminal-bench 73.03, Vals AI, as of 2026-09-23; note max effort / #22 of 73 / ±1.72 / Terminal-Bench 2.1. Source: https://www.vals.ai/models/openai_gpt-6-luna + https://x.com/ValsAI/status/2102874058811678893.",
+      "AA / Arena / CursorBench / SWE for Sol and Luna unchanged. Opus unchanged. SNAPSHOT_DATE / SNAPSHOT_LABEL → 2026-09-23. Updated summaries, desk/wire gpt6-sol-luna-0922, llms.txt.",
+    ],
+  },
+
+
+  {
+    date: "2026-09-23",
     title: "SWE-Together full-model bypass audit (zhuokaiz)",
     items: [
       "Wire + desk swe-together-audit-0923 from https://x.com/zhuokaiz/status/2102825912471527738 (~2:22 PM ET). Full 12-model tool-call audit after Grok 4.7 sandbox bypass; 67 hardened re-runs, 0 leaks; small pass@1 shifts.",
