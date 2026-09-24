@@ -12,6 +12,31 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "un-ai-hearing-0923",
+    title: "UN Security Council: Altman and Amodei call for global AI standards",
+    blurb:
+      "23 September. OpenAI CEO Sam Altman and Anthropic CEO Dario Amodei address a UN Security Council session on AI during UNGA week. Altman says the moment calls for extreme care and asks for international standards plus faster incident reporting. Amodei says poorly managed AI could be a risk to humanity and that labs will slow releases when needed. Same week Trump told the UN the US rejects global AI regulation. ABC News primary. Policy color only; no Ridge board invent. URL: https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
+    date: "2026-09-23",
+    outlet: "ABC News",
+    url: "https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
+    beat: "policy",
+    models: ["gpt-6-astra", "claude-opus-5.5", "claude-fable-5.1"],
+  },
+
+  {
+    id: "china-cac-probe-0923",
+    title: "China CAC probes DeepSeek and Moonshot over alleged Claude distillation routes",
+    blurb:
+      "23 September. Decrypt, citing The Information: China's Cyberspace Administration opens a probe of DeepSeek and Moonshot AI after Anthropic's 10 September threat intel report alleged illicit distillation through fraudulent Claude accounts. CAC reportedly summoned all seven named labs then focused on DeepSeek and Moonshot; officials want to know whether police, military, or state-linked data reached US servers. Anthropic figures as reported: Moonshot more than 23 million exchanges; DeepSeek more than 12.1 million in a 14-day July window. Probe open; no penalty decided. Beijing follow-on to anthropic-threat-intel-0910, not a duplicate. No Ridge board invent. URL: https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
+    date: "2026-09-23",
+    outlet: "Decrypt / The Information",
+    url: "https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
+    beat: "policy",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro", "kimi-k3", "claude-opus-5", "claude-fable-5.1"],
+  },
+
+
+  {
     id: "metr-opus55-0922",
     title: "METR: Opus 5.5 is a modest step on AI R&D, not full automation",
     blurb:

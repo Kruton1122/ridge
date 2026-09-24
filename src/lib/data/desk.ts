@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-23"): boolean {
+export function isFresh(date: string, asOf = "2026-09-24"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,62 @@ export function isFresh(date: string, asOf = "2026-09-23"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+  {
+    id: "halfweek-opinion-0924",
+    kind: "ranking",
+    title: "Half-week opinion: Opus 5.5 lands at 4; Sol/Luna/4.7 open at 3",
+    dek: "Grok Build X scrape as of 24 September. First stars for the new SKUs. Held rows stay put. Blank still beats a guess.",
+    pull: "Fill publicOpinionStars: Opus 5.5=4, GPT-6 Sol=3, GPT-6 Luna=3, Grok 4.7=3. Hold every prior fill. No board invent.",
+    summary:
+      "Public affection this half-week: Claude Opus 5.5 opens at 4 stars (Fable-class daily work at lower cost; token burn and overstated demos block a 5). GPT-6 Sol, GPT-6 Luna, and Grok 4.7 each open at 3 (useful or split, not broad love). Fable 5.1, Astra, Spark xhigh, Kimi K3, and DeepSeek V4.1 Flash hold 4. Opus 5, GPT-5.6 Sol, Grok 4.6, and Gemini 3.8 Flash hold 3. Volume leaders are Opus 5.5, the Sol/Luna price cut, Astra quota pain, and the UN AI hearing plus China CAC probe as policy color.",
+    date: "2026-09-24",
+    sourceName: "Ridge / Grok Build X scrape",
+    sourceUrl: "https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
+    models: [
+      "claude-opus-5.5",
+      "gpt-6-sol",
+      "gpt-6-luna",
+      "grok-4.7",
+      "claude-fable-5.1",
+      "gpt-6-astra",
+      "muse-spark-1.3",
+      "claude-opus-5",
+      "gpt-5.6-sol",
+      "grok-4.6",
+      "kimi-k3",
+      "gemini-3.8-flash",
+      "deepseek-v4.1-flash",
+    ],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Ridge Bot ran the Thursday half-week news and public-opinion pass on 24 September. Grok Build on Frank scraped Latest/Top X plus press URLs for the headline board. Log: logs/news-pass-grok-20260924.txt. Stars move only on sourced signal.",
+      "Volume this window: Claude Opus 5.5 first (launch clips, return-to-Claude posts, AA token-bill caveat). GPT-6 Sol and Luna next as a price-war pair; hands-on is medium and split. Astra stays loud as the quota / still-the-frontier name. Grok 4.7 is medium: Elon posts are large, independent coder posts are smaller and harsher. Fable 5.1 is medium-low: still respected, less often the daily default now that 5.5 exists.",
+      "Star moves (first fills): Opus 5.5 to 4. GPT-6 Sol to 3. GPT-6 Luna to 3. Grok 4.7 to 3. Held from 21 Sep: Fable 5.1=4, Opus 5=3, Astra=4, GPT-5.6 Sol=3, Grok 4.6=3, Muse Spark 1.3 xhigh=4, Kimi K3=4, Gemini 3.8 Flash=3, DeepSeek V4.1 Flash=4. Explicit SKIP (leave unchanged): Spark max, V4 Pro, GLM / Qwen / Sonnet / Gemini Pro seats, and rumor-only ids. Do not mix GPT-5.6 Sol with GPT-6 Sol, Flash chat with Flash TTS, or Spark 1.3 with the OpenCode 1.4 slug.",
+      "Policy wires this pass: un-ai-hearing-0923 (Altman + Amodei at the UN Security Council; Trump rejects global AI regulation same week) and china-cac-probe-0923 (Beijing follow-on to anthropic-threat-intel-0910). Price-war vs pacing stays on desk price-war-pacing-0923; The Register 23 Sep piece was not re-wired. Do not invent board numbers from the hearing, the CAC probe, Vercel Next.js cards, SWE-Together pass@1, or AA token counts.",
+    ],
+  },
+
+  {
+    id: "china-cac-probe-0923",
+    kind: "policy",
+    title: "Beijing turns Anthropic's distillation report on DeepSeek and Moonshot",
+    dek: "23 Sep. CAC probe after the 10 Sep threat intel. Allegations and an open investigation, not a finding.",
+    pull: "Policy beat only. Do not move DeepSeek or Kimi stars off this story. No board invent.",
+    summary:
+      "23 September: Decrypt, citing The Information, reports that China's Cyberspace Administration is probing DeepSeek and Moonshot AI over Anthropic's claim that both routed large volumes of user traffic through fraudulent Claude accounts. Follow-on to anthropic-threat-intel-0910. Probe open; neither company has publicly answered in the coverage we used.",
+    date: "2026-09-23",
+    sourceName: "Decrypt / The Information",
+    sourceUrl: "https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
+    models: ["deepseek-v4.1-flash", "deepseek-v4-pro", "kimi-k3", "claude-opus-5", "claude-fable-5.1"],
+    tags: ["policy", "industry", "china", "distillation"],
+    body: [
+      "Primary writeup: https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude (23 Sep), citing The Information. Ridge already wired Anthropic's 10 Sep threat intel as anthropic-threat-intel-0910; this desk is the Beijing follow-on, not a rewrite of that report.",
+      "As reported: CAC summoned all seven labs named in the Anthropic paper, then focused on DeepSeek and Moonshot. Anthropic's figures in that coverage: Moonshot more than 23 million exchanges to Claude in May-July; DeepSeek more than 12.1 million in a 14-day July window. Regulators are asking whether police, military, or state-linked corporate data landed on US servers.",
+      "Ridge angle: treat as an open probe and an allegation chain. Do not drop or raise DeepSeek V4.1 Flash or Kimi K3 publicOpinionStars from this story alone. Grok Build X volume on the probe was thin. No SNAPSHOT invent.",
+    ],
+  },
+
 
   {
     id: "price-war-pacing-0923",

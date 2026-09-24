@@ -1,6 +1,18 @@
 export const CHANGELOG = [
 
   {
+    date: "2026-09-24",
+    title: "Half-week news 24 Sep: UN AI hearing, China CAC probe, opinion refresh",
+    items: [
+      "Wire un-ai-hearing-0923 (ABC News): Altman + Amodei at UN Security Council call for global AI standards; Trump rejects global AI regulation same week. Policy only.",
+      "Wire + desk china-cac-probe-0923 (Decrypt / The Information): Beijing probe of DeepSeek and Moonshot after Anthropic distillation allegations. Follow-on to anthropic-threat-intel-0910.",
+      "Desk halfweek-opinion-0924 from logs/news-pass-grok-20260924.txt. First publicOpinionStars: Opus 5.5=4, GPT-6 Sol=3, GPT-6 Luna=3, Grok 4.7=3. Held prior fills; notes/asOf to 2026-09-24.",
+      "Morning briefing SNAPSHOT_DATE / isFresh asOf / score asOf bumps to 2026-09-24 kept. No invented board scores this pass. Skipped Register re-wire (already on price-war-pacing-0923).",
+    ],
+  },
+
+
+  {
     date: "2026-09-23",
     title: "News: METR Opus 5.5 eval, price-war desk, ChatGPT Voice on GPT-6",
     items: [
