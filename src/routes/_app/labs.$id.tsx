@@ -120,7 +120,7 @@ function LabPage() {
         <Reveal>
           <SectionHead
             title="Every row"
-            sub="Newest first. Each version keeps its own id so a fuzzy match in the daily scrape cannot fold one release onto another."
+            sub="Newest first. Each version keeps its own id so a loose name match in the daily update cannot fold one release onto another."
           />
           {/* Cards on a phone — six columns do not survive a 393px viewport. */}
           <ul className="mt-6 flex flex-col gap-2 md:hidden">

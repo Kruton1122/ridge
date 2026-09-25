@@ -101,7 +101,7 @@ function Methodology() {
               <Prose className="mt-5">
                 <p>
                   Every model keeps its own catalog id and a list of aliases. The aliases
-                  exist for exactly one reason: the daily scrape matches scraped names
+                  exist for exactly one reason: the daily update matches source names
                   against the catalog by fuzzy match, and without version-aware aliases a
                   fuzzy match will happily fold a 46 belonging to an older Grok onto the
                   row for a newer one. That collapse has happened on this site before. The

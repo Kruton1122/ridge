@@ -384,7 +384,7 @@ function ModelPage() {
                   {model.aliases.join(" · ")}
                 </p>
                 <p className="mt-3 text-[11.5px] leading-relaxed text-n-text-3">
-                  Aliases exist so a fuzzy match in the daily scrape cannot fold this row
+                  Aliases exist so a loose name match in the daily update cannot fold this row
                   onto a different version. {theme.motif}
                 </p>
               </div>
