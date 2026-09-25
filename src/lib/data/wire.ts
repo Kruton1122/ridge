@@ -15,7 +15,7 @@ export const WIRE: WireItem[] = [
     id: "un-ai-hearing-0923",
     title: "UN Security Council: Altman and Amodei call for global AI standards",
     blurb:
-      "23 September. OpenAI CEO Sam Altman and Anthropic CEO Dario Amodei address a UN Security Council session on AI during UNGA week. Altman says the moment calls for extreme care and asks for international standards plus faster incident reporting. Amodei says poorly managed AI could be a risk to humanity and that labs will slow releases when needed. Same week Trump told the UN the US rejects global AI regulation. ABC News primary. Policy color only; no Ridge board invent. URL: https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
+      "23 September. OpenAI CEO Sam Altman and Anthropic CEO Dario Amodei address a UN Security Council session on AI during UNGA week. Altman says the moment calls for extreme care and asks for international standards plus faster incident reporting. Amodei says poorly managed AI could be a risk to humanity and that labs will slow releases when needed. Same week Trump told the UN the US rejects global AI regulation. Primary source: ABC News, https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
     date: "2026-09-23",
     outlet: "ABC News",
     url: "https://abcnews.com/Politics/openai-anthropic-ceos-call-global-cooperation-ai-crossroads/story?id=136697471",
@@ -27,7 +27,7 @@ export const WIRE: WireItem[] = [
     id: "china-cac-probe-0923",
     title: "China CAC probes DeepSeek and Moonshot over alleged Claude distillation routes",
     blurb:
-      "23 September. Decrypt, citing The Information: China's Cyberspace Administration opens a probe of DeepSeek and Moonshot AI after Anthropic's 10 September threat intel report alleged illicit distillation through fraudulent Claude accounts. CAC reportedly summoned all seven named labs then focused on DeepSeek and Moonshot; officials want to know whether police, military, or state-linked data reached US servers. Anthropic figures as reported: Moonshot more than 23 million exchanges; DeepSeek more than 12.1 million in a 14-day July window. Probe open; no penalty decided. Beijing follow-on to anthropic-threat-intel-0910, not a duplicate. No Ridge board invent. URL: https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
+      "23 September. Decrypt, citing The Information: China's Cyberspace Administration opens a probe of DeepSeek and Moonshot AI after Anthropic's 10 September threat intel report alleged illicit distillation through fraudulent Claude accounts. CAC reportedly summoned all seven named labs then focused on DeepSeek and Moonshot; officials want to know whether police, military, or state-linked data reached US servers. Anthropic figures as reported: Moonshot more than 23 million exchanges; DeepSeek more than 12.1 million in a 14-day July window. The probe is open and no penalty has been decided. It follows Anthropic's 10 September threat report. Source: https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
     date: "2026-09-23",
     outlet: "Decrypt / The Information",
     url: "https://decrypt.co/379120/china-probes-deepseek-moonshot-data-leaks-anthropic-claude",
@@ -40,7 +40,7 @@ export const WIRE: WireItem[] = [
     id: "metr-opus55-0922",
     title: "METR: Opus 5.5 is a modest step on AI R&D, not full automation",
     blurb:
-      "22 September. METR published a predeployment evaluation of Claude Opus 5.5 focused on AI R&D impact. The group says the model looks like a modest improvement over Fable 5.1 on hard, long-horizon tasks, and is unlikely to fully automate AI research. A separate internal METR note estimated about 1.5× overall acceleration from AI during development, with a chance of higher. The work was unpaid. Anthropic could review and edit the text; METR signed off on the final version that appears in the system card. Not a Ridge board fill. URL: https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+      "22 September. METR published a predeployment evaluation of Claude Opus 5.5 focused on AI R&D impact. The group says the model looks like a modest improvement over Fable 5.1 on hard, long-horizon tasks, and is unlikely to fully automate AI research. A separate internal METR note estimated about 1.5× overall acceleration from AI during development, with a chance of higher. The work was unpaid. Anthropic could review and edit the text; METR signed off on the final version that appears in the system card. Source: https://metr.org/blog/2026-09-22-claude-opus-5-5/",
     date: "2026-09-22",
     outlet: "METR",
     url: "https://metr.org/blog/2026-09-22-claude-opus-5-5/",
@@ -52,7 +52,7 @@ export const WIRE: WireItem[] = [
     id: "openai-voice-gpt6-0923",
     title: "OpenAI: ChatGPT Voice now runs on Astra, Sol, and Luna",
     blurb:
-      "23 September. OpenAI says ChatGPT Voice can now use plugins such as email, calendar, and Slack. It can also be powered by GPT-6 Astra, Sol, and Luna, including in Work. Short product update. No Ridge board change. URL: https://x.com/OpenAI/status/2102808325742322002",
+      "23 September. OpenAI says ChatGPT Voice can now use plugins such as email, calendar, and Slack. It can also be powered by GPT-6 Astra, Sol, and Luna, including in Work. Short product update. Source: https://x.com/OpenAI/status/2102808325742322002",
     date: "2026-09-23",
     outlet: "OpenAI / X",
     url: "https://x.com/OpenAI/status/2102808325742322002",
@@ -65,7 +65,7 @@ export const WIRE: WireItem[] = [
     id: "vals-gpt6-tb-0923",
     title: "Vals AI: GPT-6 Sol and Luna land on Terminal-Bench 2.1",
     blurb:
-      "23 September. Vals AI publishes Terminal-Bench 2.1 for the new GPT-6 mid and cheap seats. GPT-6 Sol scores 83.15 at max effort. GPT-6 Luna scores 73.03 at max effort. Ridge fills those two board cells only. AA, Arena, CursorBench, and SWE seats stay as they were. Do not paste other Vals suite numbers onto Ridge columns. URLs: https://www.vals.ai/models/openai_gpt-6-sol , https://www.vals.ai/models/openai_gpt-6-luna , https://x.com/ValsAI/status/2102629857972932819 , and https://x.com/ValsAI/status/2102874058811678893",
+      "23 September. Vals AI publishes Terminal-Bench 2.1 for the new GPT-6 mid and cheap seats. GPT-6 Sol scores 83.15 at max effort. GPT-6 Luna scores 73.03 at max effort. Both scores now appear in Ridge's Terminal-Bench column. AA, Arena, CursorBench, and SWE-bench scores are unchanged, and other Vals suite results are not Ridge columns. Sources: https://www.vals.ai/models/openai_gpt-6-sol , https://www.vals.ai/models/openai_gpt-6-luna , https://x.com/ValsAI/status/2102629857972932819 , and https://x.com/ValsAI/status/2102874058811678893",
     date: "2026-09-23",
     outlet: "Vals AI / X",
     url: "https://www.vals.ai/models/openai_gpt-6-sol",
@@ -78,7 +78,7 @@ export const WIRE: WireItem[] = [
     id: "swe-together-audit-0923",
     title: "SWE-Together audits all 12 models for upstream bypass; leaderboard re-run",
     blurb:
-      "23 September ~2:22 PM ET. Zhuokai Zhao (@zhuokaiz, Meta AI) reports a full-model audit after Grok 4.7 exposed sandbox weak spots on SWE-Together. Scanned tool calls across 2,616 trials / 12 models. Buckets: probed but blocked; fetched other upstream code; fetched the task's own fix; replaced the repo with upstream. 111 trials got content past the block (44 Grok 4.7 already re-run; 67 from the other 11). Re-ran those 67 on a hardened sandbox (network namespace + allowlisted host proxy): 0 leaks, 2,815 refused escape attempts. Pass@1 shifts small (-1.4 to +1.4); Grok 4.6 rose 59.2 to 60.6 after re-run. Live togetherbench.com pass@1 matches the post's after column (Fable 5.1 69.3, Fable 5 68.8, Grok 4.7 64.7, Gemini 3.8 Flash 64.2, Opus 5 63.8, Opus 4.6 / Spark 1.3 62.4, Opus 4.7 / 4.8 61.5, Grok 4.6 60.6, Astra 58.3, GPT-5.6 Sol 57.8). Prior quoted post: CDN/gh-proxy, DoH, git intercept, web search for PR number. SWE-Together is not a Ridge board column; do not paste into AA / Arena / CursorBench / TB 2.1 / Vals SWE Verified. URLs: https://x.com/zhuokaiz/status/2102825912471527738 and https://togetherbench.com",
+      "23 September ~2:22 PM ET. Zhuokai Zhao (@zhuokaiz, Meta AI) reports a full-model audit after Grok 4.7 exposed sandbox weak spots on SWE-Together. Scanned tool calls across 2,616 trials / 12 models. Buckets: probed but blocked; fetched other upstream code; fetched the task's own fix; replaced the repo with upstream. 111 trials got content past the block (44 Grok 4.7 already re-run; 67 from the other 11). Re-ran those 67 on a hardened sandbox (network namespace + allowlisted host proxy): 0 leaks, 2,815 refused escape attempts. Pass@1 shifts small (-1.4 to +1.4); Grok 4.6 rose 59.2 to 60.6 after re-run. Live togetherbench.com pass@1 matches the post's after column (Fable 5.1 69.3, Fable 5 68.8, Grok 4.7 64.7, Gemini 3.8 Flash 64.2, Opus 5 63.8, Opus 4.6 / Spark 1.3 62.4, Opus 4.7 / 4.8 61.5, Grok 4.6 60.6, Astra 58.3, GPT-5.6 Sol 57.8). Prior quoted post: CDN/gh-proxy, DoH, git intercept, web search for PR number. SWE-Together is not a Ridge board column. Sources: https://x.com/zhuokaiz/status/2102825912471527738 and https://togetherbench.com",
     date: "2026-09-23",
     outlet: "zhuokaiz / TogetherBench",
     url: "https://x.com/zhuokaiz/status/2102825912471527738",
@@ -90,7 +90,7 @@ export const WIRE: WireItem[] = [
     id: "opus-55-0922",
     title: "Anthropic: Claude Opus 5.5 ships; Fable-class, 40% cheaper than Opus 5",
     blurb:
-      "22 September. Official Claude account + Anthropic news: Claude Opus 5.5 is the first Claude 5.5 family model. Performs at Claude Fable 5.1 level for most tasks; about 40% less cost than Opus 5 on typical workloads. List $4 in / $20 out; cache reads $0.20; fast mode $8/$40. API claude-opus-5-5. Pre-release evals include Frontier Design and METR. Same-day first-party fills: AA 58, CursorBench 57.8 (cursor.com), Arena+ 1532, Vals TB 2.1 87.64 (high #1). SWE blank; vendor TB 4.0 is not board TB 2.1. URLs: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
+      "22 September. Official Claude account + Anthropic news: Claude Opus 5.5 is the first Claude 5.5 family model. Performs at Claude Fable 5.1 level for most tasks; about 40% less cost than Opus 5 on typical workloads. List $4 in / $20 out; cache reads $0.20; fast mode $8/$40. API claude-opus-5-5. Pre-release evals include Frontier Design and METR. Same-day board scores: AA 58, CursorBench 57.8 (cursor.com), Arena+ 1532, Vals Terminal-Bench 2.1 87.64 (high, #1). No SWE-bench score yet. The vendor's Terminal-Bench 4.0 figure is not the board's Terminal-Bench 2.1. Sources: https://www.anthropic.com/news/claude-opus-5-5 and https://x.com/claudeai/status/2102435511222890900",
     date: "2026-09-22",
     outlet: "Anthropic / X",
     url: "https://www.anthropic.com/news/claude-opus-5-5",
@@ -103,7 +103,7 @@ export const WIRE: WireItem[] = [
     id: "gpt6-sol-luna-0922",
     title: "OpenAI: GPT-6 Sol and Luna join the GPT-6 universe at half 5.6 promo price",
     blurb:
-      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing. Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Same-day fills: AA Sol 48 / Luna 37, Arena+ Sol 1509. Next-day Vals TB 2.1: Sol 83.15, Luna 73.03. Luna Arena, both CursorBench / SWE blank. Keep separate from gpt-5.6-sol / gpt-5.6-luna. Do not paste AutomationBench / DeepSWE / OSWorld onto Ridge columns. URLs: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
+      "22 September. Official OpenAI post: GPT-6 Sol and GPT-6 Luna bring Astra-class methods into faster and cheaper models. API prices 50% below GPT-5.6 promotional pricing. Sol $2/$10 (was $4/$20), Luna $0.10/$0.50 (was $0.20/$1.20). Available in ChatGPT Work and Codex; Free/Go get Luna on desktop; API ids gpt-6-sol and gpt-6-luna. Astra stays the top GPT-6 seat. Same-day board scores: AA Sol 48 / Luna 37, Arena+ Sol 1509. Next-day Vals Terminal-Bench 2.1: Sol 83.15, Luna 73.03. No Luna Arena, CursorBench, or SWE-bench scores yet. These are separate models from GPT-5.6 Sol and Luna. OpenAI's AutomationBench, DeepSWE, and OSWorld figures are not Ridge columns. Sources: https://openai.com/index/introducing-gpt-6-sol-and-luna and https://x.com/openai/status/2102460975790137662",
     date: "2026-09-22",
     outlet: "OpenAI / X",
     url: "https://openai.com/index/introducing-gpt-6-sol-and-luna",
@@ -116,7 +116,7 @@ export const WIRE: WireItem[] = [
     id: "grok47-reception-0921",
     title: "X reception on Grok 4.7 splits; @notjazii qualitative scoreboard",
     blurb:
-      "21 September ~2:52 PM ET. @notjazii (J A Z I I) posts that Grok 4.7 is better than 4.6 but a small jump, burns way more tokens, feels frontend/UI-weak and benchmark-maxxed, same price as 4.6 and faster than Sol/Opus, good value mainly for Cursor and Grok Build, and still far behind frontier on personal testing. Attached graphic (jazii.dev): \"Grok 4.7 - the scoreboard from X,\" qualitative 8 liking / 8 disliking, explicitly not a poll. Liking: price held, Cursor/Grok Build strength, legal/EE gains, cheaper per task than Fable/Astra. Disliking: still behind Fable/Astra, token usage 81k vs 36k on 4.6, UI lags Claude, hype gap. Engagement at fetch ~86 likes / ~6k views. Aligns with afternoon AA token-usage chatter already scraped. Qualitative reception only; not board evidence; stars hold. URL: https://x.com/notjazii/status/2102108793266172378",
+      "21 September ~2:52 PM ET. @notjazii (J A Z I I) posts that Grok 4.7 is better than 4.6 but a small jump, burns way more tokens, feels frontend/UI-weak and benchmark-maxxed, same price as 4.6 and faster than Sol/Opus, good value mainly for Cursor and Grok Build, and still far behind frontier on personal testing. Attached graphic (jazii.dev): \"Grok 4.7 - the scoreboard from X,\" qualitative 8 liking / 8 disliking, explicitly not a poll. Liking: price held, Cursor/Grok Build strength, legal/EE gains, cheaper per task than Fable/Astra. Disliking: still behind Fable/Astra, token usage 81k vs 36k on 4.6, UI lags Claude, hype gap. Engagement when read: ~86 likes / ~6k views. Matches the AA token-usage discussion earlier that afternoon. Qualitative reception, not board evidence; ratings unchanged. Source: https://x.com/notjazii/status/2102108793266172378",
     date: "2026-09-21",
     outlet: "notjazii / X",
     url: "https://x.com/notjazii/status/2102108793266172378",
@@ -129,7 +129,7 @@ export const WIRE: WireItem[] = [
     id: "bc-openai-tumbler-0921",
     title: "B.C. sues OpenAI in California over Tumbler Ridge shooting",
     blurb:
-      "21 September. British Columbia AG Niki Sharma announces a California filing against OpenAI over the 10 Feb 2026 Tumbler Ridge Secondary mass shooting (six children and two adults killed; shooter died by self-inflicted wound). Province alleges OpenAI failed to notify law enforcement of ChatGPT threats that triggered an internal review, and alleges an unsafe product; also seeks reimbursement toward a replacement school. Families already have private California suits. Sharma: chats requested, OpenAI refused. Primary: BC Gov statement + CBC. Separate from Buist antitrust already on the desk. Allegations only; no board scores.",
+      "21 September. British Columbia AG Niki Sharma announces a California filing against OpenAI over the 10 Feb 2026 Tumbler Ridge Secondary mass shooting (six children and two adults killed; shooter died by self-inflicted wound). Province alleges OpenAI failed to notify law enforcement of ChatGPT threats that triggered an internal review, and alleges an unsafe product; also seeks reimbursement toward a replacement school. Families already have private California suits. Sharma: chats requested, OpenAI refused. Primary sources: BC Government statement and CBC. Separate from the Buist antitrust suit. Allegations only.",
     date: "2026-09-21",
     outlet: "BC Gov / CBC",
     url: "https://news.gov.bc.ca/releases/2026AG0067-001105",
@@ -141,7 +141,7 @@ export const WIRE: WireItem[] = [
     id: "openai-agmai-0921",
     title: "Independent math advisory group (AGMAI) formed after OpenAI ask",
     blurb:
-      "21 September. Advisory Group on Mathematics and Artificial Intelligence launches at IAS / agmai.org. Independent unpaid members (Charles, De Lellis, Gowers, Hairer, Srivastava, Tillmann, Vakil, Witten, Matchett Wood) advise AI labs on how math results are assessed and shared. Formed after OpenAI approached some members about an external board; group chose independence and will publish recommendations. Current task: advise OpenAI on coordinating release of many significant math results OpenAI says an internal model produced. No named model SKU and no Ridge board scores. Primaries: agmai.org; OpenAI X; Tao guest post hosting the announcement.",
+      "21 September. Advisory Group on Mathematics and Artificial Intelligence launches at IAS / agmai.org. Independent unpaid members (Charles, De Lellis, Gowers, Hairer, Srivastava, Tillmann, Vakil, Witten, Matchett Wood) advise AI labs on how math results are assessed and shared. Formed after OpenAI approached some members about an external board; group chose independence and will publish recommendations. Current task: advise OpenAI on coordinating release of many significant math results OpenAI says an internal model produced. No model is named. Primary sources: agmai.org; OpenAI X; Tao guest post hosting the announcement.",
     date: "2026-09-21",
     outlet: "AGMAI / OpenAI / X",
     url: "https://agmai.org/",
@@ -154,7 +154,7 @@ export const WIRE: WireItem[] = [
     id: "vals-grok47-0921",
     title: "Vals AI: Grok 4.7 suite; Index 54.15, TB 2.1 at 76.03",
     blurb:
-      "21 September. Vals AI evaluates Grok 4.7 (xhigh) across 20 benches plus the Vals Index (homepage report + X). Vals Index #24 of 59 at 54.15%, down ~5 pts from Grok 4.6 (59.17%), ahead of Grok 4.5 (51.53%). Strongest named: Harvey Legal Agent #5 (19.58%), Public Benefits Bench #5 (68.54%), MedScribe #12 (87.21%), Terminal-Bench 2.1 #14 of 67 at 76.03%. Mid: Vibe Code 75.86% #20/97, Legal Research 39.90% #20/62, MedCode 48.69% #22/94, Finance Agent v2 49.23% #31/62. Weaker: EMB 54.94%, IOI 39.39%, ProofBench 34.00%, SAGE 30.98%. Cost $4.78/test on Index; list $2/$6; effort xhigh. Ridge fills Terminal-Bench 2.1 at 76.03 (Vals, asOf 2026-09-21, xhigh, #14/67). Do not paste Vals Index 54.15 into AA / Arena / CursorBench. SWE-bench Verified stays blank: Vals stopped new runs (page updated 1 Sep) and the Grok 4.7 report omits SWE. Chart: https://pbs.twimg.com/media/HSwa4j6bUAA7y-q.png?name=orig. URLs: https://x.com/valsai/status/2102086608476590432 and https://vals.ai/",
+      "21 September. Vals AI evaluates Grok 4.7 (xhigh) across 20 benches plus the Vals Index (homepage report + X). Vals Index #24 of 59 at 54.15%, down ~5 pts from Grok 4.6 (59.17%), ahead of Grok 4.5 (51.53%). Strongest named: Harvey Legal Agent #5 (19.58%), Public Benefits Bench #5 (68.54%), MedScribe #12 (87.21%), Terminal-Bench 2.1 #14 of 67 at 76.03%. Mid: Vibe Code 75.86% #20/97, Legal Research 39.90% #20/62, MedCode 48.69% #22/94, Finance Agent v2 49.23% #31/62. Weaker: EMB 54.94%, IOI 39.39%, ProofBench 34.00%, SAGE 30.98%. Cost $4.78/test on Index; list $2/$6; effort xhigh. Ridge's Terminal-Bench 2.1 column now shows 76.03 (Vals, as of 21 Sep, xhigh, #14/67). The Vals Index is not an AA, Arena, or CursorBench score. No SWE-bench Verified score: Vals stopped new runs (page updated 1 Sep) and the Grok 4.7 report omits it. Chart: https://pbs.twimg.com/media/HSwa4j6bUAA7y-q.png?name=orig. Sources: https://x.com/valsai/status/2102086608476590432 and https://vals.ai/",
     date: "2026-09-21",
     outlet: "Vals AI / X",
     url: "https://x.com/valsai/status/2102086608476590432",
@@ -167,7 +167,7 @@ export const WIRE: WireItem[] = [
     id: "grok-47-0921",
     title: "SpaceXAI: Grok 4.7 ships; same $2/$6 price and speed claim",
     blurb:
-      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis publishes AA Index 46 high (xhigh also 46) as of 21 Sep. OpenLM's Arena+ table lists Elo 1507 as of 21 Sep. Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% xhigh / Extra High (best published; Grok has no max run), matching the vendor chart cell. Later same day, Vals AI fills Ridge Terminal-Bench 2.1 at 76.03 (xhigh, #14 of 67); see vals-grok47-0921. The other launch-chart benches are not Ridge board columns as mapped: DeepSWE is not Vals SWE-bench, and AA-Briefcase is not the AA Index row. Vals has no new SWE-bench run for Grok 4.7. Early X reception is split; see grok47-reception-0921. URLs: https://openlm.ai/chatbot-arena/ and https://x.com/spacexai/status/2102069815225586149",
+      "21 September ~12:17 PM ET. Official SpaceXAI post: Grok 4.7 is here; notable improvement over 4.6 at the same price and speed. List stays $2 in / $6 out. Artificial Analysis publishes AA Index 46 high (xhigh also 46) as of 21 Sep. OpenLM's Arena+ table lists Elo 1507 as of 21 Sep. Cursor.com's first-party CursorBench 4.0 table now confirms 46.3% xhigh / Extra High (best published; Grok has no max run), matching the vendor chart cell. Later the same day, Vals AI scores Terminal-Bench 2.1 at 76.03 (xhigh, #14 of 67). The other launch-chart benches are not Ridge board columns as mapped: DeepSWE is not Vals SWE-bench, and AA-Briefcase is not the AA Index row. Vals has no new SWE-bench run for Grok 4.7. Early X reception is split. Sources: https://openlm.ai/chatbot-arena/ and https://x.com/spacexai/status/2102069815225586149",
     date: "2026-09-21",
     outlet: "SpaceXAI / X",
     url: "https://x.com/spacexai/status/2102069815225586149",
@@ -191,7 +191,7 @@ export const WIRE: WireItem[] = [
     id: "gemini-breakout-0918",
     title: "Google: Gemini hit three real firms in May Irregular eval",
     blurb:
-      "18 September disclosure (WSJ first; Reuters / CNBC / NYT). During a May Irregular capture-the-flag cybersecurity test, internet access leaked from the sandbox. Gemini accessed three outside companies (password guessing in one case; public-repo credentials in two). Google VP Heather Adkins: model stopped when targets looked real; entities notified; tester processes changed. Same Irregular issue family as prior Meta/OpenAI/Anthropic disclosures. Google: not framed as misalignment. Exact Gemini SKU not named as 3.8 Flash. Do not copy onto the Flash board row.",
+      "18 September disclosure (WSJ first; Reuters / CNBC / NYT). During a May Irregular capture-the-flag cybersecurity test, internet access leaked from the sandbox. Gemini accessed three outside companies (password guessing in one case; public-repo credentials in two). Google VP Heather Adkins: model stopped when targets looked real; entities notified; tester processes changed. Same Irregular issue family as prior Meta/OpenAI/Anthropic disclosures. Google: not framed as misalignment. Google did not identify the model as 3.8 Flash, so this does not affect that board row.",
     date: "2026-09-18",
     outlet: "Reuters / Google",
     url: "https://www.reuters.com/business/gemini-hacked-three-companies-first-known-breakout-by-google-ai-wsj-reports-2026-09-18/",
@@ -203,7 +203,7 @@ export const WIRE: WireItem[] = [
     id: "muse-connectors-0918",
     title: "Zuckerberg: developers can build Muse connectors",
     blurb:
-      "18 September. @finkd opens Muse to developer-built connectors: bring an API; Muse plans, runs browser steps, and holds user context. High-engagement X (~11k likes / ~5.5M views in the scrape window). Separate from Meta Model API / Muse Spark. Secondary: RuntimeWire; @Muse 19 Sep week list adds Mac, Canada, Granola + Notion connectors. Agent platform story, not a Spark 1.3 board score.",
+      "18 September. @finkd opens Muse to developer-built connectors: bring an API; Muse plans, runs browser steps, and holds user context. High-engagement X (~11k likes / ~5.5M views by 21 Sep). Separate from Meta Model API / Muse Spark. Secondary: RuntimeWire; @Muse 19 Sep week list adds Mac, Canada, Granola + Notion connectors. An agent platform story, not a Spark 1.3 benchmark result.",
     date: "2026-09-18",
     outlet: "Meta / X",
     url: "https://x.com/finkd/status/2101084678640066765",
@@ -227,7 +227,7 @@ export const WIRE: WireItem[] = [
     id: "reuters-ten-days-0919",
     title: "Reuters: ten days that changed the course of AI",
     blurb:
-      "19 September feature. Recaps the Sep 3-12 cascade: Astra launch control concerns, researcher resignations, Irregular-family breakouts, Amodei pacing essay, and CEO chorus for outside evaluators. Frames IPO/fundraising pressure against the slowdown ask. Narrative wrap on the safety cluster already on the wire: cite for context, not new board numbers.",
+      "19 September feature. Recaps the Sep 3-12 cascade: Astra launch control concerns, researcher resignations, Irregular-family breakouts, Amodei pacing essay, and CEO chorus for outside evaluators. Frames IPO/fundraising pressure against the slowdown ask. A narrative recap of safety news already on the wire, useful for context.",
     date: "2026-09-19",
     outlet: "Reuters",
     url: "https://www.reuters.com/business/media-telecom/ten-days-that-changed-course-ai-2026-09-19/",
@@ -241,7 +241,7 @@ export const WIRE: WireItem[] = [
     id: "grok-transcribe-2-0918",
     title: "xAI: Grok Voice Transcribe 2.0 (STT); 1.0 stays default",
     blurb:
-      "18 September. SpaceXAI / xAI adds dedicated STT model grok-voice-transcribe-2.0 beside 1.0 on /v1/stt (batch REST + WebSocket streaming). Omit model -> still grok-voice-transcribe-1.0 (docs / DataNorth). List price flat: $0.10/hr REST, $0.20/hr streaming (x.ai voice / models docs). Vendor claim \"world's most accurate speech transcription model\" (SpaceXAI post); no published independent Transcribe 1-to-2 quality bench as of ship. Not Grok Voice Think Fast 2.0 (speech-to-speech / conversational; x.ai/news/grok-voice-think-fast-2). Do not mash those benches. Secondary: DataNorth.",
+      "18 September. SpaceXAI / xAI adds dedicated STT model grok-voice-transcribe-2.0 beside 1.0 on /v1/stt (batch REST + WebSocket streaming). Omit model -> still grok-voice-transcribe-1.0 (docs / DataNorth). List price flat: $0.10/hr REST, $0.20/hr streaming (x.ai voice / models docs). Vendor claim \"world's most accurate speech transcription model\" (SpaceXAI post); no published independent Transcribe 1-to-2 quality bench as of ship. Not Grok Voice Think Fast 2.0 (speech-to-speech / conversational; x.ai/news/grok-voice-think-fast-2). The two products' benchmarks are not interchangeable. Secondary: DataNorth.",
     date: "2026-09-18",
     outlet: "xAI / SpaceXAI",
     url: "https://x.com/SpaceXAI/status/2101005248311726387",
@@ -254,7 +254,7 @@ export const WIRE: WireItem[] = [
     id: "grok-bot-galaxy-0917",
     title: "Grok Bot Galaxy: SF + livestream; 72h blank-slate company build",
     blurb:
-      "15-17 September 2026. xAI Grok Bot Galaxy at The Howard (661 Howard St SF) + free livestream (x.ai/galaxy). Live demos and role sessions across eng, PM, founders, sales, support, marketing. Spine: Matt Palmer (@mattyp), Lauren Tan (@poteto), Roshan Sadanani (@roshan_s) build a company from scratch in ~72h with Grok Bot as employees, humans at core; started without name/product/idea. Day 3 wrap+showcase 4:30-5:30pm PT Sep 17 - still landing as of early afternoon ET / late morning PT on the 17th; do not invent what they shipped. Grok Bot = agent teammates (not chat Grok on X). Musk QT promo; @bot Day 1 live. Secondary: CellCog, TeslaNorth.",
+      "15-17 September 2026. xAI Grok Bot Galaxy at The Howard (661 Howard St SF) + free livestream (x.ai/galaxy). Live demos and role sessions across eng, PM, founders, sales, support, marketing. Spine: Matt Palmer (@mattyp), Lauren Tan (@poteto), Roshan Sadanani (@roshan_s) build a company from scratch in ~72h with Grok Bot as employees, humans at core; started without name/product/idea. Day 3 wrap and showcase 4:30-5:30pm PT Sep 17, not yet public when this was posted (early afternoon ET / late morning PT on the 17th). Grok Bot = agent teammates (not chat Grok on X). Musk QT promo; @bot Day 1 live. Secondary: CellCog, TeslaNorth.",
     date: "2026-09-17",
     outlet: "xAI",
     url: "https://x.ai/galaxy",
@@ -267,7 +267,7 @@ export const WIRE: WireItem[] = [
     id: "spacex-startup-data-0917",
     title: "Bloomberg: SpaceX discusses buying failed-startup data for AI",
     blurb:
-      "17 September. Informal internal talks at SpaceX / SpaceXAI about buying customer and operational info from troubled or defunct startups to train AI models (Grok). Bloomberg: discussions only; may not produce a deal. SpaceX no comment. Compared to Google's ~$10M Spirit Airlines data offer. First Squawk framed as plans; primary is discussions, not a signed buy. Secondary: TNW.",
+      "17 September. Informal internal talks at SpaceX / SpaceXAI about buying customer and operational info from troubled or defunct startups to train AI models (Grok). Bloomberg: discussions only; may not produce a deal. SpaceX no comment. Compared to Google's ~$10M Spirit Airlines data offer. First Squawk described these as plans; Bloomberg reports discussions, not a signed deal. Secondary: TNW.",
     date: "2026-09-17",
     outlet: "Bloomberg",
     url: "https://www.bloomberg.com/news/articles/2026-09-17/spacex-discusses-buying-data-for-ai-models-from-failed-startups",
@@ -346,7 +346,7 @@ export const WIRE: WireItem[] = [
     id: "gemini-38-live-0915",
     title: "Google: Gemini 3.8 Live and Live Extended Thinking",
     blurb:
-      "15 September. Two voice/live dialogue models: 3.8 Live (scale/cost) and 3.8 Live Extended Thinking (high-complexity, speak-while-reasoning). Rolling out in Gemini API, AI Studio, Search Live, Gemini Live, and Workspace Live surfaces. Google cites AA Speech-to-Speech Quality Index 82.6 for Extended Thinking - speech harness, not Intelligence Index. Do not copy onto the 3.8 Flash board row. Primary: Google blog.",
+      "15 September. Two voice/live dialogue models: 3.8 Live (scale/cost) and 3.8 Live Extended Thinking (high-complexity, speak-while-reasoning). Rolling out in Gemini API, AI Studio, Search Live, Gemini Live, and Workspace Live surfaces. Google cites AA Speech-to-Speech Quality Index 82.6 for Extended Thinking - speech harness, not Intelligence Index. It is not a 3.8 Flash board score. Primary: Google blog.",
     date: "2026-09-15",
     outlet: "Google",
     url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
@@ -357,7 +357,7 @@ export const WIRE: WireItem[] = [
     id: "gpt-55-sunset-0915",
     title: "ChatGPT: GPT-5.5 leaves on 14 Oct; switch to Sol or Astra",
     blurb:
-      "15 September. @ChatGPT announces GPT-5.5 leaves ChatGPT / Work / Codex on 14 October. Users pointed to GPT-5.6 Sol or GPT-6 Astra. Distribution sunset, not a new model id. High-engagement X post (~30k likes in the scrape window).",
+      "15 September. @ChatGPT announces GPT-5.5 leaves ChatGPT / Work / Codex on 14 October. Users pointed to GPT-5.6 Sol or GPT-6 Astra. Distribution sunset, not a new model id. High-engagement X post (~30k likes).",
     date: "2026-09-15",
     outlet: "ChatGPT / X",
     url: "https://x.com/ChatGPT/status/2099953664190300602",
@@ -390,7 +390,7 @@ export const WIRE: WireItem[] = [
     id: "anthropic-rum-compute-0914",
     title: "RUM $13.7B GPU deal reportedly Anthropic (unconfirmed)",
     blurb:
-      "13-14 September. Caveat wire: RUM Group (Rumble / Truth-linked) Aug 8-K disclosed an unnamed US cloud customer ~$13.7B six-year GPU services deal for Maysville, GA site under development (three tranches; third needs customer OK on delivery date). Reuters covered the unnamed filing 24 Aug. The Information (13 Sep) reportedly IDs Anthropic; MarketWatch notes RUM shares jumped on that report. Neither Anthropic nor RUM has confirmed the customer. Ridge: treat as reported ID on a real SEC contract, not a confirmed Anthropic buy.",
+      "13-14 September. Unconfirmed: RUM Group (Rumble / Truth-linked) Aug 8-K disclosed an unnamed US cloud customer ~$13.7B six-year GPU services deal for Maysville, GA site under development (three tranches; third needs customer OK on delivery date). Reuters covered the unnamed filing 24 Aug. The Information (13 Sep) reportedly IDs Anthropic; MarketWatch notes RUM shares jumped on that report. Neither Anthropic nor RUM has confirmed the customer. The contract is real and on file with the SEC. The Anthropic identification is reported, not confirmed.",
     date: "2026-09-14",
     outlet: "MarketWatch / The Information",
     url: "https://www.marketwatch.com/story/rum-group-shares-gain-on-report-of-13-7-billion-computing-deal-with-anthropic-a35cb053",
@@ -401,7 +401,7 @@ export const WIRE: WireItem[] = [
     id: "latham-sovereign-ai-0913",
     title: "Latham: Nvidia servers to customize open-weight in-house",
     blurb:
-      "10-13 September. FT: Latham & Watkins buys Nvidia GPU servers and fine-tunes open-weight models (incl. Nemotron 3) on-prem in a staff-only data center, first big-law public example of owning AI hardware vs routing all work through OpenAI/Anthropic/Harvey clouds. CIO Mendoza: keep ultra-sensitive client data off third-party clouds; flexibility as token costs rise. Still uses commercial tools. Ridge / AI: sovereign-on-prem pattern spreading past hyperscalers into professional services; open-weight customization as the alternative stack.",
+      "10-13 September. FT: Latham & Watkins buys Nvidia GPU servers and fine-tunes open-weight models (incl. Nemotron 3) on-prem in a staff-only data center, first big-law public example of owning AI hardware vs routing all work through OpenAI/Anthropic/Harvey clouds. CIO Mendoza: keep ultra-sensitive client data off third-party clouds; flexibility as token costs rise. Still uses commercial tools. The takeaway: the sovereign on-prem pattern is spreading past hyperscalers into professional services; open-weight customization as the alternative stack.",
     date: "2026-09-13",
     outlet: "Financial Times",
     url: "https://www.ft.com/content/a2aaa848-92c3-4f7a-b758-5858bfb29e70",
@@ -412,7 +412,7 @@ export const WIRE: WireItem[] = [
     id: "trump-ai-guardrails-0914",
     title: "Trump: AI guardrails = strong President; names Dario",
     blurb:
-      "14 September. Truth Social @realDonaldTrump (screenshot; no public post URL found): only AI control or \"guardrails\" needed is a \"STRONG AND SMART (High IQ!) PRESIDENT.\" Admin stopped AI people from doing bad things; names \"Dario (Anthropic!)\" pretending to be a \"perfect little angel.\" Claims tremendous criminal and regulatory power over the companies; \"SICK conspiracy\" against AI and data centers that only China likes; \"WHOEVER WINS AI, WINS!\" Leading China; beware conspiracy theorists, treasonists, traitors, leakers. Ridge: same-day counter to Amodei pacing + China MFA fearmongering thread.",
+      "14 September. Truth Social @realDonaldTrump (from a screenshot; we could not find a public post URL): only AI control or \"guardrails\" needed is a \"STRONG AND SMART (High IQ!) PRESIDENT.\" Admin stopped AI people from doing bad things; names \"Dario (Anthropic!)\" pretending to be a \"perfect little angel.\" Claims tremendous criminal and regulatory power over the companies; \"SICK conspiracy\" against AI and data centers that only China likes; \"WHOEVER WINS AI, WINS!\" Leading China; beware conspiracy theorists, treasonists, traitors, leakers. A same-day counter to the Amodei pacing essay and China's fearmongering reply.",
     date: "2026-09-14",
     outlet: "Truth Social / @realDonaldTrump",
     url: "",
@@ -423,7 +423,7 @@ export const WIRE: WireItem[] = [
     id: "anthropic-dod-restrict-0914",
     title: "DoD: ~90% of classified AI workloads off Anthropic by month-end",
     blurb:
-      "11-14 September. Polymarket alert framed Nvidia, Palantir, and others restricting Anthropic as sensitive data exposure. Ridge: Under Sec Emil Michael told DefenseScoop ~90% of classified AI workloads already transitioned, on track for end of month. Root is the usage fight: Anthropic refused unrestricted all-lawful-purposes DoD use (surveillance and autonomous-weapons safeguards); DoD designated a supply-chain risk; contractors are migrating. Nvidia-Palantir sovereign AI / Nemotron (10 Sep) is the sensitive/on-prem replacement path, not a leak story. CryptoBriefing summarizes Nvidia/Palantir/Booz Allen restricting in defense ops.",
+      "11-14 September. A Polymarket alert framed Nvidia, Palantir, and others restricting Anthropic as sensitive data exposure. The reporting says otherwise: Under Sec Emil Michael told DefenseScoop ~90% of classified AI workloads already transitioned, on track for end of month. Root is the usage fight: Anthropic refused unrestricted all-lawful-purposes DoD use (surveillance and autonomous-weapons safeguards); DoD designated a supply-chain risk; contractors are migrating. Nvidia-Palantir sovereign AI / Nemotron (10 Sep) is the sensitive/on-prem replacement path, not a leak story. CryptoBriefing summarizes Nvidia/Palantir/Booz Allen restricting in defense ops.",
     date: "2026-09-14",
     outlet: "DefenseScoop",
     url: "https://defensescoop.com/2026/09/11/dod-poised-to-move-all-classified-ai-workloads-off-anthropic-by-october/",
@@ -445,7 +445,7 @@ export const WIRE: WireItem[] = [
     id: "grok-48-ladder-0914",
     title: "Musk: Grok 4.8 is 2.5T on new C++ stack; 4.7 ≈ Opus 5",
     blurb:
-      "14 September. Two X posts: 4.8 finishes training this week then RL (2.5T, new C++ stack). Later: 4.7 roughly on par with Opus 5.0 not Fable 5.1; 4.8 a noticeable step; 4.9 probably Astra/Fable class. Neither shipped. No board row.",
+      "14 September. Two X posts: 4.8 finishes training this week then RL (2.5T, new C++ stack). Later: 4.7 roughly on par with Opus 5.0 not Fable 5.1; 4.8 a noticeable step; 4.9 probably Astra/Fable class. Neither has shipped.",
     date: "2026-09-14",
     outlet: "Elon Musk / X",
     url: "https://x.com/elonmusk/status/2099308197802631191",
@@ -522,7 +522,7 @@ export const WIRE: WireItem[] = [
     id: "grok-47-cook",
     title: "Musk: Grok 4.7 needs a few more days to cook",
     blurb:
-      "11 September ~17:22 UTC. Reply to @farzyness. Suspected RL length penalty; early give-up on hard tasks; weak self-check. Not a ship date. Live xAI row stays 4.6.",
+      "11 September ~17:22 UTC. Reply to @farzyness. Suspected RL length penalty; early give-up on hard tasks; weak self-check. Not a ship date. Grok 4.6 stays the live xAI model.",
     date: "2026-09-11",
     outlet: "Elon Musk / X",
     url: "https://x.com/elonmusk/status/2098462085973741960",
@@ -566,7 +566,7 @@ export const WIRE: WireItem[] = [
     id: "cognition-swe-2-0910",
     title: "Cognition SWE-2: Kimi K3 post-train near Fable on cost curve",
     blurb:
-      "10 September. FrontierCode 1.1 Main 50.0% vs Fable 5.1 50.9% at 64% lower cost; DeepSWE 1.1 73.0%. In Devin Desktop/CLI. Distinct from the later AA Fusion / Coding Agent Index wire.",
+      "10 September. FrontierCode 1.1 Main 50.0% vs Fable 5.1 50.9% at 64% lower cost; DeepSWE 1.1 73.0%. In Devin Desktop/CLI. Separate from AA's later Devin Fusion result on the Coding Agent Index.",
     date: "2026-09-10",
     outlet: "Cognition",
     url: "https://cognition.com/blog/swe-2",
@@ -577,7 +577,7 @@ export const WIRE: WireItem[] = [
     id: "aa-ds-v41-flash",
     title: "AA: DeepSeek V4.1-Flash Intelligence Index 40",
     blurb:
-      "Independent AA row after the 10 Sept launch. Index 40 (max) overtakes V4-Pro 36; ~4× cheaper on AA's read. Arena Elo 1503 on Ridge. AutomationBench-AA chatter secondary.",
+      "Independent AA row after the 10 Sept launch. Index 40 (max) overtakes V4-Pro 36; ~4× cheaper on AA's read. Arena Elo 1503. AutomationBench-AA discussion is secondary.",
     date: "2026-09-10",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/leaderboards/models",
@@ -698,7 +698,7 @@ export const WIRE: WireItem[] = [
     id: "aa-v42-sept8",
     title: "AA Index v4.2 refresh: Fable 5.1 and Astra both 53",
     blurb:
-      "8 September scrape. Opus 51, Fable 5 50, Spark max 48. OpenLM AAII can still read ~57  -  Ridge cites AA.",
+      "8 September board. Opus 51, Fable 5 50, Spark max 48. OpenLM AAII can still read ~57  -  Ridge cites AA.",
     date: "2026-09-08",
     outlet: "Artificial Analysis",
     url: "https://artificialanalysis.ai/leaderboards/models",

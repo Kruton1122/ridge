@@ -6,6 +6,7 @@
 - Live: Cloudflare tunnel → nginx → `ridge.service` (Vite dev on **8098** (no build/deploy); **HMR disabled** via `RIDGE_DISABLE_HMR` so public browsers do not full-reload on every save)
 - Product rules still live in [`RIDGE.md`](./RIDGE.md) (AA index versions, don’t invent numbers, edit map). Read that before any board edit.
 - `CLAUDE.md` points at `RIDGE.md` for product rules; **this file** is who-does-what between agents.
+- **Operator notes go in `/home/frank/ridge-private/SCRATCHPAD.md`** (outside the repo, never published, not in git). Never put working notes, reminders, TODOs, log paths, commit hashes, or instructions to editors/agents in desk, wire, catalog (summaries, opinion notes, score notes), changelog, or `llms.txt` copy. Everything in those files renders to readers.
 
 If you are Claude (or any other agent) expanding the site: read this first so we don’t stomp each other.
 

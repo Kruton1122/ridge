@@ -500,7 +500,7 @@ function ModelPage() {
               ) : null}
               {model.publicOpinionAsOf ? (
                 <p className="n-num mt-2 text-[11.5px] text-n-text-3">
-                  Scraped {model.publicOpinionAsOf}. Stars are set only where the public
+                  Read from public posts as of {model.publicOpinionAsOf}. Stars are set only where the public
                   conversation is thick enough to defend, and left blank otherwise.
                 </p>
               ) : null}

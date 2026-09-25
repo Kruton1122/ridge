@@ -1,5 +1,6 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
@@ -11,6 +12,29 @@ import { grokPwaPlugin } from "./scripts/grok-pwa-plugin.mjs";
 // @ts-expect-error JS plugin alongside the TS vite config
 import { appEnvPlugin } from "./scripts/app-env-plugin.mjs";
 import { isMigrationFile } from "./scripts/migration-plan.mjs";
+
+/**
+ * The public site is this Vite dev server, which serves any file under the
+ * project root by URL. Keep repo-internal files (admin SQLite data, pipeline
+ * logs, scripts, agent docs) from being fetched publicly. Vite's own defaults
+ * are repeated because setting `fs.deny` replaces them.
+ */
+const PROJECT_ROOT = fileURLToPath(new URL(".", import.meta.url)).replace(/\/$/, "");
+const FS_DENY = [
+  ".env",
+  ".env.*",
+  "*.{crt,pem}",
+  "**/.git/**",
+  "*.sqlite",
+  "*.sqlite-*",
+  `${PROJECT_ROOT}/*.md`,
+  `${PROJECT_ROOT}/data/**`,
+  `${PROJECT_ROOT}/logs/**`,
+  `${PROJECT_ROOT}/scripts/**`,
+  `${PROJECT_ROOT}/screenshots/**`,
+  `${PROJECT_ROOT}/migrations/**`,
+  `${PROJECT_ROOT}/startup.sh`,
+];
 
 /** The files `src/lib/db.ts` globs — same directory, same non-recursive scope. */
 function hasGlobbedMigrations(root: string): boolean {
@@ -157,6 +181,7 @@ export default defineConfig(({ command, isPreview }) => ({
     // Ridge Bot still edits on disk; the next request picks up modules — browsers
     // just stop auto-refreshing mid-browse. Set RIDGE_DISABLE_HMR=0 for local HMR.
     hmr: process.env.RIDGE_DISABLE_HMR === "0" ? undefined : false,
+    fs: { deny: FS_DENY },
   },
   preview: {
     host: "127.0.0.1",

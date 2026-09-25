@@ -40,7 +40,7 @@ export const MODELS: Model[] = [
     aliases: ["fable 5.1", "claude-fable-5.1", "claude fable 5.1", "fable-5-1"],
     summary: "1 September refresh. Tied with Astra atop AA Intelligence Index at 53 (max with fallback, v4.2/v4.3 as of 8 Sept). Cache reads 75% cheaper than Fable 5.",
     publicOpinionStars: 4,
-    publicOpinionNote: 'Still the reliability escalate seat vs Astra; less often the daily default now that Opus 5.5 exists. Fable 5.2 is still rumor. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still the reliable model to escalate to over Astra, but less often the daily default now that Opus 5.5 is out. Talk of a Fable 5.2 is still rumor.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -61,9 +61,9 @@ export const MODELS: Model[] = [
       "claude-opus-5-5",
     ],
     summary:
-      "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index 58 (max with fallback). CursorBench 4.0 57.8 (max, cursor.com). Arena+ Elo 1532. Terminal-Bench 2.1 87.64 (Vals, high, #1). SWE still blank.",
+      "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index 58 (max with fallback). CursorBench 4.0 57.8 (max, cursor.com). Arena+ Elo 1532. Terminal-Bench 2.1 87.64 (Vals, high, #1). No SWE-bench score yet.",
     publicOpinionStars: 4,
-    publicOpinionNote: 'First fill. Fable-class daily work at Opus-5-minus cost; return-to-Claude posts are real. Token burn, early-stop complaints, and overstated demos block a 5. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Fable-class daily work at a lower cost than Opus 5, and posts about coming back to Claude are real. Token burn, early stops, and overstated demos keep it from a 5.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -77,9 +77,9 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 5, outputPerM: 25 },
     license: "proprietary",
     aliases: ["opus 5", "claude-opus-5", "claude opus 5"],
-    summary: "Coding closer. AA Index 51 max (v4.2/v4.3 as of 8 Sept). Still the SWE-bench closer in the August Vals cut. Succeeded on price/efficiency by Opus 5.5 (22 Sep); keep rows separate.",
+    summary: "Coding closer. AA Index 51 max (v4.2/v4.3 as of 8 Sept). Still the SWE-bench closer in the August Vals cut. Succeeded on price and efficiency by Opus 5.5 (22 Sep), which has its own row.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'Still the predecessor row. This window names it as what 5.5 replaced, not a live daily driver. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Now mostly discussed as the model Opus 5.5 replaced, not as a daily driver.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -106,10 +106,10 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 1.25, outputPerM: 4.25 },
     license: "proprietary",
     aliases: ["muse spark 1.3", "muse-spark-1.3", "spark 1.3", "spark 1.3 xhigh"],
-    summary: "Public xhigh cut. AA Index 45 (as of 8 Sept). v4.1.1 was 61 — do not mix the rulers.",
+    summary: "Public xhigh cut. AA Index 45 (as of 8 Sept). It read 61 on the older v4.1.1 scale, which is not comparable.",
     status: "ga",
     publicOpinionStars: 4,
-    publicOpinionNote: 'Still the cheap Muse coder seat. This window has a 1.4 OpenCode slug rumor plus agent product talk, not a Spark 1.3 quality swing. Do not star 1.4. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still the cheap Muse coding pick. This week brought a Spark 1.4 rumor and agent product talk, not a change in how people rate Spark 1.3.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -139,7 +139,7 @@ export const MODELS: Model[] = [
     aliases: ["gpt-6", "gpt 6 astra", "astra", "gpt-6-astra", "gpt6 astra"],
     summary: "Shipped 3 September. AA Index 53 max — tied with Fable 5.1 on the live board (as of 8 Sept). $10 / $50, same sticker as Fable.",
     publicOpinionStars: 4,
-    publicOpinionNote: 'Still the open-ended / 3D frontier name; weekly caps and price keep it off 5. Theo affordability dunk is not a quality drop. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still the go-to frontier model for open-ended and 3D work. Weekly caps and price keep it from a 5. Jabs about affordability are not complaints about quality.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -160,9 +160,9 @@ export const MODELS: Model[] = [
       "sol 6",
     ],
     summary:
-      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Keep separate from gpt-5.6-sol and gpt-6-astra. AA Intelligence Index 48 (max). Arena+ Elo 1509. Terminal-Bench 2.1 is 83.15 from Vals AI (max effort, as of 23 September). Vals SWE and CursorBench still blank.",
+      "Shipped 22 September 2026. Faster/cheaper GPT-6 tier built on Astra methods. API gpt-6-sol. List $2 / $10 (50% below GPT-5.6 Sol promo pricing). Separate from GPT-5.6 Sol and GPT-6 Astra. AA Intelligence Index 48 (max). Arena+ Elo 1509. Terminal-Bench 2.1 is 83.15 from Vals AI (max effort, as of 23 September). No Vals SWE-bench or CursorBench score yet.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'First fill. Half of 5.6 promo price and a usable daily lead for some; others call it a step down from Astra or a flop on second pass. Launch loud, verdicts split. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Half the GPT-5.6 promo price, and a usable daily lead for some. Others call it a step down from Astra or were let down on a second try. A loud launch with split verdicts.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -176,9 +176,9 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 5, outputPerM: 30 },
     license: "proprietary",
     aliases: ["sol", "gpt-5.6", "gpt 5.6 sol", "gpt-5.6-sol"],
-    summary: "Previous OpenAI flagship. AA Index 47 max (as of 8 Sept). GPT-6 Sol shipped 22 Sep at $2/$10; keep gpt-5.6-sol and gpt-6-sol separate. Astra remains the top GPT-6 seat.",
+    summary: "Previous OpenAI flagship. AA Index 47 max (as of 8 Sept). GPT-6 Sol shipped 22 Sep at $2/$10 and is tracked as a separate row. Astra remains the top GPT-6 seat.",
     publicOpinionStars: 3,
-    publicOpinionNote: '5.6 leftover. GPT-6 Sol has its own row and its own first-fill 3. Do not mix. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Now the previous generation. GPT-6 Sol has its own row and its own rating.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -193,9 +193,9 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7", "Grok-4.7", "Grok 4.7 (high)", "Grok 4.7 (xhigh)", "grok 4.7 high", "grok 4.7 xhigh"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. Vals SWE-bench Verified stays blank (Vals stopped new runs). Do not paste Vals Index or vendor launch-chart cells into other board seats.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'First fill. Same $2/$6 as 4.6; Elon/Tesla praise is large, independent coder posts lean negative (tokens, UI, SWE-Together leaks). Split room = 3. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Same $2/$6 price as 4.6. Praise from Elon Musk and Tesla circles is loud, while independent coders lean negative on token use, UI work, and the SWE-Together leaks. A split room, so 3.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -211,7 +211,7 @@ export const MODELS: Model[] = [
     aliases: ["grok 4.6", "grok-4.6", "grok-4-6", "grok4.6"],
     summary: "AA Index 44 high (as of 8 Sept). Not Grok 4 (that older row is 46). $2 / $6.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'Baseline for 4.7 complaints and the SWE-Together re-run bump (not a Ridge column). No new love wave. Keep rows separate. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'The baseline people measure Grok 4.7 against, plus a small bump from the SWE-Together re-run (not a Ridge column). No new wave of enthusiasm.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -227,7 +227,7 @@ export const MODELS: Model[] = [
     aliases: ["kimi k3", "k3", "kimi-k3"],
     summary: "Open-weight on this board at 44 max (as of 8 Sept). Frontend/practitioner favorite.",
     publicOpinionStars: 4,
-    publicOpinionNote: 'Still the frontend/open-weight value pick. Bedrock distribution and one cheap Three.js win; CAC probe is about Moonshot routing, not K3 quality. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still the value pick for frontend and open-weight work, helped by Bedrock availability and a cheap Three.js win. China\'s probe concerns Moonshot\'s data routing, not K3\'s quality.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -258,7 +258,7 @@ export const MODELS: Model[] = [
     status: "promo",
     promoPricing: { inputPerM: 0.75, outputPerM: 3.75, until: "2026-12-31" },
     publicOpinionStars: 3,
-    publicOpinionNote: 'Fast cheap bargain still. Google volume this window is Flash TTS / Flash-Lite TTS and a Theo dunk, not a Flash chat love wave. Do not mix TTS into this row. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still a fast, cheap bargain. Google\'s volume this week was about the Flash TTS models and a widely shared jab, not new enthusiasm for Flash chat. The TTS models are not rated here.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -347,9 +347,9 @@ export const MODELS: Model[] = [
       "deepseek-v4-flash-vision-exp",
     ],
     summary:
-      "552B MoE (8B active in / 16B out), native multimodal, 1M context. API id deepseek-flash. List pair is peak cache-miss $0.30 / peak output $1.20 per 1M; off-peak is half; cache-hit peak $0.006 / off-peak $0.003 (API docs as of 2026-09-10). MIT weights on HF. AA Intelligence Index 40 (max); Arena Elo 1503 (as of 13 Sept). Vals SWE still blank.",
+      "552B MoE (8B active in / 16B out), native multimodal, 1M context. API id deepseek-flash. List pair is peak cache-miss $0.30 / peak output $1.20 per 1M; off-peak is half; cache-hit peak $0.006 / off-peak $0.003 (API docs as of 2026-09-10). MIT weights on HF. AA Intelligence Index 40 (max); Arena Elo 1503 (as of 13 Sept). No Vals SWE-bench score yet.",
     publicOpinionStars: 4,
-    publicOpinionNote: 'Still the viral cheap agent / Cline escape hatch. CAC probe is data-routing color, not a capability consensus change. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'Still the viral cheap agent model and a popular way out for Cline users. China\'s probe is about data routing and does not change views on capability.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -384,9 +384,9 @@ export const MODELS: Model[] = [
       "luna 6",
     ],
     summary:
-      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Keep separate from gpt-5.6-luna. AA Intelligence Index 37 (max). Terminal-Bench 2.1 is 73.03 from Vals AI (max effort, as of 23 September). Arena Elo, Vals SWE, and CursorBench still blank.",
+      "Shipped 22 September 2026. Cheap GPT-6 twin. API gpt-6-luna. List $0.10 / $0.50 (50% below GPT-5.6 Luna promo pricing). Separate from GPT-5.6 Luna. AA Intelligence Index 37 (max). Terminal-Bench 2.1 is 73.03 from Vals AI (max effort, as of 23 September). No Arena Elo, Vals SWE-bench, or CursorBench score yet.",
     publicOpinionStars: 3,
-    publicOpinionNote: 'First fill. The cheap seat under Opus 5.5; some 3D/token praise, real wrong-tool and long-agent complaints. Role is clear, love is not broad. (Grok Build X, 2026-09-24)',
+    publicOpinionNote: 'The cheap GPT-6 tier. Some praise for 3D work and token use, but real complaints about wrong tool calls and long agent runs. The role is clear; the enthusiasm is not broad.',
     publicOpinionAsOf: "2026-09-24",
   }),
   m({
@@ -400,7 +400,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 0.2, outputPerM: 1.2 },
     license: "proprietary",
     aliases: ["luna", "gpt-5.6 luna"],
-    summary: "Cheap 5.6 twin. AA 38 max (as of 10 Sept); Arena Elo 1451; Vals SWE-bench 93. GPT-6 Luna shipped 22 Sep at $0.10/$0.50; keep rows separate.",
+    summary: "Cheap 5.6 twin. AA 38 max (as of 10 Sept); Arena Elo 1451; Vals SWE-bench 93. GPT-6 Luna shipped 22 Sep at $0.10/$0.50 and is tracked as a separate row.",
   }),
   m({
     id: "gemini-3.1-pro",
@@ -581,11 +581,11 @@ export const SCORES: Score[] = [
   s("claude-opus-5", "cursor-bench", 46.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("grok-4.7", "cursor-bench", 46.3, "Cursor", "https://cursor.com/cursorbench", "2026-09-21", "xhigh / Extra High (best published; Grok has no max run)"),
   s("gpt-5.6-sol", "cursor-bench", 41.7, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
-  s("muse-spark-1.3-max", "cursor-bench", 41.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort (maps to catalog partner-max row)"),
+  s("muse-spark-1.3-max", "cursor-bench", 41.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort (partner preview tier)"),
   s("grok-4.6", "cursor-bench", 41.4, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (best published; Grok has no max run)"),
   s("gpt-5.6-terra", "cursor-bench", 41.3, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("gemini-3.8-flash", "cursor-bench", 39.6, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "high (best published)"),
-  s("muse-spark-1.3", "cursor-bench", 37.5, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (catalog public row is xhigh; do NOT put max 41.6 here)"),
+  s("muse-spark-1.3", "cursor-bench", 37.5, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "xhigh (public tier; the partner max tier is listed separately)"),
   s("gpt-5.6-luna", "cursor-bench", 35.9, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
   s("claude-sonnet-5", "cursor-bench", 34.1, "Cursor", "https://cursor.com/cursorbench", "2026-09-11", "max effort"),
 ];

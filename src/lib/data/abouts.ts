@@ -568,7 +568,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
       },
     ],
     rolloutNote:
-      "A U.S. government AI safety review preceded the 9 July general release. Sol shipped as one of three GPT-5.6 models; don't fold its numbers into Terra's or Luna's.",
+      "A U.S. government AI safety review preceded the 9 July general release. Sol shipped as one of three GPT-5.6 models, and its numbers are tracked separately from Terra's and Luna's.",
     claims: [
       "\"Frontier reasoning and long-horizon agentic work\" is how OpenAI frames Sol's role atop the family (company framing).",
       "New SOTA on Terminal-Bench 2.1 among OpenAI's own models at launch (company-reported).",

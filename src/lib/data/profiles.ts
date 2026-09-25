@@ -33,14 +33,14 @@ const PROFILES: Record<string, ModelProfile> = {
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
-      "A cheaper MoE with vision and a Pro retirement clock attached — and, so far, no seat on any independent board. Cite the API card and leave the benchmark cells blank until Artificial Analysis, Vals or Arena publish one.",
+      "A cheaper MoE with vision and a Pro retirement clock attached. Prices come from the API card, and the board shows only independent scores, not the lab's own tables.",
     strengths: [
       "Peak list $0.30 / $1.20 per 1M, off-peak at half",
       "MIT weights and native multimodal input",
       "Million-token context, served as deepseek-flash",
     ],
     watch: [
-      "No independent AA / Arena / Vals row on Ridge yet",
+      "No Vals SWE-bench score yet",
       "The lab's own agent tables stay off this ledger",
       "The v4-pro alias routes here from 14 September",
     ],
@@ -52,7 +52,7 @@ const PROFILES: Record<string, ModelProfile> = {
     strengths: ["A published Vals SWE-bench row", "Existing open-weight Pro checkpoint"],
     watch: [
       "Routes to V4.1-Flash from 2026-09-14 04:00 UTC",
-      "Do not overwrite this id with Flash",
+      "Tracked separately from Flash, even while the alias routes there",
     ],
   },
   "gpt-6-astra": {
@@ -99,7 +99,7 @@ const PROFILES: Record<string, ModelProfile> = {
       "List price $1.25 / $4.25 per 1M",
       "Million-token context with image and video in",
     ],
-    watch: ["Do not read the partner max row as the public default"],
+    watch: ["The partner max row is not the public default"],
   },
   "muse-spark-1.3-max": {
     epithet: "The preview peak",
@@ -118,11 +118,11 @@ const PROFILES: Record<string, ModelProfile> = {
   "grok-4.7": {
     epithet: "The September value cut",
     voice:
-      "SpaceXAI's 21 September follow-on to 4.6 at the same $2 / $6 sticker. Artificial Analysis now places the high/xhigh cut at 46; Arena+, Vals, Cursor.com, and Terminal-Bench 2.1 seats remain blank under this cut.",
+      "SpaceXAI's 21 September follow-on to 4.6 at the same $2 / $6 sticker. Its scores come from Artificial Analysis, Arena+, Cursor.com, and Vals. There is no SWE-bench Verified score for this cut.",
     strengths: ["Same $2 / $6 list as 4.6", "Generally available ship signal from SpaceXAI"],
     watch: [
-      "Do not paste vendor chart cells (TB 4.0, DeepSWE, Harvey, etc.) onto Ridge columns",
-      "Keep separate from Grok 4.6 and from older Grok 4",
+      "Vendor launch-chart figures (TB 4.0, DeepSWE, Harvey) are company claims, not board scores",
+      "Tracked separately from Grok 4.6 and the older Grok 4",
     ],
   },
   "grok-4.6": {
@@ -130,7 +130,7 @@ const PROFILES: Record<string, ModelProfile> = {
     voice:
       "A post-training refresh of 4.5, sold on price-to-score rather than a pretrain win. Not Grok 4 — that older row sits well below this one, and folding the two together is how a board publishes a wrong number with a straight face.",
     strengths: ["$2 / $6 per 1M", "500K context", "Generally available, no preview asterisk"],
-    watch: ["4.7 shipped 21 Sep; keep this row separate", "Never collapse this row onto Grok 4"],
+    watch: ["4.7 shipped 21 Sep and has its own row", "Not the same model as the older Grok 4"],
   },
   "gemini-3.8-flash": {
     epithet: "The September Flash",

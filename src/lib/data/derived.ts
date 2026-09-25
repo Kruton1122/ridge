@@ -733,7 +733,7 @@ export function compare(
           label: "Public opinion",
           kind: "text",
           section: "access",
-          note: "Sourced stars only. Blank means Ridge has not published a scrape for that row.",
+          note: "Sourced stars only. Blank means there was not enough public signal to rate that row.",
           cells: models.map((m) => ({
             text: m.publicOpinionStars != null ? `${m.publicOpinionStars} / 5` : null,
             number: m.publicOpinionStars ?? null,
