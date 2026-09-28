@@ -193,7 +193,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7", "Grok-4.7", "Grok 4.7 (high)", "Grok 4.7 (xhigh)", "grok 4.7 high", "grok 4.7 xhigh"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 high (as of 21 September; xhigh also 46). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 21 September. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 xhigh (as of 27 Sept). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 27 Sept. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
     publicOpinionStars: 3,
     publicOpinionNote: 'Same $2/$6 price as 4.6. Praise from Elon Musk and Tesla circles is loud, while independent coders lean negative on token use, UI work, and the SWE-Together leaks. A split room, so 3.',
     publicOpinionAsOf: "2026-09-24",
@@ -209,7 +209,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 2, outputPerM: 6 },
     license: "proprietary",
     aliases: ["grok 4.6", "grok-4.6", "grok-4-6", "grok4.6"],
-    summary: "AA Index 44 high (as of 8 Sept). Not Grok 4 (that older row is 46). $2 / $6.",
+    summary: "AA Index 44 high (as of 8 Sept). Not Grok 4, which is an older, separate model. $2 / $6.",
     publicOpinionStars: 3,
     publicOpinionNote: 'The baseline people measure Grok 4.7 against, plus a small bump from the SWE-Together re-run (not a Ridge column). No new wave of enthusiasm.',
     publicOpinionAsOf: "2026-09-24",
@@ -272,7 +272,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 2, outputPerM: 6 },
     license: "open-weight",
     aliases: ["qwen 3.8 max", "qwen3.8-max", "qwen3.8 max", "Qwen3.8-Max", "Qwen3.8 Max"],
-    summary: "Alibaba Max. AA Index 40 (as of 10 Sept).",
+    summary: "Alibaba Max. AA Index 45 (0902 checkpoint, as of 27 Sept).",
   }),
   m({
     id: "gpt-5.6-terra",
@@ -400,7 +400,7 @@ export const MODELS: Model[] = [
     pricing: { inputPerM: 0.2, outputPerM: 1.2 },
     license: "proprietary",
     aliases: ["luna", "gpt-5.6 luna"],
-    summary: "Cheap 5.6 twin. AA 38 max (as of 10 Sept); Arena Elo 1451; Vals SWE-bench 93. GPT-6 Luna shipped 22 Sep at $0.10/$0.50 and is tracked as a separate row.",
+    summary: "Cheap 5.6 twin. AA 37 max (as of 27 Sept); Arena Elo 1451; Vals SWE-bench 93. GPT-6 Luna shipped 22 Sep at $0.10/$0.50 and is tracked as a separate row.",
   }),
   m({
     id: "gemini-3.1-pro",
