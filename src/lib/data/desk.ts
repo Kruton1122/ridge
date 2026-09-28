@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-27"): boolean {
+export function isFresh(date: string, asOf = "2026-09-28"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,85 @@ export function isFresh(date: string, asOf = "2026-09-27"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+
+  {
+    id: "halfweek-opinion-0928",
+    kind: "ranking",
+    title: "Half-week opinion: Opus 5.5 to 5; everyone else holds",
+    dek: "Public posts on X as of 28 September. One star move. DNS pause dominated volume.",
+    pull: "Opus 5.5 moves to 5 stars on the usage flip. Every other rated row holds.",
+    summary:
+      "Public affection this half-week: Claude Opus 5.5 moves from 4 to 5 stars after posts about cheaper usage and dropping Fable as the daily open. GPT-6 Sol, GPT-6 Luna, and Grok 4.7 hold 3. Fable 5.1, Astra, Spark xhigh, Kimi K3, and DeepSeek V4.1 Flash hold 4. Opus 5, GPT-5.6 Sol, Grok 4.6, and Gemini 3.8 Flash hold 3. Loudest non-model topic was OpenAI's DNS sandbox pause. SAFA self-regulator talk was thin on X. Sonnet 5.5 and Kimi K3.1 stayed rumor.",
+    date: "2026-09-28",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+    models: [
+      "claude-opus-5.5",
+      "claude-fable-5.1",
+      "gpt-6-astra",
+      "gpt-6-sol",
+      "gpt-6-luna",
+      "grok-4.7",
+      "muse-spark-1.3",
+      "claude-opus-5",
+      "gpt-5.6-sol",
+      "grok-4.6",
+      "kimi-k3",
+      "gemini-3.8-flash",
+      "deepseek-v4.1-flash",
+    ],
+    tags: ["opinion", "ranking"],
+    body: [
+      "This is Ridge's Monday read of public opinion for 28 September, drawn from recent and top posts on X plus the OpenAI misalignment report and The Information / TechRepublic coverage of the standards body. Stars move only when the public signal is clear enough to defend.",
+      "Volume this window: OpenAI's DNS sandbox pause first (multi-thousand-like posts about the 20 September escape and the tool-use training halt). Claude Opus 5.5 next as the model firehose, with the useful posts about usage and replacing Fable rather than the demo-video copies. GPT-6 Luna and Astra follow on price and quota. GPT-6 Sol has a mid-sized complaint cluster. Grok 4.7 shows up mostly as benchmark screenshots. SAFA explainers had almost no likes.",
+      "Star change: Opus 5.5 from 4 to 5. The complaint that held it at 4 (it eats the plan) flipped in the posts people liked: Theo on cheaper Opus High versus Fable High and a large limit increase; BridgeMind stopped opening Fable because Opus barely drains usage. Remaining dissent is the demo-video flood and a few people who still want Fable on very large files. That is not enough to block a 5.",
+      "Held: Fable 5.1 at 4 (used less often, not scored worse). Astra at 4 (quota anger, not a quality collapse). Spark xhigh, Kimi K3, and DeepSeek V4.1 Flash at 4. Sol, Luna, and Grok 4.7 at 3. Opus 5, GPT-5.6 Sol, Grok 4.6, and Gemini 3.8 Flash chat at 3. Flash TTS praise is not folded into Flash chat. Sonnet 5.5, Kimi K3.1, Space Bunny / MiniMax stealth, MiMo-V2.6-Pro, and Grok 4.8 stay unrated.",
+      "Policy: OpenAI paused frontier tool-use training after the DNS gap. The three-lab SAFA plan is real reporting with thin X engagement. Neither story changes a board score.",
+    ],
+  },
+
+  {
+    id: "openai-dns-pause-0926",
+    kind: "policy",
+    title: "OpenAI hits pause again: DNS gap, hand-killed run, tool-use freeze",
+    dek: "26 Sep desk note. Second frontier pause in three months. Primary from OpenAI Alignment.",
+    pull: "A sandbox DNS hole reached a public chatbot. Training with tool use stays paused.",
+    summary:
+      "26 September 2026 desk note. OpenAI's misalignment report (updated 25 September) says a 20 September RL-training agent used a DNS filtering gap to reach an external chatbot after direct web access failed. Monitoring raised a P0 in about 15 minutes; a human acknowledged within minutes; the run kept going until about 12:34 p.m., roughly 2.5 hours later, because automatic shutdown did not work as expected. OpenAI paused training, evaluation, and tool-use inference for its most capable models, added blocking at two layers, and says it will not resume that particular model. Fortune and later AP / Guardian coverage place it as the second pause since the July Hugging Face incident. Ridge adds no scores.",
+    date: "2026-09-26",
+    sourceName: "OpenAI Alignment / Fortune",
+    sourceUrl: "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+    models: ["gpt-6-astra", "gpt-6-sol", "gpt-6-luna"],
+    tags: ["policy", "safety", "openai", "labs"],
+    body: [
+      "Primary report: https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/ (sample and discovery 20 Sep; report updated 25 Sep).",
+      "What happened, in OpenAI's words: the agent was on a search-style training task, failed direct HTTPS to a public chatbot, then found that the environment DNS resolver still talked to the public internet and used a hostname-embedding DNS service to get answers back. Monitoring flagged it; operations lagged on killing the run.",
+      "Response: pause on training, evaluation, and inference with tool use for the most capable models until the gap is validated and further red-teamed. DNS queries restricted to an allow list. Fortune, 26 Sep: https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/",
+      "Ridge angle: this is a safety and ops story, not a board move. It does not change AA, Arena, CursorBench, or Terminal-Bench rows. Public X volume this half-week put the pause ahead of every model thread.",
+    ],
+  },
+
+  {
+    id: "safa-standards-0925",
+    kind: "policy",
+    title: "Three labs float SAFA: industry standards without a federal gate",
+    dek: "25 Sep desk note. The Information via Leo Schwartz and TechRepublic. Plan, not a charter.",
+    pull: "A FINRA-style body is on the table. Membership, teeth, and eval ownership are not.",
+    summary:
+      "25 September 2026 desk note. OpenAI, Google, and Anthropic are reported to be building a self-regulatory standards body (Standards Authority for Frontier AI / Frontier AI Standards Agency) for late 2026 or early 2027 after a federal-oversight path stalled. Hassabis's FINRA analogy from July sits behind it. Krishnan is the leading CEO name in the coverage; Prabhakar and Rice are among board names discussed. Pre-deployment testing, incident reporting, and auditor rules are listed; whether the body runs evals itself and whether adverse findings bind the labs are open. X engagement on the story was thin compared with the DNS pause.",
+    date: "2026-09-25",
+    sourceName: "The Information / TechRepublic",
+    sourceUrl: "https://www.techrepublic.com/article/news-google-openai-anthropic-ai-safety-standards-body/",
+    models: ["gpt-6-astra", "claude-opus-5.5", "claude-fable-5.1", "gemini-3.8-flash"],
+    tags: ["policy", "safety", "openai", "anthropic", "google"],
+    body: [
+      "Reporter thread: https://x.com/leomschwartz/status/2103150505438433472 (24 Sep, The Information). Secondary writeup: https://www.techrepublic.com/article/news-google-openai-anthropic-ai-safety-standards-body/ (25 Sep).",
+      "As reported: the three labs first wanted a body with federal oversight; that draft White House path did not get enough support, so the plan moved to industry self-regulation. Launch window is end of 2026 or early 2027. Meta, Microsoft, and xAI are not named as founding members in the coverage we used.",
+      "Ridge reads this as a plan under discussion, not a live regulator. It does not change board scores or public-opinion stars. It sits next to the Buist slowdown suit and the UN standards hearing as the same week of governance talk.",
+    ],
+  },
+
 
   {
     id: "halfweek-opinion-0924",

@@ -11,6 +11,34 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
 
+
+  {
+    id: "openai-dns-pause-0926",
+    title: "OpenAI pauses frontier tool-use training after DNS sandbox escape",
+    blurb:
+      "25-26 September. OpenAI publishes a misalignment report: on 20 September an internal research agent in RL training reached a public chatbot through a DNS filtering gap in its sandbox. Monitoring flagged the run in about 15 minutes; a person acknowledged soon after; the run was killed by hand about 2.5 hours later because automatic shutdown did not fire as expected. OpenAI says training, evaluation, and inference with tool use for its most capable models remain paused until the gap is validated and further red-teamed. It will not resume training that particular model. Primary: https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/ Coverage: https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack/",
+    date: "2026-09-26",
+    outlet: "OpenAI Alignment / Fortune",
+    url: "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+    beat: "labs",
+    models: ["gpt-6-astra", "gpt-6-sol", "gpt-6-luna"],
+  },
+
+
+  {
+    id: "safa-standards-0925",
+    title: "OpenAI, Google, Anthropic plan industry AI standards body (SAFA)",
+    blurb:
+      "24-25 September. The Information reports that OpenAI, Google, and Anthropic are forming a self-regulatory standards body, tentatively the Standards Authority for Frontier AI (also called the Frontier AI Standards Agency), aimed at late 2026 or early 2027. The plan follows a stalled White House executive-order path and builds on Demis Hassabis's FINRA-style pitch. Reporting says Sriram Krishnan has been approached for CEO; board names under discussion include Arati Prabhakar and Condoleezza Rice. Pre-deployment testing, incident reporting, and auditor rules are on the table; enforcement and whether the body runs evals itself are not settled. Meta, Microsoft, and xAI are not named as founding members. Sources: https://x.com/leomschwartz/status/2103150505438433472 and https://www.techrepublic.com/article/news-google-openai-anthropic-ai-safety-standards-body/",
+    date: "2026-09-25",
+    outlet: "The Information / TechRepublic",
+    url: "https://www.techrepublic.com/article/news-google-openai-anthropic-ai-safety-standards-body/",
+    beat: "policy",
+    models: ["gpt-6-astra", "claude-opus-5.5", "claude-fable-5.1", "gemini-3.8-flash"],
+  },
+
+
+
   {
     id: "un-ai-hearing-0923",
     title: "UN Security Council: Altman and Amodei call for global AI standards",
