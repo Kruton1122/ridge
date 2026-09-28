@@ -49,6 +49,7 @@ SEED_ARENA = [("Claude Opus 5", 1511), ("Claude Fable 5", 1510)]
 # they are no longer "new frontier" spam.
 BOARD_WATCH = (
     "grok-4.7",            # blank SWE/TB; AA+Arena live
+    "claude-sonnet-5.5",   # launched 2026-09-28; blank SWE; AA pre-release re-run pending
     "muse-spark-1.3-max",  # partner max row; Arena often blank
 )
 
@@ -346,6 +347,9 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "grok 4.6",
         "grok-4.7",
         "grok 4.7",
+        "claude sonnet 5.5",
+        "sonnet 5.5",
+        "claude-sonnet-5.5",
         "kimi-k3",
         "kimi k3",
         "qwen3.8-max",
@@ -360,6 +364,7 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "3.8 flash",
         "grok 4.7",
         "opus 5.1",
+        "sonnet 5.5",
     )
     seen = []
     for pairs in (aa_top10, arena_top10, swe_top10):

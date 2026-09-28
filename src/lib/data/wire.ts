@@ -11,6 +11,19 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
 
+  {
+    id: "sonnet-55-launch-0928",
+    title: "Anthropic ships Claude Sonnet 5.5, the everyday partner to Opus 5.5",
+    blurb:
+      "28 September. Anthropic released Claude Sonnet 5.5, the second model in its Claude 5.5 family. It is built for everyday work: clear coding tasks, bug fixes, and polished documents, slides, and spreadsheets. Opus 5.5 stays the pick for harder, open-ended jobs. The list price does not change from Sonnet 5, at $2 in and $10 out per million tokens, which is half of Opus 5.5. Anthropic says it needs fewer tokens and costs up to 30% less per task. Artificial Analysis ranks it second on its Intelligence Index, just behind Opus 5.5, but it gets there by thinking a lot. At max effort its cost per task came out about 50% above Sonnet 5. AA tested a pre-release build with a bug Anthropic says is now fixed, and plans to re-run. There is no SWE-bench Verified score yet. Source: https://www.anthropic.com/claude-sonnet-5-5",
+    date: "2026-09-28",
+    outlet: "Anthropic / Artificial Analysis",
+    url: "https://www.anthropic.com/claude-sonnet-5-5",
+    beat: "release",
+    models: ["claude-sonnet-5.5", "claude-opus-5.5", "claude-sonnet-5"],
+  },
+
+
 
   {
     id: "openai-dns-pause-0926",

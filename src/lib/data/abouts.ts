@@ -412,6 +412,57 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "claude-sonnet-5.5": {
+    lede:
+      "Claude Sonnet 5.5 is the second model in Anthropic's Claude 5.5 family, released 28 September 2026, six days after Opus 5.5. It is the everyday model of the pair: Anthropic points it at well-scoped tasks, bug fixes, and polished documents, slides, and spreadsheets, and keeps Opus 5.5 for complex work that needs sustained judgment.\n\nIt keeps Sonnet 5's list price, which is half of Opus 5.5. Ridge tracks it as its own row, separate from Sonnet 5.",
+    framing:
+      "Anthropic frames Sonnet 5.5 as a faster, lower-cost complement to Opus 5.5 rather than a replacement. The launch post says it comes close to Opus 5.5 on several benchmarks at max effort, and also says Opus 5.5 remains clearly stronger on open-ended work. It is the first Sonnet to ship with Opus-style cyber safeguards, with higher-risk security requests falling back to Sonnet 5.",
+    rollout: [
+      {
+        date: "2026-09-28",
+        text: "Announced and released on the Claude apps, the Claude API (claude-sonnet-5-5), Amazon Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS. Claude Code and the apps default to Medium effort; the API defaults to High.",
+      },
+    ],
+    rolloutNote:
+      "Haiku 5.5 is announced for the coming weeks. Code that runs Sonnet 5 with thinking off has to move to the new between_tools setting first.",
+    claims: [
+      "Improves on Sonnet 5 across benchmarks, in some cases dramatically (company framing).",
+      "Runs more than 30% faster than Sonnet 5 and costs up to 30% less per task in Anthropic's testing, because it needs fewer tokens.",
+      "Comes within about two points of Opus 5.5 on Anthropic's CursorBench 4.0 run and ahead of it on Anthropic's Terminal-Bench 4.0 run.",
+      "Matches or improves on Sonnet 5 on most alignment measures in Anthropic's automated behavioral audit.",
+    ],
+    vendorEvalsNote:
+      "The comparisons above come from Anthropic's launch post and chart, not from Ridge's board. Artificial Analysis found much higher output-token use at max effort, which pushes its cost per task above Sonnet 5 rather than below it. The live board scores on this page are the numbers of record.",
+    specs: [
+      { label: "Model id", value: "claude-sonnet-5-5 (anthropic.claude-sonnet-5-5 on Bedrock)" },
+      { label: "Context", value: "1M tokens" },
+      { label: "Max output", value: "128K tokens (up to 300K via Batch API beta)" },
+      { label: "Reliable knowledge cutoff", value: "June 2026" },
+      { label: "Modalities", value: "Text and image input, text output" },
+      { label: "Reasoning", value: "Adaptive thinking; effort low to max, default high on the API" },
+      { label: "Price", value: "$2 input / $10 output per 1M tokens" },
+      { label: "Cache prices", value: "$0.20 read; $2.50 five-minute write; $4 one-hour write per 1M tokens" },
+      { label: "Retirement commitment", value: "Not sooner than 28 September 2027" },
+      { label: "Weights", value: "Closed" },
+      { label: "Lab", value: "Anthropic" },
+    ],
+    whereUsed: [
+      "Claude apps",
+      "Claude Code",
+      "Claude API",
+      "Amazon Bedrock",
+      "Google Cloud",
+      "Microsoft Foundry",
+      "Claude Platform on AWS",
+    ],
+    sources: [
+      { label: "Introducing Claude Sonnet 5.5 (Anthropic)", url: "https://www.anthropic.com/claude-sonnet-5-5" },
+      { label: "Claude Sonnet 5.5 overview (Claude Platform Docs)", url: "https://platform.claude.com/docs/en/models/sonnet-5-5/overview" },
+      { label: "Launch post (@claudeai on X)", url: "https://x.com/claudeai/status/2104633115620823187" },
+      { label: "Artificial Analysis launch analysis (X)", url: "https://x.com/ArtificialAnlys/status/2104640155843989864" },
+    ],
+  },
+
   "claude-sonnet-5": {
     lede:
       "Claude Sonnet 5 is Anthropic's workhorse mid-tier model, released 30 June 2026 as the default model for Free and Pro Claude plans and available to Max, Team, and Enterprise users. Anthropic calls it its 'most agentic Sonnet model yet,' built to plan, use tools like browsers and terminals, and hold up through sustained coding sessions at a price well below Opus.\n\nIt launched at introductory pricing of $2 input / $10 output per million tokens, originally slated to rise to $3/$15 after 31 August 2026 — Anthropic instead made the introductory rate permanent from 10 August 2026. Ridge tracks it as its own catalog row; catalog.ts leaves pricing unset, so the figures here come straight from Anthropic's own pricing pages.",

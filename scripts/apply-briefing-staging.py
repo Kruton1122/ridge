@@ -216,7 +216,19 @@ def score_confidence(scraped_name, model, variant_hint):
             best, why = sc, f"token({inter}/{len(ct)})"
     return best, why
 
+def dot_claude_versions(name):
+    """Vals slugs render Claude versions with spaces or underscores ("Claude Sonnet 5 5").
+    Re-dot them so "Sonnet 5 5" is read as 5.5 and never fuzzy-matches Sonnet 5
+    (same for "Opus 5 5" vs Opus 5)."""
+    return re.sub(
+        r"(?<![a-z])(opus|sonnet|haiku|fable|mythos)[\s_-]+(\d{1,2})[\s_-]+(\d{1,2})(?!\d)",
+        r"\1 \2.\3",
+        name or "",
+        flags=re.I,
+    )
+
 def match_model(scraped_name, models, variant_hint):
+    scraped_name = dot_claude_versions(scraped_name)
     scraped_name = re.sub(r"\s*\b\d{4}\b\s*$", "", scraped_name or "").strip()
     thinking_base = None
     tm = re.match(r"^(.*?)\s+Thinking\s*$", scraped_name or "", re.I)

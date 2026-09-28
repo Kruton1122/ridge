@@ -11,6 +11,29 @@ export function isFresh(date: string, asOf = "2026-09-28"): boolean {
 
 export const NEWS: NewsItem[] = [
 
+  {
+    id: "sonnet-55-0928",
+    kind: "release",
+    title: "Claude Sonnet 5.5: close to Opus, at the Sonnet price, if you watch the effort dial",
+    dek: "28 Sep. The second Claude 5.5 model keeps Sonnet 5's price and lands second on the AA Index. The catch is how much it thinks.",
+    pull: "The sticker price did not move. What you pay depends on how hard you let it think.",
+    summary:
+      "Anthropic released Claude Sonnet 5.5 on 28 September. It is the everyday model in the Claude 5.5 family, aimed at well-scoped coding, bug fixes, and office documents, while Opus 5.5 handles harder open-ended work. It keeps Sonnet 5's list price, half of Opus 5.5. Artificial Analysis ranks it second on its Intelligence Index, just behind Opus 5.5, but says it used more output tokens per task than any model it has measured.",
+    date: "2026-09-28",
+    sourceName: "Anthropic",
+    sourceUrl: "https://www.anthropic.com/claude-sonnet-5-5",
+    models: ["claude-sonnet-5.5", "claude-opus-5.5", "claude-sonnet-5"],
+    tags: ["release", "anthropic", "sonnet"],
+    body: [
+      "What it is. Sonnet 5.5 is the second model in the Claude 5.5 family, six days after Opus 5.5. Anthropic calls it a faster, lower-cost complement to Opus. It is meant for clear, bounded tasks, fixing bugs, and turning out documents, slides, and spreadsheets. It is live in the Claude apps, on the API as claude-sonnet-5-5, and on AWS, Google Cloud, and Microsoft Foundry. Haiku 5.5 is due in the coming weeks.",
+      "Price. The list price is the same as Sonnet 5, at $2 in and $10 out per million tokens. That is half of Opus 5.5. Anthropic says the new model needs fewer tokens for the same work, so it costs up to 30% less per task in its own testing.",
+      "What Anthropic claims. Anthropic says Sonnet 5.5 beats Sonnet 5 across its benchmarks, sometimes by a wide margin, and comes close to Opus 5.5 at max effort on several of them. It also says plainly that Opus 5.5 is still stronger on complex work that needs sustained judgment. These are the company's own results, not Ridge's board.",
+      "What the independent boards say. Artificial Analysis puts it second on its Intelligence Index, just behind Opus 5.5. The catch is effort. At max it wrote more output tokens per task than any model AA has tested, so its cost per task came out about 50% above Sonnet 5, not below it. AA says high effort is the better value. AA also tested a pre-release build with a bug Anthropic says is now fixed, and will re-run the affected tests. Cursor, Vals, and Arena+ have posted early scores too, listed on the model page. There is no SWE-bench Verified run yet.",
+      "Who it is for. Teams with a lot of routine coding and document work who want most of Opus 5.5 at a lower sticker price. Medium or high effort is where it pays off. Max effort gets close to Opus, but the bill gets close too.",
+    ],
+  },
+
+
 
   {
     id: "halfweek-opinion-0928",

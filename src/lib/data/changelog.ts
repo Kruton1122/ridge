@@ -1,5 +1,19 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-28",
+    title: "New model: Claude Sonnet 5.5",
+    items: [
+      "Added Claude Sonnet 5.5, Anthropic's new everyday model, released 28 September. List price is $2 in and $10 out per million tokens, the same as Sonnet 5. Source: https://www.anthropic.com/claude-sonnet-5-5",
+      "AA Intelligence Index 56 (max with fallback), second behind Opus 5.5. Fable 5.1 and GPT-6 Astra now share third at 53. Artificial Analysis tested a pre-release build and plans to re-run. Source: https://artificialanalysis.ai/models/claude-sonnet-5-5",
+      "CursorBench 4.0 55.5 at max effort, second behind Opus 5.5. Source: https://cursor.com/cursorbench",
+      "Arena+ Elo 1521, second behind Opus 5.5. Source: https://openlm.ai/chatbot-arena/",
+      "Vals Terminal-Bench 2.1 83.15 at high effort, level with GPT-6 Sol. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1",
+      "No SWE-bench Verified score yet. Anthropic's own chart numbers are not used on the board.",
+      "New wire and desk note on the launch.",
+    ],
+  },
+
+  {
     date: "2026-09-27",
     title: "Daily scrape - sourced score refresh",
     items: [
