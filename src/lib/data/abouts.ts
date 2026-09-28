@@ -435,7 +435,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
       "Lower rates of misaligned behavior than Sonnet 4.6, and substantially reduced ability to develop software exploits versus Opus-tier models (company-reported safety evaluation).",
     ],
     vendorEvalsNote:
-      "The Sonnet-4.6 and Opus-4.8 comparisons above are Anthropic's own internal evals from its June 2026 launch post, not Ridge's board. Ridge's live catalog score (AA 55) is the number of record for this site.",
+      "The Sonnet-4.6 and Opus-4.8 comparisons above are Anthropic's own internal evals from its June 2026 launch post, not Ridge's board. The live board score on this page is the number of record for this site.",
     specs: [
       { label: "Model id", value: "claude-sonnet-5" },
       { label: "Context", value: "1M tokens (default and maximum)" },
@@ -1056,7 +1056,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
       "Native multimodal (vision + text) understanding is built into the CED architecture rather than added via a separate vision branch.",
     ],
     vendorEvalsNote:
-      "The V4.1-Flash-beats-V4-Pro claim comes from DeepSeek's own launch post; Ridge has not yet scored this model on its live board, so no independent Ridge number is available to check it against.",
+      "The V4.1-Flash-beats-V4-Pro claim comes from DeepSeek's own launch post. Ridge now has independent AA Index and Arena scores for this model, so check the claim against the board scores on this page. There is no Vals SWE-bench row for it yet.",
     specs: [
       { label: "Model id", value: "deepseek-flash" },
       {

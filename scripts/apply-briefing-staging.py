@@ -603,8 +603,10 @@ def main():
         if start != -1:
             after = llms_src.find(chr(10), start) + 1
             rest = llms_src[after:]
-            m = re.search(r"\n\n|\n#|$", rest)
-            end = after + (m.start() if m else len(rest))
+            # Replace only the numbered rank lines; keep whatever follows
+            # (news line, notes) instead of eating it to end of file.
+            m = re.match(r"(?:\d+\. [^\n]*(?:\n|$))*", rest)
+            end = after + m.end()
             llms_src = llms_src[:after] + chr(10).join(headline) + chr(10) + llms_src[end:].lstrip(chr(10))
             if not llms_src.endswith(chr(10)):
                 llms_src += chr(10)

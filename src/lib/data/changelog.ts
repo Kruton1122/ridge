@@ -1,4 +1,12 @@
 export const CHANGELOG = [
+  {
+    date: "2026-09-27",
+    title: "Daily scrape - sourced score refresh",
+    items: [
+      "arena-elo: Opus 5.5 1532->1528.",
+      "Scores sourced from daily briefing scrape (AA / Arena+ / Vals).",
+    ],
+  },
 
   {
     date: "2026-09-24",

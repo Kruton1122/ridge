@@ -10,6 +10,8 @@ import { CHANGELOG } from "@/lib/data/changelog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import {
   CATALOG_STATS,
+  HEADLINE_BENCHMARK,
+  board,
   benchmarksWithScores,
   headlines,
   unscoredModels,
@@ -30,9 +32,36 @@ export const Route = createFileRoute("/_app/")({
   }),
 });
 
+function joinNames(names: string[]): string {
+  if (names.length <= 1) return names[0] ?? "";
+  return `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+/**
+ * Who sits at the top of the headline board, read from SCORES so a new snapshot
+ * cannot leave a stale name here. Ties are named as ties.
+ */
+function leaderLine(): string | null {
+  const rows = board(HEADLINE_BENCHMARK);
+  const top = rows.filter((r) => r.rank === 1);
+  if (top.length === 0) return null;
+  const value = top[0].score.value;
+  if (top.length > 1) {
+    return `${joinNames(top.map((r) => r.model.name))} share the top of the AA Index at ${value}.`;
+  }
+  const nextRank = rows.find((r) => r.rank > 1)?.rank;
+  const next = rows.filter((r) => r.rank === nextRank);
+  const tail = next.length
+    ? `, ahead of ${joinNames(next.map((r) => r.model.name))} at ${next[0].score.value}`
+    : "";
+  return `${top[0].model.name} leads the AA Index at ${value}${tail}.`;
+}
+
 function Board() {
   const cards = headlines();
   const unscored = unscoredModels();
+  const leader = leaderLine();
+  const valuePick = cards.find((c) => c.label === "Best value")?.model ?? null;
 
   return (
     <>
@@ -70,9 +99,9 @@ function Board() {
             — not a census of every weight on the internet.
           </p>
           <p className="mt-2.5 max-w-[62ch] text-[13px] leading-relaxed text-n-text-3">
-            If you want a pick off this snapshot: Fable 5.1 and Astra share the
-            ceiling, Gemini 3.8 Flash is the cheap point on the frontier, Grok 4.6
-            is the mid-price coding seat.
+            Picks off this snapshot: {leader ? `${leader} ` : ""}
+            {valuePick ? `${valuePick.name} is the cheapest per AA point on the frontier. ` : ""}
+            Grok 4.6 is the mid-price coding seat.
           </p>
           <dl className="mt-7 flex flex-wrap gap-x-8 gap-y-3">
             {[
