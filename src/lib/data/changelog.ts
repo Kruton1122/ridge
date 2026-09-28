@@ -11,6 +11,7 @@ export const CHANGELOG = [
       "No SWE-bench Verified score yet. Anthropic's own chart numbers are not used on the board.",
       "New wire and desk note on the launch.",
       "New wire: Artificial Analysis launches its Cyber Index, led by Grok 4.7 and MiMo-V2.6-Pro at 56. It is separate from the AA Intelligence Index, so no board scores change. Source: https://artificialanalysis.ai/articles/artificial-analysis-cyber-index",
+      "New wire: OpenAI scraps the planned October release of GPT-6.1 Astra after safety tests (WSJ, confirmed by CNBC). GPT-6 Astra is unaffected, and no board scores change. Source: https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
     ],
   },
 

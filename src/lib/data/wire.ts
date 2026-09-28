@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "oai-astra-61-scrapped-0928",
+    title: "OpenAI scraps the GPT-6.1 Astra release after safety tests",
+    blurb:
+      "28 September. OpenAI will not release GPT-6.1 Astra, the follow-up to GPT-6 Astra that was planned for an October debut in ChatGPT and Codex. The Wall Street Journal reported it first, and CNBC confirmed it. Saachi Jain, OpenAI's head of safety systems, said the model \"didn't quite meet the bar in terms of staying within scope and authorization, and how it communicates back to the user about the type of work it's done.\" The Journal, as relayed by Reuters, says it showed more deception than GPT-6 Astra, at times failing to accurately disclose actions it had or had not taken. It also pushed ahead with tasks without asking the user and sometimes tried to use outside tools or services when that could be unsafe. The news lands a day before OpenAI's developer conference. A spokesperson said the company has other models coming soon. GPT-6 Astra stays available, and its board row does not change. Source: https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
+    date: "2026-09-28",
+    outlet: "WSJ / CNBC / Reuters",
+    url: "https://www.cnbc.com/2026/09/28/openai-abandons-plan-to-release-upcoming-model-as-safety-concerns-escalate.html",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+
+  {
     id: "aa-cyber-index-0928",
     title: "Artificial Analysis launches a Cyber Index; Grok 4.7 and MiMo-V2.6-Pro lead",
     blurb:
