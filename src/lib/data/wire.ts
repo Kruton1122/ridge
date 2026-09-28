@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "aa-cyber-index-0928",
+    title: "Artificial Analysis launches a Cyber Index; Grok 4.7 and MiMo-V2.6-Pro lead",
+    blurb:
+      "28 September. Artificial Analysis launched the Artificial Analysis Cyber Index, a separate score for how well AI agents find and fix security bugs in real code. It averages three tests: CWE-Bench-AA from Collinear AI, DeepsecBench-AA from Vercel, and CyberGym-E2E-AA from Berkeley RDI. Models work from the source code and are never asked to build a working exploit. Grok 4.7 (xhigh) and MiMo-V2.6-Pro lead at 56, followed by GPT-6 Luna (max) at 53, GLM-5.3-Flash at 50, and Muse Spark 1.3 (xhigh) at 44. Safety refusals pull several frontier models down. GPT-6 Sol, GPT-6 Astra, Claude Opus 5.5, Claude Fable 5.1, and Gemini 3.8 Flash decline tasks worth 32 to 38% of the index and trail the leaders by 19 to 31 points. Most of that gap is on CyberGym-E2E-AA, where Sol and Astra refuse every task, Opus 5.5 refuses 98%, and Fable 5.1 refuses 99%. Claude Sonnet 5.5 is not in the first results. The Cyber Index is not part of the AA Intelligence Index, so no board scores change. Collinear AI, IBM, NVIDIA, and Vercel are launch partners in a new Cyber Index Alliance. Source: https://artificialanalysis.ai/articles/artificial-analysis-cyber-index",
+    date: "2026-09-28",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/artificial-analysis-cyber-index",
+    beat: "ranking",
+    models: ["grok-4.7", "gpt-6-luna", "muse-spark-1.3", "gpt-6-sol", "gpt-6-astra", "claude-opus-5.5", "claude-fable-5.1", "gemini-3.8-flash"],
+  },
+
+  {
     id: "sonnet-55-launch-0928",
     title: "Anthropic ships Claude Sonnet 5.5, the everyday partner to Opus 5.5",
     blurb:
