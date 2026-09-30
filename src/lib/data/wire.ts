@@ -12,6 +12,30 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "gemini-4-argon-0930",
+    title: "Google announces Gemini 4 Argon; AA puts it level with GPT-6 Astra",
+    blurb:
+      "30 September. Google DeepMind announced Gemini 4 Argon, its new frontier model and its first above the Flash class in over seven months. It is rolling out first to trusted cyber defenders in Google's Fairwind Program. Paid API customers and Google AI Ultra subscribers come next, with no date given. The introductory price is $2 in and $10 out per million tokens, then $4 and $20 later. The output limit grows to 1 million tokens, up from 64K. Artificial Analysis scores it 53 on its Intelligence Index at high, the top setting. That ties GPT-6 Astra and Claude Fable 5.1 and is one point ahead of GPT-6.1 Sol. AA puts its hallucination rate at 15%, the lowest of any model scoring 45 or more. Google's own claims, not board scores: 77.9% on DeepSWE v1.1, 51.3% on Zapier's AutomationBench, and 68% on CWE-bench v1. Google also says Argon agents freed more than 300 TiB of memory across its data centers and made a Rust video decoder 2.7x faster. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    date: "2026-09-30",
+    outlet: "Google / Artificial Analysis",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    beat: "release",
+    models: ["gemini-4-argon", "gpt-6-astra", "claude-fable-5.1", "gpt-6.1-sol", "gemini-3.8-flash"],
+  },
+
+  {
+    id: "gpt-61-sol-0929",
+    title: "OpenAI ships GPT-6.1 Sol at DevDay, a week after GPT-6 Sol",
+    blurb:
+      "29 September. At DevDay, OpenAI launched GPT-6.1 Sol, one week after GPT-6 Sol. OpenAI says it comes close to GPT-6 Astra on coding, computer use, and professional work at one-fifth of Astra's standard API token prices. The list price stays at $2 in and $10 out per million tokens, and cached input is now 95% off. It is live in ChatGPT Work and Codex for paid plans and in GitHub Copilot. Artificial Analysis scores it 52 on its Intelligence Index at max. That is 4 points above GPT-6 Sol and 1 point below Astra, at $0.72 per index task against Astra's $3.26. OpenAI did not ship GPT-6.1 Astra, which it scrapped over safety concerns the same week. Source: https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence",
+    date: "2026-09-29",
+    outlet: "OpenAI / TechCrunch / Artificial Analysis",
+    url: "https://openai.com/index/introducing-gpt-6-1-sol",
+    beat: "release",
+    models: ["gpt-6.1-sol", "gpt-6-sol", "gpt-6-astra"],
+  },
+
+  {
     id: "oai-astra-61-scrapped-0928",
     title: "OpenAI scraps the GPT-6.1 Astra release after safety tests",
     blurb:

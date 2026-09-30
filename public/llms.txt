@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-09-28
+- Snapshot: 2026-09-30
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench
 - JSON table: /api/ledger.json
@@ -17,11 +17,15 @@ Headline AA Intelligence Index v4.2:
 2. Claude Sonnet 5.5 — 56 (max with fallback; pre-release build, AA re-run pending)
 3. Claude Fable 5.1 — 53 (max with fallback)
 3. GPT-6 Astra — 53 (max)
-5. Claude Opus 5 — 51 (max)
-6. Claude Fable 5 — 50 (with fallback)
-7. Muse Spark 1.3 max — 48 (max)
-7. GPT-6 Sol — 48 (max)
-9. GPT-5.6 Sol — 47 (max)
-10. Grok 4.7 — 46 (xhigh)
+3. Gemini 4 Argon — 53 (high; limited preview)
+6. GPT-6.1 Sol — 52 (max)
+7. Claude Opus 5 — 51 (max)
+8. Claude Fable 5 — 50 (with fallback)
+9. Muse Spark 1.3 max — 48 (max)
+9. GPT-6 Sol — 48 (max)
+11. GPT-5.6 Sol — 47 (max)
+12. Grok 4.7 — 46 (xhigh)
+New model (2026-09-30): Gemini 4 Argon (Google DeepMind, limited preview for Fairwind cyber defenders), intro $2 / $10 then $4 / $20 per 1M tokens, 1M output limit. AA 53, Arena+ 1525; no CursorBench, Terminal-Bench, or SWE-bench yet.
+New model (2026-09-29): GPT-6.1 Sol (OpenAI, DevDay), $2 / $10 per 1M tokens, 1M context. AA 52, Arena+ 1516; no CursorBench, Terminal-Bench, or SWE-bench yet.
 New model (2026-09-28): Claude Sonnet 5.5 (Anthropic, claude-sonnet-5-5), $2 / $10 per 1M tokens, 1M context. AA 56, CursorBench 4.0 55.5, Arena+ 1521, Vals Terminal-Bench 2.1 83.15; no SWE-bench yet.
 News (2026-09-24): UN Security Council AI session (Altman and Amodei call for global standards; Trump rejects global AI regulation). China's CAC probes DeepSeek and Moonshot over alleged Claude distillation (Decrypt / The Information; follows Anthropic's 10 Sep threat report). First public-opinion ratings: Opus 5.5 4, GPT-6 Sol 3, GPT-6 Luna 3, Grok 4.7 3; earlier ratings unchanged. No board score changes. 23 Sep: METR Opus 5.5 eval; price-war desk note; ChatGPT Voice on Astra/Sol/Luna; SWE-Together audit; Vals Terminal-Bench Sol 83.15 / Luna 73.03. 22 Sep: Opus 5.5 and GPT-6 Sol/Luna launches with first-party board scores.

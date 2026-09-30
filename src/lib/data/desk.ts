@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-28"): boolean {
+export function isFresh(date: string, asOf = "2026-09-30"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,28 @@ export function isFresh(date: string, asOf = "2026-09-28"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+  {
+    id: "gemini-4-argon-0930",
+    kind: "release",
+    title: "Gemini 4 Argon: Google is back near the top, but you cannot use it yet",
+    dek: "30 Sep. Google's first big model since the spring ties GPT-6 Astra on the AA Index. For now it goes to cyber defenders only.",
+    pull: "The score is public. The model is not.",
+    summary:
+      "Google DeepMind announced Gemini 4 Argon on 30 September. It is the lab's first model above the Flash class in over seven months. Artificial Analysis scores it 53 on its Intelligence Index, level with GPT-6 Astra and Claude Fable 5.1. It is rolling out first to trusted cyber defenders in Google's Fairwind Program. Paid API customers and Google AI Ultra subscribers come next, with no date given.",
+    date: "2026-09-30",
+    sourceName: "Google",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+    models: ["gemini-4-argon", "gpt-6-astra", "claude-fable-5.1", "gpt-6.1-sol", "gemini-3.8-flash"],
+    tags: ["release", "google", "gemini"],
+    body: [
+      "What it is. Gemini 4 Argon is Google's new frontier model and a new naming scheme. Google pitches it at long, multi-step work: software engineering, legal and finance work, and cyber defense. The output limit jumps to 1 million tokens, up from 64K, so the model can think and write at length in one go.",
+      "Who gets it. Not most people, yet. The first wave is a set of trusted cyber defenders in Google's Fairwind Program, and Google says they get Argon without its cyber guardrails. Paid API customers and Google AI Ultra subscribers are next. Google has not given a date. It is also taking part in the US government's voluntary pre-release access process.",
+      "Price. The introductory price is $2 in and $10 out per million tokens, with cached input 95% off. After the introductory period it rises to $4 and $20. Google has not said when that happens. Ridge lists the $4 / $20 price.",
+      "What Google claims. Google says Argon leads DeepSWE v1.1 at 77.9%, Zapier's AutomationBench at 51.3%, and ties for first on CWE-bench v1 at 68%. It also points to work inside Google: agents that freed more than 300 TiB of memory across its data centers, C and C++ to Rust migrations of up to 800,000 lines, and a Rust video decoder made 2.7x faster. These are Google's numbers, not Ridge's board.",
+      "What the independent boards say. Artificial Analysis scores it 53 at high, the top setting, level with GPT-6 Astra and Fable 5.1 and one point ahead of GPT-6.1 Sol. AA says it has the lowest hallucination rate of any model scoring 45 or more. It is not cheap per task, though. It used about 62k output tokens per task against 27k for Astra, so the low price is doing the work. Arena+ lists it at 1525 Elo. Cursor and Vals have not posted scores yet.",
+    ],
+  },
 
   {
     id: "sonnet-55-0928",

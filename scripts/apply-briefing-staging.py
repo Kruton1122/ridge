@@ -491,6 +491,11 @@ def main():
                 # Keep claim so an even worse later row cannot apply either
                 continue
             next_note = (note or prev.get("note")) if benchmark_id == "aa-intelligence" else prev.get("note")
+            # Keep a curated suffix on the AA note (e.g. "...; AA tested a pre-release build ...")
+            # when the scrape only re-reports the same variant prefix.
+            prev_note = prev.get("note") or ""
+            if benchmark_id == "aa-intelligence" and note and prev_note.startswith(note + ";"):
+                next_note = prev_note
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 benchmark_id == "aa-intelligence" and note and note != prev.get("note")

@@ -1,5 +1,19 @@
 export const CHANGELOG = [
   {
+    date: "2026-09-30",
+    title: "New models: Gemini 4 Argon and GPT-6.1 Sol",
+    items: [
+      "Added Gemini 4 Argon, Google DeepMind's new frontier model, announced 30 September. It is in limited preview for trusted cyber defenders, with paid API and Google AI Ultra access to follow. Introductory price $2 / $10 per million tokens, then $4 / $20. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "Gemini 4 Argon: AA Intelligence Index 53 (high), tied for third with Fable 5.1 and GPT-6 Astra. Arena+ Elo 1525. No CursorBench, Vals Terminal-Bench, or SWE-bench score yet. Source: https://artificialanalysis.ai/models/gemini-4-argon",
+      "Added GPT-6.1 Sol, launched at OpenAI DevDay on 29 September. List price $2 / $10, the same as GPT-6 Sol, which keeps its own row. Source: https://openai.com/index/introducing-gpt-6-1-sol",
+      "GPT-6.1 Sol: AA Intelligence Index 52 (max), sixth on the board. Arena+ Elo 1516. No CursorBench, Vals Terminal-Bench, or SWE-bench score yet. Source: https://artificialanalysis.ai/models/gpt-6-1-sol",
+      "Claude Sonnet 5.5 stays at 56. Artificial Analysis has not yet published its re-run on the fixed build.",
+      "Score dates moved to 30 September. No other board values changed.",
+      "New wires on both launches and a desk note on Gemini 4 Argon.",
+    ],
+  },
+
+  {
     date: "2026-09-28",
     title: "New model: Claude Sonnet 5.5",
     items: [

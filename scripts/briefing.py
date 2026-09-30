@@ -51,6 +51,8 @@ BOARD_WATCH = (
     "grok-4.7",            # blank SWE/TB; AA+Arena live
     "claude-sonnet-5.5",   # launched 2026-09-28; blank SWE; AA pre-release re-run pending
     "muse-spark-1.3-max",  # partner max row; Arena often blank
+    "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
+    "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
 )
 
 
@@ -350,6 +352,12 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "claude sonnet 5.5",
         "sonnet 5.5",
         "claude-sonnet-5.5",
+        "gpt-6.1 sol",
+        "gpt 6.1 sol",
+        "gpt-6.1-sol",
+        "gemini 4 argon",
+        "gemini-4-argon",
+        "gemini-4 argon",
         "kimi-k3",
         "kimi k3",
         "qwen3.8-max",
@@ -365,6 +373,8 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "grok 4.7",
         "opus 5.1",
         "sonnet 5.5",
+        "6.1 sol",
+        "argon",
     )
     seen = []
     for pairs in (aa_top10, arena_top10, swe_top10):
