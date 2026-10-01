@@ -23,6 +23,30 @@ export const WIRE: WireItem[] = [
     models: ["gemini-4-argon", "gpt-6-astra", "claude-fable-5.1", "gpt-6.1-sol", "gemini-3.8-flash"],
   },
 
+
+  {
+    id: "openai-decisions-api-0930",
+    title: "OpenAI Decisions API: Luna picks from a fixed set, in limited preview",
+    blurb:
+      "30 September. At DevDay, Sam Altman described a Decisions API that gives GPT-6 Luna a predefined set of options and asks it to choose, for things like image categories or agent behaviors. TechCrunch compares it to TypeSafe AI's Jev: fast, cheap classification rather than full text generation. OpenAI says focusing the model on a closed choice keeps speed while retaining image understanding, language coverage, and safety protections. It is in limited preview, with a broader release still pending. This is a product API, not a new board model. Source: https://techcrunch.com/2026/09/30/openais-jev-clone-could-help-the-frontier-lab-stop-its-swarming-agents/",
+    date: "2026-09-30",
+    outlet: "TechCrunch / OpenAI DevDay",
+    url: "https://techcrunch.com/2026/09/30/openais-jev-clone-could-help-the-frontier-lab-stop-its-swarming-agents/",
+    beat: "labs",
+    models: ["gpt-6-luna", "gpt-6-astra", "gpt-6.1-sol"],
+  },
+
+  {
+    id: "openai-dots-0929",
+    title: "OpenAI launches Dots, always-on agents powered by GPT-6 Astra",
+    blurb:
+      "29 September. At DevDay, OpenAI launched Dots: always-on personal agents powered by GPT-6 Astra, not the scrapped GPT-6.1 Astra. Each Dot gets its own cloud computer, can connect to thousands of apps, and keeps working in the background toward user goals with less hand-holding than a chat session. Rollout starts in ChatGPT for Pro and Business Premium in eligible markets; Enterprise, Edu, and Healthcare get an admin-gated beta. The first Dot is included in the plan. Messaging works in ChatGPT, Slack, and Teams, with texting later. Specialist Dots for company roles are in a pilot, with a planned Microsoft Agent 365 hook. OpenAI's own launch post: https://x.com/OpenAI/status/2104984504133918973 Coverage: https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+    date: "2026-09-29",
+    outlet: "OpenAI / TechCrunch",
+    url: "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+    beat: "release",
+    models: ["gpt-6-astra", "gpt-6.1-sol", "gpt-6-luna", "muse-spark-1.3"],
+  },
   {
     id: "gpt-61-sol-0929",
     title: "OpenAI ships GPT-6.1 Sol at DevDay, a week after GPT-6 Sol",
@@ -35,6 +59,18 @@ export const WIRE: WireItem[] = [
     models: ["gpt-6.1-sol", "gpt-6-sol", "gpt-6-astra"],
   },
 
+
+  {
+    id: "anthropic-glm53-cyber-0929",
+    title: "Anthropic: open-weight GLM-5.3 nearly matches Mythos Preview on exploit building",
+    blurb:
+      "29 September. Anthropic's Frontier Red Team published an analysis of Zhipu / Z.ai's open-weight GLM-5.3. On ExploitBench (end-to-end exploits against known V8 bugs), GLM-5.3 succeeded in 50 of 410 attempts versus 56 for Claude Mythos Preview. On an internal binary-exploitation set, full control-flow hijacks were 4% versus 6%. Anthropic says GLM-5.3's safeguards are easy to bypass in simulated tests (about 64% with a cover story, 92% with prefilled thinking, 100% after abliteration), while safeguarded Claude models stayed at zero. NIST's CAISI had already called GLM-5.3 the most cyber-capable open-weight model to date, about four months behind the US frontier. Ridge does not add ExploitBench as a board column. GLM-5.3's existing AA, Arena, and SWE rows are unchanged. Source: https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+    date: "2026-09-29",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+    beat: "labs",
+    models: ["glm-5.3", "claude-opus-5.5", "kimi-k3", "deepseek-v4.1-flash"],
+  },
   {
     id: "oai-astra-61-scrapped-0928",
     title: "OpenAI scraps the GPT-6.1 Astra release after safety tests",

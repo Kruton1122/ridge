@@ -1,5 +1,17 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-01",
+    title: "Half-week news 1 Oct: Dots, Decisions API, GLM-5.3 cyber, opinion opens",
+    items: [
+      "New wire and desk note: OpenAI launches Dots, always-on agents powered by GPT-6 Astra (DevDay, 29 Sep). TechCrunch coverage plus OpenAI's launch post.",
+      "New wire: OpenAI Decisions API puts Luna on a fixed choice set; limited preview (TechCrunch, 30 Sep). Not a board model.",
+      "New wire: Anthropic's Frontier Red Team says open-weight GLM-5.3 nearly matches Claude Mythos Preview on ExploitBench end-to-end exploits, with weak safeguards (29 Sep). No new board column.",
+      "Public-opinion read for 1 October. First ratings: Claude Sonnet 5.5 and GPT-6.1 Sol at 3 stars. Existing ratings hold. Gemini 4 Argon and GLM-5.3 stay unrated. Notes and as-of dates refreshed to 1 October.",
+      "Snapshot and score as-of dates already at 1 October from the daily scrape. No board scores invented in this pass.",
+    ],
+  },
+
+  {
     date: "2026-09-30",
     title: "New models: Gemini 4 Argon and GPT-6.1 Sol",
     items: [

@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-09-30"): boolean {
+export function isFresh(date: string, asOf = "2026-10-01"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,67 @@ export function isFresh(date: string, asOf = "2026-09-30"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+  {
+    id: "openai-dots-0929",
+    kind: "release",
+    title: "Dots and DevDay: Astra agents that keep working while Sol 6.1 takes the cheap seat",
+    dek: "29 Sep. OpenAI's agent product lands on GPT-6 Astra. GPT-6.1 Sol is the model people can actually burn tokens on.",
+    pull: "Dots are the product story. Sol 6.1 is the model people are already using.",
+    summary:
+      "At DevDay on 29 September, OpenAI launched Dots, always-on agents powered by GPT-6 Astra, and shipped GPT-6.1 Sol as the cheaper coding and computer-use model. Dots get their own cloud computer and can keep working without a live chat. They roll out first to Pro and Business Premium. Early public reaction is loud on the announce and mixed on day-one use, with several posts comparing them to Meta's Muse. GPT-6.1 Sol is the model with the most hands-on talk: efficient and in demand, still ranked under Opus and Astra on taste.",
+    date: "2026-09-29",
+    sourceName: "OpenAI / TechCrunch",
+    sourceUrl: "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+    models: ["gpt-6-astra", "gpt-6.1-sol", "gpt-6-sol", "gpt-6-luna", "muse-spark-1.3"],
+    tags: ["release", "openai", "agents", "devday"],
+    body: [
+      "Dots. OpenAI's launch post calls them remarkably capable, always-on agents built to handle everything, powered by GPT-6 Astra. Users start with a primary Dot, give it a name, and let it work in the background. Messaging works in ChatGPT, Slack, and Teams. Specialist Dots for company roles are still a pilot. OpenAI: https://x.com/OpenAI/status/2104984504133918973 TechCrunch: https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+      "Who gets them. Pro and Business Premium in eligible markets first. Enterprise, Edu, and Healthcare can turn on a beta. The first Dot is included. Conversations with a Dot do not count against ChatGPT usage; work it starts in Codex or ChatGPT Work does. Texting, multiple Dots per user, and paid scale-ups are still coming.",
+      "GPT-6.1 Sol. Shipped the same day as the cheaper DevDay model, one week after GPT-6 Sol. OpenAI pitches near-Astra work at about one-fifth Astra's standard token price, still $2 / $10 on the list. Artificial Analysis has it at 52 on the Intelligence Index, one point under Astra. That is a board score already on the model page. Ridge did not invent new benches here.",
+      "Decisions API. Altman also mentioned a Decisions API that puts Luna on a fixed choice set for fast picks. TechCrunch ties it to TypeSafe's Jev. It is limited preview only. No new board row.",
+      "What stuck on X. The Dots announce was huge. The line people kept repeating from DevDay was the $500 Pro plan and the cut to the $200 plan's Astra allowance. Early Dot hands-on is mixed: some call it a Muse competitor, others say it feels like Codex plus an avatar and a cloud VM. None of that changes a board score.",
+    ],
+  },
+
+
+  {
+    id: "halfweek-opinion-1001",
+    kind: "ranking",
+    title: "Half-week opinion: Sonnet 5.5 and GPT-6.1 Sol open at 3; everyone else holds",
+    dek: "Public posts on X as of 1 October. Two first ratings. No moves on existing stars.",
+    pull: "Sonnet 5.5 and Sol 6.1 open at 3. Opus stays at 5. Argon and GLM-5.3 stay unrated.",
+    summary:
+      "Public affection this half-week: Claude Sonnet 5.5 and GPT-6.1 Sol each open at 3 stars after shipping into real use. Claude Opus 5.5 holds 5. Fable 5.1, Astra, Spark xhigh, Kimi K3, and DeepSeek V4.1 Flash hold 4. GPT-6 Sol, GPT-6 Luna, Grok 4.7, Opus 5, GPT-5.6 Sol, Grok 4.6, and Gemini 3.8 Flash hold 3. Gemini 4 Argon and GLM-5.3 stay unrated. Loudest non-model topic was OpenAI Dots at DevDay, with the Pro plan cut close behind.",
+    date: "2026-10-01",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
+    models: [
+      "claude-opus-5.5",
+      "claude-sonnet-5.5",
+      "gpt-6.1-sol",
+      "claude-fable-5.1",
+      "gpt-6-astra",
+      "gpt-6-sol",
+      "gpt-6-luna",
+      "grok-4.7",
+      "muse-spark-1.3",
+      "claude-opus-5",
+      "gpt-5.6-sol",
+      "grok-4.6",
+      "kimi-k3",
+      "gemini-3.8-flash",
+      "deepseek-v4.1-flash",
+    ],
+    tags: ["opinion", "ranking"],
+    body: [
+      "This is Ridge's Thursday read of public opinion for 1 October, drawn from recent and top posts on X for the window from evening 28 September through morning 1 October. Stars move only when the public signal is clear enough to defend. Full scrape log: logs/news-pass-grok-20261001.txt.",
+      "Volume this window: OpenAI Dots first (OpenAI's launch post about 37k likes, Altman about 15k). Gemini 4 Argon's announce was a similar spike, then mostly \"you cannot use it yet.\" GPT-6.1 Sol had the loudest new-model talk on demand and speed. Claude Opus 5.5 stayed the thickest daily-driver thread. Anthropic's GLM-5.3 cyber paper was a mid-sized security story, not a switch wave.",
+      "First ratings: Sonnet 5.5 at 3 (real use and taste praise, still under Opus). GPT-6.1 Sol at 3 (efficient and heavily used, still behind Claude on taste and behind Astra in how people rank it). Held: Opus 5.5 at 5; Fable, Astra, Spark xhigh, Kimi K3, and DeepSeek V4.1 Flash at 4; Sol, Luna, Grok 4.7, Opus 5, GPT-5.6 Sol, Grok 4.6, and Gemini 3.8 Flash chat at 3. Argon stays unset while it is Fairwind-only. GLM-5.3 stays unset; the cyber paper is not \"I use this\" chatter, and local Flash runs are a different serving target.",
+      "Product and policy color: Dots are Astra-powered always-on agents. GPT-6.1 Astra's cancel was restated as a scrap, not a delay. Decisions API is a Luna limited preview. None of those stories changes a board score. ExploitBench numbers from Anthropic are not added as a Ridge column.",
+    ],
+  },
+
 
   {
     id: "gemini-4-argon-0930",

@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-09-30
+- Snapshot: 2026-10-01
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench
 - JSON table: /api/ledger.json
@@ -14,10 +14,10 @@ Cite the source URL and the as-of date.
 
 Headline AA Intelligence Index v4.2:
 1. Claude Opus 5.5 — 58 (max with fallback)
-2. Claude Sonnet 5.5 — 56 (max with fallback; pre-release build, AA re-run pending)
+2. Claude Sonnet 5.5 — 56 (max with fallback; AA tested a pre-release build with a structured-outputs bug since fixed and plans to re-run affected evals)
 3. Claude Fable 5.1 — 53 (max with fallback)
 3. GPT-6 Astra — 53 (max)
-3. Gemini 4 Argon — 53 (high; limited preview)
+3. Gemini 4 Argon — 53 (high)
 6. GPT-6.1 Sol — 52 (max)
 7. Claude Opus 5 — 51 (max)
 8. Claude Fable 5 — 50 (with fallback)
