@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "aa-coding-agent-1001",
+    title: "AA Coding Agent Index: Sonnet 5.5 tops it, GPT-6.1 Sol is the cheap pick",
+    blurb:
+      "1 October. Artificial Analysis ran this week's three launches on its Coding Agent Index, which scores a model and its coding harness together across three agentic coding tests. Claude Sonnet 5.5 at max in Claude Code takes the top spot at 68, but it also has the highest cost per task AA has measured, $14.19. Gemini 4 Argon at high in Antigravity CLI scores 64 at $5.84 per task. That uses Google's promotional pricing, and Argon is not yet public. GPT-6.1 Sol at xhigh in Codex scores 63 at $1.04, about a sixth of Argon's cost. This is a separate index from the AA Intelligence Index, so no board scores change. Source: https://artificialanalysis.ai/agents/coding-agents",
+    date: "2026-10-01",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/agents/coding-agents",
+    beat: "ranking",
+    models: ["claude-sonnet-5.5", "gemini-4-argon", "gpt-6.1-sol"],
+  },
+
+  {
     id: "gemini-4-argon-0930",
     title: "Google announces Gemini 4 Argon; AA puts it level with GPT-6 Astra",
     blurb:

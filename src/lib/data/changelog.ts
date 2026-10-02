@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-02",
+    title: "Wire: AA Coding Agent Index on this week's launches",
+    items: [
+      "New wire: Artificial Analysis Coding Agent Index puts Claude Sonnet 5.5 (max, Claude Code) first at 68, Gemini 4 Argon (high) at 64, and GPT-6.1 Sol (xhigh, Codex) at 63 for about $1 a task. It is separate from the AA Intelligence Index, so no board scores change. Source: https://artificialanalysis.ai/agents/coding-agents",
+      "Claude Sonnet 5.5 stays at 56 on the AA Intelligence Index. Artificial Analysis has not yet published its re-run on the fixed build.",
+    ],
+  },
+  {
     date: "2026-10-01",
     title: "Half-week news 1 Oct: Dots, Decisions API, GLM-5.3 cyber, opinion opens",
     items: [
