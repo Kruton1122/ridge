@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-01
+- Snapshot: 2026-10-02
 - Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench
 - JSON table: /api/ledger.json

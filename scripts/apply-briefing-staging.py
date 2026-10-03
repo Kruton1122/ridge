@@ -10,6 +10,7 @@ deltas are still skipped (claim-on-first-match + safety rails from 4f6425b).
 from __future__ import annotations
 import json, os, re, subprocess, sys
 from pathlib import Path
+from decimal import Decimal, ROUND_HALF_UP
 REPO = Path(__file__).resolve().parent.parent
 PULL_PATH = REPO / "logs" / "briefing-pull.json"
 CATALOG_PATH = REPO / "src" / "lib" / "data" / "catalog.ts"
@@ -390,10 +391,13 @@ def main():
         used = set()
         # higher sourced values first so Pro 96.4 beats Pro 77.4
         def _val(r):
+            mp = mapper(r)
             try:
-                return float(mapper(r).get("value") or -1)
+                v = float(mp.get("value") or -1)
             except Exception:
-                return -1
+                v = -1
+            d = mp.get("decimal")
+            return (v, float(d) if isinstance(d, (int, float)) else v)
         rows = sorted(list(rows), key=_val, reverse=True)
         for row in rows:
             mapped = mapper(row)
@@ -478,6 +482,28 @@ def main():
                 )
                 continue
             from_val = prev["value"]
+            # Small-drop guard for AA: a 1-point dip is usually display rounding or a
+            # stale page, not a real re-score. Only lower the board when AA's own
+            # decimal rounds (half-up) to the new value and sits clearly below the old.
+            if benchmark_id == "aa-intelligence" and from_val is not None and 0 < from_val - num_val <= 1:
+                dec = mapped.get("decimal")
+                ok = (
+                    isinstance(dec, (int, float))
+                    and int(Decimal(str(dec)).quantize(Decimal("1"), rounding=ROUND_HALF_UP)) == int(num_val)
+                    and dec < from_val - 0.5
+                )
+                if not ok:
+                    msg = (
+                        "aa small-drop hold %s: %s->%s not backed by AA decimal (%r); keeping %s"
+                        % (model_id, format_num(from_val), format_num(num_val), dec, format_num(from_val))
+                    )
+                    logs.append(msg)
+                    safety_skips.append(msg)
+                    continue
+                logs.append(
+                    "aa small-drop applied %s: %s->%s (AA decimal %.2f)"
+                    % (model_id, format_num(from_val), format_num(num_val), dec)
+                )
             high_conf = is_high_confidence(matched["why"], matched["score"])
             lim = safety_delta_limit(benchmark_id)
             if lim is not None and abs(num_val - from_val) > lim and not high_conf:
@@ -522,6 +548,7 @@ def main():
     # aa-intelligence from AA site ONLY — never aaii_openlm
     apply_bucket("aa-intelligence", pull.get("aa_index") or [], lambda r: {
         "name": r["name"], "value": r.get("score"), "note": r.get("note"), "variantHint": r.get("note"),
+        "decimal": r.get("scoreDecimal"),
     })
     apply_bucket("arena-elo", pull.get("arena") or [], lambda r: {
         "name": r["name"], "value": r.get("elo"), "note": None, "variantHint": None,

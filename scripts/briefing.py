@@ -23,6 +23,7 @@ Writes:
 from __future__ import annotations
 
 import html
+from decimal import Decimal, ROUND_HALF_UP
 import json
 import re
 import subprocess
@@ -145,7 +146,8 @@ def board_watch_lines(aa_entries, arena_entries, swe_entries):
 
 def fetch(url: str) -> str:
     r = subprocess.run(
-        ["curl", "-sL", "-A", UA, "-m", str(TIMEOUT), url],
+        ["curl", "-sL", "-A", UA, "-m", str(TIMEOUT),
+         "-H", "Cache-Control: no-cache", "-H", "Pragma: no-cache", url],
         capture_output=True,
         text=True,
         timeout=TIMEOUT + 5,
@@ -197,12 +199,46 @@ def parse_openlm(src: str):
     return entries
 
 
+def round_half_up(x: float) -> int:
+    return int(Decimal(str(x)).quantize(Decimal("1"), rounding=ROUND_HALF_UP))
+
+
+def aa_index_decimals(src: str) -> dict[str, list[float]]:
+    """shortName -> unrounded intelligenceIndex values from AA's embedded page data."""
+    t = src.replace('\\"', '"')
+    out: dict[str, list[float]] = {}
+    for m in re.finditer(r'"intelligenceIndex":(-?[0-9.]+)', t):
+        seg = t[max(0, m.start() - 8000):m.start()]
+        names = re.findall(r'"shortName":"([^"]+)"', seg)
+        if not names:
+            continue
+        try:
+            out.setdefault(html.unescape(names[-1]), []).append(float(m.group(1)))
+        except ValueError:
+            continue
+    return out
+
+
+def pick_decimal(cands, display):
+    """Pick the page-data decimal for a table row. shortNames can repeat, so take
+    the candidate closest to the displayed integer, and only if within 1 point."""
+    if not cands:
+        return None
+    best = min(cands, key=lambda v: abs(v - display))
+    return best if abs(best - display) <= 1.0 else None
+
+
 def parse_aa_index(src: str):
     """Best-effort / best-variant Intelligence Index from AA SSR table.
 
     Each model may appear as multiple effort rows (max, xhigh, …). We keep the
     highest numeric Index per base name and record the variant in `note`.
     """
+    # AA also embeds the unrounded Index per row in its page data, keyed by the
+    # same shortName the table shows ("GPT-6 Luna (max)"). Use that decimal and
+    # round half-up ourselves instead of trusting the display integer, so the
+    # board matches AA's own rounding and best-variant ties break on decimals.
+    decimals = aa_index_decimals(src)
     trs = re.findall(r'<tr[^>]*class="[^"]*group[^"]*"[^>]*>.*?</tr>', src, re.S)
     if len(trs) < 10:
         # fallback: any data row with sticky model cell
@@ -220,12 +256,22 @@ def parse_aa_index(src: str):
         full = cells[0]
         if not full or full.lower() in {"model", "creator"}:
             continue
-        score = num(cells[3])
-        if score is None:
+        display = num(cells[3])
+        if display is None:
             continue
         # AA Index on v4.2 is ~30–60; reject absurd parses
-        if score < 1 or score > 100:
+        if display < 1 or display > 100:
             continue
+        dec = pick_decimal(decimals.get(full), display)
+        if dec is not None:
+            score = float(round_half_up(dec))
+            if score != display:
+                print(
+                    f"AA Index: {full!r} table shows {display:g} but page data {dec:.2f} rounds to {score:g}; using page data",
+                    file=sys.stderr,
+                )
+        else:
+            score = display
         variant = None
         pm = re.search(r"\(([^)]+)\)\s*$", full)
         if pm:
@@ -235,7 +281,8 @@ def parse_aa_index(src: str):
             continue
         key = base + "|" + (variant or "")
         prev = best.get(key)
-        if prev is None or score > prev["score"]:
+        rank_val = dec if dec is not None else score
+        if prev is None or rank_val > prev.get("scoreDecimal", prev["score"]):
             note = f"best effort/variant: {variant}" if variant else "best listed row"
             if "*" in cells[3]:
                 note += " (AA marked with *)"
@@ -245,8 +292,14 @@ def parse_aa_index(src: str):
                 "note": note,
                 "variant": variant,
                 "fullName": full,
+                "scoreDecimal": dec,
+                "scoreDisplay": display,
             }
-    entries = sorted(best.values(), key=lambda e: e["score"], reverse=True)
+    entries = sorted(
+        best.values(),
+        key=lambda e: (e["score"], e["scoreDecimal"] if e["scoreDecimal"] is not None else e["score"]),
+        reverse=True,
+    )
     if len(entries) < 10:
         raise RuntimeError(f"artificialanalysis.ai: only parsed {len(entries)} models, expected 50+")
     return entries
@@ -531,7 +584,10 @@ def main():
         "arena": arena_entries,
         "aaii_openlm": aaii_openlm_entries,
         "aa_index": [
-            {"name": e["name"], "score": e["score"], "note": e.get("note")}
+            {
+                "name": e["name"], "score": e["score"], "note": e.get("note"),
+                "scoreDecimal": e.get("scoreDecimal"), "scoreDisplay": e.get("scoreDisplay"),
+            }
             for e in aa_entries
         ],
         "swe": [
