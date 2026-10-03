@@ -31,6 +31,9 @@ import { Route as NewSplatRouteImport } from './routes/new/$'
 import { Route as OldIndexRouteImport } from './routes/old/index'
 import { Route as OldSourceRouteImport } from './routes/old/source'
 import { Route as V3IndexRouteImport } from './routes/v3/index'
+import { Route as V3ChangelogRouteImport } from './routes/v3/changelog'
+import { Route as V3CompareRouteImport } from './routes/v3/compare'
+import { Route as V3MethodologyRouteImport } from './routes/v3/methodology'
 import { Route as AppBenchmarksIndexRouteImport } from './routes/_app/benchmarks.index'
 import { Route as AppBenchmarksIdRouteImport } from './routes/_app/benchmarks.$id'
 import { Route as AppLabsIndexRouteImport } from './routes/_app/labs.index'
@@ -46,8 +49,14 @@ import { Route as ApiV1LeaderboardRouteImport } from './routes/api/v1/leaderboar
 import { Route as OldModelsSlugRouteImport } from './routes/old/models.$slug'
 import { Route as OldNewsIndexRouteImport } from './routes/old/news.index'
 import { Route as OldNewsIdRouteImport } from './routes/old/news.$id'
+import { Route as V3BenchmarksIndexRouteImport } from './routes/v3/benchmarks.index'
+import { Route as V3BenchmarksIdRouteImport } from './routes/v3/benchmarks.$id'
+import { Route as V3LabsIndexRouteImport } from './routes/v3/labs.index'
+import { Route as V3LabsIdRouteImport } from './routes/v3/labs.$id'
 import { Route as V3ModelsIndexRouteImport } from './routes/v3/models.index'
 import { Route as V3ModelsSlugRouteImport } from './routes/v3/models.$slug'
+import { Route as V3NewsIndexRouteImport } from './routes/v3/news.index'
+import { Route as V3NewsIdRouteImport } from './routes/v3/news.$id'
 import { Route as ApiAdminAuthSplatRouteImport } from './routes/api/admin/auth/$'
 
 const AppRouteRoute = AppRouteRouteImport.update({
@@ -159,6 +168,21 @@ const V3IndexRoute = V3IndexRouteImport.update({
   path: '/',
   getParentRoute: () => V3RouteRoute,
 } as any)
+const V3ChangelogRoute = V3ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3CompareRoute = V3CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3MethodologyRoute = V3MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => V3RouteRoute,
+} as any)
 const AppBenchmarksIndexRoute = AppBenchmarksIndexRouteImport.update({
   id: '/benchmarks/',
   path: '/benchmarks/',
@@ -234,6 +258,26 @@ const OldNewsIdRoute = OldNewsIdRouteImport.update({
   path: '/news/$id',
   getParentRoute: () => OldRouteRoute,
 } as any)
+const V3BenchmarksIndexRoute = V3BenchmarksIndexRouteImport.update({
+  id: '/benchmarks/',
+  path: '/benchmarks/',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3BenchmarksIdRoute = V3BenchmarksIdRouteImport.update({
+  id: '/benchmarks/$id',
+  path: '/benchmarks/$id',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3LabsIndexRoute = V3LabsIndexRouteImport.update({
+  id: '/labs/',
+  path: '/labs/',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3LabsIdRoute = V3LabsIdRouteImport.update({
+  id: '/labs/$id',
+  path: '/labs/$id',
+  getParentRoute: () => V3RouteRoute,
+} as any)
 const V3ModelsIndexRoute = V3ModelsIndexRouteImport.update({
   id: '/models/',
   path: '/models/',
@@ -242,6 +286,16 @@ const V3ModelsIndexRoute = V3ModelsIndexRouteImport.update({
 const V3ModelsSlugRoute = V3ModelsSlugRouteImport.update({
   id: '/models/$slug',
   path: '/models/$slug',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3NewsIndexRoute = V3NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => V3RouteRoute,
+} as any)
+const V3NewsIdRoute = V3NewsIdRouteImport.update({
+  id: '/news/$id',
+  path: '/news/$id',
   getParentRoute: () => V3RouteRoute,
 } as any)
 const ApiAdminAuthSplatRoute = ApiAdminAuthSplatRouteImport.update({
@@ -268,6 +322,9 @@ export interface FileRoutesByFullPath {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
+  '/v3/changelog': typeof V3ChangelogRoute
+  '/v3/compare': typeof V3CompareRoute
+  '/v3/methodology': typeof V3MethodologyRoute
   '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
   '/old/': typeof OldIndexRoute
@@ -281,14 +338,20 @@ export interface FileRoutesByFullPath {
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
+  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
+  '/v3/labs/$id': typeof V3LabsIdRoute
   '/v3/models/$slug': typeof V3ModelsSlugRoute
+  '/v3/news/$id': typeof V3NewsIdRoute
   '/benchmarks/': typeof AppBenchmarksIndexRoute
   '/labs/': typeof AppLabsIndexRoute
   '/models/': typeof AppModelsIndexRoute
   '/news/': typeof AppNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
+  '/v3/benchmarks/': typeof V3BenchmarksIndexRoute
+  '/v3/labs/': typeof V3LabsIndexRoute
   '/v3/models/': typeof V3ModelsIndexRoute
+  '/v3/news/': typeof V3NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesByTo {
@@ -304,6 +367,9 @@ export interface FileRoutesByTo {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
+  '/v3/changelog': typeof V3ChangelogRoute
+  '/v3/compare': typeof V3CompareRoute
+  '/v3/methodology': typeof V3MethodologyRoute
   '/': typeof AppIndexRoute
   '/admin': typeof AdminIndexRoute
   '/new': typeof NewIndexRoute
@@ -318,14 +384,20 @@ export interface FileRoutesByTo {
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
+  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
+  '/v3/labs/$id': typeof V3LabsIdRoute
   '/v3/models/$slug': typeof V3ModelsSlugRoute
+  '/v3/news/$id': typeof V3NewsIdRoute
   '/benchmarks': typeof AppBenchmarksIndexRoute
   '/labs': typeof AppLabsIndexRoute
   '/models': typeof AppModelsIndexRoute
   '/news': typeof AppNewsIndexRoute
   '/api/v1': typeof ApiV1IndexRoute
   '/old/news': typeof OldNewsIndexRoute
+  '/v3/benchmarks': typeof V3BenchmarksIndexRoute
+  '/v3/labs': typeof V3LabsIndexRoute
   '/v3/models': typeof V3ModelsIndexRoute
+  '/v3/news': typeof V3NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesById {
@@ -347,6 +419,9 @@ export interface FileRoutesById {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
+  '/v3/changelog': typeof V3ChangelogRoute
+  '/v3/compare': typeof V3CompareRoute
+  '/v3/methodology': typeof V3MethodologyRoute
   '/_app/': typeof AppIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
@@ -361,14 +436,20 @@ export interface FileRoutesById {
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
+  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
+  '/v3/labs/$id': typeof V3LabsIdRoute
   '/v3/models/$slug': typeof V3ModelsSlugRoute
+  '/v3/news/$id': typeof V3NewsIdRoute
   '/_app/benchmarks/': typeof AppBenchmarksIndexRoute
   '/_app/labs/': typeof AppLabsIndexRoute
   '/_app/models/': typeof AppModelsIndexRoute
   '/_app/news/': typeof AppNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
+  '/v3/benchmarks/': typeof V3BenchmarksIndexRoute
+  '/v3/labs/': typeof V3LabsIndexRoute
   '/v3/models/': typeof V3ModelsIndexRoute
+  '/v3/news/': typeof V3NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRouteTypes {
@@ -391,6 +472,9 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
+    | '/v3/changelog'
+    | '/v3/compare'
+    | '/v3/methodology'
     | '/admin/'
     | '/new/'
     | '/old/'
@@ -404,14 +488,20 @@ export interface FileRouteTypes {
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
+    | '/v3/benchmarks/$id'
+    | '/v3/labs/$id'
     | '/v3/models/$slug'
+    | '/v3/news/$id'
     | '/benchmarks/'
     | '/labs/'
     | '/models/'
     | '/news/'
     | '/api/v1/'
     | '/old/news/'
+    | '/v3/benchmarks/'
+    | '/v3/labs/'
     | '/v3/models/'
+    | '/v3/news/'
     | '/api/admin/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -427,6 +517,9 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
+    | '/v3/changelog'
+    | '/v3/compare'
+    | '/v3/methodology'
     | '/'
     | '/admin'
     | '/new'
@@ -441,14 +534,20 @@ export interface FileRouteTypes {
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
+    | '/v3/benchmarks/$id'
+    | '/v3/labs/$id'
     | '/v3/models/$slug'
+    | '/v3/news/$id'
     | '/benchmarks'
     | '/labs'
     | '/models'
     | '/news'
     | '/api/v1'
     | '/old/news'
+    | '/v3/benchmarks'
+    | '/v3/labs'
     | '/v3/models'
+    | '/v3/news'
     | '/api/admin/auth/$'
   id:
     | '__root__'
@@ -469,6 +568,9 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
+    | '/v3/changelog'
+    | '/v3/compare'
+    | '/v3/methodology'
     | '/_app/'
     | '/admin/'
     | '/new/'
@@ -483,14 +585,20 @@ export interface FileRouteTypes {
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
+    | '/v3/benchmarks/$id'
+    | '/v3/labs/$id'
     | '/v3/models/$slug'
+    | '/v3/news/$id'
     | '/_app/benchmarks/'
     | '/_app/labs/'
     | '/_app/models/'
     | '/_app/news/'
     | '/api/v1/'
     | '/old/news/'
+    | '/v3/benchmarks/'
+    | '/v3/labs/'
     | '/v3/models/'
+    | '/v3/news/'
     | '/api/admin/auth/$'
   fileRoutesById: FileRoutesById
 }
@@ -668,6 +776,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V3IndexRouteImport
       parentRoute: typeof V3RouteRoute
     }
+    '/v3/changelog': {
+      id: '/v3/changelog'
+      path: '/changelog'
+      fullPath: '/v3/changelog'
+      preLoaderRoute: typeof V3ChangelogRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/compare': {
+      id: '/v3/compare'
+      path: '/compare'
+      fullPath: '/v3/compare'
+      preLoaderRoute: typeof V3CompareRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/methodology': {
+      id: '/v3/methodology'
+      path: '/methodology'
+      fullPath: '/v3/methodology'
+      preLoaderRoute: typeof V3MethodologyRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
     '/_app/benchmarks/': {
       id: '/_app/benchmarks/'
       path: '/benchmarks'
@@ -773,6 +902,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OldNewsIdRouteImport
       parentRoute: typeof OldRouteRoute
     }
+    '/v3/benchmarks/': {
+      id: '/v3/benchmarks/'
+      path: '/benchmarks'
+      fullPath: '/v3/benchmarks/'
+      preLoaderRoute: typeof V3BenchmarksIndexRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/benchmarks/$id': {
+      id: '/v3/benchmarks/$id'
+      path: '/benchmarks/$id'
+      fullPath: '/v3/benchmarks/$id'
+      preLoaderRoute: typeof V3BenchmarksIdRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/labs/': {
+      id: '/v3/labs/'
+      path: '/labs'
+      fullPath: '/v3/labs/'
+      preLoaderRoute: typeof V3LabsIndexRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/labs/$id': {
+      id: '/v3/labs/$id'
+      path: '/labs/$id'
+      fullPath: '/v3/labs/$id'
+      preLoaderRoute: typeof V3LabsIdRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
     '/v3/models/': {
       id: '/v3/models/'
       path: '/models'
@@ -785,6 +942,20 @@ declare module '@tanstack/react-router' {
       path: '/models/$slug'
       fullPath: '/v3/models/$slug'
       preLoaderRoute: typeof V3ModelsSlugRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/news/': {
+      id: '/v3/news/'
+      path: '/news'
+      fullPath: '/v3/news/'
+      preLoaderRoute: typeof V3NewsIndexRouteImport
+      parentRoute: typeof V3RouteRoute
+    }
+    '/v3/news/$id': {
+      id: '/v3/news/$id'
+      path: '/news/$id'
+      fullPath: '/v3/news/$id'
+      preLoaderRoute: typeof V3NewsIdRouteImport
       parentRoute: typeof V3RouteRoute
     }
     '/api/admin/auth/$': {
@@ -882,15 +1053,33 @@ const OldRouteRouteWithChildren = OldRouteRoute._addFileChildren(
 )
 
 interface V3RouteRouteChildren {
+  V3ChangelogRoute: typeof V3ChangelogRoute
+  V3CompareRoute: typeof V3CompareRoute
+  V3MethodologyRoute: typeof V3MethodologyRoute
   V3IndexRoute: typeof V3IndexRoute
+  V3BenchmarksIdRoute: typeof V3BenchmarksIdRoute
+  V3LabsIdRoute: typeof V3LabsIdRoute
   V3ModelsSlugRoute: typeof V3ModelsSlugRoute
+  V3NewsIdRoute: typeof V3NewsIdRoute
+  V3BenchmarksIndexRoute: typeof V3BenchmarksIndexRoute
+  V3LabsIndexRoute: typeof V3LabsIndexRoute
   V3ModelsIndexRoute: typeof V3ModelsIndexRoute
+  V3NewsIndexRoute: typeof V3NewsIndexRoute
 }
 
 const V3RouteRouteChildren: V3RouteRouteChildren = {
+  V3ChangelogRoute: V3ChangelogRoute,
+  V3CompareRoute: V3CompareRoute,
+  V3MethodologyRoute: V3MethodologyRoute,
   V3IndexRoute: V3IndexRoute,
+  V3BenchmarksIdRoute: V3BenchmarksIdRoute,
+  V3LabsIdRoute: V3LabsIdRoute,
   V3ModelsSlugRoute: V3ModelsSlugRoute,
+  V3NewsIdRoute: V3NewsIdRoute,
+  V3BenchmarksIndexRoute: V3BenchmarksIndexRoute,
+  V3LabsIndexRoute: V3LabsIndexRoute,
   V3ModelsIndexRoute: V3ModelsIndexRoute,
+  V3NewsIndexRoute: V3NewsIndexRoute,
 }
 
 const V3RouteRouteWithChildren =

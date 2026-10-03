@@ -9,12 +9,12 @@ const short = (b: Benchmark) =>
   ({ "aa-intelligence": "AA", "swe-bench": "SWE", "cursor-bench": "Cursor", "arena-elo": "Arena", "terminal-bench": "Term" })[b.id] ??
   b.short;
 
-export function Ledger() {
+export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
   const rows = useMemo(() => ledgerRows("promo"), []);
   const benches = useMemo(() => benchmarksWithScores(), []);
   const others = benches.filter((b) => b.id !== HEADLINE_BENCHMARK);
   const labs = useMemo(() => labsPresent(), []);
-  const [lab, setLab] = useState<LabId | "all">("all");
+  const [lab, setLab] = useState<LabId | "all">(fixedLab ?? "all");
   const [openOnly, setOpenOnly] = useState(false);
   const [sort, setSort] = useState<{ key: SortKey; asc: boolean }>({ key: "rank", asc: true });
   const [seed, setSeed] = useState(0); // re-runs the row entrance when the view changes
@@ -116,7 +116,7 @@ export function Ledger() {
 
   return (
     <div>
-      <div className="rx-filters">
+      <div className="rx-filters" hidden={Boolean(fixedLab)}>
         <button type="button" className={`rx-chip${lab === "all" ? " on" : ""}`} onClick={() => pick("all")}>
           All labs <span className="n">{rows.length}</span>
         </button>

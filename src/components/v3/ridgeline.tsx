@@ -46,13 +46,14 @@ function buildRidges(): Ridge[] {
   return ridges.sort((a, b) => b.best - a.best || a.name.localeCompare(b.name));
 }
 
-export function Ridgeline() {
-  const ridges = useMemo(buildRidges, []);
+export function Ridgeline({ only }: { only?: LabId } = {}) {
+  const ridges = useMemo(() => buildRidges().filter((r) => !only || r.lab === only), [only]);
   const [focus, setFocus] = useState<LabId | null>(null);
   const [tip, setTip] = useState<{ x: number; y: number; p: TimelinePoint } | null>(null);
   const box = useRef<HTMLDivElement>(null);
 
-  const all = ridges.flatMap((r) => r.points);
+  const all = (only ? buildRidges() : ridges).flatMap((r) => r.points);   // same axes as the front page
+  if (!ridges.length) return null;
   const t0 = Date.UTC(new Date(Math.min(...all.map((p) => p.t))).getUTCFullYear(), 0, 1);
   const t1 = Date.parse(`${SNAPSHOT_DATE}T00:00:00Z`) + 6 * 86400000;
   const lo = Math.min(...all.map((p) => p.aa)) - 3;

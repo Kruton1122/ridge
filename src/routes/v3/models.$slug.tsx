@@ -193,7 +193,7 @@ function ModelPage() {
           <div className="rx-desk">
             <div>
               {d.news.slice(0, 3).map((n) => (
-                <a key={n.id} className="rx-story" href={`/news/${n.id}`}>
+                <a key={n.id} className="rx-story" href={`/v3/news/${n.id}`}>
                   <span className="rx-kicker">{shortDate(n.date)} · {n.kind}</span>
                   <h3>{n.title}</h3>
                   <p>{n.dek}</p>

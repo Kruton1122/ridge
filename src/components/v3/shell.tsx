@@ -7,14 +7,14 @@ import type { LabId } from "@/lib/data/types";
 /** Lab colours come from CSS so they re-tune for paper vs night. */
 export const labVar = (lab: LabId | undefined) => `var(--lab-${lab ?? "other"})`;
 
-const NAV: { to: string; label: string; live?: boolean }[] = [
+const NAV: { to: string; label: string }[] = [
   { to: "/v3", label: "Ledger" },
   { to: "/v3/models", label: "Models" },
-  { to: "/compare", label: "Compare", live: true },
-  { to: "/benchmarks", label: "Benchmarks", live: true },
-  { to: "/labs", label: "Labs", live: true },
-  { to: "/news", label: "News", live: true },
-  { to: "/methodology", label: "Method", live: true },
+  { to: "/v3/compare", label: "Compare" },
+  { to: "/v3/benchmarks", label: "Benchmarks" },
+  { to: "/v3/labs", label: "Labs" },
+  { to: "/v3/news", label: "News" },
+  { to: "/v3/methodology", label: "Method" },
 ];
 
 type Theme = "night" | "paper";
@@ -123,9 +123,9 @@ export function Shell({ children }: { children: ReactNode }) {
           <div>
             <div className="rx-kicker">Read</div>
             <ul>
-              <li><a href="/methodology">How the ledger is built</a></li>
-              <li><a href="/changelog">Changelog</a></li>
-              <li><a href="/news">News desk</a></li>
+              <li><a href="/v3/methodology">How the ledger is built</a></li>
+              <li><a href="/v3/changelog">Changelog</a></li>
+              <li><a href="/v3/news">News desk</a></li>
             </ul>
           </div>
           <div>
