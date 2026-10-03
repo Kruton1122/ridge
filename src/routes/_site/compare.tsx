@@ -8,9 +8,8 @@ import type { LabId } from "@/lib/data/types";
 const MAX = 4;
 
 export const Route = createFileRoute("/_site/compare")({
-  validateSearch: (search: Record<string, unknown>): { ids: string } => ({
-    ids: typeof search.ids === "string" ? search.ids : "",
-  }),
+  validateSearch: (search: Record<string, unknown>): { ids?: string } =>
+    typeof search.ids === "string" && search.ids ? { ids: search.ids } : {},
   component: Compare,
   head: () => ({ meta: [{ title: "Compare — Ridge" }] }),
 });
@@ -26,7 +25,7 @@ function Compare() {
   const { models, rows } = useMemo(() => compare(chosen, "promo"), [chosen.join(",")]);
   const leads = useMemo(() => compareLeads(chosen, "promo"), [chosen.join(",")]);
 
-  const set = (next: string[]) => navigate({ search: { ids: next.join(",") }, replace: true, resetScroll: false });
+  const set = (next: string[]) => navigate({ search: next.length ? { ids: next.join(",") } : {}, replace: true, resetScroll: false });
   const toggle = (id: string) =>
     set(chosen.includes(id) ? chosen.filter((x) => x !== id) : chosen.length >= MAX ? [...chosen.slice(1), id] : [...chosen, id]);
   const pool = MODELS.filter(
