@@ -17,23 +17,20 @@ const NAV: { to: string; label: string; live?: boolean }[] = [
   { to: "/methodology", label: "Method", live: true },
 ];
 
-type Theme = "auto" | "paper" | "night";
+type Theme = "night" | "paper";
 
+/** Navy ("night") is the house style; "paper" is the daylight edition. */
 function useTheme(): [Theme, () => void] {
-  const [theme, setTheme] = useState<Theme>("auto");
+  const [theme, setTheme] = useState<Theme>("night");
   useEffect(() => {
     try {
-      const t = localStorage.getItem("ridge.theme") as Theme | null;
-      if (t === "paper" || t === "night") setTheme(t);
+      if (localStorage.getItem("ridge.theme") === "paper") setTheme("paper");
     } catch {
       /* private mode */
     }
   }, []);
   const toggle = () => {
-    const dark =
-      theme === "night" ||
-      (theme === "auto" && typeof matchMedia !== "undefined" && matchMedia("(prefers-color-scheme: dark)").matches);
-    const next: Theme = dark ? "paper" : "night";
+    const next: Theme = theme === "paper" ? "night" : "paper";
     setTheme(next);
     try {
       localStorage.setItem("ridge.theme", next);
@@ -65,12 +62,12 @@ export function Shell({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="rx" data-theme={theme === "auto" ? undefined : theme}>
+    <div className="rx" data-theme={theme}>
       <div className="rx-top">
         <div className="rx-wrap">
           <span suppressHydrationWarning>{date || " "}</span>
           <span className="live">
-            <i /> Snapshot {SNAPSHOT_LABEL} · AA Index v4.2 · {CATALOG_STATS.models} models
+            <i /> Snapshot {SNAPSHOT_LABEL}<span className="wide"> · AA Index v4.2 · {CATALOG_STATS.models} models</span>
           </span>
         </div>
       </div>
@@ -106,7 +103,7 @@ export function Shell({ children }: { children: ReactNode }) {
               <circle cx="12" cy="12" r="8.5" />
               <path d="M12 3.5a8.5 8.5 0 0 0 0 17z" fill="currentColor" />
             </svg>
-            <span>Edition</span>
+            <span>{theme === "paper" ? "Night" : "Daylight"}</span>
           </button>
         </div>
       </nav>
