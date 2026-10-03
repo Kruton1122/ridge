@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "oai-moonshot-distillation-0930",
+    title: "OpenAI says people tied to Moonshot AI ran a campaign to extract its models' hidden reasoning",
+    blurb:
+      "30 September. OpenAI says it found and shut down a coordinated campaign to pull protected reasoning out of its models. It calls this adversarial distillation: using one model's outputs or reasoning to train another without permission. The activity began on 1 July and spiked on 24 and 25 July, with 16,000 requests from more than 4,000 users. A wider cluster of more than 15,000 users was fully disrupted by 28 July. OpenAI says operators did not break its encryption or reach stored conversations. They tricked models into revealing reasoning, including by pasting encrypted reasoning into a new chat and asking the model to decrypt it. OpenAI attributes a core cluster to individuals associated with Moonshot AI, the maker of Kimi, but says it is unclear whether all of it came from one actor. It has closed the replay path and shared findings through the Frontier Model Forum. This follows Anthropic's 10 September threat report, which also named Moonshot over Claude distillation, and China's later probe of DeepSeek and Moonshot. Source: https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+    date: "2026-09-30",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+    beat: "labs",
+    models: ["kimi-k3", "gpt-6-astra"],
+  },
+
+  {
     id: "aa-coding-agent-1001",
     title: "AA Coding Agent Index: Sonnet 5.5 tops it, GPT-6.1 Sol is the cheap pick",
     blurb:

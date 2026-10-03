@@ -1,9 +1,10 @@
 export const CHANGELOG = [
   {
     date: "2026-10-02",
-    title: "Wire: AA Coding Agent Index on this week's launches",
+    title: "Wires: AA Coding Agent Index, OpenAI on Moonshot distillation",
     items: [
       "New wire: Artificial Analysis Coding Agent Index puts Claude Sonnet 5.5 (max, Claude Code) first at 68, Gemini 4 Argon (high) at 64, and GPT-6.1 Sol (xhigh, Codex) at 63 for about $1 a task. It is separate from the AA Intelligence Index, so no board scores change. Source: https://artificialanalysis.ai/agents/coding-agents",
+      "New wire: OpenAI says individuals associated with Moonshot AI ran a coordinated campaign to extract its models' hidden reasoning, disrupted by 28 July (OpenAI, 30 Sep). It follows Anthropic's 10 September distillation report. Source: https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
       "Claude Sonnet 5.5 stays at 56 on the AA Intelligence Index. Artificial Analysis has not yet published its re-run on the fixed build.",
     ],
   },
