@@ -6,7 +6,7 @@ import { NEWS } from "@/lib/data/desk";
 import { labStats } from "@/lib/data/derived";
 import type { LabId } from "@/lib/data/types";
 
-export const Route = createFileRoute("/v3/labs/$id")({
+export const Route = createFileRoute("/_site/labs/$id")({
   component: Lab,
   loader: ({ params }) => {
     if (!labStats().some((l) => l.lab === params.id)) throw notFound();
@@ -46,7 +46,7 @@ function Lab() {
           <div className="rx-sec-head"><div><div className="rx-kicker">From the desk</div><h2>Recent notes</h2></div></div>
           <div>
             {news.map((n) => (
-              <a key={n.id} className="rx-story" href={`/v3/news/${n.id}`}>
+              <a key={n.id} className="rx-story" href={`/news/${n.id}`}>
                 <span className="rx-kicker">{n.date} · {n.kind}</span>
                 <h3>{n.title}</h3>
                 <p>{n.dek}</p>

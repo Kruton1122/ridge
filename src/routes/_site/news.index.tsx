@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/v3/news/")({
+export const Route = createFileRoute("/_site/news/")({
   component: News,
   head: () => ({ meta: [{ title: "News — Ridge" }] }),
 });
@@ -23,7 +23,7 @@ function News() {
       <div className="rx-desk" style={{ paddingTop: 20 }}>
         <div>
           {lead && (
-            <a className="rx-story lead rx-in" href={`/v3/news/${lead.id}`}>
+            <a className="rx-story lead rx-in" href={`/news/${lead.id}`}>
               <span className="rx-kicker">{fmt(lead.date)} · {lead.kind}{isFresh(lead.date) ? " · new" : ""}</span>
               <h3>{lead.title}</h3>
               <p>{lead.dek}</p>
@@ -31,7 +31,7 @@ function News() {
             </a>
           )}
           {rest.map((n, i) => (
-            <a key={n.id} className="rx-story rx-in" href={`/v3/news/${n.id}`} style={{ "--d": `${Math.min(i, 8) * 40}ms` } as React.CSSProperties}>
+            <a key={n.id} className="rx-story rx-in" href={`/news/${n.id}`} style={{ "--d": `${Math.min(i, 8) * 40}ms` } as React.CSSProperties}>
               <span className="rx-kicker">{fmt(n.date)} · {n.kind}{isFresh(n.date) ? " · new" : ""}</span>
               <h3>{n.title}</h3>
               <p>{n.dek}</p>

@@ -3,7 +3,7 @@ import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { CATALOG_STATS, benchmarksWithScores, coverage } from "@/lib/data/derived";
 import { LEDGER_SOURCES, nextPullLabel } from "@/lib/data/ledger";
 
-export const Route = createFileRoute("/v3/methodology")({
+export const Route = createFileRoute("/_site/methodology")({
   component: Methodology,
   head: () => ({
     meta: [
@@ -54,7 +54,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     title: "What runs, and when",
     body: [
       <>A scraper runs every morning against the published leaderboards, writes what it found to a staging file, and a second pass applies it to the catalog. That second pass can only update score rows that already exist — it is not allowed to create a model. Adding a model to the catalog is a deliberate act with a source attached, which is why a launch can appear in the news section days before it appears on the board.</>,
-      <>Where the scrape and a source disagree, the source wins and the disagreement gets written down. The <a className="rx-link" href="/v3/changelog">changelog</a> is not decoration; it is the audit trail for every number that has moved. Machine-readable copies live at the <a className="rx-link" href="/api">API page</a>.</>,
+      <>Where the scrape and a source disagree, the source wins and the disagreement gets written down. The <a className="rx-link" href="/changelog">changelog</a> is not decoration; it is the audit trail for every number that has moved. Machine-readable copies live at the <a className="rx-link" href="/api">API page</a>.</>,
     ],
   },
   {
@@ -108,7 +108,7 @@ function Methodology() {
                 const c = cov.find((x) => x.benchmark.id === b.id);
                 return (
                   <li key={b.id}>
-                    <a href={`/v3/benchmarks/${b.id}`}>{b.name}</a>
+                    <a href={`/benchmarks/${b.id}`}>{b.name}</a>
                     <span className="rx-faint">{b.sourceName} · {b.asOf}{c ? ` · ${c.scored}/${c.total}` : ""}</span>
                     {c && <span className="covbar"><i style={{ "--w": c.scored / c.total } as React.CSSProperties} /></span>}
                   </li>

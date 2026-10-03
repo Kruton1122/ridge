@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
 import { board, coverage, formatValue } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/v3/benchmarks/")({
+export const Route = createFileRoute("/_site/benchmarks/")({
   component: Benchmarks,
   head: () => ({ meta: [{ title: "Benchmarks — Ridge" }] }),
 });
@@ -20,7 +20,7 @@ function Benchmarks() {
         {rows.map(({ benchmark: b, scored, total }, i) => {
           const top = board(b.id).slice(0, 5);
           return (
-            <a key={b.id} href={`/v3/benchmarks/${b.id}`} className="rx-bench rx-in" style={{ "--d": `${i * 70}ms` } as React.CSSProperties}>
+            <a key={b.id} href={`/benchmarks/${b.id}`} className="rx-bench rx-in" style={{ "--d": `${i * 70}ms` } as React.CSSProperties}>
               <div className="rx-kicker">{b.category} · {b.sourceName}</div>
               <h2>{b.name}</h2>
               <p>{b.description}</p>

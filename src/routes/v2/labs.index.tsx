@@ -5,7 +5,7 @@ import { Container } from "@/components/new/shell";
 import { LAB_COLORS } from "@/lib/data/colors";
 import { labStats } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/_app/labs/")({
+export const Route = createFileRoute("/v2/labs/")({
   component: LabIndex,
   head: () => ({
     meta: [

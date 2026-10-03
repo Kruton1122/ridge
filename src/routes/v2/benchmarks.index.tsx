@@ -6,7 +6,7 @@ import { Container } from "@/components/new/shell";
 import { MODELS } from "@/lib/data/catalog";
 import { coverage } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/_app/benchmarks/")({
+export const Route = createFileRoute("/v2/benchmarks/")({
   component: BenchmarkIndex,
   head: () => ({
     meta: [

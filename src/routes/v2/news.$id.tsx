@@ -15,7 +15,7 @@ import { getModel } from "@/lib/data/catalog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { rankOf } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/_app/news/$id")({
+export const Route = createFileRoute("/v2/news/$id")({
   component: DeskNote,
   head: ({ params }) => {
     const item = NEWS.find((n) => n.id === params.id);

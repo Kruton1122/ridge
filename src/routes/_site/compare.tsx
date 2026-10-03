@@ -7,7 +7,7 @@ import type { LabId } from "@/lib/data/types";
 
 const MAX = 4;
 
-export const Route = createFileRoute("/v3/compare")({
+export const Route = createFileRoute("/_site/compare")({
   validateSearch: (search: Record<string, unknown>): { ids: string } => ({
     ids: typeof search.ids === "string" ? search.ids : "",
   }),
@@ -17,7 +17,7 @@ export const Route = createFileRoute("/v3/compare")({
 
 function Compare() {
   const { ids } = Route.useSearch();
-  const navigate = useNavigate({ from: "/v3/compare" });
+  const navigate = useNavigate({ from: "/compare" });
   const presets = useMemo(() => comparePresets(), []);
   const chosen = (ids ? ids.split(",") : presets[0]?.ids ?? []).filter((id) => MODELS.some((m) => m.id === id)).slice(0, MAX);
   const [q, setQ] = useState("");
@@ -104,7 +104,7 @@ function Compare() {
                   <th className="l" />
                   {models.map((m) => (
                     <th key={m.id} className="l" style={{ "--c": labVar(m.lab) } as React.CSSProperties}>
-                      <a className="cmp-h" href={`/v3/models/${m.id}`}><i />{m.name}<span>{m.labName}</span></a>
+                      <a className="cmp-h" href={`/models/${m.id}`}><i />{m.name}<span>{m.labName}</span></a>
                     </th>
                   ))}
                 </tr>

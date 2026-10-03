@@ -14,7 +14,7 @@ import { Container } from "@/components/new/shell";
 import { formatContext } from "@/lib/data/catalog";
 import { labStats, moneyPair, rankOf } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/_app/models/")({
+export const Route = createFileRoute("/v2/models/")({
   component: ModelIndex,
   head: () => ({
     meta: [

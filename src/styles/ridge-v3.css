@@ -691,3 +691,21 @@
   .rx-article .rx-table td { white-space: normal; }
   .rx-article .rx-table .m { min-width: 0; flex-wrap: wrap; }
 }
+
+/* api */
+.rx-api-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.rx-api-stats .v { font-size: 20px; }
+@media (max-width: 820px) { .rx-api-stats { grid-template-columns: 1fr; } }
+.rx-endpoints { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 12px; margin: 28px 0 10px; }
+.rx-endpoints a { display: flex; flex-direction: column; gap: 6px; padding: 18px; border: 1px solid var(--rule); border-radius: 6px; background: var(--paper-2); transition: border-color 0.2s, transform 0.2s var(--ease); }
+.rx-endpoints a:hover { border-color: var(--accent); transform: translateY(-2px); }
+.rx-endpoints .p { color: var(--accent); font-size: 13.5px; overflow-wrap: anywhere; }
+.rx-endpoints .t { font-weight: 600; font-size: 15px; }
+.rx-endpoints .b { font-size: 13px; line-height: 1.55; color: var(--ink-2); }
+
+/* models index: on phones drop the date column and let names wrap */
+@media (max-width: 640px) {
+  .rx-mlist .rel { display: none; }
+  .rx-mlist .m { min-width: 0; }
+  .rx-mlist td.l { white-space: normal; }
+}

@@ -87,7 +87,7 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
       className={r.rank == null ? "unscored" : undefined}>
       <td className="rank">{r.rank != null ? <b>{r.tied ? `=${r.rank}` : r.rank}</b> : "—"}</td>
       <td className="l">
-        <a className="m" href={`/v3/models/${r.model.id}`}>
+        <a className="m" href={`/models/${r.model.id}`}>
           <span className="dot" />
           <span className="m-name">{r.model.name}</span>
           <span className="m-lab">{r.model.labName}</span>

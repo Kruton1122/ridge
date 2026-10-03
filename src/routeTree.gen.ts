@@ -9,17 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as AppRouteRouteImport } from './routes/_app/route'
+import { Route as SiteRouteRouteImport } from './routes/_site/route'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as NewRouteRouteImport } from './routes/new/route'
 import { Route as OldRouteRouteImport } from './routes/old/route'
 import { Route as SourceRouteImport } from './routes/source'
+import { Route as V2RouteRouteImport } from './routes/v2/route'
 import { Route as V3RouteRouteImport } from './routes/v3/route'
-import { Route as AppIndexRouteImport } from './routes/_app/index'
-import { Route as AppApiRouteImport } from './routes/_app/api'
-import { Route as AppChangelogRouteImport } from './routes/_app/changelog'
-import { Route as AppCompareRouteImport } from './routes/_app/compare'
-import { Route as AppMethodologyRouteImport } from './routes/_app/methodology'
+import { Route as SiteIndexRouteImport } from './routes/_site/index'
+import { Route as SiteApiRouteImport } from './routes/_site/api'
+import { Route as SiteChangelogRouteImport } from './routes/_site/changelog'
+import { Route as SiteCompareRouteImport } from './routes/_site/compare'
+import { Route as SiteMethodologyRouteImport } from './routes/_site/methodology'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
 import { Route as ApiLedgerRouteImport } from './routes/api/ledger'
@@ -30,18 +31,20 @@ import { Route as NewIndexRouteImport } from './routes/new/index'
 import { Route as NewSplatRouteImport } from './routes/new/$'
 import { Route as OldIndexRouteImport } from './routes/old/index'
 import { Route as OldSourceRouteImport } from './routes/old/source'
+import { Route as V2IndexRouteImport } from './routes/v2/index'
+import { Route as V2ChangelogRouteImport } from './routes/v2/changelog'
+import { Route as V2CompareRouteImport } from './routes/v2/compare'
+import { Route as V2MethodologyRouteImport } from './routes/v2/methodology'
 import { Route as V3IndexRouteImport } from './routes/v3/index'
-import { Route as V3ChangelogRouteImport } from './routes/v3/changelog'
-import { Route as V3CompareRouteImport } from './routes/v3/compare'
-import { Route as V3MethodologyRouteImport } from './routes/v3/methodology'
-import { Route as AppBenchmarksIndexRouteImport } from './routes/_app/benchmarks.index'
-import { Route as AppBenchmarksIdRouteImport } from './routes/_app/benchmarks.$id'
-import { Route as AppLabsIndexRouteImport } from './routes/_app/labs.index'
-import { Route as AppLabsIdRouteImport } from './routes/_app/labs.$id'
-import { Route as AppModelsIndexRouteImport } from './routes/_app/models.index'
-import { Route as AppModelsSlugRouteImport } from './routes/_app/models.$slug'
-import { Route as AppNewsIndexRouteImport } from './routes/_app/news.index'
-import { Route as AppNewsIdRouteImport } from './routes/_app/news.$id'
+import { Route as V3SplatRouteImport } from './routes/v3/$'
+import { Route as SiteBenchmarksIndexRouteImport } from './routes/_site/benchmarks.index'
+import { Route as SiteBenchmarksIdRouteImport } from './routes/_site/benchmarks.$id'
+import { Route as SiteLabsIndexRouteImport } from './routes/_site/labs.index'
+import { Route as SiteLabsIdRouteImport } from './routes/_site/labs.$id'
+import { Route as SiteModelsIndexRouteImport } from './routes/_site/models.index'
+import { Route as SiteModelsSlugRouteImport } from './routes/_site/models.$slug'
+import { Route as SiteNewsIndexRouteImport } from './routes/_site/news.index'
+import { Route as SiteNewsIdRouteImport } from './routes/_site/news.$id'
 import { Route as ApiAdminBootstrapRouteImport } from './routes/api/admin/bootstrap'
 import { Route as ApiAdminStatsRouteImport } from './routes/api/admin/stats'
 import { Route as ApiV1IndexRouteImport } from './routes/api/v1/index'
@@ -49,18 +52,18 @@ import { Route as ApiV1LeaderboardRouteImport } from './routes/api/v1/leaderboar
 import { Route as OldModelsSlugRouteImport } from './routes/old/models.$slug'
 import { Route as OldNewsIndexRouteImport } from './routes/old/news.index'
 import { Route as OldNewsIdRouteImport } from './routes/old/news.$id'
-import { Route as V3BenchmarksIndexRouteImport } from './routes/v3/benchmarks.index'
-import { Route as V3BenchmarksIdRouteImport } from './routes/v3/benchmarks.$id'
-import { Route as V3LabsIndexRouteImport } from './routes/v3/labs.index'
-import { Route as V3LabsIdRouteImport } from './routes/v3/labs.$id'
-import { Route as V3ModelsIndexRouteImport } from './routes/v3/models.index'
-import { Route as V3ModelsSlugRouteImport } from './routes/v3/models.$slug'
-import { Route as V3NewsIndexRouteImport } from './routes/v3/news.index'
-import { Route as V3NewsIdRouteImport } from './routes/v3/news.$id'
+import { Route as V2BenchmarksIndexRouteImport } from './routes/v2/benchmarks.index'
+import { Route as V2BenchmarksIdRouteImport } from './routes/v2/benchmarks.$id'
+import { Route as V2LabsIndexRouteImport } from './routes/v2/labs.index'
+import { Route as V2LabsIdRouteImport } from './routes/v2/labs.$id'
+import { Route as V2ModelsIndexRouteImport } from './routes/v2/models.index'
+import { Route as V2ModelsSlugRouteImport } from './routes/v2/models.$slug'
+import { Route as V2NewsIndexRouteImport } from './routes/v2/news.index'
+import { Route as V2NewsIdRouteImport } from './routes/v2/news.$id'
 import { Route as ApiAdminAuthSplatRouteImport } from './routes/api/admin/auth/$'
 
-const AppRouteRoute = AppRouteRouteImport.update({
-  id: '/_app',
+const SiteRouteRoute = SiteRouteRouteImport.update({
+  id: '/_site',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminRouteRoute = AdminRouteRouteImport.update({
@@ -83,35 +86,40 @@ const SourceRoute = SourceRouteImport.update({
   path: '/source',
   getParentRoute: () => rootRouteImport,
 } as any)
+const V2RouteRoute = V2RouteRouteImport.update({
+  id: '/v2',
+  path: '/v2',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const V3RouteRoute = V3RouteRouteImport.update({
   id: '/v3',
   path: '/v3',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AppIndexRoute = AppIndexRouteImport.update({
+const SiteIndexRoute = SiteIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppApiRoute = AppApiRouteImport.update({
+const SiteApiRoute = SiteApiRouteImport.update({
   id: '/api',
   path: '/api',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppChangelogRoute = AppChangelogRouteImport.update({
+const SiteChangelogRoute = SiteChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppCompareRoute = AppCompareRouteImport.update({
+const SiteCompareRoute = SiteCompareRouteImport.update({
   id: '/compare',
   path: '/compare',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppMethodologyRoute = AppMethodologyRouteImport.update({
+const SiteMethodologyRoute = SiteMethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: '/',
@@ -163,65 +171,75 @@ const OldSourceRoute = OldSourceRouteImport.update({
   path: '/source',
   getParentRoute: () => OldRouteRoute,
 } as any)
+const V2IndexRoute = V2IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => V2RouteRoute,
+} as any)
+const V2ChangelogRoute = V2ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => V2RouteRoute,
+} as any)
+const V2CompareRoute = V2CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => V2RouteRoute,
+} as any)
+const V2MethodologyRoute = V2MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => V2RouteRoute,
+} as any)
 const V3IndexRoute = V3IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => V3RouteRoute,
 } as any)
-const V3ChangelogRoute = V3ChangelogRouteImport.update({
-  id: '/changelog',
-  path: '/changelog',
+const V3SplatRoute = V3SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
   getParentRoute: () => V3RouteRoute,
 } as any)
-const V3CompareRoute = V3CompareRouteImport.update({
-  id: '/compare',
-  path: '/compare',
-  getParentRoute: () => V3RouteRoute,
-} as any)
-const V3MethodologyRoute = V3MethodologyRouteImport.update({
-  id: '/methodology',
-  path: '/methodology',
-  getParentRoute: () => V3RouteRoute,
-} as any)
-const AppBenchmarksIndexRoute = AppBenchmarksIndexRouteImport.update({
+const SiteBenchmarksIndexRoute = SiteBenchmarksIndexRouteImport.update({
   id: '/benchmarks/',
   path: '/benchmarks/',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppBenchmarksIdRoute = AppBenchmarksIdRouteImport.update({
+const SiteBenchmarksIdRoute = SiteBenchmarksIdRouteImport.update({
   id: '/benchmarks/$id',
   path: '/benchmarks/$id',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppLabsIndexRoute = AppLabsIndexRouteImport.update({
+const SiteLabsIndexRoute = SiteLabsIndexRouteImport.update({
   id: '/labs/',
   path: '/labs/',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppLabsIdRoute = AppLabsIdRouteImport.update({
+const SiteLabsIdRoute = SiteLabsIdRouteImport.update({
   id: '/labs/$id',
   path: '/labs/$id',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppModelsIndexRoute = AppModelsIndexRouteImport.update({
+const SiteModelsIndexRoute = SiteModelsIndexRouteImport.update({
   id: '/models/',
   path: '/models/',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppModelsSlugRoute = AppModelsSlugRouteImport.update({
+const SiteModelsSlugRoute = SiteModelsSlugRouteImport.update({
   id: '/models/$slug',
   path: '/models/$slug',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppNewsIndexRoute = AppNewsIndexRouteImport.update({
+const SiteNewsIndexRoute = SiteNewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
-const AppNewsIdRoute = AppNewsIdRouteImport.update({
+const SiteNewsIdRoute = SiteNewsIdRouteImport.update({
   id: '/news/$id',
   path: '/news/$id',
-  getParentRoute: () => AppRouteRoute,
+  getParentRoute: () => SiteRouteRoute,
 } as any)
 const ApiAdminBootstrapRoute = ApiAdminBootstrapRouteImport.update({
   id: '/api/admin/bootstrap',
@@ -258,45 +276,45 @@ const OldNewsIdRoute = OldNewsIdRouteImport.update({
   path: '/news/$id',
   getParentRoute: () => OldRouteRoute,
 } as any)
-const V3BenchmarksIndexRoute = V3BenchmarksIndexRouteImport.update({
+const V2BenchmarksIndexRoute = V2BenchmarksIndexRouteImport.update({
   id: '/benchmarks/',
   path: '/benchmarks/',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3BenchmarksIdRoute = V3BenchmarksIdRouteImport.update({
+const V2BenchmarksIdRoute = V2BenchmarksIdRouteImport.update({
   id: '/benchmarks/$id',
   path: '/benchmarks/$id',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3LabsIndexRoute = V3LabsIndexRouteImport.update({
+const V2LabsIndexRoute = V2LabsIndexRouteImport.update({
   id: '/labs/',
   path: '/labs/',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3LabsIdRoute = V3LabsIdRouteImport.update({
+const V2LabsIdRoute = V2LabsIdRouteImport.update({
   id: '/labs/$id',
   path: '/labs/$id',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3ModelsIndexRoute = V3ModelsIndexRouteImport.update({
+const V2ModelsIndexRoute = V2ModelsIndexRouteImport.update({
   id: '/models/',
   path: '/models/',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3ModelsSlugRoute = V3ModelsSlugRouteImport.update({
+const V2ModelsSlugRoute = V2ModelsSlugRouteImport.update({
   id: '/models/$slug',
   path: '/models/$slug',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3NewsIndexRoute = V3NewsIndexRouteImport.update({
+const V2NewsIndexRoute = V2NewsIndexRouteImport.update({
   id: '/news/',
   path: '/news/',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
-const V3NewsIdRoute = V3NewsIdRouteImport.update({
+const V2NewsIdRoute = V2NewsIdRouteImport.update({
   id: '/news/$id',
   path: '/news/$id',
-  getParentRoute: () => V3RouteRoute,
+  getParentRoute: () => V2RouteRoute,
 } as any)
 const ApiAdminAuthSplatRoute = ApiAdminAuthSplatRouteImport.update({
   id: '/api/admin/auth/$',
@@ -305,16 +323,17 @@ const ApiAdminAuthSplatRoute = ApiAdminAuthSplatRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof AppIndexRoute
+  '/': typeof SiteIndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/new': typeof NewRouteRouteWithChildren
   '/old': typeof OldRouteRouteWithChildren
+  '/v2': typeof V2RouteRouteWithChildren
   '/v3': typeof V3RouteRouteWithChildren
   '/source': typeof SourceRoute
-  '/api': typeof AppApiRoute
-  '/changelog': typeof AppChangelogRoute
-  '/compare': typeof AppCompareRoute
-  '/methodology': typeof AppMethodologyRoute
+  '/api': typeof SiteApiRoute
+  '/changelog': typeof SiteChangelogRoute
+  '/compare': typeof SiteCompareRoute
+  '/methodology': typeof SiteMethodologyRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
@@ -322,44 +341,46 @@ export interface FileRoutesByFullPath {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
-  '/v3/changelog': typeof V3ChangelogRoute
-  '/v3/compare': typeof V3CompareRoute
-  '/v3/methodology': typeof V3MethodologyRoute
+  '/v2/changelog': typeof V2ChangelogRoute
+  '/v2/compare': typeof V2CompareRoute
+  '/v2/methodology': typeof V2MethodologyRoute
+  '/v3/$': typeof V3SplatRoute
   '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
   '/old/': typeof OldIndexRoute
+  '/v2/': typeof V2IndexRoute
   '/v3/': typeof V3IndexRoute
-  '/benchmarks/$id': typeof AppBenchmarksIdRoute
-  '/labs/$id': typeof AppLabsIdRoute
-  '/models/$slug': typeof AppModelsSlugRoute
-  '/news/$id': typeof AppNewsIdRoute
+  '/benchmarks/$id': typeof SiteBenchmarksIdRoute
+  '/labs/$id': typeof SiteLabsIdRoute
+  '/models/$slug': typeof SiteModelsSlugRoute
+  '/news/$id': typeof SiteNewsIdRoute
   '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
   '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
-  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
-  '/v3/labs/$id': typeof V3LabsIdRoute
-  '/v3/models/$slug': typeof V3ModelsSlugRoute
-  '/v3/news/$id': typeof V3NewsIdRoute
-  '/benchmarks/': typeof AppBenchmarksIndexRoute
-  '/labs/': typeof AppLabsIndexRoute
-  '/models/': typeof AppModelsIndexRoute
-  '/news/': typeof AppNewsIndexRoute
+  '/v2/benchmarks/$id': typeof V2BenchmarksIdRoute
+  '/v2/labs/$id': typeof V2LabsIdRoute
+  '/v2/models/$slug': typeof V2ModelsSlugRoute
+  '/v2/news/$id': typeof V2NewsIdRoute
+  '/benchmarks/': typeof SiteBenchmarksIndexRoute
+  '/labs/': typeof SiteLabsIndexRoute
+  '/models/': typeof SiteModelsIndexRoute
+  '/news/': typeof SiteNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
-  '/v3/benchmarks/': typeof V3BenchmarksIndexRoute
-  '/v3/labs/': typeof V3LabsIndexRoute
-  '/v3/models/': typeof V3ModelsIndexRoute
-  '/v3/news/': typeof V3NewsIndexRoute
+  '/v2/benchmarks/': typeof V2BenchmarksIndexRoute
+  '/v2/labs/': typeof V2LabsIndexRoute
+  '/v2/models/': typeof V2ModelsIndexRoute
+  '/v2/news/': typeof V2NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/source': typeof SourceRoute
-  '/api': typeof AppApiRoute
-  '/changelog': typeof AppChangelogRoute
-  '/compare': typeof AppCompareRoute
-  '/methodology': typeof AppMethodologyRoute
+  '/api': typeof SiteApiRoute
+  '/changelog': typeof SiteChangelogRoute
+  '/compare': typeof SiteCompareRoute
+  '/methodology': typeof SiteMethodologyRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
@@ -367,51 +388,54 @@ export interface FileRoutesByTo {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
-  '/v3/changelog': typeof V3ChangelogRoute
-  '/v3/compare': typeof V3CompareRoute
-  '/v3/methodology': typeof V3MethodologyRoute
-  '/': typeof AppIndexRoute
+  '/v2/changelog': typeof V2ChangelogRoute
+  '/v2/compare': typeof V2CompareRoute
+  '/v2/methodology': typeof V2MethodologyRoute
+  '/v3/$': typeof V3SplatRoute
+  '/': typeof SiteIndexRoute
   '/admin': typeof AdminIndexRoute
   '/new': typeof NewIndexRoute
   '/old': typeof OldIndexRoute
+  '/v2': typeof V2IndexRoute
   '/v3': typeof V3IndexRoute
-  '/benchmarks/$id': typeof AppBenchmarksIdRoute
-  '/labs/$id': typeof AppLabsIdRoute
-  '/models/$slug': typeof AppModelsSlugRoute
-  '/news/$id': typeof AppNewsIdRoute
+  '/benchmarks/$id': typeof SiteBenchmarksIdRoute
+  '/labs/$id': typeof SiteLabsIdRoute
+  '/models/$slug': typeof SiteModelsSlugRoute
+  '/news/$id': typeof SiteNewsIdRoute
   '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
   '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
-  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
-  '/v3/labs/$id': typeof V3LabsIdRoute
-  '/v3/models/$slug': typeof V3ModelsSlugRoute
-  '/v3/news/$id': typeof V3NewsIdRoute
-  '/benchmarks': typeof AppBenchmarksIndexRoute
-  '/labs': typeof AppLabsIndexRoute
-  '/models': typeof AppModelsIndexRoute
-  '/news': typeof AppNewsIndexRoute
+  '/v2/benchmarks/$id': typeof V2BenchmarksIdRoute
+  '/v2/labs/$id': typeof V2LabsIdRoute
+  '/v2/models/$slug': typeof V2ModelsSlugRoute
+  '/v2/news/$id': typeof V2NewsIdRoute
+  '/benchmarks': typeof SiteBenchmarksIndexRoute
+  '/labs': typeof SiteLabsIndexRoute
+  '/models': typeof SiteModelsIndexRoute
+  '/news': typeof SiteNewsIndexRoute
   '/api/v1': typeof ApiV1IndexRoute
   '/old/news': typeof OldNewsIndexRoute
-  '/v3/benchmarks': typeof V3BenchmarksIndexRoute
-  '/v3/labs': typeof V3LabsIndexRoute
-  '/v3/models': typeof V3ModelsIndexRoute
-  '/v3/news': typeof V3NewsIndexRoute
+  '/v2/benchmarks': typeof V2BenchmarksIndexRoute
+  '/v2/labs': typeof V2LabsIndexRoute
+  '/v2/models': typeof V2ModelsIndexRoute
+  '/v2/news': typeof V2NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/_app': typeof AppRouteRouteWithChildren
+  '/_site': typeof SiteRouteRouteWithChildren
   '/admin': typeof AdminRouteRouteWithChildren
   '/new': typeof NewRouteRouteWithChildren
   '/old': typeof OldRouteRouteWithChildren
+  '/v2': typeof V2RouteRouteWithChildren
   '/v3': typeof V3RouteRouteWithChildren
   '/source': typeof SourceRoute
-  '/_app/api': typeof AppApiRoute
-  '/_app/changelog': typeof AppChangelogRoute
-  '/_app/compare': typeof AppCompareRoute
-  '/_app/methodology': typeof AppMethodologyRoute
+  '/_site/api': typeof SiteApiRoute
+  '/_site/changelog': typeof SiteChangelogRoute
+  '/_site/compare': typeof SiteCompareRoute
+  '/_site/methodology': typeof SiteMethodologyRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
   '/api/ledger.csv': typeof ApiLedgerDotcsvRoute
@@ -419,37 +443,39 @@ export interface FileRoutesById {
   '/api/t': typeof ApiTRoute
   '/new/$': typeof NewSplatRoute
   '/old/source': typeof OldSourceRoute
-  '/v3/changelog': typeof V3ChangelogRoute
-  '/v3/compare': typeof V3CompareRoute
-  '/v3/methodology': typeof V3MethodologyRoute
-  '/_app/': typeof AppIndexRoute
+  '/v2/changelog': typeof V2ChangelogRoute
+  '/v2/compare': typeof V2CompareRoute
+  '/v2/methodology': typeof V2MethodologyRoute
+  '/v3/$': typeof V3SplatRoute
+  '/_site/': typeof SiteIndexRoute
   '/admin/': typeof AdminIndexRoute
   '/new/': typeof NewIndexRoute
   '/old/': typeof OldIndexRoute
+  '/v2/': typeof V2IndexRoute
   '/v3/': typeof V3IndexRoute
-  '/_app/benchmarks/$id': typeof AppBenchmarksIdRoute
-  '/_app/labs/$id': typeof AppLabsIdRoute
-  '/_app/models/$slug': typeof AppModelsSlugRoute
-  '/_app/news/$id': typeof AppNewsIdRoute
+  '/_site/benchmarks/$id': typeof SiteBenchmarksIdRoute
+  '/_site/labs/$id': typeof SiteLabsIdRoute
+  '/_site/models/$slug': typeof SiteModelsSlugRoute
+  '/_site/news/$id': typeof SiteNewsIdRoute
   '/api/admin/bootstrap': typeof ApiAdminBootstrapRoute
   '/api/admin/stats': typeof ApiAdminStatsRoute
   '/api/v1/leaderboard': typeof ApiV1LeaderboardRoute
   '/old/models/$slug': typeof OldModelsSlugRoute
   '/old/news/$id': typeof OldNewsIdRoute
-  '/v3/benchmarks/$id': typeof V3BenchmarksIdRoute
-  '/v3/labs/$id': typeof V3LabsIdRoute
-  '/v3/models/$slug': typeof V3ModelsSlugRoute
-  '/v3/news/$id': typeof V3NewsIdRoute
-  '/_app/benchmarks/': typeof AppBenchmarksIndexRoute
-  '/_app/labs/': typeof AppLabsIndexRoute
-  '/_app/models/': typeof AppModelsIndexRoute
-  '/_app/news/': typeof AppNewsIndexRoute
+  '/v2/benchmarks/$id': typeof V2BenchmarksIdRoute
+  '/v2/labs/$id': typeof V2LabsIdRoute
+  '/v2/models/$slug': typeof V2ModelsSlugRoute
+  '/v2/news/$id': typeof V2NewsIdRoute
+  '/_site/benchmarks/': typeof SiteBenchmarksIndexRoute
+  '/_site/labs/': typeof SiteLabsIndexRoute
+  '/_site/models/': typeof SiteModelsIndexRoute
+  '/_site/news/': typeof SiteNewsIndexRoute
   '/api/v1/': typeof ApiV1IndexRoute
   '/old/news/': typeof OldNewsIndexRoute
-  '/v3/benchmarks/': typeof V3BenchmarksIndexRoute
-  '/v3/labs/': typeof V3LabsIndexRoute
-  '/v3/models/': typeof V3ModelsIndexRoute
-  '/v3/news/': typeof V3NewsIndexRoute
+  '/v2/benchmarks/': typeof V2BenchmarksIndexRoute
+  '/v2/labs/': typeof V2LabsIndexRoute
+  '/v2/models/': typeof V2ModelsIndexRoute
+  '/v2/news/': typeof V2NewsIndexRoute
   '/api/admin/auth/$': typeof ApiAdminAuthSplatRoute
 }
 export interface FileRouteTypes {
@@ -459,6 +485,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/new'
     | '/old'
+    | '/v2'
     | '/v3'
     | '/source'
     | '/api'
@@ -472,12 +499,14 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
-    | '/v3/changelog'
-    | '/v3/compare'
-    | '/v3/methodology'
+    | '/v2/changelog'
+    | '/v2/compare'
+    | '/v2/methodology'
+    | '/v3/$'
     | '/admin/'
     | '/new/'
     | '/old/'
+    | '/v2/'
     | '/v3/'
     | '/benchmarks/$id'
     | '/labs/$id'
@@ -488,20 +517,20 @@ export interface FileRouteTypes {
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
-    | '/v3/benchmarks/$id'
-    | '/v3/labs/$id'
-    | '/v3/models/$slug'
-    | '/v3/news/$id'
+    | '/v2/benchmarks/$id'
+    | '/v2/labs/$id'
+    | '/v2/models/$slug'
+    | '/v2/news/$id'
     | '/benchmarks/'
     | '/labs/'
     | '/models/'
     | '/news/'
     | '/api/v1/'
     | '/old/news/'
-    | '/v3/benchmarks/'
-    | '/v3/labs/'
-    | '/v3/models/'
-    | '/v3/news/'
+    | '/v2/benchmarks/'
+    | '/v2/labs/'
+    | '/v2/models/'
+    | '/v2/news/'
     | '/api/admin/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -517,13 +546,15 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
-    | '/v3/changelog'
-    | '/v3/compare'
-    | '/v3/methodology'
+    | '/v2/changelog'
+    | '/v2/compare'
+    | '/v2/methodology'
+    | '/v3/$'
     | '/'
     | '/admin'
     | '/new'
     | '/old'
+    | '/v2'
     | '/v3'
     | '/benchmarks/$id'
     | '/labs/$id'
@@ -534,33 +565,34 @@ export interface FileRouteTypes {
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
-    | '/v3/benchmarks/$id'
-    | '/v3/labs/$id'
-    | '/v3/models/$slug'
-    | '/v3/news/$id'
+    | '/v2/benchmarks/$id'
+    | '/v2/labs/$id'
+    | '/v2/models/$slug'
+    | '/v2/news/$id'
     | '/benchmarks'
     | '/labs'
     | '/models'
     | '/news'
     | '/api/v1'
     | '/old/news'
-    | '/v3/benchmarks'
-    | '/v3/labs'
-    | '/v3/models'
-    | '/v3/news'
+    | '/v2/benchmarks'
+    | '/v2/labs'
+    | '/v2/models'
+    | '/v2/news'
     | '/api/admin/auth/$'
   id:
     | '__root__'
-    | '/_app'
+    | '/_site'
     | '/admin'
     | '/new'
     | '/old'
+    | '/v2'
     | '/v3'
     | '/source'
-    | '/_app/api'
-    | '/_app/changelog'
-    | '/_app/compare'
-    | '/_app/methodology'
+    | '/_site/api'
+    | '/_site/changelog'
+    | '/_site/compare'
+    | '/_site/methodology'
     | '/admin/login'
     | '/api/ledger'
     | '/api/ledger.csv'
@@ -568,45 +600,48 @@ export interface FileRouteTypes {
     | '/api/t'
     | '/new/$'
     | '/old/source'
-    | '/v3/changelog'
-    | '/v3/compare'
-    | '/v3/methodology'
-    | '/_app/'
+    | '/v2/changelog'
+    | '/v2/compare'
+    | '/v2/methodology'
+    | '/v3/$'
+    | '/_site/'
     | '/admin/'
     | '/new/'
     | '/old/'
+    | '/v2/'
     | '/v3/'
-    | '/_app/benchmarks/$id'
-    | '/_app/labs/$id'
-    | '/_app/models/$slug'
-    | '/_app/news/$id'
+    | '/_site/benchmarks/$id'
+    | '/_site/labs/$id'
+    | '/_site/models/$slug'
+    | '/_site/news/$id'
     | '/api/admin/bootstrap'
     | '/api/admin/stats'
     | '/api/v1/leaderboard'
     | '/old/models/$slug'
     | '/old/news/$id'
-    | '/v3/benchmarks/$id'
-    | '/v3/labs/$id'
-    | '/v3/models/$slug'
-    | '/v3/news/$id'
-    | '/_app/benchmarks/'
-    | '/_app/labs/'
-    | '/_app/models/'
-    | '/_app/news/'
+    | '/v2/benchmarks/$id'
+    | '/v2/labs/$id'
+    | '/v2/models/$slug'
+    | '/v2/news/$id'
+    | '/_site/benchmarks/'
+    | '/_site/labs/'
+    | '/_site/models/'
+    | '/_site/news/'
     | '/api/v1/'
     | '/old/news/'
-    | '/v3/benchmarks/'
-    | '/v3/labs/'
-    | '/v3/models/'
-    | '/v3/news/'
+    | '/v2/benchmarks/'
+    | '/v2/labs/'
+    | '/v2/models/'
+    | '/v2/news/'
     | '/api/admin/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  AppRouteRoute: typeof AppRouteRouteWithChildren
+  SiteRouteRoute: typeof SiteRouteRouteWithChildren
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   NewRouteRoute: typeof NewRouteRouteWithChildren
   OldRouteRoute: typeof OldRouteRouteWithChildren
+  V2RouteRoute: typeof V2RouteRouteWithChildren
   V3RouteRoute: typeof V3RouteRouteWithChildren
   SourceRoute: typeof SourceRoute
   ApiLedgerRoute: typeof ApiLedgerRoute
@@ -622,11 +657,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_app': {
-      id: '/_app'
+    '/_site': {
+      id: '/_site'
       path: ''
       fullPath: '/'
-      preLoaderRoute: typeof AppRouteRouteImport
+      preLoaderRoute: typeof SiteRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin': {
@@ -657,6 +692,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SourceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/v2': {
+      id: '/v2'
+      path: '/v2'
+      fullPath: '/v2'
+      preLoaderRoute: typeof V2RouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/v3': {
       id: '/v3'
       path: '/v3'
@@ -664,40 +706,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V3RouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_app/': {
-      id: '/_app/'
+    '/_site/': {
+      id: '/_site/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof AppIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteIndexRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/api': {
-      id: '/_app/api'
+    '/_site/api': {
+      id: '/_site/api'
       path: '/api'
       fullPath: '/api'
-      preLoaderRoute: typeof AppApiRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteApiRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/changelog': {
-      id: '/_app/changelog'
+    '/_site/changelog': {
+      id: '/_site/changelog'
       path: '/changelog'
       fullPath: '/changelog'
-      preLoaderRoute: typeof AppChangelogRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteChangelogRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/compare': {
-      id: '/_app/compare'
+    '/_site/compare': {
+      id: '/_site/compare'
       path: '/compare'
       fullPath: '/compare'
-      preLoaderRoute: typeof AppCompareRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteCompareRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/methodology': {
-      id: '/_app/methodology'
+    '/_site/methodology': {
+      id: '/_site/methodology'
       path: '/methodology'
       fullPath: '/methodology'
-      preLoaderRoute: typeof AppMethodologyRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteMethodologyRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
     '/admin/': {
       id: '/admin/'
@@ -769,6 +811,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OldSourceRouteImport
       parentRoute: typeof OldRouteRoute
     }
+    '/v2/': {
+      id: '/v2/'
+      path: '/'
+      fullPath: '/v2/'
+      preLoaderRoute: typeof V2IndexRouteImport
+      parentRoute: typeof V2RouteRoute
+    }
+    '/v2/changelog': {
+      id: '/v2/changelog'
+      path: '/changelog'
+      fullPath: '/v2/changelog'
+      preLoaderRoute: typeof V2ChangelogRouteImport
+      parentRoute: typeof V2RouteRoute
+    }
+    '/v2/compare': {
+      id: '/v2/compare'
+      path: '/compare'
+      fullPath: '/v2/compare'
+      preLoaderRoute: typeof V2CompareRouteImport
+      parentRoute: typeof V2RouteRoute
+    }
+    '/v2/methodology': {
+      id: '/v2/methodology'
+      path: '/methodology'
+      fullPath: '/v2/methodology'
+      preLoaderRoute: typeof V2MethodologyRouteImport
+      parentRoute: typeof V2RouteRoute
+    }
     '/v3/': {
       id: '/v3/'
       path: '/'
@@ -776,82 +846,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof V3IndexRouteImport
       parentRoute: typeof V3RouteRoute
     }
-    '/v3/changelog': {
-      id: '/v3/changelog'
-      path: '/changelog'
-      fullPath: '/v3/changelog'
-      preLoaderRoute: typeof V3ChangelogRouteImport
+    '/v3/$': {
+      id: '/v3/$'
+      path: '/$'
+      fullPath: '/v3/$'
+      preLoaderRoute: typeof V3SplatRouteImport
       parentRoute: typeof V3RouteRoute
     }
-    '/v3/compare': {
-      id: '/v3/compare'
-      path: '/compare'
-      fullPath: '/v3/compare'
-      preLoaderRoute: typeof V3CompareRouteImport
-      parentRoute: typeof V3RouteRoute
-    }
-    '/v3/methodology': {
-      id: '/v3/methodology'
-      path: '/methodology'
-      fullPath: '/v3/methodology'
-      preLoaderRoute: typeof V3MethodologyRouteImport
-      parentRoute: typeof V3RouteRoute
-    }
-    '/_app/benchmarks/': {
-      id: '/_app/benchmarks/'
+    '/_site/benchmarks/': {
+      id: '/_site/benchmarks/'
       path: '/benchmarks'
       fullPath: '/benchmarks/'
-      preLoaderRoute: typeof AppBenchmarksIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteBenchmarksIndexRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/benchmarks/$id': {
-      id: '/_app/benchmarks/$id'
+    '/_site/benchmarks/$id': {
+      id: '/_site/benchmarks/$id'
       path: '/benchmarks/$id'
       fullPath: '/benchmarks/$id'
-      preLoaderRoute: typeof AppBenchmarksIdRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteBenchmarksIdRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/labs/': {
-      id: '/_app/labs/'
+    '/_site/labs/': {
+      id: '/_site/labs/'
       path: '/labs'
       fullPath: '/labs/'
-      preLoaderRoute: typeof AppLabsIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteLabsIndexRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/labs/$id': {
-      id: '/_app/labs/$id'
+    '/_site/labs/$id': {
+      id: '/_site/labs/$id'
       path: '/labs/$id'
       fullPath: '/labs/$id'
-      preLoaderRoute: typeof AppLabsIdRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteLabsIdRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/models/': {
-      id: '/_app/models/'
+    '/_site/models/': {
+      id: '/_site/models/'
       path: '/models'
       fullPath: '/models/'
-      preLoaderRoute: typeof AppModelsIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteModelsIndexRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/models/$slug': {
-      id: '/_app/models/$slug'
+    '/_site/models/$slug': {
+      id: '/_site/models/$slug'
       path: '/models/$slug'
       fullPath: '/models/$slug'
-      preLoaderRoute: typeof AppModelsSlugRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteModelsSlugRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/news/': {
-      id: '/_app/news/'
+    '/_site/news/': {
+      id: '/_site/news/'
       path: '/news'
       fullPath: '/news/'
-      preLoaderRoute: typeof AppNewsIndexRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteNewsIndexRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
-    '/_app/news/$id': {
-      id: '/_app/news/$id'
+    '/_site/news/$id': {
+      id: '/_site/news/$id'
       path: '/news/$id'
       fullPath: '/news/$id'
-      preLoaderRoute: typeof AppNewsIdRouteImport
-      parentRoute: typeof AppRouteRoute
+      preLoaderRoute: typeof SiteNewsIdRouteImport
+      parentRoute: typeof SiteRouteRoute
     }
     '/api/admin/bootstrap': {
       id: '/api/admin/bootstrap'
@@ -902,61 +958,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OldNewsIdRouteImport
       parentRoute: typeof OldRouteRoute
     }
-    '/v3/benchmarks/': {
-      id: '/v3/benchmarks/'
+    '/v2/benchmarks/': {
+      id: '/v2/benchmarks/'
       path: '/benchmarks'
-      fullPath: '/v3/benchmarks/'
-      preLoaderRoute: typeof V3BenchmarksIndexRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/benchmarks/'
+      preLoaderRoute: typeof V2BenchmarksIndexRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/benchmarks/$id': {
-      id: '/v3/benchmarks/$id'
+    '/v2/benchmarks/$id': {
+      id: '/v2/benchmarks/$id'
       path: '/benchmarks/$id'
-      fullPath: '/v3/benchmarks/$id'
-      preLoaderRoute: typeof V3BenchmarksIdRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/benchmarks/$id'
+      preLoaderRoute: typeof V2BenchmarksIdRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/labs/': {
-      id: '/v3/labs/'
+    '/v2/labs/': {
+      id: '/v2/labs/'
       path: '/labs'
-      fullPath: '/v3/labs/'
-      preLoaderRoute: typeof V3LabsIndexRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/labs/'
+      preLoaderRoute: typeof V2LabsIndexRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/labs/$id': {
-      id: '/v3/labs/$id'
+    '/v2/labs/$id': {
+      id: '/v2/labs/$id'
       path: '/labs/$id'
-      fullPath: '/v3/labs/$id'
-      preLoaderRoute: typeof V3LabsIdRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/labs/$id'
+      preLoaderRoute: typeof V2LabsIdRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/models/': {
-      id: '/v3/models/'
+    '/v2/models/': {
+      id: '/v2/models/'
       path: '/models'
-      fullPath: '/v3/models/'
-      preLoaderRoute: typeof V3ModelsIndexRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/models/'
+      preLoaderRoute: typeof V2ModelsIndexRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/models/$slug': {
-      id: '/v3/models/$slug'
+    '/v2/models/$slug': {
+      id: '/v2/models/$slug'
       path: '/models/$slug'
-      fullPath: '/v3/models/$slug'
-      preLoaderRoute: typeof V3ModelsSlugRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/models/$slug'
+      preLoaderRoute: typeof V2ModelsSlugRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/news/': {
-      id: '/v3/news/'
+    '/v2/news/': {
+      id: '/v2/news/'
       path: '/news'
-      fullPath: '/v3/news/'
-      preLoaderRoute: typeof V3NewsIndexRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/news/'
+      preLoaderRoute: typeof V2NewsIndexRouteImport
+      parentRoute: typeof V2RouteRoute
     }
-    '/v3/news/$id': {
-      id: '/v3/news/$id'
+    '/v2/news/$id': {
+      id: '/v2/news/$id'
       path: '/news/$id'
-      fullPath: '/v3/news/$id'
-      preLoaderRoute: typeof V3NewsIdRouteImport
-      parentRoute: typeof V3RouteRoute
+      fullPath: '/v2/news/$id'
+      preLoaderRoute: typeof V2NewsIdRouteImport
+      parentRoute: typeof V2RouteRoute
     }
     '/api/admin/auth/$': {
       id: '/api/admin/auth/$'
@@ -968,40 +1024,40 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AppRouteRouteChildren {
-  AppApiRoute: typeof AppApiRoute
-  AppChangelogRoute: typeof AppChangelogRoute
-  AppCompareRoute: typeof AppCompareRoute
-  AppMethodologyRoute: typeof AppMethodologyRoute
-  AppIndexRoute: typeof AppIndexRoute
-  AppBenchmarksIdRoute: typeof AppBenchmarksIdRoute
-  AppLabsIdRoute: typeof AppLabsIdRoute
-  AppModelsSlugRoute: typeof AppModelsSlugRoute
-  AppNewsIdRoute: typeof AppNewsIdRoute
-  AppBenchmarksIndexRoute: typeof AppBenchmarksIndexRoute
-  AppLabsIndexRoute: typeof AppLabsIndexRoute
-  AppModelsIndexRoute: typeof AppModelsIndexRoute
-  AppNewsIndexRoute: typeof AppNewsIndexRoute
+interface SiteRouteRouteChildren {
+  SiteApiRoute: typeof SiteApiRoute
+  SiteChangelogRoute: typeof SiteChangelogRoute
+  SiteCompareRoute: typeof SiteCompareRoute
+  SiteMethodologyRoute: typeof SiteMethodologyRoute
+  SiteIndexRoute: typeof SiteIndexRoute
+  SiteBenchmarksIdRoute: typeof SiteBenchmarksIdRoute
+  SiteLabsIdRoute: typeof SiteLabsIdRoute
+  SiteModelsSlugRoute: typeof SiteModelsSlugRoute
+  SiteNewsIdRoute: typeof SiteNewsIdRoute
+  SiteBenchmarksIndexRoute: typeof SiteBenchmarksIndexRoute
+  SiteLabsIndexRoute: typeof SiteLabsIndexRoute
+  SiteModelsIndexRoute: typeof SiteModelsIndexRoute
+  SiteNewsIndexRoute: typeof SiteNewsIndexRoute
 }
 
-const AppRouteRouteChildren: AppRouteRouteChildren = {
-  AppApiRoute: AppApiRoute,
-  AppChangelogRoute: AppChangelogRoute,
-  AppCompareRoute: AppCompareRoute,
-  AppMethodologyRoute: AppMethodologyRoute,
-  AppIndexRoute: AppIndexRoute,
-  AppBenchmarksIdRoute: AppBenchmarksIdRoute,
-  AppLabsIdRoute: AppLabsIdRoute,
-  AppModelsSlugRoute: AppModelsSlugRoute,
-  AppNewsIdRoute: AppNewsIdRoute,
-  AppBenchmarksIndexRoute: AppBenchmarksIndexRoute,
-  AppLabsIndexRoute: AppLabsIndexRoute,
-  AppModelsIndexRoute: AppModelsIndexRoute,
-  AppNewsIndexRoute: AppNewsIndexRoute,
+const SiteRouteRouteChildren: SiteRouteRouteChildren = {
+  SiteApiRoute: SiteApiRoute,
+  SiteChangelogRoute: SiteChangelogRoute,
+  SiteCompareRoute: SiteCompareRoute,
+  SiteMethodologyRoute: SiteMethodologyRoute,
+  SiteIndexRoute: SiteIndexRoute,
+  SiteBenchmarksIdRoute: SiteBenchmarksIdRoute,
+  SiteLabsIdRoute: SiteLabsIdRoute,
+  SiteModelsSlugRoute: SiteModelsSlugRoute,
+  SiteNewsIdRoute: SiteNewsIdRoute,
+  SiteBenchmarksIndexRoute: SiteBenchmarksIndexRoute,
+  SiteLabsIndexRoute: SiteLabsIndexRoute,
+  SiteModelsIndexRoute: SiteModelsIndexRoute,
+  SiteNewsIndexRoute: SiteNewsIndexRoute,
 }
 
-const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
-  AppRouteRouteChildren,
+const SiteRouteRouteWithChildren = SiteRouteRoute._addFileChildren(
+  SiteRouteRouteChildren,
 )
 
 interface AdminRouteRouteChildren {
@@ -1052,44 +1108,58 @@ const OldRouteRouteWithChildren = OldRouteRoute._addFileChildren(
   OldRouteRouteChildren,
 )
 
+interface V2RouteRouteChildren {
+  V2ChangelogRoute: typeof V2ChangelogRoute
+  V2CompareRoute: typeof V2CompareRoute
+  V2MethodologyRoute: typeof V2MethodologyRoute
+  V2IndexRoute: typeof V2IndexRoute
+  V2BenchmarksIdRoute: typeof V2BenchmarksIdRoute
+  V2LabsIdRoute: typeof V2LabsIdRoute
+  V2ModelsSlugRoute: typeof V2ModelsSlugRoute
+  V2NewsIdRoute: typeof V2NewsIdRoute
+  V2BenchmarksIndexRoute: typeof V2BenchmarksIndexRoute
+  V2LabsIndexRoute: typeof V2LabsIndexRoute
+  V2ModelsIndexRoute: typeof V2ModelsIndexRoute
+  V2NewsIndexRoute: typeof V2NewsIndexRoute
+}
+
+const V2RouteRouteChildren: V2RouteRouteChildren = {
+  V2ChangelogRoute: V2ChangelogRoute,
+  V2CompareRoute: V2CompareRoute,
+  V2MethodologyRoute: V2MethodologyRoute,
+  V2IndexRoute: V2IndexRoute,
+  V2BenchmarksIdRoute: V2BenchmarksIdRoute,
+  V2LabsIdRoute: V2LabsIdRoute,
+  V2ModelsSlugRoute: V2ModelsSlugRoute,
+  V2NewsIdRoute: V2NewsIdRoute,
+  V2BenchmarksIndexRoute: V2BenchmarksIndexRoute,
+  V2LabsIndexRoute: V2LabsIndexRoute,
+  V2ModelsIndexRoute: V2ModelsIndexRoute,
+  V2NewsIndexRoute: V2NewsIndexRoute,
+}
+
+const V2RouteRouteWithChildren =
+  V2RouteRoute._addFileChildren(V2RouteRouteChildren)
+
 interface V3RouteRouteChildren {
-  V3ChangelogRoute: typeof V3ChangelogRoute
-  V3CompareRoute: typeof V3CompareRoute
-  V3MethodologyRoute: typeof V3MethodologyRoute
+  V3SplatRoute: typeof V3SplatRoute
   V3IndexRoute: typeof V3IndexRoute
-  V3BenchmarksIdRoute: typeof V3BenchmarksIdRoute
-  V3LabsIdRoute: typeof V3LabsIdRoute
-  V3ModelsSlugRoute: typeof V3ModelsSlugRoute
-  V3NewsIdRoute: typeof V3NewsIdRoute
-  V3BenchmarksIndexRoute: typeof V3BenchmarksIndexRoute
-  V3LabsIndexRoute: typeof V3LabsIndexRoute
-  V3ModelsIndexRoute: typeof V3ModelsIndexRoute
-  V3NewsIndexRoute: typeof V3NewsIndexRoute
 }
 
 const V3RouteRouteChildren: V3RouteRouteChildren = {
-  V3ChangelogRoute: V3ChangelogRoute,
-  V3CompareRoute: V3CompareRoute,
-  V3MethodologyRoute: V3MethodologyRoute,
+  V3SplatRoute: V3SplatRoute,
   V3IndexRoute: V3IndexRoute,
-  V3BenchmarksIdRoute: V3BenchmarksIdRoute,
-  V3LabsIdRoute: V3LabsIdRoute,
-  V3ModelsSlugRoute: V3ModelsSlugRoute,
-  V3NewsIdRoute: V3NewsIdRoute,
-  V3BenchmarksIndexRoute: V3BenchmarksIndexRoute,
-  V3LabsIndexRoute: V3LabsIndexRoute,
-  V3ModelsIndexRoute: V3ModelsIndexRoute,
-  V3NewsIndexRoute: V3NewsIndexRoute,
 }
 
 const V3RouteRouteWithChildren =
   V3RouteRoute._addFileChildren(V3RouteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
-  AppRouteRoute: AppRouteRouteWithChildren,
+  SiteRouteRoute: SiteRouteRouteWithChildren,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   NewRouteRoute: NewRouteRouteWithChildren,
   OldRouteRoute: OldRouteRouteWithChildren,
+  V2RouteRoute: V2RouteRouteWithChildren,
   V3RouteRoute: V3RouteRouteWithChildren,
   SourceRoute: SourceRoute,
   ApiLedgerRoute: ApiLedgerRoute,

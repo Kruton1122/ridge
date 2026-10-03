@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
 import { labStats } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/v3/labs/")({
+export const Route = createFileRoute("/_site/labs/")({
   component: Labs,
   head: () => ({ meta: [{ title: "Labs — Ridge" }] }),
 });
@@ -18,7 +18,7 @@ function Labs() {
       </header>
       <div className="rx-labs">
         {labs.map((l, i) => (
-          <a key={l.lab} href={`/v3/labs/${l.lab}`} className="rx-lab rx-in" style={{ "--c": labVar(l.lab), "--d": `${i * 50}ms` } as React.CSSProperties}>
+          <a key={l.lab} href={`/labs/${l.lab}`} className="rx-lab rx-in" style={{ "--c": labVar(l.lab), "--d": `${i * 50}ms` } as React.CSSProperties}>
             <span className="pos rx-num">{String(i + 1).padStart(2, "0")}</span>
             <span className="nm"><i />{l.name}</span>
             <span className="cell"><span className="rx-kicker">Best</span><b className="rx-num">{l.bestAa ? l.bestAa.score.value : "—"}</b><span className="rx-faint">{l.bestAa?.model.name ?? "no AA row"}</span></span>

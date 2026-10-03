@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
 import { labsPresent, ledgerRows } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/v3/models/")({
+export const Route = createFileRoute("/_site/models/")({
   component: Models,
   head: () => ({ meta: [{ title: "Models — Ridge" }] }),
 });
@@ -21,15 +21,15 @@ function Models() {
                 <h2>{lab.label}</h2>
               </div>
             </div>
-            <table className="rx-table">
+            <table className="rx-table rx-mlist">
               <tbody>
                 {mine.map((r, i) => (
                   <tr key={r.model.id} style={{ "--i": i, "--c": labVar(lab.id) } as React.CSSProperties}>
                     <td className="l">
-                      <a className="m" href={`/v3/models/${r.model.id}`}><span className="dot" /><span className="m-name">{r.model.name}</span></a>
+                      <a className="m" href={`/models/${r.model.id}`}><span className="dot" /><span className="m-name">{r.model.name}</span></a>
                       <div className="rx-faint" style={{ fontSize: 13, whiteSpace: "normal", maxWidth: 640, marginTop: 4 }}>{r.model.summary}</div>
                     </td>
-                    <td style={{ verticalAlign: "top" }}>{r.model.released}</td>
+                    <td className="rel" style={{ verticalAlign: "top" }}>{r.model.released}</td>
                     <td style={{ verticalAlign: "top" }}>{r.scores["aa-intelligence"] ? <b>AA {r.scores["aa-intelligence"].value}</b> : <span className="blank">no AA row</span>}</td>
                   </tr>
                 ))}

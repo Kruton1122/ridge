@@ -16,7 +16,7 @@ import { labStats, moneyPair, rankOf } from "@/lib/data/derived";
 import { LAB_THEME } from "@/lib/data/profiles";
 import type { LabId } from "@/lib/data/types";
 
-export const Route = createFileRoute("/_app/labs/$id")({
+export const Route = createFileRoute("/v2/labs/$id")({
   component: LabPage,
   head: ({ params }) => {
     const lab = labStats().find((l) => l.lab === params.id);

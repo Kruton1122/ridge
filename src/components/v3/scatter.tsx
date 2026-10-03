@@ -36,7 +36,7 @@ export function CostScatter() {
         ))}
         <polyline className="front" points={front.map((p) => `${X(p.x)},${Y(p.y)}`).join(" ")} />
         {pts.map((p, i) => (
-          <a key={p.model.id} href={`/v3/models/${p.model.id}`}>
+          <a key={p.model.id} href={`/models/${p.model.id}`}>
             <circle className="pt rx-in" cx={X(p.x)} cy={Y(p.y)} r={p.frontier ? 6 : 4.5}
               fill={p.frontier ? labVar(p.model.lab) : "var(--paper)"} stroke={labVar(p.model.lab)} strokeWidth={1.8}
               style={{ "--d": `${200 + i * 30}ms` } as React.CSSProperties}>

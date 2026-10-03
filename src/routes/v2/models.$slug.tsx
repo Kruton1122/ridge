@@ -21,7 +21,7 @@ import { benchmarksWithScores, dossier, money, moneyPair } from "@/lib/data/deri
 import { LAB_THEME, profileFor } from "@/lib/data/profiles";
 import { isFresh } from "@/lib/data/desk";
 
-export const Route = createFileRoute("/_app/models/$slug")({
+export const Route = createFileRoute("/v2/models/$slug")({
   component: ModelPage,
   head: ({ params }) => {
     const model = getModel(params.slug);

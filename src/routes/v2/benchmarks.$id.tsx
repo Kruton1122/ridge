@@ -14,7 +14,7 @@ import { MODELS, getBenchmark } from "@/lib/data/catalog";
 import { modelColor } from "@/lib/data/colors";
 import { board, formatValue } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/_app/benchmarks/$id")({
+export const Route = createFileRoute("/v2/benchmarks/$id")({
   component: BenchmarkPage,
   head: ({ params }) => {
     const benchmark = getBenchmark(params.id);

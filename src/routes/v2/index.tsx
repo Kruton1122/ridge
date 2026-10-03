@@ -18,7 +18,7 @@ import {
 } from "@/lib/data/derived";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/_app/")({
+export const Route = createFileRoute("/v2/")({
   component: Board,
   head: () => ({
     meta: [

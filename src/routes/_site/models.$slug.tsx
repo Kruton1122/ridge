@@ -4,7 +4,7 @@ import { ABOUTS } from "@/lib/data/abouts";
 import { formatContext, getModel } from "@/lib/data/catalog";
 import { board, dossier, formatValue, money } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/v3/models/$slug")({
+export const Route = createFileRoute("/_site/models/$slug")({
   component: ModelPage,
   loader: ({ params }) => {
     if (!getModel(params.slug)) throw notFound();
@@ -146,7 +146,7 @@ function ModelPage() {
               <>
                 <div className="rx-kicker" style={{ marginTop: 22 }}>Also from {m.labName}</div>
                 <div className="rx-sib">
-                  {d.siblings.slice(0, 8).map((s) => <a key={s.id} href={`/v3/models/${s.id}`}>{s.name}</a>)}
+                  {d.siblings.slice(0, 8).map((s) => <a key={s.id} href={`/models/${s.id}`}>{s.name}</a>)}
                 </div>
               </>
             )}
@@ -193,7 +193,7 @@ function ModelPage() {
           <div className="rx-desk">
             <div>
               {d.news.slice(0, 3).map((n) => (
-                <a key={n.id} className="rx-story" href={`/v3/news/${n.id}`}>
+                <a key={n.id} className="rx-story" href={`/news/${n.id}`}>
                   <span className="rx-kicker">{shortDate(n.date)} · {n.kind}</span>
                   <h3>{n.title}</h3>
                   <p>{n.dek}</p>

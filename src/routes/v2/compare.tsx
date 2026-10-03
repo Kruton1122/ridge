@@ -30,7 +30,7 @@ import { cn } from "@/lib/utils";
 
 const MAX = 4;
 
-export const Route = createFileRoute("/_app/compare")({
+export const Route = createFileRoute("/v2/compare")({
   validateSearch: (search: Record<string, unknown>): { ids: string } => ({
     ids: typeof search.ids === "string" ? search.ids : "",
   }),

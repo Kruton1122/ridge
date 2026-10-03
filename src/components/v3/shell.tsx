@@ -8,13 +8,13 @@ import type { LabId } from "@/lib/data/types";
 export const labVar = (lab: LabId | undefined) => `var(--lab-${lab ?? "other"})`;
 
 const NAV: { to: string; label: string }[] = [
-  { to: "/v3", label: "Ledger" },
-  { to: "/v3/models", label: "Models" },
-  { to: "/v3/compare", label: "Compare" },
-  { to: "/v3/benchmarks", label: "Benchmarks" },
-  { to: "/v3/labs", label: "Labs" },
-  { to: "/v3/news", label: "News" },
-  { to: "/v3/methodology", label: "Method" },
+  { to: "/", label: "Ledger" },
+  { to: "/models", label: "Models" },
+  { to: "/compare", label: "Compare" },
+  { to: "/benchmarks", label: "Benchmarks" },
+  { to: "/labs", label: "Labs" },
+  { to: "/news", label: "News" },
+  { to: "/methodology", label: "Method" },
 ];
 
 type Theme = "night" | "paper";
@@ -74,7 +74,7 @@ export function Shell({ children }: { children: ReactNode }) {
 
       <header className="rx-plate" ref={plate}>
         <div className="rx-wrap">
-          <Link to="/v3" className="name" aria-label="Ridge — front page">
+          <Link to="/" className="name" aria-label="Ridge — front page">
             Ridge<em>.</em>
           </Link>
           <div className="motto">The frontier, scored — every number sourced, every blank on purpose.</div>
@@ -84,12 +84,12 @@ export function Shell({ children }: { children: ReactNode }) {
 
       <nav className={`rx-nav${stuck ? " stuck" : ""}`} aria-label="Sections">
         <div className="rx-wrap">
-          <Link to="/v3" className="mini" tabIndex={stuck ? 0 : -1}>
+          <Link to="/" className="mini" tabIndex={stuck ? 0 : -1}>
             Ridge
           </Link>
           <div className="links">
             {NAV.map((n) => {
-              const on = n.to === "/v3" ? path === "/v3" || path === "/v3/" : path.startsWith(n.to);
+              const on = n.to === "/" ? path === "/" : path.startsWith(n.to);
               return (
                 <a key={n.to} href={n.to} className={on ? "on" : undefined}>
                   {n.label}
@@ -123,9 +123,9 @@ export function Shell({ children }: { children: ReactNode }) {
           <div>
             <div className="rx-kicker">Read</div>
             <ul>
-              <li><a href="/v3/methodology">How the ledger is built</a></li>
-              <li><a href="/v3/changelog">Changelog</a></li>
-              <li><a href="/v3/news">News desk</a></li>
+              <li><a href="/methodology">How the ledger is built</a></li>
+              <li><a href="/changelog">Changelog</a></li>
+              <li><a href="/news">News desk</a></li>
             </ul>
           </div>
           <div>

@@ -6,7 +6,7 @@ import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { CATALOG_STATS, benchmarksWithScores, coverage } from "@/lib/data/derived";
 import { LEDGER_SOURCES, nextPullLabel } from "@/lib/data/ledger";
 
-export const Route = createFileRoute("/_app/methodology")({
+export const Route = createFileRoute("/v2/methodology")({
   component: Methodology,
   head: () => ({
     meta: [

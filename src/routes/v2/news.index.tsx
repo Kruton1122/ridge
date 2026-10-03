@@ -7,7 +7,7 @@ import { getModel } from "@/lib/data/catalog";
 import { NEWS, isFresh } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
-export const Route = createFileRoute("/_app/news/")({
+export const Route = createFileRoute("/v2/news/")({
   component: NewsIndex,
   head: () => ({
     meta: [

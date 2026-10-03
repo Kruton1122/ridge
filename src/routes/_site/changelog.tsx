@@ -4,7 +4,7 @@ import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { CHANGELOG } from "@/lib/data/changelog";
 import { nextPullLabel } from "@/lib/data/ledger";
 
-export const Route = createFileRoute("/v3/changelog")({
+export const Route = createFileRoute("/_site/changelog")({
   component: Changelog,
   head: () => ({ meta: [{ title: "Changelog — Ridge" }] }),
 });

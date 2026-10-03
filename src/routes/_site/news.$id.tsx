@@ -5,7 +5,7 @@ import { getModel } from "@/lib/data/catalog";
 import { NEWS } from "@/lib/data/desk";
 import { rankOf } from "@/lib/data/derived";
 
-export const Route = createFileRoute("/v3/news/$id")({
+export const Route = createFileRoute("/_site/news/$id")({
   component: Note,
   loader: ({ params }) => {
     if (!NEWS.some((n) => n.id === params.id)) throw notFound();
@@ -43,7 +43,7 @@ function Note() {
                   const r = rankOf(m.id, "aa-intelligence");
                   return (
                     <tr key={m.id} style={{ "--i": k, "--c": labVar(m.lab) } as React.CSSProperties}>
-                      <td className="l"><a className="m" href={`/v3/models/${m.id}`}><span className="dot" /><span className="m-name">{m.name}</span><span className="m-lab">{m.labName}</span></a></td>
+                      <td className="l"><a className="m" href={`/models/${m.id}`}><span className="dot" /><span className="m-name">{m.name}</span><span className="m-lab">{m.labName}</span></a></td>
                       <td>{r ? <b>AA {r.value}</b> : <span className="blank">no AA row</span>}</td>
                       <td className="rx-faint">{r ? `${r.tied ? "joint " : ""}#${r.rank} of ${r.of}` : ""}</td>
                     </tr>
@@ -54,7 +54,7 @@ function Note() {
           </section>
         )}
         {next && (
-          <a className="rx-next" href={`/v3/news/${next.id}`}>
+          <a className="rx-next" href={`/news/${next.id}`}>
             <span className="rx-kicker">Earlier note</span>
             <span className="t">{next.title}</span>
           </a>

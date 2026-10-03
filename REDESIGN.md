@@ -286,3 +286,15 @@ moved. `/source` redirects to the API docs page at `/api`.
 **Rollback:** restore `src/routes/old/*` to the root route files and move
 `src/routes/_app/*` back under a `/new` layout. The archive is the previous
 published tree, not a reconstruction.
+
+## Promoted v3 2026-10-03
+
+The navy/Geist v3 design (built by Claude Opus 5.5 at `/v3`) is now `/`, served by the
+pathless `src/routes/_site/` layout with `src/components/v3/*` and `src/styles/ridge-v3.css`
+(everything scoped under `.rx`). `/v3/*` redirects to the same path at the root. The
+2026-09-10 design is archived at `/v2` (noindex, banner); its internal links lead to the
+live site. `/old` (the original site) is untouched. JSON/CSV under `src/routes/api/**`
+did not move. Same rule as before: no route writes a Ridge Bot pipeline file.
+
+**Rollback:** `git revert` the promotion commit, or move `src/routes/v2/*` back to
+`src/routes/_app/` with ids `/_app/...` and delete `src/routes/_site/`.
