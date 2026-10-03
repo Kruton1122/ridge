@@ -494,3 +494,10 @@
   .rx-stats .v { font-size: 24px; }
 }
 @media (max-width: 640px) { .rx-top .live .wide { display: none; } }
+
+/* the sticky wordmark must never be squeezed ("Rid" on phones): it keeps its width and the
+   links scroll sideways instead */
+.rx-nav .mini { flex-shrink: 0; }
+.rx-nav .links { flex: 1 1 auto; min-width: 0; }
+.rx-nav .spacer { flex: 0 0 8px; }
+.rx-theme { flex-shrink: 0; }
