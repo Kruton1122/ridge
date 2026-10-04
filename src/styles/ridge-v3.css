@@ -755,3 +755,7 @@
 .rx-best .val { font-family: var(--sans); font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: -0.035em; }
 .rx-best .flag:hover { background: var(--accent); color: var(--paper); }
 .rx-best[id] { scroll-margin-top: 64px; }
+.rx-best .src.short { padding-top: 2px; }
+.rx-best .src.short > :first-child { font-weight: 500; color: var(--ink-3); }
+.rx-best:not(.full) { gap: 8px; padding: 16px 18px 14px; }
+.rx-best:not(.full) .behind { padding-top: 8px; font-size: 12.5px; }

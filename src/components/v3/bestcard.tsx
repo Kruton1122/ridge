@@ -24,22 +24,28 @@ export function BestCard({ pick, i = 0, full = false }: { pick: Pick; i?: number
       </div>
       {pick.behind.length > 0 && (
         <div className="behind">
-          <span className="rx-faint">Close behind</span>
-          {pick.behind.map((b) => (
+          <span className="rx-faint">{full ? "Close behind" : "Next"}</span>
+          {(full ? pick.behind : pick.behind.slice(0, 1)).map((b) => (
             <a key={b.model.id} href={`/models/${b.model.id}`}>{b.model.name} <span className="rx-num">{b.value}</span></a>
           ))}
         </div>
       )}
       {full && pick.leaderNote && <p className="note">{lead.model.name}: {pick.leaderNote}</p>}
       {full && pick.caveat && <p className="cav">{pick.caveat}</p>}
-      <div className="src">
-        {pick.href ? <a href={pick.href}>{pick.basis}</a> : <span>{pick.basis}</span>}
-        <span>
-          {pick.sourceUrl ? <a href={pick.sourceUrl} target="_blank" rel="noreferrer">{pick.sourceName}</a> : pick.sourceName}
-          {pick.asOf ? ` · ${date(pick.asOf)}` : ""}
-          {` · ${pick.measured} of ${pick.total} measured`}
-        </span>
-      </div>
+      {full ? (
+        <div className="src">
+          {pick.href ? <a href={pick.href}>{pick.basis}</a> : <span>{pick.basis}</span>}
+          <span>
+            {pick.sourceUrl ? <a href={pick.sourceUrl} target="_blank" rel="noreferrer">{pick.sourceName}</a> : pick.sourceName}
+            {pick.asOf ? ` · ${date(pick.asOf)}` : ""}
+            {` · ${pick.measured} of ${pick.total} measured`}
+          </span>
+        </div>
+      ) : (
+        <div className="src short">
+          {pick.href ? <a href={pick.href}>{pick.basis}</a> : <span>{pick.basis}</span>}
+        </div>
+      )}
       {!full && pick.caveat && <a className="flag" href={`/best#${pick.id}`} title={pick.caveat} aria-label={`Caveat: ${pick.caveat}`}>!</a>}
     </article>
   );
