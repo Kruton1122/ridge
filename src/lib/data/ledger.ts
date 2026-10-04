@@ -137,7 +137,7 @@ export function ledgerPayload(mode: "list" | "promo" = "promo") {
   return {
     schemaVersion: SCHEMA_VERSION,
     last_updated: `${SNAPSHOT_DATE}T13:00:00-04:00`,
-    index: "Artificial Analysis Intelligence Index v4.2",
+    index: "Artificial Analysis Intelligence Index v4.3.2",
     citation: "Cite the source URL and the as-of date.",
     sources: LEDGER_SOURCES,
     next_pull: nextPullIso(),

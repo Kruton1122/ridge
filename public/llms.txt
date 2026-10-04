@@ -3,7 +3,8 @@
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
 - Snapshot: 2026-10-04
-- Index: Artificial Analysis Intelligence Index v4.2 (rebased 4 Sept; not 1:1 with August 60s-scale rows)
+- Index: Artificial Analysis Intelligence Index v4.3.2 (current AA version; the 4 Sept v4.2 rebase moved scores to a new scale, so not 1:1 with August 60s-scale rows)
+- SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench, AA Cyber Index
 - AA Cyber Index: Artificial Analysis cyber-defense composite (CWE-Bench-AA, DeepsecBench-AA, CyberGym-E2E-AA). Several frontier models decline many tasks on safety grounds, so their low scores mostly reflect refusals. Score notes give each model's refusal read. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index
 - JSON table: /api/ledger.json
@@ -13,7 +14,7 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
-Headline AA Intelligence Index v4.2:
+Headline AA Intelligence Index v4.3.2:
 1. Claude Opus 5.5 — 58 (max with fallback)
 2. Claude Sonnet 5.5 — 56 (max with fallback; AA tested a pre-release build with a structured-outputs bug since fixed and plans to re-run affected evals)
 3. Claude Fable 5.1 — 53 (max with fallback)

@@ -498,13 +498,13 @@ export const MODELS: Model[] = [
 export const BENCHMARKS: Benchmark[] = [
   {
     id: "aa-intelligence",
-    name: "AA Intelligence Index v4.2",
+    name: "AA Intelligence Index v4.3.2",
     short: "AA Index",
     category: "composite",
     unit: "index",
     higherIsBetter: true,
     description:
-      "Artificial Analysis composite, rebased 4 September 2026 (v4.2: AA-Briefcase and GDP.pdf added, GPQA Diamond dropped). Not comparable 1:1 with August 60s-scale rows.",
+      "Artificial Analysis composite, now v4.3.2. The 4 September 2026 rebase to v4.2 added AA-Briefcase and GDP.pdf and dropped GPQA Diamond. v4.3 swapped in AutomationBench-AA for Tau3-Banking and Terminal-Bench 4.0 for Terminal-Bench 2.1, and v4.3.1 and v4.3.2 refreshed the judge panels and Elo fitting. Scores here are AA's current numbers. Not comparable 1:1 with August 60s-scale rows.",
     sourceName: "Artificial Analysis",
     sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
     asOf: SNAPSHOT_DATE,
@@ -528,7 +528,8 @@ export const BENCHMARKS: Benchmark[] = [
     category: "coding",
     unit: "percent",
     higherIsBetter: true,
-    description: "Resolved GitHub issues under Mini-SWE-agent on Vals.",
+    description:
+      "Resolved GitHub issues under Mini-SWE-agent on Vals. Vals stopped running this benchmark on new models on 1 September 2026 because scores had saturated, so models released since then have no score and the top of this board is out of date.",
     sourceName: "Vals AI",
     sourceUrl: "https://vals.ai/benchmarks/swebench",
     asOf: "2026-10-04",
@@ -640,7 +641,7 @@ export const SCORES: Score[] = [
   s("gpt-5.6-luna", "arena-elo", 1451, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-04"),
   s("deepseek-v4.1-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-04"),
 
-  s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-10-04"),
+  s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-10-04", "Lead is out of date: Vals stopped adding new models on 1 September 2026, so newer models were never run"),
   s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-10-04"),
   s("gpt-5.6-sol", "swe-bench", 96.2, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-10-04"),
   s("grok-4.6", "swe-bench", 95.6, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-10-04"),

@@ -1,7 +1,7 @@
 You are the Ridge Monday pull. Repo is already open. Read RIDGE.md first.
 
 Job:
-1. Pull current Artificial Analysis Intelligence Index v4.2 (leaderboard + any new model articles). Also check Vals SWE-bench and Arena if they moved.
+1. Pull current Artificial Analysis Intelligence Index v4.3.2 (leaderboard + any new model articles). Also check Vals SWE-bench and Arena if they moved.
 2. Update src/lib/data/catalog.ts. New models get new ids. Never overwrite Grok 4 with Grok 4.6. Spark xhigh (muse-spark-1.3, GA) and Spark max (muse-spark-1.3-max, partner) stay separate rows.
 3. Use only v4.2 AA numbers on the AA board. Do not mix v4.1.1 60s-scale scores onto v4.2 bars.
 4. If a source has no number, leave —. Do not invent MCP Atlas, SWE Atlas, or t/s columns.
