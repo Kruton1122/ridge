@@ -15,6 +15,7 @@ export const LEDGER_SOURCES = [
   { name: "LMArena / OpenLM", url: "https://openlm.ai/chatbot-arena/" },
   { name: "Vals AI", url: "https://vals.ai/benchmarks/swebench" },
   { name: "Cursor (CursorBench 4.0)", url: "https://cursor.com/cursorbench" },
+  { name: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
 ];
 
 export const NEXT_PULL_WEEKDAY = 1;
@@ -82,6 +83,8 @@ export interface LedgerRow {
   aaNote?: string;
   swe: number | null;
   arena: number | null;
+  cyber: number | null;
+  cyberNote?: string;
   dollarPerAa: number | null;
   priceIn: number | null;
   priceOut: number | null;
@@ -99,6 +102,7 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
     const model = getModel(row.modelId)!;
     const swe = scoreOf(model.id, "swe-bench");
     const arena = scoreOf(model.id, "arena-elo");
+    const cyber = scoreOf(model.id, "aa-cyber");
     const promoLive =
       model.promoPricing && (!model.promoPricing.until || model.promoPricing.until >= SNAPSHOT_DATE)
         ? model.promoPricing
@@ -116,6 +120,8 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
       aaNote: row.note,
       swe: swe?.value ?? null,
       arena: arena?.value ?? null,
+      cyber: cyber?.value ?? null,
+      cyberNote: cyber?.note,
       dollarPerAa: listDollarPerAa(model, row.value, mode),
       priceIn: model.pricing?.inputPerM ?? null,
       priceOut: model.pricing?.outputPerM ?? null,
@@ -156,6 +162,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
     "price_in",
     "price_out",
     "context",
+    "aa_cyber",
   ];
   const lines = [
     `# Ridge ledger last_updated=${payload.last_updated} index=${payload.index}`,
@@ -177,6 +184,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
         r.priceIn ?? "",
         r.priceOut ?? "",
         r.context ?? "",
+        r.cyber ?? "",
       ].join(","),
     ),
   ];

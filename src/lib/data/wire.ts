@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "ridge-aa-cyber-column-1004",
+    title: "Ridge adds the AA Cyber Index as a board column",
+    blurb:
+      "4 October. The ledger now has a column for the Artificial Analysis Cyber Index, which measures how well models find, reproduce, and patch security bugs in real code. Grok 4.7 leads the models we track, ahead of GPT-6 Luna and Muse Spark 1.3. Read the bottom of the column with care. Several frontier models from OpenAI, Anthropic, and Google decline about a third of the tasks on safety grounds, nearly all of them on the CyberGym test, so their low scores say more about refusals than about skill. Each score carries a note on how often AA saw the model decline. Models AA has not tested stay blank. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+    date: "2026-10-04",
+    outlet: "Ridge / Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+    beat: "ranking",
+    models: ["grok-4.7", "gpt-6-luna", "muse-spark-1.3", "gpt-6-sol", "gpt-6-astra", "claude-opus-5.5", "claude-fable-5.1", "gemini-3.8-flash"],
+  },
+
+  {
     id: "vulcanbench-grok-4-7-1004",
     title: "VulcanBench: Grok 4.7 tops a hard coding suite at every effort level",
     blurb:

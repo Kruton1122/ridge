@@ -1,8 +1,13 @@
 export const CHANGELOG = [
   {
     date: "2026-10-04",
-    title: "Wire: VulcanBench puts Grok 4.7 first",
+    title: "New column: AA Cyber Index; VulcanBench wire",
     items: [
+      "New board column: the Artificial Analysis Cyber Index. It scores cyber defense work, meaning finding, reproducing, and patching security bugs in real code, across three evals. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+      "Scores for 11 catalog models. Grok 4.7 leads at 56 (xhigh), then GPT-6 Luna at 53 (max) and Muse Spark 1.3 at 44 (xhigh). Models AA has not run stay blank.",
+      "GPT-6 Sol, GPT-6 Astra, Claude Opus 5.5, Claude Fable 5.1, and Gemini 3.8 Flash decline about a third of the tasks on safety grounds, almost all of them on CyberGym. Their low scores mostly reflect those refusals, and each score note says so.",
+      "New wire on the column.",
+      "Snapshot and score dates moved to 4 October from the daily scrape. No other board values changed.",
       "New wire: Grok 4.7 in Cursor leads VulcanBench Frontier v4, an open-source coding suite, ahead of Fable 5.1, Opus 5.5, GPT-6 Astra, and GPT-6.1 Sol at each shared effort level. VulcanBench is not a board column, so no board scores change. Source: https://vulcanbench.com/leaderboard.html",
     ],
   },

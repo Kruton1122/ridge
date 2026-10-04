@@ -5,6 +5,8 @@ Ridge daily briefing — non-AI scrape of the public leaderboards.
 Pulls:
   - openlm.ai/chatbot-arena/              -> Arena Elo + OpenLM AAII column
   - artificialanalysis.ai/leaderboards/models -> AA Intelligence Index (SSR table)
+  - artificialanalysis.ai/evaluations/artificial-analysis-cyber-index -> AA Cyber Index
+    (page data: unrounded score + per-eval refusal rates)
   - vals.ai/benchmarks/swebench           -> SWE-bench Verified overall accuracy
 
 CursorBench (cursor.com/cursorbench) is NOT scraped here — Next.js/RSC payload;
@@ -305,6 +307,148 @@ def parse_aa_index(src: str):
     return entries
 
 
+AA_CYBER_URL = "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
+
+
+def _json_object_around(t: str, pos: int):
+    """Return the innermost {...} object in t that contains pos, or None."""
+    depth = 0
+    i = pos
+    while i > 0:
+        c = t[i]
+        if c == "}":
+            depth += 1
+        elif c == "{":
+            if depth == 0:
+                break
+            depth -= 1
+        i -= 1
+    if i <= 0:
+        return None
+    start, depth, j, in_str = i, 0, i, False
+    n = len(t)
+    while j < n:
+        c = t[j]
+        if in_str:
+            if c == "\\":
+                j += 1
+            elif c == '"':
+                in_str = False
+        else:
+            if c == '"':
+                in_str = True
+            elif c == "{":
+                depth += 1
+            elif c == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+        j += 1
+    try:
+        return json.loads(t[start:j + 1])
+    except ValueError:
+        return None
+
+
+def _share_words(x: float) -> str:
+    if x < 0.08:
+        return "a few"
+    if x < 0.15:
+        return "about a tenth"
+    if x < 0.25:
+        return "about a fifth"
+    if x < 0.42:
+        return "about a third"
+    if x < 0.58:
+        return "about half"
+    if x < 0.75:
+        return "about two thirds"
+    return "most"
+
+
+def _gym_words(g: float):
+    if g >= 0.995:
+        return "every"
+    if g >= 0.95:
+        return "nearly all"
+    if g >= 0.75:
+        return "most"
+    if g >= 0.4:
+        return "many"
+    if g > 0:
+        return "some"
+    return None
+
+
+def cyber_refusal_note(variant, rates: dict):
+    """Public score note for an AA Cyber Index row, built only from AA's published
+    refusal rates. Returns (note, refusal_known)."""
+    head = f"variant: {variant}." if variant else ""
+    vals = [rates.get(k) for k in ("cweBench", "deepsecBench", "cybergymE2e")]
+    if any(v is None for v in vals):
+        return (head.rstrip(".") or None), False
+    overall = sum(vals) / 3.0
+    gym = vals[2]
+    if overall == 0:
+        tail = "No tasks declined."
+    else:
+        tail = f"Declines {_share_words(overall)} of tasks on safety grounds"
+        gw = _gym_words(gym)
+        tail += f"; refuses {gw} CyberGym task{'s' if gw != 'every' else ''}." if gw else "."
+    return (f"{head} {tail}".strip()), True
+
+
+def parse_aa_cyber(src: str):
+    """AA Cyber Index rows from the leaderboard's embedded page data.
+
+    Score = AA's unrounded cyberIndex rounded half-up. Each effort variant is kept
+    as its own entry (like the AA Intelligence parse) so the apply step can pick
+    the best variant per catalog model by decimal. Refusal rates per eval are
+    carried through so the score note can say how many tasks a model declined.
+    """
+    t = src.replace('\\"', '"')
+    seen = set()
+    entries = []
+    for m in re.finditer(r'"cyberIndex":(-?[0-9.]+|null)', t):
+        if m.group(1) == "null":
+            continue
+        o = _json_object_around(t, m.start())
+        if not o or not isinstance(o.get("cyberIndex"), (int, float)):
+            continue
+        full = html.unescape(o.get("shortName") or o.get("name") or "").strip()
+        slug = o.get("slug") or full
+        if not full or slug in seen:
+            continue
+        seen.add(slug)
+        dec = float(o["cyberIndex"])
+        if dec < 0 or dec > 100:
+            continue
+        pm = re.search(r"\(([^)]+)\)\s*$", full)
+        variant = pm.group(1).strip() if pm else None
+        base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
+        rates = {
+            "cweBench": o.get("cweBenchRefusalRate"),
+            "deepsecBench": o.get("deepsecBenchRefusalRate"),
+            "cybergymE2e": o.get("cybergymE2eRefusalRate"),
+        }
+        note, known = cyber_refusal_note(variant, rates)
+        entries.append({
+            "name": base,
+            "fullName": full,
+            "slug": slug,
+            "variant": variant,
+            "score": float(round_half_up(dec)),
+            "scoreDecimal": dec,
+            "note": note,
+            "refusalKnown": known,
+            "refusalRates": rates,
+        })
+    entries.sort(key=lambda e: e["scoreDecimal"], reverse=True)
+    if len(entries) < 5:
+        raise RuntimeError(f"AA Cyber Index: only parsed {len(entries)} models")
+    return entries
+
+
 def parse_vals_swebench(src: str):
     islands = re.findall(r'<astro-island[^>]*props="([^"]*)"[^>]*>', src)
     best = None
@@ -445,6 +589,7 @@ def main():
     arena_entries = []
     aaii_openlm_entries = []
     aa_entries = []
+    cyber_entries = []
     swe_entries = []
 
     try:
@@ -498,6 +643,34 @@ def main():
                 "id": "aa-intelligence",
                 "name": "Artificial Analysis Intelligence Index",
                 "url": "https://artificialanalysis.ai/leaderboards/models",
+                "ok": False,
+                "rows": 0,
+                "error": str(e),
+            }
+        )
+
+    # AA Cyber Index: optional. A failure here is logged in sources but does not
+    # block the main scrape; the apply step just leaves aa-cyber rows alone.
+    try:
+        cyber_src = fetch(AA_CYBER_URL)
+        cyber_entries = parse_aa_cyber(cyber_src)
+        sources.append(
+            {
+                "id": "aa-cyber",
+                "name": "Artificial Analysis Cyber Index",
+                "url": AA_CYBER_URL,
+                "ok": True,
+                "rows": len(cyber_entries),
+                "note": "unrounded page-data score, half-up; refusal rates per eval",
+            }
+        )
+    except Exception as e:
+        print(f"artificialanalysis.ai (AA Cyber Index): {e}", file=sys.stderr)
+        sources.append(
+            {
+                "id": "aa-cyber",
+                "name": "Artificial Analysis Cyber Index",
+                "url": AA_CYBER_URL,
                 "ok": False,
                 "rows": 0,
                 "error": str(e),
@@ -589,6 +762,15 @@ def main():
                 "scoreDecimal": e.get("scoreDecimal"), "scoreDisplay": e.get("scoreDisplay"),
             }
             for e in aa_entries
+        ],
+        "aa_cyber": [
+            {
+                "name": e["name"], "fullName": e["fullName"], "variant": e["variant"],
+                "score": e["score"], "scoreDecimal": e["scoreDecimal"],
+                "note": e["note"], "refusalKnown": e["refusalKnown"],
+                "refusalRates": e["refusalRates"],
+            }
+            for e in cyber_entries
         ],
         "swe": [
             {"name": e["name"], "accuracy": e["accuracy"]}

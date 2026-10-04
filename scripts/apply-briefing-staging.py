@@ -12,13 +12,14 @@ import json, os, re, subprocess, sys
 from pathlib import Path
 from decimal import Decimal, ROUND_HALF_UP
 REPO = Path(__file__).resolve().parent.parent
-PULL_PATH = REPO / "logs" / "briefing-pull.json"
+PULL_PATH = Path(os.environ.get("RIDGE_PULL_PATH") or (REPO / "logs" / "briefing-pull.json"))
 CATALOG_PATH = REPO / "src" / "lib" / "data" / "catalog.ts"
 DESK_PATH = REPO / "src" / "lib" / "data" / "desk.ts"
 CHANGELOG_PATH = REPO / "src" / "lib" / "data" / "changelog.ts"
 LLMS_PATH = REPO / "public" / "llms.txt"
 DRY_RUN = "--dry-run" in sys.argv
 AA_URL = "https://artificialanalysis.ai/leaderboards/models"
+AA_CYBER_URL = "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
 ARENA_URL = "https://openlm.ai/chatbot-arena/"
 SWE_URL = "https://vals.ai/benchmarks/swebench"
 
@@ -367,7 +368,7 @@ def safety_delta_limit(benchmark_id):
         return ARENA_DELTA_MAX
     if benchmark_id == "swe-bench":
         return SWE_DELTA_MAX
-    if benchmark_id == "aa-intelligence":
+    if benchmark_id in ("aa-intelligence", "aa-cyber"):
         return AA_DELTA_MAX
     return None
 
@@ -442,12 +443,14 @@ def main():
             prev = next((s for s in existing_scores if s["modelId"] == model_id and s["benchmarkId"] == benchmark_id), None)
             if benchmark_id == "aa-intelligence":
                 source_name, source_url = "Artificial Analysis", AA_URL
+            elif benchmark_id == "aa-cyber":
+                source_name, source_url = "Artificial Analysis", AA_CYBER_URL
             elif benchmark_id == "arena-elo":
                 source_name, source_url = "Arena+", ARENA_URL
             else:
                 source_name, source_url = "Vals AI", SWE_URL
             if not prev:
-                next_note = note if benchmark_id == "aa-intelligence" else (
+                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber") else (
                     "Arena lists Thinking" if (
                         benchmark_id == "arena-elo"
                         and re.search(r"\bThinking\b", name or "", re.I)
@@ -485,7 +488,7 @@ def main():
             # Small-drop guard for AA: a 1-point dip is usually display rounding or a
             # stale page, not a real re-score. Only lower the board when AA's own
             # decimal rounds (half-up) to the new value and sits clearly below the old.
-            if benchmark_id == "aa-intelligence" and from_val is not None and 0 < from_val - num_val <= 1:
+            if benchmark_id in ("aa-intelligence", "aa-cyber") and from_val is not None and 0 < from_val - num_val <= 1:
                 dec = mapped.get("decimal")
                 ok = (
                     isinstance(dec, (int, float))
@@ -494,15 +497,15 @@ def main():
                 )
                 if not ok:
                     msg = (
-                        "aa small-drop hold %s: %s->%s not backed by AA decimal (%r); keeping %s"
-                        % (model_id, format_num(from_val), format_num(num_val), dec, format_num(from_val))
+                        "%s small-drop hold %s: %s->%s not backed by AA decimal (%r); keeping %s"
+                        % (benchmark_id, model_id, format_num(from_val), format_num(num_val), dec, format_num(from_val))
                     )
                     logs.append(msg)
                     safety_skips.append(msg)
                     continue
                 logs.append(
-                    "aa small-drop applied %s: %s->%s (AA decimal %.2f)"
-                    % (model_id, format_num(from_val), format_num(num_val), dec)
+                    "%s small-drop applied %s: %s->%s (AA decimal %.2f)"
+                    % (benchmark_id, model_id, format_num(from_val), format_num(num_val), dec)
                 )
             high_conf = is_high_confidence(matched["why"], matched["score"])
             lim = safety_delta_limit(benchmark_id)
@@ -517,6 +520,10 @@ def main():
                 # Keep claim so an even worse later row cannot apply either
                 continue
             next_note = (note or prev.get("note")) if benchmark_id == "aa-intelligence" else prev.get("note")
+            # AA Cyber: the note carries AA's refusal read. Only replace it when the
+            # scrape actually had refusal rates; otherwise keep the existing note.
+            if benchmark_id == "aa-cyber":
+                next_note = note if (note and mapped.get("refusalKnown")) else prev.get("note")
             # Keep a curated suffix on the AA note (e.g. "...; AA tested a pre-release build ...")
             # when the scrape only re-reports the same variant prefix.
             prev_note = prev.get("note") or ""
@@ -525,7 +532,7 @@ def main():
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 benchmark_id == "aa-intelligence" and note and note != prev.get("note")
-            )
+            ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note"))
             if not changed_val and not changed_meta:
                 continue
             next_row = {
@@ -549,6 +556,12 @@ def main():
     apply_bucket("aa-intelligence", pull.get("aa_index") or [], lambda r: {
         "name": r["name"], "value": r.get("score"), "note": r.get("note"), "variantHint": r.get("note"),
         "decimal": r.get("scoreDecimal"),
+    })
+    # aa-cyber from AA's Cyber Index page data (unrounded score, refusal rates)
+    apply_bucket("aa-cyber", pull.get("aa_cyber") or [], lambda r: {
+        "name": r["name"], "value": r.get("score"), "note": r.get("note"),
+        "variantHint": r.get("variant") or r.get("fullName"),
+        "decimal": r.get("scoreDecimal"), "refusalKnown": r.get("refusalKnown"),
     })
     apply_bucket("arena-elo", pull.get("arena") or [], lambda r: {
         "name": r["name"], "value": r.get("elo"), "note": None, "variantHint": None,
@@ -595,6 +608,12 @@ def main():
                 rf'\1"{as_of}"',
                 catalog_src, count=1,
             )
+        if "aa-cyber" in touched:
+            catalog_src = re.sub(
+                r'(id: "aa-cyber"[\s\S]*?asOf: )"[^"]+"',
+                rf'\1"{as_of}"',
+                catalog_src, count=1,
+            )
         if "swe-bench" in touched:
             catalog_src = re.sub(
                 r'(id: "swe-bench"[\s\S]*?asOf: )"[^"]+"',
@@ -621,7 +640,7 @@ def main():
                     for u in rows[:6]
                 )
                 items.append("%s: %s." % (bench, bits))
-            items.append("Scores sourced from daily briefing scrape (AA / Arena+ / Vals).")
+            items.append("Scores sourced from daily briefing scrape (AA / AA Cyber / Arena+ / Vals).")
             nl = chr(10)
             entry_items = ("," + nl).join("      " + json.dumps(i) for i in items)
             entry = (
