@@ -1,5 +1,12 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-04",
+    title: "Wire: VulcanBench puts Grok 4.7 first",
+    items: [
+      "New wire: Grok 4.7 in Cursor leads VulcanBench Frontier v4, an open-source coding suite, ahead of Fable 5.1, Opus 5.5, GPT-6 Astra, and GPT-6.1 Sol at each shared effort level. VulcanBench is not a board column, so no board scores change. Source: https://vulcanbench.com/leaderboard.html",
+    ],
+  },
+  {
     date: "2026-10-02",
     title: "Wires: AA Coding Agent Index, OpenAI on Moonshot distillation",
     items: [

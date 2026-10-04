@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "vulcanbench-grok-4-7-1004",
+    title: "VulcanBench: Grok 4.7 tops a hard coding suite at every effort level",
+    blurb:
+      "4 October. VulcanBench, an open-source coding benchmark run by Morgan Linton, CTO of Bold Metrics, says Grok 4.7 now leads its Frontier v4 suite. The suite has 23 hard tasks that ask a model to rebuild an old program whose real behavior drifted from its written spec. Half the score comes from hidden tests and a third from a judged read of code quality. Grok 4.7 in Cursor scored 93 at extra-high and beat Claude Fable 5.1, Claude Opus 5.5, GPT-6 Astra, and GPT-6.1 Sol at each effort level they share. Linton says he had underestimated it. Two caveats: Grok 4.7 ran in Cursor while the others ran in their own lab's tools, and its code was graded by a swapped judge panel, because Grok 4.6 normally sits on it. VulcanBench is not a Ridge board column, so no scores change. Sources: https://x.com/VulcanBench/status/2106744011847610777 and https://vulcanbench.com/leaderboard.html",
+    date: "2026-10-04",
+    outlet: "VulcanBench",
+    url: "https://vulcanbench.com/leaderboard.html",
+    beat: "ranking",
+    models: ["grok-4.7", "claude-fable-5.1", "claude-opus-5.5", "gpt-6-astra", "gpt-6.1-sol"],
+  },
+
+  {
     id: "oai-moonshot-distillation-0930",
     title: "OpenAI says people tied to Moonshot AI ran a campaign to extract its models' hidden reasoning",
     blurb:
