@@ -7,8 +7,8 @@ export const Route = createFileRoute("/_site/best")({
   component: Best,
   head: () => ({
     meta: [
-      { title: "Best for… — Ridge" },
-      { name: "description", content: "The best model for coding, agents, cyber security, value, open weights and more — each pick is the top of one published board, with its source and date." },
+      { title: "Best for… | Ridge" },
+      { name: "description", content: "The best model for coding, agents, cyber security, value, open weights and more. Each pick is the top of one published board, with its source and date." },
     ],
   }),
 });
@@ -21,7 +21,7 @@ function Best() {
         <div className="rx-kicker">Quick answers · {SNAPSHOT_LABEL}</div>
         <h1>Best for…</h1>
         <p className="dek">
-          Each pick is simply the top of one published board — Ridge never blends boards into a score of its own. Ties
+          Each pick is simply the top of one published board. Ridge never blends boards into a score of its own. Ties
           name every co-leader, and where a board has only measured a few models, the card says so.
         </p>
       </header>
@@ -30,7 +30,7 @@ function Best() {
       </div>
       <p className="rx-table-note" style={{ marginTop: 22 }}>
         “Best” means best on that board, at the effort level the publisher tested. A model missing from a card may simply
-        not have been measured yet — see <a className="rx-link" href="/benchmarks">Benchmarks</a> for coverage.
+        not have been measured yet; see <a className="rx-link" href="/benchmarks">Benchmarks</a> for coverage.
       </p>
     </div>
   );

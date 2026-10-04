@@ -8,8 +8,8 @@ export function BestCard({ pick, i = 0, full = false }: { pick: Pick; i?: number
   const lead = pick.leaders[0];
   const joint = pick.leaders.length > 1;
   return (
-    <article id={full ? pick.id : undefined} className={`rx-best rx-in${full ? " full" : ""}`} style={{ "--d": `${i * 60}ms`, "--c": labVar(lead.model.lab) } as React.CSSProperties}>
-      <div className="rx-kicker lbl">{pick.label}</div>
+    <article id={full ? pick.id : undefined} className={`rx-best rx-in${full ? " full" : ""}${pick.stale ? " stale" : ""}`} style={{ "--d": `${i * 60}ms`, "--c": labVar(lead.model.lab) } as React.CSSProperties}>
+      <div className="rx-kicker lbl">{pick.label}{pick.stale && <span className="old">Out of date</span>}</div>
       {full && <p className="q">{pick.question}</p>}
       <div className="win">
         <div className="who">
@@ -30,7 +30,7 @@ export function BestCard({ pick, i = 0, full = false }: { pick: Pick; i?: number
           ))}
         </div>
       )}
-      {full && pick.leaderNote && <p className="note">{lead.model.name}: {pick.leaderNote}</p>}
+      {full && pick.leaderNote && !pick.stale && <p className="note">{lead.model.name}: {pick.leaderNote}</p>}
       {full && pick.caveat && <p className="cav">{pick.caveat}</p>}
       {full ? (
         <div className="src">

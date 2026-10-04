@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
-import { CATALOG_STATS } from "@/lib/data/derived";
+import { AA_VERSION, CATALOG_STATS } from "@/lib/data/derived";
 import type { LabId } from "@/lib/data/types";
 
 /** Lab colours come from CSS so they re-tune for paper vs night. */
@@ -68,17 +68,17 @@ export function Shell({ children }: { children: ReactNode }) {
         <div className="rx-wrap">
           <span suppressHydrationWarning>{date || " "}</span>
           <span className="live">
-            <i /> Snapshot {SNAPSHOT_LABEL}<span className="wide"> · AA Index v4.2 · {CATALOG_STATS.models} models</span>
+            <i /> Snapshot {SNAPSHOT_LABEL}<span className="wide"> · AA Index {AA_VERSION} · {CATALOG_STATS.models} models</span>
           </span>
         </div>
       </div>
 
       <header className="rx-plate" ref={plate}>
         <div className="rx-wrap">
-          <Link to="/" className="name" aria-label="Ridge — front page">
+          <Link to="/" className="name" aria-label="Ridge front page">
             Ridge<em>.</em>
           </Link>
-          <div className="motto">The frontier, scored — every number sourced, every blank on purpose.</div>
+          <div className="motto">The frontier, scored. Every number sourced, every blank on purpose.</div>
           <div className="rx-rules" />
         </div>
       </header>
@@ -118,7 +118,7 @@ export function Shell({ children }: { children: ReactNode }) {
             <p style={{ maxWidth: "34em", marginTop: 12 }}>
               An independent cut of Artificial Analysis, Vals, CursorBench, Arena and Terminal-Bench. Every number links
               to where it was published and the date it was read. Where nobody has published a score, the cell stays
-              empty — an empty cell is a finding, not a gap.
+              empty. An empty cell is a finding, not a gap.
             </p>
           </div>
           <div>

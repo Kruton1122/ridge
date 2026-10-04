@@ -7,12 +7,12 @@ import { labVar } from "@/components/v3/shell";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { NEWS } from "@/lib/data/desk";
 import { bestPicks } from "@/lib/data/best";
-import { CATALOG_STATS, board, headlines, scatter, unscoredModels } from "@/lib/data/derived";
+import { AA_VERSION, CATALOG_STATS, board, headlines, scatter, unscoredModels } from "@/lib/data/derived";
 import { WIRE } from "@/lib/data/wire";
 
 export const Route = createFileRoute("/_site/")({
   component: FrontPage,
-  head: () => ({ meta: [{ title: "Ridge — the frontier, scored" }] }),
+  head: () => ({ meta: [{ title: "Ridge | The frontier, scored" }] }),
 });
 
 const shortDate = (d: string) =>
@@ -24,7 +24,11 @@ function FrontPage() {
   const joint = aa.filter((r) => r.score.value === top?.score.value);
   const runner = aa.find((r) => r.score.value < (top?.score.value ?? 0));
   const answers = headlines("promo");
-  const picks = bestPicks().filter((p) => ["coding", "agents", "cyber", "people"].includes(p.id));
+  // Four quick answers for the front page, skipping any board too out of date to name a "best".
+  const picks = ["coding", "ide", "agents", "cyber", "people", "open", "value"]
+    .map((id) => bestPicks().find((p) => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p && !p.stale))
+    .slice(0, 4);
   const frontier = scatter("promo").filter((p) => p.frontier).sort((a, b) => a.dollarPerAa - b.dollarPerAa);
   const news = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
   const wire = [...WIRE].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8);
@@ -57,7 +61,7 @@ function FrontPage() {
             <p className="rule-note">
               <b>The one rule:</b> every number carries a source and an as-of date, and anything unpublished stays blank.{" "}
               {unscoredModels().length > 0
-                ? `${unscoredModels().length} catalogued model${unscoredModels().length === 1 ? " has" : "s have"} no independent score yet — they’re listed anyway.`
+                ? `${unscoredModels().length} catalogued model${unscoredModels().length === 1 ? " has" : "s have"} no independent score yet. They’re listed anyway.`
                 : "Right now every catalogued model has at least one independent score."}
             </p>
           </div>
@@ -85,7 +89,7 @@ function FrontPage() {
                 <h2>Best for…</h2>
               </div>
               <p>
-                The top of one board each — no blended scores. <a className="rx-link" href="/best">All picks, with caveats →</a>
+                The top of one board each, never a blended score. <a className="rx-link" href="/best">All picks, with caveats →</a>
               </p>
             </div>
             <div className="rx-best-grid">
@@ -102,7 +106,7 @@ function FrontPage() {
             </div>
             <p>
               Each line is one lab’s best model to date, stepping up whenever it shipped something better. Release date
-              against today’s AA v4.2 score — one ruler, no back-dated numbers. Hover a ridge to isolate it.
+              against today’s AA {AA_VERSION} score: one ruler, no back-dated numbers. Hover a ridge to isolate it.
             </p>
           </div>
           <Ridgeline />
@@ -114,7 +118,7 @@ function FrontPage() {
               <div className="rx-kicker">Table 1</div>
               <h2>The ledger</h2>
             </div>
-            <p>Ranked by AA Intelligence Index v4.2. Click any heading to re-sort; click a score for its source.</p>
+            <p>Ranked by AA Intelligence Index {AA_VERSION}. Click any heading to re-sort; click a score for its source.</p>
           </div>
           <Ledger />
         </section>

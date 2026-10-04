@@ -6,7 +6,7 @@ const W = 720;
 const H = 420;
 const M = { l: 40, r: 20, t: 16, b: 34 };
 
-/** Mid price (log) against AA v4.2. The dashed line is the cost frontier: nothing is both cheaper and better. */
+/** Mid price (log) against the current AA Index. The dashed line is the cost frontier: nothing is both cheaper and better. */
 export function CostScatter() {
   const pts = useMemo(() => scatter("promo"), []);
   if (!pts.length) return null;
@@ -40,7 +40,7 @@ export function CostScatter() {
             <circle className="pt rx-in" cx={X(p.x)} cy={Y(p.y)} r={p.frontier ? 6 : 4.5}
               fill={p.frontier ? labVar(p.model.lab) : "var(--paper)"} stroke={labVar(p.model.lab)} strokeWidth={1.8}
               style={{ "--d": `${200 + i * 30}ms` } as React.CSSProperties}>
-              <title>{`${p.model.name} — AA ${p.y}, $${p.x.toFixed(2)} mid per 1M, $${p.dollarPerAa.toFixed(2)} per point`}</title>
+              <title>{`${p.model.name}: AA ${p.y}, $${p.x.toFixed(2)} mid per 1M, $${p.dollarPerAa.toFixed(2)} per point`}</title>
             </circle>
             {(p.frontier || top.has(p.model.id)) && (
               <text className={`lbl${p.frontier ? "" : " dim"}`} x={X(p.x) + 9} y={Y(p.y) - 8}>{p.model.shortName || p.model.name}</text>

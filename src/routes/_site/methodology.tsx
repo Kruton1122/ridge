@@ -1,13 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
-import { CATALOG_STATS, benchmarksWithScores, coverage } from "@/lib/data/derived";
+import { AA_VERSION, CATALOG_STATS, benchmarksWithScores, coverage } from "@/lib/data/derived";
 import { LEDGER_SOURCES, nextPullLabel } from "@/lib/data/ledger";
 
 export const Route = createFileRoute("/_site/methodology")({
   component: Methodology,
   head: () => ({
     meta: [
-      { title: "Methodology — Ridge" },
+      { title: "Methodology | Ridge" },
       { name: "description", content: "How the Ridge ledger is built: which sources it reads, what it refuses to publish, why index versions are never mixed, and what $/AA does and does not mean." },
     ],
   }),
@@ -18,7 +18,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     n: "Rule one",
     title: "Nothing gets invented",
     body: [
-      <>If Artificial Analysis, Arena+, Vals, or Cursor has not published a number for a model on a board we track, the cell reads — and stays that way. Not a zero, not an estimate interpolated from a neighboring model, not a figure lifted from a lab launch post. CursorBench 4.0 is the one first-party harness we carry as its own column, labeled as Cursor’s; other vendor-run agent tables stay off the board.</>,
+      <>If Artificial Analysis, Arena+, Vals, or Cursor has not published a number for a model on a board we track, the cell shows a dash and stays that way. Not a zero, not an estimate interpolated from a neighboring model, not a figure lifted from a lab launch post. CursorBench 4.0 is the one first-party harness we carry as its own column, labeled as Cursor’s; other vendor-run agent tables stay off the board.</>,
       <>This is why the ledger looks sparser than it could. Of {CATALOG_STATS.models} models in the catalog, {CATALOG_STATS.scored} carry a score on at least one board. The rest are listed with sourced pricing and specifications and nothing else, because that is genuinely all anyone has published about them.</>,
     ],
   },
@@ -27,8 +27,8 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     title: "Two rulers never share a bar",
     sub: "The single most common way a benchmark site publishes something false.",
     body: [
-      <>Artificial Analysis rebased its Intelligence Index from v4.1.1 to v4.2 on 4 September 2026 — AA-Briefcase and GDP.pdf added, a saturated GPQA Diamond dropped, private held-out weight raised to 40%. Scores across the whole board fell by roughly ten points overnight.</>,
-      <>Nothing got worse. The instrument changed. A model reading 66 in August and 53 in September is the same model measured two ways, and a chart that draws a line between those two points is telling a story that did not happen. Ridge does not draw that line, does not average the two, and does not put them on one bar. Every chart on this site that spans time is plotted entirely on v4.2.</>,
+      <>Artificial Analysis rebased its Intelligence Index from v4.1.1 to v4.2 on 4 September 2026: AA-Briefcase and GDP.pdf added, a saturated GPQA Diamond dropped, private held-out weight raised to 40%. Scores across the whole board fell by roughly ten points overnight.</>,
+      <>Nothing got worse. The instrument changed. A model reading 66 in August and 53 in September is the same model measured two ways, and a chart that draws a line between those two points is telling a story that did not happen. Ridge does not draw that line, does not average the two, and does not put them on one bar. Every chart on this site that spans time is plotted on one version of the index, currently {AA_VERSION}.</>,
       <>The same discipline applies to effort levels. A score measured at max effort and a score measured at high effort are different measurements of different things, and they stay in separate rows with the variant noted.</>,
     ],
   },
@@ -53,7 +53,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     n: "The pipeline",
     title: "What runs, and when",
     body: [
-      <>A scraper runs every morning against the published leaderboards, writes what it found to a staging file, and a second pass applies it to the catalog. That second pass can only update score rows that already exist — it is not allowed to create a model. Adding a model to the catalog is a deliberate act with a source attached, which is why a launch can appear in the news section days before it appears on the board.</>,
+      <>A scraper runs every morning against the published leaderboards, writes what it found to a staging file, and a second pass applies it to the catalog. That second pass can only update score rows that already exist; it is not allowed to create a model. Adding a model to the catalog is a deliberate act with a source attached, which is why a launch can appear in the news section days before it appears on the board.</>,
       <>Where the scrape and a source disagree, the source wins and the disagreement gets written down. The <a className="rx-link" href="/changelog">changelog</a> is not decoration; it is the audit trail for every number that has moved. Machine-readable copies live at the <a className="rx-link" href="/api">API page</a>.</>,
     ],
   },
@@ -61,7 +61,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     n: "If you cite this",
     title: "Cite the publisher, not the page",
     body: [
-      <>Ridge holds no scores of its own, so a citation that stops at this site is a citation of a middleman. Take the source URL and the as-of date printed beside the number and cite those. If a figure here disagrees with the publisher’s live page, the publisher is right and this snapshot is stale — the next pull is {nextPullLabel()}.</>,
+      <>Ridge holds no scores of its own, so a citation that stops at this site is a citation of a middleman. Take the source URL and the as-of date printed beside the number and cite those. If a figure here disagrees with the publisher’s live page, the publisher is right and this snapshot is stale. The next pull is {nextPullLabel()}.</>,
     ],
   },
 ];

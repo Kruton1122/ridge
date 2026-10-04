@@ -47,7 +47,8 @@ export const Route = createRootRoute({
       <head>
         <HeadContent />
       </head>
-      <body>
+      {/* the boot script sets body.style.overflow before hydration; that mutation is intentional */}
+      <body suppressHydrationWarning>
         <noscript>
           <style>{`#ridge-boot{display:none!important}html,body{overflow:auto!important}`}</style>
         </noscript>

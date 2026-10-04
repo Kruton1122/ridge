@@ -9,7 +9,7 @@ export const Route = createFileRoute("/_site/benchmarks/$id")({
     if (!getBenchmark(params.id)) throw notFound();
     return null;
   },
-  head: ({ params }) => ({ meta: [{ title: `${getBenchmark(params.id)?.name ?? "Benchmark"} — Ridge` }] }),
+  head: ({ params }) => ({ meta: [{ title: `${getBenchmark(params.id)?.name ?? "Benchmark"} | Ridge` }] }),
 });
 
 function Bench() {

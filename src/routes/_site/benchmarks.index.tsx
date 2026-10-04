@@ -4,7 +4,7 @@ import { board, coverage, formatValue } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/benchmarks/")({
   component: Benchmarks,
-  head: () => ({ meta: [{ title: "Benchmarks — Ridge" }] }),
+  head: () => ({ meta: [{ title: "Benchmarks | Ridge" }] }),
 });
 
 function Benchmarks() {

@@ -29,9 +29,14 @@ export interface Pick {
   /** The publisher's note on the leading score (variant, refusals…). */
   leaderNote?: string;
   caveat?: string;
+  /** The board hasn't measured most of today's top models, so its leader may be a default. */
+  stale?: boolean;
 }
 
 const THIN = 0.5;
+/** A board missing this many of the AA top five is too out of date for a "best" claim. */
+const FRONT = 5;
+const STALE_MISSING = 3;
 
 /** Exact counts: labs quote 1,050,000 vs 1,048,576, which any rounding would call a tie. */
 const ctx = (t: number | null) => (t ? t.toLocaleString("en-US") : "—");
@@ -53,9 +58,16 @@ function fromBoard(
   const leaders = rows.filter((r) => r.score.value === topV);
   const rest = rows.filter((r) => r.score.value !== topV).slice(0, 2);
   const thin = all.length / MODELS.length < THIN;
+  const onBoard = new Set(all.map((r) => r.model.id));
+  const front = board("aa-intelligence").slice(0, FRONT).map((r) => r.model);
+  const missing = benchmarkId === "aa-intelligence" ? [] : front.filter((m) => !onBoard.has(m.id));
+  const stale = missing.length >= STALE_MISSING;
+  const names = missing.map((m) => m.name);
+  const list = names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names[0];
   const cav = [
+    stale ? `Out of date: this board hasn't scored ${list}, from the current AA top ${FRONT}, so an older model leads by default.` : undefined,
     caveat,
-    thin ? `Only ${all.length} of ${MODELS.length} catalogued models have a published score here — an unmeasured model could beat it.` : undefined,
+    thin ? `Only ${all.length} of ${MODELS.length} catalogued models have a published score here, so an unmeasured model could beat it.` : undefined,
   ].filter(Boolean).join(" ");
   return {
     id,
@@ -72,6 +84,7 @@ function fromBoard(
     total: MODELS.length,
     leaderNote: leaders.length === 1 ? leaders[0].score.note : undefined,
     caveat: cav || undefined,
+    stale,
   };
 }
 
@@ -95,7 +108,7 @@ function bestValue(): Pick | null {
     href: "/methodology",
     measured: scatter("promo").length,
     total: MODELS.length,
-    caveat: "Mid list price ÷ AA score. A shelf tag for sorting, not a forecast of your bill — output-heavy work costs more.",
+    caveat: "Mid list price ÷ AA score. A shelf tag for sorting, not a forecast of your bill; output-heavy work costs more.",
   };
 }
 

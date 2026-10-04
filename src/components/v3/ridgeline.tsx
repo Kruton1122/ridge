@@ -1,12 +1,12 @@
 import { useMemo, useRef, useState } from "react";
 import { SNAPSHOT_DATE } from "@/lib/data/catalog";
-import { timeline, type TimelinePoint } from "@/lib/data/derived";
+import { AA_VERSION, timeline, type TimelinePoint } from "@/lib/data/derived";
 import type { LabId } from "@/lib/data/types";
 import { labVar } from "./shell";
 
 /**
  * The ridge: one line per lab, stepping up each time the lab released something that beat
- * its own best. Release date against the *current* v4.2 score, the same single ruler the
+ * its own best. Release date against the *current* index score, the same single ruler the
  * ledger uses -- it shows who moved the ceiling and when, not a history of past scores.
  */
 const W = 1100;
@@ -77,7 +77,7 @@ export function Ridgeline({ only }: { only?: LabId } = {}) {
   return (
     <div className="rx-ridge" ref={box} onMouseLeave={() => { setFocus(null); setTip(null); }}>
       <svg viewBox={`0 0 ${W} ${H}`} className={focus ? "focus" : undefined} role="img"
-        aria-label="Each lab's best AA Intelligence Index v4.2 score by release date">
+        aria-label={`Each lab's best AA Intelligence Index ${AA_VERSION} score by release date`}>
         {months.map((m) => (
           <g key={m.t}>
             <line className="r-grid" x1={x(m.t)} x2={x(m.t)} y1={8} y2={H - 30} />

@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_site/compare")({
   validateSearch: (search: Record<string, unknown>): { ids?: string } =>
     typeof search.ids === "string" && search.ids ? { ids: search.ids } : {},
   component: Compare,
-  head: () => ({ meta: [{ title: "Compare — Ridge" }] }),
+  head: () => ({ meta: [{ title: "Compare | Ridge" }] }),
 });
 
 function Compare() {

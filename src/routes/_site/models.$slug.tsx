@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
 import { ABOUTS } from "@/lib/data/abouts";
 import { formatContext, getModel } from "@/lib/data/catalog";
-import { board, dossier, formatValue, money } from "@/lib/data/derived";
+import { AA_VERSION, board, dossier, formatValue, money } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/models/$slug")({
   component: ModelPage,
@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_site/models/$slug")({
   },
   head: ({ params }) => {
     const m = getModel(params.slug);
-    return { meta: [{ title: m ? `${m.name} — Ridge` : "Not on the ledger — Ridge" }] };
+    return { meta: [{ title: m ? `${m.name} | Ridge` : "Not on the ledger | Ridge" }] };
   },
 });
 
@@ -29,7 +29,7 @@ function ModelPage() {
   const ord = (n: number) => `${n}${["th", "st", "nd", "rd"][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10 < 4 ? n % 10 : 0]}`;
 
   const stats = [
-    { k: "AA Index v4.2", v: d.aa ? String(d.aa.value) : "—", s: d.aa ? `${d.aa.tied ? "joint " : ""}${ord(d.aa.rank)} of ${d.aa.of}` : "No published score" },
+    { k: `AA Index ${AA_VERSION}`, v: d.aa ? String(d.aa.value) : "—", s: d.aa ? `${d.aa.tied ? "joint " : ""}${ord(d.aa.rank)} of ${d.aa.of}` : "No published score" },
     { k: "Price, mid", v: d.midPrice != null ? money(d.midPrice) : "—", s: m.pricing ? `$${m.pricing.inputPerM} in · $${m.pricing.outputPerM} out per 1M` : "Not listed" },
     { k: "$ per point", v: d.dollarPerAa != null ? `$${d.dollarPerAa.toFixed(2)}` : "—", s: d.dollarPerAaRank ? `${ord(d.dollarPerAaRank.rank)} cheapest of ${d.dollarPerAaRank.of}` : "Needs a price and a score" },
     { k: "Context", v: m.contextTokens ? formatContext(m.contextTokens) : "—", s: "tokens" },
@@ -112,7 +112,7 @@ function ModelPage() {
             </div>
             {about?.claims?.length ? (
               <>
-                <div className="rx-kicker" style={{ marginTop: 26 }}>What {m.labName} claims — their words, not Ridge’s measurements</div>
+                <div className="rx-kicker" style={{ marginTop: 26 }}>What {m.labName} claims: their words, not Ridge’s measurements</div>
                 <ul className="rx-claims">{about.claims.map((cl) => <li key={cl}>{cl}</li>)}</ul>
               </>
             ) : null}

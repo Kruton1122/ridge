@@ -12,7 +12,7 @@ export const Route = createFileRoute("/_site/labs/$id")({
     if (!labStats().some((l) => l.lab === params.id)) throw notFound();
     return null;
   },
-  head: ({ params }) => ({ meta: [{ title: `${labStats().find((l) => l.lab === params.id)?.name ?? "Lab"} — Ridge` }] }),
+  head: ({ params }) => ({ meta: [{ title: `${labStats().find((l) => l.lab === params.id)?.name ?? "Lab"} | Ridge` }] }),
 });
 
 function Lab() {

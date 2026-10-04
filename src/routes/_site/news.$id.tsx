@@ -11,7 +11,7 @@ export const Route = createFileRoute("/_site/news/$id")({
     if (!NEWS.some((n) => n.id === params.id)) throw notFound();
     return null;
   },
-  head: ({ params }) => ({ meta: [{ title: `${NEWS.find((n) => n.id === params.id)?.title ?? "Note"} — Ridge` }] }),
+  head: ({ params }) => ({ meta: [{ title: `${NEWS.find((n) => n.id === params.id)?.title ?? "Note"} | Ridge` }] }),
 });
 
 function Note() {

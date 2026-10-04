@@ -759,3 +759,6 @@
 .rx-best .src.short > :first-child { font-weight: 500; color: var(--ink-3); }
 .rx-best:not(.full) { gap: 8px; padding: 16px 18px 14px; }
 .rx-best:not(.full) .behind { padding-top: 8px; font-size: 12.5px; }
+
+.rx-best.stale .who a, .rx-best.stale .val { opacity: 0.55; }
+.rx-best .lbl .old { margin-left: 10px; padding: 1px 6px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--ink-3); letter-spacing: 0.08em; }

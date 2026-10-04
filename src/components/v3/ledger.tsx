@@ -146,7 +146,7 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
           <tbody>
             {scored.map(line)}
             {unscored.length > 0 && (
-              <tr className="divider"><td colSpan={5 + others.length}>Catalogued, not yet scored on the AA Index — kept, not hidden</td></tr>
+              <tr className="divider"><td colSpan={5 + others.length}>Catalogued, not yet scored on the AA Index. Kept, not hidden.</td></tr>
             )}
             {unscored.map((r, i) => line(r, scored.length + i))}
           </tbody>

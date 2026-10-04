@@ -8,7 +8,7 @@ import v3Css from "@/styles/ridge-v3.css?url";
  * tells browsers to keep it for 4 hours, so phones would render new markup with old CSS.
  * `?direct` makes Vite serve plain text/css whatever the request headers say.
  */
-const CSS_REV = 2;
+const CSS_REV = 3;
 
 /** The published site (v3 design, promoted 2026-10-03). Reads the catalog only; writes nothing. */
 export const Route = createFileRoute("/_site")({

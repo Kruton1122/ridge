@@ -4,7 +4,7 @@ import { labStats } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/labs/")({
   component: Labs,
-  head: () => ({ meta: [{ title: "Labs — Ridge" }] }),
+  head: () => ({ meta: [{ title: "Labs | Ridge" }] }),
 });
 
 function Labs() {

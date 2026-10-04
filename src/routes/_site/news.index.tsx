@@ -4,7 +4,7 @@ import { WIRE } from "@/lib/data/wire";
 
 export const Route = createFileRoute("/_site/news/")({
   component: News,
-  head: () => ({ meta: [{ title: "News — Ridge" }] }),
+  head: () => ({ meta: [{ title: "News | Ridge" }] }),
 });
 
 const fmt = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });

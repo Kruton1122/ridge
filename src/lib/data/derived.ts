@@ -141,7 +141,7 @@ export interface ScatterPoint {
   model: Model;
   /** Mid price per 1M tokens. */
   x: number;
-  /** AA Intelligence Index v4.2. */
+  /** AA Intelligence Index, current version. */
   y: number;
   dollarPerAa: number;
   /** On the cost/score Pareto frontier: nothing is both cheaper and smarter. */
@@ -182,7 +182,7 @@ export interface TimelinePoint {
 }
 
 /**
- * Release date against the *current* v4.2 score — one ruler, no back-dated
+ * Release date against the *current* index score — one ruler, no back-dated
  * numbers. Ridge has no historical index series, so this is deliberately not
  * a "score over time" chart and must not be labeled as one.
  */
@@ -323,7 +323,7 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
   for (const { benchmark, rank } of scores) {
     if (rank.rank <= 3) {
       strengths.push({
-        text: `${rank.tied ? "Joint " : ""}#${rank.rank} of ${rank.of} on ${benchmark.name} — ${formatValue(benchmark, rank.value)}`,
+        text: `${rank.tied ? "Joint " : ""}#${rank.rank} of ${rank.of} on ${benchmark.name}: ${formatValue(benchmark, rank.value)}`,
         source: {
           name: rank.score.sourceName,
           url: rank.score.sourceUrl,
@@ -334,7 +334,7 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
   }
 
   if (model.license === "open-weight") {
-    strengths.push({ text: "Open weights — runnable outside the vendor API." });
+    strengths.push({ text: "Open weights, runnable outside the vendor API." });
   }
   if (dollarPerAaRank && dollarPerAaRank.rank <= 3) {
     strengths.push({
@@ -354,16 +354,16 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
 
   for (const benchmark of missing) {
     watch.push({
-      text: `No ${benchmark.short} row in this snapshot — Ridge leaves it blank rather than estimating.`,
+      text: `No ${benchmark.short} row in this snapshot. Ridge leaves it blank rather than estimating.`,
     });
   }
   if (model.status === "partner") {
     watch.push({
-      text: "Partner preview — not the public API default. Cite the status with the number.",
+      text: "Partner preview, not the public API default. Cite the status with the number.",
     });
   }
   if (model.status === "preview") {
-    watch.push({ text: "Preview access — the public row may move when it reaches GA." });
+    watch.push({ text: "Preview access. The public row may move when it reaches GA." });
   }
   if (promoIsLive(model) && model.promoPricing && model.pricing) {
     watch.push({
@@ -372,7 +372,7 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
   }
   if (priceRank && mid != null && priceRank.rank > priceRank.of * 0.75) {
     watch.push({
-      text: `Top-quartile price on this board — $${mid.toFixed(2)} per 1M at the midpoint.`,
+      text: `Top-quartile price on this board: $${mid.toFixed(2)} per 1M at the midpoint.`,
     });
   }
 
@@ -482,7 +482,7 @@ export function headlines(mode: PriceMode = "promo"): Headline[] {
       label: "Intelligence",
       model: top?.model ?? null,
       value: top ? String(top.score.value) : "—",
-      sub: top ? `AA Index v4.2 · ${top.tied ? "joint " : ""}#1 of ${top.of}` : "No scored row",
+      sub: top ? `AA Index ${AA_VERSION} · ${top.tied ? "joint " : ""}#1 of ${top.of}` : "No scored row",
     },
     {
       label: "Best value",
@@ -986,6 +986,9 @@ function bestIndex(values: (number | null)[], dir: "high" | "low"): number | nul
  * discovered from the catalog.
  */
 export const HEADLINE_BENCHMARK = "aa-intelligence";
+
+/** "v4.3.2", read off the board name Ridge Bot maintains, so copy never hard-codes a version. */
+export const AA_VERSION = BENCHMARKS.find((b) => b.id === HEADLINE_BENCHMARK)?.name.match(/v\d+(?:\.\d+)*/)?.[0] ?? "";
 
 export interface Row {
   model: Model;

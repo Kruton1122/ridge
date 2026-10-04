@@ -4,7 +4,7 @@ import { labsPresent, ledgerRows } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/models/")({
   component: Models,
-  head: () => ({ meta: [{ title: "Models — Ridge" }] }),
+  head: () => ({ meta: [{ title: "Models | Ridge" }] }),
 });
 
 function Models() {

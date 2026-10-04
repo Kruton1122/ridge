@@ -34,7 +34,7 @@ export const Route = createFileRoute("/_site/api")({
   component: ApiPage,
   head: () => ({
     meta: [
-      { title: "API — Ridge" },
+      { title: "API | Ridge" },
       {
         name: "description",
         content:
@@ -82,7 +82,7 @@ function ApiPage() {
             </p>
             <p>
               Two failure modes are worth naming because they are the ones that actually happen. The first is quoting
-              an AA Index number without its version — v4.1.1 and v4.2 sit on different scales and a bare number is
+              an AA Index number without its version: v4.1.1 and v4.2 sit on different scales and a bare number is
               unreadable across the 4 September rebase. The second is quoting a score without its effort level or
               access tier, which turns a partner-preview maximum into an apparent public result.
             </p>
