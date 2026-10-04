@@ -18,6 +18,7 @@ import { Route as V2RouteRouteImport } from './routes/v2/route'
 import { Route as V3RouteRouteImport } from './routes/v3/route'
 import { Route as SiteIndexRouteImport } from './routes/_site/index'
 import { Route as SiteApiRouteImport } from './routes/_site/api'
+import { Route as SiteBestRouteImport } from './routes/_site/best'
 import { Route as SiteChangelogRouteImport } from './routes/_site/changelog'
 import { Route as SiteCompareRouteImport } from './routes/_site/compare'
 import { Route as SiteMethodologyRouteImport } from './routes/_site/methodology'
@@ -104,6 +105,11 @@ const SiteIndexRoute = SiteIndexRouteImport.update({
 const SiteApiRoute = SiteApiRouteImport.update({
   id: '/api',
   path: '/api',
+  getParentRoute: () => SiteRouteRoute,
+} as any)
+const SiteBestRoute = SiteBestRouteImport.update({
+  id: '/best',
+  path: '/best',
   getParentRoute: () => SiteRouteRoute,
 } as any)
 const SiteChangelogRoute = SiteChangelogRouteImport.update({
@@ -331,6 +337,7 @@ export interface FileRoutesByFullPath {
   '/v3': typeof V3RouteRouteWithChildren
   '/source': typeof SourceRoute
   '/api': typeof SiteApiRoute
+  '/best': typeof SiteBestRoute
   '/changelog': typeof SiteChangelogRoute
   '/compare': typeof SiteCompareRoute
   '/methodology': typeof SiteMethodologyRoute
@@ -378,6 +385,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/source': typeof SourceRoute
   '/api': typeof SiteApiRoute
+  '/best': typeof SiteBestRoute
   '/changelog': typeof SiteChangelogRoute
   '/compare': typeof SiteCompareRoute
   '/methodology': typeof SiteMethodologyRoute
@@ -433,6 +441,7 @@ export interface FileRoutesById {
   '/v3': typeof V3RouteRouteWithChildren
   '/source': typeof SourceRoute
   '/_site/api': typeof SiteApiRoute
+  '/_site/best': typeof SiteBestRoute
   '/_site/changelog': typeof SiteChangelogRoute
   '/_site/compare': typeof SiteCompareRoute
   '/_site/methodology': typeof SiteMethodologyRoute
@@ -489,6 +498,7 @@ export interface FileRouteTypes {
     | '/v3'
     | '/source'
     | '/api'
+    | '/best'
     | '/changelog'
     | '/compare'
     | '/methodology'
@@ -536,6 +546,7 @@ export interface FileRouteTypes {
   to:
     | '/source'
     | '/api'
+    | '/best'
     | '/changelog'
     | '/compare'
     | '/methodology'
@@ -590,6 +601,7 @@ export interface FileRouteTypes {
     | '/v3'
     | '/source'
     | '/_site/api'
+    | '/_site/best'
     | '/_site/changelog'
     | '/_site/compare'
     | '/_site/methodology'
@@ -718,6 +730,13 @@ declare module '@tanstack/react-router' {
       path: '/api'
       fullPath: '/api'
       preLoaderRoute: typeof SiteApiRouteImport
+      parentRoute: typeof SiteRouteRoute
+    }
+    '/_site/best': {
+      id: '/_site/best'
+      path: '/best'
+      fullPath: '/best'
+      preLoaderRoute: typeof SiteBestRouteImport
       parentRoute: typeof SiteRouteRoute
     }
     '/_site/changelog': {
@@ -1026,6 +1045,7 @@ declare module '@tanstack/react-router' {
 
 interface SiteRouteRouteChildren {
   SiteApiRoute: typeof SiteApiRoute
+  SiteBestRoute: typeof SiteBestRoute
   SiteChangelogRoute: typeof SiteChangelogRoute
   SiteCompareRoute: typeof SiteCompareRoute
   SiteMethodologyRoute: typeof SiteMethodologyRoute
@@ -1042,6 +1062,7 @@ interface SiteRouteRouteChildren {
 
 const SiteRouteRouteChildren: SiteRouteRouteChildren = {
   SiteApiRoute: SiteApiRoute,
+  SiteBestRoute: SiteBestRoute,
   SiteChangelogRoute: SiteChangelogRoute,
   SiteCompareRoute: SiteCompareRoute,
   SiteMethodologyRoute: SiteMethodologyRoute,

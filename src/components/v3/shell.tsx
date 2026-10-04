@@ -9,6 +9,7 @@ export const labVar = (lab: LabId | undefined) => `var(--lab-${lab ?? "other"})`
 
 const NAV: { to: string; label: string }[] = [
   { to: "/", label: "Ledger" },
+  { to: "/best", label: "Best for" },
   { to: "/models", label: "Models" },
   { to: "/compare", label: "Compare" },
   { to: "/benchmarks", label: "Benchmarks" },

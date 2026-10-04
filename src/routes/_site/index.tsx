@@ -1,10 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { BestCard } from "@/components/v3/bestcard";
 import { Ledger } from "@/components/v3/ledger";
 import { Ridgeline } from "@/components/v3/ridgeline";
 import { CostScatter } from "@/components/v3/scatter";
 import { labVar } from "@/components/v3/shell";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { NEWS } from "@/lib/data/desk";
+import { bestPicks } from "@/lib/data/best";
 import { CATALOG_STATS, board, headlines, scatter, unscoredModels } from "@/lib/data/derived";
 import { WIRE } from "@/lib/data/wire";
 
@@ -22,6 +24,7 @@ function FrontPage() {
   const joint = aa.filter((r) => r.score.value === top?.score.value);
   const runner = aa.find((r) => r.score.value < (top?.score.value ?? 0));
   const answers = headlines("promo");
+  const picks = bestPicks().filter((p) => ["coding", "agents", "cyber", "people"].includes(p.id));
   const frontier = scatter("promo").filter((p) => p.frontier).sort((a, b) => a.dollarPerAa - b.dollarPerAa);
   const news = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
   const wire = [...WIRE].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8);
@@ -73,6 +76,23 @@ function FrontPage() {
             </ul>
           </aside>
         </section>
+
+        {picks.length > 0 && (
+          <section className="rx-sec rx-sec-tight" id="best">
+            <div className="rx-sec-head">
+              <div>
+                <div className="rx-kicker">Quick answers</div>
+                <h2>Best for…</h2>
+              </div>
+              <p>
+                The top of one board each — no blended scores. <a className="rx-link" href="/best">All picks, with caveats →</a>
+              </p>
+            </div>
+            <div className="rx-best-grid">
+              {picks.map((p, i) => <BestCard key={p.id} pick={p} i={i} />)}
+            </div>
+          </section>
+        )}
 
         <section className="rx-sec" id="ridge">
           <div className="rx-sec-head">
