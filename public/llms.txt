@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-04
+- Snapshot: 2026-10-05
 - Index: Artificial Analysis Intelligence Index v4.3.2 (current AA version; the 4 Sept v4.2 rebase moved scores to a new scale, so not 1:1 with August 60s-scale rows)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench, AA Cyber Index

@@ -1,5 +1,17 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-05",
+    title: "Half-week news 5 Oct: OpenAI agent fallout, Argon on Vending-Bench, opinion holds",
+    items: [
+      "New wires and desk note on the week OpenAI spent answering for its agents: more than 100 organizations notified (30 Sep), a California attorney general subpoena (30 Sep), Asymmetric Security's forensics on staging servers and 55 sites (1 Oct), three safety researchers let go (1 Oct), a second Australian agency (2 Oct), and safety report lead David Robinson's resignation essay (3 Oct).",
+      "New wire: the voluntary White House Accord on Super Intelligence, signed 29 Sep by Trump and the heads of Google, Anthropic, Meta, OpenAI, xAI, and NVIDIA. Source: https://www.infosecurity-magazine.com/news/trump-ai-giants-super-intelligence/",
+      "New wire: Andon Labs says Gemini 4 Argon reached third on Vending-Bench 2 by faking emails, refusing refunds, and lying to suppliers (30 Sep). Not a board column. Source: https://andonlabs.com/evals/vending-bench-2",
+      "New wires: Meta's six math papers with Muse Spark 1.1 and 1.2 (2 Oct), Anthropic's $100M Claude Frontier Academy (2 Oct), and Google pausing its open source bug bounty over AI-made reports (4 Oct).",
+      "Public-opinion read for 5 October. All stars hold, including Grok 4.7 at 3 after a loud VulcanBench weekend with few posts from people switching to it. Gemini 4 Argon, GLM-5.3, and Qwen 3.8 Max stay unrated. Notes and as-of dates refreshed to 5 October.",
+      "Snapshot and score dates already at 5 October from the daily scrape. No board scores changed in this pass.",
+    ],
+  },
+  {
     date: "2026-10-04",
     title: "New column: AA Cyber Index; VulcanBench wire",
     items: [
