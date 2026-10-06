@@ -12,6 +12,27 @@ export function isFresh(date: string, asOf = "2026-10-05"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "reflection-beam-1006",
+    kind: "release",
+    title: "Reflection's Beam is a serious American open model. It is not the best one yet.",
+    dek: "Reflection AI showed Beam on 5 October: 501 billion parameters, 23 billion active, weights promised this month. The pitch is efficiency, and the internet wants to see the weights first.",
+    pull: "Beam matters less for where it lands today than for who built it and what they spent.",
+    summary:
+      "Reflection AI announced Beam, its first open-weight model, on 5 October. Reflection says it matches GLM 5.2 on reasoning with far less compute and admits Kimi K3 is ahead on raw ability. Weights are due this month. Reaction was warm but skeptical, and Beam stays off the board until independent scores exist.",
+    date: "2026-10-06",
+    sourceName: "Reflection AI",
+    sourceUrl: "https://reflection.ai/blog/introducing-beam",
+    models: ["glm-5.3", "kimi-k3", "deepseek-v4.1-flash", "qwen-3.8-max"],
+    tags: ["release", "open-weights", "reflection"],
+    body: [
+      "Reflection AI, the Brooklyn startup founded by two former Google DeepMind researchers and backed by Nvidia, showed its first model on Monday afternoon. Beam is an open-weight mixture-of-experts model with 501 billion parameters, of which 23 billion work on any given token, and a 1 million token context. It is built for coding and agent work. The weights are not out yet. Reflection says it is finishing red-teaming and will publish them under the Apache 2.0 license this month, with a technical report and model card. Until then a small group gets early access through a waitlist.",
+      "Reflection is not claiming a crown, and that is to its credit. Its pitch is efficiency: it says Beam matches GLM 5.2 on hard reasoning while using three to four times less compute per answer, and it says plainly that Kimi K3 is still ahead on raw ability. Its own chart backs up the modesty. On the terminal and coding tests, Beam lands behind GLM-5.3, Kimi K3, and DeepSeek V4.1 Flash. Those are Reflection's numbers, and the compute figure is an estimate that leaves out serving costs. The more useful sign is that Artificial Analysis has early access and is testing Beam itself. It posted that early results point to one of the most token-efficient open models it has seen for its level.",
+      "The announcement passed a million views and drew a friendly but careful crowd. Plenty of people welcomed a from-scratch American open model, and Replit's Amjad Masad wrote that the US is catching up on open weights. Reflection's line that Beam advances the Western open frontier became the joke of the day, since the Chinese models it measures against still win much of its own chart. Others asked why it compared with GLM 5.2 rather than the newer GLM-5.3, and pointed out that all 501 billion parameters still have to sit in memory even if only 23 billion run at once. The most common sign-off was simple: wait for the weights.",
+      "Beam matters less for where it lands today than for who built it and what they spent. Reflection has raised about $4.7 billion, was valued at $25 billion before its latest round, and signed more than $7 billion in compute deals with SpaceX and Nebius this summer. That is a lot of money for a model that, by its own account, trails the best Chinese open weights. If independent tests confirm the efficiency, Beam gives companies that will not run a Chinese model a credible choice. If they do not, it is an expensive second place. Beam gets a Ridge row when the weights ship and independent scores arrive.",
+    ],
+  },
+
+  {
     id: "halfweek-opinion-1005",
     kind: "ranking",
     title: "Half-week opinion: Grok 4.7 has its best weekend, and every star holds",

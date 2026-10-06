@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-06",
+    title: "Reflection AI's Beam: wire and desk note",
+    items: [
+      "New wire and desk note: Reflection AI announced Beam, a 501B open-weight model with 23B active, on 5 October. Weights are due later this month under Apache 2.0. Benchmark figures in the copy are Reflection's own claims. Sources: https://reflection.ai/blog/introducing-beam and https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
+      "No catalog row for Beam yet. The weights are not out and no board has an independent score, so there is nothing to put in a column.",
+    ],
+  },
+  {
     date: "2026-10-05",
     title: "Half-week news 5 Oct: OpenAI agent fallout, Argon on Vending-Bench, opinion holds",
     items: [

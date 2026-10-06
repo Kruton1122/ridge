@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "reflection-beam-1005",
+    title: "Reflection AI announces Beam, a 501B open-weight model with weights due this month",
+    blurb:
+      "5 October. Reflection AI, the Nvidia-backed startup founded by two former Google DeepMind researchers, announced Beam, its first open-weight model. It is a mixture-of-experts model with 501 billion parameters, 23 billion active per token, and a 1 million token context, built for coding and agent work. You cannot download it yet: Reflection is finishing red-teaming and says the weights, a technical report, and a model card arrive later this month under Apache 2.0, with a waitlist for early access until then. Reflection's pitch is efficiency. It says Beam matches GLM 5.2 on reasoning with three to four times less inference compute and admits Kimi K3 is still ahead on raw capability. Its own chart puts Beam behind GLM-5.3, Kimi K3, and DeepSeek V4.1 Flash on Terminal-Bench 2.1. Those are Reflection's numbers. Artificial Analysis has early access and is testing Beam independently. No board scores yet, so Beam has no Ridge row. Sources: https://reflection.ai/blog/introducing-beam and https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
+    date: "2026-10-05",
+    outlet: "Reflection AI / TechCrunch",
+    url: "https://reflection.ai/blog/introducing-beam",
+    beat: "release",
+    models: ["glm-5.3", "kimi-k3", "deepseek-v4.1-flash", "qwen-3.8-max"],
+  },
+
+  {
     id: "google-oss-vrp-pause-1004",
     title: "Google pauses its open source bug bounty after a flood of AI-made reports",
     blurb:
