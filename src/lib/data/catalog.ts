@@ -245,7 +245,7 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["grok 4.7", "grok-4.7", "grok-4-7", "grok4.7", "Grok-4.7", "Grok 4.7 (high)", "Grok 4.7 (xhigh)", "grok 4.7 high", "grok 4.7 xhigh"],
     summary:
-      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 xhigh (as of 27 Sept). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 27 Sept. Terminal-Bench 2.1 is 76.03 from Vals AI (xhigh, #14 of 67, as of 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
+      "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 xhigh (as of 27 Sept). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 27 Sept. Terminal-Bench 2.1 is 73.41 from Vals AI (#22 of 76, as of 6 October; it was 76.03 when Vals first ran it on 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
     publicOpinionStars: 3,
     publicOpinionNote: "Loudest benchmark weekend of any model after VulcanBench, amplified by Musk. Very few posts from people switching to it, so the star holds.",
     publicOpinionAsOf: "2026-10-05",
@@ -684,14 +684,14 @@ export const SCORES: Score[] = [
 
   s("gpt-5.6-sol", "terminal-bench", 85.77, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #3 of 76; Terminal-Bench 2.1"),
   s("grok-4.6", "terminal-bench", 78.28, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #13 of 76; Terminal-Bench 2.1"),
-  s("grok-4.7", "terminal-bench", 76.03, "Vals AI", "https://vals.ai/", "2026-09-21", "xhigh; #14 of 67; Terminal-Bench 2.1"),
+  s("grok-4.7", "terminal-bench", 73.41, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #22 of 76; Terminal-Bench 2.1"),
   s("kimi-k3", "terminal-bench", 80.9, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #9 of 76; Terminal-Bench 2.1"),
   s("claude-opus-5.5", "terminal-bench", 87.64, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-09-22", "high; #1; 26/267 tasks used Opus 5 / Opus 4.8 fallbacks; fallbacks-as-fail = 79.77"),
   s("gpt-6-sol", "terminal-bench", 83.15, "Vals AI", "https://www.vals.ai/models/openai_gpt-6-sol", "2026-09-23", "max effort; #6 of 73; ±1.30; Terminal-Bench 2.1"),
   s("claude-sonnet-5.5", "terminal-bench", 83.15, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-09-28", "high; tied #6 of 75 with GPT-6 Sol; ±1.72; Terminal-Bench 2.1"),
   s("gpt-6-luna", "terminal-bench", 73.03, "Vals AI", "https://www.vals.ai/models/openai_gpt-6-luna", "2026-09-23", "max effort; #22 of 73; ±1.72; Terminal-Bench 2.1"),
   s("gemini-3.7-flash", "terminal-bench", 77.53, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #14 of 76; Terminal-Bench 2.1"),
-  s("muse-spark-1.3", "terminal-bench", 85, "Artificial Analysis", "https://artificialanalysis.ai/articles/muse-spark-1-3", "2026-09-02", "v2.1 xhigh"),
+  s("muse-spark-1.3", "terminal-bench", 72.29, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #24 of 76; Terminal-Bench 2.1"),
   s("claude-fable-5", "terminal-bench", 80.52, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #10 of 76; Terminal-Bench 2.1"),
 
   s("claude-opus-5.5", "cursor-bench", 57.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-22", "max effort"),
