@@ -30,6 +30,21 @@ export interface ModelProfile {
 export type { ModelAbout };
 
 const PROFILES: Record<string, ModelProfile> = {
+  "mistral-large-4": {
+    epithet: "Le Chonk",
+    voice:
+      "Mistral's trillion-parameter flagship, in API preview from 6 October with open weights promised by the end of the month. Mistral aims it at cyber defense, finance, legal work, and reading images rather than at topping every general board, and its pitch is that you will be able to run it yourself, under your own rules.",
+    strengths: [
+      "Open weights promised by the end of October",
+      "Takes on cyber tasks that several closed models decline",
+      "1M context per Mistral; text and image in",
+    ],
+    watch: [
+      "Preview checkpoint: Mistral is still training it, so scores may move",
+      "Not open yet. API only until the weights ship, and the license is unnamed",
+      "List price returns to $1.36 / $4.18 after the two-week launch discount",
+    ],
+  },
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
@@ -157,6 +172,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   zhipu: { motif: "Z.ai blue. MIT weights." },
   alibaba: { motif: "Orange #FF6A00. Max as a ceiling name." },
   meta: { motif: "Meta blue #0081FB. Spark is proprietary Muse, not Llama." },
+  mistral: { motif: "Mistral orange #FA500F. Paris lab, sovereign pitch, open weights promised." },
   other: { motif: "Neutral slate." },
 };
 

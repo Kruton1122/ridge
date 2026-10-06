@@ -154,6 +154,14 @@ def score_confidence(scraped_name, model, variant_hint):
     if not sn or len(sn) <= 2 or sn.isdigit():
         return 0, "too-short"
 
+    # Past exact matching, a versioned model needs a version in the scraped name.
+    # match_model strips trailing 4-digit dates, so "Mistral-Large-2411" (and Vals'
+    # "Mistral Large 2512") reach here as bare "Mistral Large" and would otherwise
+    # contain-match "Mistral Large 4".
+    model_versions = version_tokens(f"{model['name']} {model['shortName']} {model['id']}")
+    if model_versions and not version_tokens(re.sub(r"\([^)]*\)", " ", scraped_name or "")):
+        return 0, "version-missing"
+
     best, why = 0, "none"
     for c in candidates:
         if not c or len(c) <= 2:

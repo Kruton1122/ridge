@@ -8,6 +8,7 @@ export type LabId =
   | "zhipu"
   | "alibaba"
   | "meta"
+  | "mistral"
   | "other";
 
 export type License = "proprietary" | "open-weight";

@@ -1,10 +1,11 @@
 export const CHANGELOG = [
   {
     date: "2026-10-06",
-    title: "Mistral Large 4 and Reflection AI's Beam: wires and desk notes",
+    title: "New lab and row: Mistral Large 4; Reflection AI's Beam wire and desk notes",
     items: [
       "New wire and desk note: Mistral released a public preview of Mistral Large 4, nicknamed Le Chonk, on 6 October. About 1 trillion parameters with 49B active, image input, 1M context, $1.36 / $4.18 per 1M tokens with a 50% launch discount for two weeks. Weights are due by the end of October; the license is not named yet. Benchmark charts in the copy are Mistral's own claims. Sources: https://mistral.ai/news/mistral-large-4 and https://docs.mistral.ai/models/mistral-large-4-0",
-      "No catalog row for Mistral Large 4, because Mistral is not one of the labs on the board yet. For reference, Artificial Analysis lists the preview at 38 on the Intelligence Index v4.3.2 and 50 on the Cyber Index. Arena+, CursorBench 4.0, and Vals Terminal-Bench 2.1 have no score yet, and Vals no longer runs SWE-bench Verified on new models.",
+      "New lab: Mistral AI (Paris), in Mistral orange #FA500F. New model row: Mistral Large 4 (mistral-large-4), public preview, closed until the promised weights ship. AA Intelligence Index v4.3.2 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 October. Arena+, CursorBench 4.0, and Vals Terminal-Bench 2.1 have no score yet, and Vals no longer runs SWE-bench Verified on new models, so those cells are blank. Source: https://artificialanalysis.ai/models/mistral-large-4",
+      "Snapshot and score dates moved to 6 October from the daily scrape. No other board values changed.",
       "New wire and desk note: Reflection AI announced Beam, a 501B open-weight model with 23B active, on 5 October. Weights are due later this month under Apache 2.0. Benchmark figures in the copy are Reflection's own claims. Sources: https://reflection.ai/blog/introducing-beam and https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
       "No catalog row for Beam yet. The weights are not out and no board has an independent score, so there is nothing to put in a column.",
     ],

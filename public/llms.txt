@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-05
+- Snapshot: 2026-10-06
 - Index: Artificial Analysis Intelligence Index v4.3.2 (current AA version; the 4 Sept v4.2 rebase moved scores to a new scale, so not 1:1 with August 60s-scale rows)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench, AA Cyber Index
@@ -27,7 +27,8 @@ Headline AA Intelligence Index v4.3.2:
 9. GPT-6 Sol — 48 (max)
 11. GPT-5.6 Sol — 47 (max)
 12. Grok 4.7 — 46 (xhigh)
-News (2026-10-06): Mistral released a public preview of Mistral Large 4 ("Le Chonk"), a ~1T-parameter MoE (49B active) with image input and 1M context, $1.36 / $4.18 per 1M tokens (50% launch discount for two weeks). Weights due by end of October; license not named yet. Not on the board: Mistral is not a tracked lab yet. Third-party: AA Intelligence Index v4.3.2 38 (Preview), AA Cyber Index 50; no Arena+, CursorBench 4.0, or Terminal-Bench 2.1 score yet. Benchmark charts are Mistral's own claims. Source: https://mistral.ai/news/mistral-large-4
+New model (2026-10-06): Mistral Large 4 (Mistral AI, new lab; mistral-large-4), public preview, closed until open weights ship (promised end of October). 1.05T MoE (49B active), 1M context, $1.36 / $4.18 per 1M tokens (half price for the first two weeks). AA 38 (Preview, reasoning), AA Cyber Index 50 (no tasks declined); no Arena+, CursorBench, Terminal-Bench, or SWE-bench yet.
+News (2026-10-06): Mistral released a public preview of Mistral Large 4 ("Le Chonk"), a ~1T-parameter MoE (49B active) with image input and 1M context, $1.36 / $4.18 per 1M tokens (50% launch discount for two weeks). Weights due by end of October; license not named yet. Benchmark charts are Mistral's own claims. Source: https://mistral.ai/news/mistral-large-4
 News (2026-10-05): Reflection AI announced Beam, a 501B-parameter (23B active) open-weight model; weights due later in October under Apache 2.0. Not on the board yet: no independent scores. Benchmark claims are Reflection's own. Source: https://reflection.ai/blog/introducing-beam
 New column (2026-10-04): AA Cyber Index. Grok 4.7 56 (xhigh), GPT-6 Luna 53 (max), Muse Spark 1.3 44 (xhigh), Kimi K3 41, DeepSeek V4.1 Flash 41, GPT-6 Sol 37, GLM-5.3 36, GPT-6 Astra 33, Claude Opus 5.5 29, Gemini 3.8 Flash 25, Claude Fable 5.1 25. GPT-6 Sol, GPT-6 Astra, Claude Opus 5.5, Claude Fable 5.1, and Gemini 3.8 Flash decline about a third of tasks on safety grounds. Other catalog models are blank.
 New model (2026-09-30): Gemini 4 Argon (Google DeepMind, limited preview for Fairwind cyber defenders), intro $2 / $10 then $4 / $20 per 1M tokens, 1M output limit. AA 53, Arena+ 1525; no CursorBench, Terminal-Bench, or SWE-bench yet.

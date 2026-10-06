@@ -10,6 +10,7 @@ export const LAB_COLORS: Record<LabId, string> = {
   zhipu: "#3D7EFF",
   alibaba: "#FF6A00",
   meta: "#0081FB",
+  mistral: "#FA500F",
   other: "#8EA0B0",
 };
 

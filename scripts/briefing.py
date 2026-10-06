@@ -56,6 +56,7 @@ BOARD_WATCH = (
     "muse-spark-1.3-max",  # partner max row; Arena often blank
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
+    "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
 )
 
 
@@ -559,6 +560,9 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "kimi k3",
         "qwen3.8-max",
         "qwen 3.8 max",
+        "mistral large 4",
+        "mistral-large-4",
+        "mistral large 4 preview",
     }
     known = seed_known | known_extra
     frontier_markers = (
@@ -572,6 +576,7 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "sonnet 5.5",
         "6.1 sol",
         "argon",
+        "mistral large 4",
     )
     seen = []
     for pairs in (aa_top10, arena_top10, swe_top10):
