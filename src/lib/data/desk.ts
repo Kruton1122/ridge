@@ -12,6 +12,27 @@ export function isFresh(date: string, asOf = "2026-10-05"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "mistral-large-4-1006",
+    kind: "release",
+    title: "Le Chonk is real. Mistral's Large 4 is Europe's best open model, not the world's.",
+    dek: "Mistral put a 1 trillion parameter model in its API on 6 October and promised the weights by the end of the month. Independent tests put it mid-pack among open models, with a real edge in cyber defense.",
+    pull: "The internet asked for a giant French model. Mistral built one, and the scoreboard says it is good, not great.",
+    summary:
+      "Mistral released a public preview of Mistral Large 4, nicknamed Le Chonk, on 6 October, with weights due by the end of the month. Independent tests back its claim to be the best open model from the US or Europe, with a real edge in cyber and legal work, but it sits below the top Chinese open models on general smarts. Reaction was joyful about the meme and cooler about the numbers.",
+    date: "2026-10-06",
+    sourceName: "Mistral AI",
+    sourceUrl: "https://mistral.ai/news/mistral-large-4",
+    models: ["gpt-6-luna", "deepseek-v4.1-flash", "glm-5.3", "kimi-k3", "grok-4.7"],
+    tags: ["release", "open-weights", "mistral", "cyber"],
+    body: [
+      "Mistral released a public preview of Mistral Large 4 on Tuesday morning. The company calls it ML4 for short and Le Chonk for fun, a nod to the Le Chaton Fat meme that ran through X and Reddit in June. It is a mixture-of-experts model with about a trillion parameters, of which 49 billion work on each token, and it reads images as well as text. You can use it in Mistral's API today with a 1 million token context, at half price for the first two weeks. You cannot download it yet. Mistral says the weights arrive by the end of October, once it has finished red-teaming with security firms and governments, and it has not said what license they will carry.",
+      "Mistral's headline claim is a careful one: the strongest open-weight model built in the US or Europe. That looks right, and it is a smaller claim than it sounds. Artificial Analysis scored the preview 38 on its Intelligence Index, level with GPT-6 Luna and just behind DeepSeek V4.1 Flash, and below GLM-5.3 and Kimi K3. The cyber result is the real story. On AA's Cyber Index it scores 50 and declined none of the tasks, which would put it third among the models Ridge tracks, behind only Grok 4.7 and GPT-6 Luna. Vals AI found the same shape elsewhere: first among open models on Harvey's legal agent test, but in the bottom half of its overall index. Mistral's own charts claim wins in coding, finance, and reading images, and it says training is still going. Those are Mistral's numbers, not ours.",
+      "The announcement passed 15,000 likes in its first couple of hours, and the top reply was a cheer that the internet had memed the model into existence. LM Studio summed up the mood with a short \"We're so back.\" The numbers crowd was cooler. Some called 38 a weak score for a model this big, one reply pointed out that the much smaller GLM-5.3 Flash keeps pace, and the most-liked joke said the only chart Mistral clearly wins is about regulation. Artificial Analysis noted it costs over four times as much per task as open models of similar smarts. And until the weights land, as one reply put it, it is an open model you can only rent.",
+      "For Europe this is the model Mistral needed to ship. Its Large line had not moved since last December, while the open-weight race was being run out of China. Large 4 does not change who leads, but it gives banks, governments, and security teams that will not run a Chinese model a strong option they can host themselves, and cyber defense is exactly where closed models tend to refuse. The real test comes at the end of the month: whether the final weights improve as Mistral promises, what the license allows, and who can afford the hardware for a trillion parameters. Ridge does not track Mistral on the board yet, so Large 4 has no row for now.",
+    ],
+  },
+
+  {
     id: "reflection-beam-1006",
     kind: "release",
     title: "Reflection's Beam is a serious American open model. It is not the best one yet.",

@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "mistral-large-4-1006",
+    title: "Mistral launches Large 4, a 1 trillion parameter model with weights due this month",
+    blurb:
+      "6 October. Mistral released a public preview of Mistral Large 4, nicknamed Le Chonk. It is a mixture-of-experts model with about 1 trillion parameters, 49 billion active per token, image input, and a 1 million token context. It is in Mistral's API now at $1.36 per million input tokens and $4.18 per million output, at half price for the first two weeks. The weights are due by the end of October, and Mistral has not named the license yet. Mistral calls it the strongest open-weight model built in the US or Europe, and its charts are its own claims. Artificial Analysis scores the preview 38 on its Intelligence Index and 50 on its Cyber Index. Ridge does not track Mistral models on the board yet, so Large 4 has no row for now. Sources: https://mistral.ai/news/mistral-large-4 and https://docs.mistral.ai/models/mistral-large-4-0",
+    date: "2026-10-06",
+    outlet: "Mistral AI",
+    url: "https://mistral.ai/news/mistral-large-4",
+    beat: "release",
+    models: ["gpt-6-luna", "deepseek-v4.1-flash", "glm-5.3", "kimi-k3"],
+  },
+
+  {
     id: "reflection-beam-1005",
     title: "Reflection AI announces Beam, a 501B open-weight model with weights due this month",
     blurb:
