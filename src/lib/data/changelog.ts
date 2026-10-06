@@ -1,8 +1,9 @@
 export const CHANGELOG = [
   {
     date: "2026-10-06",
-    title: "New lab and row: Mistral Large 4; Reflection AI's Beam wire and desk notes",
+    title: "New lab and row: Mistral Large 4; Terminal-Bench 2.1 source fix; Reflection AI's Beam notes",
     items: [
+      "Terminal-Bench 2.1 now credits its real source, Vals AI, instead of Artificial Analysis. Five scores that came from secondary sites now use Vals' own figures: GPT-5.6 Sol 88.8 to 85.77, Grok 4.6 88.4 to 78.28, Kimi K3 88.3 to 80.9, Gemini 3.7 Flash 85.8 to 77.53, and Claude Fable 5 84.3 to 80.52. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1",
       "New wire and desk note: Mistral released a public preview of Mistral Large 4, nicknamed Le Chonk, on 6 October. About 1 trillion parameters with 49B active, image input, 1M context, $1.36 / $4.18 per 1M tokens with a 50% launch discount for two weeks. Weights are due by the end of October; the license is not named yet. Benchmark charts in the copy are Mistral's own claims. Sources: https://mistral.ai/news/mistral-large-4 and https://docs.mistral.ai/models/mistral-large-4-0",
       "New lab: Mistral AI (Paris), in Mistral orange #FA500F. New model row: Mistral Large 4 (mistral-large-4), public preview, closed until the promised weights ship. AA Intelligence Index v4.3.2 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 October. Arena+, CursorBench 4.0, and Vals Terminal-Bench 2.1 have no score yet, and Vals no longer runs SWE-bench Verified on new models, so those cells are blank. Source: https://artificialanalysis.ai/models/mistral-large-4",
       "Snapshot and score dates moved to 6 October from the daily scrape. No other board values changed.",

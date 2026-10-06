@@ -27,6 +27,7 @@ Headline AA Intelligence Index v4.3.2:
 9. GPT-6 Sol — 48 (max)
 11. GPT-5.6 Sol — 47 (max)
 12. Grok 4.7 — 46 (xhigh)
+Fix (2026-10-06): Terminal-Bench 2.1 source is Vals AI (https://www.vals.ai/benchmarks/terminal-bench-2-1), not Artificial Analysis. Five scores moved from secondary sites to Vals' figures: GPT-5.6 Sol 85.77 (was 88.8), Grok 4.6 78.28 (was 88.4), Kimi K3 80.9 (was 88.3), Gemini 3.7 Flash 77.53 (was 85.8), Claude Fable 5 80.52 (was 84.3).
 New model (2026-10-06): Mistral Large 4 (Mistral AI, new lab; mistral-large-4), public preview, closed until open weights ship (promised end of October). 1.05T MoE (49B active), 1M context, $1.36 / $4.18 per 1M tokens (half price for the first two weeks). AA 38 (Preview, reasoning), AA Cyber Index 50 (no tasks declined); no Arena+, CursorBench, Terminal-Bench, or SWE-bench yet.
 News (2026-10-06): Mistral released a public preview of Mistral Large 4 ("Le Chonk"), a ~1T-parameter MoE (49B active) with image input and 1M context, $1.36 / $4.18 per 1M tokens (50% launch discount for two weeks). Weights due by end of October; license not named yet. Benchmark charts are Mistral's own claims. Source: https://mistral.ai/news/mistral-large-4
 News (2026-10-05): Reflection AI announced Beam, a 501B-parameter (23B active) open-weight model; weights due later in October under Apache 2.0. Not on the board yet: no independent scores. Benchmark claims are Reflection's own. Source: https://reflection.ai/blog/introducing-beam
