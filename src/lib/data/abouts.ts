@@ -457,6 +457,58 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "claude-haiku-5.5": {
+    lede:
+      "Claude Haiku 5.5 is the third and smallest model in Anthropic's Claude 5.5 family, released 7 October 2026, after Opus 5.5 on 22 September and Sonnet 5.5 on 28 September. Anthropic built it for high-volume, latency-sensitive work: summaries, compaction, classification, database queries, live support, browser use, and subagent tasks under a bigger Claude.\n\nIt is the first Haiku with adaptive thinking and an effort setting, and its list price steps up for prompts over 100,000 tokens. Ridge tracks it as its own row.",
+    framing:
+      "Anthropic calls it the cheapest, fastest, and most capable small model it has released, and says it costs around 75% less to run than Haiku 4.5 on average. It is plain about the limits: Sonnet 5.5 and Opus 5.5 remain the better choices for complex agentic coding, and Haiku 5.5 is meant for narrow tasks that used to cost too much to run at scale.",
+    rollout: [
+      {
+        date: "2026-10-07",
+        text: "Announced and released on the Claude apps, Claude Code, the Claude API (claude-haiku-5-5), Amazon Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS. The API defaults to medium effort.",
+      },
+    ],
+    rolloutNote:
+      "The same day, Anthropic halved Sonnet 5.5's cache read price and announced monthly Claude Platform API credits for Max and Team subscribers, rolling out this week. Haiku 5.5 uses the newer Claude tokenizer, so the same text counts as about 30% more tokens than on Haiku 4.5, and setting temperature, top_p, or top_k away from the default returns an error.",
+    claims: [
+      "The cheapest, fastest, and most capable small model Anthropic has released (company framing). Fastest at standard speed, though slower than Opus in Fast Mode.",
+      "Costs around 75% less to run than Haiku 4.5 on average, after allowing for its higher token use. The price is 90% lower for prompts up to 100K tokens and 50% lower above that.",
+      "Well ahead of Haiku 4.5 and GPT-6 Luna across Anthropic's launch chart, including 72.4% on OSWorld 2.1 (offline subset) against 15.7% for Haiku 4.5 and 48.9% for GPT-6 Luna, and 39.2% on Terminal-Bench 4.0 against 0% and 16.4%.",
+      "Major gains over Haiku 4.5 on almost all of Anthropic's alignment evaluations. Its cyber safeguards are stricter than Haiku 4.5's but looser than Sonnet 5.5's.",
+    ],
+    vendorEvalsNote:
+      "The comparisons above come from Anthropic's launch post and chart, not from Ridge's board. Artificial Analysis found it uses about 162K output tokens per Intelligence Index task at max effort, roughly three times GPT-6 Luna, and says its AutomationBench result is likely understated by a pre-release refusal issue it plans to re-test. The live board scores on this page are the numbers of record.",
+    specs: [
+      { label: "Model id", value: "claude-haiku-5-5 (anthropic.claude-haiku-5-5 on Bedrock)" },
+      { label: "Context", value: "1M tokens" },
+      { label: "Max output", value: "128K tokens (up to 300K via Batch API beta)" },
+      { label: "Reliable knowledge cutoff", value: "June 2026" },
+      { label: "Modalities", value: "Text and image input, text output" },
+      { label: "Reasoning", value: "Adaptive thinking; effort setting, default medium" },
+      { label: "Price", value: "$0.10 input / $0.50 output per 1M tokens for prompts up to 100K tokens; $0.50 / $2.50 above" },
+      { label: "Cache prices", value: "$0.01 read; $0.125 five-minute write; $0.20 one-hour write per 1M tokens for prompts up to 100K tokens ($0.05, $0.625, and $1 above)" },
+      { label: "Retirement commitment", value: "Not sooner than 7 October 2027" },
+      { label: "Weights", value: "Closed" },
+      { label: "Lab", value: "Anthropic" },
+    ],
+    whereUsed: [
+      "Claude apps",
+      "Claude Code",
+      "Claude API",
+      "Amazon Bedrock",
+      "Google Cloud",
+      "Microsoft Foundry",
+      "Claude Platform on AWS",
+    ],
+    sources: [
+      { label: "Introducing Claude Haiku 5.5 (Anthropic)", url: "https://www.anthropic.com/claude-haiku-5-5" },
+      { label: "Claude Haiku 5.5 overview (Claude Platform Docs)", url: "https://platform.claude.com/docs/en/models/haiku-5-5/overview" },
+      { label: "Claude Haiku 5.5 system card (Anthropic)", url: "https://www.anthropic.com/claude-haiku-5-5-system-card" },
+      { label: "Launch post (@claudeai on X)", url: "https://x.com/claudeai/status/2107894039626277339" },
+      { label: "Artificial Analysis launch analysis (X)", url: "https://x.com/ArtificialAnlys/status/2107911905822351609" },
+    ],
+  },
+
   "claude-sonnet-5.5": {
     lede:
       "Claude Sonnet 5.5 is the second model in Anthropic's Claude 5.5 family, released 28 September 2026, six days after Opus 5.5. It is the everyday model of the pair: Anthropic points it at well-scoped tasks, bug fixes, and polished documents, slides, and spreadsheets, and keeps Opus 5.5 for complex work that needs sustained judgment.\n\nIt keeps Sonnet 5's list price, which is half of Opus 5.5. Ridge tracks it as its own row, separate from Sonnet 5.",
@@ -467,9 +519,13 @@ export const ABOUTS: Record<string, ModelAbout> = {
         date: "2026-09-28",
         text: "Announced and released on the Claude apps, the Claude API (claude-sonnet-5-5), Amazon Bedrock, Google Cloud, Microsoft Foundry, and Claude Platform on AWS. Claude Code and the apps default to Medium effort; the API defaults to High.",
       },
+      {
+        date: "2026-10-07",
+        text: "Cache read price halved to $0.10 per 1M tokens, alongside the Haiku 5.5 launch. Anthropic says that makes Sonnet 5.5 about 20% cheaper on most agentic work.",
+      },
     ],
     rolloutNote:
-      "Haiku 5.5 is announced for the coming weeks. Code that runs Sonnet 5 with thinking off has to move to the new between_tools setting first.",
+      "Haiku 5.5 joined the family on 7 October. Code that runs Sonnet 5 with thinking off has to move to the new between_tools setting first.",
     claims: [
       "Improves on Sonnet 5 across benchmarks, in some cases dramatically (company framing).",
       "Runs more than 30% faster than Sonnet 5 and costs up to 30% less per task in Anthropic's testing, because it needs fewer tokens.",
@@ -486,7 +542,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
       { label: "Modalities", value: "Text and image input, text output" },
       { label: "Reasoning", value: "Adaptive thinking; effort low to max, default high on the API" },
       { label: "Price", value: "$2 input / $10 output per 1M tokens" },
-      { label: "Cache prices", value: "$0.20 read; $2.50 five-minute write; $4 one-hour write per 1M tokens" },
+      { label: "Cache prices", value: "$0.10 read (down from $0.20 on 7 October); $2.50 five-minute write; $4 one-hour write per 1M tokens" },
       { label: "Retirement commitment", value: "Not sooner than 28 September 2027" },
       { label: "Weights", value: "Closed" },
       { label: "Lab", value: "Anthropic" },

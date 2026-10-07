@@ -30,6 +30,21 @@ export interface ModelProfile {
 export type { ModelAbout };
 
 const PROFILES: Record<string, ModelProfile> = {
+  "claude-haiku-5.5": {
+    epithet: "The legwork Claude",
+    voice:
+      "The small, fast end of the Claude 5.5 family, out 7 October. Anthropic built it for jobs that run all day at scale, and for subagent work under Opus or Sonnet.",
+    strengths: [
+      "Very low price for short prompts",
+      "First Haiku with an effort dial and adaptive thinking",
+      "Tops the small models Artificial Analysis compares it with",
+    ],
+    watch: [
+      "Long prompts cost five times as much per token",
+      "Thinks hard at max effort, so token bills climb",
+      "Anthropic still points complex agentic coding at Sonnet and Opus",
+    ],
+  },
   "mistral-large-4": {
     epithet: "Le Chonk",
     voice:

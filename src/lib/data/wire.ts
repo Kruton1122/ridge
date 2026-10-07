@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "claude-haiku-5.5-1007",
+    title: "Anthropic ships Claude Haiku 5.5, a far cheaper small model with an effort dial",
+    blurb:
+      "7 October. Anthropic released Claude Haiku 5.5, the third and smallest model in the Claude 5.5 family. It is built for high-volume work like summaries, classification, browser use, and subagents, and it is the first Haiku with adaptive thinking and effort settings. It costs $0.10 per million input tokens and $0.50 per million output for prompts up to 100,000 tokens, and five times that above. Anthropic says it costs about 75% less to run than Haiku 4.5. Artificial Analysis scores it 43 on its Intelligence Index, ahead of the other small models it compares, and Cursor has it at 48.4 on CursorBench 4.0. Anthropic also halved Sonnet 5.5's cache read price to $0.10 per million tokens and is adding monthly API credits for Max and Team subscribers.",
+    date: "2026-10-07",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/claude-haiku-5-5",
+    beat: "release",
+    models: ["claude-haiku-5.5", "claude-sonnet-5.5", "gpt-6-luna", "gemini-3.8-flash"],
+  },
+
+  {
     id: "mistral-large-4-1006",
     title: "Mistral launches Large 4, a 1 trillion parameter model with weights due this month",
     blurb:

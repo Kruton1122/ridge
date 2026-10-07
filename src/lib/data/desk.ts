@@ -12,6 +12,27 @@ export function isFresh(date: string, asOf = "2026-10-06"): boolean {
 export const NEWS: NewsItem[] = [
 
   {
+    id: "claude-haiku-5.5-1007",
+    kind: "release",
+    title: "Haiku 5.5 is the cheap Claude people will actually use. Just watch the 100K line.",
+    dek: "7 October. The last Claude 5.5 model is fast, very cheap on short prompts, and the strongest small model on the AA Index. Long prompts cost five times as much.",
+    pull: "The cheapest Claude yet is a real model, not a compromise. Keep the prompts short and it is hard to argue with.",
+    summary:
+      "Anthropic released Claude Haiku 5.5 on 7 October, completing the Claude 5.5 family. It is built for high-volume work like summaries, classification, browser use, and subagents, and costs a tenth of Haiku 4.5 for prompts under 100,000 tokens. Artificial Analysis puts it ahead of the other small models it compares, though it thinks hard at max effort. Early reaction is mostly delight at the price, with some grumbling about the long-prompt tier.",
+    date: "2026-10-07",
+    sourceName: "Anthropic",
+    sourceUrl: "https://www.anthropic.com/claude-haiku-5-5",
+    models: ["claude-haiku-5.5", "claude-sonnet-5.5", "gpt-6-luna", "gemini-3.8-flash"],
+    tags: ["release", "anthropic", "haiku"],
+    body: [
+      "Haiku has been the Claude people forgot about for a while. Haiku 5.5 changes that. It is the third and last model in the Claude 5.5 family, and Anthropic aims it at the jobs that run millions of times a day: summaries, sorting tickets, pulling one number out of a filing, driving a browser, or doing the legwork as a subagent for Opus 5.5 or Sonnet 5.5. It is also the first Haiku with adaptive thinking and an effort dial, so you can trade speed for smarts call by call. Our take: for anyone paying an API bill, this is the most interesting model in the family.",
+      "The independent numbers back that up. Artificial Analysis scores it 43 on its Intelligence Index, a big jump on Haiku 4.5 and just ahead of Gemini 3.8 Flash and GPT-6 Luna, its closest rivals. On Cursor's own CursorBench run it lands above Claude Opus 5. The catch is one Sonnet 5.5 users will know. At max effort it writes a lot of tokens, about three times what GPT-6 Luna uses per AA task, so a cheap sticker does not always mean a cheap job. Anthropic's launch chart claims a much bigger leap on computer use, 72.4% on its OSWorld run against 15.7% for Haiku 4.5, but that is Anthropic's number, not a board score.",
+      "The reaction has been loud and mostly happy. Anthropic's launch post passed 24,000 likes on day one, and the replies filled up with people lining it up against GPT-6 Luna and calling the fight. One developer said Haiku 4.5 had been the best fit for their app but lost on price to an open model, and that Haiku 5.5 turns that around. The grumbles are about the tiers. Past 100,000 tokens of prompt the price rises fivefold, and several people pointed out that this is where Sonnet 5.5 starts to look like the better buy.",
+      "What it means: Anthropic is now fighting on price at the bottom of the market, where OpenAI's Luna and Google's Flash models have had the room to themselves. Add the Sonnet 5.5 cache cut, which Anthropic says makes Sonnet about 20% cheaper on most agent work, and the new monthly API credits for Max and Team plans, and the message is plain. Build on Claude, let Opus or Sonnet do the thinking, and hand the grind to Haiku. Keep prompts short and pick the effort level with care, and it is a very good deal.",
+    ],
+  },
+
+  {
     id: "mistral-large-4-1006",
     kind: "release",
     title: "Le Chonk is real. Mistral's Large 4 is Europe's best open model, not the world's.",

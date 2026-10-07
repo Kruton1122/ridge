@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-07",
+    title: "New row: Claude Haiku 5.5; Sonnet 5.5 cache price cut",
+    items: [
+      "New model row: Claude Haiku 5.5 (claude-haiku-5.5), released 7 October. AA Intelligence Index v4.3.2 43 (max with fallback), Arena+ 1501, and CursorBench 4.0 48.4 (max effort), all as of 7 October. AA Cyber Index is blank because AA has not run it yet. Terminal-Bench 2.1 and SWE-bench Verified are blank because Vals has archived TB 2.1 and stopped new SWE-bench runs. Sources: https://artificialanalysis.ai/models/claude-haiku-5-5, https://openlm.ai/chatbot-arena/, https://cursor.com/cursorbench",
+      "New wire and desk note on the launch. Figures from Anthropic's launch chart appear in prose only, labelled as Anthropic's claims. Source: https://www.anthropic.com/claude-haiku-5-5",
+      "Claude Sonnet 5.5 cache reads are now $0.10 per 1M tokens, down from $0.20, after Anthropic's 7 October price cut. Summary and spec card updated.",
+    ],
+  },
+  {
     date: "2026-10-06",
     title: "New lab and row: Mistral Large 4; Terminal-Bench 2.1 source fix and 14 new scores; Reflection AI's Beam notes",
     items: [
