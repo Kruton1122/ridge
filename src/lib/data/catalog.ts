@@ -515,7 +515,7 @@ export const MODELS: Model[] = [
       "le chonk",
     ],
     summary:
-      "Public preview from 6 October 2026, nicknamed Le Chonk. Mistral's largest model: a mixture-of-experts with 1.05T total and 49B active parameters, text and image in, text out, and a 1M token context per Mistral. API id mistral-large-4. List $1.36 / $4.18 per 1M tokens (cached input $0.14), at half price for the first two weeks of the preview. Open weights are promised by the end of October; until then it is API only and the license is not named. AA Intelligence Index 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 Oct. No Arena+, CursorBench, or Vals Terminal-Bench score yet, and Vals no longer runs SWE-bench on new models.",
+      "Public preview from 6 October 2026, nicknamed Le Chonk. Mistral's largest model: a mixture-of-experts with 1.05T total parameters and 49B active per token (52B counting the embedding and output layers), text and image in, text out, and a 1M token context per Mistral. API id mistral-large-4. List $1.36 / $4.18 per 1M tokens (cached input $0.14), at half price for the first two weeks of the preview. Mistral promises open weights by the end of October, and its Hugging Face countdown shows 31 October (the press was told 27 October). Until then it is API only and the license is not named. AA Intelligence Index 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 Oct. No Arena+, CursorBench, or Vals Terminal-Bench score yet, and Vals no longer runs SWE-bench on new models.",
   }),
 ];
 
