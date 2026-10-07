@@ -1,8 +1,12 @@
 export const CHANGELOG = [
   {
     date: "2026-10-07",
-    title: "New row: Claude Haiku 5.5; Sonnet 5.5 cache price cut",
+    title: "New board: Terminal-Bench 4.0; new row: Claude Haiku 5.5; Sonnet 5.5 cache price cut",
     items: [
+      "New board column: Terminal-Bench 4.0, run by Vals AI with the Mini-SWE-agent harness. 28 catalog models have scores, each Vals' raw figure rounded half-up to two decimals, with Vals' rank in the note. Claude Opus 5.5 leads at 65.15, then Claude Sonnet 5.5 64.14, GPT-6 Astra 59.6, and Claude Fable 5.1 58.08. Claude Haiku 5.5 is blank because Vals has not run it. Notes carry the Anthropic fallbacks and provider refusals Vals reports. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Terminal-Bench 2.1 is now labelled Terminal-Bench 2.1 (archived). Its scores are unchanged.",
+      "The daily scrape now reads Vals' Terminal-Bench 4.0 page as well. A failure there does not block the rest of the scrape.",
+      "New wire on the Terminal-Bench 4.0 column.",
       "New model row: Claude Haiku 5.5 (claude-haiku-5.5), released 7 October. AA Intelligence Index v4.3.2 43 (max with fallback), Arena+ 1501, and CursorBench 4.0 48.4 (max effort), all as of 7 October. AA Cyber Index is blank because AA has not run it yet. Terminal-Bench 2.1 and SWE-bench Verified are blank because Vals has archived TB 2.1 and stopped new SWE-bench runs. Sources: https://artificialanalysis.ai/models/claude-haiku-5-5, https://openlm.ai/chatbot-arena/, https://cursor.com/cursorbench",
       "New wire and desk note on the launch. Figures from Anthropic's launch chart appear in prose only, labelled as Anthropic's claims. Source: https://www.anthropic.com/claude-haiku-5-5",
       "Claude Sonnet 5.5 cache reads are now $0.10 per 1M tokens, down from $0.20, after Anthropic's 7 October price cut. Summary and spec card updated.",

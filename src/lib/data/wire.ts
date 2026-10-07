@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "ridge-terminal-bench-4-column-1007",
+    title: "Ridge adds Terminal-Bench 4.0 as a board; 2.1 becomes an archive",
+    blurb:
+      "7 October. Ridge now tracks Terminal-Bench 4.0, run by Vals AI with the Mini-SWE-agent harness. It is a fresh set of 66 long terminal tasks across software, science, ML, operations, hardware, security, and media, and Vals made it the coding test in its index on 25 September, replacing Terminal-Bench 2.1. 28 catalog models have scores. Claude Opus 5.5 leads at 65.15, a point ahead of Claude Sonnet 5.5, then GPT-6 Astra and Claude Fable 5.1. Vals notes that 22 of Opus 5.5's 198 attempts were served by older Claude models through fallback, and counting those as failures would put it behind Sonnet 5.5 and Astra. Scores run far lower than on 2.1 and do not compare. Terminal-Bench 2.1 stays on the site as an archived board because Vals no longer runs new models on it. Claude Haiku 5.5 is not on Vals' board yet.",
+    date: "2026-10-07",
+    outlet: "Ridge / Vals AI",
+    url: "https://www.vals.ai/benchmarks/terminal-bench-4",
+    beat: "ranking",
+    models: ["claude-opus-5.5", "claude-sonnet-5.5", "gpt-6-astra", "claude-fable-5.1", "gemini-4-argon"],
+  },
+
+  {
     id: "claude-haiku-5.5-1007",
     title: "Anthropic ships Claude Haiku 5.5, a far cheaper small model with an effort dial",
     blurb:

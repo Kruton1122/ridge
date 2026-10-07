@@ -8,6 +8,7 @@ Pulls:
   - artificialanalysis.ai/evaluations/artificial-analysis-cyber-index -> AA Cyber Index
     (page data: unrounded score + per-eval refusal rates)
   - vals.ai/benchmarks/swebench           -> SWE-bench Verified overall accuracy
+  - vals.ai/benchmarks/terminal-bench-4   -> Terminal-Bench 4.0 overall accuracy + rank (optional)
 
 CursorBench (cursor.com/cursorbench) is NOT scraped here — Next.js/RSC payload;
 keep cursor-bench catalog rows manual / link-drop for now (see RIDGE.md).
@@ -480,6 +481,48 @@ def parse_vals_swebench(src: str):
     return [{"name": pretty(slug), "accuracy": float(acc), "slug": slug} for slug, acc in pairs]
 
 
+TB4_URL = "https://www.vals.ai/benchmarks/terminal-bench-4"
+
+
+def parse_vals_tb4(src: str):
+    """Vals Terminal-Bench 4.0: raw overall accuracy per model from the page data,
+    joined to the display name and rank in the server-rendered table."""
+    islands = re.findall(r'<astro-island[^>]*props="([^"]*)"[^>]*>', src)
+    best = None
+    for raw in islands:
+        blob = html.unescape(raw)
+        if '"overall":[0,{' in blob and "accuracy" in blob:
+            if best is None or len(blob) > len(best):
+                best = blob
+    if best is None:
+        raise RuntimeError("vals.ai TB4: no astro-island contained an 'overall' accuracy block")
+    i = best.find('"overall":[0,{')
+    j = best.find('"software":[0,{', i)
+    block = best[i:j] if j != -1 else best[i:]
+    acc = dict(re.findall(r'"([A-Za-z0-9_.\-/]+)":\[0,\{"accuracy":\[0,([0-9.]+)\]', block))
+    rows = re.findall(
+        r'<td>(\d+)</td>\s*<th scope="row">\s*<a href="/models/([^"]+)">([^<]+)</a>', src
+    )
+    out = []
+    for rank, href, name in rows:
+        slug = href.replace("_", "/", 1)
+        if slug not in acc:
+            continue
+        out.append({
+            "name": html.unescape(name).strip(),
+            "accuracy": float(acc[slug]),
+            "rank": int(rank),
+            "slug": slug,
+        })
+    tm = re.search(r'"total_models":\[0,(\d+)\]', html.unescape(src))
+    total = int(tm.group(1)) if tm else len(out)
+    for e in out:
+        e["total"] = total
+    if len(out) < 10:
+        raise RuntimeError(f"vals.ai TB4: only parsed {len(out)} rows, expected 30+")
+    return out
+
+
 def top(entries, key, n=10):
     return sorted(
         [e for e in entries if e.get(key) is not None],
@@ -601,6 +644,7 @@ def main():
     aa_entries = []
     cyber_entries = []
     swe_entries = []
+    tb4_entries = []
 
     try:
         openlm_src = fetch("https://openlm.ai/chatbot-arena/")
@@ -712,6 +756,34 @@ def main():
             }
         )
 
+    # Vals Terminal-Bench 4.0: optional, like AA Cyber. A failure is logged in
+    # sources but does not block the main scrape.
+    try:
+        tb4_src = fetch(TB4_URL)
+        tb4_entries = parse_vals_tb4(tb4_src)
+        sources.append(
+            {
+                "id": "vals-tb4",
+                "name": "Vals Terminal-Bench 4.0",
+                "url": TB4_URL,
+                "ok": True,
+                "rows": len(tb4_entries),
+                "note": "raw page-data accuracy; rank and total from Vals' table",
+            }
+        )
+    except Exception as e:
+        print(f"vals.ai (Terminal-Bench 4.0): {e}", file=sys.stderr)
+        sources.append(
+            {
+                "id": "vals-tb4",
+                "name": "Vals Terminal-Bench 4.0",
+                "url": TB4_URL,
+                "ok": False,
+                "rows": 0,
+                "error": str(e),
+            }
+        )
+
     if errors:
         for e in errors:
             print(e, file=sys.stderr)
@@ -785,6 +857,10 @@ def main():
         "swe": [
             {"name": e["name"], "accuracy": e["accuracy"]}
             for e in swe_entries
+        ],
+        "tb4": [
+            {"name": e["name"], "accuracy": e["accuracy"], "rank": e["rank"], "total": e["total"]}
+            for e in tb4_entries
         ],
     }
     PULL_FILE.write_text(json.dumps(pull, indent=2))

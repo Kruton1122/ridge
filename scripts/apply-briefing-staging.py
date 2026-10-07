@@ -22,11 +22,13 @@ AA_URL = "https://artificialanalysis.ai/leaderboards/models"
 AA_CYBER_URL = "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
 ARENA_URL = "https://openlm.ai/chatbot-arena/"
 SWE_URL = "https://vals.ai/benchmarks/swebench"
+TB4_URL = "https://www.vals.ai/benchmarks/terminal-bench-4"
 
 # Large-delta safety rails (absolute points). Exceeding these without a
 # high-confidence exact/alias match → log and skip.
 ARENA_DELTA_MAX = 80
 SWE_DELTA_MAX = 5
+TB4_DELTA_MAX = 10
 AA_DELTA_MAX = 8
 
 def die(msg, code=1):
@@ -322,7 +324,27 @@ def format_num(n):
         return str(int(t))
     return f"{t:.1f}"
 
+def fmt_score(n, benchmark_id):
+    """Value as written to catalog.ts. Terminal-Bench 4.0 keeps two decimals
+    (Vals' raw figure, half-up); every other board keeps format_num."""
+    if benchmark_id == "terminal-bench-4":
+        d = Decimal(str(n)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+        return str(int(d)) if d == d.to_integral() else format(d.normalize(), "f")
+    return format_num(n)
+
+def tb4_note(prev_note, rank, total):
+    """Refresh the "#N of M" rank in a Terminal-Bench 4.0 note and keep the rest."""
+    if not rank or not total:
+        return prev_note
+    if not prev_note:
+        return f"Mini-SWE-agent; #{rank} of {total}"
+    if re.search(r"#\d+ of \d+", prev_note):
+        return re.sub(r"#\d+ of \d+", f"#{rank} of {total}", prev_note, count=1)
+    return prev_note
+
 def values_differ(a, b, benchmark_id):
+    if benchmark_id == "terminal-bench-4":
+        return abs(a - b) >= 0.005
     if benchmark_id == "swe-bench":
         return abs(a - b) >= 0.05
     if benchmark_id == "arena-elo":
@@ -335,7 +357,7 @@ def replace_score_call(catalog_src, existing, next_row):
     if note and '"' in note:
         note_part = ', "' + note.replace('"', '\\"') + '"'
     replacement = (
-        f's("{next_row["modelId"]}", "{next_row["benchmarkId"]}", {format_num(next_row["value"])}, '
+        f's("{next_row["modelId"]}", "{next_row["benchmarkId"]}", {fmt_score(next_row["value"], next_row["benchmarkId"])}, '
         f'"{next_row["sourceName"]}", "{next_row["sourceUrl"]}", "{next_row["asOf"]}"{note_part})'
     )
     if existing["raw"] not in catalog_src:
@@ -350,7 +372,7 @@ def insert_score_call(catalog_src, next_row):
     if note and '"' in note:
         note_part = ', "' + note.replace('"', '\\"') + '"'
     line = (
-        f'  s("{next_row["modelId"]}", "{next_row["benchmarkId"]}", {format_num(next_row["value"])}, '
+        f'  s("{next_row["modelId"]}", "{next_row["benchmarkId"]}", {fmt_score(next_row["value"], next_row["benchmarkId"])}, '
         f'"{next_row["sourceName"]}", "{next_row["sourceUrl"]}", "{next_row["asOf"]}"{note_part}),'
     )
     bench = next_row["benchmarkId"]
@@ -394,6 +416,8 @@ def safety_delta_limit(benchmark_id):
         return ARENA_DELTA_MAX
     if benchmark_id == "swe-bench":
         return SWE_DELTA_MAX
+    if benchmark_id == "terminal-bench-4":
+        return TB4_DELTA_MAX
     if benchmark_id in ("aa-intelligence", "aa-cyber"):
         return AA_DELTA_MAX
     return None
@@ -473,10 +497,12 @@ def main():
                 source_name, source_url = "Artificial Analysis", AA_CYBER_URL
             elif benchmark_id == "arena-elo":
                 source_name, source_url = "Arena+", ARENA_URL
+            elif benchmark_id == "terminal-bench-4":
+                source_name, source_url = "Vals AI", TB4_URL
             else:
                 source_name, source_url = "Vals AI", SWE_URL
             if not prev:
-                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber") else (
+                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber", "terminal-bench-4") else (
                     "Arena lists Thinking" if (
                         benchmark_id == "arena-elo"
                         and re.search(r"\bThinking\b", name or "", re.I)
@@ -489,7 +515,7 @@ def main():
                 }
                 note_part = f', "{next_note}"' if next_note else ""
                 raw = (
-                    f's("{model_id}", "{benchmark_id}", {format_num(num_val)}, '
+                    f's("{model_id}", "{benchmark_id}", {fmt_score(num_val, benchmark_id)}, '
                     f'"{source_name}", "{source_url}", "{as_of}"{note_part})'
                 )
                 if not DRY_RUN:
@@ -556,10 +582,14 @@ def main():
             if benchmark_id == "aa-intelligence" and note and prev_note.startswith(note + ";"):
                 next_note = prev_note
             next_note = keep_variant(benchmark_id, prev_note, next_note)
+            if benchmark_id == "terminal-bench-4":
+                next_note = tb4_note(prev_note, mapped.get("rank"), mapped.get("total"))
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 benchmark_id == "aa-intelligence" and next_note != prev.get("note")
-            ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note"))
+            ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note")) or (
+                benchmark_id == "terminal-bench-4" and next_note != prev.get("note")
+            )
             if not changed_val and not changed_meta:
                 continue
             next_row = {
@@ -571,7 +601,7 @@ def main():
             prev.update({
                 "value": num_val, "asOf": as_of, "sourceUrl": source_url, "sourceName": source_name,
                 "note": next_note,
-                "raw": f's("{model_id}", "{benchmark_id}", {format_num(num_val)}, "{source_name}", "{source_url}", "{as_of}"{note_part})',
+                "raw": f's("{model_id}", "{benchmark_id}", {fmt_score(num_val, benchmark_id)}, "{source_name}", "{source_url}", "{as_of}"{note_part})',
             })
             updates.append({
                 "benchmarkId": benchmark_id, "modelId": model_id,
@@ -595,6 +625,17 @@ def main():
     })
     apply_bucket("swe-bench", pull.get("swe") or [], lambda r: {
         "name": r["name"], "value": r.get("accuracy"), "note": None, "variantHint": None,
+    })
+    # Terminal-Bench 4.0 from Vals: raw accuracy half-up to two decimals, rank from Vals' table.
+    # variantHint is the display name so the rank note never feeds the matcher.
+    apply_bucket("terminal-bench-4", pull.get("tb4") or [], lambda r: {
+        "name": r["name"],
+        "value": (
+            float(Decimal(str(r["accuracy"])).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP))
+            if r.get("accuracy") is not None else None
+        ),
+        "note": (f"Mini-SWE-agent; #{r['rank']} of {r['total']}" if r.get("rank") and r.get("total") else None),
+        "variantHint": r["name"], "rank": r.get("rank"), "total": r.get("total"),
     })
 
     material = [u for u in updates if u["changedVal"]]
@@ -647,6 +688,12 @@ def main():
                 rf'\1"{as_of}"',
                 catalog_src, count=1,
             )
+        if "terminal-bench-4" in touched:
+            catalog_src = re.sub(
+                r'(id: "terminal-bench-4"[\s\S]*?asOf: )"[^"]+"',
+                rf'\1"{as_of}"',
+                catalog_src, count=1,
+            )
         desk_src = re.sub(
             r'export function isFresh\(date: string, asOf = "[^"]+"\)',
             f'export function isFresh(date: string, asOf = "{as_of}")',
@@ -660,9 +707,9 @@ def main():
             for bench, rows in by_bench.items():
                 bits = ", ".join(
                     (
-                        "%s INSERT %s" % (u["name"], format_num(u["to"]))
+                        "%s INSERT %s" % (u["name"], fmt_score(u["to"], bench))
                         if u.get("from") is None
-                        else "%s %s->%s" % (u["name"], format_num(u["from"]), format_num(u["to"]))
+                        else "%s %s->%s" % (u["name"], fmt_score(u["from"], bench), fmt_score(u["to"], bench))
                     )
                     for u in rows[:6]
                 )
@@ -711,13 +758,13 @@ def main():
             if u.get("inserted") or u.get("from") is None:
                 print(
                     "  INSERT %s %s: %s [%s] scraped=%r"
-                    % (u["benchmarkId"], u["modelId"], format_num(u["to"]), u["matchWhy"], u.get("scrapedName"))
+                    % (u["benchmarkId"], u["modelId"], fmt_score(u["to"], u["benchmarkId"]), u["matchWhy"], u.get("scrapedName"))
                 )
                 continue
             extra = "" if u["changedVal"] else " (asOf/source only)"
             print(
                 "  %s %s: %s -> %s%s [%s] scraped=%r"
-                % (u["benchmarkId"], u["modelId"], format_num(u["from"]), format_num(u["to"]), extra, u["matchWhy"], u.get("scrapedName"))
+                % (u["benchmarkId"], u["modelId"], fmt_score(u["from"], u["benchmarkId"]), fmt_score(u["to"], u["benchmarkId"]), extra, u["matchWhy"], u.get("scrapedName"))
             )
         if unmatched:
             names = sorted({("%s:%s" % (u["benchmarkId"], u["name"])) for u in unmatched})
@@ -739,7 +786,8 @@ def main():
         LLMS_PATH.write_text(llms_src)
     print("updated %d scores (%d value changes) asOf=%s" % (len(updates), len(material), as_of))
     for u in material[:12]:
-        print("  %s %s: %s->%s" % (u["benchmarkId"], u["modelId"], format_num(u["from"]), format_num(u["to"])))
+        frm = "new" if u.get("from") is None else fmt_score(u["from"], u["benchmarkId"])
+        print("  %s %s: %s->%s" % (u["benchmarkId"], u["modelId"], frm, fmt_score(u["to"], u["benchmarkId"])))
     if unmatched:
         print("unmatched skipped: " + ", ".join(sorted({u["name"] for u in unmatched})[:15]))
     if safety_skips:
