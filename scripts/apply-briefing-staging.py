@@ -226,6 +226,24 @@ def score_confidence(scraped_name, model, variant_hint):
             best, why = sc, f"token({inter}/{len(ct)})"
     return best, why
 
+_VARIANT_RE = re.compile(r"\bvariant:", re.I)
+
+def keep_variant(benchmark_id, prev_note, next_note):
+    """AA lists some models with no bracketed variant (e.g. "Mistral Large 4 Preview").
+    Those scrape as "best listed row" on the Index and with no "variant:" lead on
+    Cyber. Keep the variant already on the board instead of stripping it. On Cyber,
+    keep the "variant: X." lead but take the fresh refusal read after it."""
+    if benchmark_id not in ("aa-intelligence", "aa-cyber"):
+        return next_note
+    if not prev_note or not _VARIANT_RE.search(prev_note):
+        return next_note
+    if next_note and _VARIANT_RE.search(next_note):
+        return next_note
+    if benchmark_id == "aa-intelligence" or not next_note:
+        return prev_note
+    m = re.match(r"^\s*(variant:[^.]*\.)", prev_note, re.I)
+    return f"{m.group(1)} {next_note}".strip() if m else prev_note
+
 def dot_claude_versions(name):
     """Vals slugs render Claude versions with spaces or underscores ("Claude Sonnet 5 5").
     Re-dot them so "Sonnet 5 5" is read as 5.5 and never fuzzy-matches Sonnet 5
@@ -537,9 +555,10 @@ def main():
             prev_note = prev.get("note") or ""
             if benchmark_id == "aa-intelligence" and note and prev_note.startswith(note + ";"):
                 next_note = prev_note
+            next_note = keep_variant(benchmark_id, prev_note, next_note)
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
-                benchmark_id == "aa-intelligence" and note and note != prev.get("note")
+                benchmark_id == "aa-intelligence" and next_note != prev.get("note")
             ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note"))
             if not changed_val and not changed_meta:
                 continue
