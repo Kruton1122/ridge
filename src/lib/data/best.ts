@@ -147,7 +147,7 @@ export function bestPicks(): Pick[] {
     fromBoard("coding", "swe-bench", "Coding", "Which fixes real bugs in real code best?"),
     fromBoard("ide", "cursor-bench", "Coding in an editor", "Which handles messy multi-file work best?", undefined,
       "Cursor runs this board on its own harness, so it measures models as Cursor uses them."),
-    fromBoard("agents", "terminal-bench", "Agents & terminal", "Which gets the most done on its own at a command line?"),
+    fromBoard("agents", "terminal-bench-4", "Agents & terminal", "Which gets the most done on its own at a command line?"),
     fromBoard("cyber", "aa-cyber", "Cyber security", "Which finds and patches security bugs best?", undefined,
       "Several frontier models refuse a large share of these tasks on safety grounds, so a low score here often means “declined”, not “can’t”."),
     fromBoard("people", "arena-elo", "People's pick", "Which answers do people prefer, blind?"),

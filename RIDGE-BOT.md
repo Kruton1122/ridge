@@ -210,6 +210,22 @@ Three pre-existing bugs on the **published** site were fixed in this pass:
    week-to-week range, check `matchWhy` / the safety-skip log before assuming
    the source moved that much.
 
+## 2026-10-07: Ridge Bot edits in Claude's files (with Colton's OK)
+
+Colton approved these small edits in Claude-owned files when Terminal-Bench 4.0
+became a board column. Nothing else in Claude's files was touched.
+
+- `src/lib/data/derived.ts`: `BOARD_ORDER_HINT` gained `"terminal-bench-4"`,
+  placed just before the archived `"terminal-bench"` (Terminal-Bench 2.1).
+- `src/lib/data/best.ts`: the "Agents & terminal" pick now reads
+  `terminal-bench-4` instead of the archived TB 2.1 board.
+- `src/components/v3/ledger.tsx`: the TB 2.1 column header label changed from
+  "Term" to "TB 2.1" so it reads clearly next to "TB 4.0".
+
+Left alone: `src/routes/v2/benchmarks.index.tsx` still says "Five boards, five
+publishers" in prose. It is a legacy page and the count is not a one-line
+hardcode, so the copy is Claude's call.
+
 ---
 
-*Last updated 2026-09-10 by Ridge Bot (Grok Bot); score-coverage inserts enabled.*
+*Last updated 2026-10-07 by Ridge Bot (Grok Bot); TB 4.0 column and the edits above.*

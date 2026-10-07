@@ -6,7 +6,7 @@ import { labVar } from "./shell";
 type SortKey = "rank" | "name" | "price" | "dpa" | string; // string = benchmark id
 
 const short = (b: Benchmark) =>
-  ({ "aa-intelligence": "AA", "swe-bench": "SWE", "cursor-bench": "Cursor", "arena-elo": "Arena", "terminal-bench": "Term" })[b.id] ??
+  ({ "aa-intelligence": "AA", "swe-bench": "SWE", "cursor-bench": "Cursor", "arena-elo": "Arena", "terminal-bench": "TB 2.1" })[b.id] ??
   b.short;
 
 export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
