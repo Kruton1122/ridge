@@ -2,13 +2,14 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-07
+- Snapshot: 2026-10-08
 - Index: Artificial Analysis Intelligence Index v4.3.2 (current AA version; the 4 Sept v4.2 rebase moved scores to a new scale, so not 1:1 with August 60s-scale rows)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
 - Terminal-Bench 4.0: Vals AI, Mini-SWE-agent harness, 66 tasks, average of three runs. Replaced 2.1 in the Vals Index on 25 Sept 2026; scores do not compare with 2.1. Source: https://www.vals.ai/benchmarks/terminal-bench-4
-- Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench 4.0, Terminal-Bench 2.1 (archived), AA Cyber Index
+- Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench 4.0, Terminal-Bench 2.1 (archived), AA Cyber Index, Harvey LAB-AA v1.1
 - AA Cyber Index: Artificial Analysis cyber-defense composite (CWE-Bench-AA, DeepsecBench-AA, CyberGym-E2E-AA). Several frontier models decline many tasks on safety grounds, so their low scores mostly reflect refusals. Score notes give each model's refusal read. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index
+- Harvey LAB-AA v1.1: Artificial Analysis' run of Harvey's Legal Agent Benchmark, 120 private legal tasks. v1.1 (8 Oct 2026) gates on a hallucination check against the source documents, so a task counts only if every rubric item passes and there is no material hallucination. Not part of the AA Intelligence Index, which has no legal component. Source: https://artificialanalysis.ai/evaluations/harvey-lab-aa
 - JSON table: /api/ledger.json
 - CSV table: /api/ledger.csv
 - Catalog: /api/v1
@@ -29,6 +30,8 @@ Headline AA Intelligence Index v4.3.2:
 9. GPT-6 Sol — 48 (max)
 11. GPT-5.6 Sol — 47 (max)
 12. Grok 4.7 — 46 (xhigh)
+Update (2026-10-09): New board column Harvey LAB-AA v1.1 from Artificial Analysis (hallucination-gated all-pass, best effort setting, as of 9 October), 16 catalog models: Grok 4.7 9.4, Muse Spark 1.3 max 8.9, GPT-6 Astra 8.6, GPT-6.1 Sol 6.9, Claude Fable 5.1 6.4, Kimi K3 5.3, Claude Opus 5.5 4.2, GPT-6 Sol 3.6, GPT-6 Luna 3.3, Mistral Large 4 3.1, Claude Sonnet 5.5 2.8, Claude Haiku 5.5 2.8 (xhigh), DeepSeek V4.1 Flash 1.7, GLM-5.3 0.3, Gemini 3.8 Flash 0, Gemini 3.1 Pro 0. Other catalog models are blank (not run by AA). Source: https://artificialanalysis.ai/evaluations/harvey-lab-aa
+Update (2026-10-08): Claude Haiku 5.5 Terminal-Bench 4.0 35.35 (#12 of 45), from Vals AI. Source: https://www.vals.ai/benchmarks/terminal-bench-4
 Update (2026-10-07): New board column Terminal-Bench 4.0 from Vals AI (Mini-SWE-agent, as of 7 October), 28 catalog models: Claude Opus 5.5 65.15, Claude Sonnet 5.5 64.14, GPT-6 Astra 59.6, Claude Fable 5.1 58.08, Gemini 4 Argon 57.58, GPT-6.1 Sol 55.05, Claude Opus 5 53.54, GPT-6 Sol 44.44, Claude Fable 5 41.41, GLM-5.3 38.89, GPT-5.6 Sol 37.88, Qwen 3.8 Max 34.34, Grok 4.7 28.79, Muse Spark 1.3 max 24.75, GPT-5.6 Terra 22.73, Mistral Large 4 22.73, DeepSeek V4.1 Flash 19.7, Gemini 3.8 Flash 19.19, Grok 4.6 17.17, Kimi K3 17.17, DeepSeek V4 Pro (Vals: V4 Pro 0813) 14.14, GPT-6 Luna 13.64, Gemini 3.7 Flash 12.12, GPT-5.6 Luna 11.62, Muse Spark 1.3 xhigh 10.61, Claude Sonnet 5 9.6, Grok 4.5 8.59, Gemini 3.1 Pro (Vals: 3.1 Pro Preview 02/26) 2.53. Claude Haiku 5.5 has no score (not run by Vals). Terminal-Bench 2.1 is kept as an archived board. Source: https://www.vals.ai/benchmarks/terminal-bench-4
 Update (2026-10-07): Claude Sonnet 5.5 cache reads cut to $0.10 per 1M tokens (was $0.20), per Anthropic. Source: https://www.anthropic.com/claude-haiku-5-5
 Update (2026-10-06): Terminal-Bench 2.1 has 14 new scores from Vals AI (Terminus 2, as of 6 October): GPT-6 Astra 87.27, Claude Fable 5.1 85.02, Claude Opus 5 84.64, Gemini 3.8 Flash 81.27, GPT-5.6 Luna 79.03, Muse Spark 1.3 max 79.03, GPT-5.6 Terra 77.53, DeepSeek V4.1 Flash 74.53, Claude Sonnet 5 74.53, GLM-5.3 71.54, Gemini 3.1 Pro 70.79 (Vals: 3.1 Pro Preview 02/26), Grok 4.5 67.79, Qwen 3.8 Max 67.42, DeepSeek V4 Pro 54.68 (Vals: V4 Pro 0813). Muse Spark 1.3 xhigh stays 72.29. Gemini 4 Argon, GPT-6.1 Sol and Mistral Large 4 have no TB 2.1 score.

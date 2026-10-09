@@ -12,6 +12,18 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "ridge-harvey-lab-aa-board-1009",
+    title: "Ridge adds Harvey LAB-AA v1.1, its first legal board",
+    blurb:
+      "9 October. Ridge now tracks Harvey LAB-AA v1.1, Artificial Analysis' run of Harvey's Legal Agent Benchmark: 120 private legal tasks where an agent turns case documents into memos, schedules, and redlines. Version 1.1, built with Harvey and released 8 October, fails any task whose work contains a material hallucination against the source documents, so even the best scores are in single digits. Grok 4.7 leads at 9.4%, then Muse Spark 1.3 max at 8.9% and GPT-6 Astra at 8.6%. Muse Spark passes the most tasks before the check, 26.7%, but loses most of them to hallucinations, while GPT-6 Astra hallucinates least. 16 catalog models have scores. The board is separate from AA's Intelligence Index, which has no legal component of its own.",
+    date: "2026-10-09",
+    outlet: "Ridge / Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+    beat: "ranking",
+    models: ["grok-4.7", "muse-spark-1.3-max", "gpt-6-astra", "gpt-6.1-sol", "claude-fable-5.1"],
+  },
+
+  {
     id: "ridge-terminal-bench-4-column-1007",
     title: "Ridge adds Terminal-Bench 4.0 as a board; 2.1 becomes an archive",
     blurb:

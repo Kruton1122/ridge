@@ -17,6 +17,7 @@ export const LEDGER_SOURCES = [
   { name: "Cursor (CursorBench 4.0)", url: "https://cursor.com/cursorbench" },
   { name: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
   { name: "Vals AI (Terminal-Bench 4.0)", url: "https://www.vals.ai/benchmarks/terminal-bench-4" },
+  { name: "Artificial Analysis (Harvey LAB-AA v1.1)", url: "https://artificialanalysis.ai/evaluations/harvey-lab-aa" },
 ];
 
 export const NEXT_PULL_WEEKDAY = 1;
@@ -88,6 +89,8 @@ export interface LedgerRow {
   cyberNote?: string;
   tb4: number | null;
   tb4Note?: string;
+  harveyLab: number | null;
+  harveyLabNote?: string;
   dollarPerAa: number | null;
   priceIn: number | null;
   priceOut: number | null;
@@ -107,6 +110,7 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
     const arena = scoreOf(model.id, "arena-elo");
     const cyber = scoreOf(model.id, "aa-cyber");
     const tb4 = scoreOf(model.id, "terminal-bench-4");
+    const harveyLab = scoreOf(model.id, "harvey-lab-aa");
     const promoLive =
       model.promoPricing && (!model.promoPricing.until || model.promoPricing.until >= SNAPSHOT_DATE)
         ? model.promoPricing
@@ -128,6 +132,8 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
       cyberNote: cyber?.note,
       tb4: tb4?.value ?? null,
       tb4Note: tb4?.note,
+      harveyLab: harveyLab?.value ?? null,
+      harveyLabNote: harveyLab?.note,
       dollarPerAa: listDollarPerAa(model, row.value, mode),
       priceIn: model.pricing?.inputPerM ?? null,
       priceOut: model.pricing?.outputPerM ?? null,
@@ -170,6 +176,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
     "context",
     "aa_cyber",
     "terminal_bench_4",
+    "harvey_lab_aa",
   ];
   const lines = [
     `# Ridge ledger last_updated=${payload.last_updated} index=${payload.index}`,
@@ -193,6 +200,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
         r.context ?? "",
         r.cyber ?? "",
         r.tb4 ?? "",
+        r.harveyLab ?? "",
       ].join(","),
     ),
   ];

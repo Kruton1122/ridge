@@ -452,6 +452,97 @@ def parse_aa_cyber(src: str):
     return entries
 
 
+AA_LAB_URL = "https://artificialanalysis.ai/evaluations/harvey-lab-aa"
+
+
+def _lab_variant(v):
+    """AA effort label as Ridge writes it: 'Max, Default Fallback' -> 'max with fallback'."""
+    if not v:
+        return None
+    low = v.strip().lower()
+    if "fallback" in low:
+        base = re.sub(r",?\s*(default fallback|with fallback|fallback)", "", low).strip(" ,")
+        return f"{base} with fallback" if base else "with fallback"
+    return low
+
+
+def lab_note(variant, full, rank, total, halluc, ungated):
+    """Public score note for a Harvey LAB-AA row, built only from AA's published figures."""
+    bits = [f"variant: {variant}" if variant else f"listed as {full}"]
+    if rank and total:
+        bits.append(f"#{rank} of {total}")
+    if isinstance(halluc, (int, float)):
+        h = Decimal(str(halluc)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+        bits.append(f"{h} material hallucinations per task")
+    if isinstance(ungated, (int, float)):
+        u = Decimal(str(ungated * 100)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+        bits.append(f"{u}% before the hallucination gate")
+    return "; ".join(bits)
+
+
+def parse_aa_lab(src: str):
+    """Harvey LAB-AA v1.1 rows from AA's leaderboard page data.
+
+    Score = AA's unrounded Hallucination-Gated All-Pass Rate as a percent, rounded
+    half-up to one decimal (AA displays one decimal). Each effort variant is its own
+    entry so the apply step can keep the best variant per catalog model. Rank and
+    total come from AA's server-rendered leaderboard table.
+    """
+    t = src.replace('\\"', '"')
+    text = re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>", "", src)
+    text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", text)))
+    tm = re.search(r"See all (\d+) models", text)
+    ranks = {}
+    for row in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", src):
+        cells = [
+            re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", c))).strip()
+            for c in re.findall(r"<td[^>]*>([\s\S]*?)</td>", row)
+        ]
+        if len(cells) >= 4 and cells[0].isdigit() and re.fullmatch(r"\d+(\.\d+)?%", cells[3]):
+            ranks.setdefault(cells[2], int(cells[0]))
+    total = int(tm.group(1)) if tm else (len(ranks) or None)
+    seen = set()
+    entries = []
+    for m in re.finditer(r'"harveyLab":(-?[0-9.]+|null),"harveyLabBreakdown"', t):
+        if m.group(1) == "null":
+            continue
+        o = _json_object_around(t, m.start())
+        if not o or not isinstance(o.get("harveyLab"), (int, float)):
+            continue
+        display = html.unescape(o.get("name") or "").strip()
+        full = html.unescape(o.get("shortName") or display).strip()
+        slug = o.get("slug") or full
+        if not full or slug in seen:
+            continue
+        seen.add(slug)
+        dec = float(o["harveyLab"]) * 100
+        if dec < 0 or dec > 100:
+            continue
+        bd = o.get("harveyLabBreakdown") or {}
+        pm = re.search(r"\(([^)]+)\)\s*$", full)
+        variant = _lab_variant(pm.group(1)) if pm else None
+        base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
+        rank = ranks.get(display) or ranks.get(full)
+        score = float(Decimal(str(dec)).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP))
+        entries.append({
+            "name": base,
+            "fullName": full,
+            "slug": slug,
+            "variant": variant,
+            "score": score,
+            "scoreDecimal": dec,
+            "rank": rank,
+            "total": total,
+            "hallucinationsPerTask": bd.get("hallucinationsPerTask"),
+            "ungatedAllPass": bd.get("ungatedAverageAllPass"),
+            "note": lab_note(variant, full, rank, total, bd.get("hallucinationsPerTask"), bd.get("ungatedAverageAllPass")),
+        })
+    entries.sort(key=lambda e: e["scoreDecimal"], reverse=True)
+    if len(entries) < 5:
+        raise RuntimeError(f"AA Harvey LAB-AA: only parsed {len(entries)} models")
+    return entries
+
+
 def parse_vals_swebench(src: str):
     islands = re.findall(r'<astro-island[^>]*props="([^"]*)"[^>]*>', src)
     best = None
@@ -645,6 +736,7 @@ def main():
     cyber_entries = []
     swe_entries = []
     tb4_entries = []
+    aa_lab_entries = []
 
     try:
         openlm_src = fetch("https://openlm.ai/chatbot-arena/")
@@ -784,6 +876,33 @@ def main():
             }
         )
 
+    # AA Harvey LAB-AA v1.1: optional, like AA Cyber and TB4.
+    try:
+        lab_src = fetch(AA_LAB_URL)
+        aa_lab_entries = parse_aa_lab(lab_src)
+        sources.append(
+            {
+                "id": "aa-harvey-lab",
+                "name": "Artificial Analysis Harvey LAB-AA v1.1",
+                "url": AA_LAB_URL,
+                "ok": True,
+                "rows": len(aa_lab_entries),
+                "note": "hallucination-gated all-pass from page data; rank and total from AA's table",
+            }
+        )
+    except Exception as e:
+        print(f"artificialanalysis.ai (Harvey LAB-AA): {e}", file=sys.stderr)
+        sources.append(
+            {
+                "id": "aa-harvey-lab",
+                "name": "Artificial Analysis Harvey LAB-AA v1.1",
+                "url": AA_LAB_URL,
+                "ok": False,
+                "rows": 0,
+                "error": str(e),
+            }
+        )
+
     if errors:
         for e in errors:
             print(e, file=sys.stderr)
@@ -861,6 +980,14 @@ def main():
         "tb4": [
             {"name": e["name"], "accuracy": e["accuracy"], "rank": e["rank"], "total": e["total"]}
             for e in tb4_entries
+        ],
+        "aa_lab": [
+            {
+                "name": e["name"], "fullName": e["fullName"], "variant": e["variant"],
+                "score": e["score"], "scoreDecimal": e["scoreDecimal"],
+                "rank": e["rank"], "total": e["total"], "note": e["note"],
+            }
+            for e in aa_lab_entries
         ],
     }
     PULL_FILE.write_text(json.dumps(pull, indent=2))

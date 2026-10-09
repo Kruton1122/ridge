@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-09",
+    title: "New board: Harvey LAB-AA v1.1 (legal); 8 October scrape pickups",
+    items: [
+      "New board column: Harvey LAB-AA v1.1, Artificial Analysis' run of Harvey's Legal Agent Benchmark with the new hallucination check (v1.1, released 8 October). 16 catalog models have scores: AA's Hallucination-Gated All-Pass Rate rounded half-up to one decimal, best effort setting per model, with AA's rank, material hallucinations per task, and the pass rate before the check in the note. Grok 4.7 leads at 9.4% (#1 of 25), then Muse Spark 1.3 max 8.9%, GPT-6 Astra 8.6%, GPT-6.1 Sol 6.9%, and Claude Fable 5.1 6.4%. Models AA has not run are blank. Source: https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+      "No separate board for a legal part of the AA Intelligence Index. Index v4.3.2 has no legal eval and AA publishes no legal subscore of it. AA does show legal domain cuts inside two Index evals (the Law domain of AA-Omniscience and the Legal domain of GDP.pdf), but on different metrics from the ones the Index counts, so Ridge does not present them as an Index component.",
+      "The daily scrape now reads AA's Harvey LAB-AA page as well. A failure there does not block the rest of the scrape.",
+      "New wire on the Harvey LAB-AA column.",
+      "From the 8 October scrape: Claude Haiku 5.5 now has a Terminal-Bench 4.0 score, 35.35 (#12 of 45), and the other Terminal-Bench 4.0 rank notes now count 45 models. Haiku 5.5's AA Intelligence note now reads max, matching how AA lists it. Snapshot and score dates moved to 8 October.",
+    ],
+  },
+  {
     date: "2026-10-07",
     title: "New board: Terminal-Bench 4.0; new row: Claude Haiku 5.5; Sonnet 5.5 cache price cut",
     items: [

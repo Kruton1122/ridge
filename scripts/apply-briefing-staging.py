@@ -23,6 +23,7 @@ AA_CYBER_URL = "https://artificialanalysis.ai/evaluations/artificial-analysis-cy
 ARENA_URL = "https://openlm.ai/chatbot-arena/"
 SWE_URL = "https://vals.ai/benchmarks/swebench"
 TB4_URL = "https://www.vals.ai/benchmarks/terminal-bench-4"
+AA_LAB_URL = "https://artificialanalysis.ai/evaluations/harvey-lab-aa"
 
 # Large-delta safety rails (absolute points). Exceeding these without a
 # high-confidence exact/alias match → log and skip.
@@ -30,6 +31,7 @@ ARENA_DELTA_MAX = 80
 SWE_DELTA_MAX = 5
 TB4_DELTA_MAX = 10
 AA_DELTA_MAX = 8
+LAB_DELTA_MAX = 5
 
 def die(msg, code=1):
     print(msg, file=sys.stderr)
@@ -345,7 +347,7 @@ def tb4_note(prev_note, rank, total):
 def values_differ(a, b, benchmark_id):
     if benchmark_id == "terminal-bench-4":
         return abs(a - b) >= 0.005
-    if benchmark_id == "swe-bench":
+    if benchmark_id in ("swe-bench", "harvey-lab-aa"):
         return abs(a - b) >= 0.05
     if benchmark_id == "arena-elo":
         return abs(a - b) >= 0.5
@@ -420,6 +422,8 @@ def safety_delta_limit(benchmark_id):
         return TB4_DELTA_MAX
     if benchmark_id in ("aa-intelligence", "aa-cyber"):
         return AA_DELTA_MAX
+    if benchmark_id == "harvey-lab-aa":
+        return LAB_DELTA_MAX
     return None
 
 def main():
@@ -499,10 +503,12 @@ def main():
                 source_name, source_url = "Arena+", ARENA_URL
             elif benchmark_id == "terminal-bench-4":
                 source_name, source_url = "Vals AI", TB4_URL
+            elif benchmark_id == "harvey-lab-aa":
+                source_name, source_url = "Artificial Analysis", AA_LAB_URL
             else:
                 source_name, source_url = "Vals AI", SWE_URL
             if not prev:
-                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber", "terminal-bench-4") else (
+                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber", "terminal-bench-4", "harvey-lab-aa") else (
                     "Arena lists Thinking" if (
                         benchmark_id == "arena-elo"
                         and re.search(r"\bThinking\b", name or "", re.I)
@@ -584,11 +590,14 @@ def main():
             next_note = keep_variant(benchmark_id, prev_note, next_note)
             if benchmark_id == "terminal-bench-4":
                 next_note = tb4_note(prev_note, mapped.get("rank"), mapped.get("total"))
+            # Harvey LAB-AA: the note is built only from AA's figures, so take it whole.
+            if benchmark_id == "harvey-lab-aa":
+                next_note = note or prev.get("note")
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 benchmark_id == "aa-intelligence" and next_note != prev.get("note")
             ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note")) or (
-                benchmark_id == "terminal-bench-4" and next_note != prev.get("note")
+                benchmark_id in ("terminal-bench-4", "harvey-lab-aa") and next_note != prev.get("note")
             )
             if not changed_val and not changed_meta:
                 continue
@@ -636,6 +645,13 @@ def main():
         ),
         "note": (f"Mini-SWE-agent; #{r['rank']} of {r['total']}" if r.get("rank") and r.get("total") else None),
         "variantHint": r["name"], "rank": r.get("rank"), "total": r.get("total"),
+    })
+
+    # Harvey LAB-AA v1.1 from AA's page data: gated all-pass percent, half-up to one decimal,
+    # best effort setting per model. variantHint is the full AA name so the note never feeds the matcher.
+    apply_bucket("harvey-lab-aa", pull.get("aa_lab") or [], lambda r: {
+        "name": r["name"], "value": r.get("score"), "note": r.get("note"),
+        "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
     })
 
     material = [u for u in updates if u["changedVal"]]
@@ -694,6 +710,12 @@ def main():
                 rf'\1"{as_of}"',
                 catalog_src, count=1,
             )
+        if "harvey-lab-aa" in touched:
+            catalog_src = re.sub(
+                r'(id: "harvey-lab-aa"[\s\S]*?asOf: )"[^"]+"',
+                rf'\1"{as_of}"',
+                catalog_src, count=1,
+            )
         desk_src = re.sub(
             r'export function isFresh\(date: string, asOf = "[^"]+"\)',
             f'export function isFresh(date: string, asOf = "{as_of}")',
@@ -714,7 +736,7 @@ def main():
                     for u in rows[:6]
                 )
                 items.append("%s: %s." % (bench, bits))
-            items.append("Scores sourced from daily briefing scrape (AA / AA Cyber / Arena+ / Vals).")
+            items.append("Scores sourced from daily briefing scrape (AA / AA Cyber / AA Harvey LAB / Arena+ / Vals).")
             nl = chr(10)
             entry_items = ("," + nl).join("      " + json.dumps(i) for i in items)
             entry = (
