@@ -92,7 +92,7 @@ function FrontPage() {
                 The top of one board each, never a blended score. <a className="rx-link" href="/best">All picks, with caveats →</a>
               </p>
             </div>
-            <div className="rx-best-grid">
+            <div className={picks.length === 5 ? "rx-best-grid five" : "rx-best-grid"}>
               {picks.map((p, i) => <BestCard key={p.id} pick={p} i={i} />)}
             </div>
           </section>

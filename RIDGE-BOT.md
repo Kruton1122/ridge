@@ -238,6 +238,10 @@ hardcode, so the copy is Claude's call.
   homepage shows Coding in an editor, Agents & terminal, Cyber security, Legal agent,
   and People's pick. No CSS change: `.rx-best-grid` stays four columns on desktop
   (so the fifth card wraps to a second row), two below 1000px, one below 560px.
+- Follow-up (Colton OK): five cards now fit one row on wide desktop. `src/styles/ridge-v3.css`
+  gained `.rx-best-grid.five` (five columns), added to the existing 1000px (two columns)
+  and 560px (one column) media rules; the homepage grid adds the `five` class only when it
+  has exactly five picks. `/best` (`.rx-best-grid.full`) is unchanged.
 
 ---
 
