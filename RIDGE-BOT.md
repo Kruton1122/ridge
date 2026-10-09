@@ -226,6 +226,16 @@ Left alone: `src/routes/v2/benchmarks.index.tsx` still says "Five boards, five
 publishers" in prose. It is a legacy page and the count is not a one-line
 hardcode, so the copy is Claude's call.
 
+## 2026-10-09: Ridge Bot edit in best.ts (with Colton's OK)
+
+- `src/lib/data/best.ts`: new "Legal agent" pick (`fromBoard("legal", "harvey-lab-aa", ...)`),
+  placed after "Cyber security", same pattern as "Agents & terminal". It reads the
+  Harvey LAB-AA v1.1 board added in 3460108, with a one-line caveat about the
+  hallucination gate. Nothing else in Claude's files was touched.
+- Left alone: the homepage (`src/routes/_site/index.tsx`) picks from a fixed id list
+  capped at four cards, so "legal" does not show there. Adding it would push off
+  People's pick (or need the cap raised); that is a layout call for Colton or Claude.
+
 ---
 
-*Last updated 2026-10-07 by Ridge Bot (Grok Bot); TB 4.0 column and the edits above.*
+*Last updated 2026-10-09 by Ridge Bot (Grok Bot); Legal agent pick.*

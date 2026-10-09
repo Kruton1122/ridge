@@ -150,6 +150,8 @@ export function bestPicks(): Pick[] {
     fromBoard("agents", "terminal-bench-4", "Agents & terminal", "Which gets the most done on its own at a command line?"),
     fromBoard("cyber", "aa-cyber", "Cyber security", "Which finds and patches security bugs best?", undefined,
       "Several frontier models refuse a large share of these tasks on safety grounds, so a low score here often means “declined”, not “can’t”."),
+    fromBoard("legal", "harvey-lab-aa", "Legal agent", "Which turns case files into legal work product best?", undefined,
+      "A task only counts if every rubric item passes and the work has no material hallucination, so even the leader clears fewer than one task in ten."),
     fromBoard("people", "arena-elo", "People's pick", "Which answers do people prefer, blind?"),
     fromBoard("open", "aa-intelligence", "Best open weights", "Smartest model you can download and run yourself?", (r) => r.model.license === "open-weight"),
     bestValue(),
