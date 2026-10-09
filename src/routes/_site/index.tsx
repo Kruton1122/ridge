@@ -24,11 +24,11 @@ function FrontPage() {
   const joint = aa.filter((r) => r.score.value === top?.score.value);
   const runner = aa.find((r) => r.score.value < (top?.score.value ?? 0));
   const answers = headlines("promo");
-  // Four quick answers for the front page, skipping any board too out of date to name a "best".
-  const picks = ["coding", "ide", "agents", "cyber", "people", "open", "value"]
+  // Five quick answers for the front page, skipping any board too out of date to name a "best".
+  const picks = ["coding", "ide", "agents", "cyber", "legal", "people", "open", "value"]
     .map((id) => bestPicks().find((p) => p.id === id))
     .filter((p): p is NonNullable<typeof p> => Boolean(p && !p.stale))
-    .slice(0, 4);
+    .slice(0, 5);
   const frontier = scatter("promo").filter((p) => p.frontier).sort((a, b) => a.dollarPerAa - b.dollarPerAa);
   const news = [...NEWS].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4);
   const wire = [...WIRE].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8);

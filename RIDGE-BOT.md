@@ -232,9 +232,12 @@ hardcode, so the copy is Claude's call.
   placed after "Cyber security", same pattern as "Agents & terminal". It reads the
   Harvey LAB-AA v1.1 board added in 3460108, with a one-line caveat about the
   hallucination gate. Nothing else in Claude's files was touched.
-- Left alone: the homepage (`src/routes/_site/index.tsx`) picks from a fixed id list
-  capped at four cards, so "legal" does not show there. Adding it would push off
-  People's pick (or need the cap raised); that is a layout call for Colton or Claude.
+- `src/routes/_site/index.tsx` (Colton chose five cards): the homepage "Best for"
+  list now includes `"legal"` after `"cyber"`, and the cap went from four to five
+  cards (`.slice(0, 5)`; comment updated). With SWE-bench skipped as out of date, the
+  homepage shows Coding in an editor, Agents & terminal, Cyber security, Legal agent,
+  and People's pick. No CSS change: `.rx-best-grid` stays four columns on desktop
+  (so the fifth card wraps to a second row), two below 1000px, one below 560px.
 
 ---
 
