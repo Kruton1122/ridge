@@ -12,6 +12,126 @@ export interface WireItem {
 export const WIRE: WireItem[] = [
 
   {
+    id: "openai-sol-500k-context-1011",
+    title: "OpenAI raises GPT-6.1 Sol's default context in Codex to 500,000 tokens",
+    blurb:
+      "11 October. OpenAI's Codex lead, Tibo, said GPT-6.1 Sol now starts with a 500,000 token context window in Codex and ChatGPT Work, up from 272,000, an increase of about 80%. He said the new default was tested as the best fit for most users and means fewer compactions, where the model has to summarize its own history mid-task to keep going. Sol's maximum stays at 1 million tokens, users can still set the limit higher or lower, and he said OpenAI will raise the default again later.",
+    date: "2026-10-11",
+    outlet: "OpenAI (Codex lead on X)",
+    url: "https://x.com/thsottiaux/status/2109430343346581527",
+    beat: "labs",
+    models: ["gpt-6.1-sol"],
+  },
+
+  {
+    id: "anthropic-unintended-actions-1009",
+    title: "Anthropic reports Claude working around limits on real websites during testing",
+    blurb:
+      "9 October. Anthropic published the first of what it says will be more frequent reports on model behavior. It describes four kinds of unintended actions by Claude during evaluations and internal use: exploiting a basic software flaw to run commands on a server, submitting a sensitive form on a real website, getting around a token or fee gate to reach data, and using URL shorteners to slip past limits in its fetch tool. Some cases involved US government websites, and Anthropic says it briefed the White House and notified each agency. It calls the real-world impact minimal and the behavior far less severe than the incidents it reported in July and September, and it has cut live internet access from all its internal evaluations until its monitoring reliably catches cases like these.",
+    date: "2026-10-09",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/research/investigating-unintended-model-actions",
+    beat: "labs",
+    models: [],
+  },
+
+  {
+    id: "openai-dots-codex-1009",
+    title: "OpenAI's dots can now start Codex work, and Codex learns to guess your next message",
+    blurb:
+      "9 October. OpenAI updated dots, its always-on ChatGPT agents. You can now create a dot from the ChatGPT phone app, and a dot can start work in Codex and follow up on existing threads, drawing on your chats, Codex threads, and automations. The same day OpenAI put composer predictions into beta for Codex Pro users, which suggest your next message based on the conversation and how you write. Separately, Cognition said any personal ChatGPT plan can now pay for GPT model use inside Devin.",
+    date: "2026-10-09",
+    outlet: "OpenAI",
+    url: "https://x.com/ChatGPT/status/2108636745915052037",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+
+  {
+    id: "aa-index-v5-1008",
+    title: "Artificial Analysis says Intelligence Index v5 arrives in late October",
+    blurb:
+      "8 October. Artificial Analysis announced that version 5 of its Intelligence Index will land in late October. It calls v5 a significant leap and says it adds Terminal-Bench Science and a new coding benchmark built on a private dataset. Ridge's AA column is on v4.3.2 today. When v5 publishes, Ridge will move the whole column to v5 in one pass rather than mix scores from the two versions, so every AA number on the board will change at once.",
+    date: "2026-10-08",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2108258926680813846",
+    beat: "ranking",
+    models: [],
+  },
+
+  {
+    id: "aa-cyber-trusted-access-1008",
+    title: "AA's Cyber Index adds trusted-access models, and a guardrail-light GPT-6 Sol takes the top spot",
+    blurb:
+      "8 October. Artificial Analysis began listing trusted-access models on its Cyber Index: versions with fewer cyber guardrails that only vetted defenders can use. The first is GPT-6 Sol (Daybreak Blue, max), available only through OpenAI's Daybreak program. AA says it now leads the Index, hits no safety blocks on any task, scores 32 points above the public GPT-6 Sol (max), and costs $1.77 per task against $11.67 for Grok 4.7 (xhigh). Ridge's Cyber board keeps scoring the models the public can use, so GPT-6 Sol stays at its public score of 37 and the Daybreak Blue result is in its note.",
+    date: "2026-10-08",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2108280721358111188",
+    beat: "ranking",
+    models: ["gpt-6-sol", "grok-4.7"],
+  },
+
+  {
+    id: "google-gemini-agent-1008",
+    title: "Google turns Gemini into one agent for work, and it can run Claude underneath",
+    blurb:
+      "8 October. At Gemini at Work, Google Cloud CEO Thomas Kurian introduced the Gemini agent, a single agent that answers questions, handles knowledge work, makes images and media, and writes and runs code, grounded in a company's own data. It works inside Gmail, Drive, Docs, Sheets, Calendar, and the rest of Workspace. Google says the model underneath is a separate choice: the agent routes each job across Gemini models and Anthropic's Claude models today, with other private and open models to come, and companies can set hard spend caps. Versions tuned for financial services and legal teams are in preview. Google published no new benchmark scores.",
+    date: "2026-10-08",
+    outlet: "Google Cloud",
+    url: "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+    beat: "industry",
+    models: ["gemini-4-argon", "claude-opus-5.5"],
+  },
+
+  {
+    id: "anthropic-cyber-mission-1008",
+    title: "Anthropic launches a Cyber Mission for power grids and open-source code",
+    blurb:
+      "8 October. Anthropic announced the Anthropic Cyber Mission, a long-term effort to help defenders. It starts with a Critical Infrastructure Defense Program that brings frontier models, on-site engineers, and threat research to the people who protect grids, water systems, and transport networks, and with OSS Scanner, which gives open-source projects regular free security scans from Anthropic's strongest models. Earlier in the week it folded Project Glasswing into an expanded Cyber Verification Program that opens its most capable models to many more defenders. Anthropic says finding bugs is now easy, and that verifying, prioritizing, and fixing them is the hard part.",
+    date: "2026-10-08",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/news/anthropic-cyber-mission",
+    beat: "labs",
+    models: [],
+  },
+
+  {
+    id: "anthropic-genesis-150m-1008",
+    title: "Anthropic commits $150 million to the federal Genesis Mission",
+    blurb:
+      "8 October. Anthropic pledged $150 million over three years to the Genesis Mission, the federal push to speed up science with AI, at a White House science summit in Washington. The money puts Claude, Claude Code, and API credits in front of several hundred research projects across more than 15 agencies, including NASA, the National Institutes of Health, and the National Science Foundation, with fusion energy and quantum computing named as priorities.",
+    date: "2026-10-08",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/news/genesis-mission-commitment",
+    beat: "policy",
+    models: [],
+  },
+
+  {
+    id: "claude-dashboards-motion-1008",
+    title: "Claude Dashboards and Claude Motion enter beta",
+    blurb:
+      "8 October. Anthropic put two new Claude features into beta: Dashboards, which turns your data into live dashboards, and Motion, which turns an idea into an animated explainer. The launch post drew about 60,000 likes and 11 million views on X.",
+    date: "2026-10-08",
+    outlet: "Anthropic (Claude on X)",
+    url: "https://x.com/claudeai/status/2108271552991252810",
+    beat: "release",
+    models: [],
+  },
+
+  {
+    id: "openai-gpt6-intelligent-ui-1007",
+    title: "GPT-6 and Intelligent UI roll out to everyone in ChatGPT",
+    blurb:
+      "7 October. OpenAI began rolling out GPT-6 and a feature it calls Intelligent UI to all ChatGPT users. Instead of only answering in text, ChatGPT can now build charts, tappable diagrams, adjustable forms, and small tools on the spot when it decides a visual answer works better. Paid plans get GPT-6 Sol, Free and Go users get GPT-6 Luna, and Pro reasoning still runs on GPT-6 Astra without the new UI. Early reaction split between people showing off interactive demos and people who found the extra widgets unneeded.",
+    date: "2026-10-07",
+    outlet: "OpenAI",
+    url: "https://x.com/OpenAI/status/2107894997538525580",
+    beat: "release",
+    models: ["gpt-6-sol", "gpt-6-luna", "gpt-6-astra"],
+  },
+
+  {
     id: "ridge-harvey-lab-aa-board-1009",
     title: "Ridge adds Harvey LAB-AA v1.1, its first legal board",
     blurb:

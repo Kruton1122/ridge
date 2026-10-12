@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-12",
+    title: "Half-week news pass; AA Cyber Index trusted-access rows kept off the public board",
+    items: [
+      "AA Cyber Index: GPT-6 Sol is back at its public score, 37 (max). The 12 October daily scrape had swapped in 69 from GPT-6 Sol (Daybreak Blue, max), a trusted-access version with fewer cyber guardrails that AA began listing on 8 October and that only OpenAI's Daybreak program can use. Ridge scores models the public can use, so the Daybreak Blue result now sits in the note instead, and the daily scrape skips AA's trusted-access rows. Source: https://x.com/ArtificialAnlys/status/2108280721358111188",
+      "Ten new wires: GPT-6 and Intelligent UI in ChatGPT (7 Oct), Claude Dashboards and Motion beta, Anthropic Cyber Mission, Anthropic's $150M Genesis Mission pledge, Google's Gemini agent, AA's trusted-access Cyber rows, AA Intelligence Index v5 coming in late October (all 8 Oct), OpenAI dots and Codex updates, Anthropic's unintended-actions report (9 Oct), and GPT-6.1 Sol's 500K default context in Codex (11 Oct).",
+      "Two desk pieces: the half-week opinion for 8 to 12 October, and a note on how Ridge will handle AA Index v5 and trusted-access Cyber rows.",
+      "Public opinion: Claude Haiku 5.5 opens at 3 stars. All other stars hold; notes refreshed for Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Astra, GPT-6 Luna, Grok 4.7, DeepSeek V4.1 Flash and Kimi K3, as of 12 October. Gemini 4 Argon, GLM-5.3 and Mistral Large 4 stay unrated.",
+      "Snapshot and score dates moved to 12 October from the daily scrape.",
+    ],
+  },
+  {
     date: "2026-10-09",
     title: "New board: Harvey LAB-AA v1.1 (legal); 8 October scrape pickups",
     items: [

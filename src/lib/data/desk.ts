@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-10-08"): boolean {
+export function isFresh(date: string, asOf = "2026-10-12"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,47 @@ export function isFresh(date: string, asOf = "2026-10-08"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+
+  {
+    id: "halfweek-opinion-1012",
+    kind: "ranking",
+    title: "Half-week opinion: Haiku 5.5 earns its first star, and Opus 5.5 keeps the crown through some grumbling",
+    dek: "Public posts on X from 8 to 12 October. People are building teams of Claude models, and the Opus complaints got louder without turning into a move away.",
+    pull: "People are not picking one model anymore. They are hiring a team, and right now Anthropic sells the most popular one.",
+    summary:
+      "One star change this half-week. Claude Haiku 5.5 opens at 3: people like it as the cheap worker under Opus or Sonnet, but few trust it alone on hard jobs. Opus 5.5 holds 5 despite louder complaints about token burn and a much-discussed week-long switch to Codex, because most posts pair it with other models rather than drop it. Gemini 4 Argon stays unrated until the public can actually use it.",
+    date: "2026-10-12",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/thekuchh/status/2108490983935705195",
+    models: ["claude-haiku-5.5", "claude-opus-5.5", "claude-sonnet-5.5", "gpt-6.1-sol", "gpt-6-astra", "gpt-6-luna", "grok-4.7", "gemini-4-argon", "deepseek-v4.1-flash", "kimi-k3"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "The biggest shift this half-week was not a model but a habit. Post after post described a team instead of a favorite: Opus 5.5 to plan, Sonnet 5.5 to build, and Haiku 5.5 to do the scanning and sorting underneath. One developer ran all three as subagents on six real tasks and found Opus did best but Haiku cost about 40 times less. Another fan dared anyone to name a better trio. We think this is the most important thing happening in how people use these models, and it is why Haiku 5.5 opens at 3 stars. It is clearly in use and liked for the price, but most of the people praising it also say they would not hand it a hard job alone. Anthropic says the same on its own launch page.",
+      "Opus 5.5 holds at 5, though this was its roughest stretch since launch. Investor Martin Tobias said he was moving from Claude Code to OpenAI's Codex for a week, and the replies turned into a long comparison thread, with people complaining that Opus burns through usage and loses track of context on long jobs. A few posts said flatly that it has been nerfed. But that thread mostly ended with people using both tools, Codex for backend work and reviews and Claude for UI and heavy generation. A star drops when people leave, and they have not.",
+      "On the OpenAI side the talk was about efficiency more than quality. A report that Asana cut a GPT-6.1 Sol browser agent's cost several times over just by keeping its prompt cache warm got passed around, and OpenAI raised Sol's default context in Codex to 500,000 tokens. Many posts still rank Sol behind Opus 5.5 on quality, and one widely viewed test found it far slower and costlier than GPT-6 Luna on the same job, so Sol holds at 3, Astra at 4, and Luna at 3. Grok 4.7 holds at 3 as well: it leads Ridge's legal board, but coding posts this week kept putting it behind Argon, Sol, and Opus.",
+      "The loudest Google talk was about models nobody outside Google can use yet. Gemini 4 Argon turned up as the credited author of a merged GitHub pull request, rumors spread about an internal checkpoint called Carbon that supposedly beats Opus 5.5, and Polymarket traders moved Google just ahead of Anthropic for best model at year end. None of that is public use, so Argon stays unrated and Carbon stays off the board. When Argon opens to paid API users, the first group in Google's rollout plan, it gets its first real test. Open models were steady: DeepSeek V4.1 Flash and Kimi K3 keep showing up in people's working stacks, and both hold at 4.",
+    ],
+  },
+
+  {
+    id: "aa-v5-cyber-trusted-1008",
+    kind: "ranking",
+    title: "Two Artificial Analysis changes, and what Ridge is doing about them",
+    dek: "8 October. Intelligence Index v5 lands in late October, and the Cyber Index now lists trusted-access models. Ridge will switch to v5 in one go and keep its Cyber board to models the public can use.",
+    pull: "A score you cannot get access to is not a score for the model you can buy.",
+    summary:
+      "Artificial Analysis said Intelligence Index v5 arrives in late October with Terminal-Bench Science and a private coding test, and it added trusted-access models to its Cyber Index, led by a guardrail-light GPT-6 Sol that only OpenAI's Daybreak program can use. Ridge will move its AA column to v5 all at once and does not count trusted-access versions on its public Cyber board.",
+    date: "2026-10-08",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://x.com/ArtificialAnlys/status/2108258926680813846",
+    models: ["gpt-6-sol", "claude-opus-5.5", "gemini-4-argon", "gpt-6.1-sol", "grok-4.7"],
+    tags: ["ranking", "artificial-analysis", "cyber"],
+    body: [
+      "Artificial Analysis made two announcements on 8 October that matter more to Ridge than most model launches. The first is that version 5 of its Intelligence Index is coming in late October. AA calls it a significant leap, and the two changes it has named so far are Terminal-Bench Science and a new coding benchmark built on a private dataset. The private set is good news. Public coding tests leak into training data over time, and a test nobody can study for is a better read on what a model can really do.",
+      "For the board, v5 means every AA number changes on the same day. The last rebase, v4.2 in September, moved every score to a new scale, and mixing versions would scramble the rankings. So when v5 publishes, Ridge will move the whole column at once, label it clearly, and never compare a v4.3.2 score with a v5 one. It would not surprise us to see the top reshuffle, since a fresh coding test is exactly the kind of thing that can pull Opus 5.5, Argon, and Sol apart.",
+      "The second change is on the Cyber Index. AA now lists trusted-access models, versions with fewer cyber guardrails that only vetted defenders can use. The first is GPT-6 Sol (Daybreak Blue, max), which AA says now leads the Index, hits no safety blocks, and scores 32 points above the public GPT-6 Sol. That is a useful finding, because it shows how much of the spread on this test comes from refusals rather than skill. But Ridge's boards describe models people can actually use, so GPT-6 Sol keeps its public score of 37 on our Cyber board, the Daybreak Blue result sits in its note, and our daily scrape now skips trusted-access rows so the two cannot get swapped by accident. If AA adds more of these, they may earn a view of their own.",
+    ],
+  },
 
   {
     id: "claude-haiku-5.5-1007",

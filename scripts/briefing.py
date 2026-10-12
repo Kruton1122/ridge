@@ -311,6 +311,8 @@ def parse_aa_index(src: str):
 
 
 AA_CYBER_URL = "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index"
+# Lowercase variant keywords for AA Cyber trusted-access rows to skip (not publicly available).
+AA_CYBER_TRUSTED_ACCESS = ("daybreak",)
 
 
 def _json_object_around(t: str, pos: int):
@@ -428,6 +430,10 @@ def parse_aa_cyber(src: str):
             continue
         pm = re.search(r"\(([^)]+)\)\s*$", full)
         variant = pm.group(1).strip() if pm else None
+        # Trusted-access rows (AA added them 8 Oct 2026, e.g. GPT-6 Sol (Daybreak Blue, max))
+        # are versions the public cannot use. Ridge keeps them off the public board.
+        if variant and any(k in variant.lower() for k in AA_CYBER_TRUSTED_ACCESS):
+            continue
         base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
         rates = {
             "cweBench": o.get("cweBenchRefusalRate"),
