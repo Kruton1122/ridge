@@ -131,6 +131,20 @@ const PROFILES: Record<string, ModelProfile> = {
     ],
     watch: ["The partner max row is not the public default"],
   },
+  "muse-wonder": {
+    epithet: "Meta's API frontier",
+    voice:
+      "The Muse Wonder you can actually call. Four points over Spark 1.3 max on AA's index, same list price as Opus 5.5, still marked preview. Only AA has scored it so far.",
+    strengths: ["AA Intelligence Index 52 at max", "1M context with image, video, audio and PDF input"],
+    watch: ["Preview on the API", "About 2.8x Spark 1.3 max cost per AA task", "Weak on AA's knowledge test"],
+  },
+  "muse-wonder-full": {
+    epithet: "The subscription peak",
+    voice:
+      "Meta's strongest model, level with Sonnet 5.5 on AA's index, and only reachable inside Muse Code. Cite the access if you cite the number.",
+    strengths: ["AA Intelligence Index 56 at max", "AA ranks it first on CritPt and GDP.pdf"],
+    watch: ["No API, Muse Code subscribers only", "No per-token price"],
+  },
   "muse-spark-1.3-max": {
     epithet: "The preview peak",
     voice:

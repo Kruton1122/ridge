@@ -1116,6 +1116,81 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "muse-wonder": {
+    lede:
+      "Muse Wonder is Meta's new frontier model, released 12 October 2026, six weeks after Muse Spark 1.3. It is the one of the pair you can call: in preview on the Meta Model API and in Muse Code, at $4 in and $20 out per million tokens.\n\nArtificial Analysis scores it 52 on its Intelligence Index at max effort, four points over Muse Spark 1.3 max. The bigger Muse Wonder Full scores 56 but is only in Muse Code. Ridge tracks them as separate rows.",
+    framing:
+      "Meta pitches Muse Wonder as a model for personal and professional agents, with long memory and focus on multi-step work. Artificial Analysis notes it costs $4.52 per Index task, about 2.8 times Muse Spark 1.3 max.",
+    rollout: [
+      { date: "2026-10-12", text: "Announced and released. Muse Wonder is in preview on the Meta Model API as muse-wonder-1.0 and in Muse Code. Muse Wonder Full is in Muse Code for subscribers only. Meta says both will power the Muse app for subscribers." },
+    ],
+    rolloutNote:
+      "Meta says a full safety report is coming soon. Press reports put Muse Code plans at $50 and $200 a month and Muse app plans at $20 and $100 a month (CNBC); Meta's own pages do not list those prices.",
+    claims: [
+      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis has not posted a Muse Wonder row on its own LAB-AA board yet.",
+      "Also Meta's claims: leads on AutomationBench-AA (45.4) and DeepSWE 1.1 (79.0). Meta's same chart has Claude Opus 5.5 ahead on Terminal-Bench 4.0-AA (59.6 to 57.1) and ProgramBench (70.5 to 59.0).",
+      "Built for agents at home and at work, with Active Memory and Active Focus to keep long tasks on track (company framing). Trained at Meta's Prometheus data center.",
+    ],
+    vendorEvalsNote:
+      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis has scored both models on its Intelligence Index, and every other board is blank until its maintainer runs them.",
+    specs: [
+      { label: "Model id", value: "muse-wonder-1.0 (preview)" },
+      { label: "Context", value: "1,048,576 tokens" },
+      { label: "Input and output", value: "Text, image, video, audio and PDF in; text out" },
+      { label: "Reasoning effort", value: "Minimal to max" },
+      { label: "Price", value: "$4 in, $0.20 cached, $20 out per 1M tokens" },
+      { label: "Weights", value: "Closed" },
+    ],
+    whereUsed: [
+      "Meta Model API (preview)",
+      "Muse Code",
+      "Muse app (subscribers, per Meta)",
+    ],
+    sources: [
+      { label: "Introducing Muse Wonder (Meta Newsroom)", url: "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/" },
+      { label: "Muse Wonder research post (Meta)", url: "https://research.meta.ai/blog/muse-wonder" },
+      { label: "Models and pricing (Meta Model API docs)", url: "https://dev.meta.ai/docs/pricing-rate-limits" },
+      { label: "Launch post (Mark Zuckerberg on X)", url: "https://x.com/finkd/status/2109689305073614918" },
+      { label: "Artificial Analysis leaderboard", url: "https://artificialanalysis.ai/leaderboards/models" },
+    ],
+  },
+
+  "muse-wonder-full": {
+    lede:
+      "Muse Wonder Full is Meta's strongest model, released 12 October 2026 alongside Muse Wonder. It is only in Muse Code for subscribers, with no API and no per-token price.\n\nArtificial Analysis scores it 56 on its Intelligence Index at max effort, level with Claude Sonnet 5.5 and two behind Claude Opus 5.5. AA ranks it first on CritPt and GDP.pdf and second on GDPval-AA.",
+    framing:
+      "Meta pitches it as the top of the Muse Wonder line for the hardest agent work. AA finds it weak on its knowledge test (Omniscience 30) but low on made-up answers.",
+    rollout: [
+      { date: "2026-10-12", text: "Announced and released. Muse Wonder is in preview on the Meta Model API as muse-wonder-1.0 and in Muse Code. Muse Wonder Full is in Muse Code for subscribers only. Meta says both will power the Muse app for subscribers." },
+    ],
+    rolloutNote:
+      "Meta says a full safety report is coming soon. Press reports put Muse Code plans at $50 and $200 a month and Muse app plans at $20 and $100 a month (CNBC); Meta's own pages do not list those prices.",
+    claims: [
+      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis has not posted a Muse Wonder row on its own LAB-AA board yet.",
+      "Also Meta's claims: leads on AutomationBench-AA (45.4) and DeepSWE 1.1 (79.0). Meta's same chart has Claude Opus 5.5 ahead on Terminal-Bench 4.0-AA (59.6 to 57.1) and ProgramBench (70.5 to 59.0).",
+      "Built for agents at home and at work, with Active Memory and Active Focus to keep long tasks on track (company framing). Trained at Meta's Prometheus data center.",
+    ],
+    vendorEvalsNote:
+      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis has scored both models on its Intelligence Index, and every other board is blank until its maintainer runs them.",
+    specs: [
+      { label: "Access", value: "Muse Code subscribers only" },
+      { label: "API", value: "None yet" },
+      { label: "Context", value: "1M tokens (Artificial Analysis listing)" },
+      { label: "Weights", value: "Closed" },
+    ],
+    whereUsed: [
+      "Muse Code (subscribers)",
+      "Muse app (subscribers, per Meta)",
+    ],
+    sources: [
+      { label: "Introducing Muse Wonder (Meta Newsroom)", url: "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/" },
+      { label: "Muse Wonder research post (Meta)", url: "https://research.meta.ai/blog/muse-wonder" },
+      { label: "Models and pricing (Meta Model API docs)", url: "https://dev.meta.ai/docs/pricing-rate-limits" },
+      { label: "Launch post (Mark Zuckerberg on X)", url: "https://x.com/finkd/status/2109689305073614918" },
+      { label: "Artificial Analysis leaderboard", url: "https://artificialanalysis.ai/leaderboards/models" },
+    ],
+  },
+
   "muse-spark-1.3-max": {
     lede:
       "Muse Spark 1.3 max is the higher-effort reasoning tier of the same 2 September 2026 Muse Spark 1.3 release — not a separate model generation, and not the version most developers can actually call. Meta ships it as a partner preview only: the company says it's still completing additional safety testing before opening it more broadly, and as of early September no API provider lists a general endpoint for it.\n\nThe counterpart to this row is muse-spark-1.3-xhigh (tracked on Ridge as muse-spark-1.3), which shipped GA the same day. Same underlying 1.3 release, two effort tiers — max is the one you likely can't get a key for.",

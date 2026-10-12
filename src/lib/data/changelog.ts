@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-10-12",
+    title: "Muse Wonder and Muse Wonder Full added",
+    items: [
+      "New models: Muse Wonder (Meta Model API preview, $4 / $20 per 1M tokens, 1M context) and Muse Wonder Full (Muse Code subscribers only, no API price). AA Intelligence Index at max effort: Muse Wonder Full 56, Muse Wonder 52. All other boards are blank until their maintainers score them. Source: https://artificialanalysis.ai/leaderboards/models",
+      "Model pages, a wire and a desk piece on the launch. Meta's own benchmark chart appears in prose only, labelled as Meta's claims. No public opinion stars yet.",
+    ],
+  },
+  {
+    date: "2026-10-12",
     title: "Half-week news pass; AA Cyber Index trusted-access rows kept off the public board",
     items: [
       "AA Cyber Index: GPT-6 Sol is back at its public score, 37 (max). The 12 October daily scrape had swapped in 69 from GPT-6 Sol (Daybreak Blue, max), a trusted-access version with fewer cyber guardrails that AA began listing on 8 October and that only OpenAI's Daybreak program can use. Ridge scores models the public can use, so the Daybreak Blue result now sits in the note instead, and the daily scrape skips AA's trusted-access rows. Source: https://x.com/ArtificialAnlys/status/2108280721358111188",

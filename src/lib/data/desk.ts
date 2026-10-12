@@ -10,6 +10,20 @@ export function isFresh(date: string, asOf = "2026-10-12"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "muse-wonder-1012",
+    kind: "release",
+    title: "Muse Wonder puts Meta back near the top",
+    dek: "Full ties Sonnet 5.5 on AA's index, but only Muse Code subscribers can use it.",
+    pull: "The stronger model is only in Muse Code, and the one on the API is still in preview.",
+    summary: "Meta released Muse Wonder and Muse Wonder Full on 12 October. Artificial Analysis scores them 52 and 56, up from 48 for Muse Spark 1.3 max.",
+    date: "2026-10-12",
+    sourceName: "Meta",
+    sourceUrl: "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+    models: ["muse-wonder", "muse-wonder-full"],
+    tags: ["meta", "release"],
+    body: ["Meta is back near the top. Artificial Analysis puts Muse Wonder Full at 56 on its Intelligence Index, level with Claude Sonnet 5.5 and two behind Claude Opus 5.5, and Muse Wonder at 52, level with GPT-6.1 Sol. Six weeks ago Meta's best was Muse Spark 1.3 max at 48. The catch is access: the stronger model is only in Muse Code for subscribers, and the one on the API is still in preview.", "Meta pitches both as models for agents at home and at work, with Active Memory and Active Focus for long tasks. Its own chart, which is Meta's claim and not an independent score, has Muse Wonder Full leading Harvey LAB-AA at 13.1, well above Grok 4.7's 9.4 on AA's live legal board. AA has not posted a Muse Wonder row there yet, so Ridge's legal seat stays with Grok for now. The same chart is not a sweep: Opus 5.5 is ahead on terminal coding and on building programs from scratch.", "It is launch day, so reaction is mostly from Meta and the press, and there is not enough real use yet to give either model public opinion stars. We will rate them once people have had a week with them.", "On price, Muse Wonder lists at $4 in and $20 out per million tokens, the same as Opus 5.5 and below GPT-6 Astra. AA says it costs about 2.8 times Spark 1.3 max per Index task. Next to watch: Vals Terminal-Bench 4.0, the Arena, AA's Cyber and LAB-AA boards, and whether Muse Wonder Full ever gets an API."],
+  },
 
   {
     id: "halfweek-opinion-1012",

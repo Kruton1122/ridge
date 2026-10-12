@@ -10,6 +10,16 @@ export interface WireItem {
 }
 
 export const WIRE: WireItem[] = [
+  {
+    id: "meta-muse-wonder-1012",
+    title: "Meta releases Muse Wonder and Muse Wonder Full",
+    blurb: "Meta released Muse Wonder and Muse Wonder Full, its biggest models yet, built for agent work. Muse Wonder is in preview on the Meta Model API at $4 in and $20 out per million tokens and in Muse Code. Muse Wonder Full is only in Muse Code for subscribers. Artificial Analysis scores Full 56 and Wonder 52 on its Intelligence Index at max effort, up from 48 for Muse Spark 1.3 max, which puts Full level with Claude Sonnet 5.5. Meta's own chart claims leads on Harvey LAB-AA and AutomationBench but has Claude Opus 5.5 ahead on some coding tests. Other Ridge boards have not scored either model yet.",
+    date: "2026-10-12",
+    outlet: "Meta",
+    url: "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+    beat: "release",
+    models: ["muse-wonder", "muse-wonder-full"],
+  },
 
   {
     id: "openai-sol-500k-context-1011",
