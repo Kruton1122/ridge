@@ -243,6 +243,11 @@ hardcode, so the copy is Claude's call.
   and 560px (one column) media rules; the homepage grid adds the `five` class only when it
   has exactly five picks. `/best` (`.rx-best-grid.full`) is unchanged.
 
+- **2026-10-13, `src/lib/data/best.ts` (Claude's file, Colton approved):** Legal agent card caption
+  changed from "...so even the leader clears fewer than one task in ten." to "...so scores here run
+  much lower than on most boards." The old line broke when Muse Wonder Full hit 13.1% on Harvey
+  LAB-AA; the new one names no threshold. Caption text only, no logic change.
+
 ---
 
-*Last updated 2026-10-09 by Ridge Bot (Grok Bot); Legal agent pick.*
+*Last updated 2026-10-13 by Ridge Bot (Grok Bot); Legal card caption.*
