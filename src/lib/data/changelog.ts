@@ -1,6 +1,16 @@
 export const CHANGELOG = [
   {
     date: "2026-10-13",
+    title: "Argon on CursorBench; Muse Wonder scored on LAB-AA, Terminal-Bench 4.0 and Arena+",
+    items: [
+      "CursorBench: Gemini 4 Argon 52.9 (high, best published), third on the board. Source: https://cursor.com/cursorbench",
+      "Muse Wonder Full and Muse Wonder scored by more boards: Harvey LAB-AA 13.1 and 10.0 (first and second, so the Legal pick moves from Grok 4.7 to Muse Wonder Full), Vals Terminal-Bench 4.0 58.08 and 49.49, Arena+ 1518 and 1510. AA Cyber, CursorBench and SWE-bench stay blank.",
+      "Daily scrape for 13 October: date bumps and rank notes for the 47-model Vals board and the 27-model LAB-AA board; Vals Terminal-Bench 4.0 rescored Claude Sonnet 5 to 10.61 (was 9.6) and Gemini 3.8 Flash to 19.7 (was 19.19).",
+      "Two new wires: Argon in Cursor, and Muse Wonder on the independent boards.",
+    ],
+  },
+  {
+    date: "2026-10-13",
     title: "Gemini 4 Argon is generally available",
     items: [
       "Gemini 4 Argon is now generally available (13 October): status moves from preview to GA. Summary updated with where it is available and the price dates: $2 / $10 per 1M tokens through 30 November, then $4 / $20 from 1 December. Scores unchanged. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",

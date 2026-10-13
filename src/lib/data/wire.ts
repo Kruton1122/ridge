@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "cursor-argon-1013",
+    title: "Gemini 4 Argon arrives in Cursor at 52.9 on CursorBench",
+    blurb: "Cursor added Gemini 4 Argon and published its CursorBench runs: 52.9 at high, 52.8 at medium (the default), 50.6 at low and 48.8 at minimal. Cursor says the default run is on par with Claude Opus 5.5, whose medium run scores 52.5. On Ridge's board, which uses each model's best published run, Argon is third behind Opus 5.5 (57.8 at max) and Sonnet 5.5 (55.5 at max), and ahead of Fable 5.1 (51.8).",
+    date: "2026-10-13",
+    outlet: "Cursor",
+    url: "https://x.com/cursor_ai/status/2110087611763368271",
+    beat: "ranking",
+    models: ["gemini-4-argon", "claude-opus-5.5", "claude-sonnet-5.5"],
+  },
+  {
+    id: "muse-wonder-boards-1013",
+    title: "Muse Wonder Full tops AA's Harvey LAB-AA legal board",
+    blurb: "A day after launch, independent boards scored Meta's new models. On Artificial Analysis's Harvey LAB-AA, Muse Wonder Full scores 13.1 and Muse Wonder 10.0, first and second, ahead of Grok 4.7 at 9.4. That matches the numbers Meta claimed at launch. On Vals Terminal-Bench 4.0, Muse Wonder Full scores 58.08, level with Claude Fable 5.1, and Muse Wonder 49.49. On Arena+, Full is at 1518 and Wonder at 1510. Ridge's legal pick moves to Muse Wonder Full, which only Muse Code subscribers can use.",
+    date: "2026-10-13",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
+    beat: "ranking",
+    models: ["muse-wonder-full", "muse-wonder", "grok-4.7"],
+  },
+  {
     id: "google-argon-ga-1013",
     title: "Gemini 4 Argon is now generally available",
     blurb: "Google rolled out Gemini 4 Argon to everyone who pays, two weeks after announcing it for trusted cyber defenders. It is stable on the Gemini API as gemini-4-argon and in AI Studio and Gemini for business. AI Ultra subscribers get it in Google Antigravity, and AI Pro and Ultra subscribers get it in the Gemini app and AI Mode in Search. The introductory price of $2 in and $10 out per million tokens runs through 30 November, then $4 and $20 apply from 1 December. Ridge's scores carry over unchanged: AA Intelligence Index 53, Vals Terminal-Bench 4.0 57.58, Arena+ 1525.",

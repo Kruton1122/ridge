@@ -1127,12 +1127,12 @@ export const ABOUTS: Record<string, ModelAbout> = {
     rolloutNote:
       "Meta says a full safety report is coming soon. Press reports put Muse Code plans at $50 and $200 a month and Muse app plans at $20 and $100 a month (CNBC); Meta's own pages do not list those prices.",
     claims: [
-      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis has not posted a Muse Wonder row on its own LAB-AA board yet.",
+      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis's own run on 13 October matched it: Muse Wonder Full 13.1 and Muse Wonder 10.0, first and second on its LAB-AA board.",
       "Also Meta's claims: leads on AutomationBench-AA (45.4) and DeepSWE 1.1 (79.0). Meta's same chart has Claude Opus 5.5 ahead on Terminal-Bench 4.0-AA (59.6 to 57.1) and ProgramBench (70.5 to 59.0).",
       "Built for agents at home and at work, with Active Memory and Active Focus to keep long tasks on track (company framing). Trained at Meta's Prometheus data center.",
     ],
     vendorEvalsNote:
-      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis has scored both models on its Intelligence Index, and every other board is blank until its maintainer runs them.",
+      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis (Intelligence Index and Harvey LAB-AA), Vals Terminal-Bench 4.0 and Arena+ have scored both models. AA Cyber, CursorBench and SWE-bench are blank until their maintainers run them.",
     specs: [
       { label: "Model id", value: "muse-wonder-1.0 (preview)" },
       { label: "Context", value: "1,048,576 tokens" },
@@ -1166,12 +1166,12 @@ export const ABOUTS: Record<string, ModelAbout> = {
     rolloutNote:
       "Meta says a full safety report is coming soon. Press reports put Muse Code plans at $50 and $200 a month and Muse app plans at $20 and $100 a month (CNBC); Meta's own pages do not list those prices.",
     claims: [
-      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis has not posted a Muse Wonder row on its own LAB-AA board yet.",
+      "Meta's chart (Meta's claims, not independent): Muse Wonder Full scores 13.1 on Harvey LAB-AA against 8.6 for GPT-6 Astra and 4.2 for Claude Opus 5.5. Artificial Analysis's own run on 13 October matched it: Muse Wonder Full 13.1 and Muse Wonder 10.0, first and second on its LAB-AA board.",
       "Also Meta's claims: leads on AutomationBench-AA (45.4) and DeepSWE 1.1 (79.0). Meta's same chart has Claude Opus 5.5 ahead on Terminal-Bench 4.0-AA (59.6 to 57.1) and ProgramBench (70.5 to 59.0).",
       "Built for agents at home and at work, with Active Memory and Active Focus to keep long tasks on track (company framing). Trained at Meta's Prometheus data center.",
     ],
     vendorEvalsNote:
-      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis has scored both models on its Intelligence Index, and every other board is blank until its maintainer runs them.",
+      "Meta's benchmark numbers are its own. Ridge's boards show only independent scores: Artificial Analysis (Intelligence Index and Harvey LAB-AA), Vals Terminal-Bench 4.0 and Arena+ have scored both models. AA Cyber, CursorBench and SWE-bench are blank until their maintainers run them.",
     specs: [
       { label: "Access", value: "Muse Code subscribers only" },
       { label: "API", value: "None yet" },

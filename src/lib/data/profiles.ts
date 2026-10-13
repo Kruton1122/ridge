@@ -134,7 +134,7 @@ const PROFILES: Record<string, ModelProfile> = {
   "muse-wonder": {
     epithet: "Meta's API frontier",
     voice:
-      "The Muse Wonder you can actually call. Four points over Spark 1.3 max on AA's index, same list price as Opus 5.5, still marked preview. Only AA has scored it so far.",
+      "The Muse Wonder you can actually call. Four points over Spark 1.3 max on AA's index, same list price as Opus 5.5, still marked preview. Second on AA's legal board behind its bigger sibling.",
     strengths: ["AA Intelligence Index 52 at max", "1M context with image, video, audio and PDF input"],
     watch: ["Preview on the API", "About 2.8x Spark 1.3 max cost per AA task", "Weak on AA's knowledge test"],
   },
