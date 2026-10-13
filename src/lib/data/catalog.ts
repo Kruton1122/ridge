@@ -361,7 +361,7 @@ export const MODELS: Model[] = [
     contextTokens: 1_000_000,
     pricing: { inputPerM: 4, outputPerM: 20 },
     license: "proprietary",
-    status: "preview",
+    status: "ga",
     aliases: [
       "gemini 4 argon",
       "gemini-4-argon",
@@ -370,7 +370,7 @@ export const MODELS: Model[] = [
       "argon",
     ],
     summary:
-      "Announced 30 September 2026. Google's first model above the Flash class in over seven months. Limited rollout to trusted cyber defenders in the Fairwind Program. Paid API customers and Google AI Ultra subscribers come next, with no date given. Introductory price $2 / $10 (cached input 95% off), then $4 / $20 after an introductory period Google has not dated. Output limit 1M tokens. AA Intelligence Index 53 (high, the top setting), tied for #3 with Fable 5.1 and GPT-6 Astra as of 30 Sept. Arena+ Elo 1525. No CursorBench, Vals Terminal-Bench, or SWE-bench score yet.",
+      "Announced 30 September 2026 for trusted cyber defenders, then generally available on 13 October 2026: the paid Gemini API (gemini-4-argon, stable), AI Studio, Gemini for business, Google Antigravity for AI Ultra subscribers, and the Gemini app and AI Mode for AI Pro and Ultra subscribers. Introductory price $2 / $10 per 1M tokens (cached input $0.10) through 30 November 2026, then $4 / $20 from 1 December. 1M token limit shared by input and output. AA Intelligence Index 53 (high, the top setting). Vals Terminal-Bench 4.0 57.58. Arena+ Elo 1525. No CursorBench or SWE-bench score yet.",
   }),
   m({
     id: "gemini-3.8-flash",
@@ -742,7 +742,7 @@ export const SCORES: Score[] = [
   s("gemini-3.7-flash", "arena-elo", 1503, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12"),
   s("gemini-3.8-flash", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12", "early listing"),
   s("gpt-6-astra", "arena-elo", 1520, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12"),
-  s("gemini-4-argon", "arena-elo", 1525, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12", "early listing; limited preview"),
+  s("gemini-4-argon", "arena-elo", 1525, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12", "early listing"),
   s("gpt-6.1-sol", "arena-elo", 1516, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12"),
   s("muse-spark-1.3", "arena-elo", 1507, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12"),
   s("glm-5.3", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-10-12"),

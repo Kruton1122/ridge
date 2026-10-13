@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "google-argon-ga-1013",
+    title: "Gemini 4 Argon is now generally available",
+    blurb: "Google rolled out Gemini 4 Argon to everyone who pays, two weeks after announcing it for trusted cyber defenders. It is stable on the Gemini API as gemini-4-argon and in AI Studio and Gemini for business. AI Ultra subscribers get it in Google Antigravity, and AI Pro and Ultra subscribers get it in the Gemini app and AI Mode in Search. The introductory price of $2 in and $10 out per million tokens runs through 30 November, then $4 and $20 apply from 1 December. Ridge's scores carry over unchanged: AA Intelligence Index 53, Vals Terminal-Bench 4.0 57.58, Arena+ 1525.",
+    date: "2026-10-13",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    beat: "release",
+    models: ["gemini-4-argon"],
+  },
+  {
     id: "meta-muse-wonder-1012",
     title: "Meta releases Muse Wonder and Muse Wonder Full",
     blurb: "Meta released Muse Wonder and Muse Wonder Full, its biggest models yet, built for agent work. Muse Wonder is in preview on the Meta Model API at $4 in and $20 out per million tokens and in Muse Code. Muse Wonder Full is only in Muse Code for subscribers. Artificial Analysis scores Full 56 and Wonder 52 on its Intelligence Index at max effort, up from 48 for Muse Spark 1.3 max, which puts Full level with Claude Sonnet 5.5. Meta's own chart claims leads on Harvey LAB-AA and AutomationBench but has Claude Opus 5.5 ahead on some coding tests. Other Ridge boards have not scored either model yet.",

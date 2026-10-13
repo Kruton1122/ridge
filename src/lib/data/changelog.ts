@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-13",
+    title: "Gemini 4 Argon is generally available",
+    items: [
+      "Gemini 4 Argon is now generally available (13 October): status moves from preview to GA. Summary updated with where it is available and the price dates: $2 / $10 per 1M tokens through 30 November, then $4 / $20 from 1 December. Scores unchanged. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "A wire and a desk piece on the launch.",
+    ],
+  },
+  {
     date: "2026-10-12",
     title: "Muse Wonder and Muse Wonder Full added",
     items: [

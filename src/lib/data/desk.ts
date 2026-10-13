@@ -11,6 +11,20 @@ export function isFresh(date: string, asOf = "2026-10-12"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "gemini-4-argon-ga-1013",
+    kind: "release",
+    title: "Gemini 4 Argon goes public, at half price for now",
+    dek: "Argon is generally available on the API and paid Gemini plans, with $2 and $10 pricing until 30 November.",
+    pull: "Until 30 November, Argon costs the same as Sonnet 5.5 and GPT-6.1 Sol.",
+    summary: "Google made Gemini 4 Argon generally available on 13 October. Ridge's scores carry over unchanged: AA 53, Vals Terminal-Bench 4.0 57.58, Arena+ 1525.",
+    date: "2026-10-13",
+    sourceName: "Google",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+    models: ["gemini-4-argon"],
+    tags: ["google", "release"],
+    body: ["Gemini 4 Argon is public. Two weeks after Google announced it for a small group of cyber defenders, it is now stable on the paid Gemini API as gemini-4-argon, and in AI Studio, Gemini for business, and Google Antigravity for AI Ultra subscribers. In the Gemini app and AI Mode in Search it needs an AI Pro or Ultra plan. Free and Plus users do not get it. Logan Kilpatrick of Google says Argon is a big model that is hard to serve widely, and that other Gemini 4 versions for far more people are coming.", "Ridge's numbers do not move, because the boards already tested this model. Artificial Analysis has it at 53 on its Intelligence Index at high, tied for fourth behind Claude Opus 5.5, Claude Sonnet 5.5 and Muse Wonder Full. On Vals Terminal-Bench 4.0 it scores 57.58, sixth of 47, and its Arena+ Elo is 1525. Arena also says Argon is in the top five of its Agent Arena, a board Ridge does not track. CursorBench and SWE-bench are still blank.", "The price is the bigger story for now. Until 30 November, Argon costs $2 in and $10 out per million tokens, with cached input at $0.10. That is the same as Sonnet 5.5 and GPT-6.1 Sol, and Argon sits within a few points of both on the AA index. From 1 December it doubles to $4 and $20, level with Opus 5.5 and Muse Wonder. Ridge lists the $4 and $20 standard price.", "What to watch is how it holds up with real users. Google says more than 100,000 people inside the company tested it over the last month, but outside use starts today. We will set public opinion stars once people have had a week with it."],
+  },
+  {
     id: "muse-wonder-1012",
     kind: "release",
     title: "Muse Wonder puts Meta back near the top",
