@@ -30,6 +30,7 @@ Headline AA Intelligence Index v4.3.2:
 10. Claude Fable 5 — 50 (with fallback)
 11. Muse Spark 1.3 max — 48 (max)
 11. GPT-6 Sol — 48 (max)
+New board (2026-10-14): Voice, a separate speech to speech board at /voice, from the Artificial Analysis Speech to Speech Index (https://artificialanalysis.ai/speech-to-speech). Not part of the text ledger. 44 models listed, 19 with an Index score. Top: Grok Voice 3.0 86.9 (SpaceXAI, 0.81 s to first audio), GPT-Live-1 (Astra, medium) 83.2, Gemini 3.8 Live Extended Thinking (High) 82.6, Grok Voice 2.0 81.3, GPT-Live-1 (Sol, low) 80.1. Source: https://x.com/ArtificialAnlys/status/2110421964095713743
 Update (2026-10-13): CursorBench Gemini 4 Argon 52.9 (high, best published), #3. Source: https://cursor.com/cursorbench
 Update (2026-10-13): Harvey LAB-AA Muse Wonder Full 13.1 (#1), Muse Wonder 10.0 (#2); Vals Terminal-Bench 4.0 Muse Wonder Full 58.08, Muse Wonder 49.49; Arena+ Muse Wonder Full 1518, Muse Wonder 1510. Sources: https://artificialanalysis.ai/evaluations/harvey-lab-aa https://www.vals.ai/benchmarks/terminal-bench-4 https://openlm.ai/chatbot-arena/
 Update (2026-10-13): Gemini 4 Argon is generally available on the paid Gemini API (gemini-4-argon, stable), AI Studio, Gemini for business, Antigravity (AI Ultra), and the Gemini app and AI Mode (AI Pro and Ultra). $2 / $10 per 1M tokens through 30 November 2026, then $4 / $20. Scores unchanged. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/

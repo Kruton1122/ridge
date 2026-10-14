@@ -13,6 +13,7 @@ const NAV: { to: string; label: string }[] = [
   { to: "/models", label: "Models" },
   { to: "/compare", label: "Compare" },
   { to: "/benchmarks", label: "Benchmarks" },
+  { to: "/voice", label: "Voice" },
   { to: "/labs", label: "Labs" },
   { to: "/news", label: "News" },
   { to: "/methodology", label: "Method" },

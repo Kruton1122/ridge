@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-14",
+    title: "New Voice board; Grok Voice 3.0 leads it",
+    items: [
+      "New Voice board at /voice, linked in the site menu. It lists every model on the Artificial Analysis Speech to Speech page (44, of which 19 have an Index score) with the Index, time to first audio and AA's component results, copied as AA shows them. Voice models stay out of the text ledger. Source: https://artificialanalysis.ai/speech-to-speech",
+      "Grok Voice 3.0 leads the Voice board at 86.9, ahead of GPT-Live-1 (Astra, medium) 83.2 and Gemini 3.8 Live Extended Thinking (High) 82.6. New wire on its debut.",
+      "The daily scrape now refreshes the Voice board as well.",
+    ],
+  },
+  {
     date: "2026-10-13",
     title: "Argon on CursorBench; Muse Wonder scored on LAB-AA, Terminal-Bench 4.0 and Arena+",
     items: [

@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "grok-voice-3-1014",
+    title: "Grok Voice 3.0 debuts at the top of AA's Speech to Speech Index",
+    blurb: "SpaceXAI released Grok Voice 3.0, the successor to Grok Voice 2.0. Artificial Analysis puts it first on its Speech to Speech Index at 86.9, ahead of OpenAI's GPT-Live-1 (Astra, medium) at 83.2 and Google's Gemini 3.8 Live Extended Thinking (High) at 82.6. AA measures its time to first audio at 0.81 seconds, quicker than both. SpaceXAI calls it the world's most intelligent speech to speech model and says it responds in under a second and costs less than other frontier models; those are the company's own claims. Ridge now tracks voice models on a separate Voice board.",
+    date: "2026-10-14",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2110421964095713743",
+    beat: "ranking",
+    models: [],
+  },
+  {
     id: "cursor-argon-1013",
     title: "Gemini 4 Argon arrives in Cursor at 52.9 on CursorBench",
     blurb: "Cursor added Gemini 4 Argon and published its CursorBench runs: 52.9 at high, 52.8 at medium (the default), 50.6 at low and 48.8 at minimal. Cursor says the default run is on par with Claude Opus 5.5, whose medium run scores 52.5. On Ridge's board, which uses each model's best published run, Argon is third behind Opus 5.5 (57.8 at max) and Sonnet 5.5 (55.5 at max), and ahead of Fable 5.1 (51.8).",

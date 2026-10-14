@@ -51,6 +51,11 @@ if [[ $RC -eq 0 && -n "$MSG" ]]; then
   else
     echo "[$(ts)] no apply-briefing-staging script present — scrape only" >> "$LOG_FILE"
   fi
+  # Voice board (separate from the text ledger): refresh src/lib/data/voice.ts from AA S2S.
+  VOICE_OUT="$(python3 "$REPO/scripts/voice-s2s.py" 2>&1)"
+  VOICE_RC=$?
+  echo "[$(ts)] voice rc=$VOICE_RC: $VOICE_OUT" >> "$LOG_FILE"
+  if [[ $VOICE_RC -eq 0 ]]; then APPLY_MSG="${APPLY_MSG} | ${VOICE_OUT}"; else APPLY_MSG="${APPLY_MSG} | voice ERROR: ${VOICE_OUT}"; fi
   MSG="${MSG}${APPLY_MSG}"
 else
   echo "[$(ts)] scrape FAILED (rc=$RC) — falling back to Grok" >> "$LOG_FILE"
