@@ -183,6 +183,21 @@ export const MODELS: Model[] = [
     status: "partner",
   }),
   m({
+    id: "muse-spark-open",
+    name: "Muse Spark Open",
+    shortName: "Spark Open",
+    lab: "meta",
+    labName: "Meta",
+    released: "2026-10-15",
+    contextTokens: 1_000_000,
+    pricing: { inputPerM: 1.25, outputPerM: 4.25 },
+    license: "open-weight",
+    aliases: ["muse spark open", "muse-spark-open", "spark open", "muse spark open xhigh", "muse spark open (xhigh)", "muse-spark-open-816b-a42b"],
+    summary:
+      "Meta's open-weight Muse, released 15 October 2026: 816B total and 42B active parameters, 1M token context, text, image, video and audio in, text out. Weights are on Hugging Face under Meta's Muse Model License (not Apache or MIT; a click-through, with a Built with Muse Spark Open notice and a separate deal for API resellers above $20M revenue). Hosted by Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter and Together; the $1.25 / $4.25 per 1M tokens shown is the OpenRouter provider price, not a Meta price. No independent score yet: Artificial Analysis, Vals, Arena+ and CursorBench have not listed it. Meta's own table reports an AA Index of 39 at xhigh, which Ridge does not use until AA publishes it.",
+    status: "ga",
+  }),
+  m({
     id: "muse-wonder-full",
     name: "Muse Wonder Full",
     shortName: "Wonder Full",

@@ -1116,6 +1116,47 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "muse-spark-open": {
+    lede:
+      "Muse Spark Open is the open-weight version of Meta's Muse Spark, released 15 October 2026. It is a mixture-of-experts model with 816B total and 42B active parameters and a 1M token context, and it takes text, image, video and audio in and writes text out.\n\nMeta calls it the most capable US open-weight model to date, and built it for coding and agent work. That is Meta's claim. No independent board has scored it yet, so Ridge shows its boards blank.",
+    framing:
+      "Meta also pitches it as a model you can run at home: it says two Apple M5 Ultra Mac Studios can hold it. The model card asks for at least 700GB of GPU memory at 4-bit and 2TB at full precision, so that is a large desk.",
+    rollout: [
+      { date: "2026-10-15", text: "Weights released on Hugging Face (BF16 and NVFP4, gated download) and offered through Amazon SageMaker AI, Google Cloud Model Garden and Microsoft Foundry Models. Hosted APIs launched the same day at Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter and Together AI." },
+    ],
+    rolloutNote:
+      "The Hugging Face chat template defaults to xhigh reasoning effort, and the card recommends high or xhigh for coding and agent work. Meta says the open version has additional safety post-training, that it met the thresholds in Meta's safety framework, and that a full evaluation report is coming. Apple has said the 512GB Mac Studio arrives in late October (Engadget).",
+    claims: [
+      "Meta's chart (Meta's claims, not independent): at xhigh it scores 89.2 on MCP-Atlas and 61.8 on JobBench, ahead of GLM 5.3 and Kimi K3 in the same table. It trails Kimi K3 on Terminal-Bench 2.1 (76.4 against 85.0) and DeepSWE 1.1 (60 against 68).",
+      "Also Meta's: an Artificial Analysis Intelligence Index of 39, against 45 for GLM 5.3 and 44 for Kimi K3 in its table. Artificial Analysis had not published a Muse Spark Open row when Ridge checked, so Ridge does not use the number.",
+      "Meta says it is the first model in its class to run on a desktop, on two M5 Ultra Mac Studios with MLX, and cites iOS app changes and video editing run entirely on the device.",
+    ],
+    vendorEvalsNote:
+      "Every benchmark figure here is Meta's own, from its chart and model card. Ridge's boards stay blank for this model until Artificial Analysis, Vals, Arena+ or Cursor publish a run.",
+    specs: [
+      { label: "Model id", value: "muse-spark-open on OpenRouter; meta-models/Muse-Spark-Open-816B-A42B on Hugging Face" },
+      { label: "Architecture", value: "Mixture-of-experts transformer, 816B total and 42B active parameters, with a perception encoder" },
+      { label: "Context", value: "1M tokens at inference" },
+      { label: "Modalities", value: "Text, image, video and audio in; text out" },
+      { label: "Weights", value: "Open weights in BF16 and NVFP4, gated download on Hugging Face" },
+      { label: "License", value: "Muse Model License. Free use, modification, distillation and sale, with a Built with Muse Spark Open notice and a separate agreement with Meta for API resellers above $20M in annual revenue" },
+      { label: "Hosted price", value: "$1.25 in, $0.15 cached, $4.25 out per 1M tokens on OpenRouter (provider price, not set by Meta)" },
+    ],
+    whereUsed: [
+      "Hugging Face (weights)",
+      "Baseten, Fireworks AI, Groq, Modal, Nebius, OpenRouter, Together AI (APIs)",
+      "Amazon SageMaker AI, Google Cloud Model Garden, Microsoft Foundry Models (weights)",
+      "Muse Code (Meta's own demos)",
+    ],
+    sources: [
+      { label: "Introducing Muse Spark Open (Meta AI Research)", url: "https://research.meta.ai/blog/muse-spark-open" },
+      { label: "Muse Spark Open model card and license (Hugging Face)", url: "https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B" },
+      { label: "Hosted price and providers (OpenRouter)", url: "https://openrouter.ai/meta/muse-spark-open" },
+      { label: "Launch post (@AIatMeta on X)", url: "https://x.com/AIatMeta/status/2110779754274292212" },
+      { label: "Meta built a huge open-weight AI model for Macs (Engadget)", url: "https://www.engadget.com/2287833/meta-built-a-huge-open-weight-ai-model-for-macs-but-youll-need-1tb-of-ram-to-run-it/" },
+    ],
+  },
+
   "muse-wonder": {
     lede:
       "Muse Wonder is Meta's new frontier model, released 12 October 2026, six weeks after Muse Spark 1.3. It is the one of the pair you can call: in preview on the Meta Model API and in Muse Code, at $4 in and $20 out per million tokens.\n\nArtificial Analysis scores it 52 on its Intelligence Index at max effort, four points over Muse Spark 1.3 max. The bigger Muse Wonder Full scores 56 but is only in Muse Code. Ridge tracks them as separate rows.",

@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "meta-muse-spark-open-1015",
+    title: "Meta releases Muse Spark Open, an 816B open-weight model",
+    blurb: "Meta released the weights of Muse Spark Open, which it calls the most capable US open-weight model to date. It is a mixture-of-experts model with 816B total and 42B active parameters, a 1M token context, and text, image, video and audio input. The weights are on Hugging Face under Meta's own Muse Model License, which is free to use but asks for a Built with Muse Spark Open notice and a separate deal for API resellers above $20M in revenue. Seven hosts serve it, and OpenRouter lists it at $1.25 in and $4.25 out per million tokens. Meta's own chart, which is its claim and not an independent score, puts it ahead of GLM 5.3 and Kimi K3 on agent tests and behind Kimi K3 on terminal coding. No independent board has scored it yet, so Ridge shows it blank.",
+    date: "2026-10-15",
+    outlet: "Meta",
+    url: "https://research.meta.ai/blog/muse-spark-open",
+    beat: "release",
+    models: ["muse-spark-open", "glm-5.3", "kimi-k3"],
+  },
+  {
     id: "aa-robotics-1014",
     title: "AA-Robotics puts language models in charge of a robot arm, and GPT-6 Astra leads",
     blurb: "Artificial Analysis launched AA-Robotics v0.1, a research preview that gives each model control of a six-axis robot arm and a simple goal. The model sees the table through four cameras and writes its own code to plan and send movements. On the first eight tasks, GPT-6 Astra scores 69, GPT-6.1 Sol 65, Gemini 4 Argon 55, Claude Opus 5.5 49 and Claude Fable 5.1 46. AA says the models can now handle simple tasks but take about 30 minutes each, roughly 100 times slower and 10 times more expensive than a person. Sol is the cheapest at $1.93 a task on average, against $16.36 for Astra.",

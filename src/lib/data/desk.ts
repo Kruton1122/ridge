@@ -11,6 +11,20 @@ export function isFresh(date: string, asOf = "2026-10-15"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "muse-spark-open-1015",
+    kind: "release",
+    title: "Muse Spark Open: Meta's big open model arrives, with no independent score yet",
+    dek: "816B parameters, open weights and a license with strings. Ridge keeps it blank until someone outside Meta runs it.",
+    pull: "A model sold for coding that wins on agents and loses on coding is a fair thing to notice.",
+    summary: "Meta released the weights of Muse Spark Open on 15 October. Its own chart claims leads on agent tests; no independent board has scored it yet.",
+    date: "2026-10-15",
+    sourceName: "Meta",
+    sourceUrl: "https://research.meta.ai/blog/muse-spark-open",
+    models: ["muse-spark-open", "glm-5.3", "kimi-k3", "muse-spark-1.3"],
+    tags: ["meta", "open-weights", "release"],
+    body: ["Meta put the weights of Muse Spark Open on Hugging Face on 15 October, and it is a big one: 816B parameters in total, 42B active for each token, a 1M token context, and text, image, video and audio input. Seven hosts, including OpenRouter and Together, serve it from day one, and OpenRouter lists it at $1.25 in and $4.25 out per million tokens, the same as Muse Spark 1.3. Meta calls it the most capable US open-weight model to date. That is Meta's description, and nobody independent has scored it yet.", "So Ridge's row is blank, and it will stay blank until Artificial Analysis, Vals, Arena or Cursor run it. Meta's own table is worth reading with that in mind. It reports an AA Index of 39, behind GLM 5.3 at 45 and Kimi K3 at 44, whose numbers match what AA shows on Ridge's board. It leads those two on agent tests such as MCP-Atlas (89.2) and trails Kimi K3 on Terminal-Bench 2.1 (76.4 against 85.0) and DeepSWE (60 against 68). A model sold for coding that wins on agents and loses on coding is a fair thing to notice. If AA confirms 39, the best open-weight seat on Ridge does not change.", "Reaction on launch day is mostly about logistics. Hugging Face, llama.cpp and Unsloth had it running within hours, with 2-bit builds aimed at Mac Studios. Meta's pitch is two M5 Ultra Mac Studios, but Apple has only said the 512GB machine arrives in late October, and Engadget put a four-machine setup near $38,000. Meta's model card asks for about 700GB of GPU memory at 4-bit. The license draws comments too: it is free to use, change, distill and sell, but products must show a Built with Muse Spark Open notice, and a company above $20 million in revenue that sells access by API needs a separate deal with Meta. It is open weights, not an Apache or MIT license. There are too few real-world reports to give it public opinion stars yet.", "What it means: Meta now has a downloadable Muse next to its proprietary Spark, Wonder and Wonder Full, and it is priced where Spark 1.3 is. For people who need weights on their own hardware, it is a new option with a 1M window. For everyone else, nothing on Ridge's boards moves today. The next things to watch are the first independent score, whether it holds up against GLM 5.3 and Kimi K3 outside Meta's chart, and Meta's promised full safety report."],
+  },
+  {
     id: "halfweek-opinion-1015",
     kind: "ranking",
     title: "Half-week opinion: Argon finally meets the public, and Muse Wonder Full gets a fan club",

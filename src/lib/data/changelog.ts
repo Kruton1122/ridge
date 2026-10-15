@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-10-15",
+    title: "Muse Spark Open added (no scores yet)",
+    items: [
+      "New model: Muse Spark Open (Meta, released 15 October). Open weights under the Muse Model License, 816B total and 42B active parameters, 1M context, hosted at $1.25 / $4.25 per 1M tokens on OpenRouter. No independent board has scored it, so every score is blank. Meta's own chart figures, including an AA Index of 39, appear in prose only and are labelled as Meta's claims. Source: https://research.meta.ai/blog/muse-spark-open",
+      "Model page, a wire and a desk piece on the release. The Meta lab note no longer says all Muse models are proprietary.",
+    ],
+  },
+  {
+    date: "2026-10-15",
     title: "New board: AA-Robotics v0.1",
     items: [
       "New board and ledger column: AA-Robotics v0.1 from Artificial Analysis (launched 14 October). Language models control a real six-axis robot arm on eight tabletop tasks, scored 0 to 100 per task with partial credit, high effort. Five Ridge models are scored, which is every model AA has tested so far: GPT-6 Astra 69.4, GPT-6.1 Sol 64.6, Gemini 4 Argon 55.3, Claude Opus 5.5 48.8, Claude Fable 5.1 46.3. All other models are blank. Source: https://artificialanalysis.ai/articles/aa-robotics",

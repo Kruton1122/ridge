@@ -131,6 +131,13 @@ const PROFILES: Record<string, ModelProfile> = {
     ],
     watch: ["The partner max row is not the public default"],
   },
+  "muse-spark-open": {
+    epithet: "The downloadable Spark",
+    voice:
+      "Meta's open-weight Muse. The weights are public, the license has strings, and no independent board has scored it yet. Quote Meta's chart as Meta's.",
+    strengths: ["Open weights with a 1M context window", "Hosted by seven providers at the Spark 1.3 price"],
+    watch: ["No independent score yet", "Meta's card asks for about 700GB of GPU memory at 4-bit", "Muse Model License, not Apache or MIT"],
+  },
   "muse-wonder": {
     epithet: "Meta's API frontier",
     voice:
@@ -200,7 +207,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   deepseek: { motif: "Indigo #4D6BFE. Flash/Pro cadence, open weights." },
   zhipu: { motif: "Z.ai blue. MIT weights." },
   alibaba: { motif: "Orange #FF6A00. Max as a ceiling name." },
-  meta: { motif: "Meta blue #0081FB. Spark is proprietary Muse, not Llama." },
+  meta: { motif: "Meta blue #0081FB. Muse is not Llama. Mostly proprietary; Spark Open is the open-weight one." },
   mistral: { motif: "Mistral orange #FA500F. Paris lab, sovereign pitch, open weights promised." },
   other: { motif: "Neutral slate." },
 };
