@@ -687,6 +687,19 @@ export const BENCHMARKS: Benchmark[] = [
     sourceUrl: "https://artificialanalysis.ai/evaluations/harvey-lab-aa",
     asOf: "2026-10-15",
   },
+  {
+    id: "aa-robotics",
+    name: "AA-Robotics v0.1",
+    short: "Robotics",
+    category: "robotics",
+    unit: "index",
+    higherIsBetter: true,
+    description:
+      "Artificial Analysis' research preview of language models controlling a real robot arm: a 6-axis Hiwonder NexArm (five joints and a gripper) that the model sees through four cameras and drives by writing code against a simple HTTP API. Eight tabletop tasks, such as pressing a button, pouring a drink, tidying blocks and measuring a box. Each attempt scores 0 to 100, with partial credit for progress, graded on the end state by a human judge, and the score is the mean across tasks. Zero-shot, run at high effort in each lab's coding agent (GPT in Codex, Claude in Claude Code, Gemini 4 Argon in Antigravity). Version 0.1 is a small preview, so only five models have been tested. Launched 14 October 2026.",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://artificialanalysis.ai/articles/aa-robotics",
+    asOf: "2026-10-15",
+  },
 ];
 
 function s(
@@ -884,6 +897,11 @@ export const SCORES: Score[] = [
   s("gemini-3.1-pro", "harvey-lab-aa", 0, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-12", "listed as Gemini 3.1 Pro Preview; #21 of 25; 1.08 material hallucinations per task; 0.0% before the hallucination gate"),
   s("muse-wonder-full", "harvey-lab-aa", 13.1, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-15", "variant: max; #1 of 27; 0.62 material hallucinations per task; 25.6% before the hallucination gate"),
   s("muse-wonder", "harvey-lab-aa", 10, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-15", "variant: max; #2 of 27; 0.89 material hallucinations per task; 23.1% before the hallucination gate"),
+  s("gpt-6-astra", "aa-robotics", 69.4, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-15", "high effort; #1 of 5"),
+  s("gpt-6.1-sol", "aa-robotics", 64.6, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-15", "high effort; #2 of 5"),
+  s("gemini-4-argon", "aa-robotics", 55.3, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-15", "high effort; #3 of 5"),
+  s("claude-opus-5.5", "aa-robotics", 48.8, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-15", "high effort; #4 of 5"),
+  s("claude-fable-5.1", "aa-robotics", 46.3, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-15", "high effort; #5 of 5"),
 ];
 
 export function getModel(id: string, models: Model[] = MODELS) {

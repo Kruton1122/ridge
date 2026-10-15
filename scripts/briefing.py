@@ -480,6 +480,52 @@ def parse_aa_cyber(src: str):
 AA_LAB_URL = "https://artificialanalysis.ai/evaluations/harvey-lab-aa"
 
 
+AA_ROBOTICS_URL = "https://artificialanalysis.ai/articles/aa-robotics"
+
+
+def parse_aa_robotics(src: str):
+    """AA-Robotics v0.1 scores from the 'AA-Robotics Score' row of AA's results table.
+
+    Values are copied as AA displays them (one decimal). Rank is by score among the
+    models in that table; effort comes from AA's 'all at the X effort setting' footnote
+    and is left out of the note if the footnote moves.
+    """
+    cl = lambda x: re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", x))).strip()
+    models, scores = None, None
+    for tb in re.findall(r"<table[\s\S]*?</table>", src):
+        if "AA-Robotics Score" not in tb:
+            continue
+        hdr = re.search(r"<thead[\s\S]*?</thead>", tb)
+        if not hdr:
+            continue
+        heads = [cl(c) for c in re.findall(r"<th[^>]*>([\s\S]*?)</th>", hdr.group(0))]
+        for row in re.findall(r"<tr[\s\S]*?</tr>", tb):
+            cells = [cl(c) for c in re.findall(r"<t[dh][^>]*>([\s\S]*?)</t[dh]>", row)]
+            if cells and cells[0] == "AA-Robotics Score":
+                models, scores = heads[1:], cells[1:]
+        if models:
+            break
+    if not models or not scores or len(models) != len(scores):
+        raise RuntimeError("AA-Robotics: results table not found or misaligned")
+    text = cl(re.sub(r"<script[\s\S]*?</script>|<style[\s\S]*?</style>", "", src))
+    em = re.search(r"all at the (\w+) effort setting", text)
+    effort = em.group(1).lower() if em else None
+    vals = []
+    for name, v in zip(models, scores):
+        if not re.fullmatch(r"\d{1,3}(\.\d+)?", v) or float(v) > 100:
+            raise RuntimeError(f"AA-Robotics: bad score {v!r} for {name}")
+        vals.append((name, float(v)))
+    total = len(vals)
+    entries = []
+    for name, v in sorted(vals, key=lambda x: -x[1]):
+        rank = 1 + sum(1 for _, o in vals if o > v)
+        note = "; ".join(([f"{effort} effort"] if effort else []) + [f"#{rank} of {total}"])
+        entries.append({"name": name, "fullName": name, "score": v, "scoreDecimal": v, "rank": rank, "total": total, "note": note})
+    if len(entries) < 3:
+        raise RuntimeError(f"AA-Robotics: only parsed {len(entries)} models")
+    return entries
+
+
 def _lab_variant(v):
     """AA effort label as Ridge writes it: 'Max, Default Fallback' -> 'max with fallback'."""
     if not v:
@@ -762,6 +808,7 @@ def main():
     swe_entries = []
     tb4_entries = []
     aa_lab_entries = []
+    aa_robotics_entries = []
 
     try:
         openlm_src = fetch("https://openlm.ai/chatbot-arena/")
@@ -928,6 +975,17 @@ def main():
             }
         )
 
+    # AA-Robotics v0.1: optional, like Harvey LAB-AA.
+    try:
+        robo_src = fetch(AA_ROBOTICS_URL)
+        aa_robotics_entries = parse_aa_robotics(robo_src)
+        sources.append({"id": "aa-robotics", "name": "Artificial Analysis AA-Robotics v0.1", "url": AA_ROBOTICS_URL,
+                        "ok": True, "rows": len(aa_robotics_entries), "note": "score row of AA's results table"})
+    except Exception as e:
+        print(f"artificialanalysis.ai (AA-Robotics): {e}", file=sys.stderr)
+        sources.append({"id": "aa-robotics", "name": "Artificial Analysis AA-Robotics v0.1", "url": AA_ROBOTICS_URL,
+                        "ok": False, "rows": 0, "error": str(e)})
+
     if errors:
         for e in errors:
             print(e, file=sys.stderr)
@@ -1013,6 +1071,11 @@ def main():
                 "rank": e["rank"], "total": e["total"], "note": e["note"],
             }
             for e in aa_lab_entries
+        ],
+        "aa_robotics": [
+            {"name": e["name"], "fullName": e["fullName"], "score": e["score"], "scoreDecimal": e["scoreDecimal"],
+             "rank": e["rank"], "total": e["total"], "note": e["note"]}
+            for e in aa_robotics_entries
         ],
     }
     PULL_FILE.write_text(json.dumps(pull, indent=2))

@@ -258,6 +258,16 @@ hardcode, so the copy is Claude's call.
 
 - **2026-10-15, AA Cyber trusted-access note:** `parse_aa_cyber` in `scripts/briefing.py` now appends the "AA also lists ... trusted-access version ... Ridge does not count it" sentence to the public model note, built from AA's skipped trusted row (e.g. GPT-6 Sol Daybreak Blue 69). Before this, each daily apply wiped the hand-written sentence.
 
+- **2026-10-15, AA-Robotics v0.1 board (Colton approved, UI files included):** new benchmark
+  `aa-robotics` (5 scores) in catalog.ts, `robotics` field and `aa_robotics` CSV column in
+  ledger.ts, `BOARD_ORDER_HINT` in `src/lib/data/derived.ts` now lists aa-cyber, harvey-lab-aa,
+  aa-robotics after the older boards (so the new column sits last), and a "Robot arm" pick in
+  `src/lib/data/best.ts` (shows on /best only; the homepage picks list in `index.tsx` is
+  unchanged at five cards). The ledger header needs no edit: it takes `short` ("Robotics") from
+  the benchmark. Scrape: `parse_aa_robotics` in `scripts/briefing.py` reads AA's article table
+  (https://artificialanalysis.ai/articles/aa-robotics); the apply script handles `aa-robotics`
+  like Harvey LAB-AA.
+
 ---
 
-*Last updated 2026-10-15 by Ridge Bot (Grok Bot); half-week news pass.*
+*Last updated 2026-10-15 by Ridge Bot (Grok Bot); AA-Robotics board.*

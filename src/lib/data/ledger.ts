@@ -18,6 +18,7 @@ export const LEDGER_SOURCES = [
   { name: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
   { name: "Vals AI (Terminal-Bench 4.0)", url: "https://www.vals.ai/benchmarks/terminal-bench-4" },
   { name: "Artificial Analysis (Harvey LAB-AA v1.1)", url: "https://artificialanalysis.ai/evaluations/harvey-lab-aa" },
+  { name: "Artificial Analysis (AA-Robotics v0.1)", url: "https://artificialanalysis.ai/articles/aa-robotics" },
 ];
 
 export const NEXT_PULL_WEEKDAY = 1;
@@ -91,6 +92,8 @@ export interface LedgerRow {
   tb4Note?: string;
   harveyLab: number | null;
   harveyLabNote?: string;
+  robotics: number | null;
+  roboticsNote?: string;
   dollarPerAa: number | null;
   priceIn: number | null;
   priceOut: number | null;
@@ -111,6 +114,7 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
     const cyber = scoreOf(model.id, "aa-cyber");
     const tb4 = scoreOf(model.id, "terminal-bench-4");
     const harveyLab = scoreOf(model.id, "harvey-lab-aa");
+    const robotics = scoreOf(model.id, "aa-robotics");
     const promoLive =
       model.promoPricing && (!model.promoPricing.until || model.promoPricing.until >= SNAPSHOT_DATE)
         ? model.promoPricing
@@ -134,6 +138,8 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
       tb4Note: tb4?.note,
       harveyLab: harveyLab?.value ?? null,
       harveyLabNote: harveyLab?.note,
+      robotics: robotics?.value ?? null,
+      roboticsNote: robotics?.note,
       dollarPerAa: listDollarPerAa(model, row.value, mode),
       priceIn: model.pricing?.inputPerM ?? null,
       priceOut: model.pricing?.outputPerM ?? null,
@@ -177,6 +183,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
     "aa_cyber",
     "terminal_bench_4",
     "harvey_lab_aa",
+    "aa_robotics",
   ];
   const lines = [
     `# Ridge ledger last_updated=${payload.last_updated} index=${payload.index}`,
@@ -201,6 +208,7 @@ export function ledgerCsv(mode: "list" | "promo" = "promo"): string {
         r.cyber ?? "",
         r.tb4 ?? "",
         r.harveyLab ?? "",
+        r.robotics ?? "",
       ].join(","),
     ),
   ];

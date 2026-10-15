@@ -32,6 +32,8 @@ SWE_DELTA_MAX = 5
 TB4_DELTA_MAX = 10
 AA_DELTA_MAX = 8
 LAB_DELTA_MAX = 5
+ROBO_DELTA_MAX = 10
+AA_ROBO_URL = "https://artificialanalysis.ai/articles/aa-robotics"
 
 def die(msg, code=1):
     print(msg, file=sys.stderr)
@@ -347,7 +349,7 @@ def tb4_note(prev_note, rank, total):
 def values_differ(a, b, benchmark_id):
     if benchmark_id == "terminal-bench-4":
         return abs(a - b) >= 0.005
-    if benchmark_id in ("swe-bench", "harvey-lab-aa"):
+    if benchmark_id in ("swe-bench", "harvey-lab-aa", "aa-robotics"):
         return abs(a - b) >= 0.05
     if benchmark_id == "arena-elo":
         return abs(a - b) >= 0.5
@@ -424,6 +426,8 @@ def safety_delta_limit(benchmark_id):
         return AA_DELTA_MAX
     if benchmark_id == "harvey-lab-aa":
         return LAB_DELTA_MAX
+    if benchmark_id == "aa-robotics":
+        return ROBO_DELTA_MAX
     return None
 
 def main():
@@ -505,10 +509,12 @@ def main():
                 source_name, source_url = "Vals AI", TB4_URL
             elif benchmark_id == "harvey-lab-aa":
                 source_name, source_url = "Artificial Analysis", AA_LAB_URL
+            elif benchmark_id == "aa-robotics":
+                source_name, source_url = "Artificial Analysis", AA_ROBO_URL
             else:
                 source_name, source_url = "Vals AI", SWE_URL
             if not prev:
-                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber", "terminal-bench-4", "harvey-lab-aa") else (
+                next_note = note if benchmark_id in ("aa-intelligence", "aa-cyber", "terminal-bench-4", "harvey-lab-aa", "aa-robotics") else (
                     "Arena lists Thinking" if (
                         benchmark_id == "arena-elo"
                         and re.search(r"\bThinking\b", name or "", re.I)
@@ -591,13 +597,13 @@ def main():
             if benchmark_id == "terminal-bench-4":
                 next_note = tb4_note(prev_note, mapped.get("rank"), mapped.get("total"))
             # Harvey LAB-AA: the note is built only from AA's figures, so take it whole.
-            if benchmark_id == "harvey-lab-aa":
+            if benchmark_id in ("harvey-lab-aa", "aa-robotics"):
                 next_note = note or prev.get("note")
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 benchmark_id == "aa-intelligence" and next_note != prev.get("note")
             ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note")) or (
-                benchmark_id in ("terminal-bench-4", "harvey-lab-aa") and next_note != prev.get("note")
+                benchmark_id in ("terminal-bench-4", "harvey-lab-aa", "aa-robotics") and next_note != prev.get("note")
             )
             if not changed_val and not changed_meta:
                 continue
@@ -650,6 +656,11 @@ def main():
     # Harvey LAB-AA v1.1 from AA's page data: gated all-pass percent, half-up to one decimal,
     # best effort setting per model. variantHint is the full AA name so the note never feeds the matcher.
     apply_bucket("harvey-lab-aa", pull.get("aa_lab") or [], lambda r: {
+        "name": r["name"], "value": r.get("score"), "note": r.get("note"),
+        "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
+    })
+    # AA-Robotics v0.1: scores copied as AA displays them (one decimal); rank note from AA's table.
+    apply_bucket("aa-robotics", pull.get("aa_robotics") or [], lambda r: {
         "name": r["name"], "value": r.get("score"), "note": r.get("note"),
         "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
     })
@@ -713,6 +724,12 @@ def main():
         if "harvey-lab-aa" in touched:
             catalog_src = re.sub(
                 r'(id: "harvey-lab-aa"[\s\S]*?asOf: )"[^"]+"',
+                rf'\1"{as_of}"',
+                catalog_src, count=1,
+            )
+        if "aa-robotics" in touched:
+            catalog_src = re.sub(
+                r'(id: "aa-robotics"[\s\S]*?asOf: )"[^"]+"',
                 rf'\1"{as_of}"',
                 catalog_src, count=1,
             )

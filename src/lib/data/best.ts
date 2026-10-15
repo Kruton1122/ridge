@@ -152,6 +152,8 @@ export function bestPicks(): Pick[] {
       "Several frontier models refuse a large share of these tasks on safety grounds, so a low score here often means “declined”, not “can’t”."),
     fromBoard("legal", "harvey-lab-aa", "Legal agent", "Which turns case files into legal work product best?", undefined,
       "A task only counts if every rubric item passes and the work has no material hallucination, so scores here run much lower than on most boards."),
+    fromBoard("robotics", "aa-robotics", "Robot arm", "Which can drive a real robot arm best?", undefined,
+      "A v0.1 research preview: eight tabletop tasks on one arm. Even the leader is far slower and costlier than a person."),
     fromBoard("people", "arena-elo", "People's pick", "Which answers do people prefer, blind?"),
     fromBoard("open", "aa-intelligence", "Best open weights", "Smartest model you can download and run yourself?", (r) => r.model.license === "open-weight"),
     bestValue(),

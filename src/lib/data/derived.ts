@@ -22,7 +22,7 @@ export type PriceMode = "list" | "promo";
  * catalog.ts that is not listed here still renders, sorted to the end. Adding a
  * fifth board is a catalog edit and nothing else — no component needs touching.
  */
-const BOARD_ORDER_HINT = ["aa-intelligence", "swe-bench", "cursor-bench", "arena-elo", "terminal-bench-4", "terminal-bench"];
+const BOARD_ORDER_HINT = ["aa-intelligence", "swe-bench", "cursor-bench", "arena-elo", "terminal-bench-4", "terminal-bench", "aa-cyber", "harvey-lab-aa", "aa-robotics"];
 
 export interface BoardRow {
   rank: number;
