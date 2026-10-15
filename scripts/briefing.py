@@ -414,6 +414,7 @@ def parse_aa_cyber(src: str):
     t = src.replace('\\"', '"')
     seen = set()
     entries = []
+    trusted = []
     for m in re.finditer(r'"cyberIndex":(-?[0-9.]+|null)', t):
         if m.group(1) == "null":
             continue
@@ -433,6 +434,12 @@ def parse_aa_cyber(src: str):
         # Trusted-access rows (AA added them 8 Oct 2026, e.g. GPT-6 Sol (Daybreak Blue, max))
         # are versions the public cannot use. Ridge keeps them off the public board.
         if variant and any(k in variant.lower() for k in AA_CYBER_TRUSTED_ACCESS):
+            trusted.append({
+                "base": re.sub(r"\s*\([^)]*\)\s*$", "", full).strip(),
+                "full": full,
+                "score": int(round_half_up(dec)),
+                "rates": [o.get(k) for k in ("cweBenchRefusalRate", "deepsecBenchRefusalRate", "cybergymE2eRefusalRate")],
+            })
             continue
         base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
         rates = {
@@ -452,6 +459,18 @@ def parse_aa_cyber(src: str):
             "refusalKnown": known,
             "refusalRates": rates,
         })
+    # Keep the public note honest about trusted-access rows Ridge leaves off the board
+    # (otherwise each daily apply wipes the hand-written sentence). Built only from AA's row.
+    for tr in trusted:
+        program = "OpenAI's Daybreak program" if "daybreak" in tr["full"].lower() else "a trusted-access program"
+        declined = ""
+        if all(isinstance(v, (int, float)) for v in tr["rates"]):
+            declined = " with no tasks declined" if sum(tr["rates"]) == 0 else ""
+        extra = (f"AA also lists {tr['full']}, a trusted-access version only available through {program}, "
+                 f"at {tr['score']}{declined}; Ridge does not count it because the public cannot use it.")
+        for e in entries:
+            if e["name"].lower() == tr["base"].lower():
+                e["note"] = f"{e['note']} {extra}".strip() if e.get("note") else extra
     entries.sort(key=lambda e: e["scoreDecimal"], reverse=True)
     if len(entries) < 5:
         raise RuntimeError(f"AA Cyber Index: only parsed {len(entries)} models")

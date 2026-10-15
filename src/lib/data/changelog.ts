@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-15",
+    title: "Half-week news pass; first opinion stars for Argon and Muse Wonder",
+    items: [
+      "Public opinion from posts on X between 12 and 15 October: Gemini 4 Argon opens at 3, Muse Wonder Full at 4 and Muse Wonder at 3. Claude Opus 5.5 holds at 5 with a refreshed note. Every other rating holds.",
+      "Four new wires: AA-Robotics v0.1, AA-3D, AA's FrontierCode 1.1 leaderboard, and Anthropic's distillation defenses. Two desk pieces: AA's three new tests, and the half-week opinion column.",
+      "Daily scrape for 14 and 15 October: Vals Terminal-Bench 4.0 now lists 48 models. It rescored Claude Haiku 5.5 to 36.36 (was 35.35), Mistral Large 4 to 23.23 (was 22.73) and Muse Wonder to 49.5 (Vals' raw figure is 49.495, which Vals shows as 49.49; Ridge rounds half-up as for every Terminal-Bench 4.0 score). Rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Fix: the GPT-6 Sol AA Cyber note again says AA also lists the trusted-access Daybreak Blue version at 69, which Ridge does not count. The daily scrape now keeps that sentence instead of dropping it.",
+    ],
+  },
+  {
     date: "2026-10-14",
     title: "New Voice board; Grok Voice 3.0 leads it",
     items: [

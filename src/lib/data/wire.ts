@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-robotics-1014",
+    title: "AA-Robotics puts language models in charge of a robot arm, and GPT-6 Astra leads",
+    blurb: "Artificial Analysis launched AA-Robotics v0.1, a research preview that gives each model control of a six-axis robot arm and a simple goal. The model sees the table through four cameras and writes its own code to plan and send movements. On the first eight tasks, GPT-6 Astra scores 69, GPT-6.1 Sol 65, Gemini 4 Argon 55, Claude Opus 5.5 49 and Claude Fable 5.1 46. AA says the models can now handle simple tasks but take about 30 minutes each, roughly 100 times slower and 10 times more expensive than a person. Sol is the cheapest at $1.93 a task on average, against $16.36 for Astra.",
+    date: "2026-10-14",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2110500262628806787",
+    beat: "ranking",
+    models: ["gpt-6-astra", "gpt-6.1-sol", "gemini-4-argon", "claude-opus-5.5", "claude-fable-5.1"],
+  },
+  {
     id: "grok-voice-3-1014",
     title: "Grok Voice 3.0 debuts at the top of AA's Speech to Speech Index",
     blurb: "SpaceXAI released Grok Voice 3.0, the successor to Grok Voice 2.0. Artificial Analysis puts it first on its Speech to Speech Index at 86.9, ahead of OpenAI's GPT-Live-1 (Astra, medium) at 83.2 and Google's Gemini 3.8 Live Extended Thinking (High) at 82.6. AA measures its time to first audio at 0.81 seconds, quicker than both. SpaceXAI calls it the world's most intelligent speech to speech model and says it responds in under a second and costs less than other frontier models; those are the company's own claims. Ridge now tracks voice models on a separate Voice board.",
@@ -49,6 +59,36 @@ export const WIRE: WireItem[] = [
     url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
     beat: "release",
     models: ["gemini-4-argon"],
+  },
+  {
+    id: "aa-3d-1012",
+    title: "AA-3D: Claude models lead a human-judged test of building 3D scenes",
+    blurb: "Artificial Analysis launched AA-3D. Each model works offline as an agent and turns a written brief into an interactive three.js scene, and a human panel picks the better of two scenes without knowing which model made which. After more than 10,000 votes on 21 models, four are statistically tied at the top: Claude Sonnet 5.5 (1194 Elo), Claude Opus 5.5 (1190), GPT-6 Astra (1165) and Claude Fable 5.1 (1131). The best open models, Kimi K3 (982) and MiMo-V2.6-Pro (977), are 11th and 12th. GPT-6 Luna is the cheapest per scene and still ranks eighth. In a follow-up, AA said Opus 5.5 and Grok 4.7 both wrote the 72 scientists' names onto their Eiffel Towers in the right order, from memory.",
+    date: "2026-10-12",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2109791341802885209",
+    beat: "ranking",
+    models: ["claude-sonnet-5.5", "claude-opus-5.5", "gpt-6-astra", "claude-fable-5.1", "kimi-k3", "gpt-6-luna", "grok-4.7"],
+  },
+  {
+    id: "aa-frontiercode-1012",
+    title: "AA publishes FrontierCode 1.1, a coding test graded on what maintainers would merge",
+    blurb: "Artificial Analysis now runs FrontierCode 1.1, Cognition's private benchmark of 100 changes to real open source repositories, graded on unit tests and on whether a maintainer would accept the change. AA uses its own harness for every model. Claude Opus 5.5 (max with fallback) leads at 52%, and nine models from six labs score between 43% and 52%. GPT-6.1 Sol scores 49% at $0.81 a task, matching Claude Fable 5.1, which AA says is less than a tenth of the cost per task of the leading Anthropic models. MiMo-V2.6-Pro is the top open model at 45%, ahead of DeepSeek V4.1 Flash and Kimi K3 at 44%. AA says FrontierCode will join its coding agent leaderboard soon.",
+    date: "2026-10-12",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2109703511843979391",
+    beat: "ranking",
+    models: ["claude-opus-5.5", "gpt-6.1-sol", "claude-fable-5.1", "deepseek-v4.1-flash", "kimi-k3"],
+  },
+  {
+    id: "anthropic-distillation-1012",
+    title: "Anthropic says new defenses cut distillation of Claude by 90 to 99 percent",
+    blurb: "Anthropic says early evidence shows its new defenses have cut the data distillers harvest from Claude by around 90 to 99 percent. The work centers on keeping Claude's reasoning out of reach, starting with showing a summary of it instead of the full text. In Anthropic's test, a model trained on Opus 4.8's full transcripts scored 80.4% on SWE-bench Verified, against 71.8% when trained on the summaries. Anthropic also says Zhipu distilled the cyber skills of leading US models while building GLM-5.3, and that GLM-5.3's safeguards are easy to bypass. It says it has turned away meaningful revenue and trillions of tokens of paying traffic, and some legitimate customers had to change their integrations.",
+    date: "2026-10-12",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/research/distillation-defenses",
+    beat: "policy",
+    models: ["glm-5.3"],
   },
   {
     id: "meta-muse-wonder-1012",

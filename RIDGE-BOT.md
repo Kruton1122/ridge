@@ -256,6 +256,8 @@ hardcode, so the copy is Claude's call.
   not in catalog.ts and never appear in the text ledger. `scripts/daily-briefing.sh` runs the
   voice scrape after apply; it refuses to write if AA's header changes or <10 rows parse.
 
+- **2026-10-15, AA Cyber trusted-access note:** `parse_aa_cyber` in `scripts/briefing.py` now appends the "AA also lists ... trusted-access version ... Ridge does not count it" sentence to the public model note, built from AA's skipped trusted row (e.g. GPT-6 Sol Daybreak Blue 69). Before this, each daily apply wiped the hand-written sentence.
+
 ---
 
-*Last updated 2026-10-14 by Ridge Bot (Grok Bot); Voice board.*
+*Last updated 2026-10-15 by Ridge Bot (Grok Bot); half-week news pass.*

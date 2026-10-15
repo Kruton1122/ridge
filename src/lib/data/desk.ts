@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-10-13"): boolean {
+export function isFresh(date: string, asOf = "2026-10-15"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,43 @@ export function isFresh(date: string, asOf = "2026-10-13"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1015",
+    kind: "ranking",
+    title: "Half-week opinion: Argon finally meets the public, and Muse Wonder Full gets a fan club",
+    dek: "Public posts on X from 12 to 15 October. Three models get their first stars, and the most talked-about review of the week was a harsh one.",
+    pull: "Benchmarks got Argon in the door. The people using it on their own code will decide whether it stays.",
+    summary: "Three first ratings this half-week. Gemini 4 Argon opens at 3: people like its price, speed and 3D work, but a widely shared review called it unusable for real code because it makes up how systems work. Muse Wonder Full opens at 4 on strong praise from well-known coders, held back by being subscriber-only. Muse Wonder, the API model, opens at 3 because most posts say it is much weaker than Full. Every other rating holds.",
+    date: "2026-10-15",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/theo/status/2110461356935983257",
+    models: ["gemini-4-argon", "muse-wonder-full", "muse-wonder", "claude-opus-5.5", "gpt-6.1-sol", "claude-sonnet-5.5", "claude-haiku-5.5"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Gemini 4 Argon spent two weeks as a model you could read about but not use. Since Google opened it to everyone on 13 October, people have finally put it on their own work, and the verdict is split. The fans are real. People like how cheap it is for now, and one developer who built the same 3D scene with both models said Argon did it in half the time and for less than half the cost of Opus 5.5. Databricks called it the strongest Gemini model it has tested. But the post everyone passed around was Theo's. He started out impressed, then a day later said Argon was outright unusable in his codebases because it confidently describes how systems work and gets it wrong, and that people should avoid it. On his codebase test, more than half of Argon's claims were judged false, the only model above that line. Another developer scored Opus 5.5 at 77 and Argon at 59 on a real backend feature. That is why Argon opens at 3 and not higher.",
+      "Meta's new models split the room in a different way. Muse Wonder Full got the strongest praise of any new model this week: Theo put it in his top tier next to Opus 5.5 and told people not to sleep on it for code. The complaint is access. Full is only in Muse Code for subscribers, with no API and no per-token price, and the naming trips people up. Several posts, Theo's included, stressed that the plain Muse Wonder on the API is a much weaker model. So Full opens at 4 and Wonder at 3. We would like to hear from more people outside the launch-week crowd before Full climbs any higher, and Meta could help by putting it on the API.",
+      "Opus 5.5 holds at 5. Head-to-head posts kept putting it first, against Argon and against GPT-6.1 Sol, and the most shared Claude tip of the week was a setup that uses Opus as the adviser over Sonnet and Haiku. A few developers said it has felt slower lately. That is worth watching, but nobody is leaving over it. GPT-6.1 Sol holds at 3. The New Stack ran a comparison headlined \"Same accuracy at 18% of the cost\" against GPT-6 Astra, but most people's rankings still put Sol a step behind Opus. Sonnet 5.5 and Haiku 5.5 hold at 3, still mostly talked about as members of that Claude team rather than on their own.",
+      "One thing we left out on purpose: the rumor that Claude Fable 5.5 is about to launch. It rests on a catalog listing that people say showed up on Azure with Fable 5.1's specs copied over, and Anthropic has said nothing. We will rate it when people can use it. Every other model holds its stars.",
+    ],
+  },
+  {
+    id: "aa-new-tests-1015",
+    kind: "ranking",
+    title: "Three new Artificial Analysis tests in three days, and three different leaders",
+    dek: "AA-3D, FrontierCode 1.1 and AA-Robotics all launched between 12 and 14 October. Claude leads two of them and GPT-6 Astra the third.",
+    pull: "The more tests look like real work, the less sense it makes to talk about one best model.",
+    summary: "Artificial Analysis launched three new tests in three days. On AA-3D, four models are statistically tied at the top, led by Claude Sonnet 5.5 at 1194. On FrontierCode 1.1, Claude Opus 5.5 leads at 52%. On AA-Robotics v0.1, GPT-6 Astra leads at 69. None of them is a Ridge board column.",
+    date: "2026-10-15",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://x.com/ArtificialAnlys/status/2110500262628806787",
+    models: ["claude-sonnet-5.5", "claude-opus-5.5", "gpt-6-astra", "claude-fable-5.1", "gpt-6.1-sol", "gemini-4-argon"],
+    tags: ["aa", "ranking"],
+    body: [
+      "Artificial Analysis had a busy few days. On 12 October it launched AA-3D, where models build interactive 3D scenes and human judges pick between them, and a leaderboard for Cognition's FrontierCode 1.1, which grades code changes on whether a maintainer would actually merge them. On 14 October it added AA-Robotics v0.1, a preview where a model controls a six-axis robot arm through code it writes itself.",
+      "Each test has a different leader. Claude Sonnet 5.5 (1194) and Opus 5.5 (1190) top AA-3D, but AA says they are statistically tied with GPT-6 Astra (1165) and Claude Fable 5.1 (1131). Opus 5.5 leads FrontierCode at 52%, with nine models from six labs between 43% and 52%. On the robot arm, OpenAI leads: Astra 69 and GPT-6.1 Sol 65, then Gemini 4 Argon 55 and Opus 5.5 49.",
+      "We like where this is going. FrontierCode measures something people complain about every day, code that passes the tests but leaves a mess a maintainer would send back, and even the leader fails more than 40% of the time. The robotics numbers are a preview, and AA says the models are about 100 times slower and 10 times more expensive than a person, so treat them as an early look at a new skill. GPT-6.1 Sol keeps turning up as the value pick, too: it ties Fable 5.1 on FrontierCode and is the cheapest per task on AA-Robotics.",
+    ],
+  },
   {
     id: "gemini-4-argon-ga-1013",
     kind: "release",
