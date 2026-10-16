@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Fake values so the build needs no secrets and no database.
+      # DATABASE_URL stays empty on purpose: scripts/migrate.mjs then skips,
+      # because `npm run build` ends with `npm run db:migrate`.
+      DATABASE_URL: ""
+      RIDGE_ADMIN_EMAIL: ci@example.com
+      RIDGE_ADMIN_AUTH_SECRET: ci-fake-secret-not-used-for-anything-real
+      RIDGE_ADMIN_BASE_URL: https://ci.example.com
+      RIDGE_ADMIN_RP_ID: ci.example.com
+    steps:
+      - uses: actions/checkout@v4
+
+      # The repo does not pin Node. Vite 8 needs 20.19+ or 22.12+, and the test
+      # scripts rely on Node 22 (`--experimental-strip-types`, quoted test globs).
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      # Catalog, scores, wire, desk, changelog and voice data sanity.
+      - name: Check data
+        run: npm run check:data
+
+      - name: Check data tests
+        run: node --test scripts/check-data.test.mjs
+
+      - run: npm run typecheck
+
+      # `npm run lint` already fails on main (src/lib/app-data/client.server.ts,
+      # no-empty), so it is reported here but does not block. Make it blocking
+      # once that error is fixed.
+      - name: Lint (non-blocking)
+        run: npm run lint
+        continue-on-error: true
+
+      # No `npm test` step: 16 of the template's own tests fail in a clean
+      # checkout (they read the gitignored .grok/ directory).
+
+      - name: Build
+        run: npm run build

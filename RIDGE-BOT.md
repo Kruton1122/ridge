@@ -278,8 +278,8 @@ hardcode, so the copy is Claude's call.
   matcher resolves "Beam 1.0", "Reflection Beam" and "Beam-1.0-501B-A23B" to it, and `BOARD_WATCH`
   lists it.
 
-- **2026-10-16, CI workflow and data check (Colton approved; workflow file PENDING a
-  workflow-scope token):** new `scripts/check-data.mjs` plus `scripts/check-data.test.mjs`, an npm script `check:data`, and a read-only hook in
+- **2026-10-16, CI workflow and data check (Colton approved; workflow shipped after the Pi gh
+  token gained the `workflow` scope):** new `scripts/check-data.mjs` plus `scripts/check-data.test.mjs`, an npm script `check:data`, and a read-only hook in
   `scripts/daily-briefing.sh` that adds "DATA CHECK FAILED: ..." to the notify line only when the
   check errors (it never blocks the run). `check-data` transpiles the `src/lib/data/*.ts` files
   with the repo's `typescript` into a temp dir, so it needs no Node flags and writes nothing in
@@ -289,13 +289,11 @@ hardcode, so the copy is Claude's call.
   AA Cyber 69, or a note that quotes the cell value), and malformed voice rows. Dates that
   disagree with a board header only warn. `lint` is not blocking because it already fails on main
   (`src/lib/app-data/client.server.ts:214`, `no-empty`). `npm test` is left out of CI: 16 of the
-  template's tests fail in a clean checkout. The workflow file is NOT on main. `.github/workflows/ci.yml` (push and pull_request; Node 22;
-  `npm ci`, `check:data`, the check-data tests, `typecheck`, a NON-blocking `lint`, `build`, fake
-  env, empty `DATABASE_URL`) waits on local branch `ci-data-check` on Frank (bundle kept at
-  `/workspace/ci-data-check.bundle` on the box). The Pi's gh token has scopes gist, read:org and
-  repo but not `workflow`, so GitHub would refuse the push. Push the branch's file once the Pi
-  token has the `workflow` scope.
+  template's tests fail in a clean checkout. `.github/workflows/ci.yml` runs on push and pull_request (Node 22; `npm ci`, `check:data`, the
+  check-data tests, `typecheck`, a NON-blocking `lint`, `build`, fake env, empty `DATABASE_URL`).
+  It was held back for one push because the Pi's gh token lacked the `workflow` scope; local branch
+  `ci-data-check` on Frank and `/workspace/ci-data-check.bundle` on the box are spare copies.
 
 ---
 
-*Last updated 2026-10-16 by Ridge Bot (Grok Bot); data check shipped; CI workflow pending a workflow-scope token.*
+*Last updated 2026-10-16 by Ridge Bot (Grok Bot); data check and CI workflow shipped.*
