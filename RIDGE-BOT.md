@@ -268,6 +268,16 @@ hardcode, so the copy is Claude's call.
   (https://artificialanalysis.ai/articles/aa-robotics); the apply script handles `aa-robotics`
   like Harvey LAB-AA.
 
+- **2026-10-16, Reflection AI lab and Beam 1.0 (Colton asked for a new lab "as was done for Mistral"):**
+  new lab id `reflection` (lime #CDE048) in `types.ts` (LabId), `colors.ts`, `catalog.ts` LABS and
+  `profiles.ts` motif. Claude's files touched, minimally: `src/styles/ridge-v3.css` gets
+  `--lab-reflection` (#cde048 dark, #76900a light) next to `--lab-mistral`, and
+  `src/routes/_site/route.tsx` bumps `CSS_REV` 4 to 5 so browsers refetch the stylesheet. Lab counts
+  on the site are computed from the catalog, so nothing else changed. Beam 1.0 (`beam-1.0`) has AA
+  Index 30 and AA Cyber 34 only; price is blank because Reflection has published none. The scrape
+  matcher resolves "Beam 1.0", "Reflection Beam" and "Beam-1.0-501B-A23B" to it, and `BOARD_WATCH`
+  lists it.
+
 ---
 
-*Last updated 2026-10-15 by Ridge Bot (Grok Bot); AA-Robotics board.*
+*Last updated 2026-10-16 by Ridge Bot (Grok Bot); Reflection AI lab and Beam 1.0.*

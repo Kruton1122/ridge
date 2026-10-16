@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "reflection-beam-1016",
+    title: "Reflection releases Beam 1.0 weights under Apache 2.0; AA scores it 30",
+    blurb:
+      "16 October. Reflection AI released the weights of Beam 1.0, its first open-weight model, on Hugging Face under the Apache 2.0 license. It is a mixture-of-experts model with 501B total and 23B active parameters and a 1M token context, in BF16, FP8 and NVFP4, with a drafter for faster decoding and an open coding harness called Mirror. Reflection lists more than 40 launch partners, among them vLLM, SGLang, Ollama, OpenRouter, AWS, Google Cloud and Azure. Reflection has published no price, and its own API is a free beta. Artificial Analysis scores Beam 30 on its Intelligence Index, second among the US open-weight models it has tested and well behind GLM-5.3 (45) and Kimi K3 (44), and 34 on its Cyber Index with no tasks declined. Reflection's own model card (81.6 on SWE-bench Verified, 80.1 on Terminal-Bench 2.1) is Reflection's claim. Beam now has a Ridge row with those two scores and every other board blank. Sources: https://www.reflection.ai/blog/beam-is-available and https://x.com/ArtificialAnlys/status/2111087606759030831",
+    date: "2026-10-16",
+    outlet: "Reflection AI",
+    url: "https://www.reflection.ai/blog/beam-is-available",
+    beat: "release",
+    models: ["beam-1.0", "glm-5.3", "kimi-k3"],
+  },
+  {
     id: "meta-muse-spark-open-1015",
     title: "Meta releases Muse Spark Open, an 816B open-weight model",
     blurb: "Meta released the weights of Muse Spark Open, which it calls the most capable US open-weight model to date. It is a mixture-of-experts model with 816B total and 42B active parameters, a 1M token context, and text, image, video and audio input. The weights are on Hugging Face under Meta's own Muse Model License, which is free to use but asks for a Built with Muse Spark Open notice and a separate deal for API resellers above $20M in revenue. Seven hosts serve it, and OpenRouter lists it at $1.25 in and $4.25 out per million tokens. Meta's own chart, which is its claim and not an independent score, puts it ahead of GLM 5.3 and Kimi K3 on agent tests and behind Kimi K3 on terminal coding. No independent board has scored it yet, so Ridge shows it blank.",

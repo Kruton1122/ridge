@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-16",
+    title: "New lab Reflection AI and Beam 1.0; Muse Spark Open gets independent scores",
+    items: [
+      "New lab: Reflection AI. New model: Beam 1.0, weights released 16 October under Apache 2.0, 501B total and 23B active parameters, 1M context. Reflection has published no price, so the price is blank.",
+      "Two new scores from Artificial Analysis: AA Intelligence Index 30 and AA Cyber Index 34 (no tasks declined). No Arena+, CursorBench, Vals or Harvey LAB-AA score yet. Reflection's own model card figures appear in the text only, labelled as its claims.",
+      "Muse Spark Open now has two independent scores: AA Index 39 (xhigh) and Arena+ 1484. GLM-5.3 on Arena+ moves to 1506. Best for open weights is unchanged: GLM-5.3 at 45.",
+      "New wire and desk piece on the Beam release, a model page for Beam, and a lab colour for Reflection AI in the site stylesheet.",
+    ],
+  },
+  {
     date: "2026-10-15",
     title: "Muse Spark Open added (no scores yet)",
     items: [

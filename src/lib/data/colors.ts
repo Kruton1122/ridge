@@ -11,6 +11,7 @@ export const LAB_COLORS: Record<LabId, string> = {
   alibaba: "#FF6A00",
   meta: "#0081FB",
   mistral: "#FA500F",
+  reflection: "#CDE048",
   other: "#8EA0B0",
 };
 

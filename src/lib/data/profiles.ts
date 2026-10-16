@@ -60,6 +60,21 @@ const PROFILES: Record<string, ModelProfile> = {
       "List price returns to $1.36 / $4.18 after the two-week launch discount",
     ],
   },
+  "beam-1.0": {
+    epithet: "The American open workhorse",
+    voice:
+      "Reflection's first model: a 501B open-weight mixture-of-experts under Apache 2.0. Independent tests put it second among the US open models they have run and well behind the best Chinese ones, and it gets there on very few tokens. Reflection's own coding numbers are Reflection's claims.",
+    strengths: [
+      "Apache 2.0 weights in BF16, FP8 and NVFP4, with day-one vLLM, SGLang and Transformers support",
+      "Frugal: AA ran its Index on 79M output tokens, against a median of 130M for similar models",
+      "AA calls its Cyber Index score of 34 the best from a US open-weight model it has tested",
+    ],
+    watch: [
+      "AA Index 30, well behind GLM-5.3 (45) and Kimi K3 (44)",
+      "Weakest on terminal work in AA's tests: 3.0% on Terminal-Bench 4.0",
+      "No published price: Reflection's API is a free beta with daily limits",
+    ],
+  },
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
@@ -134,9 +149,9 @@ const PROFILES: Record<string, ModelProfile> = {
   "muse-spark-open": {
     epithet: "The downloadable Spark",
     voice:
-      "Meta's open-weight Muse. The weights are public, the license has strings, and no independent board has scored it yet. Quote Meta's chart as Meta's.",
+      "Meta's open-weight Muse. The weights are public, the license has strings, and independent scores are thin: AA lists it at 39 and Arena+ at 1484. Quote Meta's chart as Meta's.",
     strengths: ["Open weights with a 1M context window", "Hosted by seven providers at the Spark 1.3 price"],
-    watch: ["No independent score yet", "Meta's card asks for about 700GB of GPU memory at 4-bit", "Muse Model License, not Apache or MIT"],
+    watch: ["AA Index 39 trails GLM-5.3 (45) and Kimi K3 (44)", "Meta's card asks for about 700GB of GPU memory at 4-bit", "Muse Model License, not Apache or MIT"],
   },
   "muse-wonder": {
     epithet: "Meta's API frontier",
@@ -209,6 +224,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   alibaba: { motif: "Orange #FF6A00. Max as a ceiling name." },
   meta: { motif: "Meta blue #0081FB. Muse is not Llama. Mostly proprietary; Spark Open is the open-weight one." },
   mistral: { motif: "Mistral orange #FA500F. Paris lab, sovereign pitch, open weights promised." },
+  reflection: { motif: "Reflection lime #CDE048. New US lab; Apache 2.0 open weights, efficiency pitch." },
   other: { motif: "Neutral slate." },
 };
 

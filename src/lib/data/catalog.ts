@@ -16,6 +16,7 @@ export const LABS: Record<Model["lab"], { name: string; short: string; color: st
   alibaba: { name: "Alibaba", short: "Alibaba", color: "#FF6A00" },
   meta: { name: "Meta", short: "Meta", color: "#0081FB" },
   mistral: { name: "Mistral AI", short: "Mistral", color: "#FA500F" },
+  reflection: { name: "Reflection AI", short: "Reflection", color: "#CDE048" },
   other: { name: "Other", short: "Other", color: "#8EA0B0" },
 };
 
@@ -194,7 +195,7 @@ export const MODELS: Model[] = [
     license: "open-weight",
     aliases: ["muse spark open", "muse-spark-open", "spark open", "muse spark open xhigh", "muse spark open (xhigh)", "muse-spark-open-816b-a42b"],
     summary:
-      "Meta's open-weight Muse, released 15 October 2026: 816B total and 42B active parameters, 1M token context, text, image, video and audio in, text out. Weights are on Hugging Face under Meta's Muse Model License (not Apache or MIT; a click-through, with a Built with Muse Spark Open notice and a separate deal for API resellers above $20M revenue). Hosted by Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter and Together; the $1.25 / $4.25 per 1M tokens shown is the OpenRouter provider price, not a Meta price. No independent score yet: Artificial Analysis, Vals, Arena+ and CursorBench have not listed it. Meta's own table reports an AA Index of 39 at xhigh, which Ridge does not use until AA publishes it.",
+      "Meta's open-weight Muse, released 15 October 2026: 816B total and 42B active parameters, 1M token context, text, image, video and audio in, text out. Weights are on Hugging Face under Meta's Muse Model License (not Apache or MIT; a click-through, with a Built with Muse Spark Open notice and a separate deal for API resellers above $20M revenue). Hosted by Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter and Together; the $1.25 / $4.25 per 1M tokens shown is the OpenRouter provider price, not a Meta price. Artificial Analysis lists it at 39 on its Intelligence Index (xhigh), the same figure as Meta's own table, and Arena+ has it at 1484. No Vals, CursorBench or AA Cyber score yet.",
     status: "ga",
   }),
   m({
@@ -597,6 +598,28 @@ export const MODELS: Model[] = [
     summary:
       "Public preview from 6 October 2026, nicknamed Le Chonk. Mistral's largest model: a mixture-of-experts with 1.05T total parameters and 49B active per token (52B counting the embedding and output layers), text and image in, text out, and a 1M token context per Mistral. API id mistral-large-4. List $1.36 / $4.18 per 1M tokens (cached input $0.14), at half price for the first two weeks of the preview. Mistral promises open weights by the end of October, and its Hugging Face countdown shows 31 October (the press was told 27 October). Until then it is API only and the license is not named. AA Intelligence Index 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 Oct. No Arena+, CursorBench, or Vals Terminal-Bench score yet, and Vals no longer runs SWE-bench on new models.",
   }),
+  m({
+    id: "beam-1.0",
+    name: "Beam 1.0",
+    shortName: "Beam",
+    lab: "reflection",
+    labName: "Reflection AI",
+    released: "2026-10-16",
+    contextTokens: 1_048_576,
+    pricing: null,
+    license: "open-weight",
+    aliases: [
+      "beam 1.0",
+      "beam-1.0",
+      "beam",
+      "reflection beam",
+      "reflection-beam",
+      "beam-1.0-501b-a23b",
+      "beam-501b-a23b",
+    ],
+    summary:
+      "Reflection AI's first model and first open-weight release: a sparse mixture-of-experts with 501B total and 23B active parameters, text in and text out, a 1M token context (1,048,576 in Reflection's API docs) and a June 2026 knowledge cutoff. Announced 5 October; weights released 16 October on Hugging Face under Apache 2.0 in BF16, FP8 and NVFP4, with a DFlash2 drafter and the Mirror coding harness. API id Beam-1.0-501B-A23B. Reflection has not published a per-token price: its API is a free public beta with daily limits, so the price is blank. Independent scores so far: AA Intelligence Index 30 (AA ranks it second among the US open-weight models it has tested) and AA Cyber Index 34 with no tasks declined. No Arena+, CursorBench, Vals or Harvey LAB-AA score yet. Reflection's own table (SWE-bench Verified 81.6, Terminal-Bench 2.1 80.1) is its claim and is not on Ridge's boards.",
+  }),
 ];
 
 export const BENCHMARKS: Benchmark[] = [
@@ -758,6 +781,7 @@ export const SCORES: Score[] = [
   s("gpt-5.6-luna", "aa-intelligence", 37, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-09-21", "best effort/variant: max"),
   s("gpt-6-luna", "aa-intelligence", 38, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best effort/variant: max"),
   s("mistral-large-4", "aa-intelligence", 38, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best effort/variant: Preview (reasoning)"),
+  s("beam-1.0", "aa-intelligence", 30, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best listed row"),
   s("deepseek-v4-pro", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best effort/variant: max"),
   s("deepseek-v4.1-flash", "aa-intelligence", 39, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best effort/variant: max"),
   s("gemini-3.1-pro", "aa-intelligence", 30, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-16", "best listed row"),
@@ -854,6 +878,7 @@ export const SCORES: Score[] = [
   s("grok-4.7", "aa-cyber", 56, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: xhigh. No tasks declined."),
   s("gpt-6-luna", "aa-cyber", 53, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: max. No tasks declined."),
   s("mistral-large-4", "aa-cyber", 50, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: Preview. No tasks declined."),
+  s("beam-1.0", "aa-cyber", 34, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "No tasks declined."),
   s("muse-spark-1.3", "aa-cyber", 44, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: xhigh. No tasks declined."),
   s("kimi-k3", "aa-cyber", 41, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: max. No tasks declined."),
   s("deepseek-v4.1-flash", "aa-cyber", 41, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-16", "variant: max. No tasks declined."),

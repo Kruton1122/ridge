@@ -1118,7 +1118,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
 
   "muse-spark-open": {
     lede:
-      "Muse Spark Open is the open-weight version of Meta's Muse Spark, released 15 October 2026. It is a mixture-of-experts model with 816B total and 42B active parameters and a 1M token context, and it takes text, image, video and audio in and writes text out.\n\nMeta calls it the most capable US open-weight model to date, and built it for coding and agent work. That is Meta's claim. No independent board has scored it yet, so Ridge shows its boards blank.",
+      "Muse Spark Open is the open-weight version of Meta's Muse Spark, released 15 October 2026. It is a mixture-of-experts model with 816B total and 42B active parameters and a 1M token context, and it takes text, image, video and audio in and writes text out.\n\nMeta calls it the most capable US open-weight model to date, and built it for coding and agent work. That is Meta's claim. Independent scores are thin so far: Artificial Analysis lists it at 39 on its Intelligence Index and Arena+ at 1484, and Ridge shows its other boards blank.",
     framing:
       "Meta also pitches it as a model you can run at home: it says two Apple M5 Ultra Mac Studios can hold it. The model card asks for at least 700GB of GPU memory at 4-bit and 2TB at full precision, so that is a large desk.",
     rollout: [
@@ -1128,11 +1128,11 @@ export const ABOUTS: Record<string, ModelAbout> = {
       "The Hugging Face chat template defaults to xhigh reasoning effort, and the card recommends high or xhigh for coding and agent work. Meta says the open version has additional safety post-training, that it met the thresholds in Meta's safety framework, and that a full evaluation report is coming. Apple has said the 512GB Mac Studio arrives in late October (Engadget).",
     claims: [
       "Meta's chart (Meta's claims, not independent): at xhigh it scores 89.2 on MCP-Atlas and 61.8 on JobBench, ahead of GLM 5.3 and Kimi K3 in the same table. It trails Kimi K3 on Terminal-Bench 2.1 (76.4 against 85.0) and DeepSWE 1.1 (60 against 68).",
-      "Also Meta's: an Artificial Analysis Intelligence Index of 39, against 45 for GLM 5.3 and 44 for Kimi K3 in its table. Artificial Analysis had not published a Muse Spark Open row when Ridge checked, so Ridge does not use the number.",
+      "Also in Meta's table: an Artificial Analysis Intelligence Index of 39, against 45 for GLM 5.3 and 44 for Kimi K3. Artificial Analysis has since listed Muse Spark Open at 39 (xhigh), and that independent figure is the one on Ridge's board.",
       "Meta says it is the first model in its class to run on a desktop, on two M5 Ultra Mac Studios with MLX, and cites iOS app changes and video editing run entirely on the device.",
     ],
     vendorEvalsNote:
-      "Every benchmark figure here is Meta's own, from its chart and model card. Ridge's boards stay blank for this model until Artificial Analysis, Vals, Arena+ or Cursor publish a run.",
+      "The benchmark figures above are Meta's own, from its chart and model card. Ridge's board shows only independent runs: the AA Index (39) and Arena+ (1484). Vals, Cursor and the other AA boards stay blank until they publish a run.",
     specs: [
       { label: "Model id", value: "muse-spark-open on OpenRouter; meta-models/Muse-Spark-Open-816B-A42B on Hugging Face" },
       { label: "Architecture", value: "Mixture-of-experts transformer, 816B total and 42B active parameters, with a perception encoder" },
@@ -1154,6 +1154,55 @@ export const ABOUTS: Record<string, ModelAbout> = {
       { label: "Hosted price and providers (OpenRouter)", url: "https://openrouter.ai/meta/muse-spark-open" },
       { label: "Launch post (@AIatMeta on X)", url: "https://x.com/AIatMeta/status/2110779754274292212" },
       { label: "Meta built a huge open-weight AI model for Macs (Engadget)", url: "https://www.engadget.com/2287833/meta-built-a-huge-open-weight-ai-model-for-macs-but-youll-need-1tb-of-ram-to-run-it/" },
+    ],
+  },
+
+  "beam-1.0": {
+    lede:
+      "Beam 1.0 is Reflection AI's first model and its first open-weight release: a sparse mixture-of-experts with 501B total and 23B active parameters, built for coding, reasoning and agent work. Reflection announced it on 5 October 2026 and published the weights on 16 October under the Apache 2.0 license.\n\nIt takes text in and writes text out, with a 1M token context. Reflection says it trained the model from scratch on 23.8 trillion tokens, then ran four weeks of reinforcement learning with more than 100 million rollouts on 10.5K NVIDIA GB300 GPUs. Those are Reflection's figures.",
+    framing:
+      "Reflection sells Beam on efficiency, not raw ability. It says Beam reaches comparable results to leading open models with roughly three times fewer reasoning tokens, and it says plainly that Kimi K3 is still ahead on raw capability. Artificial Analysis supports the frugality: it ran its Intelligence Index on about 79M output tokens, against a median of 130M for comparable models. Its tests do not put Beam near the leaders on ability.",
+    rollout: [
+      { date: "2026-10-05", text: "Announced with a benchmark table, a waitlisted API beta and a promise of Apache 2.0 weights later in the month." },
+      { date: "2026-10-16", text: "Weights, tokenizer and reference implementation released on Hugging Face under Apache 2.0, in BF16, FP8 and NVFP4, plus a DFlash2 speculative decoding drafter, the Mirror CLI coding harness, a model card and a safety technical report. Reflection lists launch support from more than 40 partners, including vLLM, SGLang, Hugging Face Transformers, Unsloth, Ollama, OpenRouter, Together AI, Fireworks AI, AWS, Google Cloud, Azure and Cloudflare." },
+    ],
+    rolloutNote:
+      "Reflection's own API (Beam-1.0-501B-A23B) is a public beta that is free to start with daily usage limits, and Reflection has published no per-token price. Its docs list a 1,048,576 token context window and a 128K output limit, and say the window may change during the beta. Reasoning effort runs from low to max and defaults to max.",
+    claims: [
+      "Reflection's model card (its claims, not independent), BF16 weights: 81.6 on SWE-bench Verified, 66.1 on SWE-bench Pro v1, 80.1 on Terminal-Bench 2.1, 80.8 on MCP Atlas, 90.6 on GPQA Diamond and 36.0 on Humanity's Last Exam without tools. The FP8 and NVFP4 builds land within about two and a half points of BF16 on every row.",
+      "On its launch table Reflection shows Beam behind GLM 5.3, Kimi K3 and DeepSeek V4.1 Flash on Terminal-Bench 2.1 (80.1 against 88.2, 88.3 and 90.6).",
+      "Reflection says Beam matches GLM 5.2 on hard reasoning while using three to four times less inference compute, an estimate that leaves out serving costs, and that it needs about three times fewer reasoning tokens than leading open models.",
+    ],
+    vendorEvalsNote:
+      "The figures above come from Reflection's blog and model card, not from Ridge's board. Artificial Analysis, which tested Beam before release, scores it 30 on its Intelligence Index (second among the US open-weight models it has tested) and 34 on its Cyber Index with no tasks declined. In AA's breakdown it is strongest on AutomationBench-AA (48.5%) and CritPt (13.1%) and weakest on Terminal-Bench 4.0 (3.0%) and AA-Briefcase. Run in Mirror, it scores 28 on AA's Coding Agent Index, 15 points behind the next setup. Arena, which is not a Ridge board, ranks it 12th among open models in Agent Arena and 22nd among open models in Code Arena WebDev, with a wide margin of error on the first. Terminal-Bench 2.1 and 4.0 are different tests, so Reflection's 80.1 and AA's 3.0% do not cancel out, but the gap is a reason to try Beam on your own agent tasks.",
+    specs: [
+      { label: "Model id", value: "Beam-1.0-501B-A23B (Reflection API); reflection/Beam-1.0-501B-A23B on Hugging Face" },
+      { label: "Architecture", value: "Sparse mixture-of-experts, 501.3B total and 23.4B active parameters, 52 layers (3 dense, 49 MoE), 256 experts, gated GQA with sliding window attention" },
+      { label: "Context", value: "1M tokens (1,048,576 in Reflection's API docs); 128K maximum output" },
+      { label: "Modalities", value: "Text in, text out" },
+      { label: "Weights", value: "Open weights in BF16, FP8 and NVFP4, plus a DFlash2 drafter, on Hugging Face" },
+      { label: "License", value: "Apache 2.0. Reflection's model card says it does not prohibit distillation, fine-tuning, quantization or merging" },
+      { label: "Price", value: "None published. The Reflection API is a free public beta with daily limits" },
+      { label: "Training", value: "From scratch; pretrained on 23.8T tokens in under four weeks on 6,144 NVIDIA GB300 GPUs, then four weeks of reinforcement learning on 10.5K GB300 GPUs (Reflection-reported)" },
+      { label: "Knowledge cutoff", value: "30 June 2026" },
+      { label: "Lab", value: "Reflection AI (founded 2024)" },
+    ],
+    whereUsed: [
+      "Hugging Face (weights)",
+      "Reflection API (free public beta)",
+      "OpenRouter, Together AI, Fireworks AI, Baseten, Modal, Nebius, Databricks, Cloudflare, Vercel (hosted)",
+      "AWS, Google Cloud, Microsoft Azure, Oracle (cloud platforms)",
+      "Ollama, LM Studio, OpenCode, Hermes, Mirror CLI (local and agent tools)",
+    ],
+    sources: [
+      { label: "Beam is now available (Reflection AI)", url: "https://www.reflection.ai/blog/beam-is-available" },
+      { label: "Introducing Beam (Reflection AI)", url: "https://www.reflection.ai/blog/introducing-beam" },
+      { label: "Beam model card (Reflection AI)", url: "https://www.reflection.ai/beam-model-card" },
+      { label: "Beam weights and license (Hugging Face)", url: "https://huggingface.co/collections/reflection/beam-10" },
+      { label: "Artificial Analysis model page", url: "https://artificialanalysis.ai/models/reflection-beam" },
+      { label: "Artificial Analysis results thread (@ArtificialAnlys on X)", url: "https://x.com/ArtificialAnlys/status/2111087606759030831" },
+      { label: "Arena rankings (@arena on X)", url: "https://x.com/arena/status/2111084024336884097" },
+      { label: "Launch post (@reflection_ai on X)", url: "https://x.com/reflection_ai/status/2111079965529968798" },
     ],
   },
 

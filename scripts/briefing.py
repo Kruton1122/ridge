@@ -58,6 +58,7 @@ BOARD_WATCH = (
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
     "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
+    "beam-1.0",            # Reflection, weights 2026-10-16; AA Index + Cyber only; blank Arena+/CursorBench/Vals/Harvey
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
 )
 
@@ -772,6 +773,8 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "claude haiku 5.5",
         "haiku 5.5",
         "claude-haiku-5.5",
+        "beam 1.0",
+        "beam-1.0",
     }
     known = seed_known | known_extra
     frontier_markers = (

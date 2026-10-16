@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-16"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "reflection-beam-1016",
+    kind: "release",
+    title: "Beam is out: Apache weights, a 30 on the AA Index, and a gap to close",
+    dek: "Reflection released Beam's weights on 16 October with more than 40 partners. Independent tests put it second among US open models and well behind GLM-5.3 and Kimi K3.",
+    pull: "Beam is a credible American open model, and for now a middle-of-the-pack one.",
+    summary: "Reflection released Beam 1.0 under Apache 2.0 on 16 October. Artificial Analysis scores it 30 on its Index and 34 on its Cyber Index, and Ridge adds it as a row.",
+    date: "2026-10-16",
+    sourceName: "Reflection AI",
+    sourceUrl: "https://www.reflection.ai/blog/beam-is-available",
+    models: ["beam-1.0", "glm-5.3", "kimi-k3"],
+    tags: ["reflection", "open-weights", "release"],
+    body: [
+      "Reflection AI put the weights of Beam 1.0 on Hugging Face on 16 October, eleven days after it first showed the model. Beam is a mixture-of-experts model with 501 billion parameters in total and 23 billion active for each token, a 1 million token context, and text in and out. The license is Apache 2.0, which means free to use, change, distill and sell. The weights come in BF16, FP8 and NVFP4, with a drafter for faster decoding and an open coding harness called Mirror. More than 40 partners, from vLLM and Ollama to AWS and Google Cloud, had it ready on day one.",
+      "Ridge said on 6 October that Beam would get a row once the weights shipped and independent scores arrived, and both have happened. Artificial Analysis scores it 30 on its Intelligence Index, second among the US open-weight models it has tested, and well behind GLM-5.3 at 45, Kimi K3 at 44 and GLM-5.3 Flash at 42. On AA's Cyber Index it scores 34 with no tasks declined, ahead of GPT-6 Astra and the Claude models on Ridge's board and behind GLM-5.3 and Kimi K3. Reflection's own model card reads differently: 81.6 on SWE-bench Verified and 80.1 on Terminal-Bench 2.1. Those are Reflection's numbers. AA's own run of Terminal-Bench 4.0, a different and harder test, gave Beam 3.0%, its weakest result. The two do not cancel out, but they are a good reason to try Beam on your own agent tasks before you trust the card.",
+      "Launch-day reaction is warm and practical. Arena ranked Beam 12th among open models in its Agent Arena and 22nd among open models in Code Arena WebDev, and called it the top US open model on both, though with a wide margin of error on the first. Posts on X welcomed a US open model with a plain license and no waitlist. The skeptical replies are about the gap between the model card and outside tests, and about memory: all 501 billion parameters still have to sit in memory even though 23 billion run at once. Reflection's own efficiency claim holds up better. AA ran its Index on about 79 million output tokens, against a median of 130 million for comparable models. It is too early for public opinion stars.",
+      "What it means: Reflection joins Ridge as a new lab, and Beam gives teams that cannot or will not run a Chinese model a real Apache option. It does not change the best open-weight seat, which stays with GLM-5.3. The efficiency story is the interesting part, but Reflection has published no price and its own API is a free beta, so for now it cannot be turned into dollars. If you need a US-built model with open weights, Beam is now the one to test. If you want the smartest open model, it is not.",
+    ],
+  },
+  {
     id: "muse-spark-open-1015",
     kind: "release",
     title: "Muse Spark Open: Meta's big open model arrives, with no independent score yet",
