@@ -56,6 +56,15 @@ if [[ $RC -eq 0 && -n "$MSG" ]]; then
   VOICE_RC=$?
   echo "[$(ts)] voice rc=$VOICE_RC: $VOICE_OUT" >> "$LOG_FILE"
   if [[ $VOICE_RC -eq 0 ]]; then APPLY_MSG="${APPLY_MSG} | ${VOICE_OUT}"; else APPLY_MSG="${APPLY_MSG} | voice ERROR: ${VOICE_OUT}"; fi
+  # Data sanity check (read-only). Only a failure is added to the notify line; it never blocks the run.
+  if command -v node >/dev/null 2>&1; then
+    CHECK_OUT="$(cd "$REPO" && node scripts/check-data.mjs 2>&1)"
+    CHECK_RC=$?
+    echo "[$(ts)] check-data rc=$CHECK_RC: $(printf '%s' "$CHECK_OUT" | tail -1)" >> "$LOG_FILE"
+    if [[ $CHECK_RC -ne 0 ]]; then
+      APPLY_MSG="${APPLY_MSG} | DATA CHECK FAILED: $(printf '%s' "$CHECK_OUT" | grep -m3 '^ERROR' | tr '\n' ';')"
+    fi
+  fi
   MSG="${MSG}${APPLY_MSG}"
 else
   echo "[$(ts)] scrape FAILED (rc=$RC) — falling back to Grok" >> "$LOG_FILE"
