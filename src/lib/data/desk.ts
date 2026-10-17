@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-17"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "deepseek-flash-1017",
+    kind: "release",
+    title: "DeepSeek's Flash update is better on paper, and nobody has scored it yet",
+    dek: "V4.1-Flash-1017 replaced the September model on 17 October at the same price. Every independent number on Ridge's board is still for the old build.",
+    pull: "A free upgrade is welcome. It is not a score until someone outside DeepSeek runs it.",
+    summary: "DeepSeek replaced V4.1 Flash with the 1017 build on web, app and API at the same price. Ridge keeps one row, marks its scores as the September build, and waits for AA, Arena+ and Vals.",
+    date: "2026-10-17",
+    sourceName: "DeepSeek",
+    sourceUrl: "https://api-docs.deepseek.com/updates",
+    models: ["deepseek-v4.1-flash", "kimi-k3", "glm-5.3"],
+    tags: ["deepseek", "open-weights", "release"],
+    body: [
+      "DeepSeek swapped its Flash model on the morning of 17 October. DeepSeek-V4.1-Flash-1017 now sits behind the website, the app and the deepseek-flash API name, the price has not moved, and the weights are on Hugging Face under the MIT license. DeepSeek calls it a minor update and a Pareto improvement: better results, shorter outputs and faster finishes. Its own table, which is its claim and not an independent score, shows Terminal-Bench 4.0 going from 31.2 to 42.3, DeepSWE from 74.2 to 77.0 and Humanity's Last Exam without tools from 36.8 to 42.6. It replaces the September model.",
+      "Ridge treats this as an update to the existing row, not a new model. The API name, price, size and license are the same, and the old build is replaced, much as DeepSeek V4 Pro 0813 stays one row. The catch is that every independent score on the row was measured on the September build: AA Index 39, AA Cyber 41, Arena+ 1503, Harvey LAB-AA 1.7 and Vals Terminal-Bench 4.0 at 19.7. Nobody has scored 1017 yet. Ridge keeps those numbers, marks each one as the September build, and has changed its daily update so a new score for this row only counts when the board's own name carries 1017. The old and new builds cannot mix. DeepSeek's table is also hard to line up with the board. It compares against Opus 5 and GPT-5.6 Sol rather than Opus 5.5 and GPT-6.1 Sol, and it runs Terminal-Bench 4.0 in the Claude Code harness, where Vals uses Mini-SWE-agent and gives the September build 19.7 against DeepSeek's own 31.2.",
+      "The public reaction was fast and warm, and mostly anecdotal. One widely shared side-by-side of the old and new builds called it a much bigger upgrade than expected, another developer found its 3D graphics closer to GPT-6.1 Sol than GPT-5.6 Sol, and one said all of their sub-agents had moved to it. Several people raced it against Opus 5.5 on game builds, with the Flash model finishing in 24 minutes against 38 in one test. Those are single runs, not scores. The skeptical point is that a vendor-reported jump of 11 points on a hard coding test is a lot for a minor update. Several posts also quote $0.15 in and $0.60 out, which matches the off-peak half of DeepSeek's list price. The peak list is $0.30 and $1.20. Ridge's public-opinion stars for the row hold at 4 until the next read.",
+      "What it means: if DeepSeek's numbers hold up, a cheap, fast open model for agents just got better for free, and the people already using it will not have to change anything. If they do not hold up, the board will show it soon enough. Artificial Analysis, Arena+ and Vals all list V4.1 Flash with no 1017 tag, so the first 1017 rows are the thing to watch. When one appears Ridge will replace the old number and say so. Until then the best open-weight seat is unchanged at GLM-5.3 on AA 45, and V4.1 Flash stays at 39 for the September build.",
+    ],
+  },
+  {
     id: "reflection-beam-1016",
     kind: "release",
     title: "Beam is out: Apache weights, a 30 on the AA Index, and a gap to close",

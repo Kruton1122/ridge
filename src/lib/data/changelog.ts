@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-17",
+    title: "DeepSeek V4.1 Flash updated to the 1017 build; its scores marked as the September build",
+    items: [
+      "DeepSeek V4.1 Flash is now served as DeepSeek-V4.1-Flash-1017 (API name deepseek-flash; price, 1M context and MIT weights unchanged; it replaces the September build). It stays one row. Summary, model page, profile, wire and a desk piece updated. DeepSeek's own 1017 benchmark figures appear in text only, labelled as its claims. Source: https://api-docs.deepseek.com/updates",
+      "No board has scored 1017 yet. Every independent score on the row (AA Index 39, AA Cyber 41, Arena+ 1503, Harvey LAB-AA 1.7, Vals Terminal-Bench 4.0 19.7, Terminal-Bench 2.1 74.53) is unchanged and its note now says it is the September build.",
+      "The daily score update now takes a new score for this row only when the board's own name carries 1017, so scores for the old and new builds are never mixed or re-dated. Rows without the tag are skipped and the September numbers stay as they are.",
+      "Daily scrape for 17 October: as-of dates refreshed. Vals Terminal-Bench 4.0 now lists 49 models and Mistral Large 4 is rescored to 27.78 (was 23.23); rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
+    ],
+  },
+  {
     date: "2026-10-16",
     title: "New lab Reflection AI and Beam 1.0; Muse Spark Open gets independent scores",
     items: [

@@ -78,14 +78,15 @@ const PROFILES: Record<string, ModelProfile> = {
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
-      "A cheaper MoE with vision and a Pro retirement clock attached. Prices come from the API card, and the board shows only independent scores, not the lab's own tables.",
+      "A cheaper MoE with vision and a Pro retirement clock attached. Since 17 October deepseek-flash serves the 1017 update. Prices come from the API card, and the board shows only independent scores, not the lab's own tables.",
     strengths: [
-      "Peak list $0.30 / $1.20 per 1M, off-peak at half",
+      "Peak list $0.30 / $1.20 per 1M, off-peak at half, unchanged by 1017",
       "MIT weights and native multimodal input",
       "Million-token context, served as deepseek-flash",
     ],
     watch: [
-      "No Vals SWE-bench score yet",
+      "Every board score is for the September build; 1017 is not scored yet",
+      "No Vals SWE-bench score",
       "The lab's own agent tables stay off this ledger",
       "The v4-pro alias routes here from 14 September",
     ],

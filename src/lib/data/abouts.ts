@@ -1344,7 +1344,7 @@ export const ABOUTS: Record<string, ModelAbout> = {
 
   "deepseek-v4.1-flash": {
     lede:
-      "DeepSeek V4.1 Flash is the first model in DeepSeek's new Causal Encoder–Decoder (CED) architecture family: a 552B-parameter MoE split into a 20-layer causal encoder feeding a 20-layer decoder, with only 8B parameters active on input and 16B active on output. It ships with native multimodal (vision + text) understanding baked into the architecture rather than bolted on.\n\nIt also inherits DeepSeek's outgoing flagship's traffic. Starting 2026-09-14, the `deepseek-v4-pro` API alias stops serving V4 Pro and routes to this model instead, at Flash pricing, until a V4.1-Pro ships. Ridge keeps this as its own catalog row regardless of what a caller's code still asks for by name.",
+      "DeepSeek V4.1 Flash is the first model in DeepSeek's new Causal Encoder–Decoder (CED) architecture family: a 552B-parameter MoE split into a 20-layer causal encoder feeding a 20-layer decoder, with only 8B parameters active on input and 16B active on output. It ships with native multimodal (vision + text) understanding baked into the architecture rather than bolted on.\n\nIt also inherits DeepSeek's outgoing flagship's traffic. Starting 2026-09-14, the `deepseek-v4-pro` API alias stops serving V4 Pro and routes to this model instead, at Flash pricing, until a V4.1-Pro ships. Ridge keeps this as its own catalog row regardless of what a caller's code still asks for by name.\n\nOn 2026-10-17 DeepSeek replaced the September release with DeepSeek-V4.1-Flash-1017, which it calls a minor update: same model id, same price, same MIT license, shorter outputs and faster task completion. Ridge treats it as the same row, as it does with dated builds like DeepSeek V4 Pro 0813. Every independent score here was measured on the September build and is marked that way; no board has scored 1017 yet.",
     framing:
       "DeepSeek pitches V4.1 Flash as a smaller, cheaper model that beats its own prior flagship rather than just approximating it: the company cites tests \"by multiple parties\" putting V4.1-Flash ahead of V4-Pro on performance, cost, speed, and total completion time. The framing leans hard on efficiency — a redesigned KV cache that needs a quarter of the HBM and an eighth of the SSD storage of the prior generation — as the reason a Flash-tier model can absorb Pro-tier traffic.",
     rollout: [
@@ -1364,18 +1364,25 @@ export const ABOUTS: Record<string, ModelAbout> = {
         date: "2026-09-14",
         text: "At 04:00 UTC, deepseek-v4-pro requests begin routing to V4.1-Flash at Flash pricing, continuing until V4.1-Pro ships.",
       },
+      {
+        date: "2026-10-17",
+        text: "DeepSeek upgrades V4.1-Flash to V4.1-Flash-1017 on web, app and API. deepseek-flash now serves the new build at the same price, and the 1017 weights go on Hugging Face under MIT.",
+      },
     ],
     rolloutNote:
-      "This release also retires the older V4-Flash generation: the legacy ids deepseek-v4-flash and deepseek-v4-flash-vision-exp are temporarily routed to V4.1-Flash for compatibility rather than serving the old weights.",
+      "This release also retires the older V4-Flash generation: the legacy ids deepseek-v4-flash and deepseek-v4-flash-vision-exp are temporarily routed to V4.1-Flash for compatibility rather than serving the old weights. Since 17 October those ids, like deepseek-flash, are served by the 1017 build, and 1017 replaces the September build.",
     claims: [
       "DeepSeek says tests \"by multiple parties\" put V4.1-Flash ahead of V4-Pro on performance, cost, speed, and total runtime (company-reported).",
       "New KV-cache design needs roughly 1/4 the HBM and 1/8 the SSD storage of the prior generation, per DeepSeek.",
       "Native multimodal (vision + text) understanding is built into the CED architecture rather than added via a separate vision branch.",
+      "For 1017, DeepSeek reports 42.3 on Terminal-Bench 4.0 (31.2 for the September build, Claude Code harness), 77.0 on DeepSWE v1.1 (74.2, Mini-SWE-V2 harness), 42.6 on HLE without tools (36.8), 68.2 on NL2Repo-Bench (65.4) and 60.5 on Automation-Bench (54.8). These are DeepSeek's own numbers on its own harnesses (company-reported).",
+      "DeepSeek says 1017 also finishes tasks faster and writes shorter outputs, a performance and cost Pareto improvement, and that it is tuned for DeepSeek Harness, Tencent CodeBuddy and WorkBuddy (company-reported).",
     ],
     vendorEvalsNote:
-      "The V4.1-Flash-beats-V4-Pro claim comes from DeepSeek's own launch post. Ridge now has independent AA Index and Arena scores for this model, so check the claim against the board scores on this page. There is no Vals SWE-bench row for it yet.",
+      "The V4.1-Flash-beats-V4-Pro claim comes from DeepSeek's own launch post. The independent scores on this page (AA Index and Cyber, Arena+, Harvey LAB-AA, Vals Terminal-Bench 4.0 and 2.1) were all measured on the September build, so they do not test the 1017 claims. DeepSeek's 1017 table compares against Opus 5 and GPT-5.6 Sol, not Ridge's current Opus 5.5 and GPT-6.1 Sol, and its Terminal-Bench 4.0 figures use the Claude Code harness where Vals uses Mini-SWE-agent (Vals scores the September build 19.7, DeepSeek's own run 31.2), so the two do not compare. There is no Vals SWE-bench row for it.",
     specs: [
       { label: "Model id", value: "deepseek-flash" },
+      { label: "Current build", value: "DeepSeek-V4.1-Flash-1017 (17 October 2026), which replaces the 10 September build" },
       {
         label: "Architecture",
         value: "Causal Encoder–Decoder (CED), 40 layers (20 encoder + 20 decoder), CSA2 KV compression",
@@ -1385,8 +1392,8 @@ export const ABOUTS: Record<string, ModelAbout> = {
       { label: "Modalities", value: "Multimodal (text + vision) in, text out" },
       { label: "Price (peak, cache miss)", value: "$0.30 input / $1.20 output per 1M tokens" },
       { label: "Price (peak, cache hit)", value: "$0.006 per 1M cached input tokens" },
-      { label: "Price (off-peak)", value: "Roughly half the peak rates" },
-      { label: "Weights", value: "Open (MIT), published on Hugging Face" },
+      { label: "Price (off-peak)", value: "Roughly half the peak rates; DeepSeek says 1017 leaves pricing unchanged" },
+      { label: "Weights", value: "Open (MIT), published on Hugging Face, including the 1017 weights" },
       { label: "Lab", value: "DeepSeek" },
     ],
     whereUsed: ["DeepSeek API", "DeepSeek app / web", "Hugging Face (open weights)", "OpenRouter"],
@@ -1399,7 +1406,11 @@ export const ABOUTS: Record<string, ModelAbout> = {
         label: "DeepSeek — Introducing DeepSeek-V4.1-Flash",
         url: "https://www.deepseek.com/en/news/deepseek-v4-1-flash/",
       },
-      { label: "DeepSeek API Docs — Change Log", url: "https://api-docs.deepseek.com/updates/" },
+      { label: "DeepSeek API Docs — Change Log (V4.1-Flash-1017 entry, 2026-10-17)", url: "https://api-docs.deepseek.com/updates/" },
+      {
+        label: "Hugging Face — deepseek-ai/DeepSeek-V4.1-Flash-1017",
+        url: "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      },
       {
         label: "Hugging Face — deepseek-ai/DeepSeek-V4.1-Flash",
         url: "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",

@@ -296,4 +296,14 @@ hardcode, so the copy is Claude's call.
 
 ---
 
-*Last updated 2026-10-16 by Ridge Bot (Grok Bot); data check and CI workflow shipped.*
+## 2026-10-17: dated-snapshot gate in the score matcher (DeepSeek V4.1 Flash 1017)
+
+DeepSeek replaced V4.1 Flash with `DeepSeek-V4.1-Flash-1017` behind the same API name and price. Ridge keeps ONE row (`deepseek-v4.1-flash`), but no board had scored 1017 yet and `match_model` strips a trailing 4-digit date, so an old-build row and a 1017 row would have matched the same model and the "keep the higher value" rule would have mixed them.
+
+- `scripts/apply-briefing-staging.py` has `SNAPSHOT_GATES`. For a gated model, a scraped row counts only if its own name or variant text carries the tag (`1017`). Untagged rows are skipped (not claimed, not re-dated). Tagged rows apply normally, and `snapshot_note()` swaps the stale-build note text for `1017 snapshot`.
+- The six existing scores on the row carry the note `September checkpoint, before the 1017 update`. Values were not changed or blanked.
+- Caveat: if a board later re-runs the model WITHOUT putting 1017 in the name, the gate skips it and the row stays on the September numbers until someone edits it by hand. That is deliberate (blank or stale-and-labelled beats a guess).
+- When boards score 1017 and the old build is no longer listed, drop the gate entry and the stale notes.
+- Dry-run test: `RIDGE_PULL_PATH=/tmp/pull.json python3 scripts/apply-briefing-staging.py --dry-run` with one tagged and one untagged row; the log lines start `snapshot gate:`.
+
+*Last updated 2026-10-17 by Ridge Bot (Grok Bot); DeepSeek V4.1 Flash 1017 handled as one row with a snapshot gate.*

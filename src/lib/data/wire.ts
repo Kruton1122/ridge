@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "deepseek-v4-1-flash-1017",
+    title: "DeepSeek swaps V4.1 Flash for a 1017 update: same price, MIT weights, no independent score yet",
+    blurb:
+      "17 October. DeepSeek upgraded V4.1 Flash to V4.1-Flash-1017 on its web chat, app and API. The API name stays deepseek-flash, the price is unchanged, the weights are on Hugging Face under MIT, and it replaces the September build. DeepSeek calls it a performance and cost Pareto improvement with shorter outputs and faster task completion, and claims 42.3 on Terminal-Bench 4.0 (31.2 before), 77.0 on DeepSWE v1.1 (74.2) and 42.6 on HLE without tools (36.8). Those are DeepSeek's claims, on its own harnesses. Artificial Analysis, Arena+ and Vals have not scored the 1017 build, so Ridge's V4.1 Flash scores (AA Index 39, Arena+ 1503) are for the September build and are marked that way.",
+    date: "2026-10-17",
+    outlet: "DeepSeek",
+    url: "https://api-docs.deepseek.com/updates",
+    beat: "release",
+    models: ["deepseek-v4.1-flash", "kimi-k3", "glm-5.3"],
+  },
+  {
     id: "reflection-beam-1016",
     title: "Reflection releases Beam 1.0 weights under Apache 2.0; AA scores it 30",
     blurb:

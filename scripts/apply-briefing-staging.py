@@ -35,6 +35,34 @@ LAB_DELTA_MAX = 5
 ROBO_DELTA_MAX = 10
 AA_ROBO_URL = "https://artificialanalysis.ai/articles/aa-robotics"
 
+# Dated snapshots that replaced an older checkpoint behind the same API name.
+# A scraped row only counts for the model when its own name (or variant text)
+# carries the snapshot tag, so a board that still lists the older checkpoint can
+# never overwrite or re-date the newer one, and the two never mix. Rows without
+# the tag are skipped and the scores already on the board keep their stale note.
+# "stale" is the note text on scores earned by the older checkpoint; "label" is
+# what a row from the new snapshot gets instead.
+SNAPSHOT_GATES = {
+    "deepseek-v4.1-flash": {
+        "pattern": r"(?<!\d)1017(?!\d)",
+        "stale": "September checkpoint, before the 1017 update",
+        "label": "1017 snapshot",
+    },
+}
+
+def snapshot_note(model_id, note):
+    """Swap the stale-checkpoint text in a score note for the snapshot label."""
+    gate = SNAPSHOT_GATES.get(model_id)
+    if not gate:
+        return note
+    n = re.sub(r"(?:;\s*|\s+)?" + re.escape(gate["stale"]) + r"\.?", "", note or "").strip()
+    label = gate["label"]
+    if label in n:
+        return n
+    if not n:
+        return label
+    return f"{n} {label}." if n.endswith(".") else f"{n}; {label}"
+
 def die(msg, code=1):
     print(msg, file=sys.stderr)
     raise SystemExit(code)
@@ -482,6 +510,16 @@ def main():
                 continue
             model = matched["model"]
             model_id = model["id"]
+            gate = SNAPSHOT_GATES.get(model_id)
+            snapshot_ok = False
+            if gate:
+                # match_model drops a trailing 4-digit date, so test the raw name here.
+                if not re.search(gate["pattern"], f"{name} {variant_hint or ''}"):
+                    if DRY_RUN:
+                        logs.append("snapshot gate: skip %s %r for %s (no %s tag)" % (benchmark_id, name, model_id, gate["label"]))
+                    continue
+                snapshot_ok = True
+                logs.append("snapshot gate: %s row %r accepted for %s (%s)" % (benchmark_id, name, model_id, gate["label"]))
             if model_id in used:
                 # keep higher sourced value for this model/benchmark
                 prev_u = next((u for u in updates if u["modelId"]==model_id and u["benchmarkId"]==benchmark_id), None)
@@ -520,6 +558,8 @@ def main():
                         and re.search(r"\bThinking\b", name or "", re.I)
                     ) else None
                 )
+                if snapshot_ok:
+                    next_note = snapshot_note(model_id, next_note)
                 next_row = {
                     "modelId": model_id, "benchmarkId": benchmark_id, "value": num_val,
                     "sourceName": source_name, "sourceUrl": source_url, "asOf": as_of,
@@ -599,8 +639,12 @@ def main():
             # Harvey LAB-AA: the note is built only from AA's figures, so take it whole.
             if benchmark_id in ("harvey-lab-aa", "aa-robotics"):
                 next_note = note or prev.get("note")
+            if snapshot_ok:
+                next_note = snapshot_note(model_id, next_note)
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
+                snapshot_ok and next_note != prev.get("note")
+            ) or (
                 benchmark_id == "aa-intelligence" and next_note != prev.get("note")
             ) or (benchmark_id == "aa-cyber" and next_note != prev.get("note")) or (
                 benchmark_id in ("terminal-bench-4", "harvey-lab-aa", "aa-robotics") and next_note != prev.get("note")
