@@ -1,5 +1,18 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-18",
+    title: "New labs StepFun and Xiaomi; Step 5 Preview and MiMo-V2.6-Pro added; MiMo-V2.6-Pro is now Best for open weights",
+    items: [
+      "New labs: StepFun and Xiaomi. New models: Step 5 Preview (API 20 September, weights 15 October under the StepFun Model License 1.0, 600B total and 27B active, 1M context, $1.00 / $2.70) and MiMo-V2.6-Pro (22 September, MIT weights, 1.02T total and 42B active, 1M context, $0.435 / $0.87).",
+      "Eight new scores. Step 5 Preview: AA Intelligence Index 44, AA Cyber 48, Arena+ 1505 (Arena+ lists it as Step-5), Vals Terminal-Bench 4.0 31.82. MiMo-V2.6-Pro: AA Index 46, AA Cyber 56, Arena+ 1507, Vals Terminal-Bench 4.0 31.31. CursorBench, Harvey LAB-AA, AA-Robotics and Vals SWE-bench are blank for both. StepFun's and Xiaomi's own model card figures appear in the text only, labelled as their claims.",
+      "Best for open weights moves from GLM-5.3 (45) to MiMo-V2.6-Pro (46). Best for cyber security now shows Grok 4.7 and MiMo-V2.6-Pro tied at 56. Xiaomi publishes the weights as MiMo-V2.6-Pro-RL and MiMo-V2.6-Pro-MOPD and does not say which one its API serves; AA flags the API model as open weights, and the model page says so.",
+      "Correction: Qwen 3.8 Max is now marked proprietary. Artificial Analysis flags the hosted Max (0902) as not open weights, and Alibaba's open release is a separate checkpoint, Qwen3.8-2.4T-A95B, which Ridge does not track. Its AA Index 45 and other scores are unchanged, but it no longer shares the open-weights pick.",
+      "The Best value card now shows three decimals under ten cents, so Claude Haiku 5.5 ($0.007) and MiMo-V2.6-Pro ($0.014) are no longer both rounded to $0.01 and called a tie. Haiku still leads.",
+      "Mistral Large 4 now shows Arena+ 1448 (added by the 18 October scrape) and its description is updated to match.",
+      "New wire items for both models, a desk piece, model pages for both, and lab colours for StepFun and Xiaomi in the site stylesheet. The daily score update now matches Step 5 Preview (including Arena+'s name Step-5) and MiMo-V2.6-Pro without mixing in other Step or MiMo models.",
+    ],
+  },
+  {
     date: "2026-10-17",
     title: "DeepSeek V4.1 Flash updated to the 1017 build; its scores marked as the September build",
     items: [

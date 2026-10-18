@@ -306,4 +306,17 @@ DeepSeek replaced V4.1 Flash with `DeepSeek-V4.1-Flash-1017` behind the same API
 - When boards score 1017 and the old build is no longer listed, drop the gate entry and the stale notes.
 - Dry-run test: `RIDGE_PULL_PATH=/tmp/pull.json python3 scripts/apply-briefing-staging.py --dry-run` with one tagged and one untagged row; the log lines start `snapshot gate:`.
 
-*Last updated 2026-10-17 by Ridge Bot (Grok Bot); DeepSeek V4.1 Flash 1017 handled as one row with a snapshot gate.*
+## 2026-10-18: StepFun and Xiaomi labs, Step 5 Preview and MiMo-V2.6-Pro, open-weights pick
+
+Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pro`), added across `types.ts`, `colors.ts`, `LABS`, the `--lab-*` CSS vars (CSS_REV 6) and `LAB_THEME`. Xiaomi is pink `#FF4FA3` on purpose: its own orange is taken by Alibaba and Mistral. StepFun is cyan `#00E5D8` (AA uses the same).
+
+- Best for open weights (`best.ts`, `fromBoard("open")`) is the top AA Index among rows with `license === "open-weight"`. Adding MiMo (AA 46, MIT) changes the pick from GLM-5.3 (45) to MiMo-V2.6-Pro. Step 5 Preview is 44 (open-weight, StepFun Model License 1.0) and does not lead.
+- Found while checking the pick: `qwen-3.8-max` was marked `open-weight`, which put it in a tie with GLM-5.3 at 45. AA flags the hosted Qwen3.8 Max (0902) `isOpenWeights: false`; the open release is a separate checkpoint (Qwen3.8-2.4T-A95B, AA 40, not tracked). Set to `proprietary`. Rule of thumb: the license field follows AA's `isOpenWeights` flag for the exact API model Ridge scores.
+- MiMo caveat: Hugging Face has `MiMo-V2.6-Pro-RL` and `-MOPD` (MIT), no repo named `MiMo-V2.6-Pro`, and Xiaomi does not say which checkpoint the API serves. AA flags the API model as open weights. Documented in the dossier and summary.
+- Cyber pick: MiMo 56 ties Grok 4.7 (56 rounded), so Best for cyber now shows both co-leaders (the existing tie rule).
+- `bestValue()` in `best.ts` now formats `$/AA point` with three decimals under ten cents. MiMo ($0.014) and Haiku 5.5 ($0.007) both rounded to `$0.01` and were shown as a tie. Other pages still show two decimals.
+- Scrape matcher: added `mimo` to `BRANDS`, aliases `step-5` / `step 5` for Arena+'s name, BOARD_WATCH and known_extra entries. Dry-run with 13 decoy names (MiMo-V2.6-Flash, V2.5-Pro, V2-Pro, V2-Flash, Ultraspeed, Step-3, Step-3.5-Flash, Step-5-Turbo, Step 5 Preview Non-reasoning, ...) left all of them unmatched. A bare `MiMo-V2.6` would match the Pro row by "contains" and is stopped only by the safety delta limits.
+- Release dates: Step 5 Preview 2026-09-20 (StepFun's post; AA says 18 Sept). MiMo-V2.6-Pro 2026-09-22 (Xiaomi changelog, Beijing time; AA and the HF repo say 21 Sept).
+- The Step card's TB4 33.3 equals AA's own Terminal-Bench 4.0 figure, not Vals' (31.82), so the Vals number is the board value.
+
+*Last updated 2026-10-18 by Ridge Bot (Grok Bot); StepFun and Xiaomi labs, Step 5 Preview and MiMo-V2.6-Pro added; open-weights pick now MiMo-V2.6-Pro.*

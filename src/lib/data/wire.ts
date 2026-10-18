@@ -11,6 +11,28 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "stepfun-step-5-preview-1015",
+    title: "StepFun releases Step 5 Preview weights; AA scores it 44, third among open models",
+    blurb:
+      "15 October. StepFun published the weights of Step 5 Preview, its flagship model, on Hugging Face in FP8, BF16 and NVFP4 under the StepFun Model License 1.0, an Apache-2.0-style license with attribution and commercial-license conditions. It is a mixture-of-experts model with 600B total and 27B active parameters, a 1M token context and text and image input. The API opened on 20 September at $1.00 input and $2.70 output per million tokens. Artificial Analysis scores it 44 on its Intelligence Index, third among open-weight models behind MiMo-V2.6-Pro (46) and GLM-5.3 (45) and level with Kimi K3 (44), and 48 on its Cyber Index with no tasks declined. Arena+ has it at 1505 and Vals Terminal-Bench 4.0 at 31.82. StepFun's own figures (DeepSWE v1.1 67.7, ALE-CLI 29.5) are its claims. Step 5 Preview now has a Ridge row with those four scores, and StepFun is a new lab.",
+    date: "2026-10-15",
+    outlet: "StepFun",
+    url: "https://huggingface.co/stepfun-ai/Step-5-Preview",
+    beat: "release",
+    models: ["step-5-preview", "mimo-v2.6-pro", "glm-5.3", "kimi-k3"],
+  },
+  {
+    id: "xiaomi-mimo-v2-6-pro-0922",
+    title: "Xiaomi's MiMo-V2.6-Pro tops AA's open-weight list at 46, with MIT weights",
+    blurb:
+      "22 September. Xiaomi released MiMo-V2.6-Pro, a mixture-of-experts model with 1.02T total and 42B active parameters, a 1M token context and text, image, video and audio input, at $0.435 input and $0.87 output per million tokens. The weights are on Hugging Face under the MIT license as MiMo-V2.6-Pro-RL, with a second checkpoint, MiMo-V2.6-Pro-MOPD. Xiaomi does not say which checkpoint its API serves. Artificial Analysis scores the model 46 on its Intelligence Index, the highest of any open-weight model it lists, one point over GLM-5.3, and 56 on its Cyber Index with no tasks declined, the same rounded score as Grok 4.7. Arena+ has it at 1507 and Vals Terminal-Bench 4.0 at 31.31, 18th of 49. Xiaomi's own table (DeepSWE v1.1 71.9, Terminal-Bench 4.0 34.9, Terminal-Bench 2.1 89.9) is Xiaomi's claim. MiMo-V2.6-Pro now has a Ridge row, Xiaomi is a new lab, and Ridge's Best for open weights pick names this model.",
+    date: "2026-09-22",
+    outlet: "Xiaomi MiMo",
+    url: "https://mimo.mi.com/docs/en-US/updates/model",
+    beat: "release",
+    models: ["mimo-v2.6-pro", "glm-5.3", "step-5-preview"],
+  },
+  {
     id: "deepseek-v4-1-flash-1017",
     title: "DeepSeek swaps V4.1 Flash for a 1017 update: same price, MIT weights, no independent score yet",
     blurb:

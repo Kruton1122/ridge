@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-18"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "open-weights-1018",
+    kind: "ranking",
+    title: "Xiaomi takes the open-weights lead, and StepFun is third",
+    dek: "Artificial Analysis scores MiMo-V2.6-Pro 46 and Step 5 Preview 44. Both are new on Ridge, and Best for open weights now names Xiaomi.",
+    pull: "The best model you can download has been a Chinese one for a while. The one at the top just changed.",
+    summary: "Ridge adds Xiaomi's MiMo-V2.6-Pro (AA 46, MIT weights) and StepFun's Step 5 Preview (AA 44, weights since 15 October) as new rows and labs. MiMo takes the open-weights pick from GLM-5.3, and Qwen 3.8 Max is corrected to proprietary.",
+    date: "2026-10-18",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
+    models: ["mimo-v2.6-pro", "step-5-preview", "glm-5.3", "kimi-k3"],
+    tags: ["open-weights", "xiaomi", "stepfun", "ranking"],
+    body: [
+      "Two Chinese labs that were not on Ridge's board this morning now sit at the top of its open-weights list. Artificial Analysis scores Xiaomi's MiMo-V2.6-Pro 46 on its Intelligence Index, one point over GLM-5.3 at 45, and StepFun's Step 5 Preview 44, level with Kimi K3. Both are new rows, and Xiaomi and StepFun are new labs on Ridge.",
+      "MiMo-V2.6-Pro reached the API on 22 September, with MIT-licensed weights on Hugging Face. It is a 1.02T mixture of experts with 42B active parameters and a 1M token window, it takes image, video and audio, and it costs $0.435 in and $0.87 out per million tokens. It also ties Grok 4.7 for the top score on AA's Cyber Index, 56, with no tasks declined. Step 5 Preview is a 600B model with 27B active. Its API opened on 20 September, its weights followed on 15 October under the StepFun Model License 1.0, and it costs $1.00 in and $2.70 out. Its Cyber score is 48.",
+      "There are caveats. Ridge's Best for open weights pick takes the top AA Index among models marked open-weight, so it now names MiMo-V2.6-Pro. The weights Xiaomi published are MiMo-V2.6-Pro-RL and MiMo-V2.6-Pro-MOPD, and Xiaomi does not say which checkpoint its API serves, though AA flags the API model as open weights. While checking the pick, Ridge also corrected Qwen 3.8 Max to proprietary: AA lists the hosted Max (0902) as not open, and Alibaba's open release is a separate checkpoint that AA scores at 40. Qwen had been sharing the open-weights lead at 45. On agent work, Vals' Terminal-Bench 4.0 puts MiMo at 31.31 and Step 5 at 31.82, 18th and 17th of 49 and well behind GLM-5.3 at 38.89. The higher numbers on the labs' own charts, 34.9 for Xiaomi and 33.3 for StepFun on the same test, are their claims.",
+      "What it means: the open-weights top is now four Chinese models within three points of each other on AA's Index, all priced far below the closed frontier, which still leads by about twelve points (Claude Opus 5.5 scores 58). If you want the smartest model you can download, AA's list has pointed to MiMo-V2.6-Pro since late September, and Ridge's pick now says so. Neither model has a CursorBench, Harvey LAB-AA or SWE-bench score, so how they do in an editor or on legal work is still unmeasured.",
+    ],
+  },
+  {
     id: "deepseek-flash-1017",
     kind: "release",
     title: "DeepSeek's Flash update is better on paper, and nobody has scored it yet",

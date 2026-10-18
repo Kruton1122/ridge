@@ -12,6 +12,8 @@ export const LAB_COLORS: Record<LabId, string> = {
   meta: "#0081FB",
   mistral: "#FA500F",
   reflection: "#CDE048",
+  stepfun: "#00E5D8",
+  xiaomi: "#FF4FA3",
   other: "#8EA0B0",
 };
 

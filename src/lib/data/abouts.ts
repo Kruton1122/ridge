@@ -1206,6 +1206,100 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "step-5-preview": {
+    lede:
+      "Step 5 Preview is StepFun's new flagship: a sparse mixture-of-experts model with 600B total and 27B active parameters, built for agent work in software engineering, professional knowledge work and finance. It takes text and image input (StepFun's API docs and the Hugging Face card's introduction also list video), writes text, and has a 1M token context.\n\nStepFun opened the API to everyone on 20 September 2026 and said that day that it would release the weights on 15 October. The weights are now on Hugging Face under the StepFun Model License 1.0.",
+    framing:
+      "StepFun sells Step 5 Preview as a Pareto-frontier model: strong enough to be a daily agent model at a fraction of the cost of the closed leaders. It says a task costs about one eighth as much as on Claude Opus 5 and that the model ranks in the top three open models on the Artificial Analysis Intelligence Index. AA's leaderboard bears out the ranking, at 44 behind MiMo-V2.6-Pro (46) and GLM-5.3 (45), and puts the model well behind the closed frontier.",
+    rollout: [
+      { date: "2026-09-20", text: "Announced and opened to all users on StepFun's API platforms and Studio. StepFun said the model remains open source and that the weights would follow on 15 October." },
+      { date: "2026-10-14", text: "StepFun raised the cache-hit input price on its China platform from ¥0.35 to ¥0.70 per million tokens. Users who had already called the model on pay-as-you-go keep ¥0.35. Cache-miss input and output prices did not change." },
+      { date: "2026-10-15", text: "Weights published on Hugging Face in FP8, BF16 and NVFP4, with vLLM and SGLang serving recipes and a standalone Transformers implementation." },
+    ],
+    rolloutNote:
+      "StepFun's international API (platform.stepfun.ai) lists step-5-preview at $1.00 input, $0.10 cached input and $2.70 output per million tokens, with output counting reasoning tokens. The China platform charges ¥7, ¥0.70 and ¥20. StepFun's API docs give a 1M token context and a 64K output limit, while the Hugging Face card says output can reach 1M. Artificial Analysis dates the release 18 September; StepFun's own post is dated 20 September, which Ridge uses.",
+    claims: [
+      "StepFun's blog (its claims, not independent): an AA Intelligence Index of 44, a place in the global top three of open models, and a cost per task about one eighth of Claude Opus 5.",
+      "StepFun says Step 5 Preview ranks behind only GPT-6 Astra or Claude Opus 5, and ahead of the other open models it tested, on ALE-CLI (the CLI subset of Agents' Last Exam), FrontierFinance and DRACO.",
+      "StepFun's Hugging Face card, at High reasoning effort: DeepSWE v1.1 67.7 (SWE-agent harness), ALE-CLI 29.5 and Terminal-Bench 4.0 33.3.",
+    ],
+    vendorEvalsNote:
+      "The figures above come from StepFun, not from Ridge's board. Ridge's Terminal-Bench 4.0 column is Vals' run, which scores Step 5 Preview 31.82, 17th of 49; the 33.3 on the card matches the Terminal-Bench 4.0 figure on Artificial Analysis' leaderboard, not Vals'. Artificial Analysis scores the model 44 on its Intelligence Index and 48 on its Cyber Index with no tasks declined. Arena+ lists it as Step-5 at 1505. CursorBench, Harvey LAB-AA and AA-Robotics have not listed it, and Vals no longer runs SWE-bench on new models.",
+    specs: [
+      { label: "Model id", value: "step-5-preview (StepFun API); stepfun-ai/Step-5-Preview on Hugging Face" },
+      { label: "Architecture", value: "Sparse mixture-of-experts, 600B total and 27B active parameters" },
+      { label: "Context", value: "1M tokens (input and output combined in StepFun's serving examples); 64K maximum output in the API docs" },
+      { label: "Modalities", value: "Text and image in per the Hugging Face spec table; the card's introduction and the API docs also list video. Text out" },
+      { label: "Weights", value: "Open weights on Hugging Face: FP8 (Step-5-Preview), Step-5-Preview-BF16 and Step-5-Preview-NVFP4. Recommended sampling temperature 1.0, top_p 0.95" },
+      { label: "License", value: "StepFun Model License 1.0, an Apache-2.0-style license with additional attribution and commercial-license conditions on use, modification and distribution" },
+      { label: "Price", value: "$1.00 input, $0.10 cached input, $2.70 output per 1M tokens (StepFun international API); ¥7, ¥0.70 and ¥20 on the China platform" },
+      { label: "Lab", value: "StepFun" },
+    ],
+    whereUsed: [
+      "StepFun Open Platform API (platform.stepfun.ai and platform.stepfun.com)",
+      "StepFun Studio",
+      "Hugging Face (weights)",
+      "vLLM and SGLang (serving recipes on the model card)",
+    ],
+    sources: [
+      { label: "Step 5 Preview announcement (StepFun, Chinese)", url: "https://www.stepfun.com/news/step-5-preview" },
+      { label: "Step 5 Preview model card and weights (Hugging Face)", url: "https://huggingface.co/stepfun-ai/Step-5-Preview" },
+      { label: "Step 5 Preview model docs (StepFun)", url: "https://platform.stepfun.ai/docs/en/guides/models/step-5-preview" },
+      { label: "Pricing and rate limits (StepFun)", url: "https://platform.stepfun.ai/docs/en/guides/pricing/details" },
+      { label: "Cache price adjustment notice (StepFun, Chinese)", url: "https://platform.stepfun.com/docs/zh/announcements/step-5-preview-price-adjustment" },
+      { label: "Artificial Analysis leaderboard", url: "https://artificialanalysis.ai/leaderboards/models" },
+      { label: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
+      { label: "Terminal-Bench 4.0 (Vals AI)", url: "https://www.vals.ai/benchmarks/terminal-bench-4" },
+    ],
+  },
+
+  "mimo-v2.6-pro": {
+    lede:
+      "MiMo-V2.6-Pro is Xiaomi's flagship reasoning model: a sparse mixture-of-experts with 1.02T total and 42B active parameters and a 1M token context. It takes text, image, video and audio in and writes text, and Xiaomi aims it at long-horizon agent work, coding and cybersecurity.\n\nXiaomi listed it in its API changelog on 22 September 2026 (21 September in US time) and published weights on Hugging Face under the MIT license as MiMo-V2.6-Pro-RL.",
+    framing:
+      "Xiaomi sells the V2.6 series on reinforcement learning at scale: one mixed run across coding, general agents, vision and cybersecurity, then multi-teacher distillation. Its model page calls MiMo-V2.6-Pro the world's strongest open-source model on the strength of a 46.32 on the Artificial Analysis Intelligence Index. AA's leaderboard agrees: first among open-weight models, 46.3 against 44.8 for GLM-5.3. It is still well behind the closed leaders, where Claude Opus 5.5 scores 58.",
+    rollout: [
+      { date: "2026-09-22", text: "Listed in Xiaomi's API changelog as mimo-v2.6-pro, alongside mimo-v2.6-flash and mimo-v2.6-pro-ultraspeed (Pro quality up to 20x faster, per Xiaomi, at ten times the price). The Hugging Face repository MiMo-V2.6-Pro-RL is dated 21 September (UTC)." },
+      { date: "2026-09-27", text: "A second checkpoint, MiMo-V2.6-Pro-MOPD, appeared on Hugging Face under the MIT license." },
+    ],
+    rolloutNote:
+      "Xiaomi's API lists mimo-v2.6-pro at $0.435 input, $0.0036 cached input and $0.87 output per million tokens ($0.2175 and $0.435 for batch at half price; ¥3 and ¥6 on the China platform), with a 1M token context, a 128K output limit and OpenAI- and Anthropic-compatible endpoints. The Hugging Face card also lists AI Studio, MiMo Code, Xiaomi MiMo Desktop and OpenRouter. Xiaomi retires mimo-v2.5-pro and mimo-v2.5 on 21 October. Which checkpoint is the API? The weights are named MiMo-V2.6-Pro-RL, which the card calls the flagship checkpoint of the series and lists the Xiaomi API among the places to use it, and MiMo-V2.6-Pro-MOPD. No repository is named MiMo-V2.6-Pro, and Xiaomi does not say the API serves the RL checkpoint exactly. Artificial Analysis flags the API model as open weights, and Ridge does the same, with this gap noted.",
+    claims: [
+      "Xiaomi's model card (its claims, not independent): DeepSWE v1.1 71.9, Terminal-Bench 4.0 34.9, Terminal-Bench 2.1 89.9, Toolathlon-Verified 76.9, OSWorld-Verified 82.0 and GDPval-AA 2.1 1673, shown against Claude Opus 5, GPT-5.6 Sol and Claude Fable 5 on the same table.",
+      "On cybersecurity Xiaomi reports CyberGym 94.0 and ExploitBench 47.9, well behind Claude Opus 5 (70.0), Claude Fable 5 (78.0) and GPT-5.6 Sol (78.5) on ExploitBench.",
+      "Xiaomi's model page says the model scores 46.32 on the Artificial Analysis Intelligence Index and calls it the world's strongest open-source model. AA's leaderboard lists 46.3.",
+    ],
+    vendorEvalsNote:
+      "The figures above come from Xiaomi, not from Ridge's board. Ridge's Terminal-Bench 4.0 column is Vals' run, which scores the model 31.31, 18th of 49, below the 34.9 on Xiaomi's card. Artificial Analysis scores it 46 on its Intelligence Index and 56 on its Cyber Index with no tasks declined, the same rounded score as Grok 4.7 (xhigh). Arena+ lists it at 1507. CursorBench, Harvey LAB-AA and AA-Robotics have not listed it, and Vals no longer runs SWE-bench on new models. Ridge does not track MiMo-V2.6-Flash (AA 38), MiMo-V2.5-Pro or the mimo-v2.6-pro-ultraspeed tier, so none of their scores are mixed into this row.",
+    specs: [
+      { label: "Model id", value: "mimo-v2.6-pro (Xiaomi API); XiaomiMiMo/MiMo-V2.6-Pro-RL and XiaomiMiMo/MiMo-V2.6-Pro-MOPD on Hugging Face" },
+      { label: "Architecture", value: "Sparse mixture-of-experts, 1.02T total and 42B active parameters; 70 layers (60 sliding-window, 10 global attention), 384 routed experts with 8 active, and a 5-layer multi-token-prediction drafter" },
+      { label: "Context", value: "1M tokens; 128K maximum output (Xiaomi API)" },
+      { label: "Modalities", value: "Text, image, video and audio in; text out" },
+      { label: "Weights", value: "Open weights on Hugging Face as MiMo-V2.6-Pro-RL (FP8) and MiMo-V2.6-Pro-MOPD. Recommended sampling temperature 1.0, top_p 0.95" },
+      { label: "License", value: "MIT" },
+      { label: "Price", value: "$0.435 input, $0.0036 cached input, $0.87 output per 1M tokens (Xiaomi API); batch at half price" },
+      { label: "Lab", value: "Xiaomi (MiMo team)" },
+    ],
+    whereUsed: [
+      "Xiaomi MiMo Open Platform API",
+      "AI Studio, MiMo Code and Xiaomi MiMo Desktop",
+      "OpenRouter (listed on the Hugging Face card)",
+      "Hugging Face (weights)",
+      "SGLang and vLLM (serving recipes on the model card)",
+    ],
+    sources: [
+      { label: "Model updates (Xiaomi MiMo API changelog)", url: "https://mimo.mi.com/docs/en-US/updates/model" },
+      { label: "MiMo-V2.6-Pro model page (Xiaomi MiMo)", url: "https://mimo.mi.com/models/en-US/mimo-v2.6-pro" },
+      { label: "API pricing (Xiaomi MiMo)", url: "https://mimo.mi.com/docs/en-US/price/pay-as-you-go" },
+      { label: "MiMo-V2.6-Pro-RL model card and weights (Hugging Face)", url: "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL" },
+      { label: "MiMo-V2.6 collection (Hugging Face)", url: "https://huggingface.co/collections/XiaomiMiMo/mimo-v26" },
+      { label: "Artificial Analysis leaderboard", url: "https://artificialanalysis.ai/leaderboards/models" },
+      { label: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
+      { label: "Terminal-Bench 4.0 (Vals AI)", url: "https://www.vals.ai/benchmarks/terminal-bench-4" },
+    ],
+  },
+
   "muse-wonder": {
     lede:
       "Muse Wonder is Meta's new frontier model, released 12 October 2026, six weeks after Muse Spark 1.3. It is the one of the pair you can call: in preview on the Meta Model API and in Muse Code, at $4 in and $20 out per million tokens.\n\nArtificial Analysis scores it 52 on its Intelligence Index at max effort, four points over Muse Spark 1.3 max. The bigger Muse Wonder Full scores 56 but is only in Muse Code. Ridge tracks them as separate rows.",

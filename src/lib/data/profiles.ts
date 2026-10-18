@@ -75,6 +75,36 @@ const PROFILES: Record<string, ModelProfile> = {
       "No published price: Reflection's API is a free beta with daily limits",
     ],
   },
+  "step-5-preview": {
+    epithet: "The cheap third seat",
+    voice:
+      "StepFun's flagship, now an open-weight model. Independent tests put it third among open models on AA's Index, level with Kimi K3 and a point behind GLM-5.3, at a list price well under most closed models. StepFun's coding and finance charts are StepFun's claims.",
+    strengths: [
+      "AA Index 44, third among open-weight models on AA's list",
+      "AA Cyber 48 with no tasks declined",
+      "$1.00 / $2.70 per 1M tokens on StepFun's international API",
+    ],
+    watch: [
+      "Vals Terminal-Bench 4.0 31.82, 17th of 49, below the 33.3 on StepFun's own card",
+      "StepFun Model License 1.0 adds attribution and commercial-license conditions, so it is not plain Apache",
+      "No CursorBench, Harvey LAB-AA or Vals SWE-bench score",
+    ],
+  },
+  "mimo-v2.6-pro": {
+    epithet: "The new open leader",
+    voice:
+      "Xiaomi's trillion-parameter flagship and, on Artificial Analysis, the top open-weight model: 46, a point over GLM-5.3, at under a dollar per million output tokens. The weights are MIT licensed. Xiaomi's agent and cyber charts are Xiaomi's claims.",
+    strengths: [
+      "AA Index 46, first among open-weight models on AA's list",
+      "AA Cyber 56 with no tasks declined, the same rounded score as Grok 4.7 at the top",
+      "$0.435 / $0.87 per 1M tokens on Xiaomi's API, with MIT weights",
+    ],
+    watch: [
+      "Hugging Face hosts MiMo-V2.6-Pro-RL and -MOPD, and Xiaomi does not name the checkpoint behind the API",
+      "Vals Terminal-Bench 4.0 31.31, 18th of 49, below the 34.9 on Xiaomi's card",
+      "Still well behind the closed leaders: Claude Opus 5.5 scores 58 on AA",
+    ],
+  },
   "deepseek-v4.1-flash": {
     epithet: "Flash that ate Pro",
     voice:
@@ -226,6 +256,8 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   meta: { motif: "Meta blue #0081FB. Muse is not Llama. Mostly proprietary; Spark Open is the open-weight one." },
   mistral: { motif: "Mistral orange #FA500F. Paris lab, sovereign pitch, open weights promised." },
   reflection: { motif: "Reflection lime #CDE048. New US lab; Apache 2.0 open weights, efficiency pitch." },
+  stepfun: { motif: "StepFun cyan #00E5D8 (AA uses the same). Chinese lab; open-weight Step 5 at a low price." },
+  xiaomi: { motif: "Xiaomi pink #FF4FA3, chosen because Xiaomi's own orange is taken by Alibaba and Mistral. Phone and EV maker; MIT open weights." },
   other: { motif: "Neutral slate." },
 };
 

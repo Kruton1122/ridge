@@ -91,7 +91,8 @@ function fromBoard(
 function bestValue(): Pick | null {
   const pts = scatter("promo").filter((p) => p.frontier).sort((a, b) => a.dollarPerAa - b.dollarPerAa);
   if (!pts.length) return null;
-  const fmt = (v: number) => `$${v.toFixed(2)}`;
+  /** Three decimals under ten cents, so $0.007 and $0.014 are not both shown (and tied) as $0.01. */
+  const fmt = (v: number) => `$${v.toFixed(v < 0.1 ? 3 : 2)}`;
   const top = fmt(pts[0].dollarPerAa);
   const leaders = pts.filter((p) => fmt(p.dollarPerAa) === top);
   const aa = getBenchmark("aa-intelligence");

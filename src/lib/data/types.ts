@@ -10,6 +10,8 @@ export type LabId =
   | "meta"
   | "mistral"
   | "reflection"
+  | "stepfun"
+  | "xiaomi"
   | "other";
 
 export type License = "proprietary" | "open-weight";

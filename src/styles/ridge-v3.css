@@ -27,6 +27,8 @@
   --lab-meta: #3b9bff;
   --lab-mistral: #fa500f;
   --lab-reflection: #cde048;
+  --lab-stepfun: #00e5d8;
+  --lab-xiaomi: #ff4fa3;
   --lab-other: #8ea0b0;
   --serif: "Geist", "Inter", system-ui, sans-serif;
   --sans: "Geist", "Inter", system-ui, sans-serif;
@@ -69,6 +71,8 @@
   --lab-meta: #1466d8;
   --lab-mistral: #d9440a;
   --lab-reflection: #76900a;
+  --lab-stepfun: #00868c;
+  --lab-xiaomi: #d6277f;
   --lab-other: #6f8397;
   color-scheme: light;
 }
