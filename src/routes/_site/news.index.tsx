@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { NEWS, isFresh } from "@/lib/data/desk";
+import { SNAPSHOT_DATE } from "@/lib/data/catalog";
+import { NEWS } from "@/lib/data/desk";
 import { WIRE } from "@/lib/data/wire";
 
 export const Route = createFileRoute("/_site/news/")({
@@ -7,6 +8,8 @@ export const Route = createFileRoute("/_site/news/")({
   head: () => ({ meta: [{ title: "News | Ridge" }] }),
 });
 
+/** "new" only for the last day's items; a seven-day badge ended up on nearly every story. */
+const isNew = (d: string) => Date.parse(`${SNAPSHOT_DATE}T00:00:00Z`) - Date.parse(`${d}T00:00:00Z`) <= 86_400_000;
 const fmt = (d: string) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 
 function News() {
@@ -24,7 +27,7 @@ function News() {
         <div>
           {lead && (
             <a className="rx-story lead rx-in" href={`/news/${lead.id}`}>
-              <span className="rx-kicker">{fmt(lead.date)} · {lead.kind}{isFresh(lead.date) ? " · new" : ""}</span>
+              <span className="rx-kicker">{fmt(lead.date)} · {lead.kind}{isNew(lead.date) ? " · new" : ""}</span>
               <h3>{lead.title}</h3>
               <p>{lead.dek}</p>
               {lead.pull && <blockquote className="rx-pull">{lead.pull}</blockquote>}
@@ -32,7 +35,7 @@ function News() {
           )}
           {rest.map((n, i) => (
             <a key={n.id} className="rx-story rx-in" href={`/news/${n.id}`} style={{ "--d": `${Math.min(i, 8) * 40}ms` } as React.CSSProperties}>
-              <span className="rx-kicker">{fmt(n.date)} · {n.kind}{isFresh(n.date) ? " · new" : ""}</span>
+              <span className="rx-kicker">{fmt(n.date)} · {n.kind}{isNew(n.date) ? " · new" : ""}</span>
               <h3>{n.title}</h3>
               <p>{n.dek}</p>
             </a>

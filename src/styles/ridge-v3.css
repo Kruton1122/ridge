@@ -10,7 +10,7 @@
   --paper-3: #122232;
   --ink: #e8eef4;
   --ink-2: #a8bacb;
-  --ink-3: #6f8397;
+  --ink-3: #8a9cae;
   --rule: #1a2635;
   --rule-strong: #2c425a;
   --accent: #e8b86d;
@@ -55,7 +55,7 @@
   --paper-3: #dde4ec;
   --ink: #0b1622;
   --ink-2: #3d5064;
-  --ink-3: #6f8397;
+  --ink-3: #56697c;
   --rule: #dbe2ea;
   --rule-strong: #0b1622;
   --accent: #a96d12;
@@ -325,11 +325,10 @@
 
 /* desktop: the header sticks under the nav as the page scrolls; phones: the table scrolls sideways
    instead (a sticky header inside an overflow box sticks to the box and covered row 1) */
-.rx-table-wrap { margin: 0 -4px; padding: 0 4px; }
-@media (max-width: 900px) {
-  .rx-table-wrap { overflow-x: auto; }
-  .rx-table th { position: static !important; }
-}
+/* the table scrolls sideways inside the content column at every width (it is wider than the column
+   even on desktop). A sticky header inside an overflow box sticks to the box and covers row 1, so it is static. */
+.rx-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.rx-table th { position: static !important; }
 .rx-table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .rx-table th {
   position: sticky; top: 48px; z-index: 2;
@@ -773,3 +772,25 @@
 
 .rx-best.stale .who a, .rx-best.stale .val { opacity: 0.55; }
 .rx-best .lbl .old { margin-left: 10px; padding: 1px 6px; border: 1px solid var(--rule-strong); border-radius: 3px; color: var(--ink-3); letter-spacing: 0.08em; }
+
+/* ------------------------------------------------------------------ 19 Oct review fixes */
+.rx-plate.inner { padding-top: 18px; }
+.rx-plate.inner .name { font-size: clamp(40px, 5.2vw, 64px); }
+.rx-plate.inner .motto { margin-top: 8px; font-size: 13.5px; }
+.rx-plate.inner .rx-rules { margin-top: 16px; }
+.rx-hero-index { margin: 10px 0 0; font-size: 13.5px; color: var(--ink-2); }
+.rx-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 14px 0 0; font-size: 12.5px; color: var(--ink-3); }
+.rx-legend > div { display: flex; gap: 6px; }
+.rx-legend dt { font: 500 11px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); }
+.rx-legend dd { margin: 0; }
+.rx-legend .key-best { color: var(--accent); }
+.rx-notyet { margin: 14px 0 0; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+.rx-notyet a { border-bottom: 1px solid var(--rule); }
+.rx-notyet a:hover { color: var(--accent); border-color: var(--accent); }
+.rx-best:not(.full) .win { flex-direction: column; align-items: flex-start; gap: 6px; }
+.rx-best:not(.full) .who a { font-size: 19px; }
+.rx-best .behind a { white-space: nowrap; }
+.rx-best .cavlink { align-self: flex-start; font: 500 11px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+.rx-best .cavlink:hover { border-color: var(--accent); }
+.rx-nav .links { min-width: 0; }
+.rx-theme { flex: none; }

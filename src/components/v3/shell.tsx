@@ -17,6 +17,7 @@ const NAV: { to: string; label: string }[] = [
   { to: "/labs", label: "Labs" },
   { to: "/news", label: "News" },
   { to: "/methodology", label: "Method" },
+  { to: "/changelog", label: "Changelog" },
 ];
 
 type Theme = "night" | "paper";
@@ -74,7 +75,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </div>
 
-      <header className="rx-plate" ref={plate}>
+      <header className={path === "/" ? "rx-plate" : "rx-plate inner"} ref={plate}>
         <div className="rx-wrap">
           <Link to="/" className="name" aria-label="Ridge front page">
             Ridge<em>.</em>

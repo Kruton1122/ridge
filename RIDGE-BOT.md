@@ -334,4 +334,16 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Matcher: `minimax` added to BRANDS, BOARD_WATCH and known_extra entries. No bare "minimax m3.1" alias, so a future M3.1 Pro does not collide (dry-run: MiniMax-M3.1-Pro scores 44, M3/M3.2 version-mismatch; a bare "MiniMax-M3.1" contain-matches at 90, below the 95 high-confidence bar, so it would need review).
 - Nemotron 3.5 Super VL (26) and Bolt (21) are wire only. AA's "top US open-weight" line predates its Beam (30) and Muse Spark Open (39) scores, so it is not repeated.
 
-*Last updated 2026-10-19 by Ridge Bot (Grok Bot); half-week news pass, then MiniMax lab and M3.1 Flash.*
+## 2026-10-19: site review fixes (Colton gave full control of the site, UI included)
+
+- Ledger: SWE-bench Verified column hidden (`HIDDEN` in `components/v3/ledger.tsx`); data still on model pages, /benchmarks (with a note) and CSV. Column headers have `title` tooltips and a legend under the table (column names come from BENCHMARKS, orange = best in column, `=N` = tie), plus a link to /benchmarks. Hero spells out "Artificial Analysis Intelligence Index v4.3.2".
+- Tables: `.rx-table-wrap` now scrolls sideways at every width, aligned to the column, and table headers are no longer sticky (a sticky header inside an overflow box covers row 1). Measured with headless Chrome at 1280 / 820 / 390: before, the homepage document was 1402px wide at 1280; after, no page overflows at any of the three widths.
+- `$ / point`: new `perPoint()` in `derived.ts`, three decimals everywhere (ledger, homepage, model pages, /labs, scatter tooltip, /best).
+- Best for: the Coding (Vals SWE-bench) card is removed; it only ever crowned Opus 5 because Vals stopped adding models. Coding is covered by "Coding in an editor" (CursorBench) and "Agents & terminal" (TB 4.0). Cards stack name over value, "Next" is now "Runner-up", the "!" is a visible "Read the caveat" link, and `plainNote()` in `best.ts` strips scrape config ("best effort/variant: ...", "best listed row") from leader notes.
+- Boot splash removed (`BootCover` no longer rendered in `__root.tsx`; the component file stays unused). Inner pages get a smaller "Ridge." plate (`.rx-plate.inner`). `--ink-3` raised to #8a9cae (night) and #56697c (daylight) for contrast. Changelog added to the top nav.
+- Lab name: xAI is now SpaceXAI in LABS and the three Grok rows (AA's creator name and the lab's own posts). Lab id stays `xai`. Voice model names are AA's own strings (checked on AA's page), so they were left as they are.
+- /methodology: the "the rest" sentence is now computed from CATALOG_STATS.
+- Public copy: recent changelog entries (10 to 19 Oct) and one desk line no longer say matcher, wires, Arena+ column or daily scrape. Going forward use "daily score update", "news item", "article", "on the ledger". /news "new" badge now means within a day of the snapshot, not seven days.
+- Model pages: unscored boards collapse into one "Not scored yet on ..." line; archived boards say "(no longer adding models)".
+
+*Last updated 2026-10-19 by Ridge Bot (Grok Bot); site review fixes (UI, copy, ledger).*

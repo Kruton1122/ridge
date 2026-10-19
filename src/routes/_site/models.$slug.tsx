@@ -2,7 +2,7 @@ import { createFileRoute, notFound } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
 import { ABOUTS } from "@/lib/data/abouts";
 import { formatContext, getModel } from "@/lib/data/catalog";
-import { AA_VERSION, board, dossier, formatValue, money } from "@/lib/data/derived";
+import { AA_VERSION, board, dossier, formatValue, money, perPoint } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/models/$slug")({
   component: ModelPage,
@@ -31,7 +31,7 @@ function ModelPage() {
   const stats = [
     { k: `AA Index ${AA_VERSION}`, v: d.aa ? String(d.aa.value) : "—", s: d.aa ? `${d.aa.tied ? "joint " : ""}${ord(d.aa.rank)} of ${d.aa.of}` : "No published score" },
     { k: "Price, mid", v: d.midPrice != null ? money(d.midPrice) : "—", s: m.pricing ? `$${m.pricing.inputPerM} in · $${m.pricing.outputPerM} out per 1M` : "Not listed" },
-    { k: "$ per point", v: d.dollarPerAa != null ? `$${d.dollarPerAa.toFixed(2)}` : "—", s: d.dollarPerAaRank ? `${ord(d.dollarPerAaRank.rank)} cheapest of ${d.dollarPerAaRank.of}` : "Needs a price and a score" },
+    { k: "$ per point", v: d.dollarPerAa != null ? perPoint(d.dollarPerAa) : "—", s: d.dollarPerAaRank ? `${ord(d.dollarPerAaRank.rank)} cheapest of ${d.dollarPerAaRank.of}` : "Needs a price and a score" },
     { k: "Context", v: m.contextTokens ? formatContext(m.contextTokens) : "—", s: "tokens" },
     { k: "Released", v: shortDate(m.released), s: `${m.license === "open-weight" ? "Open weights" : "Proprietary"} · ${m.status.toUpperCase()}` },
   ];
@@ -85,16 +85,18 @@ function ModelPage() {
               </div>
             );
           })}
-          {d.missing.map((b) => (
-            <div key={b.id} className="rx-strip missing">
-              <div>
-                <div className="bn">{b.name}</div>
-                <div className="bs">{b.sourceName} hasn’t published a row</div>
-              </div>
-              <div className="track" aria-hidden="true" />
-              <div className="rv"><span className="v rx-faint">—</span></div>
-            </div>
-          ))}
+          {d.missing.length > 0 && (
+            <p className="rx-notyet">
+              <span className="rx-kicker">Not scored yet on</span>{" "}
+              {d.missing.map((b, i) => (
+                <span key={b.id}>
+                  <a href={`/benchmarks/${b.id}`}>{b.name.replace(/ \(archived\)$/, "")}</a>
+                  {/archived/i.test(b.name) || b.id === "swe-bench" ? <span className="rx-faint"> (no longer adding models)</span> : null}
+                  {i < d.missing.length - 1 ? ", " : "."}
+                </span>
+              ))}
+            </p>
+          )}
         </div>
       </section>
 

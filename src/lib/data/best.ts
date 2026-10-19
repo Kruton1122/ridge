@@ -1,5 +1,5 @@
 import { MODELS, getBenchmark } from "./catalog";
-import { board, formatValue, scatter, type BoardRow } from "./derived";
+import { board, formatValue, perPoint, scatter, type BoardRow } from "./derived";
 import type { Model } from "./types";
 
 /**
@@ -31,6 +31,19 @@ export interface Pick {
   caveat?: string;
   /** The board hasn't measured most of today's top models, so its leader may be a default. */
   stale?: boolean;
+}
+
+/**
+ * Score notes carry scrape config ("best effort/variant: max with fallback", "best listed row").
+ * Cards keep only the plain-language parts, and show nothing when that is all there is.
+ */
+export function plainNote(note: string | undefined): string | undefined {
+  if (!note) return undefined;
+  const keep = note
+    .split(/;\s*|\.\s+(?=[A-Z])/)
+    .map((p) => p.trim().replace(/\.$/, ""))
+    .filter((p) => p && !/^(best effort|best listed row|variant:|best effort\/variant|reasoning, default|xhigh$|max$|high$)/i.test(p));
+  return keep.length ? `${keep.join(". ")}.` : undefined;
 }
 
 const THIN = 0.5;
@@ -82,7 +95,7 @@ function fromBoard(
     href: `/benchmarks/${b.id}`,
     measured: all.length,
     total: MODELS.length,
-    leaderNote: leaders.length === 1 ? leaders[0].score.note : undefined,
+    leaderNote: leaders.length === 1 ? plainNote(leaders[0].score.note) : undefined,
     caveat: cav || undefined,
     stale,
   };
@@ -91,8 +104,8 @@ function fromBoard(
 function bestValue(): Pick | null {
   const pts = scatter("promo").filter((p) => p.frontier).sort((a, b) => a.dollarPerAa - b.dollarPerAa);
   if (!pts.length) return null;
-  /** Three decimals under ten cents, so $0.007 and $0.014 are not both shown (and tied) as $0.01. */
-  const fmt = (v: number) => `$${v.toFixed(v < 0.1 ? 3 : 2)}`;
+  /** Three decimals, as everywhere on the site, so $0.007 and $0.014 are not both shown (and tied) as $0.01. */
+  const fmt = perPoint;
   const top = fmt(pts[0].dollarPerAa);
   const leaders = pts.filter((p) => fmt(p.dollarPerAa) === top);
   const aa = getBenchmark("aa-intelligence");
@@ -145,7 +158,6 @@ function longestContext(): Pick | null {
 export function bestPicks(): Pick[] {
   return [
     fromBoard("smartest", "aa-intelligence", "Smartest overall", "Which model is the smartest all-round?"),
-    fromBoard("coding", "swe-bench", "Coding", "Which fixes real bugs in real code best?"),
     fromBoard("ide", "cursor-bench", "Coding in an editor", "Which handles messy multi-file work best?", undefined,
       "Cursor runs this board on its own harness, so it measures models as Cursor uses them."),
     fromBoard("agents", "terminal-bench-4", "Agents & terminal", "Which gets the most done on its own at a command line?"),

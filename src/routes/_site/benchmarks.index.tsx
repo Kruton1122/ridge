@@ -24,6 +24,7 @@ function Benchmarks() {
               <div className="rx-kicker">{b.category} · {b.sourceName}</div>
               <h2>{b.name}</h2>
               <p>{b.description}</p>
+              {b.id === "swe-bench" && <p className="rx-faint" style={{ fontSize: 13 }}>Not shown as a column on the front-page ledger, because Vals no longer adds new models. Scores are kept here and on model pages.</p>}
               <div className="cov">
                 <span className="rx-num">{scored} of {total} models</span>
                 <span className="covbar"><i style={{ "--w": scored / total } as React.CSSProperties} /></span>

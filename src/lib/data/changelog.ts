@@ -1,12 +1,26 @@
 export const CHANGELOG = [
   {
     date: "2026-10-19",
+    title: "Easier to read: column key, wider tables, clearer Best for cards",
+    items: [
+      "The front page now names the score in full (Artificial Analysis Intelligence Index v4.3.2), and the ledger has a key for every column, the orange highlight and tied places, with a link to Benchmarks.",
+      "Wide tables on the front page and Voice now scroll sideways inside the page instead of running off the edge.",
+      "Cost per AA point shows three decimals everywhere, as on Best for.",
+      "SWE-bench Verified is no longer a ledger column, because Vals stopped adding new models to it. Its scores stay on model pages and Benchmarks. The Coding card that it fed is gone from Best for; coding is covered by the CursorBench and Terminal-Bench 4.0 cards.",
+      "Best for cards are easier to scan, and caveats are a visible link instead of an unlabelled icon.",
+      "No more splash screen, a smaller masthead on inside pages, stronger contrast for grey text, and Changelog in the top menu.",
+      "xAI is now shown as SpaceXAI everywhere, matching the lab's current name.",
+      "Model pages list the boards that have not scored a model on one line.",
+    ],
+  },
+  {
+    date: "2026-10-19",
     title: "New lab and model: MiniMax M3.1 Flash",
     items: [
-      "New lab MiniMax and new row MiniMax M3.1 Flash (released 19 October; $0.15 / $0.60 per 1M tokens, 1M context). AA Intelligence Index 42. Marked proprietary until MiniMax publishes the promised weights. No Cyber, Arena+, Harvey or Vals score yet. Its Code Arena WebDev score is in text only, because Ridge's Arena+ column is the text leaderboard.",
+      "New lab MiniMax and new model MiniMax M3.1 Flash (released 19 October; $0.15 / $0.60 per 1M tokens, 1M context). AA Intelligence Index 42. Marked proprietary until MiniMax publishes the promised weights. No Cyber, Arena+, Harvey or Vals score yet. Its Code Arena WebDev score is mentioned in the text only, because Ridge's Arena score comes from Arena's main text leaderboard, a different board.",
       "Best value is unchanged: M3.1 Flash works out to about $0.009 per AA point, against $0.007 for Claude Haiku 5.5, which also scores higher (43).",
-      "New wires: MiniMax M3.1 Flash, and NVIDIA's Nemotron 3.5 Super VL (AA 26) and Bolt 74B-A9B (AA 21). Neither Nemotron model is a Ridge row. New desk piece on M3.1 Flash.",
-      "Daily scrape: the matcher now knows the MiniMax brand and M3.1 Flash aliases. A future MiniMax M3.1 Pro will not match this row.",
+      "News added: MiniMax M3.1 Flash, and NVIDIA's Nemotron 3.5 Super VL (AA 26) and Bolt 74B-A9B (AA 21). Neither Nemotron model is on the ledger. New article on M3.1 Flash.",
+      "The daily score update now recognises MiniMax M3.1 Flash by name, and will not confuse it with a future MiniMax M3.1 Pro.",
     ],
   },
   {
@@ -14,8 +28,8 @@ export const CHANGELOG = [
     title: "Half-week news pass; first opinion stars for MiMo, Step 5 and Beam",
     items: [
       "Public opinion from posts on X between 15 and 19 October: MiMo-V2.6-Pro opens at 4, Step 5 Preview at 3 and Beam 1.0 at 3. Muse Spark Open stays unrated because posts were about its license and hardware needs, not hands-on results. DeepSeek V4.1 Flash holds at 4 and Claude Opus 5.5 at 5, both with refreshed notes. Every other rating holds.",
-      "Seven new wires: Microsoft AI's MAI-Base-2 pre-training, Apollo Research on GLM-5.3, Opus 5.5 fast mode out of preview, Elorian Glimpse, Anthropic's AI expectations survey, Replit's switch to an OpenAI default, and the first board scores for DeepSeek V4.1 Flash 1017. One desk piece: the half-week opinion column.",
-      "Daily scrape for 19 October: Artificial Analysis scores DeepSeek V4.1 Flash 1017 at 45 (the September build was 39) and Vals Terminal-Bench 4.0 scores it 31.82 (was 19.7), now #17 of 50. Its other scores are still for the September build and are marked that way. Sources: https://artificialanalysis.ai/leaderboards/models https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Seven news items added: Microsoft AI's MAI-Base-2 pre-training, Apollo Research on GLM-5.3, Opus 5.5 fast mode out of preview, Elorian Glimpse, Anthropic's AI expectations survey, Replit's switch to an OpenAI default, and the first board scores for DeepSeek V4.1 Flash 1017. One article: the half-week opinion column.",
+      "Daily score update for 19 October: Artificial Analysis scores DeepSeek V4.1 Flash 1017 at 45 (the September build was 39) and Vals Terminal-Bench 4.0 scores it 31.82 (was 19.7), now #17 of 50. Its other scores are still for the September build and are marked that way. Sources: https://artificialanalysis.ai/leaderboards/models https://www.vals.ai/benchmarks/terminal-bench-4",
     ],
   },
   {
@@ -27,18 +41,18 @@ export const CHANGELOG = [
       "Best for open weights moves from GLM-5.3 (45) to MiMo-V2.6-Pro (46). Best for cyber security now shows Grok 4.7 and MiMo-V2.6-Pro tied at 56. Xiaomi publishes the weights as MiMo-V2.6-Pro-RL and MiMo-V2.6-Pro-MOPD and does not say which one its API serves; AA flags the API model as open weights, and the model page says so.",
       "Correction: Qwen 3.8 Max is now marked proprietary. Artificial Analysis flags the hosted Max (0902) as not open weights, and Alibaba's open release is a separate checkpoint, Qwen3.8-2.4T-A95B, which Ridge does not track. Its AA Index 45 and other scores are unchanged, but it no longer shares the open-weights pick.",
       "The Best value card now shows three decimals under ten cents, so Claude Haiku 5.5 ($0.007) and MiMo-V2.6-Pro ($0.014) are no longer both rounded to $0.01 and called a tie. Haiku still leads.",
-      "Mistral Large 4 now shows Arena+ 1448 (added by the 18 October scrape) and its description is updated to match.",
-      "New wire items for both models, a desk piece, model pages for both, and lab colours for StepFun and Xiaomi in the site stylesheet. The daily score update now matches Step 5 Preview (including Arena+'s name Step-5) and MiMo-V2.6-Pro without mixing in other Step or MiMo models.",
+      "Mistral Large 4 now shows Arena+ 1448 (added by the 18 October score update) and its description is updated to match.",
+      "News items for both models, an article, model pages for both, and lab colours for StepFun and Xiaomi in the site stylesheet. The daily score update now matches Step 5 Preview (including Arena+'s name Step-5) and MiMo-V2.6-Pro without mixing in other Step or MiMo models.",
     ],
   },
   {
     date: "2026-10-17",
     title: "DeepSeek V4.1 Flash updated to the 1017 build; its scores marked as the September build",
     items: [
-      "DeepSeek V4.1 Flash is now served as DeepSeek-V4.1-Flash-1017 (API name deepseek-flash; price, 1M context and MIT weights unchanged; it replaces the September build). It stays one row. Summary, model page, profile, wire and a desk piece updated. DeepSeek's own 1017 benchmark figures appear in text only, labelled as its claims. Source: https://api-docs.deepseek.com/updates",
+      "DeepSeek V4.1 Flash is now served as DeepSeek-V4.1-Flash-1017 (API name deepseek-flash; price, 1M context and MIT weights unchanged; it replaces the September build). It stays one row. Summary, model page, profile, news item and an article updated. DeepSeek's own 1017 benchmark figures appear in text only, labelled as its claims. Source: https://api-docs.deepseek.com/updates",
       "No board has scored 1017 yet. Every independent score on the row (AA Index 39, AA Cyber 41, Arena+ 1503, Harvey LAB-AA 1.7, Vals Terminal-Bench 4.0 19.7, Terminal-Bench 2.1 74.53) is unchanged and its note now says it is the September build.",
       "The daily score update now takes a new score for this row only when the board's own name carries 1017, so scores for the old and new builds are never mixed or re-dated. Rows without the tag are skipped and the September numbers stay as they are.",
-      "Daily scrape for 17 October: as-of dates refreshed. Vals Terminal-Bench 4.0 now lists 49 models and Mistral Large 4 is rescored to 27.78 (was 23.23); rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Daily score update for 17 October: as-of dates refreshed. Vals Terminal-Bench 4.0 now lists 49 models and Mistral Large 4 is rescored to 27.78 (was 23.23); rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
     ],
   },
   {
@@ -48,7 +62,7 @@ export const CHANGELOG = [
       "New lab: Reflection AI. New model: Beam 1.0, weights released 16 October under Apache 2.0, 501B total and 23B active parameters, 1M context. Reflection has published no price, so the price is blank.",
       "Two new scores from Artificial Analysis: AA Intelligence Index 30 and AA Cyber Index 34 (no tasks declined). No Arena+, CursorBench, Vals or Harvey LAB-AA score yet. Reflection's own model card figures appear in the text only, labelled as its claims.",
       "Muse Spark Open now has two independent scores: AA Index 39 (xhigh) and Arena+ 1484. GLM-5.3 on Arena+ moves to 1506. Best for open weights is unchanged: GLM-5.3 at 45.",
-      "New wire and desk piece on the Beam release, a model page for Beam, and a lab colour for Reflection AI in the site stylesheet.",
+      "A news item and article on the Beam release, a model page for Beam, and a lab colour for Reflection AI in the site stylesheet.",
     ],
   },
   {
@@ -56,7 +70,7 @@ export const CHANGELOG = [
     title: "Muse Spark Open added (no scores yet)",
     items: [
       "New model: Muse Spark Open (Meta, released 15 October). Open weights under the Muse Model License, 816B total and 42B active parameters, 1M context, hosted at $1.25 / $4.25 per 1M tokens on OpenRouter. No independent board has scored it, so every score is blank. Meta's own chart figures, including an AA Index of 39, appear in prose only and are labelled as Meta's claims. Source: https://research.meta.ai/blog/muse-spark-open",
-      "Model page, a wire and a desk piece on the release. The Meta lab note no longer says all Muse models are proprietary.",
+      "Model page, a news item and an article on the release. The Meta lab note no longer says all Muse models are proprietary.",
     ],
   },
   {
@@ -64,7 +78,7 @@ export const CHANGELOG = [
     title: "New board: AA-Robotics v0.1",
     items: [
       "New board and ledger column: AA-Robotics v0.1 from Artificial Analysis (launched 14 October). Language models control a real six-axis robot arm on eight tabletop tasks, scored 0 to 100 per task with partial credit, high effort. Five Ridge models are scored, which is every model AA has tested so far: GPT-6 Astra 69.4, GPT-6.1 Sol 64.6, Gemini 4 Argon 55.3, Claude Opus 5.5 48.8, Claude Fable 5.1 46.3. All other models are blank. Source: https://artificialanalysis.ai/articles/aa-robotics",
-      "Ledger CSV and JSON gain an aa_robotics column. A Robot arm card is added to Best for (not on the homepage). The daily scrape now reads the AA-Robotics results table.",
+      "Ledger CSV and JSON gain an aa_robotics column. A Robot arm card is added to Best for (not on the homepage). The daily score update now reads the AA-Robotics results table.",
     ],
   },
   {
@@ -72,9 +86,9 @@ export const CHANGELOG = [
     title: "Half-week news pass; first opinion stars for Argon and Muse Wonder",
     items: [
       "Public opinion from posts on X between 12 and 15 October: Gemini 4 Argon opens at 3, Muse Wonder Full at 4 and Muse Wonder at 3. Claude Opus 5.5 holds at 5 with a refreshed note. Every other rating holds.",
-      "Four new wires: AA-Robotics v0.1, AA-3D, AA's FrontierCode 1.1 leaderboard, and Anthropic's distillation defenses. Two desk pieces: AA's three new tests, and the half-week opinion column.",
-      "Daily scrape for 14 and 15 October: Vals Terminal-Bench 4.0 now lists 48 models. It rescored Claude Haiku 5.5 to 36.36 (was 35.35), Mistral Large 4 to 23.23 (was 22.73) and Muse Wonder to 49.5 (Vals' raw figure is 49.495, which Vals shows as 49.49; Ridge rounds half-up as for every Terminal-Bench 4.0 score). Rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
-      "Fix: the GPT-6 Sol AA Cyber note again says AA also lists the trusted-access Daybreak Blue version at 69, which Ridge does not count. The daily scrape now keeps that sentence instead of dropping it.",
+      "Four news items added: AA-Robotics v0.1, AA-3D, AA's FrontierCode 1.1 leaderboard, and Anthropic's distillation defenses. Two articles: AA's three new tests, and the half-week opinion column.",
+      "Daily score update for 14 and 15 October: Vals Terminal-Bench 4.0 now lists 48 models. It rescored Claude Haiku 5.5 to 36.36 (was 35.35), Mistral Large 4 to 23.23 (was 22.73) and Muse Wonder to 49.5 (Vals' raw figure is 49.495, which Vals shows as 49.49; Ridge rounds half-up as for every Terminal-Bench 4.0 score). Rank notes refreshed. Source: https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Fix: the GPT-6 Sol AA Cyber note again says AA also lists the trusted-access Daybreak Blue version at 69, which Ridge does not count. The daily score update now keeps that sentence instead of dropping it.",
     ],
   },
   {
@@ -82,8 +96,8 @@ export const CHANGELOG = [
     title: "New Voice board; Grok Voice 3.0 leads it",
     items: [
       "New Voice board at /voice, linked in the site menu. It lists every model on the Artificial Analysis Speech to Speech page (44, of which 19 have an Index score) with the Index, time to first audio and AA's component results, copied as AA shows them. Voice models stay out of the text ledger. Source: https://artificialanalysis.ai/speech-to-speech",
-      "Grok Voice 3.0 leads the Voice board at 86.9, ahead of GPT-Live-1 (Astra, medium) 83.2 and Gemini 3.8 Live Extended Thinking (High) 82.6. New wire on its debut.",
-      "The daily scrape now refreshes the Voice board as well.",
+      "Grok Voice 3.0 leads the Voice board at 86.9, ahead of GPT-Live-1 (Astra, medium) 83.2 and Gemini 3.8 Live Extended Thinking (High) 82.6. A news item on its debut.",
+      "The daily score update now refreshes the Voice board as well.",
     ],
   },
   {
@@ -92,8 +106,8 @@ export const CHANGELOG = [
     items: [
       "CursorBench: Gemini 4 Argon 52.9 (high, best published), third on the board. Source: https://cursor.com/cursorbench",
       "Muse Wonder Full and Muse Wonder scored by more boards: Harvey LAB-AA 13.1 and 10.0 (first and second, so the Legal pick moves from Grok 4.7 to Muse Wonder Full), Vals Terminal-Bench 4.0 58.08 and 49.49, Arena+ 1518 and 1510. AA Cyber, CursorBench and SWE-bench stay blank.",
-      "Daily scrape for 13 October: date bumps and rank notes for the 47-model Vals board and the 27-model LAB-AA board; Vals Terminal-Bench 4.0 rescored Claude Sonnet 5 to 10.61 (was 9.6) and Gemini 3.8 Flash to 19.7 (was 19.19).",
-      "Two new wires: Argon in Cursor, and Muse Wonder on the independent boards.",
+      "Daily score update for 13 October: date bumps and rank notes for the 47-model Vals board and the 27-model LAB-AA board; Vals Terminal-Bench 4.0 rescored Claude Sonnet 5 to 10.61 (was 9.6) and Gemini 3.8 Flash to 19.7 (was 19.19).",
+      "Two news items added: Argon in Cursor, and Muse Wonder on the independent boards.",
     ],
   },
   {
@@ -101,7 +115,7 @@ export const CHANGELOG = [
     title: "Gemini 4 Argon is generally available",
     items: [
       "Gemini 4 Argon is now generally available (13 October): status moves from preview to GA. Summary updated with where it is available and the price dates: $2 / $10 per 1M tokens through 30 November, then $4 / $20 from 1 December. Scores unchanged. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-      "A wire and a desk piece on the launch.",
+      "A news item and an article on the launch.",
     ],
   },
   {
@@ -109,18 +123,18 @@ export const CHANGELOG = [
     title: "Muse Wonder and Muse Wonder Full added",
     items: [
       "New models: Muse Wonder (Meta Model API preview, $4 / $20 per 1M tokens, 1M context) and Muse Wonder Full (Muse Code subscribers only, no API price). AA Intelligence Index at max effort: Muse Wonder Full 56, Muse Wonder 52. All other boards are blank until their maintainers score them. Source: https://artificialanalysis.ai/leaderboards/models",
-      "Model pages, a wire and a desk piece on the launch. Meta's own benchmark chart appears in prose only, labelled as Meta's claims. No public opinion stars yet.",
+      "Model pages, a news item and an article on the launch. Meta's own benchmark chart appears in prose only, labelled as Meta's claims. No public opinion stars yet.",
     ],
   },
   {
     date: "2026-10-12",
     title: "Half-week news pass; AA Cyber Index trusted-access rows kept off the public board",
     items: [
-      "AA Cyber Index: GPT-6 Sol is back at its public score, 37 (max). The 12 October daily scrape had swapped in 69 from GPT-6 Sol (Daybreak Blue, max), a trusted-access version with fewer cyber guardrails that AA began listing on 8 October and that only OpenAI's Daybreak program can use. Ridge scores models the public can use, so the Daybreak Blue result now sits in the note instead, and the daily scrape skips AA's trusted-access rows. Source: https://x.com/ArtificialAnlys/status/2108280721358111188",
-      "Ten new wires: GPT-6 and Intelligent UI in ChatGPT (7 Oct), Claude Dashboards and Motion beta, Anthropic Cyber Mission, Anthropic's $150M Genesis Mission pledge, Google's Gemini agent, AA's trusted-access Cyber rows, AA Intelligence Index v5 coming in late October (all 8 Oct), OpenAI dots and Codex updates, Anthropic's unintended-actions report (9 Oct), and GPT-6.1 Sol's 500K default context in Codex (11 Oct).",
-      "Two desk pieces: the half-week opinion for 8 to 12 October, and a note on how Ridge will handle AA Index v5 and trusted-access Cyber rows.",
+      "AA Cyber Index: GPT-6 Sol is back at its public score, 37 (max). The 12 October daily score update had swapped in 69 from GPT-6 Sol (Daybreak Blue, max), a trusted-access version with fewer cyber guardrails that AA began listing on 8 October and that only OpenAI's Daybreak program can use. Ridge scores models the public can use, so the Daybreak Blue result now sits in the note instead, and the daily score update skips AA's trusted-access rows. Source: https://x.com/ArtificialAnlys/status/2108280721358111188",
+      "Ten news items added: GPT-6 and Intelligent UI in ChatGPT (7 Oct), Claude Dashboards and Motion beta, Anthropic Cyber Mission, Anthropic's $150M Genesis Mission pledge, Google's Gemini agent, AA's trusted-access Cyber rows, AA Intelligence Index v5 coming in late October (all 8 Oct), OpenAI dots and Codex updates, Anthropic's unintended-actions report (9 Oct), and GPT-6.1 Sol's 500K default context in Codex (11 Oct).",
+      "Two articles: the half-week opinion for 8 to 12 October, and a note on how Ridge will handle AA Index v5 and trusted-access Cyber rows.",
       "Public opinion: Claude Haiku 5.5 opens at 3 stars. All other stars hold; notes refreshed for Opus 5.5, Sonnet 5.5, GPT-6.1 Sol, GPT-6 Astra, GPT-6 Luna, Grok 4.7, DeepSeek V4.1 Flash and Kimi K3, as of 12 October. Gemini 4 Argon, GLM-5.3 and Mistral Large 4 stay unrated.",
-      "Snapshot and score dates moved to 12 October from the daily scrape.",
+      "Snapshot and score dates moved to 12 October from the daily score update.",
     ],
   },
   {

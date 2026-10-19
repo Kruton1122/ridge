@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { labVar } from "@/components/v3/shell";
-import { labStats } from "@/lib/data/derived";
+import { labStats, perPoint } from "@/lib/data/derived";
 
 export const Route = createFileRoute("/_site/labs/")({
   component: Labs,
@@ -23,7 +23,7 @@ function Labs() {
             <span className="nm"><i />{l.name}</span>
             <span className="cell"><span className="rx-kicker">Best</span><b className="rx-num">{l.bestAa ? l.bestAa.score.value : "—"}</b><span className="rx-faint">{l.bestAa?.model.name ?? "no AA row"}</span></span>
             <span className="cell"><span className="rx-kicker">Models</span><b className="rx-num">{l.models.length}</b><span className="rx-faint">{l.scored} scored · {l.openWeights} open</span></span>
-            <span className="cell"><span className="rx-kicker">Cheapest point</span><b className="rx-num">{l.cheapestPerAa ? `$${l.cheapestPerAa.dollarPerAa.toFixed(2)}` : "—"}</b><span className="rx-faint">{l.cheapestPerAa?.model.name ?? "needs price + score"}</span></span>
+            <span className="cell"><span className="rx-kicker">Cheapest point</span><b className="rx-num">{l.cheapestPerAa ? perPoint(l.cheapestPerAa.dollarPerAa) : "—"}</b><span className="rx-faint">{l.cheapestPerAa?.model.name ?? "needs price + score"}</span></span>
             <span className="go" aria-hidden="true">→</span>
           </a>
         ))}

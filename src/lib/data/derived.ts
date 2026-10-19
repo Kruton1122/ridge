@@ -338,7 +338,7 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
   }
   if (dollarPerAaRank && dollarPerAaRank.rank <= 3) {
     strengths.push({
-      text: `${dollarPerAaRank.tied ? "Joint " : ""}#${dollarPerAaRank.rank} of ${dollarPerAaRank.of} on $/AA — ${dpa != null ? `$${dpa.toFixed(2)}` : "—"} per index point`,
+      text: `${dollarPerAaRank.tied ? "Joint " : ""}#${dollarPerAaRank.rank} of ${dollarPerAaRank.of} on $/AA: ${dpa != null ? perPoint(dpa) : "—"} per index point`,
     });
   }
   if (model.contextTokens && model.contextTokens >= 1_000_000) {
@@ -354,7 +354,7 @@ export function dossier(modelId: string, mode: PriceMode = "promo"): Dossier | n
 
   for (const benchmark of missing) {
     watch.push({
-      text: `No ${benchmark.short} row in this snapshot. Ridge leaves it blank rather than estimating.`,
+      text: `No ${benchmark.short} score in this snapshot. Ridge leaves it blank rather than estimating.`,
     });
   }
   if (model.status === "partner") {
@@ -429,6 +429,11 @@ export function money(value: number): string {
   return Number.isInteger(value) ? `$${value}` : `$${value.toFixed(2)}`;
 }
 
+/** $ per AA Index point. Always three decimals, so cheap models never round into a tie. */
+export function perPoint(value: number): string {
+  return `$${value.toFixed(3)}`;
+}
+
 /** "$10 / $50" — input over output, per 1M tokens. */
 export function moneyPair(input: number, output: number): string {
   return `${money(input)} / ${money(output)}`;
@@ -487,7 +492,7 @@ export function headlines(mode: PriceMode = "promo"): Headline[] {
     {
       label: "Best value",
       model: value?.model ?? null,
-      value: value ? `$${value.dollarPerAa.toFixed(2)}` : "—",
+      value: value ? perPoint(value.dollarPerAa) : "—",
       sub: value ? "Per AA index point · on the frontier" : "No priced row",
     },
     {
@@ -688,7 +693,7 @@ export function compare(
           const aa = rankOf(m.id, "aa-intelligence");
           const dpa = aa ? listDollarPerAa(m, aa.value, mode) : null;
           return {
-            text: dpa == null ? null : `$${dpa.toFixed(2)}`,
+            text: dpa == null ? null : perPoint(dpa),
             number: dpa,
             share: null,
             delta: null,

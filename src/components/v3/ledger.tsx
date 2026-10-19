@@ -1,9 +1,13 @@
 import { useMemo, useState } from "react";
-import { HEADLINE_BENCHMARK, benchmarksWithScores, formatValue, labsPresent, ledgerRows, type Row } from "@/lib/data/derived";
+import { AA_VERSION, HEADLINE_BENCHMARK, benchmarksWithScores, formatValue, labsPresent, ledgerRows, perPoint, type Row } from "@/lib/data/derived";
 import type { Benchmark, LabId } from "@/lib/data/types";
 import { labVar } from "./shell";
 
 type SortKey = "rank" | "name" | "price" | "dpa" | string; // string = benchmark id
+
+/** Vals stopped adding models to SWE-bench Verified on 1 Sept 2026, so its column would only crown old models.
+ *  The data stays (model pages, /benchmarks, CSV); the ledger just doesn't show the column. */
+const HIDDEN = new Set(["swe-bench"]);
 
 const short = (b: Benchmark) =>
   ({ "aa-intelligence": "AA", "swe-bench": "SWE", "cursor-bench": "Cursor", "arena-elo": "Arena", "terminal-bench": "TB 2.1" })[b.id] ??
@@ -12,7 +16,7 @@ const short = (b: Benchmark) =>
 export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
   const rows = useMemo(() => ledgerRows("promo"), []);
   const benches = useMemo(() => benchmarksWithScores(), []);
-  const others = benches.filter((b) => b.id !== HEADLINE_BENCHMARK);
+  const others = benches.filter((b) => b.id !== HEADLINE_BENCHMARK && !HIDDEN.has(b.id));
   const labs = useMemo(() => labsPresent(), []);
   const [lab, setLab] = useState<LabId | "all">(fixedLab ?? "all");
   const [openOnly, setOpenOnly] = useState(false);
@@ -59,8 +63,8 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
     setSort((s) => (s.key === key ? { key, asc: !s.asc } : { key, asc: true }));
     setSeed((n) => n + 1);
   };
-  const Th = ({ k, children, l }: { k: SortKey; children: React.ReactNode; l?: boolean }) => (
-    <th className={l ? "l" : undefined} aria-sort={sort.key === k ? (sort.asc ? "ascending" : "descending") : "none"}>
+  const Th = ({ k, children, l, t }: { k: SortKey; children: React.ReactNode; l?: boolean; t?: string }) => (
+    <th className={l ? "l" : undefined} title={t} aria-sort={sort.key === k ? (sort.asc ? "ascending" : "descending") : "none"}>
       <button type="button" className={`${sort.key === k ? "on" : ""}${sort.key === k && !sort.asc ? " asc" : ""}`} onClick={() => by(k)}>
         {children}
         {sort.key === k && <span className="ar">↓</span>}
@@ -109,7 +113,7 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
       {others.map((b) => <td key={b.id}>{cell(r, b)}</td>)}
       <td>{r.priceIn != null ? `$${fmt(r.priceIn)} / $${fmt(r.priceOut ?? 0)}` : <span className="blank">—</span>}</td>
       <td className={r.dollarPerAa != null && r.dollarPerAa === best.dpa ? "best" : undefined}>
-        {r.dollarPerAa != null ? `$${r.dollarPerAa.toFixed(2)}` : <span className="blank">—</span>}
+        {r.dollarPerAa != null ? perPoint(r.dollarPerAa) : <span className="blank">—</span>}
       </td>
     </tr>
   );
@@ -137,10 +141,10 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
             <tr>
               <Th k="rank">#</Th>
               <Th k="name" l>Model</Th>
-              <Th k={HEADLINE_BENCHMARK}>AA Index</Th>
-              {others.map((b) => <Th key={b.id} k={b.id}>{short(b)}</Th>)}
-              <Th k="price">$ in / out</Th>
-              <Th k="dpa">$ / point</Th>
+              <Th k={HEADLINE_BENCHMARK} t={`Artificial Analysis Intelligence Index ${AA_VERSION}`}>AA Index</Th>
+              {others.map((b) => <Th key={b.id} k={b.id} t={`${b.name}, from ${b.sourceName}`}>{short(b)}</Th>)}
+              <Th k="price" t="List price per 1M tokens, input / output">$ in / out</Th>
+              <Th k="dpa" t="Mid list price divided by AA Index score">$ / point</Th>
             </tr>
           </thead>
           <tbody>
@@ -152,9 +156,18 @@ export function Ledger({ fixedLab }: { fixedLab?: LabId } = {}) {
           </tbody>
         </table>
       </div>
+      <dl className="rx-legend" aria-label="Column key">
+        <div><dt>AA Index</dt><dd>Artificial Analysis Intelligence Index {AA_VERSION}</dd></div>
+        {others.map((b) => <div key={b.id}><dt>{short(b)}</dt><dd>{b.name} ({b.sourceName})</dd></div>)}
+        <div><dt>$ / point</dt><dd>Mid list price per 1M tokens, divided by the AA Index score</dd></div>
+        <div><dt><span className="key-best">Orange</span></dt><dd>Best score in that column</dd></div>
+        <div><dt>=3</dt><dd>Tied for that place; the publisher didn’t break the tie</dd></div>
+      </dl>
       <p className="rx-table-note">
-        Every score links to its publisher and as-of date. Prices are list per 1M tokens (promo where one is live);
-        $ / point is the mid price per AA Index point. “=” marks a tie the publisher didn’t break.
+        Every score links to its publisher and as-of date. Prices are list per 1M tokens (promo where one is live).
+        The table scrolls sideways on narrow screens. SWE-bench Verified is left off the table because Vals stopped
+        adding new models to it; its scores are still on model pages and on <a className="rx-link" href="/benchmarks">Benchmarks</a>,
+        which also explains every column.
       </p>
     </div>
   );

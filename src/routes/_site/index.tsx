@@ -7,7 +7,7 @@ import { labVar } from "@/components/v3/shell";
 import { SNAPSHOT_LABEL } from "@/lib/data/catalog";
 import { NEWS } from "@/lib/data/desk";
 import { bestPicks } from "@/lib/data/best";
-import { AA_VERSION, CATALOG_STATS, board, headlines, scatter, unscoredModels } from "@/lib/data/derived";
+import { AA_VERSION, CATALOG_STATS, board, headlines, perPoint, scatter, unscoredModels } from "@/lib/data/derived";
 import { WIRE } from "@/lib/data/wire";
 
 export const Route = createFileRoute("/_site/")({
@@ -39,6 +39,9 @@ function FrontPage() {
         <section className="rx-front">
           <div className="rx-in">
             <div className="rx-kicker">The ledger · {SNAPSHOT_LABEL}</div>
+            <p className="rx-hero-index">
+              Score: <a className="rx-link" href="/benchmarks/aa-intelligence">Artificial Analysis Intelligence Index {AA_VERSION}</a>
+            </p>
             {top && (
               <h1>
                 {joint.length > 1 ? (
@@ -118,7 +121,10 @@ function FrontPage() {
               <div className="rx-kicker">Table 1</div>
               <h2>The ledger</h2>
             </div>
-            <p>Ranked by AA Intelligence Index {AA_VERSION}. Click any heading to re-sort; click a score for its source.</p>
+            <p>
+              Ranked by the Artificial Analysis Intelligence Index {AA_VERSION}. Click any heading to re-sort; click a score
+              for its source. <a className="rx-link" href="/benchmarks">What each column measures →</a>
+            </p>
           </div>
           <Ledger />
         </section>
@@ -138,7 +144,7 @@ function FrontPage() {
                 <li key={p.model.id} className="rx-in" style={{ "--d": `${i * 80}ms` } as React.CSSProperties}>
                   <span className="rx-kicker k">{i === 0 ? "Cheapest point on the frontier" : `Frontier · ${i + 1}`}</span>
                   <a className="w" href={`/models/${p.model.id}`} style={{ color: labVar(p.model.lab) }}>{p.model.name}</a>
-                  <span className="v">${p.dollarPerAa.toFixed(2)}</span>
+                  <span className="v">{perPoint(p.dollarPerAa)}</span>
                   <span className="s">AA {p.y} · ${p.x.toFixed(2)} mid per 1M tokens</span>
                 </li>
               ))}

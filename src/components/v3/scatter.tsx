@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { scatter } from "@/lib/data/derived";
+import { scatter, perPoint } from "@/lib/data/derived";
 import { labVar } from "./shell";
 
 const W = 720;
@@ -40,7 +40,7 @@ export function CostScatter() {
             <circle className="pt rx-in" cx={X(p.x)} cy={Y(p.y)} r={p.frontier ? 6 : 4.5}
               fill={p.frontier ? labVar(p.model.lab) : "var(--paper)"} stroke={labVar(p.model.lab)} strokeWidth={1.8}
               style={{ "--d": `${200 + i * 30}ms` } as React.CSSProperties}>
-              <title>{`${p.model.name}: AA ${p.y}, $${p.x.toFixed(2)} mid per 1M, $${p.dollarPerAa.toFixed(2)} per point`}</title>
+              <title>{`${p.model.name}: AA ${p.y}, $${p.x.toFixed(2)} mid per 1M, ${perPoint(p.dollarPerAa)} per point`}</title>
             </circle>
             {(p.frontier || top.has(p.model.id)) && (
               <text className={`lbl${p.frontier ? "" : " dim"}`} x={X(p.x) + 9} y={Y(p.y) - 8}>{p.model.shortName || p.model.name}</text>

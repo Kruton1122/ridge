@@ -24,9 +24,9 @@ export function BestCard({ pick, i = 0, full = false }: { pick: Pick; i?: number
       </div>
       {pick.behind.length > 0 && (
         <div className="behind">
-          <span className="rx-faint">{full ? "Close behind" : "Next"}</span>
+          <span className="rx-faint">{full ? "Close behind" : "Runner-up"}</span>
           {(full ? pick.behind : pick.behind.slice(0, 1)).map((b) => (
-            <a key={b.model.id} href={`/models/${b.model.id}`}>{b.model.name} <span className="rx-num">{b.value}</span></a>
+            <a key={b.model.id} href={`/models/${b.model.id}`}>{b.model.name}&nbsp;<span className="rx-num">{b.value}</span></a>
           ))}
         </div>
       )}
@@ -46,7 +46,7 @@ export function BestCard({ pick, i = 0, full = false }: { pick: Pick; i?: number
           {pick.href ? <a href={pick.href}>{pick.basis}</a> : <span>{pick.basis}</span>}
         </div>
       )}
-      {!full && pick.caveat && <a className="flag" href={`/best#${pick.id}`} title={pick.caveat} aria-label={`Caveat: ${pick.caveat}`}>!</a>}
+      {!full && pick.caveat && <a className="cavlink" href={`/best#${pick.id}`} title={pick.caveat}>Read the caveat</a>}
     </article>
   );
 }
