@@ -19,7 +19,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     title: "Nothing gets invented",
     body: [
       <>If Artificial Analysis, Arena+, Vals, or Cursor has not published a number for a model on a board we track, the cell shows a dash and stays that way. Not a zero, not an estimate interpolated from a neighboring model, not a figure lifted from a lab launch post. CursorBench 4.0 is the one first-party harness we carry as its own column, labeled as Cursor’s; other vendor-run agent tables stay off the board.</>,
-      <>This is why the ledger looks sparser than it could. Of {CATALOG_STATS.models} models in the catalog, {CATALOG_STATS.scored === CATALOG_STATS.models ? "every one" : CATALOG_STATS.scored} {CATALOG_STATS.scored === 1 ? "carries" : "carry"} a score on at least one board. {CATALOG_STATS.scored === CATALOG_STATS.models
+      <>This is why the ledger looks sparser than it could. Of {CATALOG_STATS.models} models in the catalog, {CATALOG_STATS.scored === CATALOG_STATS.models ? "every one" : CATALOG_STATS.scored} {CATALOG_STATS.scored === 1 || CATALOG_STATS.scored === CATALOG_STATS.models ? "carries" : "carry"} a score on at least one board. {CATALOG_STATS.scored === CATALOG_STATS.models
         ? "Most still have blanks, on the boards that have not measured them yet, and those blanks stay blank."
         : `The other ${CATALOG_STATS.models - CATALOG_STATS.scored} are listed with sourced pricing and specifications and nothing else, because that is genuinely all anyone has published about them.`}</>,
     ],
