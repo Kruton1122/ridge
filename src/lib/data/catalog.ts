@@ -67,8 +67,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index 58 (max with fallback), #1 on the board as of 28 Sept. CursorBench 4.0 57.8 (max, cursor.com), also #1. Arena+ Elo 1528, also #1. Terminal-Bench 2.1 87.64 (Vals, high, #1 on Vals). No SWE-bench score yet.",
     publicOpinionStars: 5,
-    publicOpinionNote: "Still the one others are measured against. Head-to-head posts this week put it ahead of Gemini 4 Argon and GPT-6.1 Sol, though a few developers say it has felt slower lately.",
-    publicOpinionAsOf: "2026-10-15",
+    publicOpinionNote: "Still the one others are measured against, and fast mode is now open to all API users. Replit making OpenAI its agent's default, on cost and performance, is the main counterpoint.",
+    publicOpinionAsOf: "2026-10-19",
   }),
   m({
     id: "claude-sonnet-5.5",
@@ -508,8 +508,8 @@ export const MODELS: Model[] = [
     summary:
       "552B MoE (8B active in / 16B out), native multimodal, 1M context. API id deepseek-flash, which since 17 October serves DeepSeek-V4.1-Flash-1017, a minor update to the 10 September release: same architecture, size, MIT weights and price, and 1017 replaces the September build on web, app and API. List pair is peak cache-miss $0.30 / peak output $1.20 per 1M; off-peak is half; cache-hit peak $0.006 / off-peak $0.003 (API docs; DeepSeek says 1017 leaves pricing unchanged). AA Index 45 and Vals Terminal-Bench 4.0 31.82 are for 1017 (the September build scored 39 and 19.7); AA Cyber 41, Arena+ 1503, Harvey LAB-AA 1.7 and Vals Terminal-Bench 2.1 74.53 are still for the September build. DeepSeek's own 1017 figures are in text only, as its claims. No Vals SWE-bench score.",
     publicOpinionStars: 4,
-    publicOpinionNote: "Named often as the good, cheap, fast open pick for agents and local setups.",
-    publicOpinionAsOf: "2026-10-12",
+    publicOpinionNote: "The 1017 update drew strong praise for price and speed. Some Chinese developers say it still trails OpenAI and Anthropic models on long coding jobs.",
+    publicOpinionAsOf: "2026-10-19",
   }),
   m({
     id: "deepseek-v4-pro",
@@ -624,6 +624,9 @@ export const MODELS: Model[] = [
     ],
     summary:
       "Reflection AI's first model and first open-weight release: a sparse mixture-of-experts with 501B total and 23B active parameters, text in and text out, a 1M token context (1,048,576 in Reflection's API docs) and a June 2026 knowledge cutoff. Announced 5 October; weights released 16 October on Hugging Face under Apache 2.0 in BF16, FP8 and NVFP4, with a DFlash2 drafter and the Mirror coding harness. API id Beam-1.0-501B-A23B. Reflection has not published a per-token price: its API is a free public beta with daily limits, so the price is blank. Independent scores so far: AA Intelligence Index 30 (AA ranks it second among the US open-weight models it has tested) and AA Cyber Index 34 with no tasks declined. No Arena+, CursorBench, Vals or Harvey LAB-AA score yet. Reflection's own table (SWE-bench Verified 81.6, Terminal-Bench 2.1 80.1) is its claim and is not on Ridge's boards.",
+    publicOpinionStars: 3,
+    publicOpinionNote: "Mostly launch and partner posts so far. Early testers call it quick and clean but a bit simple; Arena ranks it the top US open model on Agent Arena.",
+    publicOpinionAsOf: "2026-10-19",
   }),
   m({
     id: "step-5-preview",
@@ -647,6 +650,9 @@ export const MODELS: Model[] = [
     ],
     summary:
       "StepFun's flagship: API from 20 September 2026 and open weights from 15 October. A sparse mixture-of-experts with 600B total and 27B active parameters, a 1M token context, text and image in (StepFun's API docs and the model card's introduction also list video) and text out. The weights are on Hugging Face in FP8, BF16 and NVFP4 under the StepFun Model License 1.0, an Apache-2.0-style license with attribution and commercial-license conditions, so not plain Apache. API id step-5-preview at $1.00 / $2.70 per 1M tokens on StepFun's international platform (cached input $0.10; the China platform charges ¥7 / ¥20). Independent scores: AA Intelligence Index 44, third among the open-weight models AA lists; AA Cyber Index 48 with no tasks declined; Arena+ 1505 (listed there as Step-5); Vals Terminal-Bench 4.0 31.82, 17th of 49. No CursorBench, Harvey LAB-AA or AA-Robotics score, and Vals no longer runs SWE-bench on new models. StepFun's own figures (DeepSWE v1.1 67.7, ALE-CLI 29.5, Terminal-Bench 4.0 33.3 on its Hugging Face card) are its claims and not on Ridge's boards.",
+    publicOpinionStars: 3,
+    publicOpinionNote: "Liked as a capable free option, and one user put it close to Opus 5. Most posts are launch news, so hands-on verdicts are still thin.",
+    publicOpinionAsOf: "2026-10-19",
   }),
   m({
     id: "mimo-v2.6-pro",
@@ -670,6 +676,9 @@ export const MODELS: Model[] = [
     ],
     summary:
       "Xiaomi's flagship reasoning model, listed in its API changelog on 22 September 2026 (AA and Hugging Face date it 21 September). A sparse mixture-of-experts with 1.02T total and 42B active parameters, a 1M token context, text, image, video and audio in, text out. API id mimo-v2.6-pro at $0.435 / $0.87 per 1M tokens (cached input $0.0036); the separate mimo-v2.6-pro-ultraspeed tier costs ten times as much and is not this row. Open weights are on Hugging Face under the MIT license as MiMo-V2.6-Pro-RL, which the card calls the series flagship checkpoint and lists the Xiaomi API among places to use it, plus MiMo-V2.6-Pro-MOPD. There is no repository named MiMo-V2.6-Pro and Xiaomi does not say the API serves the RL checkpoint exactly, though AA flags the API model as open weights. Independent scores: AA Intelligence Index 46, the highest of any open-weight model on AA's list; AA Cyber Index 56 with no tasks declined, the same rounded score as Grok 4.7; Arena+ 1507; Vals Terminal-Bench 4.0 31.31, 18th of 49. No CursorBench, Harvey LAB-AA or AA-Robotics score, and Vals no longer runs SWE-bench on new models. Xiaomi's own table (DeepSWE v1.1 71.9, Terminal-Bench 4.0 34.9, Terminal-Bench 2.1 89.9) is its claim and not on Ridge's boards.",
+    publicOpinionStars: 4,
+    publicOpinionNote: "Called cheap and excellent, with some using it in place of GPT-6.1 Sol and praising it for cyber work. A few say DeepSeek V4.1 Flash does better in real use.",
+    publicOpinionAsOf: "2026-10-19",
   }),
 ];
 

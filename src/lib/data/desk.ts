@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-19"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-opinion-1019",
+    kind: "ranking",
+    title: "Half-week opinion: MiMo gets its moment, and three new open models get a cautious hello",
+    dek: "Public posts on X from 15 to 19 October. MiMo-V2.6-Pro opens at 4, Step 5 Preview and Beam 1.0 at 3, and Muse Spark Open waits for more hands-on reports.",
+    pull: "An open model has to be cheap to get noticed. MiMo is getting noticed for being good.",
+    summary: "Three first ratings this half-week. MiMo-V2.6-Pro opens at 4 on strong praise for price and quality, with some saying DeepSeek is still better in real use. Step 5 Preview and Beam 1.0 open at 3, since most posts were launch news. Muse Spark Open stays unrated for lack of hands-on verdicts. DeepSeek V4.1 Flash holds at 4 after its 1017 update, and Claude Opus 5.5 holds at 5. Every other rating holds.",
+    date: "2026-10-19",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/arena/status/2110815995950731340",
+    models: ["mimo-v2.6-pro",  "step-5-preview",  "beam-1.0",  "muse-spark-open",  "deepseek-v4.1-flash",  "claude-opus-5.5",  "gpt-6.1-sol"],
+    tags: ["opinion",  "ranking"],
+    body: [
+      "The model people talked about most this half-week was one that came out a month ago. MiMo-V2.6-Pro from Xiaomi had been a quiet favorite, and once Arena's Agent Arena put it first among open models on 15 October, the praise got loud. People called it cheap and excellent, a few said they had swapped it in for GPT-6.1 Sol, and security folks called it underrated for cyber work. Not everyone agrees: several developers said DeepSeek V4.1 Flash still does better on their real tasks. Even so, it opens at 4, the most confident first rating we have given an open model.",
+      "The other new open models have not been out long enough for that kind of verdict. Step 5 Preview opens at 3. People like it as a capable free option, and one user put it about level with Opus 5 for their work, but most of the posts were launch and partner news. A widely shared claim that it is second on OpenRouter's weekly token chart came from an account on StepFun's side, so we do not count it. Beam 1.0 also opens at 3. Arena calls it the top US open model on Agent Arena, and early testers describe it as quick and clean but a bit simple. Muse Spark Open stays unrated. Its posts were about the license terms and the memory it takes to run at home, not about how well it works.",
+      "DeepSeek V4.1 Flash holds at 4, and the 1017 update gave people a fresh reason to post about it. One widely shared one-shot drawing test cost $0.22 on 1017 against $9.56 on Opus 5.5. The boards agree it got better: Artificial Analysis now scores it 45, up from 39. The pushback came mostly from Chinese developers, who said it still trails the OpenAI and Anthropic models on long development jobs.",
+      "Claude Opus 5.5 holds at 5. Fast mode came out of preview for every API user, and side-by-side posts still put it first. The week's counterpoint was Replit, which made OpenAI the default behind its agent and cited cost and performance, though Claude is still one click away there. Every other model holds its stars.",
+    ],
+  },
+  {
     id: "open-weights-1018",
     kind: "ranking",
     title: "Xiaomi takes the open-weights lead, and StepFun is third",

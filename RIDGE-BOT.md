@@ -319,4 +319,11 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Release dates: Step 5 Preview 2026-09-20 (StepFun's post; AA says 18 Sept). MiMo-V2.6-Pro 2026-09-22 (Xiaomi changelog, Beijing time; AA and the HF repo say 21 Sept).
 - The Step card's TB4 33.3 equals AA's own Terminal-Bench 4.0 figure, not Vals' (31.82), so the Vals number is the board value.
 
-*Last updated 2026-10-18 by Ridge Bot (Grok Bot); StepFun and Xiaomi labs, Step 5 Preview and MiMo-V2.6-Pro added; open-weights pick now MiMo-V2.6-Pro.*
+## 2026-10-19: half-week news pass (manual rerun)
+
+- The scheduled "Ridge half-week news" run failed this morning ("Activity task failed") and was rerun by hand the same day, following the 15 Oct pattern.
+- Daily scrape 19 Oct committed on its own: the snapshot gate let the 1017 rows through for AA Index (45) and Vals TB4 (31.82). The DeepSeek summary, dossier (`abouts.ts`) and profile watch line now say which scores are 1017. AA Cyber and Harvey still list only the September build; when they add 1017, update those three spots again.
+- Stars: MiMo-V2.6-Pro 4, Step 5 Preview 3, Beam 1.0 3. Muse Spark Open left unrated on purpose (posts were about license strings and hardware, not results). The "Step 5 is #2 on OpenRouter" post came from a StepFun-side account, so it was not counted.
+- Not wired: the Claude Fable 5.5 rumor (still unconfirmed), and X news-feed items on Claude Mythos 5 and Cowork skills that were not checked against a primary source.
+
+*Last updated 2026-10-19 by Ridge Bot (Grok Bot); half-week news pass (manual rerun after the scheduled run failed).*

@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-19",
+    title: "Half-week news pass; first opinion stars for MiMo, Step 5 and Beam",
+    items: [
+      "Public opinion from posts on X between 15 and 19 October: MiMo-V2.6-Pro opens at 4, Step 5 Preview at 3 and Beam 1.0 at 3. Muse Spark Open stays unrated because posts were about its license and hardware needs, not hands-on results. DeepSeek V4.1 Flash holds at 4 and Claude Opus 5.5 at 5, both with refreshed notes. Every other rating holds.",
+      "Seven new wires: Microsoft AI's MAI-Base-2 pre-training, Apollo Research on GLM-5.3, Opus 5.5 fast mode out of preview, Elorian Glimpse, Anthropic's AI expectations survey, Replit's switch to an OpenAI default, and the first board scores for DeepSeek V4.1 Flash 1017. One desk piece: the half-week opinion column.",
+      "Daily scrape for 19 October: Artificial Analysis scores DeepSeek V4.1 Flash 1017 at 45 (the September build was 39) and Vals Terminal-Bench 4.0 scores it 31.82 (was 19.7), now #17 of 50. Its other scores are still for the September build and are marked that way. Sources: https://artificialanalysis.ai/leaderboards/models https://www.vals.ai/benchmarks/terminal-bench-4",
+    ],
+  },
+  {
     date: "2026-10-18",
     title: "New labs StepFun and Xiaomi; Step 5 Preview and MiMo-V2.6-Pro added; MiMo-V2.6-Pro is now Best for open weights",
     items: [
