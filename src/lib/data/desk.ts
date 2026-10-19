@@ -11,6 +11,24 @@ export function isFresh(date: string, asOf = "2026-10-19"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "minimax-m3-1-flash-1019",
+    kind: "release",
+    title: "MiniMax's new Flash model is cheap, quick and only half scored",
+    dek: "M3.1 Flash scores 42 on Artificial Analysis at $0.15 in and $0.60 out per million tokens. MiniMax is new on Ridge, and the promised weights are not out yet.",
+    pull: "A low price gets a model noticed. More independent scores will decide whether it stays on people's lists.",
+    summary: "Ridge adds MiniMax as a lab and M3.1 Flash as a row. AA scores it 42, a point below Claude Haiku 5.5, which stays the Best value pick. It is marked proprietary until MiniMax publishes the weights, and MiniMax's own benchmark figures stay in text as claims.",
+    date: "2026-10-19",
+    sourceName: "MiniMax",
+    sourceUrl: "https://www.minimax.io/blog/minimax-m31f",
+    models: ["minimax-m3.1-flash",  "claude-haiku-5.5",  "mimo-v2.6-pro"],
+    tags: ["minimax",  "release"],
+    body: [
+      "MiniMax, the Shanghai lab behind the M series, released M3.1 Flash on 19 October, and it arrives on Ridge as a new lab and a new row. Artificial Analysis scores it 42 on its Intelligence Index. That puts it a point below Claude Haiku 5.5 on Ridge's board and a few points below the best open models, at $0.15 per million input tokens and $0.60 per million output tokens.",
+      "The price is the story, though it does not take Ridge's Best value pick. On that measure, the average of input and output list prices per AA point, M3.1 Flash works out to about $0.009 against $0.007 for Haiku 5.5, which also scores a point higher. AA also calls it very verbose, at 180 million output tokens to run its Index, so a real bill can run higher than the list price suggests. MiniMax says an anonymous model called Space Bunny, which processed more than 200 trillion tokens, was an early version of it.",
+      "Two things keep the row modest for now. It has only one independent score. MiniMax's own charts, such as 73.7% on DeepSWE v1.1 and 82% on CyberGym, are its claims, and the 1588 it posted on Arena's Code Arena WebDev board is a different board from the Arena+ text leaderboard Ridge tracks. And the weights are not out. MiniMax says they will come later, and one line in its docs already calls the model open-weight, but Ridge marks it proprietary until there is something to download.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1019",
     kind: "ranking",
     title: "Half-week opinion: MiMo gets its moment, and three new open models get a cautious hello",

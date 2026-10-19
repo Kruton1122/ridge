@@ -1,6 +1,16 @@
 export const CHANGELOG = [
   {
     date: "2026-10-19",
+    title: "New lab and model: MiniMax M3.1 Flash",
+    items: [
+      "New lab MiniMax and new row MiniMax M3.1 Flash (released 19 October; $0.15 / $0.60 per 1M tokens, 1M context). AA Intelligence Index 42. Marked proprietary until MiniMax publishes the promised weights. No Cyber, Arena+, Harvey or Vals score yet. Its Code Arena WebDev score is in text only, because Ridge's Arena+ column is the text leaderboard.",
+      "Best value is unchanged: M3.1 Flash works out to about $0.009 per AA point, against $0.007 for Claude Haiku 5.5, which also scores higher (43).",
+      "New wires: MiniMax M3.1 Flash, and NVIDIA's Nemotron 3.5 Super VL (AA 26) and Bolt 74B-A9B (AA 21). Neither Nemotron model is a Ridge row. New desk piece on M3.1 Flash.",
+      "Daily scrape: the matcher now knows the MiniMax brand and M3.1 Flash aliases. A future MiniMax M3.1 Pro will not match this row.",
+    ],
+  },
+  {
+    date: "2026-10-19",
     title: "Half-week news pass; first opinion stars for MiMo, Step 5 and Beam",
     items: [
       "Public opinion from posts on X between 15 and 19 October: MiMo-V2.6-Pro opens at 4, Step 5 Preview at 3 and Beam 1.0 at 3. Muse Spark Open stays unrated because posts were about its license and hardware needs, not hands-on results. DeepSeek V4.1 Flash holds at 4 and Claude Opus 5.5 at 5, both with refreshed notes. Every other rating holds.",

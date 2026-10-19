@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "minimax-m3-1-flash-1019",
+    title: "MiniMax releases M3.1 Flash at $0.15 in and $0.60 out",
+    blurb: "MiniMax released M3.1 Flash on its API, M Plan and MiniMax Code: a reasoning model with a 1M token context and text and image input, at $0.15 per 1M input tokens and $0.60 per 1M output tokens. Artificial Analysis scores it 42 on its Intelligence Index. MiniMax says the weights will be released later, so Ridge marks it proprietary for now. MiniMax's own benchmark figures, including DeepSWE v1.1 73.7% and CyberGym 82%, are its claims. On Arena's separate Code Arena WebDev board it debuts at 1588.",
+    date: "2026-10-19",
+    outlet: "MiniMax",
+    url: "https://www.minimax.io/blog/minimax-m31f",
+    beat: "release",
+    models: ["minimax-m3.1-flash",  "claude-haiku-5.5"],
+  },
+  {
+    id: "nvidia-nemotron-3-5-1015",
+    title: "NVIDIA releases Nemotron 3.5 Super VL and Bolt open models",
+    blurb: "NVIDIA released Nemotron 3.5 Super VL, a 120B open model with 12B active parameters, vision input and a 1M token context, and Nemotron 3.5 Bolt 74B-A9B, a 2-bit model that fits in 24GB for local agents. Weights, datasets and training recipes are open. Artificial Analysis scores Super VL 26 and Bolt 21 on its Intelligence Index, about twice Nemotron 3 Super. AA's launch article called Super VL the top US open-weight model, but that was before it scored Reflection's Beam 1.0 (30) and Meta's Muse Spark Open (39), which now rank higher. Neither Nemotron model is a Ridge row.",
+    date: "2026-10-15",
+    outlet: "NVIDIA",
+    url: "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+    beat: "release",
+    models: ["beam-1.0",  "muse-spark-open"],
+  },
+  {
     id: "deepseek-1017-scored-1019",
     title: "Boards score DeepSeek V4.1 Flash 1017, and it climbs six points on AA",
     blurb: "Two days after DeepSeek swapped in the 1017 build, Artificial Analysis lists DeepSeek V4.1 Flash 1017 (max) at 45 on its Intelligence Index, up from 39 for the September build and level with GLM-5.3 on Ridge's rounded figures. Vals scores it 31.82 on Terminal-Bench 4.0, up from 19.7, now 17th of 50 and tied with Step 5 Preview. MiMo-V2.6-Pro still leads the open models on AA at 46. AA Cyber, Arena+, Harvey LAB-AA and Terminal-Bench 2.1 have not rescored it, so those Ridge rows stay on the September build.",

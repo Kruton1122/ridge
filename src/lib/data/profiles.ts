@@ -75,6 +75,21 @@ const PROFILES: Record<string, ModelProfile> = {
       "No published price: Reflection's API is a free beta with daily limits",
     ],
   },
+  "minimax-m3.1-flash": {
+    epithet: "The cheap fast one",
+    voice:
+      "MiniMax's new Flash model is a cheap, quick reasoning model with a 1M token window. Artificial Analysis scores it 42 on its Index, a point below Claude Haiku 5.5, for $0.15 in and $0.60 out per million tokens. MiniMax's agent and cyber charts are MiniMax's claims.",
+    strengths: [
+      "AA Index 42 at $0.15 / $0.60 per 1M tokens",
+      "1M token context with text and image input",
+      "MiniMax says it runs at 170+ tokens per second median",
+    ],
+    watch: [
+      "Only one independent score so far: no Cyber, Arena+, Harvey or Vals rows",
+      "Weights are promised but not out, so Ridge marks it proprietary",
+      "AA calls it very verbose: 180M output tokens to run its Index",
+    ],
+  },
   "step-5-preview": {
     epithet: "The cheap third seat",
     voice:
@@ -257,6 +272,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   mistral: { motif: "Mistral orange #FA500F. Paris lab, sovereign pitch, open weights promised." },
   reflection: { motif: "Reflection lime #CDE048. New US lab; Apache 2.0 open weights, efficiency pitch." },
   stepfun: { motif: "StepFun cyan #00E5D8 (AA uses the same). Chinese lab; open-weight Step 5 at a low price." },
+  minimax: { motif: "MiniMax crimson #EB3568 (AA uses the same). Shanghai lab; cheap Flash models, weights promised later." },
   xiaomi: { motif: "Xiaomi pink #FF4FA3, chosen because Xiaomi's own orange is taken by Alibaba and Mistral. Phone and EV maker; MIT open weights." },
   other: { motif: "Neutral slate." },
 };

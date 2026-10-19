@@ -19,6 +19,7 @@ export const LABS: Record<Model["lab"], { name: string; short: string; color: st
   reflection: { name: "Reflection AI", short: "Reflection", color: "#CDE048" },
   stepfun: { name: "StepFun", short: "StepFun", color: "#00E5D8" },
   xiaomi: { name: "Xiaomi", short: "Xiaomi", color: "#FF4FA3" },
+  minimax: { name: "MiniMax", short: "MiniMax", color: "#EB3568" },
   other: { name: "Other", short: "Other", color: "#8EA0B0" },
 };
 
@@ -680,6 +681,27 @@ export const MODELS: Model[] = [
     publicOpinionNote: "Called cheap and excellent, with some using it in place of GPT-6.1 Sol and praising it for cyber work. A few say DeepSeek V4.1 Flash does better in real use.",
     publicOpinionAsOf: "2026-10-19",
   }),
+  m({
+    id: "minimax-m3.1-flash",
+    name: "MiniMax M3.1 Flash",
+    shortName: "M3.1 Flash",
+    lab: "minimax",
+    labName: "MiniMax",
+    released: "2026-10-19",
+    contextTokens: 1_000_000,
+    pricing: { inputPerM: 0.15, outputPerM: 0.6 },
+    license: "proprietary",
+    aliases: [
+      "minimax m3.1 flash",
+      "minimax-m3.1-flash",
+      "minimax-m3-1-flash",
+      "minimax m3.1-flash",
+      "m3.1 flash",
+      "m3.1-flash",
+    ],
+    summary:
+      "MiniMax's new Flash model, released 19 October 2026 on the MiniMax API, M Plan and MiniMax Code. API id MiniMax-M3.1-Flash, 1M token context, reasoning always on (effort low to max, default max). Input is text and image on Artificial Analysis; MiniMax's docs also list video. Flat price $0.15 input / $0.60 output per 1M tokens, cached input $0.015. Marked proprietary: MiniMax's blog says the weights will be released later and AA lists it as a proprietary model, though one line in MiniMax's API docs already calls it open-weight. Independent score: AA Intelligence Index 42. No AA Cyber, Arena+, Harvey LAB-AA or Vals Terminal-Bench score yet. MiniMax's own figures (DeepSWE v1.1 73.7%, OSWorld V2 61.7, CyberGym 82%, BankerToolBench 76.2) are its claims and not on Ridge's boards.",
+  }),
 ];
 
 export const BENCHMARKS: Benchmark[] = [
@@ -843,6 +865,7 @@ export const SCORES: Score[] = [
   s("mistral-large-4", "aa-intelligence", 38, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best effort/variant: Preview (reasoning)"),
   s("beam-1.0", "aa-intelligence", 30, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best listed row"),
   s("step-5-preview", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best listed row"),
+  s("minimax-m3.1-flash", "aa-intelligence", 42, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "reasoning, default max effort; best listed row"),
   s("mimo-v2.6-pro", "aa-intelligence", 46, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best listed row"),
   s("deepseek-v4-pro", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best effort/variant: max"),
   s("deepseek-v4.1-flash", "aa-intelligence", 45, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-19", "best effort/variant: max; 1017 snapshot"),

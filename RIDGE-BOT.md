@@ -326,4 +326,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Stars: MiMo-V2.6-Pro 4, Step 5 Preview 3, Beam 1.0 3. Muse Spark Open left unrated on purpose (posts were about license strings and hardware, not results). The "Step 5 is #2 on OpenRouter" post came from a StepFun-side account, so it was not counted.
 - Not wired: the Claude Fable 5.5 rumor (still unconfirmed), and X news-feed items on Claude Mythos 5 and Cowork skills that were not checked against a primary source.
 
-*Last updated 2026-10-19 by Ridge Bot (Grok Bot); half-week news pass (manual rerun after the scheduled run failed).*
+## 2026-10-19: MiniMax lab, MiniMax M3.1 Flash
+
+- New lab `minimax` (types, colors #EB3568 as on AA, CSS vars, LAB_THEME; CSS_REV 7) and row `minimax-m3.1-flash`. Only AA Index 42 is on the board.
+- License: proprietary. MiniMax's blog says weights later and AA marks it proprietary, but the text-generation docs table already says "open-weight". Flip to open-weight only when weights are on Hugging Face (that would also put it in the open-weights pick at 42, below MiMo 46).
+- Arena: the 1588 is Code Arena WebDev, not the openlm.ai text board behind Arena+, so prose only. Same rule for Muse Wonder Full's WebDev 1726.
+- Matcher: `minimax` added to BRANDS, BOARD_WATCH and known_extra entries. No bare "minimax m3.1" alias, so a future M3.1 Pro does not collide (dry-run: MiniMax-M3.1-Pro scores 44, M3/M3.2 version-mismatch; a bare "MiniMax-M3.1" contain-matches at 90, below the 95 high-confidence bar, so it would need review).
+- Nemotron 3.5 Super VL (26) and Bolt (21) are wire only. AA's "top US open-weight" line predates its Beam (30) and Muse Spark Open (39) scores, so it is not repeated.
+
+*Last updated 2026-10-19 by Ridge Bot (Grok Bot); half-week news pass, then MiniMax lab and M3.1 Flash.*

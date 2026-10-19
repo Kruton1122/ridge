@@ -80,6 +80,7 @@ BRANDS = (
     "claude", "gpt", "gemini", "gemma", "grok", "muse", "spark", "kimi", "qwen",
     "glm", "deepseek", "llama", "command", "sonnet", "opus", "fable", "astra",
     "sol", "terra", "luna", "phi", "step", "intellect", "mistral", "nova", "mimo",
+    "minimax",
 )
 
 def brands_in(s):

@@ -1253,6 +1253,44 @@ export const ABOUTS: Record<string, ModelAbout> = {
     ],
   },
 
+  "minimax-m3.1-flash": {
+    lede:
+      "MiniMax M3.1 Flash is MiniMax's new low-cost reasoning model, released on 19 October 2026. It has a 1M token context, takes text and image input (MiniMax's docs also list video) and writes text, and MiniMax aims it at agent work, coding, computer use and security.\n\nMiniMax says an anonymous model called Space Bunny, which processed more than 200 trillion tokens on public leaderboards, was an early version of M3.1 Flash. A larger Pro model is promised later.",
+    framing:
+      "MiniMax sells M3.1 Flash on cost and speed: it says agent tasks cost 70% less than on its previous model and that inference is nearly three times faster, with median output around 170 tokens per second.",
+    rollout: [
+      { date: "2026-10-19", text: "Released on the MiniMax API, M Plan and MiniMax Code. MiniMax says the weights will be released later." },
+    ],
+    rolloutNote:
+      "MiniMax lists a flat price of $0.15 input, $0.015 cached input and $0.60 output per million tokens. Thinking cannot be turned off; the effort setting runs from low to max and defaults to max. MiniMax's text generation guide already describes the model as open-weight, but its launch post says the weights come later and Artificial Analysis lists it as proprietary, so Ridge marks it proprietary until the weights are published.",
+    claims: [
+      "MiniMax's blog (its claims, not independent): DeepSWE v1.1 73.7%, OSWorld V2 61.7, Agents' Last Exam 29.6, CyberGym 82% and BankerToolBench 76.2, with first place among Chinese models on OSWorld V2 and Agents' Last Exam.",
+      "MiniMax says agent tasks cost 70% less than on its predecessor and that output speed reaches 200+ tokens per second.",
+    ],
+    vendorEvalsNote:
+      "The figures above come from MiniMax, not from Ridge's board. Artificial Analysis scores M3.1 Flash 42 on its Intelligence Index. Arena's Code Arena WebDev board lists it at 1588, but that is a different board from the Arena+ text leaderboard Ridge tracks, so it is not a Ridge score.",
+    specs: [
+      { label: "Model id", value: "MiniMax-M3.1-Flash (MiniMax API, Anthropic- and OpenAI-compatible)" },
+      { label: "Context", value: "1,000,000 tokens" },
+      { label: "Modalities", value: "Text and image in per Artificial Analysis; MiniMax's docs also list video. Text out" },
+      { label: "Reasoning", value: "Always on; effort low, medium, high, xhigh or max (default max)" },
+      { label: "Weights", value: "Not released yet; MiniMax says they will be released later" },
+      { label: "Price", value: "$0.15 input, $0.015 cached input, $0.60 output per 1M tokens" },
+      { label: "Lab", value: "MiniMax" },
+    ],
+    whereUsed: [
+      "MiniMax API (platform.minimax.io)",
+      "M Plan",
+      "MiniMax Code",
+    ],
+    sources: [
+      { label: "MiniMax M3.1 Flash announcement (MiniMax)", url: "https://www.minimax.io/blog/minimax-m31f" },
+      { label: "Text generation guide (MiniMax)", url: "https://platform.minimax.io/docs/guides/text-generation" },
+      { label: "MiniMax-M3.1-Flash on Artificial Analysis", url: "https://artificialanalysis.ai/models/minimax-m3-1-flash" },
+      { label: "Arena Code Arena WebDev post", url: "https://x.com/arena/status/2112156275282968930" },
+    ],
+  },
+
   "mimo-v2.6-pro": {
     lede:
       "MiMo-V2.6-Pro is Xiaomi's flagship reasoning model: a sparse mixture-of-experts with 1.02T total and 42B active parameters and a 1M token context. It takes text, image, video and audio in and writes text, and Xiaomi aims it at long-horizon agent work, coding and cybersecurity.\n\nXiaomi listed it in its API changelog on 22 September 2026 (21 September in US time) and published weights on Hugging Face under the MIT license as MiMo-V2.6-Pro-RL.",
