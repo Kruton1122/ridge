@@ -115,7 +115,7 @@ const PROFILES: Record<string, ModelProfile> = {
       "Million-token context, served as deepseek-flash",
     ],
     watch: [
-      "Every board score is for the September build; 1017 is not scored yet",
+      "AA Index and Vals TB4 now score 1017; Cyber, Arena+, Harvey and TB2.1 are still the September build",
       "No Vals SWE-bench score",
       "The lab's own agent tables stay off this ledger",
       "The v4-pro alias routes here from 14 September",
