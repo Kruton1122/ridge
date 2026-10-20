@@ -353,4 +353,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Ming-3.0-tts: HF repos were created 22 Sep 2026, but the README dates the release to Oct 2026 and the GitHub repo was created 19 Oct; AA posted 20 Oct. News item dated 19 Oct. AA's Controlled Voice Elo moved from 1,069 (its Ming post) to 1,068 (its Voxtral post), so copy says "about 1,068".
 - HealthBench, HealthBench Professional and AA-PersonalityBench are not board columns. Top HealthBench figures checked on AA's pages.
 
-*Last updated 2026-10-20 by Ridge Bot (Grok Bot); speech model news, AA health and personality tests.*
+## 2026-10-20: daily score update committed (07:30 briefing run)
+
+- Verified against sources: MiniMax M3.1 Flash AA 43 (was 42), Arena+ 1500 (row "Minimax-M3.1-Flash"), Vals TB4 25.25 (#22 of 51); Gemini 4 Argon (High) Harvey LAB 3.9% (#10 of 28, 3.82 halluc/task). Rest of the diff is rank renumbering (TB4 50 to 51, Harvey 27 to 28) and asOf bumps.
+- Fixes before commit: scraper dropped the MiniMax AA note prefix ("reasoning, default max effort"), restored; dropped Argon "20.8% before the hallucination gate" because the pre-gate figure is not in AA page HTML and could not be checked.
+- Gates held: DeepSeek V4.1 Flash September-checkpoint rows kept 10-17/10-06 dates and notes; GPT-6 Sol Daybreak Blue note intact. DeepSeek Harvey note still says "#15 of 27" (dated 10-17, frozen by the gate).
+
+*Last updated 2026-10-20 by Ridge Bot (Grok Bot); daily score update 20 Oct, speech model news, AA health and personality tests.*

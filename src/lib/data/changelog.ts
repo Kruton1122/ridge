@@ -1,6 +1,14 @@
 export const CHANGELOG = [
   {
     date: "2026-10-20",
+    title: "Daily score update: MiniMax M3.1 Flash gets more scores",
+    items: [
+      "MiniMax M3.1 Flash now has an Arena+ score (1,500) and a Terminal-Bench 4.0 score (25.25%, 22nd of 51), and its Artificial Analysis Intelligence Index moved from 42 to 43.",
+      "Gemini 4 Argon now has a Harvey legal agent score of 3.9% (10th of 28).",
+    ],
+  },
+  {
+    date: "2026-10-20",
     title: "News: new speech models from Mistral and Ant Group; new health and personality tests",
     items: [
       "Mistral's Voxtral 3 speech models: Artificial Analysis ranks Voxtral Small Transcribe 3 third for transcription accuracy, and the new voice model 12th of 98 in its text to speech arena. Not added to the Voice board, which ranks models that listen and talk back.",
