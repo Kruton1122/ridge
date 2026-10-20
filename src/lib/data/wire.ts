@@ -11,6 +11,36 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "mistral-voxtral-3-1020",
+    title: "Mistral releases Voxtral 3 speech models, and one takes third on AA's transcription board",
+    blurb: "Mistral released Voxtral 3: three speech to text models (Small Transcribe 3, Mini Transcribe 3 and Mini Transcribe Realtime 3), text to speech in batch and live versions, and a kit for building voice agents. Artificial Analysis puts Voxtral Small Transcribe 3 third on its speech to text board with a 2.1% word error rate, and Mini Transcribe 3 fifth at 2.2%. The live model scores 3.3% at a 960 ms delay, sixth of 46. In AA's text to speech arena the new voice model has an Elo of 1,218 with preset voices, 12th of 98. It costs $13 per 1M characters, and transcription starts at $0.0035 a minute. Mistral offers self-hosting, but no Voxtral 3 weights are on Hugging Face. Mistral's own charts, which say it beats Whisper, Scribe v2 and Gemini 3.5 Transcribe, are its claims. These are speech to text and text to speech models, so they are not on Ridge's Voice board, which ranks models that talk back.",
+    date: "2026-10-20",
+    outlet: "Mistral",
+    url: "https://mistral.ai/news/voxtral-3/",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "ming-3-tts-1019",
+    title: "Ant Group's Ming-3.0-tts leads AA's open text to speech models",
+    blurb: "inclusionAI, Ant Group's AI team, released Ming-3.0-tts as open weights under the MIT license: a 0.5B model and a larger 7.9B mixture-of-experts model with 1.3B active, called tiny. The repositories were set up on Hugging Face in September, but the code and the release note went public in October. Artificial Analysis says the 0.5B model is first of 31 on its pronunciation test at 93.2%, level with Fish Audio's Drama 3 Preview, and the best open model in its cloned-voice arena at an Elo of about 1,068, 13th overall. With preset voices it is third among open models and 19th overall. It is a text to speech model, so it is not on Ridge's Voice board.",
+    date: "2026-10-19",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2112389514404462613",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "aa-health-personality-1019",
+    title: "Artificial Analysis adds health and personality tests",
+    blurb: "Artificial Analysis launched leaderboards for OpenAI's HealthBench and HealthBench Professional, which grade answers to health conversations against doctors' checklists. On HealthBench Professional, after OpenAI's adjustment for answer length, GPT-6 Astra leads at 66.0%, ahead of GPT-6.1 Sol at 65.1% and Claude Sonnet 5.5 at 63.0%. Claude Opus 5.5 has the best unadjusted score, 71.4%, but its long answers drop it to sixth. On HealthBench, Claude Sonnet 5.5 leads at 62.1%, ahead of DeepSeek V4.1 Flash at 60.9%. AA also launched AA-PersonalityBench, which describes how models come across, such as warm, direct or imaginative, across 30 traits. It has no single score and no winner. Neither is a Ridge board.",
+    date: "2026-10-19",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/healthbench-professional",
+    beat: "ranking",
+    models: ["gpt-6-astra",  "gpt-6.1-sol",  "claude-sonnet-5.5",  "claude-opus-5.5",  "deepseek-v4.1-flash"],
+  },
+  {
     id: "minimax-m3-1-flash-1019",
     title: "MiniMax releases M3.1 Flash at $0.15 in and $0.60 out",
     blurb: "MiniMax released M3.1 Flash on its API, M Plan and MiniMax Code: a reasoning model with a 1M token context and text and image input, at $0.15 per 1M input tokens and $0.60 per 1M output tokens. Artificial Analysis scores it 42 on its Intelligence Index. MiniMax says the weights will be released later, so Ridge marks it proprietary for now. MiniMax's own benchmark figures, including DeepSWE v1.1 73.7% and CyberGym 82%, are its claims. On Arena's separate Code Arena WebDev board it debuts at 1588.",

@@ -346,4 +346,11 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Public copy: recent changelog entries (10 to 19 Oct) and one desk line no longer say matcher, wires, Arena+ column or daily scrape. Going forward use "daily score update", "news item", "article", "on the ledger". /news "new" badge now means within a day of the snapshot, not seven days.
 - Model pages: unscored boards collapse into one "Not scored yet on ..." line; archived boards say "(no longer adding models)".
 
-*Last updated 2026-10-19 by Ridge Bot (Grok Bot); site review fixes (UI, copy, ledger).*
+## 2026-10-20: speech model news and AA's new tests (news items only)
+
+- Voxtral 3 and Ming-3.0-tts are speech to text / text to speech, not speech to speech, so they are not on /voice. No catalog rows.
+- Voxtral 3: no weights on Hugging Face (latest mistralai Voxtral repos predate it), so treated as API-only; Mistral says self-deployment is available. Product names vary on Mistral's own pages (Voxtral TTS 3 / Voxtral Speech 3 / Mini TTS 3; API id voxtral-mini-tts-3-0).
+- Ming-3.0-tts: HF repos were created 22 Sep 2026, but the README dates the release to Oct 2026 and the GitHub repo was created 19 Oct; AA posted 20 Oct. News item dated 19 Oct. AA's Controlled Voice Elo moved from 1,069 (its Ming post) to 1,068 (its Voxtral post), so copy says "about 1,068".
+- HealthBench, HealthBench Professional and AA-PersonalityBench are not board columns. Top HealthBench figures checked on AA's pages.
+
+*Last updated 2026-10-20 by Ridge Bot (Grok Bot); speech model news, AA health and personality tests.*

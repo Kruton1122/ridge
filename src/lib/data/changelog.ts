@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-20",
+    title: "News: new speech models from Mistral and Ant Group; new health and personality tests",
+    items: [
+      "Mistral's Voxtral 3 speech models: Artificial Analysis ranks Voxtral Small Transcribe 3 third for transcription accuracy, and the new voice model 12th of 98 in its text to speech arena. Not added to the Voice board, which ranks models that listen and talk back.",
+      "Ant Group's Ming-3.0-tts, open weights under MIT, is the best open model in two of Artificial Analysis' three text to speech rankings.",
+      "Artificial Analysis now runs HealthBench, HealthBench Professional and AA-PersonalityBench. GPT-6 Astra leads HealthBench Professional and Claude Sonnet 5.5 leads HealthBench. None of them is a Ridge board, so no scores on the ledger changed.",
+    ],
+  },
+  {
     date: "2026-10-19",
     title: "Easier to read: column key, wider tables, clearer Best for cards",
     items: [
