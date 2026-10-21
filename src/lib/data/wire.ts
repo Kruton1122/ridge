@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-google-cloud-1021",
+    title: "OpenAI's GPT-6 models come to Google Cloud",
+    blurb: "OpenAI and Google Cloud announced that GPT-6 Astra, GPT-6.1 Sol and GPT-6 Luna are rolling out in private preview to select enterprise customers in Google Cloud's Model Garden, billed through Google Cloud Marketplace. General availability is planned in the coming weeks, and both companies say the models will soon reach Google Antigravity and Gemini's business tools. Developers can also point Codex CLI and Codex Desktop at Google Cloud for inference. OpenAI says Microsoft remains its primary cloud partner. These are the same models already on Ridge's boards, so no scores change.",
+    date: "2026-10-21",
+    outlet: "Google Cloud",
+    url: "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
+    beat: "industry",
+    models: ["gpt-6-astra", "gpt-6.1-sol", "gpt-6-luna"],
+  },
+  {
+    id: "heygen-voice-turbo-1021",
+    title: "HeyGen Voice Turbo takes first on AA's text to speech arena",
+    blurb: "Artificial Analysis says HeyGen Voice Turbo is now first on its Controlled Voice text to speech arena, with HeyGen's earlier model, HeyGen Voice, second. AA notes this comes two weeks after the earlier model reached first. HeyGen's API lists the new model as heygen-voice-1-turbo, a lower latency option for instant cloned voices, while heygen-voice-1 stays the default. It is a text to speech model, so it is not on Ridge's Voice board.",
+    date: "2026-10-21",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2112961069526249973",
+    beat: "ranking",
+    models: [],
+  },
+  {
     id: "mistral-voxtral-3-1020",
     title: "Mistral releases Voxtral 3 speech models, and one takes third on AA's transcription board",
     blurb: "Mistral released Voxtral 3: three speech to text models (Small Transcribe 3, Mini Transcribe 3 and Mini Transcribe Realtime 3), text to speech in batch and live versions, and a kit for building voice agents. Artificial Analysis puts Voxtral Small Transcribe 3 third on its speech to text board with a 2.1% word error rate, and Mini Transcribe 3 fifth at 2.2%. The live model scores 3.3% at a 960 ms delay, sixth of 46. In AA's text to speech arena the new voice model has an Elo of 1,218 with preset voices, 12th of 98. It costs $13 per 1M characters, and transcription starts at $0.0035 a minute. Mistral offers self-hosting, but no Voxtral 3 weights are on Hugging Face. Mistral's own charts, which say it beats Whisper, Scribe v2 and Gemini 3.5 Transcribe, are its claims. These are speech to text and text to speech models, so they are not on Ridge's Voice board, which ranks models that talk back.",

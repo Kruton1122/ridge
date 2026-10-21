@@ -360,3 +360,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Gates held: DeepSeek V4.1 Flash September-checkpoint rows kept 10-17/10-06 dates and notes; GPT-6 Sol Daybreak Blue note intact. DeepSeek Harvey note still says "#15 of 27" (dated 10-17, frozen by the gate).
 
 *Last updated 2026-10-20 by Ridge Bot (Grok Bot); daily score update 20 Oct, speech model news, AA health and personality tests.*
+
+## 2026-10-21: ModelWatch leads (news items only)
+
+- Wire: OpenAI GPT-6 Astra, GPT-6.1 Sol and GPT-6 Luna in private preview on Google Cloud Model Garden. Checked against the OpenAI and Google Cloud posts. Distribution only, no score changes.
+- Wire: HeyGen Voice Turbo first on AA's Controlled Voice TTS arena. Checked against AA's X post and HeyGen's API changelog. Text to speech, so not on /voice.
+- Skipped: Sage-A1.5 (vendor scores only, not a Ridge row), NVIDIA GTC Berlin batch and Cohere Rerank 5 (retrievers and non-LLM models), Qwen3.6-27B (shipped in April). OpenAI's Oct 23 shutdowns (o1, o3-mini, o4-mini, gpt-4-turbo) need no note: none of those models are on the board.
+- Left the uncommitted 07:30 daily scrape edits (catalog, desk, voice, llms.txt) out of this commit.
