@@ -50,6 +50,22 @@ SNAPSHOT_GATES = {
     },
 }
 
+NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
+
+
+def guard_note(model_id, benchmark_id, note):
+    """Enforce scripts/note-guards.json: drop banned segments, keep protected prefixes."""
+    if not note:
+        note = ""
+    for b in NOTE_GUARDS.get("bannedFragments", []):
+        if b.get("benchmarkId") in (None, benchmark_id) and b.get("modelId") in (None, model_id) and b["fragment"] in note:
+            note = "; ".join(p for p in note.split("; ") if b["fragment"] not in p)
+    for g in NOTE_GUARDS.get("protectedPrefixes", []):
+        if g["modelId"] == model_id and g["benchmarkId"] == benchmark_id and not note.startswith(g["prefix"]):
+            note = f'{g["prefix"]}; {note}' if note else g["prefix"]
+    return note or None
+
+
 def snapshot_note(model_id, note):
     """Swap the stale-checkpoint text in a score note for the snapshot label."""
     gate = SNAPSHOT_GATES.get(model_id)
@@ -561,6 +577,7 @@ def main():
                 )
                 if snapshot_ok:
                     next_note = snapshot_note(model_id, next_note)
+                next_note = guard_note(model_id, benchmark_id, next_note)
                 next_row = {
                     "modelId": model_id, "benchmarkId": benchmark_id, "value": num_val,
                     "sourceName": source_name, "sourceUrl": source_url, "asOf": as_of,
@@ -642,6 +659,7 @@ def main():
                 next_note = note or prev.get("note")
             if snapshot_ok:
                 next_note = snapshot_note(model_id, next_note)
+            next_note = guard_note(model_id, benchmark_id, next_note)
             changed_val = values_differ(from_val, num_val, benchmark_id)
             changed_meta = prev["asOf"] != as_of or prev["sourceUrl"] != source_url or (
                 snapshot_ok and next_note != prev.get("note")

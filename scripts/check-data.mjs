@@ -94,7 +94,10 @@ function duplicates(values) {
  * @param {{ now?: Date }} [opts]
  * @returns {{ errors: string[], warnings: string[] }}
  */
-export function checkData(data, { now = new Date() } = {}) {
+/** Score-note guards shared with scripts/apply-briefing-staging.py. */
+export const NOTE_GUARDS = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "note-guards.json"), "utf8"));
+
+export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS } = {}) {
   /** @type {string[]} */
   const errors = [];
   /** @type {string[]} */
@@ -103,6 +106,17 @@ export function checkData(data, { now = new Date() } = {}) {
   const warn = (m) => warnings.push(m);
   const { MODELS = [], LABS = {}, BENCHMARKS = [], SCORES = [], NEWS = [], WIRE = [], CHANGELOG = [] } = data;
   const VOICE_ROWS = data.VOICE_ROWS ?? [];
+  for (const sc of SCORES) {
+    const note = sc.note ?? "";
+    for (const g of noteGuards.protectedPrefixes ?? []) {
+      if (sc.modelId === g.modelId && sc.benchmarkId === g.benchmarkId && !note.startsWith(g.prefix))
+        err(`score ${sc.modelId}/${sc.benchmarkId}: note must start with ${JSON.stringify(g.prefix)} (protected in scripts/note-guards.json)`);
+    }
+    for (const b of noteGuards.bannedFragments ?? []) {
+      if ((b.benchmarkId == null || b.benchmarkId === sc.benchmarkId) && (b.modelId == null || b.modelId === sc.modelId) && note.includes(b.fragment))
+        err(`score ${sc.modelId}/${sc.benchmarkId}: note contains banned text ${JSON.stringify(b.fragment)} (scripts/note-guards.json)`);
+    }
+  }
   const limit = new Date(now.getTime() + 86_400_000).toISOString().slice(0, 10);
   const checkDate = (where, value) => {
     if (!isIsoDate(value)) err(`${where}: missing or malformed date ${JSON.stringify(value)} (want YYYY-MM-DD)`);

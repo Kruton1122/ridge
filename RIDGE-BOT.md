@@ -372,6 +372,14 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Verified against sources: Beam 1.0 Vals TB4 4.04% (new row, #45 of 52); Vals TB4 now lists 52 models, so every TB4 rank note moved from "of 51" to "of 52" and Gemini 3.1 Pro went from #45 to #46. AA speech to speech: Arena Elo moved for 21 existing Voice rows (all match AA's page), and two new rows, Eleven Realtime v1 Max and Eleven Realtime v1 Mini, named as AA writes them, with reasoning, dynamics, task success and time to first audio checked against AA's data.
 - Unchanged scores: AA Intelligence, Arena+, Harvey and the rest are date bumps only. Board asOf bumps: arena-elo, swe-bench, terminal-bench-4, aa-cyber, harvey-lab-aa, aa-robotics. Archived Terminal-Bench 2.1 was not bumped.
 - Reverted before commit (same as 20 Oct): the scraper again dropped the MiniMax M3.1 Flash AA note prefix ("reasoning, default max effort"), restored; and it re-added "20.8% before the hallucination gate" to Gemini 4 Argon's Harvey note, removed because the figure is not on AA's Harvey page.
-- TODO: fix the scraper so these two notes stop recurring.
+- ~~TODO: fix the scraper so these two notes stop recurring.~~ Done 2026-10-21, see below.
+
+## 2026-10-21: score-note guards for the daily scrape
+
+- New `scripts/note-guards.json`, read by both `apply-briefing-staging.py` and `check-data.mjs`. `protectedPrefixes` lists text a note must keep at its start (MiniMax M3.1 Flash AA: "reasoning, default max effort"). `bannedFragments` lists note text the scraper must never write, for one model or a whole board (Gemini 4 Argon Harvey: "before the hallucination gate").
+- `apply-briefing-staging.py`: new `guard_note()` runs on every updated and every newly inserted score note, after the other note rules. It drops banned segments and puts back a missing protected prefix.
+- `check-data.mjs`: fails with an error if a score note lacks its protected prefix or contains banned text. New test in `check-data.test.mjs` covers both.
+- Dry run against today's pull: 0 rows would change, so both notes stay as committed.
+- Open question for Colton: the Argon 20.8% is in AA's page data (ungatedAverageAllPass 0.2083 beside Argon's 3.82 hallucinations per task), just not shown as text on the page, and 17 other Harvey rows already publish the same ungated figure. The ban is scoped to Argon only so nothing else changed; remove that entry from note-guards.json to allow it, or widen it to the board to drop the figure everywhere.
 
 *Last updated 2026-10-21 by Ridge Bot (Grok Bot); daily score update 21 Oct, OpenAI on Google Cloud and HeyGen Voice Turbo news.*

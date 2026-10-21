@@ -133,3 +133,17 @@ test("CLI exits 0 on the real data", () => {
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, /check-data: \d+ models/);
 });
+
+test("note guards: a dropped protected prefix or a banned figure fails", () => {
+  const guards = {
+    protectedPrefixes: [{ modelId: "b-1", benchmarkId: "idx", prefix: "variant: max" }],
+    bannedFragments: [{ benchmarkId: "idx", fragment: "before the hallucination gate" }],
+  };
+  assert.deepEqual(checkData(good(), { now: NOW, noteGuards: guards }).errors, []);
+  const d = good();
+  d.SCORES[1].note = "best listed row";
+  d.SCORES[0].note = "#1 of 2; 20.8% before the hallucination gate";
+  const { errors } = checkData(d, { now: NOW, noteGuards: guards });
+  assert.ok(errors.some((e) => e.includes("b-1/idx") && e.includes("must start with")));
+  assert.ok(errors.some((e) => e.includes("a-1/idx") && e.includes("banned text")));
+});
