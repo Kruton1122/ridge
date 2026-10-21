@@ -380,6 +380,11 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - `apply-briefing-staging.py`: new `guard_note()` runs on every updated and every newly inserted score note, after the other note rules. It drops banned segments and puts back a missing protected prefix.
 - `check-data.mjs`: fails with an error if a score note lacks its protected prefix or contains banned text. New test in `check-data.test.mjs` covers both.
 - Dry run against today's pull: 0 rows would change, so both notes stay as committed.
-- Open question for Colton: the Argon 20.8% is in AA's page data (ungatedAverageAllPass 0.2083 beside Argon's 3.82 hallucinations per task), just not shown as text on the page, and 17 other Harvey rows already publish the same ungated figure. The ban is scoped to Argon only so nothing else changed; remove that entry from note-guards.json to allow it, or widen it to the board to drop the figure everywhere.
+- ~~Open question for Colton~~ (closed 2026-10-21): Colton said Argon should match the other Harvey rows. See below.
+
+## 2026-10-21: Gemini 4 Argon Harvey note gets its ungated figure back
+
+- Colton OK'd it: the 20.8% comes from AA's own Harvey page data (ungatedAverageAllPass 0.2083 beside Argon's 3.82 hallucinations per task), and 17 other Harvey rows already show the same figure. Note is now "variant: high; #10 of 28; 3.82 material hallucinations per task; 20.8% before the hallucination gate", worded like the others.
+- Removed the Argon entry from `scripts/note-guards.json`; `bannedFragments` is now empty but stays available. The MiniMax protected-prefix guard is unchanged.
 
 *Last updated 2026-10-21 by Ridge Bot (Grok Bot); daily score update 21 Oct, OpenAI on Google Cloud and HeyGen Voice Turbo news.*

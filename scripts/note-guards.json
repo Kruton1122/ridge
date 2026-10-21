@@ -8,12 +8,5 @@
       "why": "AA lists this as the reasoning, default max effort row; the AA index scrape only reports 'best listed row'."
     }
   ],
-  "bannedFragments": [
-    {
-      "modelId": "gemini-4-argon",
-      "benchmarkId": "harvey-lab-aa",
-      "fragment": "before the hallucination gate",
-      "why": "Removed on 20 and 21 Oct as unverified. Other Harvey rows keep their ungated figure; lift this entry if Colton OKs it (AA page data has ungatedAverageAllPass 0.2083 next to Argon 3.82 hallucinations per task)."
-    }
-  ]
+  "bannedFragments": []
 }

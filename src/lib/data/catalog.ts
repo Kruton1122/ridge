@@ -1035,7 +1035,7 @@ export const SCORES: Score[] = [
   s("gemini-3.1-pro", "harvey-lab-aa", 0, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-12", "listed as Gemini 3.1 Pro Preview; #21 of 25; 1.08 material hallucinations per task; 0.0% before the hallucination gate"),
   s("muse-wonder-full", "harvey-lab-aa", 13.1, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-21", "variant: max; #1 of 28; 0.62 material hallucinations per task; 25.6% before the hallucination gate"),
   s("muse-wonder", "harvey-lab-aa", 10, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-21", "variant: max; #2 of 28; 0.89 material hallucinations per task; 23.1% before the hallucination gate"),
-  s("gemini-4-argon", "harvey-lab-aa", 3.9, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-21", "variant: high; #10 of 28; 3.82 material hallucinations per task"),
+  s("gemini-4-argon", "harvey-lab-aa", 3.9, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-21", "variant: high; #10 of 28; 3.82 material hallucinations per task; 20.8% before the hallucination gate"),
   s("gpt-6-astra", "aa-robotics", 69.4, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-21", "high effort; #1 of 5"),
   s("gpt-6.1-sol", "aa-robotics", 64.6, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-21", "high effort; #2 of 5"),
   s("gemini-4-argon", "aa-robotics", 55.3, "Artificial Analysis", "https://artificialanalysis.ai/articles/aa-robotics", "2026-10-21", "high effort; #3 of 5"),
