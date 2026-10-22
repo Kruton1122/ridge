@@ -16,7 +16,7 @@ export interface VoiceRow {
   ttfa: string | null;
 }
 
-export const VOICE_AS_OF = "2026-10-21";
+export const VOICE_AS_OF = "2026-10-22";
 export const VOICE_SOURCE = { name: "Artificial Analysis", url: "https://artificialanalysis.ai/speech-to-speech" };
 
 export const VOICE_ROWS: VoiceRow[] = [
@@ -25,8 +25,9 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "Google", model: "Gemini 3.8 Live Extended Thinking (High)", index: "82.6", reasoning: "98%", dynamics: "91.9%", agentic: "68.6%", arenaElo: "979", taskSuccess: "89.1%", ttfa: "1.35" },
   { provider: "SpaceXAI", model: "Grok Voice 2.0", index: "81.3", reasoning: "97%", dynamics: "95.1%", agentic: "56.5%", arenaElo: "997", taskSuccess: "94.6%", ttfa: "0.70" },
   { provider: "OpenAI", model: "GPT-Live-1 (Sol, low)", index: "80.1", reasoning: "89%", dynamics: "97.3%", agentic: "59.3%", arenaElo: "1047", taskSuccess: "90.9%", ttfa: "1.24" },
-  { provider: "Google", model: "Gemini 3.8 Live", index: "76.0", reasoning: "92%", dynamics: "96.1%", agentic: "30.1%", arenaElo: "1078", taskSuccess: "93.2%", ttfa: "1.18" },
+  { provider: "ElevenLabs", model: "Eleven Realtime v1 Max", index: "77.3", reasoning: "99%", dynamics: "94.1%", agentic: "47.6%", arenaElo: "997", taskSuccess: "87.1%", ttfa: "0.57" },
   { provider: "OpenAI", model: "GPT-Realtime-2.1 High", index: "75.2", reasoning: "96%", dynamics: "95.7%", agentic: "45.7%", arenaElo: "937", taskSuccess: "91.5%", ttfa: "1.21" },
+  { provider: "Google", model: "Gemini 3.8 Live", index: "74.5", reasoning: "92%", dynamics: "96.1%", agentic: "30.1%", arenaElo: "1078", taskSuccess: "93.2%", ttfa: "1.18" },
   { provider: "SpaceXAI", model: "Grok Voice 1.0", index: "73.7", reasoning: "97%", dynamics: "77.8%", agentic: "52.1%", arenaElo: "908", taskSuccess: "80.7%", ttfa: "1.25" },
   { provider: "OpenAI", model: "GPT-Realtime-2 (High)", index: "73.6", reasoning: "97%", dynamics: "95.3%", agentic: "39.8%", arenaElo: "926", taskSuccess: "89.8%", ttfa: "1.14" },
   { provider: "Google", model: "Gemini 3.1 Flash Live High", index: "72.0", reasoning: "97%", dynamics: "74.3%", agentic: "37.7%", arenaElo: "1066", taskSuccess: "71.8%", ttfa: "2.99" },
@@ -35,6 +36,7 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "Alibaba Cloud", model: "Qwen Audio 3.0 Realtime Plus", index: "69.5", reasoning: "99%", dynamics: "98.4%", agentic: "54.6%", arenaElo: "793", taskSuccess: "77.8%", ttfa: "1.54" },
   { provider: "OpenAI", model: "GPT Realtime (Aug '25)", index: "69.1", reasoning: "83%", dynamics: "93.9%", agentic: "30.4%", arenaElo: "969", taskSuccess: "89.4%", ttfa: "0.98" },
   { provider: "Alibaba Cloud", model: "Qwen Audio 3.0 Realtime Flash", index: "67.7", reasoning: "96%", dynamics: "96.9%", agentic: "35.9%", arenaElo: "847", taskSuccess: "81.7%", ttfa: "1.55" },
+  { provider: "ElevenLabs", model: "Eleven Realtime v1 Mini", index: "64.4", reasoning: "76%", dynamics: "95.8%", agentic: "46.8%", arenaElo: "988", taskSuccess: "60.3%", ttfa: "0.62" },
   { provider: "Google", model: "Gemini 3.1 Flash Live Minimal", index: "64.2", reasoning: "71%", dynamics: "72.3%", agentic: "26.2%", arenaElo: "1095", taskSuccess: "74.6%", ttfa: "0.96" },
   { provider: "OpenAI", model: "GPT-Realtime-2 (Minimal)", index: "63.3", reasoning: "72%", dynamics: "96.1%", agentic: "30.8%", arenaElo: "924", taskSuccess: "84.7%", ttfa: "1.12" },
   { provider: "OpenAI", model: "GPT Realtime Mini (Oct '25)", index: "56.1", reasoning: "64%", dynamics: "95.7%", agentic: "15.1%", arenaElo: "924", taskSuccess: "79.6%", ttfa: "0.81" },
@@ -47,8 +49,6 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "Boson AI", model: "Higgs Realtime", index: null, reasoning: "69%", dynamics: "92.8%", agentic: "18.6%", arenaElo: null, taskSuccess: null, ttfa: "1.47" },
   { provider: "Cofe AI", model: "FLM-Audio", index: null, reasoning: "16%", dynamics: "62.0%", agentic: null, arenaElo: null, taskSuccess: null, ttfa: null },
   { provider: "Deepslate", model: "Deepslate Opal", index: null, reasoning: "85%", dynamics: "85.7%", agentic: "17.5%", arenaElo: null, taskSuccess: null, ttfa: "0.44" },
-  { provider: "ElevenLabs", model: "Eleven Realtime v1 Max", index: null, reasoning: "99%", dynamics: "94.1%", agentic: null, arenaElo: "997", taskSuccess: "87.1%", ttfa: "0.57" },
-  { provider: "ElevenLabs", model: "Eleven Realtime v1 Mini", index: null, reasoning: "76%", dynamics: "95.8%", agentic: null, arenaElo: "988", taskSuccess: "60.3%", ttfa: "0.62" },
   { provider: "Google", model: "Gemini 2.5 Flash Native Audio Dialog", index: null, reasoning: "69%", dynamics: null, agentic: null, arenaElo: null, taskSuccess: null, ttfa: "0.63" },
   { provider: "Google", model: "Gemini 2.5 Flash Native Audio Dialog Thinking", index: null, reasoning: "91%", dynamics: null, agentic: null, arenaElo: null, taskSuccess: null, ttfa: "3.87" },
   { provider: "Google", model: "Gemini 2.5 Flash Native Audio Preview (Dec 2025)", index: null, reasoning: null, dynamics: "44.0%", agentic: "22.8%", arenaElo: null, taskSuccess: null, ttfa: null },
