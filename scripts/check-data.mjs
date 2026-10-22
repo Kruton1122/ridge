@@ -204,7 +204,7 @@ export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS } =
       warn(`board ${b.id}: a score is dated ${latest}, after the board's own asOf ${b.asOf}`);
     }
     if (/archived|stale/i.test(b.name) && isIsoDate(b.asOf) && b.asOf > latest) {
-      warn(`board ${b.id} is marked archived but its asOf ${b.asOf} is newer than its latest score ${latest}`);
+      err(`board ${b.id} is marked archived but its asOf ${b.asOf} is newer than its latest score ${latest}; archived boards must not be re-dated`);
     }
   }
 

@@ -109,12 +109,11 @@ test("soft findings warn without failing", () => {
   const r = run((d) => {
     d.SCORES[0].asOf = "2026-10-16";
     d.BENCHMARKS[0].asOf = "2026-10-01";
-    d.SCORES.push({ modelId: "a-1", benchmarkId: "old", value: 50, sourceName: "AA", sourceUrl: "https://example.com", asOf: "2026-10-06" });
+    d.SCORES.push({ modelId: "a-1", benchmarkId: "old", value: 50, sourceName: "AA", sourceUrl: "https://example.com", asOf: "2026-10-16" });
     d.WIRE[0].url = "";
   });
   assert.deepEqual(r.errors, []);
   assert.ok(r.warnings.some((w) => /after the board's own asOf/.test(w)));
-  assert.ok(r.warnings.some((w) => /marked archived/.test(w)));
   assert.ok(r.warnings.some((w) => /no source URL/.test(w)));
 });
 
@@ -146,4 +145,11 @@ test("note guards: a dropped protected prefix or a banned figure fails", () => {
   const { errors } = checkData(d, { now: NOW, noteGuards: guards });
   assert.ok(errors.some((e) => e.includes("b-1/idx") && e.includes("must start with")));
   assert.ok(errors.some((e) => e.includes("a-1/idx") && e.includes("banned text")));
+});
+
+test("an archived board re-dated past its last score fails", () => {
+  const r = run((d) => {
+    d.SCORES.push({ modelId: "a-1", benchmarkId: "old", value: 50, sourceName: "AA", sourceUrl: "https://example.com", asOf: "2026-10-06" });
+  });
+  assert.ok(r.errors.some((e) => /marked archived/.test(e)));
 });

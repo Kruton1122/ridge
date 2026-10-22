@@ -394,4 +394,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Skipped for weak sourcing or off-board: Sol-billed-as-Astra quota claim (user report only, mentioned as such), Opus 5.5 nerf claims (no Anthropic word), Gemini 4 Carbon on Arena (rumor), Ornith-1.5-122B and other vendor-only scores, DeepSeek Search.
 - Committed only these hunks; the uncommitted 07:30 daily scrape edits (catalog scores, desk isFresh, voice, llms.txt snapshot) are left as they were. Note: that scrape bumps the archived terminal-bench board asOf to 2026-10-22, which check-data warns about.
 
-*Last updated 2026-10-22 by Ridge Bot (Grok Bot); half-week news and opinion pass.*
+## 2026-10-22: daily score update and archived Terminal-Bench 2.1 freeze
+
+- Daily scrape (6b1b56f), checked against AA's speech to speech page data: Eleven Realtime v1 Max now has AA's quality index 77.3 and agentic 47.6%; Eleven Realtime v1 Mini 64.4 and 46.8%; Gemini 3.8 Live index 76.0 to 74.5 (rows re-ordered by index). No catalog score values or notes changed; the rest is date bumps (arena-elo, swe-bench, terminal-bench-4, aa-cyber, harvey-lab-aa, aa-robotics, snapshot, desk freshness, voice asOf). Nothing reverted.
+- Root cause of the archived TB 2.1 board drifting: its asOf was `SNAPSHOT_DATE`, so every snapshot bump re-dated it. Pinned it to "2026-10-06", its last Vals score.
+- `apply-briefing-staging.py`: `archived_boards()` reads boards named "(archived)"; `apply_bucket` skips them, and the script refuses to write if an archived board's block or scores would change.
+- `check-data.mjs`: an archived board with an asOf newer than its latest score is now an error, not a warning. Tests updated, plus a new failing-case test.
+- Pushed with today's half-week pass dc33193.
+
+*Last updated 2026-10-22 by Ridge Bot (Grok Bot); daily score update 22 Oct, archived TB 2.1 freeze, half-week pass.*

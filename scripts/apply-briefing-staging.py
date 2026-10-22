@@ -53,6 +53,16 @@ SNAPSHOT_GATES = {
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
 
 
+def archived_boards(catalog_src):
+    """Board ids whose name says "(archived)". The scrape never writes scores or dates to them."""
+    return set(re.findall(r'id: "([^"]+)",\s*\n\s*name: "[^"]*\(archived\)', catalog_src))
+
+
+def archived_block(catalog_src, bid):
+    m = re.search(r'\{\s*id: "' + re.escape(bid) + r'",[\s\S]*?\n  \}', catalog_src)
+    return m.group(0) if m else None
+
+
 def guard_note(model_id, benchmark_id, note):
     """Enforce scripts/note-guards.json: drop banned segments, keep protected prefixes."""
     if not note:
@@ -492,6 +502,9 @@ def main():
 
     def apply_bucket(benchmark_id, rows, mapper):
         nonlocal catalog_src
+        if benchmark_id in archived_boards(catalog_src):
+            logs.append(f"skip archived board {benchmark_id}: never touched by the scrape")
+            return
         used = set()
         # higher sourced values first so Pro 96.4 beats Pro 77.4
         def _val(r):
@@ -881,6 +894,12 @@ def main():
             print(line)
         return
 
+    original_src = CATALOG_PATH.read_text()
+    for bid in archived_boards(original_src):
+        if archived_block(original_src, bid) != archived_block(catalog_src, bid):
+            die(f"refusing to write: archived board {bid} changed; archived boards are frozen")
+        if any(r["benchmarkId"] == bid for r in updates):
+            die(f"refusing to write: score update on archived board {bid}")
     CATALOG_PATH.write_text(catalog_src)
     if need_bump:
         DESK_PATH.write_text(desk_src)
