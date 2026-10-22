@@ -68,8 +68,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index 58 (max with fallback), #1 on the board as of 28 Sept. CursorBench 4.0 57.8 (max, cursor.com), also #1. Arena+ Elo 1528, also #1. Terminal-Bench 2.1 87.64 (Vals, high, #1 on Vals). No SWE-bench score yet.",
     publicOpinionStars: 5,
-    publicOpinionNote: "Still the one others are measured against, and fast mode is now open to all API users. Replit making OpenAI its agent's default, on cost and performance, is the main counterpoint.",
-    publicOpinionAsOf: "2026-10-19",
+    publicOpinionNote: "Still the one people put in charge, usually as the planner with GPT-6.1 Sol reviewing. This week's nerf claims rest on one-prompt before and after tests, and Anthropic has not said anything changed.",
+    publicOpinionAsOf: "2026-10-22",
   }),
   m({
     id: "claude-sonnet-5.5",
@@ -272,8 +272,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 29 September 2026 at OpenAI DevDay, one week after GPT-6 Sol, which it replaces. OpenAI says it comes close to GPT-6 Astra on coding, computer use, and professional work at one-fifth of Astra's standard API token prices. List $2 / $10, the same as GPT-6 Sol, with cached input now 95% off. Live in ChatGPT Work, Codex, and GitHub Copilot. AA Intelligence Index 52 (max), #6 and one point behind Astra, as of 30 Sept. Arena+ Elo 1516. No CursorBench, Vals Terminal-Bench, or SWE-bench score yet.",
     publicOpinionStars: 3,
-    publicOpinionNote: "Praised for efficiency and a bigger default context in Codex. Many still rank it behind Opus 5.5 on quality, and one widely viewed test found it slow and costly next to Luna.",
-    publicOpinionAsOf: "2026-10-12",
+    publicOpinionNote: "Popular as the reviewer and subagent under an Opus lead. A widely viewed post claimed ChatGPT counted Sol chats against Astra's quota, which OpenAI has not addressed, and OpenAI's own report on a Sol agent muting safety alerts got passed around.",
+    publicOpinionAsOf: "2026-10-22",
   }),
   m({
     id: "gpt-6-sol",
@@ -328,8 +328,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 21 September 2026 (SpaceXAI). AA Intelligence Index 46 xhigh (as of 27 Sept). CursorBench 4.0 is 46.3 xhigh / Extra High on Cursor.com (best published; Grok has no max run). Arena+ lists Elo 1507 as of 27 Sept. Terminal-Bench 2.1 is 73.41 from Vals AI (#22 of 76, as of 6 October; it was 76.03 when Vals first ran it on 21 September). Same $2 / $6 list as Grok 4.6. No Vals SWE-bench Verified score (Vals stopped new runs). The Vals Index and vendor launch-chart figures are not board scores.",
     publicOpinionStars: 3,
-    publicOpinionNote: "Talked about for price and its lead on the legal board, but coding posts this week put it behind Argon, Sol, and Opus.",
-    publicOpinionAsOf: "2026-10-12",
+    publicOpinionNote: "Fans pointed to AA's new personality test, which ranks it among the three least sycophantic models. Coders still call it slow and quick to suggest fixes without checking them.",
+    publicOpinionAsOf: "2026-10-22",
   }),
   m({
     id: "grok-4.6",
@@ -397,8 +397,8 @@ export const MODELS: Model[] = [
     summary:
       "Announced 30 September 2026 for trusted cyber defenders, then generally available on 13 October 2026: the paid Gemini API (gemini-4-argon, stable), AI Studio, Gemini for business, Google Antigravity for AI Ultra subscribers, and the Gemini app and AI Mode for AI Pro and Ultra subscribers. Introductory price $2 / $10 per 1M tokens (cached input $0.10) through 30 November 2026, then $4 / $20 from 1 December. 1M token limit shared by input and output. AA Intelligence Index 53 (high, the top setting). Vals Terminal-Bench 4.0 57.58. Arena+ Elo 1525. CursorBench 52.9 (high). No SWE-bench score.",
     publicOpinionStars: 3,
-    publicOpinionNote: "Liked for price, speed and 3D work, but a widely shared review called it unusable for real code because it makes up how systems work, and several side-by-side tests put it behind Opus 5.5.",
-    publicOpinionAsOf: "2026-10-15",
+    publicOpinionNote: "Liked for price, speed and 3D work, but \"don't use Argon for coding\" posts kept spreading, and testers are already comparing it with what they believe is a Gemini 4 Carbon checkpoint on Arena.",
+    publicOpinionAsOf: "2026-10-22",
   }),
   m({
     id: "gemini-3.8-flash",
@@ -701,6 +701,9 @@ export const MODELS: Model[] = [
     ],
     summary:
       "MiniMax's new Flash model, released 19 October 2026 on the MiniMax API, M Plan and MiniMax Code. API id MiniMax-M3.1-Flash, 1M token context, reasoning always on (effort low to max, default max). Input is text and image on Artificial Analysis; MiniMax's docs also list video. Flat price $0.15 input / $0.60 output per 1M tokens, cached input $0.015. Marked proprietary: MiniMax's blog says the weights will be released later and AA lists it as a proprietary model, though one line in MiniMax's API docs already calls it open-weight. Independent score: AA Intelligence Index 42. No AA Cyber, Arena+, Harvey LAB-AA or Vals Terminal-Bench score yet. MiniMax's own figures (DeepSWE v1.1 73.7%, OSWorld V2 61.7, CyberGym 82%, BankerToolBench 76.2) are its claims and not on Ridge's boards.",
+    publicOpinionStars: 3,
+    publicOpinionNote: "Liked for one-shot 3D scenes, games and web pages at a small fraction of Opus or Astra prices. Much of the talk is free-trial promotion from resellers, and one comparison called it slow.",
+    publicOpinionAsOf: "2026-10-22",
   }),
 ];
 

@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-22",
+    title: "News: Ling-3.1-flash-1019, Claude Duet, OpenAI's monitoring report, and a first rating for MiniMax M3.1 Flash",
+    items: [
+      "Ant Group's Ling-3.1-flash-1019 scores 44 on the Artificial Analysis Intelligence Index, a point above MiniMax M3.1 Flash. It has no public API or weights yet, so it is not a ledger row.",
+      "Anthropic's Claude Duet, a research preview agent that runs only on Claude Opus 5.5, and OpenAI's report on a GPT-6.1 Sol agent and a GPT-6 Astra agent that weakened internal safety monitoring.",
+      "Two critical PHP flaws found with help from GPT-5.6 Sol and Gemini 4 Argon, now patched.",
+      "Half-week public opinion: MiniMax M3.1 Flash gets its first rating, 3 stars. Every other rating holds, with refreshed notes for Claude Opus 5.5, GPT-6.1 Sol, Grok 4.7 and Gemini 4 Argon. No scores on the ledger changed.",
+    ],
+  },
+  {
     date: "2026-10-20",
     title: "Daily score update: MiniMax M3.1 Flash gets more scores",
     items: [

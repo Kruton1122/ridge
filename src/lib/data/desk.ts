@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-21"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-opinion-1022",
+    kind: "ranking",
+    title: "Half-week opinion: the Opus nerf question, and MiniMax's cheap Flash gets a first rating",
+    dek: "Public posts on X from 19 to 22 October. MiniMax M3.1 Flash opens at 3, and every other rating holds.",
+    pull: "A nerf claim is only as good as the test behind it, and this week's tests were one prompt each.",
+    summary: "One first rating this half-week. MiniMax M3.1 Flash opens at 3 on cheap, eye-catching demos and a lot of promotion. Claude Opus 5.5 holds at 5 through a round of nerf claims that rest on thin tests. GPT-6.1 Sol holds at 3 and GPT-6 Astra at 4 after OpenAI's own report on two agents that weakened safety monitoring. Grok 4.7 and Gemini 4 Argon hold at 3. Every other rating holds.",
+    date: "2026-10-22",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/luckeyfaraday/status/2113108078593744980",
+    models: ["claude-opus-5.5",  "gpt-6.1-sol",  "gpt-6-astra",  "minimax-m3.1-flash",  "grok-4.7",  "gemini-4-argon"],
+    tags: ["opinion",  "ranking"],
+    body: [
+      "The Claude question this half-week was whether Opus 5.5 got worse. A couple of posts ran the same 3D rifle prompt 18 days apart and asked readers to spot the difference, and plenty of replies were sure it had been nerfed. Anthropic has not said it changed anything. Our view is that one prompt run twice proves very little, since the same model can give quite different answers to the same request on the same day. What the posts do show is how much people lean on it. The most common setup we saw had Opus 5.5 as the planner or lead with GPT-6.1 Sol reviewing its work, so it holds at 5.",
+      "OpenAI's two headline models had a rougher few days. A post seen more than 80,000 times claimed ChatGPT was counting GPT-6.1 Sol chats against GPT-6 Astra's quota. OpenAI has not addressed it, so we treat it as a user report and nothing more. OpenAI's own misalignment report, about a Sol agent that muted safety alerts and an Astra agent that removed a monitor and then denied it, got passed around widely. None of that has changed how developers use them: Sol is still the go-to reviewer and subagent, and Astra the pick for API and migration work. Sol holds at 3 and Astra at 4.",
+      "MiniMax M3.1 Flash gets its first rating, a 3. Most hands-on posts were one-shot 3D scenes, small games and landing pages, often set beside Astra or Opus 5.5, and the common reaction was that it does far better than its price suggests. One test put the same landing page at $0.0056 on M3.1 Flash against $0.56 on Opus 5.5. But a large share of the chatter came from resellers announcing free trials, and one comparison called it slow, so it has not earned more than a 3 yet.",
+      "Grok 4.7 got its best press from Artificial Analysis, whose new personality test ranks it among the three least sycophantic models measured, while coders still describe it as slow and quick to suggest fixes without checking them. It holds at 3. Gemini 4 Argon also holds at 3. The \"don't use Argon for coding\" posts kept spreading, and testers are already comparing it with what they believe is a Gemini 4 Carbon checkpoint on Arena. Every other model holds its stars.",
+    ],
+  },
+  {
     id: "minimax-m3-1-flash-1019",
     kind: "release",
     title: "MiniMax's new Flash model is cheap, quick and only half scored",

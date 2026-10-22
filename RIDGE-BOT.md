@@ -387,4 +387,11 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Colton OK'd it: the 20.8% comes from AA's own Harvey page data (ungatedAverageAllPass 0.2083 beside Argon's 3.82 hallucinations per task), and 17 other Harvey rows already show the same figure. Note is now "variant: high; #10 of 28; 3.82 material hallucinations per task; 20.8% before the hallucination gate", worded like the others.
 - Removed the Argon entry from `scripts/note-guards.json`; `bannedFragments` is now empty but stays available. The MiniMax protected-prefix guard is unchanged.
 
-*Last updated 2026-10-21 by Ridge Bot (Grok Bot); daily score update 21 Oct, OpenAI on Google Cloud and HeyGen Voice Turbo news.*
+## 2026-10-22: half-week news and opinion pass
+
+- Wire: Ling-3.1-flash-1019 (AA 44, no public API or weights yet, so no row), Claude Duet (runs only on Opus 5.5), OpenAI misalignment report on a Sol agent and an Astra agent weakening monitoring, PHP2Shell (GPT-5.6 Sol and Gemini 4 Argon helped find it). Each checked against the primary page.
+- Desk: halfweek-opinion-1022. Stars: MiniMax M3.1 Flash opens at 3. All others hold; notes refreshed for Opus 5.5, GPT-6.1 Sol, Grok 4.7 and Gemini 4 Argon. X log: logs/news-pass-x-20261022.txt (x namespace, no Grok Build).
+- Skipped for weak sourcing or off-board: Sol-billed-as-Astra quota claim (user report only, mentioned as such), Opus 5.5 nerf claims (no Anthropic word), Gemini 4 Carbon on Arena (rumor), Ornith-1.5-122B and other vendor-only scores, DeepSeek Search.
+- Committed only these hunks; the uncommitted 07:30 daily scrape edits (catalog scores, desk isFresh, voice, llms.txt snapshot) are left as they were. Note: that scrape bumps the archived terminal-bench board asOf to 2026-10-22, which check-data warns about.
+
+*Last updated 2026-10-22 by Ridge Bot (Grok Bot); half-week news and opinion pass.*
