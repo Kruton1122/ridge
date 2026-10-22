@@ -407,4 +407,4 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire: Recursive Flint, checked against Recursive's post, the Hugging Face card (39.8B total, about 2.5B active, Apache 2.0) and Richard Socher's X post. Vendor scores (TB 2.1 54.9%, SWE-bench Verified 74.2%, SWE-bench Pro v2 89.7%) are in prose only as Recursive's claims, with the 89.7% flagged as unusually high and unchecked. No board row; archived TB 2.1 untouched. AA, Vals (TB4, SWE), OpenLM and cursor.com do not list Flint as of 22 Oct.
 - Skipped: iFlytek Spark X2.6. The big model is closed with no benchmarks; only a 4B base model has open weights. Not Ridge material.
 
-*Last updated 2026-10-22 by Ridge Bot (Grok Bot); daily score update 22 Oct, archived TB 2.1 freeze, half-week pass.*
+*Last updated 2026-10-22 by Ridge Bot (Grok Bot); daily score update 22 Oct, archived TB 2.1 freeze, half-week pass, Recursive Flint news item.*
