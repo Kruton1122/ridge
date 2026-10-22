@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "recursive-flint-1021",
+    title: "Recursive releases Flint, an open coding model built to run on a laptop",
+    blurb: "Recursive, Richard Socher's lab, released Flint, its first model, as open weights under the Apache 2.0 license. It is a mixture-of-experts coding model with 39.8B total parameters and about 2.5B active per token, built for agentic coding on local hardware. Recursive says it runs at more than 125 tokens per second on an M4 Pro MacBook Pro, and that its automated research system helped build it from scratch in under four months. Recursive claims 54.9% on Terminal-Bench 2.1, 74.2% on SWE-bench Verified and 89.7% on SWE-bench Pro v2. The SWE-bench Pro figure is unusually high for any model and nobody has checked it independently. These are Recursive's own runs, not scores from the leaderboards Ridge tracks. Artificial Analysis, Vals, OpenLM and Cursor do not list Flint yet, so it has no row on Ridge.",
+    date: "2026-10-21",
+    outlet: "Recursive",
+    url: "https://recursive.com/updates/introducing-recursive-flint",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "ling-3-1-flash-1019-1022",
     title: "Ant Group's Ling-3.1-flash-1019 scores 44 on AA's index",
     blurb: "inclusionAI, Ant Group's AI team, announced Ling-3.1-flash-1019, an update to Ling-3.1-flash. Artificial Analysis scores it 44 on its Intelligence Index, up from 41, a point above MiniMax M3.1 Flash on Ridge's board. Ant says most of the gain came from agentic work, with AA-Briefcase rising from about 1,400 to 1,524 Elo and AutomationBench-AA from 62% to 68%. It is a reasoning model with text input and a 1M token context, listed at $0.30 per 1M input tokens and $0.90 per 1M output. AA says it used 350M output tokens to run the Index, which it calls very verbose. Ant says API access and open weights are coming soon, and AA lists no public API yet, so it is not a Ridge row for now.",
