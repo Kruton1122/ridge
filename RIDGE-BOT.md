@@ -407,4 +407,13 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire: Recursive Flint, checked against Recursive's post, the Hugging Face card (39.8B total, about 2.5B active, Apache 2.0) and Richard Socher's X post. Vendor scores (TB 2.1 54.9%, SWE-bench Verified 74.2%, SWE-bench Pro v2 89.7%) are in prose only as Recursive's claims, with the 89.7% flagged as unusually high and unchecked. No board row; archived TB 2.1 untouched. AA, Vals (TB4, SWE), OpenLM and cursor.com do not list Flint as of 22 Oct.
 - Skipped: iFlytek Spark X2.6. The big model is closed with no benchmarks; only a 4B base model has open weights. Not Ridge material.
 
-*Last updated 2026-10-22 by Ridge Bot (Grok Bot); daily score update 22 Oct, archived TB 2.1 freeze, half-week pass, Recursive Flint news item.*
+## 2026-10-23: daily scrape and ModelWatch leads
+
+- Scrape 23 Oct: checked. Only change besides dates is Vals Terminal-Bench 4.0 growing from 52 to 54 models, so rank notes moved; no score values changed.
+- Wire: Kimi K3.1 Pro (Moonshot blog and X post). Moonshot's TB 4.0 65.7% is in prose as its claim. Not listed on AA, Vals (TB4, SWE), OpenLM, Harvey LAB-AA or cursor.com, so no row. Matcher check: "Kimi K3.1 Pro", "Kimi K3.1 Pro (max)", "Kimi K3.1 Pro Highspeed" and "kimi-k3.1-pro" all return no match, so the scraper will neither pick it up nor misfile it under Kimi K3; it needs a catalog row (with aliases) once a board lists it.
+- MiniMax M3.1 Flash: weights confirmed on Hugging Face (ungated, MXFP8). License field set to open-weight; summary now spells out the MiniMax Community License (non-commercial base grant, credit and notice for commercial use, written permission above $20M yearly revenue, prohibited uses). Summary's stale "AA 42" and "no Arena+/Vals" text fixed; AA score stays 43. Wire item added.
+- AA Cyber: DeepSeek V4.1 Flash row was the September build (41). AA's Cyber Index page now shows 1017 at 57; row updated to 57 (1017 snapshot) and model summary adjusted. Short wire item added. Today's 07:30 scrape did not have the 1017 cyber row yet.
+- Wire: AA Coding Agent Index v2.0, AA's numbers only, no board.
+- Skipped: Ling 3.1 Flash 1019 (covered 22 Oct, nothing new), Nemotron Bolt E4B and CritPt v2 (not Ridge material).
+
+*Last updated 2026-10-23 by Ridge Bot (Grok Bot); daily score update 23 Oct, Kimi K3.1 Pro, MiniMax M3.1 Flash weights, DeepSeek 1017 cyber, AA Coding Agent Index v2.0.*
