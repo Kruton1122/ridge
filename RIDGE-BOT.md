@@ -416,4 +416,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire: AA Coding Agent Index v2.0, AA's numbers only, no board.
 - Skipped: Ling 3.1 Flash 1019 (covered 22 Oct, nothing new), Nemotron Bolt E4B and CritPt v2 (not Ridge material).
 
-*Last updated 2026-10-23 by Ridge Bot (Grok Bot); daily score update 23 Oct, Kimi K3.1 Pro, MiniMax M3.1 Flash weights, DeepSeek 1017 cyber, AA Coding Agent Index v2.0.*
+## 2026-10-23 (evening): Kimi K3.1 Pro scores
+
+- New row kimi-k3.1-pro (proprietary until weights ship by 4 Nov; Arena+ lists Modified MIT, AA not open-weight yet). Scores, all dated 23 Oct: AA Intelligence 55 (AA page 55.09), AA Cyber 64 (64.07, 0% refusals on all three evals), Arena+ 1519. Aliases added so the scraper matches "Kimi K3.1 Pro" / "Kimi-K3.1-Pro" / "kimi-k3-1-pro"; Kimi K3 still matches only K3.
+- Not listed: Vals Terminal-Bench 4.0, Harvey LAB-AA (model in AA's picker, no score), cursor.com/cursorbench; no K3.1 Pro Highspeed anywhere. AA Coding Agent Index has no K3.1 entry found. AA's own TB 4.0 figure (67.2%) is not the Vals board, so not entered.
+- Wire item kimi-k3-1-pro-1023 updated with the three scores and linked to the new row.
+
+*Last updated 2026-10-23 by Ridge Bot (Grok Bot); daily score update 23 Oct, Kimi K3.1 Pro row and scores, MiniMax M3.1 Flash weights, DeepSeek 1017 cyber, AA Coding Agent Index v2.0.*

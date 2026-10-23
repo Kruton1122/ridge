@@ -13,12 +13,12 @@ export const WIRE: WireItem[] = [
   {
     id: "kimi-k3-1-pro-1023",
     title: "Moonshot launches Kimi K3.1 Pro, with open weights promised by 4 November",
-    blurb: "Moonshot AI released Kimi K3.1 Pro, a further post-trained version of Kimi K3, on Kimi.ai, Kimi Work, Kimi Code and the Kimi API, along with a Highspeed version it says runs two to three times faster. Moonshot lists 2.8T total and 104B active parameters, a 1M token context and multimodal input, and says the full weights will be out by 4 November. Its own results put K3.1 Pro at 65.7% on Terminal-Bench 4.0 in the Claude Code harness, which is Moonshot's claim and not comparable with Vals' Mini-SWE-agent runs on Ridge. Moonshot also says it removed cyber-related training data from the open-weight release on purpose. No independent leaderboard Ridge tracks lists K3.1 Pro yet, so it has no row for now.",
+    blurb: "Moonshot AI released Kimi K3.1 Pro, a further post-trained version of Kimi K3, on Kimi.ai, Kimi Work, Kimi Code and the Kimi API, along with a Highspeed version it says runs two to three times faster. Moonshot lists 2.8T total and 104B active parameters, a 1M token context and multimodal input, and says the full weights will be out by 4 November. Its own results put K3.1 Pro at 65.7% on Terminal-Bench 4.0 in the Claude Code harness, which is Moonshot's claim and not comparable with Vals' Mini-SWE-agent runs on Ridge. Moonshot also says it removed cyber-related training data from the open-weight release on purpose. Since launch, Artificial Analysis has scored it 55 on its Intelligence Index, 11 points above Kimi K3, and 64 on its Cyber Index with no tasks declined, and Arena+ has it at 1519. It now has a Ridge row with those three scores; it is not yet on Vals Terminal-Bench 4.0, Harvey LAB-AA or CursorBench.",
     date: "2026-10-23",
     outlet: "Moonshot AI",
     url: "https://kimi.ai/blog/kimi-k3-1-pro",
     beat: "release",
-    models: ["kimi-k3"],
+    models: ["kimi-k3.1-pro", "kimi-k3"],
   },
   {
     id: "minimax-m3-1-flash-weights-1023",
