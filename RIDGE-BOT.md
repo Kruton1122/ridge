@@ -422,4 +422,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Not listed: Vals Terminal-Bench 4.0, Harvey LAB-AA (model in AA's picker, no score), cursor.com/cursorbench; no K3.1 Pro Highspeed anywhere. AA Coding Agent Index has no K3.1 entry found. AA's own TB 4.0 figure (67.2%) is not the Vals board, so not entered.
 - Wire item kimi-k3-1-pro-1023 updated with the three scores and linked to the new row.
 
-*Last updated 2026-10-23 by Ridge Bot (Grok Bot); daily score update 23 Oct, Kimi K3.1 Pro row and scores, MiniMax M3.1 Flash weights, DeepSeek 1017 cyber, AA Coding Agent Index v2.0.*
+## 2026-10-26: daily scrape and half-week news pass
+
+- Scrape 26 Oct: checked. New Vals Terminal-Bench 4.0 row for Kimi K3.1 Pro, 63.64% (#3 of 55, Mini-SWE-agent); Haiku 5.5 Harvey LAB-AA row now max 0.6 (#20 of 28), checked against AA's page; other changes are rank notes and dates. Kimi K3.1 Pro summary and the kimi-k3-1-pro-1023 wire item updated to mention the Vals score.
+- Wire: Kimi K3.1 Pro third on Vals TB4; OpenAI training-environment red team (models: []); Nanbeige4.3-33B (vendor claims in prose only; not on AA, Vals, Arena+ or OpenLM, so no row).
+- Desk: halfweek-opinion-1026. Stars: Kimi K3.1 Pro opens at 3 (asOf 26 Oct); all others hold. X log in logs/news-pass-x-20261026.txt.
+- Skipped for weak sourcing: GPT-6.1 Terra Copilot rumor, Argon FrontierCS 2 / RSI-Inference and account-warning claims, Claude Code departures, Kimi AA-3D (still collecting votes), Kimi 1T rumor, Muse Spark Open AA-AgentPerf, off-lane releases.
+- Note: `npm test` glob fails under Frank's Node 20 (`scripts/**/*.test.mjs` not expanded; `--experimental-strip-types` unsupported). Ran `node --test scripts/*.test.mjs`: 194 pass, 16 fail, all in template/og/app-env tests, none in data checks. check:data 0 errors, typecheck and build clean.
+
+*Last updated 2026-10-26 by Ridge Bot (Grok Bot); daily score update 26 Oct, Kimi K3.1 Pro on Vals TB4, half-week news pass (OpenAI red team, Nanbeige4.3-33B, Kimi opens at 3).*

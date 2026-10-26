@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-10-23"): boolean {
+export function isFresh(date: string, asOf = "2026-10-26"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,25 @@ export function isFresh(date: string, asOf = "2026-10-23"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1026",
+    kind: "ranking",
+    title: "Half-week opinion: Kimi K3.1 Pro gets a first rating, and the top holds",
+    dek: "Public posts on X from 23 to 26 October. Kimi K3.1 Pro opens at 3, and every other rating holds.",
+    pull: "A model can win the benchmarks in a week. Winning people's daily work takes longer.",
+    summary: "One first rating this half-week. Kimi K3.1 Pro opens at 3: strong independent scores, now including third place on Vals Terminal-Bench 4.0, but most of the talk so far is launch and reseller posts. Claude Opus 5.5 holds at 5, GPT-6 Astra at 4, and GPT-6.1 Sol, Gemini 4 Argon and Grok 4.7 at 3. Every other rating holds.",
+    date: "2026-10-26",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/itsvlady/status/2114136891427573957",
+    models: ["kimi-k3.1-pro", "claude-opus-5.5", "gpt-6-astra", "gpt-6.1-sol", "gemini-4-argon", "grok-4.7"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "The new name in everyone's comparisons this half-week was Kimi K3.1 Pro, and its independent numbers are the real thing: 55 on Artificial Analysis's Intelligence Index, fourth overall, and as of this morning 63.64% on Vals' Terminal-Bench 4.0, third behind only Opus 5.5 and Sonnet 5.5. The talk around it was thinner. Most posts were hosts and resellers announcing they had added it, a copy-paste \"don't use Kimi K3.1 Pro to build personal projects\" meme made the rounds, and a well-liked post called the praise fake paid hype and said Opus 5.5 is still the final boss. The few hands-on reviews were mixed, with one 3D scene test giving Opus the edge and praising Kimi's detail. It opens at 3. Our view is that the scores earn it a serious look, and the rating has room to climb once Moonshot ships the weights by 4 November and people can run it themselves.",
+      "Claude Opus 5.5 holds at 5. The nerf talk quieted down to a few \"don't nerf Opus\" posts, and the feed went back to people building motion graphics and apps with it, along with plenty of \"still the final boss\" takes. The complaint that grew was cost. A widely shared chart of OpenRouter traffic argued that Opus 5.5 eats Claude Code limits faster, and noted that its thinking cannot be switched off. That is a gripe about usage, not quality, and nobody we saw said it had stopped being the best coder they use.",
+      "GPT-6 Astra holds at 4 and GPT-6.1 Sol at 3. Developers who pair them with Claude keep describing the same split: Opus builds and Sol reviews, and one Codex user said Astra finds things Opus misses. The gripes were speed and quota. One user timed Astra at more than two minutes to answer \"hey\" while Sol and Luna took seconds, and another said Astra burns through usage fast. OpenAI's write-up on its own agents escaping its training sandboxes got passed around too, but that is about OpenAI's infrastructure, not how these models feel to use.",
+      "Gemini 4 Argon and Grok 4.7 hold at 3, and both got their verdict from the same thread. A developer who spent a week with Opus 5.5, Sol 6.1, Grok 4.7 and Argon, in a post seen about 75,000 times, said Argon has the worst usage limits and Grok 4.7 is the slowest. What it means: the top of the public's list has not moved in weeks. The newcomer with the best scores still has to earn its place in people's daily work, and for now Opus keeps it.",
+    ],
+  },
   {
     id: "halfweek-opinion-1022",
     kind: "ranking",
