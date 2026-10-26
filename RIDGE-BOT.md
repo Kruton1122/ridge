@@ -430,4 +430,9 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Skipped for weak sourcing: GPT-6.1 Terra Copilot rumor, Argon FrontierCS 2 / RSI-Inference and account-warning claims, Claude Code departures, Kimi AA-3D (still collecting votes), Kimi 1T rumor, Muse Spark Open AA-AgentPerf, off-lane releases.
 - Note: `npm test` glob fails under Frank's Node 20 (`scripts/**/*.test.mjs` not expanded; `--experimental-strip-types` unsupported). Ran `node --test scripts/*.test.mjs`: 194 pass, 16 fail, all in template/og/app-env tests, none in data checks. check:data 0 errors, typecheck and build clean.
 
-*Last updated 2026-10-26 by Ridge Bot (Grok Bot); daily score update 26 Oct, Kimi K3.1 Pro on Vals TB4, half-week news pass (OpenAI red team, Nanbeige4.3-33B, Kimi opens at 3).*
+## 2026-10-26 (afternoon): Mirendil Fern 0.1
+
+- Wire mirendil-fern-0-1-1026 (models: []). Checked against mirendil.com/news/introducing-fern/ (published 26 Oct, 8:00 am PT) and @mirendil launch post. Vendor figures in prose only: SWE-Bench Verified 73.4, TB 4.0 6.1 (OpenCode, 1 attempt), RULER at 10M 100 single-needle / 45 multi-hop (base model, 20 examples at 10M). Not on AA, Vals, Arena+ or cursor.com/cursorbench; no row, Mirendil not added to lab lists.
+- Dropped from the ModelWatch lead: founders' former labs, CEO name, $200M seed and investors (not on Mirendil's pages checked).
+
+*Last updated 2026-10-26 by Ridge Bot (Grok Bot); daily score update 26 Oct, Kimi K3.1 Pro on Vals TB4, half-week news pass (OpenAI red team, Nanbeige4.3-33B, Kimi opens at 3); Mirendil Fern 0.1 news item.*

@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "mirendil-fern-0-1-1026",
+    title: "New lab Mirendil shows Fern 0.1, a model with a 10M token context",
+    blurb: "Mirendil, a new lab focused on AI research work, has announced Fern 0.1, its first model. Mirendil says Fern was pretrained from scratch and can hold up to 10M tokens of context, about half a million lines of code. It is aimed at agentic coding, long training logs, full agent traces and auditing training data. Fern 0.1 is Mirendil-Base, listed at 0.1T to 0.5T parameters, after a short round of post-training, and two larger base models are still in pretraining. Mirendil's own runs give Fern 0.1 73.4% on SWE-Bench Verified and 6.1% on Terminal-Bench 4.0 (OpenCode, one attempt). On RULER at 10M tokens it says the base model scored 100% on single-needle retrieval and 45% on multi-hop QA, but each 10M result rests on only 20 examples. These are Mirendil's claims. There is no price, public API or weights yet, only early access requests, and Artificial Analysis, Vals, Arena+ and CursorBench do not list it, so it has no Ridge row.",
+    date: "2026-10-26",
+    outlet: "Mirendil",
+    url: "https://mirendil.com/news/introducing-fern/",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "kimi-k3-1-pro-vals-tb4-1026",
     title: "Vals puts Kimi K3.1 Pro third on Terminal-Bench 4.0",
     blurb: "Vals AI has run Kimi K3.1 Pro on Terminal-Bench 4.0 with its standard Mini-SWE-agent harness, and it scores 63.64%, third of 55 models. Only Claude Opus 5.5 (65.15%) and Claude Sonnet 5.5 (64.14%) are ahead, and it clears GPT-6 Astra (59.6%) and Claude Fable 5.1 (58.08%). Moonshot's own 65.7% is a separate run. The score is now on Kimi K3.1 Pro's Ridge row.",
