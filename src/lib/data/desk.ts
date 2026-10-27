@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-26"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "openai-science-results-1026",
+    kind: "release",
+    title: "OpenAI says its models broke three famous problems. Now the experts get their turn",
+    dek: "Kakeya in every dimension, a fast algorithm that would kill the Exponential Time Hypothesis, and a rigorous footing for QCD. All three are claims from unnamed internal models, and the checking has just begun.",
+    pull: "A Lean proof is only as good as the statement it proves, and that part still needs human eyes.",
+    summary: "OpenAI says unnamed internal models proved local smoothing (and with it Kakeya and Stein restriction) in all dimensions, refuted the Exponential Time Hypothesis, and proved that QCD and pure Yang-Mills exist as rigorous theories. The math and ETH papers and Lean files are public on GitHub. Ryan Williams and Tim Gowers have called the ETH claim surprising and consequential, and outside review is only starting.",
+    date: "2026-10-26",
+    sourceName: "OpenAI",
+    sourceUrl: "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+    models: [],
+    tags: ["labs", "science"],
+    body: [
+      "OpenAI posted something on Monday that reads like a decade of news in one go. It says its internal models, which it has not named, produced three results. The first is a proof of Sogge's local smoothing conjecture in every dimension, a 35-year-old question about how briefly waves can stay focused, which would also settle the Kakeya and Stein restriction conjectures in all dimensions. Until now people had only managed two dimensions for local smoothing (2019) and three for Kakeya (2025). The second is a disproof of the Exponential Time Hypothesis, or ETH, the widely held belief that 3SAT, a classic logic puzzle, cannot be solved much faster than trying every answer. The third is a rigorous proof that QCD, the theory of quarks and gluons, and a grand unified extension of the Standard Model exist as proper mathematical objects, with pure Yang-Mills theory as a step along the way.",
+      "OpenAI is handing each result to outside experts rather than publishing papers under its own name. It says it wants no academic credit, and that the helpers sign no NDAs and are not paid. For local smoothing it simply posted the AI-written paper and a Lean proof (Lean is software that checks every step of a proof) to its public openai/math repository on GitHub, and we confirmed both are there. The ETH paper and Lean files are public too, and Russell Impagliazzo and Ramamohan Paturi, who proposed ETH in the first place, will lead an open review with MIT's Ryan Williams. OpenAI has agreed to fund a conference on what it means. The physics work is being held by a group led by Nobel laureate David Gross, with Michael Douglas, Arthur Jaffe, Igor Klebanov and Nikita Nekrasov, who will write it up themselves before anything AI-made is released.",
+      "The early reaction from people who know this ground is excitement with care. Williams posted that an OpenAI model \"has produced a claimed refutation of ETH\", linked the paper, and explained that it claims an algorithm for 3SAT that runs in roughly exp(n/(log n)^(1/2)) steps, slower than any polynomial but well under the 2^n of brute force. He also said one of the first things he asked OpenAI to check was that no existing cryptosystems are broken by it, and that they appear to be safe. Fields medalist Tim Gowers called the result \"very surprising and consequential\" if it holds. Most of the rest of the feed so far is people copying the announcement, and we have not counted any of that as expert opinion.",
+      "Our view: this is the most important AI claim of the year if it survives, and it deserves to be read as a claim until it does. Lean is a strong safeguard, but it only proves that the formal statement is true. Whether that formal statement says what the famous conjecture says is a human question, so expert review of the Lean statements matters as much as the proofs. If the ETH disproof holds, hundreds of results across graph theory, databases, biology and geometry that assumed ETH lose their footing and need a second look. And be careful with the Yang-Mills headlines. The Clay Millennium problem asks for existence and a mass gap, and OpenAI only claims the existence part, so nobody should say the prize problem is solved. For Ridge, none of this touches the leaderboard: the models are unnamed and have no scores we can track.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1026",
     kind: "ranking",
     title: "Half-week opinion: Kimi K3.1 Pro gets a first rating, and the top holds",

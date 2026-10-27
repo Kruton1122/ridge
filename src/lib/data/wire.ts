@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-science-results-1026",
+    title: "OpenAI says its internal models proved three big open problems in math, computer science and physics",
+    blurb: "OpenAI says unnamed internal models produced three results: a proof of Sogge's local smoothing conjecture in every dimension, which would also settle the Kakeya and Stein restriction conjectures in all dimensions; a disproof of the Exponential Time Hypothesis, a widely assumed limit on how fast 3SAT can be solved; and a rigorous existence proof for four-dimensional quantum field theories including QCD, with pure Yang-Mills existence, one part of a Clay Millennium Prize problem, as a step. OpenAI says it formalized the math and computer science proofs in Lean itself, and has posted the AI-written papers and Lean files for both in its public openai/math GitHub repository. Russell Impagliazzo, Ramamohan Paturi and Ryan Williams will lead an open review of the ETH claim, and a group led by David Gross is holding the physics materials while it writes the work up. These are OpenAI's claims, and independent checking has only just started. The models are not named and have no Ridge row.",
+    date: "2026-10-26",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+    beat: "labs",
+    models: [],
+  },
+  {
     id: "mirendil-fern-0-1-1026",
     title: "New lab Mirendil shows Fern 0.1, a model with a 10M token context",
     blurb: "Mirendil, a new lab focused on AI research work, has announced Fern 0.1, its first model. Mirendil says Fern was pretrained from scratch and can hold up to 10M tokens of context, about half a million lines of code. It is aimed at agentic coding, long training logs, full agent traces and auditing training data. Fern 0.1 is Mirendil-Base, listed at 0.1T to 0.5T parameters, after a short round of post-training, and two larger base models are still in pretraining. Mirendil's own runs give Fern 0.1 73.4% on SWE-Bench Verified and 6.1% on Terminal-Bench 4.0 (OpenCode, one attempt). On RULER at 10M tokens it says the base model scored 100% on single-needle retrieval and 45% on multi-hop QA, but each 10M result rests on only 20 examples. These are Mirendil's claims. There is no price, public API or weights yet, only early access requests, and Artificial Analysis, Vals, Arena+ and CursorBench do not list it, so it has no Ridge row.",

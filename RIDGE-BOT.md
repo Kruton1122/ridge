@@ -433,6 +433,7 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 ## 2026-10-26 (afternoon): Mirendil Fern 0.1
 
 - Wire mirendil-fern-0-1-1026 (models: []). Checked against mirendil.com/news/introducing-fern/ (published 26 Oct, 8:00 am PT) and @mirendil launch post. Vendor figures in prose only: SWE-Bench Verified 73.4, TB 4.0 6.1 (OpenCode, 1 attempt), RULER at 10M 100 single-needle / 45 multi-hop (base model, 20 examples at 10M). Not on AA, Vals, Arena+ or cursor.com/cursorbench; no row, Mirendil not added to lab lists.
+- Wire + desk openai-science-results-1026 (models: []), from Colton link to @danintheory. Checked against openai.com/index/building-scientific-understanding-with-academic-communities/ (26 Oct). Confirmed public in github.com/openai/math: preprints The-Exponential-Time-Hypothesis-is-False-October-25-2026 and Local-smoothing-for-the-Euclidean-wave-equation-October-25-2026, lean/ComparatorChallenges/LocalSmoothing.lean. Reactions used: @rrwilliams 2114833319431209352, 2114835554177261953, 2114891838377320784; @wtgowers 2114846058622718221. Physics materials not released. All OpenAI claims; no board or catalog change.
 - Dropped from the ModelWatch lead: founders' former labs, CEO name, $200M seed and investors (not on Mirendil's pages checked).
 
-*Last updated 2026-10-26 by Ridge Bot (Grok Bot); daily score update 26 Oct, Kimi K3.1 Pro on Vals TB4, half-week news pass (OpenAI red team, Nanbeige4.3-33B, Kimi opens at 3); Mirendil Fern 0.1 news item.*
+*Last updated 2026-10-26 by Ridge Bot (Grok Bot); daily score update 26 Oct, Kimi K3.1 Pro on Vals TB4, half-week news pass (OpenAI red team, Nanbeige4.3-33B, Kimi opens at 3); Mirendil Fern 0.1 news item; OpenAI science results wire and desk.*
