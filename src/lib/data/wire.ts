@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "liquid-lfm3-1027",
+    title: "Liquid AI releases LFM3, six open-weight 2B-class models for phones and laptops",
+    blurb: "Liquid AI has released LFM3, a family of small models built for on-device use: LFM3-1.7B for text with a 256K token context, LFM3-VL-2B for images and, for the first time in an LFM vision model, video, LFM3-Audio-2B, LFM3-Omni-2B, and two decision models, d1-2B and d1-Omni-2B. All six branch from one 1.7B base model trained on 22T tokens, and Liquid says each can be fine-tuned on a single GPU. Weights are on Hugging Face under the LFM Open License v1.0, which is based on Apache 2.0 but only allows free commercial use for companies under $10 million in annual revenue. Liquid's own tables say LFM3-VL-2B matches Gemma 4 12B across 62 vision benchmarks, beats Gemini 3.5 Flash Lite and lands within 2 points of GPT-5.6 Luna, and that LFM3-1.7B beats its older 2.6B model with 35% fewer parameters. Those are Liquid's numbers. Artificial Analysis, Vals and Arena+ do not list LFM3, so it has no Ridge row.",
+    date: "2026-10-27",
+    outlet: "Liquid AI",
+    url: "https://www.liquid.ai/blog/lfm3",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "genie-4-1027",
     title: "Google DeepMind shows Genie 4, a world model that makes its own sound",
     blurb: "Google DeepMind has announced Genie 4, its new world model. It builds an interactive scene you move through in real time with keyboard controls, and you can change it with text prompts as it runs, such as switching the weather or adding a person. DeepMind says Genie 4 generates music, background sound and spoken dialogue along with the picture, and that it leans on Gemini models to keep scenes consistent. It is a research preview for trusted testers for now, with Google AI Ultra subscribers in Project Genie and early access partners on the Gemini API and Google AI Studio next, and there is a waitlist. It is a world model, not a language model, so it has no Ridge row.",

@@ -444,4 +444,9 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire genie-4-1027 (models: []). deepmind.google blog, 27 Oct. Dropped from the lead: "about 2-minute sessions" (not on DeepMind's page).
 - Skipped per brief: MAI-Image-2.7, Code2Video-AA, AA v5, Mistral Large 4 weights, Fable 5.5.
 
-*Last updated 2026-10-27 by Ridge Bot (Grok Bot); daily score update 27 Oct; GPT-6.1 Terra and Ling-3.1-flash-1019 rows, new lab inclusionAI; Genie 4 news item.*
+## 2026-10-27 (afternoon): Liquid AI LFM3
+
+- Wire liquid-lfm3-1027 (models: []). Checked against liquid.ai/blog/lfm3 (dated 27 Oct), Hugging Face LiquidAI repos (LFM3-1.7B, -Base, -VL-2B, -Audio-2B, -Omni-2B, d1-2B, d1-Omni-2B all public, license lfm1.0) and liquid.ai/lfm-license (LFM Open License v1.0, Apache-2.0-based, free commercial use under $10M revenue). Vendor figures in prose only. Not on AA (no LFM3 on its models list), Vals, Arena+, CursorBench, AA Cyber, Harvey, AA-Robotics or /voice; no row.
+- Dropped from the X post: "#1 on the Pareto frontier of device intelligence" (Pipette) and "14 processor classes" wording (blog says 14 device and backend combinations used in architecture search). Not on Liquid's blog as stated.
+
+*Last updated 2026-10-27 by Ridge Bot (Grok Bot); Liquid AI LFM3 news item.*
