@@ -273,6 +273,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   reflection: { motif: "Reflection lime #CDE048. New US lab; Apache 2.0 open weights, efficiency pitch." },
   stepfun: { motif: "StepFun cyan #00E5D8 (AA uses the same). Chinese lab; open-weight Step 5 at a low price." },
   minimax: { motif: "MiniMax crimson #EB3568 (AA uses the same). Shanghai lab; cheap Flash models, weights promised later." },
+  inclusionai: { motif: "Violet #8B5CF6. Ant Group's AI team; Ling models, MIT open weights." },
   xiaomi: { motif: "Xiaomi pink #FF4FA3, chosen because Xiaomi's own orange is taken by Alibaba and Mistral. Phone and EV maker; MIT open weights." },
   other: { motif: "Neutral slate." },
 };

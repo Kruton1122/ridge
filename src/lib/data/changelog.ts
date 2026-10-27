@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-27",
+    title: "New rows: GPT-6.1 Terra and Ling-3.1-flash-1019; news on Genie 4",
+    items: [
+      "Added GPT-6.1 Terra, launched by OpenAI on 26 October at $1 / $5 per 1M tokens. Artificial Analysis Intelligence Index 48 (max) and Vals Terminal-Bench 4.0 49.5% (10th of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra https://www.vals.ai/benchmarks/terminal-bench-4",
+      "New lab inclusionAI (Ant Group) and new row Ling-3.1-flash-1019, now that its weights are on Hugging Face under MIT. AA Intelligence Index 44. Every other column is blank. Source: https://huggingface.co/inclusionAI/Ling-3.1-flash-1019",
+      "Daily score update: Terminal-Bench 4.0 now has 56 models, so ranks below 9th moved down one place. No scores changed.",
+      "News: Google DeepMind's Genie 4 world model. It is not a language model, so it has no row.",
+    ],
+  },
+  {
     date: "2026-10-22",
     title: "News: Ling-3.1-flash-1019, Claude Duet, OpenAI's monitoring report, and a first rating for MiniMax M3.1 Flash",
     items: [

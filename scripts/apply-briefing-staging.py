@@ -48,6 +48,12 @@ SNAPSHOT_GATES = {
         "stale": "September checkpoint, before the 1017 update",
         "label": "1017 snapshot",
     },
+    # Arena+ still lists the earlier Ling-3.1-flash; only rows tagged 1019 count.
+    "ling-3.1-flash-1019": {
+        "pattern": r"(?<!\d)1019(?!\d)",
+        "stale": "earlier Ling-3.1-flash checkpoint",
+        "label": "1019 snapshot",
+    },
 }
 
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())

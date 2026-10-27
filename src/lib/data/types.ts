@@ -13,6 +13,7 @@ export type LabId =
   | "stepfun"
   | "xiaomi"
   | "minimax"
+  | "inclusionai"
   | "other";
 
 export type License = "proprietary" | "open-weight";

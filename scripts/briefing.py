@@ -62,6 +62,8 @@ BOARD_WATCH = (
     "step-5-preview",      # StepFun, API 2026-09-20, weights 2026-10-15; Arena+ calls it "Step-5"; blank CursorBench/Harvey/Robotics/SWE
     "mimo-v2.6-pro",       # Xiaomi, 2026-09-22; AA #1 open weights; Flash/V2.5-Pro/ultraspeed are NOT this row; blank CursorBench/Harvey/Robotics/SWE
     "minimax-m3.1-flash",  # MiniMax, 2026-10-19; proprietary until weights ship; AA Index only; a later M3.1 Pro is NOT this row
+    "gpt-6.1-terra",       # OpenAI, 2026-10-26; AA Index + Vals TB4; blank Arena+/CursorBench/Cyber/Harvey
+    "ling-3.1-flash-1019", # inclusionAI, MIT weights 2026-10-27; AA Index only; plain Ling-3.1-flash is NOT this row
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
 )
 
@@ -785,6 +787,11 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "mimo v2.6 pro",
         "minimax-m3.1-flash",
         "minimax m3.1 flash",
+        "gpt-6.1-terra",
+        "gpt-6.1 terra",
+        "gpt 6.1 terra",
+        "ling-3.1-flash-1019",
+        "ling 3.1 flash 1019",
     }
     known = seed_known | known_extra
     frontier_markers = (

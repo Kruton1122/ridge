@@ -30,6 +30,7 @@
   --lab-stepfun: #00e5d8;
   --lab-xiaomi: #ff4fa3;
   --lab-minimax: #eb3568;
+  --lab-inclusionai: #8b5cf6;
   --lab-other: #8ea0b0;
   --serif: "Geist", "Inter", system-ui, sans-serif;
   --sans: "Geist", "Inter", system-ui, sans-serif;
@@ -75,6 +76,7 @@
   --lab-stepfun: #00868c;
   --lab-xiaomi: #d6277f;
   --lab-minimax: #b81d48;
+  --lab-inclusionai: #6d28d9;
   --lab-other: #6f8397;
   color-scheme: light;
 }

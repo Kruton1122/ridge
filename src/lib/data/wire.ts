@@ -11,6 +11,36 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "genie-4-1027",
+    title: "Google DeepMind shows Genie 4, a world model that makes its own sound",
+    blurb: "Google DeepMind has announced Genie 4, its new world model. It builds an interactive scene you move through in real time with keyboard controls, and you can change it with text prompts as it runs, such as switching the weather or adding a person. DeepMind says Genie 4 generates music, background sound and spoken dialogue along with the picture, and that it leans on Gemini models to keep scenes consistent. It is a research preview for trusted testers for now, with Google AI Ultra subscribers in Project Genie and early access partners on the Gemini API and Google AI Studio next, and there is a waitlist. It is a world model, not a language model, so it has no Ridge row.",
+    date: "2026-10-27",
+    outlet: "Google DeepMind",
+    url: "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "ling-3-1-flash-1019-weights-1027",
+    title: "Ling-3.1-flash-1019 weights are out under MIT, so it joins the ledger",
+    blurb: "inclusionAI, Ant Group's AI team, has put the Ling-3.1-flash-1019 weights on Hugging Face under the MIT license, along with a Ling-3.1-flash base model. The model card lists 560B total parameters with 25B active and a 1M token context. When Ridge covered it on 22 October there were no public weights, so it had no row. It has one now, with its Artificial Analysis Intelligence Index score of 44, which AA now lists as an open-weights result. Among open models on Ridge's board that puts it behind MiMo-V2.6-Pro (46), GLM-5.3 and DeepSeek-V4.1-Flash (45), level with Kimi K3 and Step 5 Preview. Its other columns are blank until the boards run it.",
+    date: "2026-10-27",
+    outlet: "Hugging Face",
+    url: "https://huggingface.co/inclusionAI/Ling-3.1-flash-1019",
+    beat: "release",
+    models: ["ling-3.1-flash-1019", "mimo-v2.6-pro", "glm-5.3", "deepseek-v4.1-flash"],
+  },
+  {
+    id: "gpt-6-1-terra-1026",
+    title: "OpenAI's GPT-6.1 Terra halves the Terra price and scores 48 on AA",
+    blurb: "OpenAI launched GPT-6.1 Terra on 26 October, its first Terra model since GPT-5.6, aimed at fast computer use at a lower price. It is rolling out to Plus, Pro, Enterprise and Edu users in ChatGPT Work and Codex, and in the API as gpt-6.1-terra at $1 in and $5 out per million tokens, against $2 and $12 for GPT-5.6 Terra. OpenAI says it matches GPT-6 Astra on Agents' Last Exam at a tenth of the price per token and finishes tasks more than three times faster than Astra and GPT-6.1 Sol. Those are OpenAI's claims. Artificial Analysis scores it 48 on its Intelligence Index at max effort, 6 points above GPT-5.6 Terra and 4 below GPT-6.1 Sol, and says its hallucination rate fell from 88% to 38%. Vals AI puts it 10th of 56 on Terminal-Bench 4.0 at 49.5%, level with Muse Wonder and well ahead of GPT-5.6 Terra (22.73%). Both scores are on its new Ridge row. It has no Arena+, CursorBench, AA Cyber or Harvey score yet.",
+    date: "2026-10-26",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2114781865811063259",
+    beat: "release",
+    models: ["gpt-6.1-terra", "gpt-5.6-terra", "gpt-6.1-sol", "gpt-6-astra"],
+  },
+  {
     id: "openai-science-results-1026",
     title: "OpenAI says its internal models proved three big open problems in math, computer science and physics",
     blurb: "OpenAI says unnamed internal models produced three results: a proof of Sogge's local smoothing conjecture in every dimension, which would also settle the Kakeya and Stein restriction conjectures in all dimensions; a disproof of the Exponential Time Hypothesis, a widely assumed limit on how fast 3SAT can be solved; and a rigorous existence proof for four-dimensional quantum field theories including QCD, with pure Yang-Mills existence, one part of a Clay Millennium Prize problem, as a step. OpenAI says it formalized the math and computer science proofs in Lean itself, and has posted the AI-written papers and Lean files for both in its public openai/math GitHub repository. Russell Impagliazzo, Ramamohan Paturi and Ryan Williams will lead an open review of the ETH claim, and a group led by David Gross is holding the physics materials while it writes the work up. These are OpenAI's claims, and independent checking has only just started. The models are not named and have no Ridge row.",
