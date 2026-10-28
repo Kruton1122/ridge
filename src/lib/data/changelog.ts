@@ -1,6 +1,17 @@
 export const CHANGELOG = [
   {
     date: "2026-10-28",
+    title: "New row: Gemini 4 Carbon, first on the AA Index",
+    items: [
+      "Added Gemini 4 Carbon (Google DeepMind, announced 28 October). Partner access only for now: cyber defenders first, then Fairwind partners, no public API. $2 / $10 per 1M tokens introductory, then $4 / $20. 1M context. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "Scores: AA Intelligence Index v5.0 59 (high), first on the board (https://artificialanalysis.ai/models/gemini-4-carbon). Arena+ Elo 1528, first (https://openlm.ai/chatbot-arena/). Vals Terminal-Bench 4.0 63.13%, 4th of 57, so ranks from 4th down move one place (https://www.vals.ai/benchmarks/terminal-bench-4). CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Google's SEC-bench Pro, ExploitGym and CWE-bench numbers are in prose only.",
+      "Arena+ refresh: Gemini 4 Argon 1523 and GPT-6 Astra 1525.",
+      "Best for: Smartest overall moves from Claude Opus 5.5 (58) to Gemini 4 Carbon (59). People's pick moves to Gemini 4 Carbon (1528). Both cards now say when the leader is not generally available.",
+      "Fix: the ledger's small \"max\" tag next to the AA score now only shows when the score note actually says max.",
+    ],
+  },
+  {
+    date: "2026-10-28",
     title: "AA Intelligence Index moves to v5.0; v4.3.2 kept as an archived board",
     items: [
       "The main AA Index column now shows Artificial Analysis Intelligence Index v5.0. It adds FrontierCode 2.0 and Terminal-Bench-Science, upgrades HLE (now HLE-Diamond), AA-Omniscience (v1.1) and CritPt (v2 hard subset), and drops GDPval-AA, SciCode and AA-LCR. 60% of it now runs on private tests. Source: https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",

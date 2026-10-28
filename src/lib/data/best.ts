@@ -77,7 +77,9 @@ function fromBoard(
   const stale = missing.length >= STALE_MISSING;
   const names = missing.map((m) => m.name);
   const list = names.length > 1 ? `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}` : names[0];
+  const gated = leaders.filter((r) => r.model.status === "partner" || r.model.status === "preview").map((r) => r.model.name);
   const cav = [
+    gated.length ? `${gated.join(" and ")} ${gated.length > 1 ? "are" : "is"} not generally available yet, so most people can't use ${gated.length > 1 ? "them" : "it"} today.` : undefined,
     stale ? `Out of date: this board hasn't scored ${list}, from the current AA top ${FRONT}, so an older model leads by default.` : undefined,
     caveat,
     thin ? `Only ${all.length} of ${MODELS.length} catalogued models have a published score here, so an unmeasured model could beat it.` : undefined,

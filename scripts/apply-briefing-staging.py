@@ -54,6 +54,14 @@ SNAPSHOT_GATES = {
         "stale": "earlier Ling-3.1-flash checkpoint",
         "label": "1019 snapshot",
     },
+    # Gemini 4 Carbon and Argon share the "gemini 4" stem; only rows that say
+    # Carbon may land on the Carbon row, so an Argon row can never be copied over.
+    "gemini-4-carbon": {
+        "pattern": r"(?i)carbon",
+        "stale": "row not labelled Carbon",
+        "label": "Carbon",
+        "labelNote": False,
+    },
 }
 
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
@@ -85,7 +93,7 @@ def guard_note(model_id, benchmark_id, note):
 def snapshot_note(model_id, note):
     """Swap the stale-checkpoint text in a score note for the snapshot label."""
     gate = SNAPSHOT_GATES.get(model_id)
-    if not gate:
+    if not gate or gate.get("labelNote") is False:
         return note
     n = re.sub(r"(?:;\s*|\s+)?" + re.escape(gate["stale"]) + r"\.?", "", note or "").strip()
     label = gate["label"]

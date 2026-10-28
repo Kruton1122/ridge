@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-10-28"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "gemini-4-carbon-1028",
+    kind: "release",
+    title: "Google takes first place back with a model almost nobody can use yet",
+    dek: "Gemini 4 Carbon scores 59 on the new AA Index, one point over Claude Opus 5.5, two weeks after Argon. It goes to cyber defenders first and everyone else later.",
+    pull: "The best model on the board is one you can't buy today.",
+    summary: "Gemini 4 Carbon is first on Artificial Analysis Intelligence Index v5.0 at 59, ahead of Claude Opus 5.5 (58), and first on Arena+ at 1528. Google is limiting it to cyber defenders and Fairwind partners for now. Ridge's Smartest overall and People's pick cards move to Carbon, with a note that it is not generally available.",
+    date: "2026-10-28",
+    sourceName: "Google",
+    sourceUrl: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    models: ["gemini-4-carbon", "gemini-4-argon", "claude-opus-5.5", "gpt-6-astra"],
+    tags: ["release", "ranking", "cyber"],
+    body: [
+      "Two weeks after Gemini 4 Argon, Google is back with Gemini 4 Carbon, and this time it is first. Artificial Analysis scores Carbon 59 on Intelligence Index v5.0 at high effort, one point ahead of Claude Opus 5.5 and two ahead of GPT-6 Astra. AA says it leads four of the nine tests in the index, including HLE-Diamond and Terminal-Bench-Science, and is second only to Opus 5.5 on its coding agent index. On Ridge's other boards it tops Arena+ at 1528 and sits fourth on Vals Terminal-Bench 4.0 at 63.13%, a big step up from Argon's 57.58%. It has no CursorBench, AA Cyber, Harvey or AA-Robotics score yet.",
+      "The catch is access. Google is giving Carbon to a small group of cyber defenders this week, then to more trusted partners through its Fairwind Program, and says developers, businesses and consumers get it once the guardrails are ready. There is no public API and no date. Google leads with cyber: it says Carbon scores 88.2% on SEC-bench Pro, 54.8% on ExploitGym and 71.0% on CWE-bench. Those are Google's own numbers, run without guardrails, and none of them is a Ridge board. Pricing is set at $2 in and $10 out per million tokens to start, then $4 and $20, the same as Argon.",
+      "On X the mood is mostly excitement about the pace. Posts like \"Google is moving fast\" and \"we are so back\" quote Logan Kilpatrick's launch thread, and several people pointed out that Carbon costs less per AA task than Opus 5.5. Plenty of others just asked when they can try it, and a few wondered whether a new frontier model every two weeks is progress or noise.",
+      "Our view: this is a real result, not just a press release, because AA, Arena+ and Vals all have it near the top. But a model you can't use is a strange kind of number one. Ridge now shows Carbon on the Smartest overall and People's pick cards with a note that it isn't generally available, and Opus 5.5 is still the best model you can actually pay for. The gated launch also tells you how labs now treat cyber skills: as something to hand to defenders first, before attackers get the same tool. Argon went from defenders only to general availability in two weeks. If Carbon does the same, Opus has until mid November.",
+    ],
+  },
+  {
     id: "aa-index-v5-1028",
     kind: "ranking",
     title: "The new AA Index is harder to cram for, and OpenAI and the closed labs gain from it",

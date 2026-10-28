@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "gemini-4-carbon-1028",
+    title: "Google announces Gemini 4 Carbon, now first on the AA Index, but only cyber defenders can use it for now",
+    blurb: "Google DeepMind announced Gemini 4 Carbon on 28 October, two weeks after Gemini 4 Argon. Artificial Analysis scores it 59 on Intelligence Index v5.0 at high effort, one point ahead of Claude Opus 5.5, and it also leads Arena+ at 1528 and sits fourth on Vals Terminal-Bench 4.0 at 63.13%. You can't use it yet. Google is giving access to a small group of cyber defenders this week, then more trusted partners through its Fairwind Program, and says developers, businesses and consumers will get it once it has tuned its guardrails. It will cost $2 in and $10 out per million tokens at first, then $4 and $20. Google says Carbon scores 88.2% on SEC-bench Pro for finding bugs, 54.8% on ExploitGym for exploiting them and 71.0% on CWE-bench for patching them. Those are Google's numbers and not Ridge boards. Carbon has no CursorBench, AA Cyber, Harvey or AA-Robotics score yet.",
+    date: "2026-10-28",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    beat: "release",
+    models: ["gemini-4-carbon", "gemini-4-argon", "claude-opus-5.5"],
+  },
+  {
     id: "aa-intelligence-index-v5-1028",
     title: "Artificial Analysis moves to Intelligence Index v5, and most of it now runs on private tests",
     blurb: "Artificial Analysis has released version 5 of its Intelligence Index, the score Ridge ranks models by. Two tests are new: FrontierCode 2.0, Cognition's private set of 132 coding tasks graded on whether a maintainer would merge the change, and Terminal-Bench-Science, 70 research tasks run in a terminal. Three were upgraded: HLE-Diamond replaces Humanity's Last Exam, AA-Omniscience moves to v1.1, and CritPt becomes a private 40-question hard subset of CritPt v2. GDPval-AA, SciCode and AA-LCR are out. AA says 60% of the Index now rests on private test sets or held-out answers, which makes it much harder to train for. The scores sit on a new scale, so Ridge's main AA column now shows v5 and the old v4.3.2 numbers live on an archived board. Claude Opus 5.5 still leads at 58, with GPT-6 Astra at 57 and GPT-6.1 Sol at 55. Fourteen older models on Ridge, including Claude Opus 5, GPT-6 Sol and Grok 4.6, have no v5 score yet, so those cells are blank.",

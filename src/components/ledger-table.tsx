@@ -128,7 +128,7 @@ function LedgerLine({ row, priceMode }: { row: LedgerRow; priceMode: "list" | "p
       <td className="px-3 py-3 text-xs text-muted">{row.license === "open-weight" ? "Open" : "Closed"}</td>
       <td className="px-3 py-3 text-right tabular-nums">
         {row.aa ?? "—"}
-        {row.aaNote ? <span className="ml-1 text-[10px] text-faint">{row.status === "partner" ? "max" : ""}</span> : null}
+        {row.aaNote ? <span className="ml-1 text-[10px] text-faint">{row.status === "partner" && /\bmax\b/.test(row.aaNote) ? "max" : ""}</span> : null}
       </td>
       <td className="px-3 py-3 text-right tabular-nums text-muted">
         {row.swe != null ? formatScore("swe-bench", row.swe) : "—"}

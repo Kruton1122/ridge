@@ -18,16 +18,20 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 Cite the source URL and the as-of date.
 
 Headline AA Intelligence Index v5.0:
-1. Claude Opus 5.5 — 58 (max with fallback)
-2. GPT-6 Astra — 57 (max)
-3. GPT-6.1 Sol — 55 (max)
-4. Claude Sonnet 5.5 — 54 (max with fallback)
-5. GPT-6.1 Terra — 51 (max)
-6. Claude Fable 5.1 — 50 (xhigh with fallback)
-6. Gemini 4 Argon — 50 (high)
-6. Muse Wonder Full — 50 (max)
-9. Kimi K3.1 Pro — 46 (best listed row)
-10. Muse Wonder — 43 (max)
+1. Gemini 4 Carbon — 59 (high; partner access only, not generally available)
+2. Claude Opus 5.5 — 58 (max with fallback)
+3. GPT-6 Astra — 57 (max)
+4. GPT-6.1 Sol — 55 (max)
+5. Claude Sonnet 5.5 — 54 (max with fallback)
+6. GPT-6.1 Terra — 51 (max)
+7. Gemini 4 Argon — 50 (high)
+7. Muse Wonder Full — 50 (max)
+7. Claude Fable 5.1 — 50 (xhigh with fallback)
+10. Kimi K3.1 Pro — 46 (best listed row)
+11. Muse Wonder — 43 (max)
+12. Claude Haiku 5.5 — 36 (max)
+13. Grok 4.7 — 35 (high)
+New model (2026-10-28): Gemini 4 Carbon (Google DeepMind; built on Gemini 4 Argon; partner access only: cyber defenders this week, then trusted partners through the Fairwind Program, no public API or date for general availability; $2 / $10 per 1M tokens introductory with cached input 95% off, then $4 / $20; 1M context). AA Intelligence Index 59 (high), #1. Arena+ 1528, #1. Vals Terminal-Bench 4.0 63.13 (#4 of 57). CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% (run without guardrails) are its claims and not Ridge boards. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1 https://openlm.ai/chatbot-arena/ https://www.vals.ai/benchmarks/terminal-bench-4
 New model (2026-10-26): GPT-6.1 Terra (OpenAI; API gpt-6.1-terra, $1 / $5 per 1M tokens, cached input $0.05, 1M context; ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu). AA Intelligence Index 48 (max). Vals Terminal-Bench 4.0 49.5 (#10 of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. OpenAI's Agents' Last Exam comparison with GPT-6 Astra is its claim. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra
 New model (2026-10-27): Ling-3.1-flash-1019 (inclusionAI, Ant Group, new lab; MIT weights on Hugging Face 2026-10-27; 560B total / 25B active, 1M context; AA lists $0.30 / $0.90 per 1M tokens). AA Intelligence Index 44. Other columns blank; Arena+ lists only the earlier Ling-3.1-flash. Sources: https://huggingface.co/inclusionAI/Ling-3.1-flash-1019 https://artificialanalysis.ai/models/ling-3-1-flash-1019
 News (2026-10-27): Liquid AI LFM3 (six open-weight 2B-class models: LFM3-1.7B text with 256K context, LFM3-VL-2B vision with video input, LFM3-Audio-2B, LFM3-Omni-2B, d1-2B and d1-Omni-2B decision models; plus LFM3-1.7B-Base). License: LFM Open License v1.0, Apache-2.0-based, free commercial use only under $10M annual revenue. Liquid's own claims: LFM3-VL-2B matches Gemma 4 12B on a 62-benchmark vision average, beats Gemini 3.5 Flash Lite, within 2 points of GPT-5.6 Luna; LFM3-1.7B beats LFM2.5-2.6B with 35% fewer parameters. Not on AA, Vals, Arena+ or CursorBench. Not a Ridge row. Sources: https://www.liquid.ai/blog/lfm3 https://huggingface.co/LiquidAI/LFM3-1.7B https://www.liquid.ai/lfm-license

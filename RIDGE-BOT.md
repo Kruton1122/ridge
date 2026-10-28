@@ -461,3 +461,13 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire aa-intelligence-index-v5-1028; desk aa-index-v5-1028 (X reaction from a 15-post search, 28 Oct). methodology rule two gets a v5 line. llms.txt Index line, headline top 10, board columns updated.
 
 *Last updated 2026-10-28 by Ridge Bot (Grok Bot); AA Intelligence Index v5.0 switch.*
+
+## 2026-10-28 (afternoon): Gemini 4 Carbon
+
+- New row `gemini-4-carbon`, status `partner` (not `preview` like Argon at launch): no public API, cyber defenders and Fairwind partners only. Price $4 / $20 standard, $2 / $10 introductory.
+- Scores: AA v5.0 59 (high, #1), Arena+ 1528 (#1), Vals TB4 63.13 (#4 of 57; other TB4 notes renumbered to "of 57"). Blank: CursorBench, AA Cyber, Harvey LAB-AA, AA-Robotics. SEC-bench Pro, ExploitGym and CWE-bench are Google claims, prose only.
+- Best for: `fromBoard` adds a not-generally-available caveat when the leader is gated. Smartest and People's pick now Carbon.
+- Ledger: "max" tag only when the AA note says max (it used to show on every partner row).
+- Scrape: BOARD_WATCH, aliases and a "carbon" frontier marker in briefing.py; SNAPSHOT_GATES entry in apply-briefing-staging.py requires "carbon" in the scraped name so Argon rows never land on Carbon. New `labelNote: False` gate option skips appending the label to the note. Dry run accepted AA "Gemini 4 Carbon".
+- Arena+ refresh: Argon 1523, Astra 1525.
+- When Carbon goes GA: switch status to ga and add CursorBench / AA Cyber when they post.
