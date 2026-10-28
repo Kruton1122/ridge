@@ -2,12 +2,12 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-27
-- Index: Artificial Analysis Intelligence Index v4.3.2 (current AA version; the 4 Sept v4.2 rebase moved scores to a new scale, so not 1:1 with August 60s-scale rows)
+- Snapshot: 2026-10-28
+- Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
 - Terminal-Bench 4.0: Vals AI, Mini-SWE-agent harness, 66 tasks, average of three runs. Replaced 2.1 in the Vals Index on 25 Sept 2026; scores do not compare with 2.1. Source: https://www.vals.ai/benchmarks/terminal-bench-4
-- Board columns: AA Index, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench 4.0, Terminal-Bench 2.1 (archived), AA Cyber Index, Harvey LAB-AA v1.1
+- Board columns: AA Index v5.0, SWE-bench, CursorBench 4.0, Arena Elo, Terminal-Bench 4.0, Terminal-Bench 2.1 (archived), AA Cyber Index, Harvey LAB-AA v1.1, AA Index v4.3.2 (archived, frozen at 27 Oct 2026)
 - AA Cyber Index: Artificial Analysis cyber-defense composite (CWE-Bench-AA, DeepsecBench-AA, CyberGym-E2E-AA). Several frontier models decline many tasks on safety grounds, so their low scores mostly reflect refusals. Score notes give each model's refusal read. Ridge scores only publicly available versions: AA's trusted-access rows (such as GPT-6 Sol Daybreak Blue, added 8 Oct 2026) appear in notes, not as scores. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index
 - Harvey LAB-AA v1.1: Artificial Analysis' run of Harvey's Legal Agent Benchmark, 120 private legal tasks. v1.1 (8 Oct 2026) gates on a hallucination check against the source documents, so a task counts only if every rubric item passes and there is no material hallucination. Not part of the AA Intelligence Index, which has no legal component. Source: https://artificialanalysis.ai/evaluations/harvey-lab-aa
 - JSON table: /api/ledger.json
@@ -17,19 +17,17 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
-Headline AA Intelligence Index v4.3.2:
+Headline AA Intelligence Index v5.0:
 1. Claude Opus 5.5 — 58 (max with fallback)
-2. Claude Sonnet 5.5 — 56 (max with fallback; AA tested a pre-release build with a structured-outputs bug since fixed and plans to re-run affected evals)
-2. Muse Wonder Full — 56 (max)
-4. Kimi K3.1 Pro — 55 (best listed row)
-5. Claude Fable 5.1 — 53 (max with fallback)
-5. GPT-6 Astra — 53 (max)
-5. Gemini 4 Argon — 53 (high)
-8. GPT-6.1 Sol — 52 (max)
-8. Muse Wonder — 52 (max)
-10. Claude Opus 5 — 51 (max)
-11. Claude Fable 5 — 50 (with fallback)
-12. GPT-6.1 Terra — 48 (max)
+2. GPT-6 Astra — 57 (max)
+3. GPT-6.1 Sol — 55 (max)
+4. Claude Sonnet 5.5 — 54 (max with fallback)
+5. GPT-6.1 Terra — 51 (max)
+6. Claude Fable 5.1 — 50 (xhigh with fallback)
+6. Gemini 4 Argon — 50 (high)
+6. Muse Wonder Full — 50 (max)
+9. Kimi K3.1 Pro — 46 (best listed row)
+10. Muse Wonder — 43 (max)
 New model (2026-10-26): GPT-6.1 Terra (OpenAI; API gpt-6.1-terra, $1 / $5 per 1M tokens, cached input $0.05, 1M context; ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu). AA Intelligence Index 48 (max). Vals Terminal-Bench 4.0 49.5 (#10 of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. OpenAI's Agents' Last Exam comparison with GPT-6 Astra is its claim. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra
 New model (2026-10-27): Ling-3.1-flash-1019 (inclusionAI, Ant Group, new lab; MIT weights on Hugging Face 2026-10-27; 560B total / 25B active, 1M context; AA lists $0.30 / $0.90 per 1M tokens). AA Intelligence Index 44. Other columns blank; Arena+ lists only the earlier Ling-3.1-flash. Sources: https://huggingface.co/inclusionAI/Ling-3.1-flash-1019 https://artificialanalysis.ai/models/ling-3-1-flash-1019
 News (2026-10-27): Liquid AI LFM3 (six open-weight 2B-class models: LFM3-1.7B text with 256K context, LFM3-VL-2B vision with video input, LFM3-Audio-2B, LFM3-Omni-2B, d1-2B and d1-Omni-2B decision models; plus LFM3-1.7B-Base). License: LFM Open License v1.0, Apache-2.0-based, free commercial use only under $10M annual revenue. Liquid's own claims: LFM3-VL-2B matches Gemma 4 12B on a 62-benchmark vision average, beats Gemini 3.5 Flash Lite, within 2 points of GPT-5.6 Luna; LFM3-1.7B beats LFM2.5-2.6B with 35% fewer parameters. Not on AA, Vals, Arena+ or CursorBench. Not a Ridge row. Sources: https://www.liquid.ai/blog/lfm3 https://huggingface.co/LiquidAI/LFM3-1.7B https://www.liquid.ai/lfm-license

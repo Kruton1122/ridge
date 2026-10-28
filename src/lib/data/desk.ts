@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-10-27"): boolean {
+export function isFresh(date: string, asOf = "2026-10-28"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,25 @@ export function isFresh(date: string, asOf = "2026-10-27"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "aa-index-v5-1028",
+    kind: "ranking",
+    title: "The new AA Index is harder to cram for, and OpenAI and the closed labs gain from it",
+    dek: "Opus 5.5 keeps first on Intelligence Index v5. GPT-6 Astra, GPT-6.1 Sol and GPT-6.1 Terra move up, while Kimi K3.1 Pro, Muse Wonder Full and the open models fall back.",
+    pull: "When the questions go private, the gap to the open models gets bigger, not smaller.",
+    summary: "Artificial Analysis rebuilt its Intelligence Index around private tests. Claude Opus 5.5 still leads at 58, but GPT-6 Astra (57), GPT-6.1 Sol (55) and GPT-6.1 Terra (51) climb into the top five, while Kimi K3.1 Pro drops from 55 to 46 and the best released open models now sit at 32. Ridge's Best open weights pick moves from MiMo-V2.6-Pro to DeepSeek V4.1 Flash and GLM-5.3, tied.",
+    date: "2026-10-28",
+    sourceName: "Artificial Analysis",
+    sourceUrl: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+    models: ["claude-opus-5.5", "gpt-6-astra", "gpt-6.1-sol", "gpt-6.1-terra", "claude-sonnet-5.5", "kimi-k3.1-pro", "muse-wonder-full", "deepseek-v4.1-flash", "glm-5.3"],
+    tags: ["ranking", "benchmarks"],
+    body: [
+      "Artificial Analysis has swapped out a big part of its Intelligence Index. Version 5 adds Cognition's FrontierCode 2.0 and Terminal-Bench-Science, upgrades Humanity's Last Exam, AA-Omniscience and CritPt, and drops GDPval-AA, SciCode and AA-LCR. The headline change is that 60% of the Index now comes from tests whose questions or answers are not public. The top barely moved. Claude Opus 5.5 is still first at 58. Below it the order changed a lot. On v4.3.2 Ridge's top five were Opus, Claude Sonnet 5.5, Muse Wonder Full, Kimi K3.1 Pro and a three-way tie at 53. On v5 they are Opus, GPT-6 Astra (57), GPT-6.1 Sol (55), Sonnet 5.5 (54) and GPT-6.1 Terra (51). Kimi K3.1 Pro falls from 55 to 46 and Muse Wonder Full from 56 to 50.",
+      "Open models take the biggest hit. AA puts the gap between the leader and the best open weights model at 12 points, up from 3. Among models whose weights you can actually download today, DeepSeek V4.1 Flash 1017 and GLM-5.3 lead at 32, below Claude Haiku 5.5 at 36. That changes Ridge's Best open weights card, which moves from MiMo-V2.6-Pro to DeepSeek V4.1 Flash and GLM-5.3, tied. Grok 4.7 drops from 46 to 35 at its best setting.",
+      "Reaction on X split two ways. Plenty of people liked the private tests, with one calling the reset much harder to game. Others went straight to the bill: AA's own thread says Opus 5.5 costs $10.04 per Index task against $1.27 for GPT-6.1 Sol, and the most common question under it was whether three points are worth paying eight times as much. Open model fans were quieter, and one post simply noted that the best downloadable model is now more than 25 points behind the leader.",
+      "Our view: this is a better index, and the shuffle is the point. If a model's score falls when the questions go private, some of the old score was likely coming from public test sets it had seen in some form, and v5 is the fairer read on what a model does with work it has never seen. Two cautions. The new scale does not compare with v4.3.2, so a model 'losing ten points' did not get worse overnight, which is why Ridge keeps the old numbers on their own archived board instead of drawing a line between them. And fourteen models on Ridge have no v5 score yet. Their cells stay blank until AA runs them.",
+    ],
+  },
   {
     id: "openai-science-results-1026",
     kind: "release",

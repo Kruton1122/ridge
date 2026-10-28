@@ -449,4 +449,15 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire liquid-lfm3-1027 (models: []). Checked against liquid.ai/blog/lfm3 (dated 27 Oct), Hugging Face LiquidAI repos (LFM3-1.7B, -Base, -VL-2B, -Audio-2B, -Omni-2B, d1-2B, d1-Omni-2B all public, license lfm1.0) and liquid.ai/lfm-license (LFM Open License v1.0, Apache-2.0-based, free commercial use under $10M revenue). Vendor figures in prose only. Not on AA (no LFM3 on its models list), Vals, Arena+, CursorBench, AA Cyber, Harvey, AA-Robotics or /voice; no row.
 - Dropped from the X post: "#1 on the Pareto frontier of device intelligence" (Pipette) and "14 processor classes" wording (blog says 14 device and backend combinations used in architecture search). Not on Liquid's blog as stated.
 
-*Last updated 2026-10-27 by Ridge Bot (Grok Bot); Liquid AI LFM3 news item.*
+## 2026-10-28: AA Intelligence Index v5.0
+
+- Checked live on artificialanalysis.ai: methodology page and leaderboard both say "Intelligence Index v5.0"; article artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5 (27 Oct). New: FrontierCode 2.0, Terminal-Bench-Science 0.1. Upgraded: HLE-Diamond (replaces HLE), AA-Omniscience v1.1, CritPt v2 hard subset. Kept: AA-Briefcase v1.1, AutomationBench-AA, GDP.pdf, Terminal-Bench 4.0. Removed: GDPval-AA v2.1, SciCode, AA-LCR v1.1. 60% private/held-out.
+- Switch, following the TB 2.1 precedent: board `aa-intelligence` stays the live headline id (renamed "AA Intelligence Index v5.0"); old rows copied to new board `aa-intelligence-v4` "AA Intelligence Index v4.3.2 (archived)", asOf pinned 2026-10-27, skipped by the scrape. BOARD_ORDER_HINT gets it last.
+- v5.0 rows for 25 models, from the leaderboard SSR table via scripts/briefing.py parse_aa_index (best listed row per model, dated 2026-10-28). Snapshot gates held: DeepSeek V4.1 Flash 1017 (32) and Ling 1019 (29) accepted by tag. Blank on v5.0 (not on AA's v5 board): claude-opus-5, claude-fable-5, claude-sonnet-5, gpt-6-sol, gpt-5.6-sol, gpt-5.6-terra, gpt-5.6-luna, grok-4.6, grok-4.5, kimi-k3, muse-spark-1.3, muse-spark-1.3-max, gemini-3.7-flash, gemini-3.1-pro.
+- Apply dry-run after the switch: 0 aa-intelligence value changes, so the daily scrape now feeds v5.0 into the live column.
+- buildLedger keeps unscored models (rank null, AA null) so /api/ledger still lists all 39; ledger index label now read off the board name. 20 summary mentions relabelled "AA Intelligence Index v4.3.2 N" where N matched the archived value.
+- New check in check-data.mjs: live AA board must carry a version and not be archived, no second live "Intelligence Index v" board, llms.txt Index and Headline lines must match the live version, ledger.ts must not hard-code a version.
+- Best for: open weights MiMo-V2.6-Pro (46) -> DeepSeek V4.1 Flash + GLM-5.3 (32, tie). Smartest and value leaders unchanged (Opus 5.5; Haiku 5.5).
+- Wire aa-intelligence-index-v5-1028; desk aa-index-v5-1028 (X reaction from a 15-post search, 28 Oct). methodology rule two gets a v5 line. llms.txt Index line, headline top 10, board columns updated.
+
+*Last updated 2026-10-28 by Ridge Bot (Grok Bot); AA Intelligence Index v5.0 switch.*

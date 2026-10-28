@@ -97,7 +97,7 @@ function duplicates(values) {
 /** Score-note guards shared with scripts/apply-briefing-staging.py. */
 export const NOTE_GUARDS = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), "note-guards.json"), "utf8"));
 
-export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS } = {}) {
+export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS, texts = null } = {}) {
   /** @type {string[]} */
   const errors = [];
   /** @type {string[]} */
@@ -208,6 +208,27 @@ export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS } =
     }
   }
 
+  // ---- AA Index version label: one live version, printed the same everywhere.
+  // The live board is "aa-intelligence"; older versions live on as "(archived)" boards.
+  const aaBoard = BENCHMARKS.find((b) => b.id === "aa-intelligence");
+  const aaVer = aaBoard?.name.match(/v\d+(?:\.\d+)*/)?.[0];
+  if (aaBoard) {
+    if (!aaVer) err(`board aa-intelligence: name "${aaBoard.name}" carries no AA version`);
+    else if (/archived/i.test(aaBoard.name)) err("board aa-intelligence is the live AA board and must not be archived");
+    for (const b of BENCHMARKS) {
+      if (b.id === "aa-intelligence" || /archived/i.test(b.name)) continue;
+      if (/Intelligence Index v\d/.test(b.name)) err(`board ${b.id}: a second live AA Intelligence board ("${b.name}"); archive old versions`);
+    }
+    if (aaVer && texts) {
+      for (const line of (texts.llms ?? "").split("\n")) {
+        if (!/^(- Index:|Headline AA Intelligence Index)/.test(line)) continue;
+        const v = line.match(/Intelligence Index (v\d+(?:\.\d+)*)/)?.[1];
+        if (v !== aaVer) err(`llms.txt: "${line.slice(0, 50)}" says ${v ?? "no version"}, live AA board is ${aaVer}`);
+      }
+      if (/Intelligence Index v\d/.test(texts.ledger ?? "")) err("ledger.ts hard-codes an AA Index version; read it off the aa-intelligence board name");
+    }
+  }
+
   // ---- wire, desk, changelog
   const checkFeed = (label, items, kinds, kindKey, needText) => {
     for (const id of duplicates(items.map((i) => i.id))) err(`${label}: duplicate id ${id}`);
@@ -268,7 +289,11 @@ export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS } =
 
 async function main() {
   const data = await loadData();
-  const { errors, warnings } = checkData(data);
+  const texts = {
+    llms: readFileSync(join(ROOT, "public/llms.txt"), "utf8"),
+    ledger: readFileSync(join(ROOT, "src/lib/data/ledger.ts"), "utf8"),
+  };
+  const { errors, warnings } = checkData(data, { texts });
   for (const w of warnings) console.warn(`warn  ${w}`);
   for (const e of errors) console.error(`ERROR ${e}`);
   console.log(

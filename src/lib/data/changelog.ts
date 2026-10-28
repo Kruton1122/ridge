@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-28",
+    title: "AA Intelligence Index moves to v5.0; v4.3.2 kept as an archived board",
+    items: [
+      "The main AA Index column now shows Artificial Analysis Intelligence Index v5.0. It adds FrontierCode 2.0 and Terminal-Bench-Science, upgrades HLE (now HLE-Diamond), AA-Omniscience (v1.1) and CritPt (v2 hard subset), and drops GDPval-AA, SciCode and AA-LCR. 60% of it now runs on private tests. Source: https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+      "Every v5.0 score comes from AA's leaderboard. 25 of 39 models have one. Claude Opus 5, Claude Fable 5, Claude Sonnet 5, GPT-6 Sol, GPT-5.6 Sol, GPT-5.6 Terra, GPT-5.6 Luna, Grok 4.6, Grok 4.5, Kimi K3, Muse Spark 1.3, Muse Spark 1.3 Max, Gemini 3.7 Flash and Gemini 3.1 Pro are blank until AA runs them.",
+      "The old v4.3.2 numbers are on a new archived board, AA Index v4.3.2, frozen at 27 October. The two scales do not compare, so Ridge never mixes them on one chart.",
+      "Best for: Smartest overall stays Claude Opus 5.5 (58), now ahead of GPT-6 Astra (57) and GPT-6.1 Sol (55). Best open weights moves from MiMo-V2.6-Pro to DeepSeek V4.1 Flash and GLM-5.3, tied at 32. Best value stays Claude Haiku 5.5, with GPT-6.1 Terra and GPT-6.1 Sol now behind it.",
+      "Model summaries that quote an AA Index number now say v4.3.2 where that is the version they mean. The site check now fails if llms.txt or the ledger API names a different AA version from the live board.",
+    ],
+  },
+  {
     date: "2026-10-27",
     title: "New rows: GPT-6.1 Terra and Ling-3.1-flash-1019; news on Genie 4",
     items: [

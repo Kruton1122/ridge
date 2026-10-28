@@ -22,7 +22,7 @@ export type PriceMode = "list" | "promo";
  * catalog.ts that is not listed here still renders, sorted to the end. Adding a
  * fifth board is a catalog edit and nothing else — no component needs touching.
  */
-const BOARD_ORDER_HINT = ["aa-intelligence", "swe-bench", "cursor-bench", "arena-elo", "terminal-bench-4", "terminal-bench", "aa-cyber", "harvey-lab-aa", "aa-robotics"];
+const BOARD_ORDER_HINT = ["aa-intelligence", "swe-bench", "cursor-bench", "arena-elo", "terminal-bench-4", "terminal-bench", "aa-cyber", "harvey-lab-aa", "aa-robotics", "aa-intelligence-v4"];
 
 export interface BoardRow {
   rank: number;
@@ -992,7 +992,7 @@ function bestIndex(values: (number | null)[], dir: "high" | "low"): number | nul
  */
 export const HEADLINE_BENCHMARK = "aa-intelligence";
 
-/** "v4.3.2", read off the board name Ridge Bot maintains, so copy never hard-codes a version. */
+/** "v5.0", read off the board name Ridge Bot maintains, so copy never hard-codes a version. */
 export const AA_VERSION = BENCHMARKS.find((b) => b.id === HEADLINE_BENCHMARK)?.name.match(/v\d+(?:\.\d+)*/)?.[0] ?? "";
 
 export interface Row {

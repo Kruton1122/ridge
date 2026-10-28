@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-intelligence-index-v5-1028",
+    title: "Artificial Analysis moves to Intelligence Index v5, and most of it now runs on private tests",
+    blurb: "Artificial Analysis has released version 5 of its Intelligence Index, the score Ridge ranks models by. Two tests are new: FrontierCode 2.0, Cognition's private set of 132 coding tasks graded on whether a maintainer would merge the change, and Terminal-Bench-Science, 70 research tasks run in a terminal. Three were upgraded: HLE-Diamond replaces Humanity's Last Exam, AA-Omniscience moves to v1.1, and CritPt becomes a private 40-question hard subset of CritPt v2. GDPval-AA, SciCode and AA-LCR are out. AA says 60% of the Index now rests on private test sets or held-out answers, which makes it much harder to train for. The scores sit on a new scale, so Ridge's main AA column now shows v5 and the old v4.3.2 numbers live on an archived board. Claude Opus 5.5 still leads at 58, with GPT-6 Astra at 57 and GPT-6.1 Sol at 55. Fourteen older models on Ridge, including Claude Opus 5, GPT-6 Sol and Grok 4.6, have no v5 score yet, so those cells are blank.",
+    date: "2026-10-28",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5",
+    beat: "ranking",
+    models: ["claude-opus-5.5", "gpt-6-astra", "gpt-6.1-sol"],
+  },
+  {
     id: "liquid-lfm3-1027",
     title: "Liquid AI releases LFM3, six open-weight 2B-class models for phones and laptops",
     blurb: "Liquid AI has released LFM3, a family of small models built for on-device use: LFM3-1.7B for text with a 256K token context, LFM3-VL-2B for images and, for the first time in an LFM vision model, video, LFM3-Audio-2B, LFM3-Omni-2B, and two decision models, d1-2B and d1-Omni-2B. All six branch from one 1.7B base model trained on 22T tokens, and Liquid says each can be fine-tuned on a single GPU. Weights are on Hugging Face under the LFM Open License v1.0, which is based on Apache 2.0 but only allows free commercial use for companies under $10 million in annual revenue. Liquid's own tables say LFM3-VL-2B matches Gemma 4 12B across 62 vision benchmarks, beats Gemini 3.5 Flash Lite and lands within 2 points of GPT-5.6 Luna, and that LFM3-1.7B beats its older 2.6B model with 35% fewer parameters. Those are Liquid's numbers. Artificial Analysis, Vals and Arena+ do not list LFM3, so it has no Ridge row.",

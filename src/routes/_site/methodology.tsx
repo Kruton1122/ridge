@@ -30,6 +30,7 @@ const RULES: { n: string; title: string; sub?: string; body: (React.ReactNode)[]
     sub: "The single most common way a benchmark site publishes something false.",
     body: [
       <>Artificial Analysis rebased its Intelligence Index from v4.1.1 to v4.2 on 4 September 2026: AA-Briefcase and GDP.pdf added, a saturated GPQA Diamond dropped, private held-out weight raised to 40%. Scores across the whole board fell by roughly ten points overnight.</>,
+      <>It happened again on 28 October 2026, when AA moved to v5.0: FrontierCode 2.0 and Terminal-Bench-Science added, HLE, AA-Omniscience and CritPt upgraded, GDPval-AA, SciCode and AA-LCR dropped, and 60% of the Index moved onto private tests. Ridge keeps the v4.3.2 numbers on their own archived board rather than lining them up against v5.0.</>,
       <>Nothing got worse. The instrument changed. A model reading 66 in August and 53 in September is the same model measured two ways, and a chart that draws a line between those two points is telling a story that did not happen. Ridge does not draw that line, does not average the two, and does not put them on one bar. Every chart on this site that spans time is plotted on one version of the index, currently {AA_VERSION}.</>,
       <>The same discipline applies to effort levels. A score measured at max effort and a score measured at high effort are different measurements of different things, and they stay in separate rows with the variant noted.</>,
     ],

@@ -1,4 +1,5 @@
 import {
+  BENCHMARKS,
   MODELS,
   SCHEMA_VERSION,
   SCORES,
@@ -74,7 +75,8 @@ export function statusLabel(status: AccessStatus): string {
 }
 
 export interface LedgerRow {
-  rank: number;
+  /** Null when the headline AA board has no score for this model yet. */
+  rank: number | null;
   id: string;
   name: string;
   shortName: string;
@@ -107,7 +109,10 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
   const aaRows = SCORES.filter((s) => s.benchmarkId === "aa-intelligence").sort(
     (a, b) => b.value - a.value,
   );
-  return aaRows.map((row, i) => {
+  const ranked = new Set(aaRows.map((r) => r.modelId));
+  // Unscored models stay in the ledger with a blank AA cell rather than vanishing.
+  const unranked = MODELS.filter((m) => !ranked.has(m.id)).map((m) => ({ modelId: m.id, value: null as number | null, note: undefined as string | undefined }));
+  return [...aaRows, ...unranked].map((row, i) => {
     const model = getModel(row.modelId)!;
     const swe = scoreOf(model.id, "swe-bench");
     const arena = scoreOf(model.id, "arena-elo");
@@ -120,7 +125,7 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
         ? model.promoPricing
         : null;
     return {
-      rank: i + 1,
+      rank: row.value == null ? null : i + 1,
       id: model.id,
       name: model.name,
       shortName: model.shortName,
@@ -140,7 +145,7 @@ export function buildLedger(mode: "list" | "promo" = "promo"): LedgerRow[] {
       harveyLabNote: harveyLab?.note,
       robotics: robotics?.value ?? null,
       roboticsNote: robotics?.note,
-      dollarPerAa: listDollarPerAa(model, row.value, mode),
+      dollarPerAa: row.value == null ? null : listDollarPerAa(model, row.value, mode),
       priceIn: model.pricing?.inputPerM ?? null,
       priceOut: model.pricing?.outputPerM ?? null,
       promoIn: promoLive?.inputPerM ?? null,
@@ -155,7 +160,7 @@ export function ledgerPayload(mode: "list" | "promo" = "promo") {
   return {
     schemaVersion: SCHEMA_VERSION,
     last_updated: `${SNAPSHOT_DATE}T13:00:00-04:00`,
-    index: "Artificial Analysis Intelligence Index v4.3.2",
+    index: `Artificial Analysis Intelligence Index ${BENCHMARKS.find((b) => b.id === "aa-intelligence")?.name.match(/v\d+(?:\.\d+)*/)?.[0] ?? ""}`,
     citation: "Cite the source URL and the as-of date.",
     sources: LEDGER_SOURCES,
     next_pull: nextPullIso(),
