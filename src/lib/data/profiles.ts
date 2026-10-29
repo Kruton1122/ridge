@@ -48,16 +48,16 @@ const PROFILES: Record<string, ModelProfile> = {
   "mistral-large-4": {
     epithet: "Le Chonk",
     voice:
-      "Mistral's trillion-parameter flagship, in API preview from 6 October with open weights promised by the end of the month. Mistral aims it at cyber defense, finance, legal work, and reading images rather than at topping every general board, and its pitch is that you will be able to run it yourself, under your own rules.",
+      "Mistral's trillion-parameter flagship, open weight since 29 October under a modified MIT license. Mistral aims it at cyber defense, finance, legal work and reading images rather than at topping every general board. Artificial Analysis puts it first among open models built outside China, still behind the best Chinese ones.",
     strengths: [
-      "Open weights promised by the end of October",
-      "Takes on cyber tasks that several closed models decline",
-      "1M context per Mistral; text and image in",
+      "Open weights under the MEOW license, a modified MIT license",
+      "AA Cyber Index 51, third among open-weight models",
+      "Uses far fewer tokens per task than the open models that beat it, per AA",
     ],
     watch: [
-      "Preview checkpoint: Mistral is still training it, so scores may move",
-      "Not open yet. API only until the weights ship, and the license is unnamed",
-      "List price returns to $1.36 / $4.18 after the two-week launch discount",
+      "AA Index 26, six points behind DeepSeek V4.1 Flash and GLM-5.3 (32)",
+      "Hosting it as a paid model service needs a commercial license from Mistral",
+      "Arena+, Terminal-Bench 4.0 and Harvey scores are still from the preview",
     ],
   },
   "beam-1.0": {

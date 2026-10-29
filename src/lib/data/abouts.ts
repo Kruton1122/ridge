@@ -28,14 +28,15 @@ export interface ModelAbout {
 
 export const ABOUTS: Record<string, ModelAbout> = {
   "mistral-large-4": {
-    lede: "Mistral Large 4 is Mistral AI's largest model to date, released as a public preview on 6 October 2026. It is a mixture-of-experts model with about a trillion parameters, 49 billion of them active per token (52 billion counting the embedding and output layers), that reads text and images and writes text. Mistral nicknames it Le Chonk, a nod to the Le Chaton Fat meme that ran through X and Reddit in June.\n\nIt is API only for now. Mistral promises the weights by the end of October, and its Hugging Face countdown shows 31 October. Ridge lists it as closed until they ship.",
+    lede: "Mistral Large 4 is Mistral AI's largest model to date, released as a public preview on 6 October 2026. It is a mixture-of-experts model with about a trillion parameters, 49 billion of them active per token (52 billion counting the embedding and output layers), that reads text and images and writes text. Mistral nicknames it Le Chonk, a nod to the Le Chaton Fat meme that ran through X and Reddit in June.\n\nOn 29 October Mistral released the weights of an updated build on Hugging Face under its MEOW license, a modified MIT license. Anyone can use, change and sell it, but a business that runs it as a hosted model service needs a separate commercial license. Ridge now lists it as open weight.",
     framing: "Mistral pitches Large 4 as the strongest open-weight model built in the US or Europe, competitive with the best Chinese open models, and aimed at critical work: cyber defense, finance, legal, manufacturing, and visual grounding. The sovereignty argument runs through the launch. It was trained from scratch in Mistral's own European datacenters, is served there, and once the weights ship can run on private cloud or on premises, under the customer's own policies instead of a provider's refusals.",
     rollout: [
       { date: "2026-06", text: "The Le Chaton Fat meme imagines a giant Mistral model. CEO Arthur Mensch joins in on X." },
       { date: "2026-10-06", text: "Public preview announced. API access the same day on Mistral Studio at half price for two weeks. Cybersecurity partners and state authorities get a version with reduced moderation." },
       { date: "2026-10", text: "Open weights promised by the end of the month, with architecture details, more benchmarks, and post-training notes. Mistral's Hugging Face countdown shows 31 October; the press was told 27 October." },
+      { date: "2026-10-29", text: "Weights of an updated build released on Hugging Face under the MEOW license. Price cut to $0.70 / $2.10 per 1M tokens. Three reasoning modes: low, medium and high (default)." },
     ],
-    rolloutNote: "Mistral says reinforcement learning is still running and it will tune the final checkpoint before the weights go live, so the preview may not match the released model.",
+    rolloutNote: "The open-weight build of 29 October had about three more weeks of reinforcement learning than the preview, so preview-era scores on this page may not match it. Arena+, Terminal-Bench 4.0 and Harvey LAB-AA still show the preview.",
     claims: [
       "The strongest open-weight model developed in the US or Europe, and competitive with the strongest open models globally (company claim).",
       "State of the art among open models on cybersecurity, finance, and legal workloads, and ahead of closed frontier models on visual grounding, for example 42% against GPT-6 Astra's 41% on Dense 200 (company-reported).",
@@ -50,22 +51,25 @@ export const ABOUTS: Record<string, ModelAbout> = {
       { label: "Architecture", value: "Mixture-of-experts, 1.05T total parameters, 49B active per token (52B counting embedding and output layers), plus a 1.6B vision encoder" },
       { label: "Context", value: "1M tokens (Mistral docs)" },
       { label: "Modalities", value: "Text and image input, text output" },
-      { label: "Price", value: "$1.36 input / $4.18 output per 1M tokens; $0.14 cached input" },
+      { label: "Price", value: "$0.70 input / $2.10 output per 1M tokens; $0.07 cached input (from 29 Oct; preview was $1.36 / $4.18)" },
       { label: "Launch pricing", value: "Half price ($0.68 / $2.09) for the first two weeks of the preview" },
-      { label: "Status", value: "Public preview" },
-      { label: "Weights", value: "Closed for now; Mistral promises open weights by the end of October 2026 (Hugging Face countdown: 31 October; press told 27 October), license not yet named" },
+      { label: "Status", value: "Generally available; open weights since 29 October 2026" },
+      { label: "Weights", value: "Open on Hugging Face (mistralai/Mistral-Large-4-1T-A52B, FP8 and NVFP4) under the Mistral Ecosystem Open-Weight (MEOW) license, a modified MIT license; model-as-a-service businesses need a separate commercial license" },
       { label: "Training", value: "From scratch on 3,800 NVIDIA Grace Blackwell GPUs in Mistral's European datacenters (company-reported)" },
       { label: "Lab", value: "Mistral AI (Paris)" },
     ],
     whereUsed: [
-      "Mistral API (public preview)",
+      "Mistral API",
+      "Self-hosted from Hugging Face weights (vLLM, SGLang, Transformers, llama.cpp)",
       "Mistral Studio",
       "Vetted cybersecurity partners and state authorities (reduced-moderation access)",
     ],
     sources: [
       { label: "Introducing Mistral Large 4 (Mistral)", url: "https://mistral.ai/news/mistral-large-4" },
       { label: "Mistral Large 4 model page (Mistral Docs)", url: "https://docs.mistral.ai/models/mistral-large-4-0" },
-      { label: "Mistral Large 4 upcoming release (Hugging Face)", url: "https://huggingface.co/mistralai/Mistral-Large-4.0-1T05-A52B" },
+      { label: "Mistral Large 4 is now open weight (Mistral)", url: "https://mistral.ai/news/mistral-large-4-oss/" },
+      { label: "Mistral Large 4 weights (Hugging Face)", url: "https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B" },
+      { label: "Open-weight release analysis (Artificial Analysis on X)", url: "https://x.com/ArtificialAnlys/status/2115820547103952925" },
       { label: "Launch post (@MistralAI on X)", url: "https://x.com/MistralAI/status/2107457414387622310" },
       { label: "Artificial Analysis model page", url: "https://artificialanalysis.ai/models/mistral-large-4" },
       { label: "Mistral debuts Large 4 'Le Chonk' (VentureBeat)", url: "https://venturebeat.com/technology/mistral-debuts-large-4-le-chonk-a-1-trillion-parameter-text-output-model-with-high-benchmarks-planned-for-open-weights-release" },

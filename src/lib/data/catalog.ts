@@ -654,9 +654,8 @@ export const MODELS: Model[] = [
     labName: "Mistral AI",
     released: "2026-10-06",
     contextTokens: 1_000_000,
-    pricing: { inputPerM: 1.36, outputPerM: 4.18 },
-    license: "proprietary",
-    status: "preview",
+    pricing: { inputPerM: 0.7, outputPerM: 2.1 },
+    license: "open-weight",
     aliases: [
       "mistral large 4",
       "mistral-large-4",
@@ -665,9 +664,11 @@ export const MODELS: Model[] = [
       "mistral-large-4-0",
       "ml4",
       "le chonk",
+      "mistral large 4 (high)",
+      "mistral-large-4-1t-a52b",
     ],
     summary:
-      "Public preview from 6 October 2026, nicknamed Le Chonk. Mistral's largest model: a mixture-of-experts with 1.05T total parameters and 49B active per token (52B counting the embedding and output layers), text and image in, text out, and a 1M token context per Mistral. API id mistral-large-4. List $1.36 / $4.18 per 1M tokens (cached input $0.14), at half price for the first two weeks of the preview. Mistral promises open weights by the end of October, and its Hugging Face countdown shows 31 October (the press was told 27 October). Until then it is API only and the license is not named. AA Intelligence Index v4.3.2 38 (Preview, reasoning) and AA Cyber Index 50 with no tasks declined, as of 6 Oct. No CursorBench score yet; Arena+ has it at 1448 (as of 18 Oct), and Vals no longer runs SWE-bench on new models.",
+      "Nicknamed Le Chonk. Public preview from 6 October 2026; Mistral released the weights of an updated build on 29 October on Hugging Face (mistralai/Mistral-Large-4-1T-A52B, FP8 and NVFP4) under the Mistral Ecosystem Open-Weight (MEOW) license, a modified MIT license that is free to use, modify and sell, except that running a model-as-a-service business needs a separate commercial license from Mistral. A mixture-of-experts with about 1T total parameters (AA lists 1.05T) and 49B active per token (52B counting the embedding and output layers), text and image in, text out, 1M token context. API id mistral-large-4. $0.70 / $2.10 per 1M tokens, cached input $0.07 (was $1.36 / $4.18 in preview). AA Intelligence Index v5.0 26 at high reasoning (Preview was 25), which AA says makes it the top open-weight model built outside China, one point ahead of Muse Spark Open. AA Cyber Index 51 (high). Arena+, Terminal-Bench 4.0 and Harvey LAB-AA scores are still the preview build. No CursorBench score yet, and Vals no longer runs SWE-bench on new models.",
   }),
   m({
     id: "beam-1.0",
@@ -957,7 +958,7 @@ export const SCORES: Score[] = [
   s("minimax-m3.1-flash", "aa-intelligence", 29, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "reasoning, default max effort; best listed row"),
   s("step-5-preview", "aa-intelligence", 29, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best listed row"),
   s("gpt-6-luna", "aa-intelligence", 28, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best effort/variant: max"),
-  s("mistral-large-4", "aa-intelligence", 25, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best effort/variant: Preview (reasoning)"),
+  s("mistral-large-4", "aa-intelligence", 26, "Artificial Analysis", "https://artificialanalysis.ai/models/mistral-large-4", "2026-10-29", "best effort/variant: high; open-weight release of 29 Oct (Preview was 25)"),
   s("muse-spark-open", "aa-intelligence", 25, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best effort/variant: xhigh"),
   s("deepseek-v4-pro", "aa-intelligence", 23, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best effort/variant: max; AA lists it as DeepSeek V4 Pro 0813"),
   s("beam-1.0", "aa-intelligence", 18, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-29", "best listed row"),
@@ -1099,7 +1100,7 @@ export const SCORES: Score[] = [
 
   s("grok-4.7", "aa-cyber", 56, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "variant: xhigh. No tasks declined."),
   s("gpt-6-luna", "aa-cyber", 53, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "variant: max. No tasks declined."),
-  s("mistral-large-4", "aa-cyber", 50, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "variant: Preview. No tasks declined."),
+  s("mistral-large-4", "aa-cyber", 51, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "variant: high, open-weight release of 29 Oct; third among open-weight models per AA (Preview was 50)"),
   s("beam-1.0", "aa-cyber", 34, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "No tasks declined."),
   s("mimo-v2.6-pro", "aa-cyber", 56, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "No tasks declined."),
   s("step-5-preview", "aa-cyber", 48, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-10-29", "No tasks declined."),

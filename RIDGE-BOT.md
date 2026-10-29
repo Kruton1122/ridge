@@ -480,3 +480,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Fix: the daily scrape regenerated the llms.txt headline and dropped Carbon's partner caveat. parse_models in scripts/apply-briefing-staging.py now reads each row's status, and build_headline appends "partner access only, not generally available" for partner rows, so the caveat survives future scrapes.
 - Includes the 29 Oct daily scrape (snapshot 2026-10-29, Arena Opus 1512, Kimi 1512).
 - X log: logs/news-pass-x-20261029.txt.
+
+## 2026-10-29 (afternoon): Mistral Large 4 open weights, Phonic 1
+
+- `mistral-large-4`: license open-weight, status ga (dropped preview), price $0.70 / $2.10 (cached $0.07) per mistral.ai. AA v5.0 26 (high) per artificialanalysis.ai/models/mistral-large-4; AA Cyber 51 (cyberIndex 50.89 on AA Cyber page, high). Arena+ 1448, TB4 27.78, Harvey 3.1 left as preview-build scores; CursorBench blank (not listed). About, profile, summary and aliases updated.
+- Best open weights unchanged (DeepSeek V4.1 Flash / GLM-5.3 at 32).
+- Voice: reran scripts/voice-s2s.py; Phonic 1 (High) #1 at 87.1, Grok Voice 3.0 86.9. Rerun also refreshed other AA cells (e.g. Grok Voice 3.0 arena Elo 1064 -> 1059).
+- Wires: mistral-large-4-open-1029, phonic-1-s2s-1029. Fish Audio Drama 3 skipped (TTS, not speech to speech).

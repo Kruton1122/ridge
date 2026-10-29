@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "phonic-1-s2s-1029",
+    title: "Phonic 1 takes first place on the Voice board by a hair",
+    blurb: "Phonic's speech to speech model, Phonic 1, debuts first of 22 on the Artificial Analysis Speech to Speech Index at 87.1 in its High setting, just 0.2 ahead of Grok Voice 3.0 at 86.9. AA says it leads Tau Voice, the agentic test, at 79.9%, and gets to first audio in 0.61 seconds. It costs $0.07 a minute through the Phonic API. The gap at the top is small enough that the next rerun could flip it.",
+    date: "2026-10-29",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2115836126925901915",
+    beat: "ranking",
+    models: [],
+  },
+  {
+    id: "mistral-large-4-open-1029",
+    title: "Mistral releases Large 4 weights, now the top open model built outside China",
+    blurb: "Mistral has put the weights for an updated Mistral Large 4 on Hugging Face. It is a mixture-of-experts with about a trillion parameters, 49 billion active per token, a 1M token context, and text and image input. The license is MEOW, a modified MIT license: you can use, change and sell it, but running it as a hosted model service needs a separate commercial license. The API price drops to $0.70 in and $2.10 out per million tokens, about half the preview price. Artificial Analysis scores it 26 on Intelligence Index v5 at high reasoning, up one from the preview, which AA says makes it the best open model from outside China, a point ahead of Muse Spark Open. It is still six points behind DeepSeek V4.1 Flash and GLM-5.3, so Best open weights does not change. On AA's Cyber Index it scores 51, third among open models. Mistral's own coding and cyber charts are its claims and are not Ridge boards.",
+    date: "2026-10-29",
+    outlet: "Mistral AI",
+    url: "https://mistral.ai/news/mistral-large-4-oss/",
+    beat: "release",
+    models: ["mistral-large-4", "deepseek-v4.1-flash", "glm-5.3"],
+  },
+  {
     id: "gemini-4-carbon-1028",
     title: "Google announces Gemini 4 Carbon, now first on the AA Index, but only cyber defenders can use it for now",
     blurb: "Google DeepMind announced Gemini 4 Carbon on 28 October, two weeks after Gemini 4 Argon. Artificial Analysis scores it 59 on Intelligence Index v5.0 at high effort, one point ahead of Claude Opus 5.5, and it also leads Arena+ at 1528 and sits fourth on Vals Terminal-Bench 4.0 at 63.13%. You can't use it yet. Google is giving access to a small group of cyber defenders this week, then more trusted partners through its Fairwind Program, and says developers, businesses and consumers will get it once it has tuned its guardrails. It will cost $2 in and $10 out per million tokens at first, then $4 and $20. Google says Carbon scores 88.2% on SEC-bench Pro for finding bugs, 54.8% on ExploitGym for exploiting them and 71.0% on CWE-bench for patching them. Those are Google's numbers and not Ridge boards. Carbon has no CursorBench, AA Cyber, Harvey or AA-Robotics score yet.",

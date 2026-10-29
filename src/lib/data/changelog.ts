@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-29",
+    title: "Mistral Large 4 goes open weight; Phonic 1 tops the Voice board",
+    items: [
+      "Mistral Large 4 is now open weight: updated build released 29 October on Hugging Face under the MEOW license (modified MIT; model-as-a-service businesses need a commercial license). Price $0.70 / $2.10 per 1M tokens, cached input $0.07 (was $1.36 / $4.18). Sources: https://mistral.ai/news/mistral-large-4-oss/ https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B",
+      "Mistral Large 4 scores: AA Intelligence Index v5.0 26 at high (was 25 for the preview) and AA Cyber Index 51 at high (was 50). Source: https://artificialanalysis.ai/models/mistral-large-4 and https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index. Arena+, Terminal-Bench 4.0 and Harvey LAB-AA stay on the preview build; CursorBench stays blank.",
+      "Best open weights is unchanged: DeepSeek V4.1 Flash and GLM-5.3 lead at 32.",
+      "Voice board: Phonic 1 (High) enters first at 87.1 on the AA Speech to Speech Index, ahead of Grok Voice 3.0 (86.9). Source: https://artificialanalysis.ai/speech-to-speech",
+    ],
+  },
+  {
     date: "2026-10-28",
     title: "New row: Gemini 4 Carbon, first on the AA Index",
     items: [

@@ -17,6 +17,9 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-10-29): Mistral Large 4 open weights released (updated build; Hugging Face mistralai/Mistral-Large-4-1T-A52B, MEOW license = modified MIT, model-as-a-service needs a commercial license; ~1T total / 49B active, 1M context). Now $0.70 / $2.10 per 1M tokens, cached input $0.07. AA Intelligence Index v5.0 26 (high; Preview 25), top open-weight model from outside China per AA. AA Cyber Index 51 (high). Best open weights unchanged (DeepSeek V4.1 Flash and GLM-5.3 at 32). Sources: https://mistral.ai/news/mistral-large-4-oss/ https://artificialanalysis.ai/models/mistral-large-4
+News (2026-10-29): Voice board: Phonic 1 (High) is #1 of 22 on the AA Speech to Speech Index at 87.1, ahead of Grok Voice 3.0 (86.9); $0.07 per minute via the Phonic API. Source: https://artificialanalysis.ai/speech-to-speech
+
 Headline AA Intelligence Index v5.0:
 1. Gemini 4 Carbon — 59 (high; partner access only, not generally available)
 2. Claude Opus 5.5 — 58 (max with fallback)
