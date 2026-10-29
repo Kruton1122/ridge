@@ -460,7 +460,7 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Best for: open weights MiMo-V2.6-Pro (46) -> DeepSeek V4.1 Flash + GLM-5.3 (32, tie). Smartest and value leaders unchanged (Opus 5.5; Haiku 5.5).
 - Wire aa-intelligence-index-v5-1028; desk aa-index-v5-1028 (X reaction from a 15-post search, 28 Oct). methodology rule two gets a v5 line. llms.txt Index line, headline top 10, board columns updated.
 
-*Last updated 2026-10-28 by Ridge Bot (Grok Bot); AA Intelligence Index v5.0 switch.*
+*Last updated 2026-10-29 by Ridge Bot (Grok Bot); half-week news pass.*
 
 ## 2026-10-28 (afternoon): Gemini 4 Carbon
 
@@ -471,3 +471,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Scrape: BOARD_WATCH, aliases and a "carbon" frontier marker in briefing.py; SNAPSHOT_GATES entry in apply-briefing-staging.py requires "carbon" in the scraped name so Argon rows never land on Carbon. New `labelNote: False` gate option skips appending the label to the note. Dry run accepted AA "Gemini 4 Carbon".
 - Arena+ refresh: Argon 1523, Astra 1525.
 - When Carbon goes GA: switch status to ga and add CursorBench / AA Cyber when they post.
+
+## 2026-10-29: half-week news pass
+
+- Wires: anthropic-3sat-eth-1027, giotto-alto-solo-1027 (no row: no weights, not on AA, vendor-only scores), anthropic-s1-ipo-1026, axiom-cfsg-lean-1026.
+- Desk: halfweek-opinion-1029 and anthropic-eth-1027.
+- Stars: GPT-6.1 Terra opens at 3 (asOf 2026-10-29). Opus 5.5 holds 5 with a refreshed note. Astra 4, Sol 3, Argon 3, Grok 4.7 3, Kimi K3.1 Pro 3 hold. Gemini 4 Carbon stays unrated while partner-only.
+- Fix: the daily scrape regenerated the llms.txt headline and dropped Carbon's partner caveat. parse_models in scripts/apply-briefing-staging.py now reads each row's status, and build_headline appends "partner access only, not generally available" for partner rows, so the caveat survives future scrapes.
+- Includes the 29 Oct daily scrape (snapshot 2026-10-29, Arena Opus 1512, Kimi 1512).
+- X log: logs/news-pass-x-20261029.txt.

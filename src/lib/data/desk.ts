@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-10-28"): boolean {
+export function isFresh(date: string, asOf = "2026-10-29"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,25 @@ export function isFresh(date: string, asOf = "2026-10-28"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1029",
+    kind: "ranking",
+    title: "Half-week opinion: GPT-6.1 Terra opens at 3, and Carbon waits for a rating",
+    dek: "Public posts on X from 26 to 29 October. Terra gets a first rating of 3, Gemini 4 Carbon stays unrated until people can use it, and every other rating holds.",
+    pull: "It's hard to rate a model when most of the people talking about it have only seen the chart.",
+    summary: "One first rating this half-week. GPT-6.1 Terra opens at 3: cheap and good at quick 3D work, but a widely shared test found its lower effort settings weak, and many people doubt its AA rank. Gemini 4 Carbon stays unrated because almost nobody can use it yet. Claude Opus 5.5 holds at 5, GPT-6 Astra at 4, and GPT-6.1 Sol, Gemini 4 Argon, Grok 4.7 and Kimi K3.1 Pro at 3.",
+    date: "2026-10-29",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/PawelHuryn/status/2114860186330398962",
+    models: ["gpt-6.1-terra", "gemini-4-carbon", "claude-opus-5.5", "gpt-6-astra", "gpt-6.1-sol", "gemini-4-argon"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "GPT-6.1 Terra had the busiest week, and the verdict is split. OpenAI's launch post drew about 28,000 likes, and the low price is the main thing people liked. The most shared hands-on test came from Paweł Huryn, who had it fix bugs: at max effort Terra scored 40.7, well ahead of the old Terra's 32 at max, but at xhigh and high it fell to 11.3 and 9.7. People also praised its one-shot 3D work, and one post put a Blender scene against Opus at about 32 cents. The jokes went the other way: one 3D test called its zebra a striped potato, and a game remake test picked Gemini 4 Argon over it. Terra opens at 3.",
+      "A lot of the Terra talk was really about Artificial Analysis. Several posts asked how Terra could rank above Argon and Claude Fable 5.1 on the new v5 index, and one suggested someone got a nice paycheck for it. We have no evidence of that, and AA publishes its method. But the doubt is worth noting, because v5 is only a few days old and people are still deciding whether to trust it.",
+      "Gemini 4 Carbon gets no rating yet. Most of the posts are people sharing AA's chart or asking when they can try it, and the joke that stuck was that Google released Gemini 4 Carbon but didn't release Gemini 4 Carbon. The only hands-on posts come from Arena, where its 3D output drew strong praise. We will rate it once people can use it for real work.",
+      "Everything else holds. Opus 5.5 stays at 5. Losing first place on AA didn't change how people use it: a post liked about 1,800 times pitched Opus as the planner with DeepSeek V4.1 Flash 1017 writing the code. GPT-6 Astra holds at 4. GPT-6.1 Sol holds at 3 even though AA now puts it within 4 points of Opus at about an eighth of the cost per task, because posts still treat it mainly as the reviewer. Argon, Grok 4.7 and Kimi K3.1 Pro hold at 3 on thin talk. Our view: the board got a new number one this week, but the list of models people actually use every day did not change.",
+    ],
+  },
   {
     id: "gemini-4-carbon-1028",
     kind: "release",
@@ -46,6 +65,25 @@ export const NEWS: NewsItem[] = [
       "Open models take the biggest hit. AA puts the gap between the leader and the best open weights model at 12 points, up from 3. Among models whose weights you can actually download today, DeepSeek V4.1 Flash 1017 and GLM-5.3 lead at 32, below Claude Haiku 5.5 at 36. That changes Ridge's Best open weights card, which moves from MiMo-V2.6-Pro to DeepSeek V4.1 Flash and GLM-5.3, tied. Grok 4.7 drops from 46 to 35 at its best setting.",
       "Reaction on X split two ways. Plenty of people liked the private tests, with one calling the reset much harder to game. Others went straight to the bill: AA's own thread says Opus 5.5 costs $10.04 per Index task against $1.27 for GPT-6.1 Sol, and the most common question under it was whether three points are worth paying eight times as much. Open model fans were quieter, and one post simply noted that the best downloadable model is now more than 25 points behind the leader.",
       "Our view: this is a better index, and the shuffle is the point. If a model's score falls when the questions go private, some of the old score was likely coming from public test sets it had seen in some form, and v5 is the fairer read on what a model does with work it has never seen. Two cautions. The new scale does not compare with v4.3.2, so a model 'losing ten points' did not get worse overnight, which is why Ridge keeps the old numbers on their own archived board instead of drawing a line between them. And fourteen models on Ridge have no v5 score yet. Their cells stay blank until AA runs them.",
+    ],
+  },
+  {
+    id: "anthropic-eth-1027",
+    kind: "release",
+    title: "Anthropic says Claude broke ETH too, so now two labs claim the same result",
+    dek: "A day after OpenAI's announcement, Anthropic posted a paper claiming a 3-SAT algorithm faster than any exponential, found by an internal Claude model with no human input.",
+    pull: "Two labs reaching the same hard result in the same week is either a coincidence or a sign of where the frontier really is.",
+    summary: "Anthropic posted a paper on 27 October claiming a deterministic 3-SAT algorithm that beats every 2^(cn) bound, which would refute the Exponential Time Hypothesis. It says an internal Claude research model found it on 16 October with no human input, and AI models also wrote the Lean 4 proof. Anthropic says the result is asymptotic only. No public model is named, so the board does not change.",
+    date: "2026-10-27",
+    sourceName: "Anthropic (HexagonMath)",
+    sourceUrl: "https://hexagonmath.org/2610.00577v1",
+    models: [],
+    tags: ["labs", "science"],
+    body: [
+      "On Monday OpenAI said its internal models had produced a claimed disproof of the Exponential Time Hypothesis, the belief that 3-SAT can't be solved much faster than trying every answer. On Tuesday Anthropic posted its own. The paper, deposited on HexagonMath, claims a deterministic algorithm for 3-SAT, and for counting 3-SAT solutions, that runs in 2^o(n) time, faster than any 2^(cn) for a fixed c. Anthropic says an internal Claude research model found it on 16 October, using about 14 million output tokens and no human input.",
+      "The checking story mirrors OpenAI's. AI models wrote a Lean 4 formalization, which is public in Anthropic's formal-math repository on GitHub. Anthropic itself says the Lean files do not independently confirm that the formal statements say what the paper says. It also says the result is purely asymptotic: it does nothing for the SAT solvers people use today, and it does not settle P vs NP.",
+      "On X, much of the reaction was guessing that this means Claude Fable 5.5 is close. Anthropic hasn't announced any such model, and the paper doesn't name one, so we're treating that as a rumor.",
+      "Our view: if both claims hold, two labs got to the same famous result within days of each other, using models nobody outside can run. That would say more about the frontier than any leaderboard does. But it raises the bar for checking rather than lowering it. Until outside complexity theorists have read both papers, they are strong claims, not results. For Ridge nothing moves: there's no named model and no score to track.",
     ],
   },
   {

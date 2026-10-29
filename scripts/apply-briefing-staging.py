@@ -167,6 +167,15 @@ def parse_models(src):
     ):
         aliases = re.findall(r'"([^"]+)"', m.group(4))
         models.append({"id": m.group(1), "name": m.group(2), "shortName": m.group(3), "aliases": aliases})
+    # status can sit before or after aliases, so read it per m({...}) block.
+    status_by_id = {}
+    for block in re.split(r"\bm\(\{", src)[1:]:
+        mid = re.search(r'^\s*id:\s*"([^"]+)"', block)
+        st = re.search(r'\n\s*status:\s*"([^"]+)"', block.split("\n  }),")[0])
+        if mid and st:
+            status_by_id[mid.group(1)] = st.group(1)
+    for model in models:
+        model["status"] = status_by_id.get(model["id"])
     if len(models) < 5:
         die(f"failed to parse MODELS (got {len(models)})")
     return models
@@ -480,6 +489,8 @@ def build_headline(aa_scores, models_by_id):
         name = model["name"] if model else row["modelId"]
         note = row.get("note") or ""
         note = re.sub(r"^best effort/variant:\s*", "", note, flags=re.I)
+        if model and model.get("status") == "partner":
+            note = (note + "; " if note else "") + "partner access only, not generally available"
         suffix = f" ({note})" if note else ""
         lines.append(f"{display_rank}. {name} — {format_num(row['value'])}{suffix}")
     return lines

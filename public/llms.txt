@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-28
+- Snapshot: 2026-10-29
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -30,7 +30,6 @@ Headline AA Intelligence Index v5.0:
 10. Kimi K3.1 Pro — 46 (best listed row)
 11. Muse Wonder — 43 (max)
 12. Claude Haiku 5.5 — 36 (max)
-13. Grok 4.7 — 35 (high)
 New model (2026-10-28): Gemini 4 Carbon (Google DeepMind; built on Gemini 4 Argon; partner access only: cyber defenders this week, then trusted partners through the Fairwind Program, no public API or date for general availability; $2 / $10 per 1M tokens introductory with cached input 95% off, then $4 / $20; 1M context). AA Intelligence Index 59 (high), #1. Arena+ 1528, #1. Vals Terminal-Bench 4.0 63.13 (#4 of 57). CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% (run without guardrails) are its claims and not Ridge boards. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1 https://openlm.ai/chatbot-arena/ https://www.vals.ai/benchmarks/terminal-bench-4
 New model (2026-10-26): GPT-6.1 Terra (OpenAI; API gpt-6.1-terra, $1 / $5 per 1M tokens, cached input $0.05, 1M context; ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu). AA Intelligence Index 48 (max). Vals Terminal-Bench 4.0 49.5 (#10 of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. OpenAI's Agents' Last Exam comparison with GPT-6 Astra is its claim. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra
 New model (2026-10-27): Ling-3.1-flash-1019 (inclusionAI, Ant Group, new lab; MIT weights on Hugging Face 2026-10-27; 560B total / 25B active, 1M context; AA lists $0.30 / $0.90 per 1M tokens). AA Intelligence Index 44. Other columns blank; Arena+ lists only the earlier Ling-3.1-flash. Sources: https://huggingface.co/inclusionAI/Ling-3.1-flash-1019 https://artificialanalysis.ai/models/ling-3-1-flash-1019
