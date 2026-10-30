@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-10-29
+- Snapshot: 2026-10-30
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -18,6 +18,7 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 Cite the source URL and the as-of date.
 
 News (2026-10-29): Mistral Large 4 open weights released (updated build; Hugging Face mistralai/Mistral-Large-4-1T-A52B, MEOW license = modified MIT, model-as-a-service needs a commercial license; ~1T total / 49B active, 1M context). Now $0.70 / $2.10 per 1M tokens, cached input $0.07. AA Intelligence Index v5.0 26 (high; Preview 25), top open-weight model from outside China per AA. AA Cyber Index 51 (high). Best open weights unchanged (DeepSeek V4.1 Flash and GLM-5.3 at 32). Sources: https://mistral.ai/news/mistral-large-4-oss/ https://artificialanalysis.ai/models/mistral-large-4
+News (2026-10-29): Artificial Analysis launched an HLE-Diamond leaderboard (refined 1,000-question Humanity's Last Exam from CAIS and Scale AI, one of the evals in AA Intelligence Index v5). More effort buys points at steep cost: Claude Opus 5.5 42% (low) to 68% (max) at about 35x cost per task; GPT-6 Astra 45% to 64% at 11x. Ridge adds no separate board. Source: https://artificialanalysis.ai/evaluations/hle-diamond
 News (2026-10-29): Voice board: Phonic 1 (High) is #1 of 22 on the AA Speech to Speech Index at 87.1, ahead of Grok Voice 3.0 (86.9); $0.07 per minute via the Phonic API. Source: https://artificialanalysis.ai/speech-to-speech
 
 Headline AA Intelligence Index v5.0:

@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-hle-diamond-1029",
+    title: "AA puts a price on extra thinking with its new HLE-Diamond board",
+    blurb: "Artificial Analysis has launched its own leaderboard for HLE-Diamond, the cleaned up 1,000 question version of Humanity's Last Exam from the Center for AI Safety and Scale AI. It is one of the evals behind AA Intelligence Index v5, the index Ridge's main AA column uses. The questions are split evenly between reasoning and knowledge, 272 include an image, and the authors ask people not to share them, so it works like a held back exam. AA's headline finding is about effort: Claude Opus 5.5 goes from 42% at low effort to 68% at max, but each task costs about 35 times as much, and GPT-6 Astra goes from 45% at low to 64% at max for 11 times the cost. Gemini 4 Carbon (high) leads at 69.1%, Opus 5.5 (max) is second at 67.9%, and AA says the best open weights model, Kimi K3.1 Pro, trails at 37%. Turning the dial up still buys real points, but past a point you pay a lot for each one. Ridge is not adding a separate HLE-Diamond board, since it already counts through the v5 index.",
+    date: "2026-10-29",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/hle-diamond",
+    beat: "ranking",
+    models: ["claude-opus-5.5", "gpt-6-astra", "gemini-4-carbon"],
+  },
+  {
     id: "phonic-1-s2s-1029",
     title: "Phonic 1 takes first place on the Voice board by a hair",
     blurb: "Phonic's speech to speech model, Phonic 1, debuts first of 22 on the Artificial Analysis Speech to Speech Index at 87.1 in its High setting, just 0.2 ahead of Grok Voice 3.0 at 86.9. AA says it leads Tau Voice, the agentic test, at 79.9%, and gets to first audio in 0.61 seconds. It costs $0.07 a minute through the Phonic API. The gap at the top is small enough that the next rerun could flip it.",

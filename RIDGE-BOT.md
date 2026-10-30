@@ -487,3 +487,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Best open weights unchanged (DeepSeek V4.1 Flash / GLM-5.3 at 32).
 - Voice: reran scripts/voice-s2s.py; Phonic 1 (High) #1 at 87.1, Grok Voice 3.0 86.9. Rerun also refreshed other AA cells (e.g. Grok Voice 3.0 arena Elo 1064 -> 1059).
 - Wires: mistral-large-4-open-1029, phonic-1-s2s-1029. Fish Audio Drama 3 skipped (TTS, not speech to speech).
+
+## 2026-10-30: AA HLE-Diamond wire
+
+- Lead from ModelWatch, verified against AA X posts 2115989388689813945 / 2115989392695374188 (effort chart reply) / 2115989394717130801 and artificialanalysis.ai/evaluations/hle-diamond.
+- Wire aa-hle-diamond-1029. Numbers used: Opus 5.5 42 -> 68 at ~35x cost/task; Astra 45 -> 64 at 11x; Carbon (high) 69.1, Opus 5.5 (max) 67.9; Kimi K3.1 Pro 37 top open weights. Dropped: GPT-6.1 Sol (max) 76% reasoning / 41% knowledge (not in AA posts or page text).
+- No new board or columns. Skipped Pika H3 Flex and Utopai X (video, off-lane) and Qwen4 (not released).
+- Includes the 30 Oct daily scrape (snapshot 2026-10-30; TB4 now 58 models, ranks renumbered).

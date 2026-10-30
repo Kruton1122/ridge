@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-10-30",
+    title: "News: Artificial Analysis launches an HLE-Diamond leaderboard",
+    items: [
+      "Wire: AA's new HLE-Diamond board, one of the evals in AA Intelligence Index v5. Opus 5.5 42% (low) to 68% (max) at about 35x cost per task; GPT-6 Astra 45% to 64% at 11x. No new board or columns. Sources: https://x.com/ArtificialAnlys/status/2115989388689813945 https://artificialanalysis.ai/evaluations/hle-diamond",
+      "Daily score update: Terminal-Bench 4.0 now has 58 models, so ranks below the new entry moved down one place. No scores changed.",
+    ],
+  },
+  {
     date: "2026-10-29",
     title: "Mistral Large 4 goes open weight; Phonic 1 tops the Voice board",
     items: [
