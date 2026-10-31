@@ -4,7 +4,7 @@ export const CHANGELOG = [
     title: "News: Astra for Law gets an API price; SenseTime's looped 9B model",
     items: [
       "Wire: gpt-6-astra-law listed on OpenAI's API pricing page under Legal model configurations at $10 / $50 per 1M tokens, cached input $1, promotional pricing at least through 31 December 2026. Announced 17 September as GPT-6 Astra plus a legal search index. No independent score (not on Harvey LAB-AA), so no row. FedRAMP endpoints +10% from 1 November. Sources: https://developers.openai.com/api/docs/pricing https://openai.com/index/astra-for-law/",
-      "Wire: SenseNova-Loop-9B-Preview, Apache 2.0 open weights, about 9B stored parameters, 32 distinct layers with 24 run twice (56 layer passes, about 14.6B inference parameters), 262,144 token training context. Not scored by Artificial Analysis, so no row and not eligible for the small open model picks yet. Sources: https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview https://x.com/SenseTime_AI/status/2116151078219858346",
+      "Wire: SenseNova-Loop-9B-Preview, Apache 2.0 open weights, about 9B stored parameters, 32 distinct layers with 24 run twice (56 layer passes, about 14.6B inference parameters), 262,144 token training context. Not scored by Artificial Analysis, so no row yet. Sources: https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview https://x.com/SenseTime_AI/status/2116151078219858346",
       "Daily score update: snapshot moved to 31 October. No scores changed.",
     ],
   },
