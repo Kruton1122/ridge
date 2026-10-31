@@ -494,3 +494,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire aa-hle-diamond-1029. Numbers used: Opus 5.5 42 -> 68 at ~35x cost/task; Astra 45 -> 64 at 11x; Carbon (high) 69.1, Opus 5.5 (max) 67.9; Kimi K3.1 Pro 37 top open weights. Dropped: GPT-6.1 Sol (max) 76% reasoning / 41% knowledge (not in AA posts or page text).
 - No new board or columns. Skipped Pika H3 Flex and Utopai X (video, off-lane) and Qwen4 (not released).
 - Includes the 30 Oct daily scrape (snapshot 2026-10-30; TB4 now 58 models, ranks renumbered).
+
+## 2026-10-31: Astra for Law price, SenseNova-Loop-9B
+
+- Leads from ModelWatch. Verified gpt-6-astra-law on developers.openai.com/api/docs/pricing (Legal model configurations, $10 / $50 / $1 cached, promo at least through 2026-12-31; FedRAMP +10% from 2026-11-01 on the same page). Correction to the lead: OpenAI did announce Astra for Law on 2026-09-17 (openai.com/index/astra-for-law); no API model card. No row: no independent score, not on Harvey LAB-AA.
+- SenseNova-Loop-9B-Preview verified on the HF card (Apache 2.0, ~9B total / ~14.6B inference params, 32 distinct layers, layers [4,28) looped twice, 56 executions, 262,144 training context) and SenseTime X post 2116151078219858346. Correction to the lead: the post claims wins over Qwen3.5-27B on WorkBuddy, RaccoonPPT and AutomationBench, not "Qwen3.5-9B on 7 of 8". Third-party TB 2.1 40.45 ignored. No row (no AA score), not small-model eligible.
+- Wires: openai-astra-law-api-price-1031, sensenova-loop-9b-1030.
+- Skipped: AA-Omniscience v1.1 (covered in aa-intelligence-index-v5-1028), SenseNova 6.8 Code2Video and Hyperflow H3 (video).
+- Includes the 31 Oct daily scrape (snapshot date only, no score changes).
+- CI for 2c565c2 (run 41100702888) finished green.

@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-astra-law-api-price-1031",
+    title: "OpenAI puts a price on Astra for Law, its legal setup of GPT-6 Astra",
+    blurb: "OpenAI's API pricing page now has a Legal model configurations section with one entry, gpt-6-astra-law, at $10 in, $50 out and $1 cached input per million tokens. That is the same as plain GPT-6 Astra, and the page says this is promotional pricing that runs at least through 31 December. Astra for Law is not a new model. OpenAI announced it on 17 September as GPT-6 Astra plus a U.S. legal search index and instructions for legal writing, offered first to selected law firms in ChatGPT and Codex, with the API marked as coming soon. OpenAI says it passed 54% of 200 questions from Vals AI's Legal Research Bench against 38.7% for Astra with web search alone. That is OpenAI's own test, not a Ridge board. No independent board scores it yet, including Harvey LAB-AA, Ridge's legal board, so it gets no row. The same page says FedRAMP endpoints pay 10% more starting 1 November.",
+    date: "2026-10-31",
+    outlet: "OpenAI",
+    url: "https://developers.openai.com/api/docs/pricing",
+    beat: "release",
+    models: ["gpt-6-astra"],
+  },
+  {
+    id: "sensenova-loop-9b-1030",
+    title: "SenseTime's Loop-9B gets more depth out of 9B weights, but not free compute",
+    blurb: "SenseTime has released SenseNova-Loop-9B-Preview on Hugging Face under Apache 2.0. It takes text and images and was trained on sequences up to 262,144 tokens. The trick is a loop: the model has 32 distinct layers, and 24 of them run twice, so each token passes through 56 layers. That gives it the depth of a bigger model while storing only about 9B parameters, which is what decides whether it fits on your GPU. At 4-bit, 9B is roughly 5 to 6GB before context, so an 8GB card is in range. The catch is speed. The loop saves memory, not work, so every token still costs about 14.6B parameters' worth of compute, and it will run slower than a normal 9B model. SenseTime says it performs like a 27B-class model and beats Qwen3.5-27B on WorkBuddy, RaccoonPPT and AutomationBench. Those are SenseTime's numbers. Artificial Analysis has not scored it, so it has no Ridge row and does not yet qualify for Ridge's small open model picks, which need an AA v5 score.",
+    date: "2026-10-30",
+    outlet: "SenseTime",
+    url: "https://huggingface.co/sensenova/SenseNova-Loop-9B-Preview",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "aa-hle-diamond-1029",
     title: "AA puts a price on extra thinking with its new HLE-Diamond board",
     blurb: "Artificial Analysis has launched its own leaderboard for HLE-Diamond, the cleaned up 1,000 question version of Humanity's Last Exam from the Center for AI Safety and Scale AI. It is one of the evals behind AA Intelligence Index v5, the index Ridge's main AA column uses. The questions are split evenly between reasoning and knowledge, 272 include an image, and the authors ask people not to share them, so it works like a held back exam. AA's headline finding is about effort: Claude Opus 5.5 goes from 42% at low effort to 68% at max, but each task costs about 35 times as much, and GPT-6 Astra goes from 45% at low to 64% at max for 11 times the cost. Gemini 4 Carbon (high) leads at 69.1%, Opus 5.5 (max) is second at 67.9%, and AA says the best open weights model, Kimi K3.1 Pro, trails at 37%. Turning the dial up still buys real points, but past a point you pay a lot for each one. Ridge is not adding a separate HLE-Diamond board, since it already counts through the v5 index.",

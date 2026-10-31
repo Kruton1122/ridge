@@ -16,7 +16,7 @@ export interface VoiceRow {
   ttfa: string | null;
 }
 
-export const VOICE_AS_OF = "2026-10-30";
+export const VOICE_AS_OF = "2026-10-31";
 export const VOICE_SOURCE = { name: "Artificial Analysis", url: "https://artificialanalysis.ai/speech-to-speech" };
 
 export const VOICE_ROWS: VoiceRow[] = [
