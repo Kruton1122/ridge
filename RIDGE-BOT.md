@@ -503,3 +503,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Skipped: AA-Omniscience v1.1 (covered in aa-intelligence-index-v5-1028), SenseNova 6.8 Code2Video and Hyperflow H3 (video).
 - Includes the 31 Oct daily scrape (snapshot date only, no score changes).
 - CI for 2c565c2 (run 41100702888) finished green.
+
+## 2026-11-01: GPT-Rosalind-6, DiffuSpace Clover
+
+- Leads from ModelWatch. GPT-Rosalind-6 verified on deploymentsafety.openai.com/gpt-rosalind-6 (published 2026-10-30) and help.openai.com model release notes. Confirmed: same weights as GPT-6 Astra, no added training or post-training; trusted access only; Work, Codex, API (gpt-6-rosalind), not Chat; two-week Enterprise Admin Preview, off by default; High Bio/Chem (below Critical), Critical Cyber via Astra's assessment, below High AI Self-Improvement. Notes on the lead: Critical Cyber is inherited from Astra, not separately evaluated; access rules continue GPT-Rosalind-5.5's; Rosalind Discovery stays on 5.5. No list price beyond pointers to the pricing pages. No openai.com announcement post used. No row.
+- Clover-35B-A3B-Preview verified on the HF card and HF API (license apache-2.0, base_model Qwen/Qwen3.6-35B-A3B, 35B params, ~3B active, 131,072 context, block_size 32, BF16 ~69GB). Note on the lead: HF repo created 2026-10-24; the Oct 30 posting date is not shown on the card. SOTA claim vendor-only. No row.
+- Wires: openai-rosalind-6-1030, diffuspace-clover-35b-1030.
+- Includes the 1 Nov daily scrape (snapshot date only, no score changes).

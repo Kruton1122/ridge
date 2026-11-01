@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-rosalind-6-1030",
+    title: "OpenAI's GPT-Rosalind-6 is GPT-6 Astra with fewer biology refusals, if you pass the vetting",
+    blurb: "OpenAI has released GPT-Rosalind-6, offered as GPT-6 Rosalind Research, a version of GPT-6 Astra for biology, drug discovery and translational medicine. Its system card says it uses the same weights as Astra with no added training data or post-training. The difference is behaviour and access: it refuses fewer dual-use biology questions, while still refusing weapons requests, and only approved organisations can use it. OpenAI reviews each applicant's research mission, use case, governance and security before granting access, and approved customers must limit it to vetted users and have a qualified human review its answers before they inform experiments or publications. It is rolling out to a limited set of approved Research customers in Work, Codex and the API as gpt-6-rosalind, not in the Chat tab, and Enterprise workspaces get a two-week Admin Preview with it off by default. Under its Preparedness Framework, OpenAI treats it as High in biology and chemistry, below Critical, and carries over Astra's Critical rating in cybersecurity. OpenAI says it beats GPT-Rosalind-5.5 on its own life sciences tests, for example 49.6% against 28.9% on MedChemBench. Those are OpenAI's numbers. It follows the same pattern as Gemini 4 Carbon's partner-only access: the most capable setups are now handed out by who you are, not just by what you pay. No independent board scores it, so it gets no row.",
+    date: "2026-10-30",
+    outlet: "OpenAI",
+    url: "https://deploymentsafety.openai.com/gpt-rosalind-6",
+    beat: "release",
+    models: ["gpt-6-astra", "gemini-4-carbon"],
+  },
+  {
+    id: "diffuspace-clover-35b-1030",
+    title: "DiffuSpace's Clover writes text in blocks instead of one word at a time",
+    blurb: "DiffuSpace, a new lab, has released its first model, Clover-35B-A3B-Preview, on Hugging Face under Apache 2.0. It is a text-only diffusion language model built from Qwen3.6-35B-A3B: 35B parameters in total, about 3B active per token, and a 128K context window. Most language models write one token at a time, each one waiting on the last. Clover instead starts with a block of 32 blank slots and fills in the ones it is most confident about in parallel, repeating until the block is done, then moves on to the next block. The appeal is speed, since several tokens can land in one step. DiffuSpace says it is the best open diffusion language model on the benchmarks in its launch blog. That is DiffuSpace's claim, nobody independent has scored it yet, so it gets no row. One caveat for home GPUs: only about 3B parameters work on each token, but all 35B still have to sit in memory. That is about 69GB at full precision and roughly 18 to 21GB even at 4-bit, so it will not fit on an 8GB card.",
+    date: "2026-10-30",
+    outlet: "DiffuSpace",
+    url: "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "openai-astra-law-api-price-1031",
     title: "OpenAI puts a price on Astra for Law, its legal setup of GPT-6 Astra",
     blurb: "OpenAI's API pricing page now has a Legal model configurations section with one entry, gpt-6-astra-law, at $10 in, $50 out and $1 cached input per million tokens. That is the same as plain GPT-6 Astra, and the page says this is promotional pricing that runs at least through 31 December. Astra for Law is not a new model. OpenAI announced it on 17 September as GPT-6 Astra plus a U.S. legal search index and instructions for legal writing, offered first to selected law firms in ChatGPT and Codex, with the API marked as coming soon. OpenAI says it passed 54% of 200 questions from Vals AI's Legal Research Bench against 38.7% for Astra with web search alone. That is OpenAI's own test, not a Ridge board. No independent board scores it yet, including Harvey LAB-AA, Ridge's legal board, so it gets no row. The same page says FedRAMP endpoints pay 10% more starting 1 November.",

@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-01",
+    title: "News: GPT-Rosalind-6 for vetted labs; DiffuSpace's Clover diffusion model",
+    items: [
+      "Wire: GPT-Rosalind-6 (gpt-6-rosalind), released 30 October. Same weights as GPT-6 Astra, fewer dual-use biology refusals, trusted access only for approved Research organisations in Work, Codex and the API, not in Chat. Preparedness: High in biology and chemistry, Critical in cybersecurity (carried over from Astra). OpenAI's own life sciences scores are in prose as OpenAI's claims. No independent score, so no row. Sources: https://deploymentsafety.openai.com/gpt-rosalind-6 https://help.openai.com/en/articles/9624314-model-release-notes",
+      "Wire: DiffuSpace Clover-35B-A3B-Preview, Apache 2.0, 35B total and about 3B active, 128K context, block diffusion, derived from Qwen3.6-35B-A3B. The best open diffusion LM claim is DiffuSpace's own. No independent score, so no row. Source: https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview",
+      "Daily score update: snapshot moved to 1 November. No scores changed.",
+    ],
+  },
+  {
     date: "2026-10-31",
     title: "News: Astra for Law gets an API price; SenseTime's looped 9B model",
     items: [
