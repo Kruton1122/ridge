@@ -510,3 +510,14 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Clover-35B-A3B-Preview verified on the HF card and HF API (license apache-2.0, base_model Qwen/Qwen3.6-35B-A3B, 35B params, ~3B active, 131,072 context, block_size 32, BF16 ~69GB). Note on the lead: HF repo created 2026-10-24; the Oct 30 posting date is not shown on the card. SOTA claim vendor-only. No row.
 - Wires: openai-rosalind-6-1030, diffuspace-clover-35b-1030.
 - Includes the 1 Nov daily scrape (snapshot date only, no score changes).
+
+## 2026-11-02: half-week news pass
+
+- Wires: grok-claude-text-watermark-1031, claude-ultra-plan-1030, anthropic-automated-em-redteam-1030, ai-training-optout-robots-1030, epoch-glm-firefox-patch-gap-1029, openai-misalignment-monitoring-1029, openai-model-spec-values-1029, gemini-computer-use-ga-1030, deepseek-superagent-prototype-1031 (research prototype, no row).
+- Desk: halfweek-opinion-1102 and safety-week-1102.
+- Stars: all hold. Opus 5.5 5, Astra 4, Terra, Sol, Argon, Grok 4.7 and Kimi K3.1 Pro 3. Gemini 4 Carbon stays unrated while partner-only; Mistral Large 4 stays unrated (thin X signal). No note changes.
+- Skipped: Qwen4 next-week reports (unconfirmed), GPT-6.2 Astra / Mythos 5.5 / Fable 5.5 / GLM-5.5 leaks, expected-launch lists, vendor-only Nace and Articul8 claims, video models, OpenAI Private Intelligence (no primary source), Kimi K3.1 Pro weights (not out). OpenAI Pro limit doubling is cited from BleepingComputer because help.openai.com is behind a JS wall.
+- X sentiment: Grok Build on Frank was not signed in (needs a human to run grok login --device-code), so X search used the x-namespace fallback. X log: logs/news-pass-x-20261102.txt.
+- Includes the 2 Nov daily scrape (dates only: snapshot 2026-11-02, isFresh, voice asOf) and the untracked .prettierignore.
+- Checks: check:data 0 errors (2 old warnings), typecheck and build pass; node --test 194 pass, 16 template tests fail under Node 20 as before.
+- Build now writes .vercel/output (vercel preset in vite.config.ts); added .vercel to .gitignore so build output stays out of git.

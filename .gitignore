@@ -21,3 +21,4 @@ data/*
 !data/.gitkeep
 *.sqlite
 *.sqlite-*
+.vercel

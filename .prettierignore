@@ -1,0 +1,14 @@
+node_modules
+dist
+.output
+.vercel
+.nitro
+.tanstack
+.cache
+data
+logs
+screenshots
+src/routeTree.gen.ts
+package-lock.json
+*.sqlite
+*.sqlite-*

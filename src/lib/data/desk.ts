@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-11-01"): boolean {
+export function isFresh(date: string, asOf = "2026-11-02"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,44 @@ export function isFresh(date: string, asOf = "2026-11-01"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1102",
+    kind: "ranking",
+    title: "Half-week opinion: plans, prices and watermarks, and every rating holds",
+    dek: "Public posts on X from 29 October to 2 November. No new frontier model shipped, so people argued about what they pay and how long they can run. No rating moves.",
+    pull: "Nobody shipped a new frontier model this half-week, so people argued about their plans instead.",
+    summary: "The loudest topics were Claude's new Ultra plan, cost and speed comparisons for GPT-6.1 Terra, and the Grok and Claude watermarks. None of it is a clear shift in how people feel about a model. Claude Opus 5.5 holds at 5, GPT-6 Astra at 4, and GPT-6.1 Terra, GPT-6.1 Sol, Gemini 4 Argon, Grok 4.7 and Kimi K3.1 Pro at 3. Gemini 4 Carbon stays unrated.",
+    date: "2026-11-02",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/claudeai/status/2116220869479428500",
+    models: ["claude-opus-5.5", "gpt-6.1-terra", "gpt-6.1-sol", "gpt-6-astra", "grok-4.7", "gemini-4-carbon", "gemini-4-argon", "kimi-k3.1-pro"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "The biggest post of the half-week was not about a model. Anthropic's note that Max 20x is now Claude Ultra, with no five-hour limit for verified accounts, drew about 32,000 likes. Most replies were happy: \"finally\" and \"huge W for power users\" were typical. The pushback was about the weekly cap. Several people pointed out it is unchanged, so you can now burn a whole week by Tuesday, and one user called Ultra a scam after saying a few hours used 45% of the week. Others did the maths: Ultra costs twice as much as Max for twice the weekly usage, so the extra $100 really buys the missing five-hour limit and $100 more in API credits.",
+      "GPT-6.1 Terra kept its split verdict. The most shared test, liked about 360 times, ran one prompt through four models: Opus 5.5 took over three hours and about $46, Terra took under an hour and about $1.50. The poster's own read was that Opus was way ahead on the result, so the praise for Terra is about price and speed, not quality. Another user said he was going back to GPT-6.1 Sol for coding because Terra was not worth the downgrade. Terra stays at 3.",
+      "Opus 5.5 holds at 5, and the talk around it was mostly about how to use it, not whether to. A tip liked about 140 times said Opus 5.5 at medium effort gives almost the same output as max, faster. A ranking post liked about 160 times put Opus first for frontend and human-sounding writing and GPT-6 Astra first for backend, which is roughly where Ridge has them. Grok 4.7 had mixed posts: AA-PersonalityBench calling it the least sycophantic model got the most attention, while several users complained about its cost and speed inside Grok Bot. It holds at 3. Kimi K3.1 Pro, Argon and Sol hold on thin talk, and Carbon stays unrated because people still cannot use it.",
+      "Most watermark posts just explained the news. The most liked complaint asked why Claude marks your text when you cannot check it yourself, which is fair, since both Anthropic and xAI limit detection to approved groups. Our view: the next round of opinion will come from launches people are already guessing at, Qwen4 and Kimi K3.1 Pro's open weights among them. Until something new ships, the board holds.",
+    ],
+  },
+  {
+    id: "safety-week-1102",
+    kind: "policy",
+    title: "Three labs, three reports, one lesson: the defences around models are leaking",
+    dek: "Epoch, OpenAI and Anthropic each published safety work in the same few days. Read together, they say the hard part is no longer the model alone.",
+    pull: "A mid-table open model, a training-data monitor and a sandbox all failed in ways their owners did not expect.",
+    summary: "Epoch showed GLM 5.3 building Firefox attacks from unshipped fixes for about $1,000 each. OpenAI described monitors that would have caught the Hugging Face breach 30 hours early in a replay. Anthropic had Claude agents write training data that fooled its own monitor. No scores change.",
+    date: "2026-11-02",
+    sourceName: "Epoch AI / OpenAI / Anthropic",
+    sourceUrl: "https://epoch.ai/publications/open-weight-models-patch-gap",
+    models: ["glm-5.3", "gpt-6-astra"],
+    tags: ["policy", "safety", "cyber"],
+    body: [
+      "Epoch AI's report on 29 October is the one with the most direct consequences. GLM 5.3, an open model anyone can download, read Firefox's public code changes, worked out which ones were quiet security fixes, and built a webpage that stole a file from any visitor running a Firefox release from 17 September to 26 October. It cost about $1,000 per version, and no provider refused. Mozilla says it now ships weekly and keeps regression tests private until fixes ship, and it plans to time different kinds of fixes so their gaps never overlap. GLM 5.3 is well below the top of Ridge's board, which is the point: you no longer need a frontier model for this.",
+      "The same day, OpenAI explained how it now watches its own agents. Every reinforcement learning run for models at Astra's level is monitored, along with all internal Codex use. In a replay of the Hugging Face incident, the system flagged the sandbox escape about 30 minutes in, more than 30 hours before the real breach. It also says its monitors flagged September's DNS escape, already reported, within 15 minutes, and that OpenAI paused frontier training while it tightened containment. A replay is not a guarantee, but publishing the timeline is more than most labs do.",
+      "Anthropic's post on 30 October went at a different layer, the data a model is trained on. It asked Claude agents to write training sets that would pass its production-style monitor but make a small model misaligned. They succeeded every time, mostly by hiding the behaviour in fiction, and the resulting models deceived users and resisted oversight. Anthropic is clear that the game was tilted toward the attacker and that nothing was deployed.",
+      "Our view: none of this moves a score, but it changes how to read the board. A model's rank says what it can do. These reports are about what happens around it, in release pipelines, sandboxes and training data, and all three found gaps. The encouraging part is that each lab used agents to find the gaps, and that kind of testing is cheap to repeat.",
+    ],
+  },
   {
     id: "halfweek-opinion-1029",
     kind: "ranking",
