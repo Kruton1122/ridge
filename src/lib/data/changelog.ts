@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-02",
+    title: "News: Meituan LongCat-2.5, Deep Principle Hydrogen-1.0, OpenAI LifeVal",
+    items: [
+      "Wire: Meituan LongCat-2.5 full release (API changelog 2 November). 1.6T total, about 48B active, native multimodal MoE, trained on domestic Chinese accelerators, 1M context. Meituan's scores (Terminal Bench 2.1 88.4, BrowseComp 91.9) are in prose as its claims. Weights not released and no independent score, so no row. Sources: https://longcat.ai/blog/longcat-2.5 https://longcat.ai/platform/docs/ChangeLog.html",
+      "Wire: Deep Principle Hydrogen-1.0, MIT open weights (gated download), 753B, post-trained from GLM-5.3, 1M context, NVFP4 and MXFP4 versions. Its science benchmark wins are the vendor's claims. No independent score, so no row. Sources: https://huggingface.co/deep-principle/Hydrogen-1.0 https://blog.deepprinciple.com/introducing-hydrogen-1.0/",
+      "Wire: OpenAI LifeVal, an internal everyday-tasks benchmark with no public dataset or leaderboard. Not added as a board. Source: https://openai.com/index/lifeval/",
+    ],
+  },
+  {
     date: "2026-11-01",
     title: "News: GPT-Rosalind-6 for vetted labs; DiffuSpace's Clover diffusion model",
     items: [

@@ -11,6 +11,36 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "meituan-longcat-2-5-1102",
+    title: "Meituan's LongCat-2.5 leaves preview with a 1.6T multimodal model trained on Chinese chips",
+    blurb: "Meituan released the full LongCat-2.5 on 2 November, a little over a month after the preview. It is a mixture-of-experts model with 1.6 trillion total parameters and about 48 billion active per token, and it reads images natively by turning them into tokens the same way it handles text. Meituan built it for long agent runs: big coding projects, turning designs into working web pages, and 3D tasks. It was trained on domestic Chinese accelerators and served with 4-bit weights and activations, which Meituan says matches the unquantised model. The API takes OpenAI and Anthropic style calls with a 1M token context and 128K output. Meituan's own table, which the company says is partly self-run and only indicative, puts it at 88.4 on Terminal Bench 2.1 and 91.9 on BrowseComp, mostly between Claude Opus 4.8 and Opus 5. No independent board has scored it yet and the weights are not out, so it gets no row. If the numbers hold up once someone else tests it, this is the strongest sign yet that a top-tier agent model can be trained without Nvidia.",
+    date: "2026-11-02",
+    outlet: "Meituan LongCat",
+    url: "https://longcat.ai/blog/longcat-2.5",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "deep-principle-hydrogen-1-1102",
+    title: "Deep Principle releases Hydrogen-1.0, an open 753B science model built on GLM-5.3",
+    blurb: "Deep Principle released Hydrogen-1.0 on 2 November, GLM-5.3 further trained on chemistry, materials science and life sciences data plus records and agent runs from its own labs. The weights are MIT licensed on Hugging Face and ModelScope, with a short sign-up form before download, and there are NVFP4 and MXFP4 versions for Nvidia Blackwell and AMD MI350 cards. It handles a 1M token context and 128K output. Deep Principle says it beats GPT-6 Astra on FrontierScience-Research and roughly matches Kimi K3 on GPQA Diamond, but those are its own tests and no independent board has scored it, so it gets no row. On hardware: at 753B parameters it needs about 1.5TB of memory at 16-bit, about 750GB at 8-bit and roughly 400GB at 4-bit, and as a mixture-of-experts model it has to hold all of them. That is a multi-GPU server, not a home PC. The interesting part is the lab data. Training on failed experiments and full discovery runs, not just papers, is a bet more science groups will want to copy.",
+    date: "2026-11-02",
+    outlet: "Deep Principle",
+    url: "https://blog.deepprinciple.com/introducing-hydrogen-1.0/",
+    beat: "release",
+    models: ["glm-5.3"],
+  },
+  {
+    id: "openai-lifeval-1102",
+    title: "OpenAI's LifeVal grades models on everyday chores like childcare, groceries and paperwork",
+    blurb: "OpenAI published LifeVal on 2 November, an internal benchmark of everyday personal assistant tasks. It built the task list from two big time-use surveys plus its own survey of 3,995 people about where they want help, covering caregiving, health, school, household admin, money, shopping and government services. OpenAI says it has used LifeVal for the past year to track and train its models, and it shows example tasks where GPT-6 Astra scores between 90% and 100%. There is no public dataset, no leaderboard and no scores for other companies' models, so for now it is a window into what OpenAI is training for, not a test anyone else can run. Ridge is not adding it as a board. It does show where the fight is going: ChatGPT that books, orders and fills in forms, not just answers.",
+    date: "2026-11-02",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/lifeval/",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+  {
     id: "grok-claude-text-watermark-1031",
     title: "Grok and older Claude models start hiding watermarks in their text this week",
     blurb: "xAI, whose developer docs now go by SpaceXSI, published an Output Watermarking page on 31 October. From 7 November, text from grok-4.7, grok-4.6, grok-4.5, grok-4.3 and the three grok-4.20 variants carries an invisible watermark by default on every API endpoint. It covers plain text, structured outputs and tool call arguments, in both the Responses and Chat Completions APIs. The mark lives in which tokens the model picks, so nothing is added to the text, and a new x-watermark response header tells you whether a reply was marked. Team admins can switch it off per model, but only after confirming a legal exception applies to them, and some models may be locked on. Detection is statistical and only available by application. Anthropic is doing the same. Its help centre now lists Claude Mythos 5, Opus 4.7, Opus 4.6 and Sonnet 4.6 alongside newer models like Opus 5.5 that already carry a text watermark. The Decoder, citing an email to API customers, reports the older models start on 3 November, and that on Opus 4.6 and Sonnet 4.6 the mark only applies when temperature, top_p and top_k stay at their defaults. Both companies point to the EU AI Act. Neither has published how often detection is right or how often it flags human text, and statistical marks get weaker on short, paraphrased or translated text. No scores change.",

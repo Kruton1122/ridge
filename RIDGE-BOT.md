@@ -521,3 +521,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Includes the 2 Nov daily scrape (dates only: snapshot 2026-11-02, isFresh, voice asOf) and the untracked .prettierignore.
 - Checks: check:data 0 errors (2 old warnings), typecheck and build pass; node --test 194 pass, 16 template tests fail under Node 20 as before.
 - Build now writes .vercel/output (vercel preset in vite.config.ts); added .vercel to .gitignore so build output stays out of git.
+
+## 2026-11-02: ModelWatch leads, LongCat-2.5, Hydrogen-1.0, LifeVal
+
+- LongCat-2.5 verified on longcat.ai blog (dated 2026-11-01), API changelog (2026-11-02), API docs (1M context, 128K output) and @Meituan_LongCat post. Corrections to the lead: the $0.30 / $1.20 promo price, 10M free tokens and "weights later" were not found on any primary page, so they are left out. "Between Opus 4.8 and Opus 5" is the lead's reading of Meituan's table, not a Meituan claim. Not on AA or OpenLM Arena. No row.
+- Hydrogen-1.0 verified on the HF card (753B, MIT, gated, GLM-5.3 base, 1M context, NVFP4/MXFP4 repos) and blog. Correction: 38.3% / 33.3% / 93.0% appear only in chart images, not in text, so the wire says only that it beats Astra on FSR and roughly matches Kimi K3 on GPQA, as the blog says. Also on ModelScope and a NeuroSpark API. No board score. No row.
+- LifeVal verified at openai.com/index/lifeval (2 Nov). Internal benchmark, no public set or leaderboard; wire only, no board.
+- Wires: meituan-longcat-2-5-1102, deep-principle-hydrogen-1-1102, openai-lifeval-1102.
