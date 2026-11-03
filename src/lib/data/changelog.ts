@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-03",
+    title: "News: Sarvam Prism decision model",
+    items: [
+      "Wire: Sarvam Prism, an Apache 2.0 open-weight decision model (LoRA fine-tune of Sarvam 105B MoE) that returns probabilities over fixed options instead of generating text. Sarvam's 71.8 average over three decision indices and 44 ms median on a B200 are in prose as its claims. No independent score, so no row. Sources: https://www.sarvam.ai/blogs/sarvam-prism https://huggingface.co/sarvamai/prism https://docs.sarvam.ai/api/token-factory/models/sarvam-prism",
+      "Daily score update: snapshot moved to 3 November. No scores changed.",
+    ],
+  },
+  {
     date: "2026-11-02",
     title: "News: Meituan LongCat-2.5, Deep Principle Hydrogen-1.0, OpenAI LifeVal",
     items: [

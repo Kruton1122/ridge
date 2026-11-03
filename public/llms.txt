@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-02
+- Snapshot: 2026-11-03
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -17,6 +17,7 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-03): Sarvam AI Sarvam Prism, Apache 2.0 open weights, a decision model (LoRA fine-tune of Sarvam 105B MoE) that returns calibrated probabilities over fixed options (yes/no, choice, score) instead of generating text. API Rs 4 per 1M input tokens, output free. Ships FP8 only, about 120GB on one GPU (H200/B200); about 210GB at 16-bit, 105GB at 8-bit, 55-60GB at 4-bit. Vendor claims: 71.8 average over three decision indices, 44 ms median on B200. No independent score, not a Ridge row. Source: https://www.sarvam.ai/blogs/sarvam-prism
 News (2026-11-02): Meituan LongCat-2.5 full release, native multimodal MoE, 1.6T total / about 48B active, trained on domestic Chinese accelerators, 1M context, API only (weights not released). Vendor claims: Terminal Bench 2.1 88.4, BrowseComp 91.9. No independent score, not a Ridge row. Source: https://longcat.ai/blog/longcat-2.5
 News (2026-11-02): Deep Principle Hydrogen-1.0, MIT open weights (gated), 753B MoE post-trained from GLM-5.3 for chemistry, materials and life sciences, 1M context, NVFP4/MXFP4 variants. About 1.5TB at 16-bit, 750GB at 8-bit, 400GB at 4-bit. Vendor claims beat GPT-6 Astra on FrontierScience-Research. No independent score, not a Ridge row. Source: https://huggingface.co/deep-principle/Hydrogen-1.0
 News (2026-11-02): OpenAI LifeVal, internal everyday personal-assistant benchmark (no public dataset or leaderboard), not a Ridge board. Source: https://openai.com/index/lifeval/

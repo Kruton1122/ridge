@@ -11,6 +11,16 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "sarvam-prism-1103",
+    title: "Sarvam's Prism is an open model that picks an answer instead of writing one",
+    blurb: "Sarvam AI released Prism on 3 November, and it is not a chatbot. You give it some input, like a support ticket, plus a set of questions with fixed answers (yes or no, pick one of these teams, rate this from calm to furious), and it returns a probability for every option in one pass. It never writes text, so there is no reply to parse and the answer is always one of your choices. Sarvam calls it a System One model, after the fast, gut-call mode of thinking, and built it as a LoRA fine-tune of its Sarvam 105B mixture-of-experts model. That matters because a lot of what companies use chat models for is really this kind of sorting: routing tickets, moderation, spotting prompt injection, grading agent runs. A model built for it is quicker and cheaper, and its confidence numbers can tell you when to let it run on its own. Sarvam says Prism averages 71.8 across three decision tests with a median 44 ms per request on one B200, the best of 25 decision models it tested under 100 ms. Those are Sarvam's own numbers and no independent board has checked them, so it gets no row. The weights are Apache 2.0 on Hugging Face and the API costs ₹4 per million input tokens, with output free. On hardware: 105B parameters is about 210GB at 16-bit, 105GB at 8-bit and 55 to 60GB at 4-bit, and as a mixture-of-experts model it has to hold all of them. Sarvam only ships an FP8 build that needs one GPU with about 120GB of memory, like an H200 or B200, so this is a server model, not a home one.",
+    date: "2026-11-03",
+    outlet: "Sarvam AI",
+    url: "https://www.sarvam.ai/blogs/sarvam-prism",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "meituan-longcat-2-5-1102",
     title: "Meituan's LongCat-2.5 leaves preview with a 1.6T multimodal model trained on Chinese chips",
     blurb: "Meituan released the full LongCat-2.5 on 2 November, a little over a month after the preview. It is a mixture-of-experts model with 1.6 trillion total parameters and about 48 billion active per token, and it reads images natively by turning them into tokens the same way it handles text. Meituan built it for long agent runs: big coding projects, turning designs into working web pages, and 3D tasks. It was trained on domestic Chinese accelerators and served with 4-bit weights and activations, which Meituan says matches the unquantised model. The API takes OpenAI and Anthropic style calls with a 1M token context and 128K output. Meituan's own table, which the company says is partly self-run and only indicative, puts it at 88.4 on Terminal Bench 2.1 and 91.9 on BrowseComp, mostly between Claude Opus 4.8 and Opus 5. No independent board has scored it yet and the weights are not out, so it gets no row. If the numbers hold up once someone else tests it, this is the strongest sign yet that a top-tier agent model can be trained without Nvidia.",

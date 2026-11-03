@@ -528,3 +528,9 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Hydrogen-1.0 verified on the HF card (753B, MIT, gated, GLM-5.3 base, 1M context, NVFP4/MXFP4 repos) and blog. Correction: 38.3% / 33.3% / 93.0% appear only in chart images, not in text, so the wire says only that it beats Astra on FSR and roughly matches Kimi K3 on GPQA, as the blog says. Also on ModelScope and a NeuroSpark API. No board score. No row.
 - LifeVal verified at openai.com/index/lifeval (2 Nov). Internal benchmark, no public set or leaderboard; wire only, no board.
 - Wires: meituan-longcat-2-5-1102, deep-principle-hydrogen-1-1102, openai-lifeval-1102.
+
+## 2026-11-03: ModelWatch lead, Sarvam Prism
+
+- Verified on the @SarvamAI launch post, sarvam.ai/blogs/sarvam-prism, the HF card sarvamai/prism (Apache 2.0) and docs.sarvam.ai. All core lead facts hold. The INR 4 per 1M input price is confirmed on Sarvam's docs (output INR 0). Added detail: LoRA fine-tune of Sarvam 105B MoE, FP8 only, about 120GB on one GPU. No board score. No row.
+- Kimi K3.1 Pro weights: not on moonshotai HF as of 2026-11-03 13:50 ET (newest repo Kimi-K3, 2 Sept). Row left alone.
+- Wire: sarvam-prism-1103. Snapshot-date changes from the daily scrape included.
