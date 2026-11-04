@@ -534,3 +534,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Verified on the @SarvamAI launch post, sarvam.ai/blogs/sarvam-prism, the HF card sarvamai/prism (Apache 2.0) and docs.sarvam.ai. All core lead facts hold. The INR 4 per 1M input price is confirmed on Sarvam's docs (output INR 0). Added detail: LoRA fine-tune of Sarvam 105B MoE, FP8 only, about 120GB on one GPU. No board score. No row.
 - Kimi K3.1 Pro weights: not on moonshotai HF as of 2026-11-03 13:50 ET (newest repo Kimi-K3, 2 Sept). Row left alone.
 - Wire: sarvam-prism-1103. Snapshot-date changes from the daily scrape included.
+
+## 2026-11-04: ModelWatch leads, Kimi K3.1 Pro weights, Tencent Hy4
+
+- Kimi K3.1 Pro weights verified on HF (moonshotai/Kimi-K3.1-Pro, repo created 2026-11-02 UTC, files total 1.56TB, 2.8T / 104B active, 1M context, MXFP4 weights / MXFP8 activations), LICENSE file (Kimi K3.1-Pro License: MaaS businesses over $20M 12-month revenue need a separate agreement; attribution above 100M MAU or $20M monthly revenue), AA model page (open weights, commercial use restricted, Intelligence Index 46 on v5.0.1, #1 of 25 open large) and vLLM day-0 blog. Row flipped to open-weight, summary rewritten. AA v5 cell was already 46, unchanged; v4.3.2 55 stays on the archived board. Best open weights now Kimi K3.1 Pro (46), was DeepSeek V4.1 Flash / GLM-5.3 (32); card is computed in best.ts. Old desk pieces left as dated history.
+- apply-briefing-staging.py only rewrites s(...) score calls and the snapshot date; it never touches license, so it will not revert the flag.
+- Tencent Hy4 verified on tencent.com (4 Nov). Corrections to the lead: the post gives no 770B / 49B or 1M context figures, so they are dropped; it adds Hermes, ima and WeCom; "admits it trails top closed models" is not in the post (only biology lab design trails frontier models), so it is reworded. Ridge had no Hy4 Preview row. No independent score, no row.
+- Wires: kimi-k3-1-pro-weights-1104, tencent-hy4-1104. Includes the 4 Nov daily scrape (snapshot dates).

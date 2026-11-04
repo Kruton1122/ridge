@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-04",
+    title: "Kimi K3.1 Pro weights ship and it takes Best open weights; Tencent Hy4 full release",
+    items: [
+      "Kimi K3.1 Pro is now marked open-weight. Weights on Hugging Face (moonshotai/Kimi-K3.1-Pro, about 1.56TB, MXFP4) under the Kimi K3.1-Pro License: free to use, change and sell, but model API businesses above $20 million in 12-month revenue need a separate deal with Moonshot. AA lists it as open weights, commercial use restricted. AA Index v5.0 stays 46; row summary updated (Arena+ 1512, Terminal-Bench 4.0 #3 of 59). Sources: https://huggingface.co/moonshotai/Kimi-K3.1-Pro https://artificialanalysis.ai/models/kimi-k3-1-pro https://vllm.ai/blog/2026-11-04-kimi-k31-pro",
+      "Best open weights moves from DeepSeek V4.1 Flash and GLM-5.3 (32) to Kimi K3.1 Pro (46).",
+      "Wire: Tencent Hy4 full release with vision and computer use, same price as the preview, weights promised in the coming days. Vendor numbers in prose only. No independent score, so no row. Source: https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+      "Daily score update: snapshot moved to 4 November.",
+    ],
+  },
+  {
     date: "2026-11-03",
     title: "News: Sarvam Prism decision model",
     items: [

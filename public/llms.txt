@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-03
+- Snapshot: 2026-11-04
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -17,6 +17,8 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+Update (2026-11-04): Kimi K3.1 Pro (Moonshot) now open weights on Hugging Face (moonshotai/Kimi-K3.1-Pro, 2.8T total / 104B active, 1M context, MXFP4, about 1.56TB) under the Kimi K3.1-Pro License: open weights with commercial limits (model-as-a-service businesses over $20M revenue in 12 months need a separate agreement; attribution above 100M MAU or $20M monthly revenue). AA Intelligence Index v5.0 46 (v4.3.2 archived 55), top open-weights model. Best open weights moves to Kimi K3.1 Pro (46) from DeepSeek V4.1 Flash and GLM-5.3 (32). Needs a multi-GPU server. Sources: https://huggingface.co/moonshotai/Kimi-K3.1-Pro https://artificialanalysis.ai/models/kimi-k3-1-pro
+News (2026-11-04): Tencent Hy4 full release (replaces Hy4 Preview), adds vision and computer use; Tencent apps, TokenHub, OpenRouter, Hermes, OpenCode; about $0.90 / $2.70 per 1M tokens, $0.045 cached, 50% off on TokenHub through 31 Dec 2026. Weights and system cards promised in the coming days. Launch post gives no parameter count or context. No independent score, not a Ridge row. Source: https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/
 News (2026-11-03): Sarvam AI Sarvam Prism, Apache 2.0 open weights, a decision model (LoRA fine-tune of Sarvam 105B MoE) that returns calibrated probabilities over fixed options (yes/no, choice, score) instead of generating text. API Rs 4 per 1M input tokens, output free. Ships FP8 only, about 120GB on one GPU (H200/B200); about 210GB at 16-bit, 105GB at 8-bit, 55-60GB at 4-bit. Vendor claims: 71.8 average over three decision indices, 44 ms median on B200. No independent score, not a Ridge row. Source: https://www.sarvam.ai/blogs/sarvam-prism
 News (2026-11-02): Meituan LongCat-2.5 full release, native multimodal MoE, 1.6T total / about 48B active, trained on domestic Chinese accelerators, 1M context, API only (weights not released). Vendor claims: Terminal Bench 2.1 88.4, BrowseComp 91.9. No independent score, not a Ridge row. Source: https://longcat.ai/blog/longcat-2.5
 News (2026-11-02): Deep Principle Hydrogen-1.0, MIT open weights (gated), 753B MoE post-trained from GLM-5.3 for chemistry, materials and life sciences, 1M context, NVFP4/MXFP4 variants. About 1.5TB at 16-bit, 750GB at 8-bit, 400GB at 4-bit. Vendor claims beat GPT-6 Astra on FrontierScience-Research. No independent score, not a Ridge row. Source: https://huggingface.co/deep-principle/Hydrogen-1.0
@@ -30,17 +32,17 @@ News (2026-10-29): Artificial Analysis launched an HLE-Diamond leaderboard (refi
 News (2026-10-29): Voice board: Phonic 1 (High) is #1 of 22 on the AA Speech to Speech Index at 87.1, ahead of Grok Voice 3.0 (86.9); $0.07 per minute via the Phonic API. Source: https://artificialanalysis.ai/speech-to-speech
 
 Headline AA Intelligence Index v5.0:
-1. Gemini 4 Carbon — 59 (high; partner access only, not generally available)
-2. Claude Opus 5.5 — 58 (max with fallback)
+1. Gemini 4 Carbon — 60 (high; partner access only, not generally available)
+2. Claude Opus 5.5 — 59 (max with fallback)
 3. GPT-6 Astra — 57 (max)
 4. GPT-6.1 Sol — 55 (max)
-5. Claude Sonnet 5.5 — 54 (max with fallback)
+4. Claude Sonnet 5.5 — 55 (max with fallback)
 6. GPT-6.1 Terra — 51 (max)
 7. Gemini 4 Argon — 50 (high)
 7. Muse Wonder Full — 50 (max)
 7. Claude Fable 5.1 — 50 (xhigh with fallback)
 10. Kimi K3.1 Pro — 46 (best listed row)
-11. Muse Wonder — 43 (max)
+11. Muse Wonder — 44 (max)
 12. Claude Haiku 5.5 — 36 (max)
 New model (2026-10-28): Gemini 4 Carbon (Google DeepMind; built on Gemini 4 Argon; partner access only: cyber defenders this week, then trusted partners through the Fairwind Program, no public API or date for general availability; $2 / $10 per 1M tokens introductory with cached input 95% off, then $4 / $20; 1M context). AA Intelligence Index 59 (high), #1. Arena+ 1528, #1. Vals Terminal-Bench 4.0 63.13 (#4 of 57). CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% (run without guardrails) are its claims and not Ridge boards. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1 https://openlm.ai/chatbot-arena/ https://www.vals.ai/benchmarks/terminal-bench-4
 New model (2026-10-26): GPT-6.1 Terra (OpenAI; API gpt-6.1-terra, $1 / $5 per 1M tokens, cached input $0.05, 1M context; ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu). AA Intelligence Index 48 (max). Vals Terminal-Bench 4.0 49.5 (#10 of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. OpenAI's Agents' Last Exam comparison with GPT-6 Astra is its claim. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra

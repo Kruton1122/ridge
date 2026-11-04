@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "kimi-k3-1-pro-weights-1104",
+    title: "Kimi K3.1 Pro weights are out, and it takes the open-weights lead on Ridge",
+    blurb: "Moonshot has put Kimi K3.1 Pro on Hugging Face, keeping its promise to ship the weights by 4 November. It is the same model Moonshot launched on its API on 23 October: a mixture-of-experts with 2.8 trillion parameters in total, 104 billion active per token, text and image input and a 1M token context, stored as MXFP4. vLLM had support ready on day one, with SGLang also listed. The license is Moonshot's own Kimi K3.1-Pro License. It lets you use, change and sell the model, but a company that runs a model API business and makes more than $20 million over 12 months needs a separate deal with Moonshot, and very large products have to show the Kimi name. So it is open weights with strings for big companies, not an MIT or Apache license. Artificial Analysis scores it 46 on Intelligence Index v5, the top open-weights model it lists, so Ridge now marks the row open-weight and Best open weights moves to Kimi K3.1 Pro from DeepSeek V4.1 Flash and GLM-5.3 at 32. Don't confuse that with the 55 it got at launch, which was on AA's older v4.3.2 scale. On hardware: as a mixture-of-experts model it has to hold all 2.8T parameters in memory, and the 4-bit checkpoint alone is about 1.56TB. vLLM's own examples run it across eight data center GPUs, so this is a multi-GPU server model, not something for a home machine.",
+    date: "2026-11-04",
+    outlet: "Moonshot AI",
+    url: "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+    beat: "release",
+    models: ["kimi-k3.1-pro"],
+  },
+  {
+    id: "tencent-hy4-1104",
+    title: "Tencent ships the full Hy4 with vision and computer use, weights due in the coming days",
+    blurb: "Tencent released the full Hy4 on 4 November, replacing the Hy4 Preview from late August. The big additions are image understanding and computer use, both firsts for the line: it can work in command lines and desktop apps, and Tencent says it was trained on tools like Blender and CAD. It is live in Tencent's own apps, including Yuanbao, WorkBuddy, CodeBuddy and Tencent Cloud TokenHub, and on OpenRouter, Hermes and OpenCode. The price stays the same as the preview, about $0.90 in and $2.70 out per million tokens and $0.045 for cached input, and TokenHub has it at half price through 31 December. Tencent says the weights and system cards will follow in the coming days. Its launch post does not give a parameter count or context length. Tencent's numbers, such as beating DeepSeek V4.1 Flash and Kimi K3.1 Pro in its own finance blind test and cutting hallucinations from 12.95% to 7.2% against the preview, are its claims, and no independent board has scored the final model yet, so it gets no row. Tencent's safety notes are modest too: it says the model's open-ended biology lab design trails frontier models. Once the weights land and someone independent runs it, this could be a real contender among open models.",
+    date: "2026-11-04",
+    outlet: "Tencent",
+    url: "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "sarvam-prism-1103",
     title: "Sarvam's Prism is an open model that picks an answer instead of writing one",
     blurb: "Sarvam AI released Prism on 3 November, and it is not a chatbot. You give it some input, like a support ticket, plus a set of questions with fixed answers (yes or no, pick one of these teams, rate this from calm to furious), and it returns a probability for every option in one pass. It never writes text, so there is no reply to parse and the answer is always one of your choices. Sarvam calls it a System One model, after the fast, gut-call mode of thinking, and built it as a LoRA fine-tune of its Sarvam 105B mixture-of-experts model. That matters because a lot of what companies use chat models for is really this kind of sorting: routing tickets, moderation, spotting prompt injection, grading agent runs. A model built for it is quicker and cheaper, and its confidence numbers can tell you when to let it run on its own. Sarvam says Prism averages 71.8 across three decision tests with a median 44 ms per request on one B200, the best of 25 decision models it tested under 100 ms. Those are Sarvam's own numbers and no independent board has checked them, so it gets no row. The weights are Apache 2.0 on Hugging Face and the API costs ₹4 per million input tokens, with output free. On hardware: 105B parameters is about 210GB at 16-bit, 105GB at 8-bit and 55 to 60GB at 4-bit, and as a mixture-of-experts model it has to hold all of them. Sarvam only ships an FP8 build that needs one GPU with about 120GB of memory, like an H200 or B200, so this is a server model, not a home one.",
