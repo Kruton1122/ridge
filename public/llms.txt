@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-04
+- Snapshot: 2026-11-05
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -17,6 +17,12 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-05): Tencent Hy4 independent scores. AA Intelligence Index v5.0 35 (equal with Grok 4.7 xhigh, 1 behind Claude Haiku 5.5; #2 China-based lab behind Kimi K3.1 Pro 46), FrontierCode 2.0 31%, AA-Omniscience accuracy 50% with 89% hallucination rate, about $0.78 per index task. Vals Terminal-Bench 4.0 39.39%, #15 of 60 (Hy4 Preview 8.08%). Weights, parameter count and system card still not posted; no Ridge row yet. Sources: https://x.com/ArtificialAnlys/status/2118259055546482834 https://www.vals.ai/benchmarks/terminal-bench-4
+News (2026-11-05): Baidu ERNIE-5.5-Flash-Base, open weights base model (end of pre-training, no post-training), 280B total / 14B active MoE, 33.5T tokens, 1M context for fine-tuning and inference, FP8 and BF16 on Hugging Face under the ERNIE 5.5 Flash Base Model License. About 560GB at 16-bit, 280GB at 8-bit, 150GB at 4-bit. Vendor base-model comparisons only; not a Ridge row. Source: https://ernie.baidu.com/release/ernie-5-5-flash-base/
+News (2026-11-04): Cognition SWE-2 Flash, 276B total / 12B active coding model built on Thinking Machines Inkling-Small, in Devin Desktop and CLI (free through 30 Nov), one fifth the price and 3x the speed of SWE-2. Vendor claims: Terminal-Bench 4.0 20.0, FrontierCode 2.0 24.0, ExploitBench 34.8. Weights not public (vetted-partner program planned). Not a Ridge row. Source: https://cognition.com/blog/swe-2-flash
+News (2026-11-04): webAI TwIL-8B, 8.79B dense reasoning model post-trained from IBM Granite 4.2 8B, webAI Non-Commercial License 1.0, 4.98GB Q4_K_M GGUF. Self-reported: MATH-500 98.2, GPQA Diamond 70.2. Not scored by AA; not a Ridge row; small-model board stays on hold. Source: https://huggingface.co/webAI-Official/TwIL-8B
+News (2026-11-04): OpenAI Linux kernel pipeline with an unreleased cyber model: 948 unique local privilege escalation exploits in one mid-October run for $1,213,430 in API credits (GPT-5.6 Sol found 166 in July). Not a Ridge board. Source: https://openai.com/index/a-thousand-fewer-paths-to-root/
+News (2026-11-02): SemiAnalysis GDPx, 206 agentic tasks across 11 domains. Claude Opus 5.5 12.0%, Gemini 4 Carbon 10.9%, GPT-6 Astra 9.6%, Muse Wonder Full 9.0%, Claude Fable 5.1 8.5%, GPT-6.1 Sol 8.4%, Claude Sonnet 5.5 8.2%, Gemini 4 Argon 7.3%. Not a Ridge board. Source: https://gdpx.semianalysis.com/
 Update (2026-11-04): Kimi K3.1 Pro (Moonshot) now open weights on Hugging Face (moonshotai/Kimi-K3.1-Pro, 2.8T total / 104B active, 1M context, MXFP4, about 1.56TB) under the Kimi K3.1-Pro License: open weights with commercial limits (model-as-a-service businesses over $20M revenue in 12 months need a separate agreement; attribution above 100M MAU or $20M monthly revenue). AA Intelligence Index v5.0 46 (v4.3.2 archived 55), top open-weights model. Best open weights moves to Kimi K3.1 Pro (46) from DeepSeek V4.1 Flash and GLM-5.3 (32). Needs a multi-GPU server. Sources: https://huggingface.co/moonshotai/Kimi-K3.1-Pro https://artificialanalysis.ai/models/kimi-k3-1-pro
 News (2026-11-04): Tencent Hy4 full release (replaces Hy4 Preview), adds vision and computer use; Tencent apps, TokenHub, OpenRouter, Hermes, OpenCode; about $0.90 / $2.70 per 1M tokens, $0.045 cached, 50% off on TokenHub through 31 Dec 2026. Weights and system cards promised in the coming days. Launch post gives no parameter count or context. No independent score, not a Ridge row. Source: https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/
 News (2026-11-03): Sarvam AI Sarvam Prism, Apache 2.0 open weights, a decision model (LoRA fine-tune of Sarvam 105B MoE) that returns calibrated probabilities over fixed options (yes/no, choice, score) instead of generating text. API Rs 4 per 1M input tokens, output free. Ships FP8 only, about 120GB on one GPU (H200/B200); about 210GB at 16-bit, 105GB at 8-bit, 55-60GB at 4-bit. Vendor claims: 71.8 average over three decision indices, 44 ms median on B200. No independent score, not a Ridge row. Source: https://www.sarvam.ai/blogs/sarvam-prism
@@ -33,14 +39,14 @@ News (2026-10-29): Voice board: Phonic 1 (High) is #1 of 22 on the AA Speech to 
 
 Headline AA Intelligence Index v5.0:
 1. Gemini 4 Carbon — 60 (high; partner access only, not generally available)
-2. Claude Opus 5.5 — 59 (max with fallback)
+2. Claude Opus 5.5 — 59 (max)
 3. GPT-6 Astra — 57 (max)
 4. GPT-6.1 Sol — 55 (max)
-4. Claude Sonnet 5.5 — 55 (max with fallback)
+4. Claude Sonnet 5.5 — 55 (max)
 6. GPT-6.1 Terra — 51 (max)
 7. Gemini 4 Argon — 50 (high)
 7. Muse Wonder Full — 50 (max)
-7. Claude Fable 5.1 — 50 (xhigh with fallback)
+7. Claude Fable 5.1 — 50 (xhigh)
 10. Kimi K3.1 Pro — 46 (best listed row)
 11. Muse Wonder — 44 (max)
 12. Claude Haiku 5.5 — 36 (max)

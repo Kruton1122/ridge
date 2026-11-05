@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-11-04"): boolean {
+export function isFresh(date: string, asOf = "2026-11-05"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,44 @@ export function isFresh(date: string, asOf = "2026-11-04"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1105",
+    kind: "ranking",
+    title: "Half-week opinion: Sonnet 5.5 gets its due, Hy4 gets a reality check, and every rating holds",
+    dek: "Public posts on X from 2 to 5 November. People talked about Sonnet 5.5's value, Kimi K3.1 Pro's open weights and Hy4's scores. No rating moves.",
+    pull: "The most liked Sonnet 5.5 post opened with \"No one is talking about Sonnet 5.5\", and then a lot of people did.",
+    summary: "Opus 5.5 holds at 5 on steady praise, with complaints about cost at max effort. Sonnet 5.5 holds at 3 but its note is refreshed after a run of posts calling it underrated. Kimi K3.1 Pro holds at 3, since most weights posts were news and hardware jokes, not verdicts. Grok 4.7, GPT-6 Astra, the GPT-6.1 models and Argon hold. Gemini 4 Carbon stays unrated. A viral claim about an Astra 6.2 price cut is unconfirmed and not counted.",
+    date: "2026-11-05",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/blueemi99/status/2117293335345820080",
+    models: ["claude-opus-5.5", "claude-sonnet-5.5", "kimi-k3.1-pro", "grok-4.7", "gpt-6-astra", "gpt-6.1-sol", "gpt-6.1-terra", "gemini-4-carbon", "gemini-4-argon"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Claude Sonnet 5.5 had the best half-week of anyone. A post liked about 160 times opened with \"No one is talking about Sonnet 5.5, but its such an insane model\", pointing out that it sits above Kimi K3.1 Pro, Muse Wonder and Fable 5.1 on AA's v5 index while costing less than the models ahead of it. A side by side liked about 60 times asked how Sonnet 5.5 at high effort made better 3D designs than GPT-6 Astra at max while being cheaper. A Claude Code tip liked about 60 times had Opus 5.5 supervising while Sonnet 5.5 agents do the work. That is real, positive signal, but it is a handful of posts, and most people still describe Sonnet as the worker under Opus. Ridge refreshes its note and holds it at 3 for now.",
+      "Claude Opus 5.5 holds at 5. Posts still called it the best model available, one user had it run his small-model training loop overnight and cut errors from 107 to 69, and a top ten list liked about 90 times put it first. The complaints were about cost: one post that just repeated \"NEVER USE OPUS 5.5 ON MAX\" got about 30 likes. Ridge also ignored a wave of near-identical promotional posts about an Opus 5.5 design guide, which read as spam, not opinion.",
+      "Kimi K3.1 Pro's open weights drew plenty of posts, but most repeated the news or joked that running a 1.56TB model at home needs a loading dock. The few verdicts were mixed: one tester said it handled long refactors better than K3, and another said Sonnet 5.5 scores higher on Terminal-Bench 4.0 at the same price. It holds at 3. Hy4 is not on the board, but the reaction to AA's score of 35 split between its low price and its 89% hallucination rate. Grok 4.7 holds at 3 on mixed posts: a win in one live AI trading contest, and complaints that it is slow as a code reviewer.",
+      "The loudest single post, liked about 1,500 times, claimed an \"Astra 6.2\" price cut of 60%. Nothing from OpenAI backs it, and another account that checked Google Cloud's model list found no GPT-6.2 models, so Ridge treats it as rumor. Gemini 4 Carbon got praise from people using it in Arena and a strong GDPx result, but most people still cannot use it, so it stays unrated. Our view: the board holds, and Sonnet 5.5 is the one to watch next week.",
+    ],
+  },
+  {
+    id: "trust-week-1105",
+    kind: "policy",
+    title: "Root exploits, proofs and a filing: three ways the labs asked to be trusted this week",
+    dek: "OpenAI, Anthropic's research team and Anthropic's lawyers all published within a few days of each other. Each one is about whether you can believe what AI labs and their models say.",
+    pull: "A cyber model found 948 ways to root Linux for about $1,279 each.",
+    summary: "OpenAI's unreleased cyber model built 948 Linux root exploits in one run and drafted patches for them. Anthropic released FlashProve, a slow but working way to prove which model produced an answer. Anthropic's amended S-1 warns it may soon meet its own threshold for AI-driven acceleration. No scores change.",
+    date: "2026-11-05",
+    sourceName: "OpenAI / Anthropic / SEC",
+    sourceUrl: "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+    models: [],
+    tags: ["policy", "safety", "cyber"],
+    body: [
+      "OpenAI's Linux report on 4 November is the hardest number of the week. Its pipeline, running a cyber model that is not public yet, built 948 distinct exploits that turn an ordinary account into root on a standard desktop Linux, for about $1.2 million in API credits. A July run with GPT-5.6 Sol found 166. OpenAI also admits that some early exploits got root through a different unknown bug than the one they were meant to use, which is a useful warning about trusting agent results without checking how they got there. Its advice to everyone else is to treat an unpatched machine with any local account as already rooted.",
+      "Anthropic's FlashProve, published on 2 November, goes at a different question: did the provider actually run the model it says it ran? It can prove that for a 4-bit Llama 4 Maverick, but each 1,024 token answer needs a 19MB proof and costs 70 to 95 times the normal GPU time. That is far from practical. It is still the first open, working version of something buyers and regulators will want once models are swapped behind APIs without notice.",
+      "The same day, Anthropic's amended S-1 told investors it may \"imminently\" meet its own definition of dramatically accelerated progress from AI, based on expectations for future models, and that it might only see the speed-up after the fact. It says Claude wrote over 90% of its code contributions in September. Online this became a story about recursive self-improvement. The filing is more careful than that, but it is still a lab saying, under securities law, that its own measuring may lag what its models do.",
+      "Our view: none of this moves a score, but all three point the same way. Labs are asking to be trusted on things outsiders cannot yet check: what their unreleased models can break, which model they served, and how fast their research is speeding up. FlashProve is the only one that offers a way to check, and it is years from cheap.",
+    ],
+  },
   {
     id: "halfweek-opinion-1102",
     kind: "ranking",

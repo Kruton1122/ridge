@@ -541,3 +541,14 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - apply-briefing-staging.py only rewrites s(...) score calls and the snapshot date; it never touches license, so it will not revert the flag.
 - Tencent Hy4 verified on tencent.com (4 Nov). Corrections to the lead: the post gives no 770B / 49B or 1M context figures, so they are dropped; it adds Hermes, ima and WeCom; "admits it trails top closed models" is not in the post (only biology lab design trails frontier models), so it is reworded. Ridge had no Hy4 Preview row. No independent score, no row.
 - Wires: kimi-k3-1-pro-weights-1104, tencent-hy4-1104. Includes the 4 Nov daily scrape (snapshot dates).
+
+## 2026-11-05: half-week news pass
+
+- Wires: tencent-hy4-scores-1105 (AA v5 35, Vals TB4 39.39 #15 of 60; row held until weights, parameter count and license land), baidu-ernie-5-5-flash-base-1105 (base model, no row), openai-linux-root-exploits-1104, cognition-swe-2-flash-1104 (vendor scores, weights closed, no row), webai-twil-8b-1104 (8.8B, non-commercial, not on AA, no row), semianalysis-gdpx-1102 (not a board), anthropic-s1a-acceleration-1102, anthropic-flashprove-1102, anthropic-message-threads-1102.
+- Desk: halfweek-opinion-1105 and trust-week-1105.
+- Stars: all hold. Claude Sonnet 5.5 stays at 3 but its note is refreshed (asOf 2026-11-05) on sourced posts calling it underrated. Gemini 4 Carbon stays unrated.
+- llms.txt: news lines for Hy4 scores, ERNIE-5.5-Flash-Base, SWE-2 Flash, TwIL-8B, OpenAI Linux pipeline, GDPx.
+- Skipped: Astra 6.2 / GPT-6.2 price-cut and Codex-receipt posts (unconfirmed rumor), "Argon routing to Carbon" speculation, OpenAI Images 2.6 (off-lane), Nemotron 3.5 Super (not in this window), Andon Vending-Bench Carbon claim (date and source not verified), Pierre acquisition (minor).
+- GDPx figures come from the leaderboard at gdpx.semianalysis.com, not X reposts. S-1/A quotes checked against the SEC filing text.
+- X sentiment: Grok Build on Frank still not signed in (needs a human to run grok login --device-code), so X search used the x-namespace fallback. Logs: logs/news-pass-x-20261105.txt, logs/news-pass-grok-20261105.txt.
+- Includes the 5 Nov daily scrape (snapshot 2026-11-05, score asOf dates, voice asOf).
