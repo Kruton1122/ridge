@@ -14,6 +14,8 @@ export type LabId =
   | "xiaomi"
   | "minimax"
   | "inclusionai"
+  | "nanbeige"
+  | "thinkingmachines"
   | "other";
 
 export type License = "proprietary" | "open-weight";

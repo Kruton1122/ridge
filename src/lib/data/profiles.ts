@@ -275,6 +275,8 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   minimax: { motif: "MiniMax crimson #EB3568 (AA uses the same). Shanghai lab; cheap Flash models, weights promised later." },
   inclusionai: { motif: "Violet #8B5CF6. Ant Group's AI team; Ling models, MIT open weights." },
   xiaomi: { motif: "Xiaomi pink #FF4FA3, chosen because Xiaomi's own orange is taken by Alibaba and Mistral. Phone and EV maker; MIT open weights." },
+  nanbeige: { motif: "Teal #0E7490. Nanbeige LLM Lab at BOSS Zhipin; Apache 2.0 open weights." },
+  thinkingmachines: { motif: "Orange #EA580C. San Francisco lab behind Tinker; Inkling weights promised, not yet public." },
   other: { motif: "Neutral slate." },
 };
 

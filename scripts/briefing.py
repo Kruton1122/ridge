@@ -64,8 +64,10 @@ BOARD_WATCH = (
     "mimo-v2.6-pro",       # Xiaomi, 2026-09-22; AA #1 open weights; Flash/V2.5-Pro/ultraspeed are NOT this row; blank CursorBench/Harvey/Robotics/SWE
     "minimax-m3.1-flash",  # MiniMax, 2026-10-19; proprietary until weights ship; AA Index only; a later M3.1 Pro is NOT this row
     "gpt-6.1-terra",       # OpenAI, 2026-10-26; AA Index + Vals TB4; blank Arena+/CursorBench/Cyber/Harvey
-    "ling-3.1-flash-1019", # inclusionAI, MIT weights 2026-10-27; AA Index only; plain Ling-3.1-flash is NOT this row
+    "ling-3.1-flash-1019", # inclusionAI, MIT weights 2026-10-27; AA Index only; plain Ling-3.1-flash is NOT this row; Ling-3.2-flash is a different model
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
+    "nanbeige-4.3-33b",    # Nanbeige / BOSS Zhipin, Apache 2.0; AA v5 20; other boards blank
+    "inkling-2-small",     # Thinking Machines, API-only until weights ship; AA v5 31; not Inkling Small
 )
 
 
@@ -796,6 +798,10 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gpt 6.1 terra",
         "ling-3.1-flash-1019",
         "ling 3.1 flash 1019",
+        "nanbeige-4.3-33b",
+        "nanbeige 4.3 33b",
+        "inkling-2-small",
+        "inkling 2 small",
     }
     known = seed_known | known_extra
     frontier_markers = (

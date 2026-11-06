@@ -16,6 +16,8 @@ export const LAB_COLORS: Record<LabId, string> = {
   xiaomi: "#FF4FA3",
   minimax: "#EB3568",
   inclusionai: "#8B5CF6",
+  nanbeige: "#0E7490",
+  thinkingmachines: "#EA580C",
   other: "#8EA0B0",
 };
 

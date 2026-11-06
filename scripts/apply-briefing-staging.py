@@ -49,10 +49,18 @@ SNAPSHOT_GATES = {
         "label": "1017 snapshot",
     },
     # Arena+ still lists the earlier Ling-3.1-flash; only rows tagged 1019 count.
+    # Ling-3.2-flash is a different multimodal model and must never match this row.
     "ling-3.1-flash-1019": {
         "pattern": r"(?<!\d)1019(?!\d)",
         "stale": "earlier Ling-3.1-flash checkpoint",
         "label": "1019 snapshot",
+    },
+    # Inkling 2 Small vs the earlier Inkling Small (no Ridge row, but boards may list it).
+    "inkling-2-small": {
+        "pattern": r"(?i)inkling\s*[-_]?2",
+        "stale": "Inkling Small, the previous generation",
+        "label": "Inkling 2 Small",
+        "labelNote": False,
     },
     # Gemini 4 Carbon and Argon share the "gemini 4" stem; only rows that say
     # Carbon may land on the Carbon row, so an Argon row can never be copied over.
@@ -65,6 +73,12 @@ SNAPSHOT_GATES = {
 }
 
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
+
+# Scraped names that must never land on these catalog rows, even if a snapshot
+# tag happens to be present. Ling-3.2-flash is not Ling-3.1-flash-1019.
+NAME_EXCLUDES = {
+    "ling-3.1-flash-1019": r"(?i)3\s*[.]\s*2",
+}
 
 
 def archived_boards(catalog_src):
@@ -565,11 +579,17 @@ def main():
                 continue
             model = matched["model"]
             model_id = model["id"]
+            raw_for_gates = f"{name} {variant_hint or ''}"
+            exclude = NAME_EXCLUDES.get(model_id)
+            if exclude and re.search(exclude, raw_for_gates):
+                if DRY_RUN:
+                    logs.append("name exclude: skip %s %r for %s" % (benchmark_id, name, model_id))
+                continue
             gate = SNAPSHOT_GATES.get(model_id)
             snapshot_ok = False
             if gate:
                 # match_model drops a trailing 4-digit date, so test the raw name here.
-                if not re.search(gate["pattern"], f"{name} {variant_hint or ''}"):
+                if not re.search(gate["pattern"], raw_for_gates):
                     if DRY_RUN:
                         logs.append("snapshot gate: skip %s %r for %s (no %s tag)" % (benchmark_id, name, model_id, gate["label"]))
                     continue

@@ -552,3 +552,15 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - GDPx figures come from the leaderboard at gdpx.semianalysis.com, not X reposts. S-1/A quotes checked against the SEC filing text.
 - X sentiment: Grok Build on Frank still not signed in (needs a human to run grok login --device-code), so X search used the x-namespace fallback. Logs: logs/news-pass-x-20261105.txt, logs/news-pass-grok-20261105.txt.
 - Includes the 5 Nov daily scrape (snapshot 2026-11-05, score asOf dates, voice asOf).
+
+## 2026-11-06: GPT-6 Cyber, Nanbeige AA 20, Inkling 2 Small, VIALS-AA, Ling-3.2, Kanana, Ripple
+
+- GPT-6 Cyber verified on openai.com/index/introducing-gpt-6-cyber (select approved Daybreak Red customers on API and Codex; expand to all Daybreak Red soon; Critical vs High for GPT-5.6 Cyber; ExploitGym 48.5% vs 32.1%; 948 Linux exploits and 81 Firefox bugs; livestream is on openai.com/cyber-at-the-frontier, 12 Nov 10:00 AM PT) and developers.openai.com/api/docs/models/gpt-6-cyber.md (1,050,000 context, 128,000 max output, $20 / $100 / $2 cached). Astra 42.4% verified on openai.com/index/gpt-6-astra, not on the Cyber post, so the wire labels it that way. No row.
+- Nanbeige4.3-33B AA 20 verified on artificialanalysis.ai/models/nanbeige4-3-33b (open weights, Apache 2.0, 33B, 524k context) and HF config max_position_embeddings 524288. New lab nanbeige and row; other boards blank. Oct 25 wire said 512K and no row.
+- Inkling 2 Small verified on thinkingmachines.ai/news/inkling-2-small (594B / 17B, vision, Tinker now, Apache 2.0 weights next week after safety tests) and AA model page plus launch article (Intelligence Index 31, proprietary, $0.30 / $1.00, 1M context). New lab thinkingmachines and proprietary row. No Inkling Small row exists; SWE-2 Flash wire already named that earlier model as the base. Does not count for Best open weights (still Kimi K3.1 Pro at 46).
+- Ling-3.2-flash verified on Ant changelog (5 Nov, 560B / 25B, 1M, image/text/video, free two weeks) and model page. Lead's $0.30 / 1M input was not on those pages, so it was dropped. Weights not published. No independent score, no row. Matcher now excludes 3.2 names from ling-3.1-flash-1019 and gates inkling-2-small on an "Inkling 2" tag.
+- VIALS-AA verified on AA article and eval page: Carbon (high) 64%, Astra (max) 63%, Opus 5.5 (max, with fallback) 61%, Kimi K3.1 Pro (max) 45%. Wire only, no board.
+- Kanana-2-v-decide verified on HF (3.67B, Kanana Open License, decision model, weights 6 Nov) and Kakao tech post. Short wire, no row.
+- Ripple-65B Preview verified on ricursive.com/ripple and HF ricursiveAI/Ripple-65B-Preview (not ricursive/Ripple-65B-Preview). Dense 65B, Apache 2.0, 12T tokens, 1M context, Together / GMI Cloud / OpenRouter / Fireworks. Terminal-Bench 2.1 80.52 is Ricursive's claim; AA page 404, no row. Ridge has beam-1.0; Ricursive's 80.1 comparison is Reflection's own figure already labelled as a claim on that row.
+- Skipped: GPT-6.2 Astra/Sol rumors, Qwen4 teasers, Cosmos 3 Nano.
+- Includes the 6 Nov daily scrape (snapshot 2026-11-06, score asOf dates, voice asOf, desk isFresh).

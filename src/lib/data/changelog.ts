@@ -1,5 +1,20 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-06",
+    title: "News: GPT-6 Cyber, Inkling 2 Small, Nanbeige AA 20, VIALS-AA, Ling-3.2-flash",
+    items: [
+      "Wire: GPT-6 Cyber, initially for a select group of approved Daybreak Red customers on the API and in Codex, with wider Daybreak Red access coming soon. 1.05M context, 128K output, $20 / $100 per 1M tokens, $2 cached. OpenAI rates it Critical for cyber, up from High for GPT-5.6 Cyber. OpenAI's ExploitGym figures (48.5% vs 32.1% for GPT-5.6 Cyber) are in prose as its claims; Astra's 42.4% is from Astra's launch post. Linked to the 4 Nov Linux-exploit item. Livestream 12 Nov at 10:00 AM PT. No independent score, so no row. Sources: https://openai.com/index/introducing-gpt-6-cyber/ https://developers.openai.com/api/docs/models/gpt-6-cyber",
+      "New lab Nanbeige (BOSS Zhipin) and new row Nanbeige4.3-33B (HF Nanbeige/Nanbeige4.3-33B, Apache 2.0, 33B dense, 524,288 context). AA Intelligence Index v5.0 20. Other columns blank. The Oct 25 wire said 512K context and no row; 524,288 is the figure in the model config and on AA. Sources: https://artificialanalysis.ai/models/nanbeige4-3-33b https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
+      "New lab Thinking Machines and new row Inkling 2 Small (API-only on Tinker; 594B total / 17B active, vision, 1M context; AA lists $0.30 / $1.00). AA Intelligence Index v5.0 31. Marked proprietary until the promised Apache 2.0 weights ship, so it does not count toward Best open weights. Best open weights stays Kimi K3.1 Pro (46). Ridge has no Inkling Small row. Sources: https://thinkingmachines.ai/news/inkling-2-small/ https://artificialanalysis.ai/models/inkling-2-small",
+      "Wire: Ant Ling-3.2-flash, 560B total / 25B active, native image, text and video, 1M context, free for two weeks. The $0.30 / 1M input price from the lead was not on Ant's changelog or model page, so it is left out. Weights not published. No independent score, so no row. Distinct from Ling-3.1-flash-1019. Sources: https://developer.ant-ling.com/en/docs/getting-started/changelog https://developer.ant-ling.com/en/docs/models/ling/",
+      "Wire: Artificial Analysis VIALS-AA (Handshake AI's VIALS, 161 tasks, pass^3). Gemini 4 Carbon (high) 64%, GPT-6 Astra (max) 63%, Claude Opus 5.5 (max, with fallback) 61%, Kimi K3.1 Pro (max) 45% as the top open model. News only, no new board. Sources: https://artificialanalysis.ai/articles/vials-aa https://artificialanalysis.ai/evaluations/vials-aa",
+      "Wire: Kakao Kanana-2-v-decide, 3.67B multimodal decision model, weights on Hugging Face under the Kanana Open License. Kakao's decision-index figures are in prose as its claims. No row. Sources: https://huggingface.co/kakaocorp/kanana-2-v-decide-3b-2611 https://tech.kakao.com/posts/846",
+      "Wire: Ricursive Ripple-65B Preview, dense 65B, Apache 2.0, 12T pretraining tokens, up to 1M context, on Hugging Face, Together, GMI Cloud, OpenRouter and Fireworks. Ricursive's Terminal-Bench 2.1 80.52 and US open-weight coding claim are in prose as its claims (it compares with Reflection Beam's own 80.1; Ridge has a Beam 1.0 row). No AA page, so no row. Source: https://www.ricursive.com/ripple https://huggingface.co/ricursiveAI/Ripple-65B-Preview",
+      "Matcher: apply-briefing-staging.py now rejects Ling-3.2 names against the Ling-3.1-flash-1019 row, and only accepts Inkling rows that say Inkling 2 for the new Inkling 2 Small row.",
+      "Daily score update: snapshot moved to 6 November.",
+    ],
+  },
+  {
     date: "2026-11-04",
     title: "Kimi K3.1 Pro weights ship and it takes Best open weights; Tencent Hy4 full release",
     items: [
