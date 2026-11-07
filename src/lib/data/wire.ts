@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "nous-arete-27b-1106",
+    title: "Nous releases Arete-27B, a Qwen fine-tune aimed at changing political framing",
+    blurb: "Nous Research released Arete-27B, a supervised fine-tune of Alibaba's Qwen3.8-27B aimed at changing how that model frames political questions. The blog is dated only November 2026. The weights were published on Hugging Face on 6 November (NousResearch/Arete-27B): public, ungated, 18 shards, Apache 2.0. Training was supervised fine-tuning only, on answers from Inkling, about 52.8 million tokens, with no reinforcement learning and no change to the architecture. On Nous's own 803-prompt evaluation, with thinking off at temperature 0, the fact score moved from 2.32 to 2.98 out of 5, and the share of answers flagged for Chinese state framing fell from 22% to 0.9%. An LLM judge, Grok 4.7, scored the answers against Nous's rubric. Those figures are Nous's measurements of the behaviors it trained for. They are not an independent finding that the model is unbiased. No Ridge row.",
+    date: "2026-11-06",
+    outlet: "Nous Research",
+    url: "https://nousresearch.com/arete",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "openai-biobasicsbench-1106",
+    title: "OpenAI introduces BioBasicsBench to test how agents read raw lab evidence",
+    blurb: "OpenAI published BioBasicsBench on 6 November, a 100-task benchmark it built with Ligo for routine wet-lab data analysis. The agent reads evidence it is given, such as gels, colony plates, microscopy and instrument files, and is scored on how it interprets that evidence. It is not operating the physical lab. OpenAI's own measurements at xhigh reasoning put GPT-6 Astra at 66.7% of the available rubric credit and GPT-5.6 Sol at 43.8%, from five attempts on each task. That number is mean reward, partial credit on the rubric. It is not a share of experiments completed, and it is not a straight accuracy score. The same article shows Astra misreading controls, dismissing evidence that contradicted its conclusion, and miscounting colonies, including an overcount of about 12% on one plate. A Ligo scientist who had not written the task, and an outside wet-lab scientist, reviewed each task. That review checks the questions. It is not an independent replication of the scores. The write-up does not include a download or a license for the tasks. Ridge is not adding a board.",
+    date: "2026-11-06",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    beat: "labs",
+    models: ["gpt-6-astra", "gpt-5.6-sol"],
+  },
+  {
     id: "aa-vials-aa-1106",
     title: "AA's new VIALS-AA board tests reading lab images, and Carbon leads at 64%",
     blurb: "Artificial Analysis launched VIALS-AA on 6 November, its run of Handshake AI's VIALS benchmark for reading scientific images in life-sciences work. The set has 161 tasks across eight kinds of lab images, including blots, microscopy, flow cytometry, plasmid maps, phylogenetic trees and molecular structures. Each model gets three attempts with code execution and image tools, and the headline score is pass^3: the share of tasks answered correctly on all three runs. Gemini 4 Carbon (high) leads at 64%, GPT-6 Astra (max) is at 63% and Claude Opus 5.5 (max, with fallback) is at 61%. The best open model AA lists is Kimi K3.1 Pro (max) at 45%. AA notes that Kimi K3.1 Pro and GPT-6 Astra each solve about three quarters of the tasks at least once, but requiring all three repeats to succeed is what separates 45% from 63%. Ridge is covering the launch as news and is not adding a board.",
