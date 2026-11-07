@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-07",
+    title: "News: Nous Arete-27B and OpenAI BioBasicsBench",
+    items: [
+      "Wire: Nous Research Arete-27B, a supervised fine-tune of Alibaba's Qwen3.8-27B. The blog is dated November 2026. Hugging Face repo NousResearch/Arete-27B was created 6 November: public, ungated, 18 shards, Apache 2.0. Training was supervised fine-tuning only, on Inkling's answers, about 52.8 million tokens. On Nous's own 803-prompt evaluation, thinking off at temperature 0, the fact score moved from 2.32 to 2.98 out of 5 and the share of answers flagged for Chinese state framing fell from 22% to 0.9%. An LLM judge (Grok 4.7) used Nous's rubric. Those are Nous's measurements, not an independent finding that the model is unbiased. No row. Sources: https://nousresearch.com/arete https://huggingface.co/NousResearch/Arete-27B",
+      "Wire: OpenAI BioBasicsBench, 6 November, 100 routine wet-lab analysis tasks built with Ligo. Agents interpret supplied evidence. They do not run the physical experiment. OpenAI's own xhigh measurements: GPT-6 Astra 66.7% of available rubric credit, GPT-5.6 Sol 43.8%, five attempts per task. The score is mean reward, partial credit, not experiment completion or a straight accuracy rate. The article also shows Astra misreading controls, dismissing contradictory evidence and miscounting colonies. Scientist review of the tasks is not an independent replication of the scores. The write-up includes no dataset download or license. Not a board. Source: https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    ],
+  },
+  {
     date: "2026-11-06",
     title: "News: GPT-6 Cyber, Inkling 2 Small, Nanbeige AA 20, VIALS-AA, Ling-3.2-flash",
     items: [
