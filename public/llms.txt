@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-06
+- Snapshot: 2026-11-09
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -17,6 +17,9 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+New model (2026-11-09): Muse Ember (Meta, closed weights, Meta Model API id muse-ember-1.0, also in Muse Code). $0.10 / $0.50 per 1M tokens, cached input $0.004, 1M context, up to 512K output. Parameter count not disclosed. AA Intelligence Index v5.0 36 at max effort, level with Claude Haiku 5.5. AA lists $0.14 per Index task. Meta says Haiku costs about $0.41 per task. Other columns blank. Meta's AutomationBench-AA 37.8%, Coding Agent Index 46 and Terminal-Bench 4.0 40.9 are its claims, not Ridge boards. Sources: https://research.meta.ai/blog/muse-ember https://artificialanalysis.ai/models/muse-ember
+Update (2026-11-09): Muse Spark 1.3 max now scores AA Intelligence Index v5.0 37 at max effort. AA still lists the release, marks it deprecated, and puts the cost at $2.39 per Index task. The xhigh row has no v5.0 score. Source: https://artificialanalysis.ai/models/muse-spark-1-3
+News (2026-11-08): Artificial Analysis Decision Index v2 scores a model for being right and for being sure only when it should be. New pieces: AA-Paperclip (1,500 private documents, all 15 answers must be right) and AA-Symmetry (does the answer change when the question is reworded). Among decision models, Nace AI's Drex Max v1.1 and Fastino's GLiDE v1.2 both score 73, and Base Labs' Mammoth 27B scores 72. Claude Haiku 5.5 (max) 77 and GPT-6 Luna (max) 76 cost more and run slower: AA lists Drex Max at $102 per million tasks and 275 ms per task, against $1,530 and 11.34 seconds for Luna. Not a Ridge board. Source: https://artificialanalysis.ai/articles/decision-index-v2
 News (2026-11-05): METR independent review of AI R&D acceleration at Anthropic (12 Aug to 29 Oct). Anthropic benchmark progress (AECI) about 1.9x the pre-October 2025 rate (95% CI 1.5 to 2.8x); about 80% of current acceleration attributed to AI; not explained by faster training-compute growth; most key evidence redacted by Anthropic. No scores change. Source: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/
 News (2026-11-05): Vals Index v2.2 (not a Ridge board): Claude Sonnet 5.5 70.85%, Gemini 4 Carbon 70.45%, Claude Opus 5.5 70.18%, Gemini 4 Argon 69.24%, Muse Wonder Full 66.79%, GPT-6 Astra 65.02%, GPT-6.1 Sol 63.94%, top open Kimi K3.1 Pro 62.52%. Source: https://www.vals.ai/benchmarks/vals_index
 News (2026-11-06): Anthropic research post on agent memory and dreaming (background consolidation of memory against transcripts). Anthropic's own tests only, not a Ridge board. Source: https://www.anthropic.com/research/components-of-agent-memory
@@ -65,7 +68,7 @@ Headline AA Intelligence Index v5.0:
 7. Claude Fable 5.1 — 50 (xhigh)
 10. Kimi K3.1 Pro — 46 (best listed row)
 11. Muse Wonder — 44 (max)
-12. Claude Haiku 5.5 — 36 (max)
+12. Muse Spark 1.3 max — 37 (max; partner access only, not generally available)
 New model (2026-10-28): Gemini 4 Carbon (Google DeepMind; built on Gemini 4 Argon; partner access only: cyber defenders this week, then trusted partners through the Fairwind Program, no public API or date for general availability; $2 / $10 per 1M tokens introductory with cached input 95% off, then $4 / $20; 1M context). AA Intelligence Index 59 (high), #1. Arena+ 1528, #1. Vals Terminal-Bench 4.0 63.13 (#4 of 57). CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% (run without guardrails) are its claims and not Ridge boards. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/ https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1 https://openlm.ai/chatbot-arena/ https://www.vals.ai/benchmarks/terminal-bench-4
 New model (2026-10-26): GPT-6.1 Terra (OpenAI; API gpt-6.1-terra, $1 / $5 per 1M tokens, cached input $0.05, 1M context; ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu). AA Intelligence Index 48 (max). Vals Terminal-Bench 4.0 49.5 (#10 of 56). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are blank. OpenAI's Agents' Last Exam comparison with GPT-6 Astra is its claim. Sources: https://x.com/ArtificialAnlys/status/2114781865811063259 https://artificialanalysis.ai/models/gpt-6-1-terra
 New model (2026-10-27): Ling-3.1-flash-1019 (inclusionAI, Ant Group, new lab; MIT weights on Hugging Face 2026-10-27; 560B total / 25B active, 1M context; AA lists $0.30 / $0.90 per 1M tokens). AA Intelligence Index 44. Other columns blank; Arena+ lists only the earlier Ling-3.1-flash. Sources: https://huggingface.co/inclusionAI/Ling-3.1-flash-1019 https://artificialanalysis.ai/models/ling-3-1-flash-1019

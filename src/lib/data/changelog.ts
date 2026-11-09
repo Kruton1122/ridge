@@ -1,6 +1,16 @@
 export const CHANGELOG = [
   {
     date: "2026-11-09",
+    title: "Muse Ember joins the ledger at AA 36; Spark 1.3 max moves to v5; Decision Index v2 is news only",
+    items: [
+      "New row Muse Ember (Meta, muse-ember-1.0, closed weights, 9 November). AA Intelligence Index v5.0 36 at max effort, level with Claude Haiku 5.5. $0.10 / $0.50 per 1M tokens, cached input $0.004, 1M context, up to 512K output. No parameter count. Cursor, Arena, Vals, Cyber, Harvey and Robotics stay blank. Meta's other figures, including AutomationBench-AA 37.8% and Coding Agent Index 46, are its claims. Sources: https://research.meta.ai/blog/muse-ember https://artificialanalysis.ai/models/muse-ember",
+      "Muse Spark 1.3 max now has AA Intelligence Index v5.0 37 at max effort. AA still lists the release, marks it deprecated, and puts the cost at $2.39 per Index task. The xhigh row stays blank on v5.0. Source: https://artificialanalysis.ai/models/muse-spark-1-3",
+      "News: AA Decision Index v2 (8 November). Among decision models, Nace AI's Drex Max v1.1 and Fastino's GLiDE v1.2 both score 73, and Base Labs' Mammoth 27B scores 72. Claude Haiku 5.5 (max) 77 and GPT-6 Luna (max) 76 cost more and run slower. Not a Ridge board, and no catalog row gets a Decision score. Source: https://artificialanalysis.ai/articles/decision-index-v2",
+      "Best for: Smartest overall stays Gemini 4 Carbon (60). Best open weights stays Kimi K3.1 Pro (46). Newest entry is Muse Ember (36). Best for value names Claude Haiku 5.5 and Muse Ember together at $0.008 per AA point.",
+    ],
+  },
+  {
+    date: "2026-11-09",
     title: "Half-week news pass: METR on Anthropic, Vals Index, OpenAI and Qwen rumors; stars hold",
     items: [
       "Wire: METR's independent review of AI-driven research speed at Anthropic (about 1.9x faster benchmark progress since October 2025, 95% range 1.5 to 2.8x, about 80% attributed to AI, most evidence redacted). Source: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",

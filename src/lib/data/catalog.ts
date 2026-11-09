@@ -168,8 +168,8 @@ export const MODELS: Model[] = [
     contextTokens: 1_000_000,
     pricing: { inputPerM: 1.25, outputPerM: 4.25 },
     license: "proprietary",
-    aliases: ["muse spark 1.3", "muse-spark-1.3", "spark 1.3", "spark 1.3 xhigh"],
-    summary: "Public xhigh cut. AA Index 45 (as of 8 Sept). It read 61 on the older v4.1.1 scale, which is not comparable.",
+    aliases: ["muse spark 1.3", "muse-spark-1.3", "muse-spark-1-3-xhigh", "spark 1.3", "spark 1.3 xhigh"],
+    summary: "Public xhigh cut. AA shows no Intelligence Index v5.0 score for this row. The archived v4.3.2 figure was 45, as of 8 Sept. It read 61 on the older v4.1.1 scale, which is not comparable.",
     status: "ga",
     publicOpinionStars: 4,
     publicOpinionNote: "Meta's math papers used Spark 1.1 and 1.2, so they do not move 1.3. No new wave of 1.3 talk.",
@@ -185,8 +185,8 @@ export const MODELS: Model[] = [
     contextTokens: 1_000_000,
     pricing: { inputPerM: 1.25, outputPerM: 4.25 },
     license: "proprietary",
-    aliases: ["spark 1.3 max", "muse-spark-1.3-max", "spark max"],
-    summary: "Partner-preview max row. AA Index 48 (as of 8 Sept). v4.1.1 was 62. Not the public API default.",
+    aliases: ["spark 1.3 max", "muse-spark-1.3-max", "muse-spark-1-3", "spark max"],
+    summary: "Partner max row, not the public API default. AA still scores it and marks the release deprecated: Intelligence Index v5.0 37 at max effort, $2.39 per Index task. The public xhigh row has no v5.0 score. $1.25 / $4.25.",
     status: "partner",
   }),
   m({
@@ -831,6 +831,30 @@ export const MODELS: Model[] = [
     summary:
       "Thinking Machines' second generation, released 5 November 2026 on Tinker and Tinker Playground with closed weights. A mixture-of-experts with 594B total and 17B active parameters, text and image in, text out, variable effort and a 1M token context. The lab says Apache 2.0 weights are planned for the following week after outside safety tests; until those ship it is not an open-weight row and it does not count toward Best open weights. AA lists $0.30 / $1.00 per 1M tokens ($0.03 cached). Independent score: AA Intelligence Index v5.0 31. No AA Cyber, Arena+, Vals Terminal-Bench, CursorBench or Harvey LAB-AA score yet.",
   }),
+  m({
+    id: "muse-ember",
+    name: "Muse Ember",
+    shortName: "Ember",
+    lab: "meta",
+    labName: "Meta",
+    released: "2026-11-09",
+    contextTokens: 1_048_576,
+    pricing: { inputPerM: 0.1, outputPerM: 0.5 },
+    license: "proprietary",
+    aliases: [
+      "muse ember",
+      "muse-ember",
+      "muse-ember-1.0",
+      "muse-ember-1-0",
+      "muse ember 1.0",
+      "muse-ember-xhigh",
+      "muse ember max",
+      "Muse Ember (max)",
+      "Muse Ember (xhigh)",
+    ],
+    summary:
+      "Meta's smallest Muse, released 9 November 2026 on the Meta Model API (muse-ember-1.0) and Muse Code, for agent subtasks such as tool calls, coding steps, routing and extraction. $0.10 in, $0.50 out per 1M tokens, cached input $0.004. 1M token context, up to 512K output. Closed weights, parameter count not disclosed. Artificial Analysis Intelligence Index v5.0 36 at max effort, level with Claude Haiku 5.5. The list price is flat. Haiku 5.5 is $0.50 / $2.50 above 100K tokens. AA lists Ember at $0.14 per Index task. Meta says Haiku costs about $0.41 per task. Meta's own table (AutomationBench-AA 37.8%, Coding Agent Index 46, Terminal-Bench 4.0 40.9) is its claim and not a Ridge board. No Vals, Arena+, CursorBench, AA Cyber or Harvey LAB-AA score yet.",
+  }),
 ];
 
 export const BENCHMARKS: Benchmark[] = [
@@ -989,6 +1013,8 @@ export const SCORES: Score[] = [
   s("kimi-k3.1-pro", "aa-intelligence", 46, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best listed row"),
   s("muse-wonder", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: max"),
   s("claude-haiku-5.5", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: max"),
+  s("muse-ember", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/models/muse-ember", "2026-11-09", "best effort/variant: max"),
+  s("muse-spark-1.3-max", "aa-intelligence", 37, "Artificial Analysis", "https://artificialanalysis.ai/models/muse-spark-1-3", "2026-11-09", "best effort/variant: max"),
   s("grok-4.7", "aa-intelligence", 35, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: xhigh"),
   s("qwen-3.8-max", "aa-intelligence", 34, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: 0902"),
   s("deepseek-v4.1-flash", "aa-intelligence", 33, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: max; 1017 snapshot"),

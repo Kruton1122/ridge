@@ -54,7 +54,8 @@ SEED_ARENA = [("Claude Opus 5", 1511), ("Claude Fable 5", 1510)]
 BOARD_WATCH = (
     "grok-4.7",            # blank SWE/TB; AA+Arena live
     "claude-sonnet-5.5",   # launched 2026-09-28; blank SWE; AA pre-release re-run pending
-    "muse-spark-1.3-max",  # partner max row; Arena often blank
+    "muse-spark-1.3-max",  # partner max row; Arena often blank; AA slug muse-spark-1-3
+    "muse-ember",          # Meta, 2026-11-09; AA v5 36 at max; other boards blank
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
     "gemini-4-carbon",     # announced 2026-10-28; partner access only (cyber defenders, Fairwind); AA+Arena+TB4 live; blank CursorBench/Cyber/Harvey/Robotics
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench

@@ -11,6 +11,26 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "muse-ember-1109",
+    title: "Meta releases Muse Ember, a small model that ties Claude Haiku 5.5 on AA's index",
+    blurb: "Meta released Muse Ember on 9 November on its Model API and Muse Code at $0.10 in and $0.50 out per million tokens, with a 1M token context. Artificial Analysis scores it 36 on its Intelligence Index at max effort, level with Claude Haiku 5.5, and lists its cost at $0.14 per Index task. Meta says Haiku costs about $0.41 per task. Weights are closed and Meta has not given a parameter count. Meta's other numbers, including 37.8% on AutomationBench-AA and 46 on AA's Coding Agent Index, are its own claims.",
+    date: "2026-11-09",
+    outlet: "Meta AI",
+    url: "https://research.meta.ai/blog/muse-ember",
+    beat: "release",
+    models: ["muse-ember", "claude-haiku-5.5"],
+  },
+  {
+    id: "aa-decision-index-v2-1108",
+    title: "AA's Decision Index v2 scores confidence as well as answers, and three small models sit within a point",
+    blurb: "Artificial Analysis released version 2 of its Decision Index on 8 November. It now rewards models for being right and for being sure only when they should be. It adds AA-Paperclip, 1,500 private documents where all 15 answers must be right, and AA-Symmetry, which checks whether a model changes its answer when a question is reworded. Among decision models, Nace AI's Drex Max v1.1 and Fastino's GLiDE v1.2 both score 73, with Mammoth 27B from Base Labs at 72. General models still score higher, with Claude Haiku 5.5 at 77 and GPT-6 Luna at 76 at max effort, but they cost far more and run far slower. AA lists Drex Max at $102 per million tasks and 275 ms per task, against $1,530 and 11.34 seconds for GPT-6 Luna at max. Ridge does not track this board.",
+    date: "2026-11-08",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/decision-index-v2",
+    beat: "ranking",
+    models: ["claude-haiku-5.5", "gpt-6-luna"],
+  },
+  {
     id: "anthropic-ipo-valuation-1107",
     title: "Anthropic's IPO target slips to about $1 trillion to $1.5 trillion as voters turn on data centers",
     blurb: "CNBC reported on 7 November that Anthropic is likely aiming for a mid-November Nasdaq debut and that investors now see a valuation of $1 trillion to $1.5 trillion, down from the $2 trillion floated in recent months. The Decoder, citing the Financial Times, puts the raise at $80 to $100 billion at $1.25 to $1.75 trillion, with annualized revenue of about $81 billion. CNBC ties the mood to the midterms, where voters opposed data center ballot measures in 40 of 41 cases, and notes that Anthropic's amended prospectus lists about $895.4 billion in committed spending, almost all on compute and infrastructure. These are press reports from investors, not Anthropic's figures. No scores change.",

@@ -219,6 +219,18 @@ def score_confidence(scraped_name, model, variant_hint):
     mid = model["id"]
     # Spark max vs xhigh: gate BEFORE alias exact-match (aliases collide on base name)
     if mid.startswith("muse-spark"):
+        raw_slug = (scraped_name or "").strip().lower()
+        # AA writes the version with hyphens. muse-spark-1-3 is the max release
+        # page; xhigh is muse-spark-1-3-xhigh. Version tokens read "1-3" as 1 and
+        # 3, which do not match 1.3, so an alias alone never lands.
+        if raw_slug == "muse-spark-1-3":
+            if mid == "muse-spark-1.3-max":
+                return 100, "exact"
+            return 0, "aa slug muse-spark-1-3 is the max release"
+        if raw_slug == "muse-spark-1-3-xhigh":
+            if mid == "muse-spark-1.3":
+                return 100, "exact"
+            return 0, "aa slug muse-spark-1-3-xhigh"
         v = (variant_hint or scraped_name or "").lower()
         if mid.endswith("-max"):
             if not re.search(r"\bmax\b", v):
