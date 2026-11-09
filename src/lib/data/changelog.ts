@@ -1,5 +1,17 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-09",
+    title: "Half-week news pass: METR on Anthropic, Vals Index, OpenAI and Qwen rumors; stars hold",
+    items: [
+      "Wire: METR's independent review of AI-driven research speed at Anthropic (about 1.9x faster benchmark progress since October 2025, 95% range 1.5 to 2.8x, about 80% attributed to AI, most evidence redacted). Source: https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+      "Wire: Vals Index v2.2 (5 Nov). Claude Sonnet 5.5 70.85%, Gemini 4 Carbon 70.45%, Claude Opus 5.5 70.18%. News only; Ridge carries Vals Terminal-Bench 4.0, not the Vals Index. Source: https://www.vals.ai/benchmarks/vals_index",
+      "Wire: Anthropic's agent memory and dreaming post; Meta's Muse Wonder-trained specialized models in Muse and Meta AI (vendor numbers, no row); OpenAI's Hacktron security partnership; Anthropic IPO valuation reports (CNBC). Sources: https://www.anthropic.com/research/components-of-agent-memory https://research.meta.ai/blog/specialized-models-for-muse-and-metaai https://openai.com/index/partnering-with-hacktron https://www.cnbc.com/2026/11/07/anthropic-ipo-ai-data-center-backlash.html",
+      "Wire (rumor): next OpenAI Astra and Sol models tipped for 6 Nov did not ship; Alibaba's Qwen 4 teaser has no model, date or scores. No rows.",
+      "Desk: halfweek-opinion-1109 and metr-week-1109. Public opinion stars all hold; signal from public X posts was thin.",
+      "Daily score update: snapshot moved to 9 November.",
+    ],
+  },
+  {
     date: "2026-11-07",
     title: "News: Nous Arete-27B and OpenAI BioBasicsBench",
     items: [

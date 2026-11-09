@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-11-06"): boolean {
+export function isFresh(date: string, asOf = "2026-11-09"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,42 @@ export function isFresh(date: string, asOf = "2026-11-06"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1109",
+    kind: "ranking",
+    title: "Half-week opinion: Opus 5.5 stays the favorite, OpenAI fans wait for a release that did not come, and every rating holds",
+    dek: "Public posts on X from 5 to 9 November. Most talk was tier lists, OpenAI release rumors and model comparisons. No rating moves.",
+    pull: "\"how long since openai and anthropic released their biggest models\" was one of the most liked posts, and it was a countdown, not a review.",
+    summary: "Opus 5.5 holds at 5, still first in most posted tier lists. Sonnet 5.5 holds at 3 despite topping the Vals Index, since posts about it were thin. GPT-6 Astra, GPT-6.1 Sol and Terra hold, with talk dominated by GPT-6.2 rumors. Grok 4.7, Kimi K3.1 Pro and Argon hold on few hands-on posts. Gemini 4 Carbon stays unrated while access is limited.",
+    date: "2026-11-09",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/argofowl/status/2119192381870469133",
+    models: ["claude-opus-5.5", "claude-sonnet-5.5", "gpt-6-astra", "gpt-6.1-sol", "gpt-6.1-terra", "grok-4.7", "kimi-k3.1-pro", "gemini-4-argon", "gemini-4-carbon"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Claude Opus 5.5 holds at 5. Tier lists kept putting it on top: one liked about 90 times rated it \"goat\" over GPT-6 Astra (\"good\"), Gemini 4 Argon (\"okay\") and Grok 4.7, Kimi K3.1 and Qwen 3.8 (all \"meh\"), and another gave it the only S tier. One user said Opus is still the pick for coding on a subscription but that other models are better value over the API. Ridge again ignored a run of near-identical promotional posts about an Opus 5.5 motion design guide.",
+      "OpenAI's models got attention mostly for what has not shipped. The Information had tipped new Astra and Sol models for Friday, and posts kept asking where they were; a countdown of days since each lab's last big release was liked about 60 times. Posts about a \"GPT-6.2 Sol\" beating Opus 5.5 on price are rumor until OpenAI releases something. GPT-6.1 Terra came up as a cheap worker under an Astra or Sol planner and in a long run of side-by-side 3D tests from one account, which is not enough to move it. Astra, Sol and Terra all hold at 3 or 4 as before.",
+      "Sonnet 5.5 topped the Vals Index this week, and posts sharing that list gave it a small bump in attention, but few people posted their own verdicts, so it holds at 3. Grok 4.7, Kimi K3.1 Pro and Gemini 4 Argon mostly showed up in lists and in a Visa test of AI shoppers, where Argon and Muse Wonder led at 82% and Grok 4.7 scored 60%. Gemini 4 Carbon stays unrated while most people cannot use it. Our view: a quiet week for opinion, and the next mover is whatever OpenAI or Alibaba ships.",
+    ],
+  },
+  {
+    id: "metr-week-1109",
+    kind: "policy",
+    title: "METR says Anthropic is speeding up, and investors are paying less for it",
+    dek: "An outside review says AI is roughly doubling Anthropic's pace, the same week its IPO target came down.",
+    pull: "Staff self-reported being about 12 times as productive with Anthropic's newest internal model.",
+    summary: "METR's 11-week review estimates Anthropic's benchmark progress has run about 1.9 times faster since October 2025, mostly because of AI, with no clear bottleneck ahead. Anthropic redacted most of the evidence METR found most useful. Its IPO target reportedly fell to about $1 trillion to $1.5 trillion. No scores change.",
+    date: "2026-11-09",
+    sourceName: "METR / CNBC",
+    sourceUrl: "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+    models: [],
+    tags: ["policy", "safety", "industry"],
+    body: [
+      "METR's report on 5 November is the most detailed outside look yet at whether AI is speeding up AI research. Its best estimate is that Anthropic's models have improved about 1.9 times faster since October 2025 than before, with a 95% range of 1.5 to 2.8 times, and that about 80% of today's speed-up comes from Anthropic using AI on its own research. It says faster growth in training compute does not explain it, and it found no clear bottleneck for the next year. It also lists three unreleased models that finished training between July and October.",
+      "The caveats matter. Anthropic redacted most of the evidence METR found most informative, METR's staff never had query access to the unreleased models, and the 12 times productivity figure comes from informal Slack polls. METR itself says the public has to lean on its judgment more than is ideal. A week earlier, Anthropic's own amended S-1 said it may soon meet its own bar for AI-driven acceleration, so the outside review and the filing point the same way.",
+      "The market read the week differently. CNBC reported that investors now see Anthropic's IPO at $1 trillion to $1.5 trillion, down from talk of $2 trillion, after a tech selloff and midterms where voters rejected data center measures in 40 of 41 cases. Our view: none of this moves a board score, but a lab that says its research is speeding up is the lab whose next release Ridge should expect sooner.",
+    ],
+  },
   {
     id: "halfweek-opinion-1105",
     kind: "ranking",
