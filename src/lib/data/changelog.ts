@@ -7,6 +7,7 @@ export const CHANGELOG = [
       "Muse Spark 1.3 max now has AA Intelligence Index v5.0 37 at max effort. AA still lists the release, marks it deprecated, and puts the cost at $2.39 per Index task. The xhigh row stays blank on v5.0. Source: https://artificialanalysis.ai/models/muse-spark-1-3",
       "News: AA Decision Index v2 (8 November). Among decision models, Nace AI's Drex Max v1.1 and Fastino's GLiDE v1.2 both score 73, and Base Labs' Mammoth 27B scores 72. Claude Haiku 5.5 (max) 77 and GPT-6 Luna (max) 76 cost more and run slower. Not a Ridge board, and no catalog row gets a Decision score. Source: https://artificialanalysis.ai/articles/decision-index-v2",
       "Best for: Smartest overall stays Gemini 4 Carbon (60). Best open weights stays Kimi K3.1 Pro (46). Newest entry is Muse Ember (36). Best for value names Claude Haiku 5.5 and Muse Ember together at $0.008 per AA point.",
+      "Desk: muse-ember-1109. Ember ties Haiku on the index at 36 and on the shelf tag. GPT-6 Luna's list price is the same $0.10 / $0.50. Haiku matches that only up to 100K tokens, then $0.50 / $2.50. AA's per-task cost is $0.14 for Ember against $2.39 for Spark 1.3 max, which is not a per-token claim. Source: https://research.meta.ai/blog/muse-ember",
     ],
   },
   {

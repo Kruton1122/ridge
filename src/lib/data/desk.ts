@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-09"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "muse-ember-1109",
+    kind: "release",
+    title: "Meta's smallest Muse ties Haiku and costs a third as much to run",
+    dek: "Ember matches Haiku on AA's index at 36. The token sticker matches Luna, and Haiku only up to 100K tokens. The task bill is where they split.",
+    pull: "Same list price as Luna. Haiku matches it only until a prompt passes 100K tokens.",
+    summary: "Muse Ember scores 36 on AA's index at max effort, level with Claude Haiku 5.5 and eight points over GPT-6 Luna at 28. Its $0.10 / $0.50 list price matches Luna, and matches Haiku only up to 100K tokens. AA lists Ember at $0.14 per Index task. Meta's chart puts Haiku at about $0.41.",
+    date: "2026-11-09",
+    sourceName: "Ridge",
+    sourceUrl: "https://research.meta.ai/blog/muse-ember",
+    models: ["muse-ember", "claude-haiku-5.5", "gpt-6-luna", "muse-spark-1.3-max", "muse-wonder", "muse-wonder-full"],
+    tags: ["meta", "release"],
+    body: [
+      "Muse Ember is the model you hand the boring work to. Meta built it for the steps agents repeat all day, like tool calls, small code fixes and pulling facts out of documents, and priced it at $0.10 in and $0.50 out per million tokens. That is GPT-6 Luna's list price, and it is Claude Haiku 5.5's price on prompts up to 100K tokens. On Artificial Analysis's index it scores 36 at max effort, the same as Haiku and eight points over Luna, which scores 28. It also comes within a point of Meta's own Muse Spark 1.3 max, which AA lists at $2.39 per Index task against Ember's $0.14.",
+      "The sticker is not the bill. Artificial Analysis puts Ember at $0.14 per Index task, and Meta's chart puts Haiku at about $0.41 because Haiku thinks for much longer at max effort. Haiku also charges five times as much once a prompt passes 100K tokens, $0.50 in and $2.50 out, while Ember stays flat across its 1M window. On Ridge's simple shelf tag, list price per AA point, the two tie for best value. On what you would actually pay to run the index, Ember looks like the better deal, if Meta's chart holds up.",
+      "First-day posts on X were lively for a small-model drop, roughly a few hundred original posts in the first hours after the 9 November release, with almost nothing the day before. The thread that stuck was price: Artificial Analysis put Ember at 36, matching Haiku at about a third of the cost per task, and Alexandr Wang leaned into that efficient-frontier framing. Developers and aggregators mostly talked about using it as a cheap agent worker under Muse Wonder, and OpenRouter had it live the same day. Pushback was quieter but real. Some builders noted Meta's own launch table still trails Haiku on FrontierCode, others flagged closed weights and a high refuse rate on knowledge benches, and a few said this was not the launch people had been waiting for. Hands-on use outside Meta and partner demos was still thin early on.",
+      "The catch is everything Ridge cannot see yet. Most of Meta's eye-catching numbers, from AutomationBench to OSWorld, are from Meta's own table, and Vals, Arena+ and Cursor have not run it. It is closed, with no parameter count, so it does nothing for people who want to run models at home. Meta says it trained Ember using Muse Wonder Full, the model only Muse Code subscribers can use. That fits a pattern: Meta keeps its biggest model close and sells smaller ones built with its help.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1109",
     kind: "ranking",
     title: "Half-week opinion: Opus 5.5 stays the favorite, OpenAI fans wait for a release that did not come, and every rating holds",
