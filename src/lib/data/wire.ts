@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "claude-fable-5-2-1109",
+    title: "Anthropic ships Claude Fable 5.2, tied with Opus 5.5 on Vals Terminal-Bench 4.0",
+    blurb:
+      "Anthropic released Claude Fable 5.2 on 9 November at $8 per million input tokens and $40 per million output tokens, a 20% cut from Fable 5.1. It has a 1 million token context. Claude Mythos 5.2 is the same model, limited to organizations in Anthropic's Life Sciences and Cyber Verification Programs. Fable is on the Claude API, Claude Platform on AWS, Google Cloud, Microsoft Foundry, and paid Claude plans. Anthropic says standard outputs are up to 30% faster than Fable 5.1, and that fast mode reaches up to 2.5 times the output speed at $16 and $80. Vals AI scores it 65.15% on Terminal-Bench 4.0 with Mini-SWE-agent at high effort, tied for first of 63 with Claude Opus 5.5 (https://www.vals.ai/benchmarks/terminal-bench-4). Vals also ranks it first on the Vals Index at 71.31%, which Ridge does not carry. Artificial Analysis, Arena+ and CursorBench have not posted Fable 5.2 yet. Fable 5.1 keeps its own row.",
+    date: "2026-11-09",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+    beat: "release",
+    models: ["claude-fable-5.2", "claude-opus-5.5", "claude-fable-5.1"],
+  },
+  {
     id: "muse-ember-1109",
     title: "Meta releases Muse Ember, a small model that ties Claude Haiku 5.5 on AA's index",
     blurb: "Meta released Muse Ember on 9 November on its Model API and Muse Code at $0.10 in and $0.50 out per million tokens, with a 1M token context. Artificial Analysis scores it 36 on its Intelligence Index at max effort, level with Claude Haiku 5.5, and lists its cost at $0.14 per Index task. Meta says Haiku costs about $0.41 per task. Weights are closed and Meta has not given a parameter count. Meta's other numbers, including 37.8% on AutomationBench-AA and 46 on AA's Coding Agent Index, are its own claims.",

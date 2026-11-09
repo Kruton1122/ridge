@@ -1,6 +1,15 @@
 export const CHANGELOG = [
   {
     date: "2026-11-09",
+    title: "Claude Fable 5.2 joins the ledger; Vals Terminal-Bench 4.0 ties Opus 5.5",
+    items: [
+      "New row Claude Fable 5.2 (Anthropic, claude-fable-5-2, closed weights, 9 November). Claude Mythos 5.2 is the same model for organizations in Anthropic's Life Sciences and Cyber Verification Programs, not its own row. List $8 / $40 per 1M tokens, down from $10 / $50 on Fable 5.1. Cache reads $0.20, five-minute cache writes $10, one-hour cache writes $16, batch $4 / $20. Fast mode is speed set to fast, with no beta header, at $16 / $80. 1M context, 128K max output, adaptive thinking always on. Parameter count not disclosed. On the Claude API, Claude Platform on AWS, Google Cloud (Anthropic-managed and Google-managed), Microsoft Foundry, and paid Claude plans. No Amazon Bedrock id. Sources: https://www.anthropic.com/claude-fable-and-mythos-5-2 https://platform.claude.com/docs/en/about-claude/pricing https://platform.claude.com/docs/en/about-claude/models/overview",
+      "Vals Terminal-Bench 4.0 65.15, tied for first of 63 with Claude Opus 5.5 (Mini-SWE-agent, effort high). Vals says 17 of 198 attempts (8.59%) were fallbacks to Opus 5 or Opus 4.8. Vals did not publish a score that counts those fallbacks as failures. Every other board is blank, including AA Intelligence Index v5.0 and the archived v4.3.2 column. Vals Index 71.31% is Vals' figure and is not a Ridge column. Sources: https://www.vals.ai/benchmarks/terminal-bench-4 https://www.vals.ai/models/anthropic_claude-fable-5-2",
+      "Wire: claude-fable-5-2-1109. Anthropic says standard outputs are up to 30% faster than Fable 5.1. Fable 5.1 stays on the ledger. Best for agents and terminal now names Claude Fable 5.2 and Claude Opus 5.5 together at 65.15.",
+    ],
+  },
+  {
+    date: "2026-11-09",
     title: "Muse Ember joins the ledger at AA 36; Spark 1.3 max moves to v5; Decision Index v2 is news only",
     items: [
       "New row Muse Ember (Meta, muse-ember-1.0, closed weights, 9 November). AA Intelligence Index v5.0 36 at max effort, level with Claude Haiku 5.5. $0.10 / $0.50 per 1M tokens, cached input $0.004, 1M context, up to 512K output. No parameter count. Cursor, Arena, Vals, Cyber, Harvey and Robotics stay blank. Meta's other figures, including AutomationBench-AA 37.8% and Coding Agent Index 46, are its claims. Sources: https://research.meta.ai/blog/muse-ember https://artificialanalysis.ai/models/muse-ember",

@@ -855,6 +855,26 @@ export const MODELS: Model[] = [
     summary:
       "Meta's smallest Muse, released 9 November 2026 on the Meta Model API (muse-ember-1.0) and Muse Code, for agent subtasks such as tool calls, coding steps, routing and extraction. $0.10 in, $0.50 out per 1M tokens, cached input $0.004. 1M token context, up to 512K output. Closed weights, parameter count not disclosed. Artificial Analysis Intelligence Index v5.0 36 at max effort, level with Claude Haiku 5.5. The list price is flat. Haiku 5.5 is $0.50 / $2.50 above 100K tokens. AA lists Ember at $0.14 per Index task. Meta says Haiku costs about $0.41 per task. Meta's own table (AutomationBench-AA 37.8%, Coding Agent Index 46, Terminal-Bench 4.0 40.9) is its claim and not a Ridge board. No Vals, Arena+, CursorBench, AA Cyber or Harvey LAB-AA score yet.",
   }),
+  m({
+    id: "claude-fable-5.2",
+    name: "Claude Fable 5.2",
+    shortName: "Fable 5.2",
+    lab: "anthropic",
+    labName: "Anthropic",
+    released: "2026-11-09",
+    contextTokens: 1_000_000,
+    pricing: { inputPerM: 8, outputPerM: 40 },
+    license: "proprietary",
+    aliases: [
+      "fable 5.2",
+      "claude-fable-5.2",
+      "claude fable 5.2",
+      "fable-5-2",
+      "claude-fable-5-2",
+    ],
+    summary:
+      "Shipped 9 November 2026. Generally available as claude-fable-5-2. Claude Mythos 5.2 is the same model for organizations in Anthropic's Life Sciences and Cyber Verification Programs, not a separate release. List $8 / $40 per 1M tokens, down from $10 / $50 on Fable 5.1. Cache reads $0.20. Five-minute cache writes are $10, one-hour cache writes $16, and batch is $4 / $20. Fast mode (speed set to fast, no beta header) is up to 2.5x output speed at $16 / $80. 1M context, 128K max output, adaptive thinking always on. Closed weights, parameter count not disclosed. Fable blocks most cyber tasks and can fall back to another Claude model. Vals Terminal-Bench 4.0 65.15, tied #1 of 63 with Opus 5.5. AA Intelligence Index, Arena+, CursorBench and the other boards are blank. On the Claude API, Claude Platform on AWS, Google Cloud (Anthropic-managed and Google-managed), Microsoft Foundry, and paid Claude plans.",
+  }),
 ];
 
 export const BENCHMARKS: Benchmark[] = [
@@ -1184,6 +1204,7 @@ export const SCORES: Score[] = [
   s("gemini-3.8-flash", "aa-cyber", 25, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-09", "variant: high. Declines about a third of tasks on safety grounds; refuses most CyberGym tasks."),
   s("claude-fable-5.1", "aa-cyber", 25, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-09", "variant: max. Declines about a third of tasks on safety grounds; refuses nearly all CyberGym tasks."),
 
+  s("claude-fable-5.2", "terminal-bench-4", 65.15, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-09", "Mini-SWE-agent; effort high; tied #1 of 63 with Opus 5.5; 17 of 198 attempts (8.59%) served by Opus 5 or Opus 4.8 fallback"),
   s("claude-opus-5.5", "terminal-bench-4", 65.15, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-09", "Mini-SWE-agent; #1 of 61; 22 of 198 attempts served by Opus 5 or Opus 4.8 fallback, 58.08 counting those as failures"),
   s("claude-sonnet-5.5", "terminal-bench-4", 64.14, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-09", "Mini-SWE-agent; #2 of 61; 4 of 198 attempts served by Sonnet 5 fallback, 62.63 counting those as failures"),
   s("gpt-6-astra", "terminal-bench-4", 59.6, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-09", "Mini-SWE-agent; #5 of 61"),
