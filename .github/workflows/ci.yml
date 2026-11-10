@@ -43,6 +43,9 @@ jobs:
       - name: Check data tests
         run: node --test scripts/check-data.test.mjs
 
+      - name: Harvey parser test
+        run: python3 scripts/briefing_lab_test.py
+
       - run: npm run typecheck
 
       # `npm run lint` already fails on main (src/lib/app-data/client.server.ts,

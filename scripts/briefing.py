@@ -548,6 +548,21 @@ def _lab_variant(v):
     return low
 
 
+def _lab_setting_key(full: str):
+    """One effort setting, for deciding whether a table row is already in the data.
+
+    The chart object says 'Claude Sonnet 5.5 (max)'. The HTML table says
+    'Claude Sonnet 5.5 (Max, Default Fallback)'. Those are the same setting.
+    Comparison ignores case and a trailing ', Default Fallback'.
+    """
+    full = re.sub(r"\s+", " ", full or "").strip()
+    pm = re.search(r"\(([^)]*)\)\s*$", full)
+    effort = pm.group(1) if pm else ""
+    effort = re.sub(r",\s*default fallback\s*$", "", effort, flags=re.I).strip()
+    base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
+    return (base.casefold(), effort.casefold())
+
+
 def lab_note(variant, full, rank, total, halluc, ungated):
     """Public score note for a Harvey LAB-AA row, built only from AA's published figures."""
     bits = [f"variant: {variant}" if variant else f"listed as {full}"]
@@ -620,9 +635,12 @@ def parse_aa_lab(src: str):
             "note": lab_note(variant, full, rank, total, bd.get("hallucinationsPerTask"), bd.get("ungatedAverageAllPass")),
         })
     # The chart-default object is one effort setting. The HTML table lists the
-    # others. Add any table row the object did not already cover so apply can
-    # keep the best setting. Those rows have no ungated all-pass figure.
-    have = {e["fullName"].casefold() for e in entries}
+    # others. Add a table row only when that base name and effort are not
+    # already on an object. 'Max' and 'Max, Default Fallback' are one effort.
+    # Matching the full string instead lets the table copy in a second time,
+    # and apply then prefers it because its decimal is the rounded percent.
+    # Table-only rows have no ungated all-pass figure.
+    have = {_lab_setting_key(e["fullName"]) for e in entries}
     for row in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", src):
         cells = [
             re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", c))).strip()
@@ -631,9 +649,10 @@ def parse_aa_lab(src: str):
         if len(cells) < 6 or not cells[0].isdigit() or not re.fullmatch(r"\d+(\.\d+)?%", cells[3]):
             continue
         full = cells[2]
-        if not full or full.casefold() in have:
+        key = _lab_setting_key(full)
+        if not full or key in have:
             continue
-        have.add(full.casefold())
+        have.add(key)
         pm = re.search(r"\(([^)]+)\)\s*$", full)
         variant = _lab_variant(pm.group(1)) if pm else None
         base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
