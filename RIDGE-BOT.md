@@ -602,4 +602,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Checked 9 Nov: anthropic.com/claude-fable-and-mythos-5-2, platform pricing, models overview (now lists Amazon Bedrock ID `anthropic.claude-fable-5-2`; Claude Platform on AWS, both Google Cloud listings, and Microsoft Foundry have `claude-fable-5-2`), release notes for 9 Nov (fast mode, `speed: "fast"`, no beta header), vals.ai Terminal-Bench 4.0 and the Fable 5.2 model page. The Vals line that max effort ranks about 7th at nearly 3x the cost was not on those pages, so the wire does not say it.
 - `BOARD_WATCH` includes `claude-fable-5.2`. Version tokens already separate 5.2 from 5.1 and from Fable 5, so the matcher needed no new gate. The row is after Muse Ember in `MODELS`. Both are dated 2026-11-09, and the newest-entry card keeps the first of a date tie, which stays Ember.
 - Best for agents and terminal, computed, now names Fable 5.2 and Opus 5.5 together at 65.15. Smartest stays Gemini 4 Carbon. No new stars. No desk piece. Wire `claude-fable-5-2-1109` links to Anthropic. The Vals URL is in the blurb, the score source, the changelog, and llms.txt.
-- Not deployed. Publication stays with the coordinator (Frank, then the Pi).
+- Live on main at 9779825.
+
+## 2026-11-10: daily scrape commit
+
+- Commits the 10 Nov 07:30 daily scrape as the base for the next content PR (snapshot 2026-11-10, score asOf dates, voice asOf with scores unchanged, desk isFresh).
+- New cells, checked live 10 Nov: Claude Fable 5.2 AA Intelligence Index v5.0 65 (max, Default Fallback; xhigh 62, high 62, medium 56, low 54), first of 98 reasoning models; Arena+ 1538, first; Harvey LAB-AA 7.2 (max), #6 of 33. Inkling-2-Small Arena+ 1493. Muse Ember Vals Terminal-Bench 4.0 39.39 (#16 of 63).
+- Rank redos only: Terminal-Bench 4.0 notes now of 63, Harvey LAB-AA notes now of 33; values unchanged. Opus 5.5 TB4 note keeps Vals' #2 token (tb4_note rewrites it) but says it is the same 65.15 as Fable 5.2, a tie for first.
+- llms.txt AA headline renumbered with Fable 5.2 first; Muse Spark 1.3 max drops off the top 12.
+- Not in this commit (content PR to follow): Gemini 4 Carbon GA (10 Nov) status, summary and llms note, which still say partner access; CursorBench rows for Fable 5.2 (60.0 max) and Carbon (60.4 high); Fable 5.2 summary text; Fable 5.1 opinion note; Best for changelog lines.
