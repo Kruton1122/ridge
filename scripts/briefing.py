@@ -55,10 +55,10 @@ BOARD_WATCH = (
     "grok-4.7",            # blank SWE/TB; AA+Arena live
     "claude-sonnet-5.5",   # launched 2026-09-28; blank SWE; AA pre-release re-run pending
     "muse-spark-1.3-max",  # partner max row; Arena often blank; AA slug muse-spark-1-3
-    "muse-ember",          # Meta, 2026-11-09; AA v5 36 at max; other boards blank
-    "claude-fable-5.2",    # Anthropic, 2026-11-09; Vals TB4 65.15 tied #1; AA/Arena/CursorBench blank
+    "muse-ember",          # Meta, 2026-11-09; AA v5 36 at max; Vals TB4 39.39; other boards blank
+    "claude-fable-5.2",    # Anthropic, 2026-11-09; AA v5 65 max, Arena+ 1538, CursorBench 60.0 max, Harvey 7.2, TB4 65.15; blank Cyber/Robotics
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
-    "gemini-4-carbon",     # announced 2026-10-28; partner access only (cyber defenders, Fairwind); AA+Arena+TB4 live; blank CursorBench/Cyber/Harvey/Robotics
+    "gemini-4-carbon",     # GA 2026-11-10; AA 60 high, Arena+ 1528, TB4 63.13, CursorBench 60.4 high; blank Cyber/Harvey/Robotics
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
     "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
     "beam-1.0",            # Reflection, weights 2026-10-16; AA Index + Cyber only; blank Arena+/CursorBench/Vals/Harvey
@@ -618,6 +618,42 @@ def parse_aa_lab(src: str):
             "hallucinationsPerTask": bd.get("hallucinationsPerTask"),
             "ungatedAllPass": bd.get("ungatedAverageAllPass"),
             "note": lab_note(variant, full, rank, total, bd.get("hallucinationsPerTask"), bd.get("ungatedAverageAllPass")),
+        })
+    # The chart-default object is one effort setting. The HTML table lists the
+    # others. Add any table row the object did not already cover so apply can
+    # keep the best setting. Those rows have no ungated all-pass figure.
+    have = {e["fullName"].casefold() for e in entries}
+    for row in re.findall(r"<tr[^>]*>([\s\S]*?)</tr>", src):
+        cells = [
+            re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", c))).strip()
+            for c in re.findall(r"<td[^>]*>([\s\S]*?)</td>", row)
+        ]
+        if len(cells) < 6 or not cells[0].isdigit() or not re.fullmatch(r"\d+(\.\d+)?%", cells[3]):
+            continue
+        full = cells[2]
+        if not full or full.casefold() in have:
+            continue
+        have.add(full.casefold())
+        pm = re.search(r"\(([^)]+)\)\s*$", full)
+        variant = _lab_variant(pm.group(1)) if pm else None
+        base = re.sub(r"\s*\([^)]*\)\s*$", "", full).strip()
+        dec = float(cells[3].rstrip("%"))
+        if dec < 0 or dec > 100:
+            continue
+        hall = float(cells[5]) if re.fullmatch(r"\d+(\.\d+)?", cells[5]) else None
+        rank = int(cells[0])
+        entries.append({
+            "name": base,
+            "fullName": full,
+            "slug": full,
+            "variant": variant,
+            "score": dec,
+            "scoreDecimal": dec,
+            "rank": rank,
+            "total": total,
+            "hallucinationsPerTask": hall,
+            "ungatedAllPass": None,
+            "note": lab_note(variant, full, rank, total, hall, None),
         })
     entries.sort(key=lambda e: e["scoreDecimal"], reverse=True)
     if len(entries) < 5:

@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-10"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "fable-carbon-1110",
+    kind: "ranking",
+    title: "Fable 5.2 takes the top of the index the day Carbon goes on sale",
+    dek: "Fable leads AA by five points and Arena+ by ten Elo. Carbon wins CursorBench, and it is finally something you can buy.",
+    pull: "The smartest model on the index is not the one that wins inside Cursor.",
+    summary: "Claude Fable 5.2 leads AA Intelligence Index v5.0 at 65 and Arena+ at 1538. Gemini 4 Carbon, generally available the same day, is second on both and first on CursorBench at 60.4. Best value stays Claude Haiku 5.5 and Muse Ember at $0.008 per point. LongCat-2.5's weights are out, with no independent score.",
+    date: "2026-11-10",
+    sourceName: "Ridge",
+    sourceUrl: "https://artificialanalysis.ai/leaderboards/models",
+    models: ["claude-fable-5.2", "gemini-4-carbon", "claude-opus-5.5", "claude-haiku-5.5", "muse-ember"],
+    tags: ["ranking", "release"],
+    body: [
+      "Claude Fable 5.2 took the top of Artificial Analysis Intelligence Index v5.0 at 65, five points clear of Gemini 4 Carbon at 60, and the top of Arena+ at 1538 against Carbon's 1528. Harvey LAB-AA has Fable at 7.2, sixth of 33. It did this on the same day Carbon finally became generally available. On CursorBench the order flips. Cursor's own page puts Carbon at 60.4 on its high setting and Fable at 60.0 on max, a run Cursor prices at $32.79 a task. Carbon has no max run. Google's blog calls Carbon first on that board. The number Ridge stores is Cursor's.",
+      "The sticker is the other half of the split. Fable lists at $8 in and $40 out per million tokens. Carbon's list price is $4 and $20, the same as Gemini 4 Argon. The introductory price is $2 and $10 through 30 November, then $4 and $20 from 1 December. Caching is $0.10, then $0.20, and Google says it is implicit only. Batch is $1 and $5, then $2 and $10. Google says those prices apply only to the public Carbon model. Best value does not move. It is still Claude Haiku 5.5 and Muse Ember, tied at $0.008 per AA point, because that tag divides the mid list price by the index score. An introductory rate does not change it.",
+      "Fable is a poor fit for security work. It blocks most cyber tasks and can fall back to another Claude model. On Vals Terminal-Bench 4.0, where it ties Opus 5.5 at 65.15, Vals says 17 of 198 attempts were served by Opus 5 or Opus 4.8. AA Cyber and AA-Robotics stay blank. Carbon's public model is on the API now, but Carbon for cyber stays in the Fairwind Program, and Ridge has no public cyber score for that model either.",
+      "The same day, Meituan put LongCat-2.5 on Hugging Face under MIT, with no download gate. Meituan says it has 1.6 trillion parameters in total, about 48 billion active, and a 1 million token context. The config file lists 524,288 positions, which is 512K, so the post and the file do not agree. Artificial Analysis, Arena+ and Vals do not list it. The card's Terminal-Bench 4.0 of 38.5 and Terminal-Bench 2.1 of 88.4 are Meituan's own measurements. Our view: Fable is what the boards currently call the smartest, and what blind preference picks. Carbon is what wins in Cursor, at a lower list price, and more people can actually call it today. An open model this large still waits on someone else's score.",
+    ],
+  },
+  {
     id: "muse-ember-1109",
     kind: "release",
     title: "Meta's smallest Muse ties Haiku and costs a third as much to run",

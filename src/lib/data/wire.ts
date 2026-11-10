@@ -11,6 +11,50 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "claude-fable-5-2-scores-1110",
+    title: "Claude Fable 5.2 takes first on AA and Arena+, second on CursorBench",
+    blurb:
+      "Boards scored Claude Fable 5.2 on 10 November. Artificial Analysis puts it first on Intelligence Index v5.0 at 65 with max effort, five points ahead of Gemini 4 Carbon at 60. Arena+ puts it first at 1538, ahead of Carbon at 1528. Harvey LAB-AA puts it at 7.2, sixth of 33, also at max. Cursor's page puts the max run at 60.0, and lists that run at $32.79 a task. The other published Fable runs are extra high 56.3, high 56.9, medium 54.8 and low 53.2. Ridge keeps the best published setting. AA Cyber and AA-Robotics have no Fable 5.2 score. Vals Terminal-Bench 4.0 was already 65.15, tied for first of 63 with Opus 5.5, with 17 of 198 attempts served by another Claude model.",
+    date: "2026-11-10",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/leaderboards/models",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "gemini-4-carbon", "claude-opus-5.5"],
+  },
+  {
+    id: "gemini-4-carbon-ga-1110",
+    title: "Gemini 4 Carbon is generally available",
+    blurb:
+      "Google made Gemini 4 Carbon generally available on 10 November, in a post by Koray Kavukcuoglu. Paying developers get it on the Gemini API in AI Studio and Android Studio. Gemini for business offers it through the API, the model drop-down, Antigravity and CodeMender. AI Ultra subscribers get it in Antigravity, the Gemini app and AI Mode in Search. Carbon for cyber stays in the Fairwind Program. There is no free tier. The public model is $2 in and $10 out per million tokens through 30 November, then $4 and $20 from 1 December. Caching is $0.10, then $0.20, and Google says it is implicit only. Batch is $1 and $5, then $2 and $10. Google says those prices apply only to the public Carbon model. Ridge keeps the $4 / $20 list price, the same sticker as Argon. Cursor's page scores the high run at 60.4, Carbon's best published setting. There is no max run. Medium is 60.1 and low is 58.6. Google's blog says Carbon ranks first on CursorBench. That sentence is Google's claim. The cell on Ridge is Cursor's number.",
+    date: "2026-11-10",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    beat: "release",
+    models: ["gemini-4-carbon", "gemini-4-argon"],
+  },
+  {
+    id: "meituan-longcat-2-5-weights-1110",
+    title: "Meituan releases LongCat-2.5 weights under MIT",
+    blurb:
+      "Meituan released LongCat-2.5 weights on 10 November, following the 2 November API launch. The repo meituan-longcat/LongCat-2.5 on Hugging Face is public, not gated, and licensed MIT. Meituan's post says the model has 1.6 trillion parameters in total, about 48 billion active per token, and a 1 million token context. The config file lists max_position_embeddings of 524,288, a 512K window, so the post and the weights do not agree on context. Meituan's card lists Terminal-Bench 4.0 at 38.5 and Terminal-Bench 2.1 at 88.4. Those are Meituan's own measurements, which the card calls in-house and only indicative. Artificial Analysis, Arena+ and Vals do not list it, so it has no row.",
+    date: "2026-11-10",
+    outlet: "Meituan",
+    url: "https://huggingface.co/meituan-longcat/LongCat-2.5",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "gemini-robotics-2-5-1110",
+    title: "DeepMind posts Gemini Robotics 2.5 for its robotics partners",
+    blurb:
+      "Google DeepMind introduced Gemini Robotics 2.5 on 10 November, in a post by Carolina Parada. It is a vision-language-action model rolling out to DeepMind's robotics partners. DeepMind says success is 30 to 100 percent higher than earlier baselines, depending on the task, and that tasks finish 20 to 30 percent faster. On Mercedes-Benz lines in Kecskemet, Hungary, and Sindelfingen, DeepMind says Apptronik's Apollo 2 picked and packed parts with a 96 percent success rate. Those figures are DeepMind's. The model is not on AA-Robotics, which scores general language models that drive a robot arm by writing code, and it has no row.",
+    date: "2026-11-10",
+    outlet: "Google DeepMind",
+    url: "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "claude-fable-5-2-1109",
     title: "Anthropic ships Claude Fable 5.2, tied with Opus 5.5 on Vals Terminal-Bench 4.0",
     blurb:

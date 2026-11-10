@@ -71,7 +71,7 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index v4.3.2 58 (max with fallback), #1 on the board as of 28 Sept. CursorBench 4.0 57.8 (max, cursor.com), also #1. Arena+ Elo 1528, also #1. Terminal-Bench 2.1 87.64 (Vals, high, #1 on Vals). No SWE-bench score yet.",
     publicOpinionStars: 5,
-    publicOpinionNote: "Still the one people put in charge as planner and orchestrator, often with a cheap DeepSeek model writing the code or GPT-6.1 Sol reviewing it. Losing first place on AA to Gemini 4 Carbon has not dented that, since almost nobody can use Carbon yet.",
+    publicOpinionNote: "Still the one people put in charge as planner and orchestrator, often with a cheap DeepSeek model writing the code or GPT-6.1 Sol reviewing it.",
     publicOpinionAsOf: "2026-10-29",
   }),
   m({
@@ -430,7 +430,7 @@ export const MODELS: Model[] = [
     contextTokens: 1_000_000,
     pricing: { inputPerM: 4, outputPerM: 20 },
     license: "proprietary",
-    status: "partner",
+    status: "ga",
     aliases: [
       "gemini 4 carbon",
       "gemini-4-carbon",
@@ -441,7 +441,7 @@ export const MODELS: Model[] = [
       "google_gemini-4-carbon",
     ],
     summary:
-      "Announced 28 October 2026, two weeks after Argon. Not generally available: Google is giving access to a small group of cyber defenders first, then more trusted partners through its Fairwind Program, with developers, businesses and consumers to follow once Google has tuned its guardrails. No public API yet. Introductory price $2 / $10 per 1M tokens (cached input 95% off), then $4 / $20 when the introductory period ends; AA charts use the $4 / $20 standard price. 1M token context. AA Intelligence Index v5.0 59 (high), first on the board. Vals Terminal-Bench 4.0 63.13. Arena+ Elo 1528. Google's own cyber numbers (SEC-bench Pro 88.2%, ExploitGym 54.8%, CWE-bench 71.0%) are its claims and not Ridge boards. No CursorBench, AA Cyber, Harvey LAB-AA or AA-Robotics score yet.",
+      "Generally available on 10 November 2026, announced 28 October. Paid Gemini API in AI Studio and Android Studio. Gemini for business offers it through the API, the model drop-down, Antigravity and CodeMender. AI Ultra subscribers get it in Antigravity, the Gemini app and AI Mode in Search. Carbon for cyber stays in the Fairwind Program. No free tier. List price $4 / $20 per 1M tokens, the same sticker as Argon. Introductory price $2 / $10 through 30 November 2026, then $4 / $20 from 1 December. Cached input is $0.10, then $0.20, and Google says caching is implicit only. Batch is $1 / $5, then $2 / $10. Google says those prices apply only to the public Carbon model. 1M token context. AA Intelligence Index v5.0 60 (high), #2. Arena+ 1528, #2. Vals Terminal-Bench 4.0 63.13, #5 of 63. CursorBench 60.4 (high), #1. The cell is Cursor's number. Google's blog also says Carbon is first on CursorBench, which is Google's claim. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% are its claims and not Ridge boards. No AA Cyber, Harvey LAB-AA or AA-Robotics score yet.",
   }),
   m({
     id: "gemini-4-argon",
@@ -873,7 +873,7 @@ export const MODELS: Model[] = [
       "claude-fable-5-2",
     ],
     summary:
-      "Shipped 9 November 2026. Generally available as claude-fable-5-2. Claude Mythos 5.2 is the same model for organizations in Anthropic's Life Sciences and Cyber Verification Programs, not a separate release. List $8 / $40 per 1M tokens, down from $10 / $50 on Fable 5.1. Cache reads $0.20. Five-minute cache writes are $10, one-hour cache writes $16, and batch is $4 / $20. Fast mode (speed set to fast, no beta header) is up to 2.5x output speed at $16 / $80. 1M context, 128K max output, adaptive thinking always on. Closed weights, parameter count not disclosed. Fable blocks most cyber tasks and can fall back to another Claude model. Vals Terminal-Bench 4.0 65.15, tied #1 of 63 with Opus 5.5. AA Intelligence Index, Arena+, CursorBench and the other boards are blank. On the Claude API, Claude Platform on AWS, Amazon Bedrock (id anthropic.claude-fable-5-2), Google Cloud (Anthropic-managed and Google-managed), Microsoft Foundry, and paid Claude plans.",
+      "Shipped 9 November 2026. Generally available as claude-fable-5-2. Claude Mythos 5.2 is the same model for organizations in Anthropic's Life Sciences and Cyber Verification Programs, not a separate release. List $8 / $40 per 1M tokens, down from $10 / $50 on Fable 5.1. Cache reads $0.20. Five-minute cache writes are $10, one-hour cache writes $16, and batch is $4 / $20. Fast mode (speed set to fast, no beta header) is up to 2.5x output speed at $16 / $80. 1M context, 128K max output, adaptive thinking always on. Closed weights, parameter count not disclosed. Fable blocks most cyber tasks and can fall back to another Claude model. AA Intelligence Index v5.0 65 (max, #1). Arena+ 1538, #1. CursorBench 60.0 (max). Harvey LAB-AA 7.2, #6 of 33. Vals Terminal-Bench 4.0 65.15, tied #1 of 63 with Opus 5.5. AA Cyber and AA-Robotics are blank. On the Claude API, Claude Platform on AWS, Amazon Bedrock (id anthropic.claude-fable-5-2), Google Cloud (Anthropic-managed and Google-managed), Microsoft Foundry, and paid Claude plans.",
   }),
 ];
 
@@ -1174,6 +1174,8 @@ export const SCORES: Score[] = [
   s("qwen-3.8-max", "terminal-bench", 67.42, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Terminus 2; #35 of 76; Terminal-Bench 2.1"),
   s("deepseek-v4-pro", "terminal-bench", 54.68, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-2-1", "2026-10-06", "Vals lists it as DeepSeek V4 Pro 0813; Terminus 2; #52 of 76; Terminal-Bench 2.1"),
 
+  s("gemini-4-carbon", "cursor-bench", 60.4, "Cursor", "https://cursor.com/cursorbench", "2026-11-10", "high (best published). Carbon has no max run"),
+  s("claude-fable-5.2", "cursor-bench", 60.0, "Cursor", "https://cursor.com/cursorbench", "2026-11-10", "max effort"),
   s("claude-opus-5.5", "cursor-bench", 57.8, "Cursor", "https://cursor.com/cursorbench", "2026-09-22", "max effort"),
   s("claude-sonnet-5.5", "cursor-bench", 55.5, "Cursor", "https://cursor.com/cursorbench", "2026-09-28", "max effort"),
   s("gemini-4-argon", "cursor-bench", 52.9, "Cursor", "https://cursor.com/cursorbench", "2026-10-13", "high (best published; Argon has no max run). Medium, the default, scores 52.8"),
@@ -1261,7 +1263,7 @@ export const SCORES: Score[] = [
   s("gpt-6-luna", "harvey-lab-aa", 3.3, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: max; #17 of 33; 0.38 material hallucinations per task; 3.9% before the hallucination gate"),
   s("mistral-large-4", "harvey-lab-aa", 3.1, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "listed as Mistral Large 4 Preview; #18 of 33; 2.11 material hallucinations per task; 16.4% before the hallucination gate"),
   s("claude-sonnet-5.5", "harvey-lab-aa", 2.8, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: max; #19 of 33; 1.03 material hallucinations per task; 11.7% before the hallucination gate"),
-  s("claude-haiku-5.5", "harvey-lab-aa", 0.6, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: max; #25 of 33; 1.61 material hallucinations per task; 4.4% before the hallucination gate"),
+  s("claude-haiku-5.5", "harvey-lab-aa", 2.8, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: xhigh; #20 of 33; 1.61 material hallucinations per task"),
   s("deepseek-v4.1-flash", "harvey-lab-aa", 1.7, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-10-17", "variant: max; #15 of 27; 2.58 material hallucinations per task; 9.4% before the hallucination gate; September checkpoint, before the 1017 update"),
   s("glm-5.3", "harvey-lab-aa", 0.3, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: max; #27 of 33; 3.94 material hallucinations per task; 13.9% before the hallucination gate"),
   s("gemini-3.8-flash", "harvey-lab-aa", 0, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-10", "variant: high; #28 of 33; 13.96 material hallucinations per task; 6.7% before the hallucination gate"),
