@@ -11,6 +11,50 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "alibaba-qwen4-max-preview-1111",
+    title: "Alibaba opens a two-week preview of Qwen4-Max, then retires it",
+    blurb:
+      "Alibaba put Qwen4-Max into preview on 11 November at 10:00 Beijing time, the first Qwen4 model out. The model id is qwen4-max-preview, and Alibaba's docs call it the next flagship of the Qwen family. It reads text, images and video and writes text. It has a 1M token context and can write up to 393,216 tokens, a budget that thinking and the answer share. Thinking is on by default at xhigh, with low and medium as options. Access is through Alibaba's Token Plan subscription only, with no pay-as-you-go price, plus early access in the Qwen app, QwenStudio, QwenWork and Qoder. The preview ends at midnight Beijing time on 25 November. Alibaba says the model will not change before then and will be retired after. Alibaba has published no benchmarks, parameter count or per-token price. Artificial Analysis, Arena+, Vals and CursorBench do not list it, so it has no row. Ridge's Qwen row stays Qwen3.8-Max.",
+    date: "2026-11-11",
+    outlet: "Alibaba Cloud",
+    url: "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
+    beat: "release",
+    models: ["qwen-3.8-max"],
+  },
+  {
+    id: "gemini-decisions-api-1111",
+    title: "Google's first decision model scores 66 on AA's Decision Index, mid-pack among the specialists",
+    blurb:
+      "Google launched the Gemini Decisions API on 11 November, built on a new model, Gemini Decision 1 (gemini-decision-1). It does not write text. You send one input of up to 256K tokens, which can mix text, images, audio, video and PDFs. With it you send up to 1,000 questions with fixed answers: yes or no, a pick from 2 to 255 options, or a score on an ordered rubric. It returns each answer with probabilities. Google says a request takes 150 to 250 ms end to end. The price is $0.10 per million input tokens with nothing charged for output, and Google AI Studio has a free tier. Google says the model leads its own benchmark suite and that support is rolling out to OpenRouter, Vercel and others. Artificial Analysis scores it 66 on Decision Index v2.1, ninth of 18 decision models and level with Elephant 9B and Jev 1.14. That is seven points behind Drex Max v1.1 and GLiDE v1.2 at 73. General models still lead, with Claude Haiku 5.5 and GPT-6 Luna both at 76 on max effort. AA puts Gemini Decision 1 at $345 per million tasks, about three times Drex Max's $103, and 211 ms per task. Ridge does not track this board, so it has no row.",
+    date: "2026-11-11",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    beat: "release",
+    models: ["claude-haiku-5.5", "gpt-6-luna"],
+  },
+  {
+    id: "baidu-ernie-5-5-flash-preview-1111",
+    title: "Baidu ships ERNIE 5.5 Flash Preview and promises Apache 2.0 weights by 25 November",
+    blurb:
+      "Baidu released ERNIE 5.5 Flash Preview on 11 November, the first post-trained model on the ERNIE 5.5 Flash Base it opened on 5 November. It has 280B parameters in total, 14B active per token, a 1M token context, and takes text only. Baidu calls it an intermediate checkpoint and says post-training is still going. The API is live on Baidu's Qianfan platform at ¥2 in and ¥8 out per million tokens from 8:00 to 22:00 Beijing time, and half that overnight. For now Qianfan charges half of each of those prices. It is also free on OpenRouter. Baidu's Chinese post says the weights come out by 25 November, and the English post says they will be under Apache 2.0, unlike the Base model's own license. Baidu's table lists Terminal-Bench 4.0 at 46.5, AutomationBench at 61.9 and SpreadsheetBench V2 at 36.4. Those are Baidu's own runs, and its Terminal-Bench run uses Claude Code as the harness, not the Vals setup Ridge carries. Arena added it to battle mode on 11 November with no score yet. Artificial Analysis and Vals do not list it, so it has no row.",
+    date: "2026-11-11",
+    outlet: "Baidu ERNIE",
+    url: "https://ernie.baidu.com/release/ernie-5-5-flash-preview/",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "arena-agent-fable-5-2-1111",
+    title: "Claude Fable 5.2 takes first in Arena's Agent Arena by a wide margin",
+    blurb:
+      "Arena's Agent Arena put Claude Fable 5.2 at max effort first on 11 November, with a net improvement of 30.35%, plus or minus 3.93, over 4,731 sessions. Claude Opus 5.5 at max is second at 19.52% and Gemini 4 Carbon at high is third at 16.98%, a score Arena marks as preliminary. Fable 5.1 is fifth at 14.82%. Arena says Fable 5.2 also leads its Code, Work and Chat splits. The middle task cost $7.34 on Fable 5.2, against $5.50 on Opus 5.5 and $1.46 on Carbon. Agent Arena ranks models on signals from real agent sessions, such as users confirming a task is done, praise against complaints, and how well the model takes corrections. It is not a Ridge board. Ridge's Arena column is Arena+, where Fable 5.2 was already first at 1538.",
+    date: "2026-11-11",
+    outlet: "Arena",
+    url: "https://lmarena.ai/leaderboard/agent",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "claude-opus-5.5", "gemini-4-carbon", "claude-fable-5.1"],
+  },
+  {
     id: "claude-fable-5-2-scores-1110",
     title: "Claude Fable 5.2 takes first on AA and Arena+, second on CursorBench",
     blurb:

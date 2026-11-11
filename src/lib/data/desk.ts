@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-11"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "qwen4-ernie-previews-1111",
+    kind: "release",
+    title: "Two Chinese previews you can use today and nobody can score yet",
+    dek: "Qwen4-Max arrives as a two-week rental. ERNIE 5.5 Flash comes with a weights date. Neither has a number from a board Ridge tracks.",
+    pull: "A model that retires in two weeks is a demo, not a dependency.",
+    summary: "Alibaba opened Qwen4-Max as a Token Plan preview that ends on 25 November. Baidu shipped ERNIE 5.5 Flash Preview on Qianfan and free on OpenRouter, with weights promised by the same date. AA, Arena+, Vals and CursorBench have scored neither, so neither gets a row.",
+    date: "2026-11-11",
+    sourceName: "Ridge",
+    sourceUrl: "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview",
+    models: ["qwen-3.8-max"],
+    tags: ["alibaba", "baidu", "release"],
+    body: [
+      "The first Qwen4 is out, sort of. Alibaba opened Qwen4-Max as a preview on 11 November with a 1M token context, image and video input, and thinking on by default. You can only reach it through a Token Plan subscription or Alibaba's own apps. There is no per-token price, no benchmark and no parameter count. The docs say the model will not change during the preview and will be retired when it ends on 25 November. Baidu shipped ERNIE 5.5 Flash Preview the same day, a 280B model with 14B active that Baidu calls an intermediate checkpoint. It at least has a price on Qianfan and a free route on OpenRouter.",
+      "Many of the early Qwen posts on X are demos built in Qoder, Alibaba's coding agent, where several posts point to a limited-time 80 percent discount. Cedric Chee wrote that web and UI design look improved and that agent mode burns through usage limits, and he ranked DeepSeek V4.1 Flash above it for 3D work. Another tester liked its result against DeepSeek V4.1 but found it slow through Claude Code and other harnesses, and much faster inside Qoder. A post about a voxel pagoda built with it said the run took an hour and that its maker found it painfully slow, for a small gain over DeepSeek V4.1 Flash. That is a familiar first-day pattern. The demos look good, and the cost and speed complaints come with them.",
+      "Our view: a model that retires in two weeks is a demo, not a dependency. Do not wire qwen4-max-preview into anything you cannot switch off by 25 November. ERNIE is the more useful release for builders, with a list price of ¥2 in and ¥8 out at peak, half that while the promotion lasts, and Apache 2.0 weights promised by the end of the month. Its own table puts Terminal-Bench 4.0 at 46.5, but Baidu ran that with Claude Code as the harness, so it does not line up with the Vals number Ridge carries.",
+      "Neither model gets a row until a board we track scores it. Arena has ERNIE in battle mode already. Qwen4-Max is racing its own retirement date. If Artificial Analysis cannot run it before 25 November, the first Qwen4 may never get a public score at all, and the row Ridge eventually adds will be for whatever ships after it.",
+    ],
+  },
+  {
     id: "fable-carbon-1110",
     kind: "ranking",
     title: "Fable 5.2 takes the top of the index the day Carbon goes on sale",

@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-11",
+    title: "Qwen4-Max and ERNIE 5.5 Flash previews, Gemini Decision 1, Fable 5.2 tops Agent Arena",
+    items: [
+      "Wire: Alibaba Qwen4-Max Preview (qwen4-max-preview), 11 November. Text, image and video in, 1M context, up to 393,216 output tokens shared with thinking, thinking on by default at xhigh. Token Plan only, no pay-as-you-go price. Preview ends 24:00 on 25 November (UTC+8) and the model is retired after. No benchmarks, parameter count or per-token price, and no AA, Arena+, Vals or CursorBench score, so no row. Sources: https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview https://x.com/Alibaba_Qwen/status/2120335993643684315",
+      "Wire: Google Gemini Decisions API and Gemini Decision 1 (gemini-decision-1), 11 November. Closed-set answers with probabilities, up to 256K input tokens and 1,000 questions per request, 150 to 250 ms. $0.10 per 1M input tokens, $0 output, free tier in AI Studio. AA Decision Index v2.1 66 (65.98), ninth of 18 decision models, $345 per 1M tasks, 211 ms per task. Drex Max v1.1 and GLiDE v1.2 73. Haiku 5.5 and Luna (max) both 76 on v2.1. Not a Ridge board, no row. Sources: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/ https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index",
+      "Wire: Baidu ERNIE 5.5 Flash Preview, 11 November. 280B total, 14B active, 1M context, text only, intermediate checkpoint. Qianfan list ¥2 / ¥8 per 1M at peak, ¥1 / ¥4 off-peak, currently half price. Free on OpenRouter. Weights by 25 November (Chinese post), Apache 2.0 (English post), not on Hugging Face yet. Baidu's Terminal-Bench 4.0 46.5 (Claude Code harness), AutomationBench 61.9 and SpreadsheetBench V2 36.4 are its claims. In Arena battle mode, no score. No AA or Vals listing, no row. Sources: https://ernie.baidu.com/release/ernie-5-5-flash-preview/ https://cloud.baidu.cn/doc/qianfan/s/wmh4sv6ya",
+      "Wire: Arena Agent Arena (11 November) puts Claude Fable 5.2 (max) first at 30.35% net improvement over 4,731 sessions, ahead of Opus 5.5 (max) 19.52% and Gemini 4 Carbon (high, preliminary) 16.98%. Not a Ridge board; the Arena column stays Arena+. Source: https://lmarena.ai/leaderboard/agent",
+      "Desk: qwen4-ernie-previews-1111. Two previews with no independent score. Reactions are from public X posts on 11 November. No scores change.",
+    ],
+  },
+  {
     date: "2026-11-10",
     title: "Fable 5.2 leads AA and Arena+; Carbon goes GA and leads CursorBench",
     items: [
