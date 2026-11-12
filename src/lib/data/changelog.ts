@@ -1,6 +1,17 @@
 export const CHANGELOG = [
   {
     date: "2026-11-12",
+    title: "Gemini 4 Hydrogen added; Fable 5.2 leads AA-Robotics",
+    items: [
+      "New row: Gemini 4 Hydrogen (Google DeepMind, released 12 November, gemini-4-hydrogen, generally available). Filled: AA Intelligence Index v5.0 54 (xhigh), Vals Terminal-Bench 4.0 54.04 (#11 of 64, Mini-SWE-agent), CursorBench 54.3 (high, best published). Blank: Arena+, Harvey LAB-AA, AA-Robotics, AA Cyber. List $1.50 / $7.50 per 1M tokens, cached input $0.075, 1M context. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/ https://ai.google.dev/gemini-api/docs/pricing https://ai.google.dev/gemini-api/docs/models/gemini-4-hydrogen https://artificialanalysis.ai/models/gemini-4-hydrogen https://www.vals.ai/benchmarks/terminal-bench-4 https://cursor.com/cursorbench",
+      "Wire: Gemini 4 Hydrogen release. Agent Arena #5 for Hydrogen (High) at +14.80% net across 6,465 sessions, preliminary, 5.6 minutes per task, is in the wire only; not a Ridge board. Orchestrator in Antigravity confirmed by Google; its Terminal-Bench figures are Google's claims. Source: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "Claude Fable 5.2 AA-Robotics v0.1 75, #1 of 6, first model to score on the measure-box task. Astra 69.4, Sol 64.6, Argon 55.3, Opus 5.5 48.8 and Fable 5.1 46.3 are unchanged and re-ranked out of 6. AA's article table still shows only the original five, so the Fable cell is taken from AA's 11 November post. Robot arm on Best for moves from Astra to Fable 5.2. Other Best for cards, including Best value, do not change. Sources: https://x.com/ArtificialAnlys/status/2120698177016005029 https://artificialanalysis.ai/articles/aa-robotics",
+      "Wire: Fable 5.2 leads AA-Robotics at 75. Source: https://x.com/ArtificialAnlys/status/2120698177016005029",
+      "Vals Terminal-Bench 4.0 rank notes redone out of 64 after Hydrogen's 54.04 (#11). No other TB4 values change.",
+    ],
+  },
+  {
+    date: "2026-11-12",
     title: "Half-week news: MKA and LiveBench put Fable 5.2 first; Anthropic IPO range; Grok 4.8 update; first stars for Fable 5.2 and Carbon",
     items: [
       "Wire: AA and Google DeepMind's Multimodal Knowledge Agent benchmark (10 November). Climb WSR: Claude Fable 5.2 (max) 57%, Gemini 4 Carbon (high) 54%, Claude Opus 5.5 (max) 53%. Fable $31.97 per task, Carbon $6.29, GPT-6.1 Sol $1.11. Not a Ridge board. Source: https://artificialanalysis.ai/articles/google-deepmind-multimodal-knowledge-agent",

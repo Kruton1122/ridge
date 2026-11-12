@@ -11,6 +11,28 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "gemini-4-hydrogen-1112",
+    title: "Google ships Gemini 4 Hydrogen, a fast Gemini 4 tier at $1.50 / $7.50",
+    blurb:
+      "Google DeepMind released Gemini 4 Hydrogen on 12 November. It is the fast, efficient Gemini 4 model, meant for everyday coding and agent work, and Google presents it as the upgrade from Gemini 3.8 Flash. The API id is gemini-4-hydrogen (stable). List price is a flat $1.50 per million input tokens and $7.50 per million output tokens across the 1 million token context, with cached input at $0.075. Implicit caching only; batch and flex are $0.75 / $3.75. The Gemini API has a free tier. Thinking levels are low, medium, high (the default) and a new xhigh. Input is text, image, video, speech and PDF; output is text. It is in Google AI Studio, the Gemini API, Gemini for business, the Gemini app, Google Search, and Google Antigravity for paid Pro and Ultra subscribers. Free Gemini app users get it through automatic model selection when Google picks it for the prompt. Artificial Analysis scores it 54 on Intelligence Index v5 at xhigh, 51 at high, 41 at medium and 27 at low. That puts xhigh one point behind Claude Sonnet 5.5 and GPT-6.1 Sol, both 55, and four points above Gemini 4 Argon at 50. AA also reports a 33% all-pass score on GDP.pdf at medium, tied for first, an 8% hallucination rate on AA-Omniscience, and about 200 output tokens per second. Vals AI scores it 54.04% on Terminal-Bench 4.0 with Mini-SWE-agent, eleventh of 64. CursorBench is 54.3 at high, the best published effort. It is not yet on Arena+, Harvey LAB-AA or AA-Robotics. Google's own Terminal-Bench 4.1 figure of 57% is Google's claim. On Arena's Agent Arena, which Ridge does not carry as a board, Gemini 4 Hydrogen (High) debuts fifth at +14.80% net improvement across 6,465 sessions, marked preliminary. It is the fastest model in the top 10 on that board, at 5.6 minutes per task. Google also launched Orchestrator in Antigravity, which switches between Carbon and Hydrogen in one session. Google says Orchestrator reached near-Carbon success rates on Terminal-Bench 4.0 while using 24% less quota and finishing 19% faster; that is Google's claim.",
+    date: "2026-11-12",
+    outlet: "Google DeepMind",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+    beat: "release",
+    models: ["gemini-4-hydrogen", "gemini-4-carbon", "gemini-4-argon", "claude-sonnet-5.5", "gpt-6.1-sol"],
+  },
+  {
+    id: "fable-5-2-aa-robotics-1111",
+    title: "Fable 5.2 takes the lead on AA-Robotics at 75",
+    blurb:
+      "Artificial Analysis says Claude Fable 5.2 is the new leader on AA-Robotics v0.1, scoring 75, ahead of GPT-6 Astra at 69.4 and GPT-6.1 Sol at 64.6. AA posted the result on 11 November. Fable 5.2 is the first model to score on the measure-box task. AA says it left the tape measure in the scene and used the markings as a scale, estimating the box size from video. Ridge's other AA-Robotics scores are unchanged: Gemini 4 Argon 55.3, Claude Opus 5.5 48.8 and Claude Fable 5.1 46.3. The board is now six models, with Fable 5.2 first. AA's article table on the AA-Robotics page still shows only the original five from October, so the Fable 5.2 figure is taken from AA's post. The Robot arm pick on Best for moves from Astra to Fable 5.2.",
+    date: "2026-11-11",
+    outlet: "Artificial Analysis",
+    url: "https://x.com/ArtificialAnlys/status/2120698177016005029",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "gpt-6-astra", "gpt-6.1-sol", "gemini-4-argon", "claude-opus-5.5", "claude-fable-5.1"],
+  },
+  {
     id: "aa-mka-benchmark-1110",
     title: "AA and DeepMind launch MKA, a test of office work from visual files, and Fable 5.2 leads it",
     blurb:

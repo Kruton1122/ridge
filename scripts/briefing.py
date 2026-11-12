@@ -56,9 +56,10 @@ BOARD_WATCH = (
     "claude-sonnet-5.5",   # launched 2026-09-28; blank SWE; AA pre-release re-run pending
     "muse-spark-1.3-max",  # partner max row; Arena often blank; AA slug muse-spark-1-3
     "muse-ember",          # Meta, 2026-11-09; AA v5 36 at max; Vals TB4 39.39; other boards blank
-    "claude-fable-5.2",    # Anthropic, 2026-11-09; AA v5 65 max, Arena+ 1538, CursorBench 60.0 max, Harvey 7.2, TB4 65.15; blank Cyber/Robotics
+    "claude-fable-5.2",    # Anthropic, 2026-11-09; AA v5 65 max, Arena+ 1538, CursorBench 60.0 max, Harvey 7.2, TB4 65.15, AA-Robotics 75; blank Cyber
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
     "gemini-4-carbon",     # GA 2026-11-10; AA 60 high, Arena+ 1528, TB4 63.13, CursorBench 60.4 high; blank Cyber/Harvey/Robotics
+    "gemini-4-hydrogen",   # GA 2026-11-12; AA 54 xhigh, TB4 54.04, CursorBench 54.3 high; blank Arena+/Harvey/Robotics/Cyber
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
     "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
     "beam-1.0",            # Reflection, weights 2026-10-16; AA Index + Cyber only; blank Arena+/CursorBench/Vals/Harvey
@@ -829,6 +830,9 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gemini 4 carbon",
         "gemini-4-carbon",
         "gemini-4 carbon",
+        "gemini-4-hydrogen",
+        "gemini-4 hydrogen",
+        "gemini 4 hydrogen",
         "gemini-4-argon",
         "gemini-4 argon",
         "kimi-k3",
