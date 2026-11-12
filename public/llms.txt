@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-11
+- Snapshot: 2026-11-12
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -17,6 +17,13 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-10): AA and Google DeepMind Multimodal Knowledge Agent (MKA) benchmark, 200 private visual knowledge-work tasks run in Stirrup. Climb WSR: Claude Fable 5.2 (max) 57%, Gemini 4 Carbon (high) 54%, Claude Opus 5.5 (max) 53%. Not a Ridge board. Source: https://artificialanalysis.ai/articles/google-deepmind-multimodal-knowledge-agent
+News (2026-11-11): LiveBench 2.0 overall: Claude Fable 5.2 (xhigh) 84.9, GPT-6 Astra 84.5, Claude Fable 5.1 84.0, Gemini 4 Carbon 83.5, Claude Opus 5.5 83.4. Not a Ridge board. Source: https://livebench.ai/
+News (2026-11-09): AA Endpoint Accuracy Index v1.1. 24 of 103 open-model API endpoints score statistically below AA's reference deployment; causes include output caps, less reasoning, tool-call handling and timeouts. Not comparable with v1.0. Source: https://artificialanalysis.ai/articles/endpoint-accuracy-index-v1-1
+News (2026-11-10): Anthropic IPO roadshow. 825 million Class A shares at $70 to $78, Nasdaq ticker ANT. Source: https://www.anthropic.com/news/roadshow-launch
+News (2026-11-10): Elon Musk says Grok 4.8 finished pre-training, is in RL, gets a soft rollout to Bot users this week, and is not as good as Claude Opus 5.5. No xAI model page, price or benchmark; not a Ridge row. Source: https://x.com/elonmusk/status/2120088070443655190
+News (2026-11-10): The Gross committee released OpenAI's Yang-Mills Lean proof and says it proves the existence of pure Yang-Mills theory under the standard problem statements; the mass gap remains open. Source: https://www.kitp.ucsb.edu/statement-by-the-yangmills-working-group
+Desk (2026-11-12): Half-week opinion. Claude Fable 5.2 first rated at 4 stars, Gemini 4 Carbon at 3, Claude Opus 5.5 holds at 5. From public X posts, 9 to 12 November.
 News (2026-11-11): Alibaba Qwen4-Max Preview (qwen4-max-preview). Text, image and video in, 1M context, up to 393,216 output tokens shared with thinking, thinking on by default (xhigh). Token Plan only, no pay-as-you-go. Preview runs to 24:00 25 November (UTC+8), then the model is retired. No benchmarks, parameter count or price; no independent score, not a Ridge row. Source: https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview
 News (2026-11-11): Google Gemini Decisions API, model gemini-decision-1. Closed-set decisions with probabilities, 256K input, up to 1,000 questions per request, 150 to 250 ms. $0.10 per 1M input tokens, $0 output. AA Decision Index v2.1 66, ninth of 18 decision models; Drex Max v1.1 and GLiDE v1.2 73. Not a Ridge board. Sources: https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/ https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index
 News (2026-11-11): Baidu ERNIE 5.5 Flash Preview, 280B total / 14B active, 1M context, text only, intermediate checkpoint. Qianfan ¥2 / ¥8 per 1M at peak (currently half price), free on OpenRouter. Weights promised by 25 November under Apache 2.0. Baidu's Terminal-Bench 4.0 46.5 (Claude Code harness) is its claim. No AA, Arena or Vals score, not a Ridge row. Source: https://ernie.baidu.com/release/ernie-5-5-flash-preview/

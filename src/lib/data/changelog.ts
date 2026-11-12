@@ -1,5 +1,18 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-12",
+    title: "Half-week news: MKA and LiveBench put Fable 5.2 first; Anthropic IPO range; Grok 4.8 update; first stars for Fable 5.2 and Carbon",
+    items: [
+      "Wire: AA and Google DeepMind's Multimodal Knowledge Agent benchmark (10 November). Climb WSR: Claude Fable 5.2 (max) 57%, Gemini 4 Carbon (high) 54%, Claude Opus 5.5 (max) 53%. Fable $31.97 per task, Carbon $6.29, GPT-6.1 Sol $1.11. Not a Ridge board. Source: https://artificialanalysis.ai/articles/google-deepmind-multimodal-knowledge-agent",
+      "Wire: LiveBench 2.0 (updated 11 November). Fable 5.2 (xhigh) 84.9, GPT-6 Astra 84.5, Fable 5.1 84.0, Carbon 83.5, Opus 5.5 83.4. Not a Ridge board. Source: https://livebench.ai/",
+      "Wire: AA Endpoint Accuracy Index v1.1 (9 November). 24 of 103 open-model endpoints score below AA's own reference deployment; all 22 DeepSeek V4.1 Flash 1017 endpoints are in line. Not comparable with v1.0. Source: https://artificialanalysis.ai/articles/endpoint-accuracy-index-v1-1",
+      "Wire: Anthropic IPO roadshow (10 November). 825 million Class A shares at $70 to $78, Nasdaq ticker ANT. Pricing 18 November and trading 19 November per CNBC sources. Sources: https://www.anthropic.com/news/roadshow-launch https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html",
+      "Wire: Elon Musk on X (10 November): Grok 4.8 pre-training done, now in RL, soft rollout to Bot users this week, not as good as Opus 5.5; Grok 5 should pass Opus 5.5 in two or three months. Nothing from xAI yet, no row. Source: https://x.com/elonmusk/status/2120088070443655190",
+      "Wire: the Gross committee released OpenAI's Yang-Mills Lean code (10 November) and says it proves the existence of pure Yang-Mills theory under the standard problem statements. The mass gap remains open. Sources: https://www.kitp.ucsb.edu/statement-by-the-yangmills-working-group https://www.scientificamerican.com/article/openais-shepherds-affirm-blockbuster-physics-result/",
+      "Opinion stars from public X posts, 9 to 12 November: Claude Fable 5.2 gets its first rating at 4. Gemini 4 Carbon gets its first rating at 3. Claude Opus 5.5 holds at 5 with a new note. All other ratings hold. Desk: halfweek-opinion-1112. No scores change.",
+    ],
+  },
+  {
     date: "2026-11-11",
     title: "Qwen4-Max and ERNIE 5.5 Flash previews, Gemini Decision 1, Fable 5.2 tops Agent Arena",
     items: [

@@ -11,6 +11,72 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-mka-benchmark-1110",
+    title: "AA and DeepMind launch MKA, a test of office work from visual files, and Fable 5.2 leads it",
+    blurb:
+      "Artificial Analysis launched Google DeepMind's Multimodal Knowledge Agent benchmark on 10 November. It has 200 private tasks across 10 industries where the key facts sit in visual files such as architectural drawings, engineering schematics and clinical scans, and the agent has to hand back a report, spreadsheet, slide deck or marked-up drawing. AA runs every task in its open-source Stirrup harness with up to 250 turns, and GPT-6 Luna (medium) grades the files against expert rubrics of about 70 weighted checks each. The headline score, Climb WSR, is the weighted share of the harder checks passed. Claude Fable 5.2 (max) leads at 57%, ahead of Gemini 4 Carbon (high) at 54% and Claude Opus 5.5 (max) at 53%. AA puts Fable at $31.97 per task, more than five times Carbon's $6.29 and about 29 times GPT-6.1 Sol's $1.11. No model leads all 10 industries. Ridge does not carry this board, so no scores change.",
+    date: "2026-11-10",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/google-deepmind-multimodal-knowledge-agent",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "gemini-4-carbon", "claude-opus-5.5", "gpt-6.1-sol"],
+  },
+  {
+    id: "livebench-fable-5-2-1111",
+    title: "Fable 5.2 tops LiveBench 2.0 by less than half a point",
+    blurb:
+      "LiveBench's 2.0 leaderboard, last updated 11 November, puts Claude Fable 5.2 (xhigh) first overall at 84.9, just ahead of GPT-6 Astra at 84.5, Claude Fable 5.1 at 84.0, Gemini 4 Carbon at 83.5 and Claude Opus 5.5 at 83.4. LiveBench 2.0 hands models long jobs such as decks, research reports, bug fixes and apps across seven suites, and counts long agentic work double. Fable leads the agentic suite at 82.9, about seven points over Astra's 75.6, but trails on coding, where Carbon is first at 91.0 and Fable scores 79.2. LiveBench puts the cost per successful task at $9.85 for Fable and $2.02 for Carbon. The 2.0 scale does not compare with LiveBench v1. Ridge does not carry LiveBench, so no scores change.",
+    date: "2026-11-11",
+    outlet: "LiveBench",
+    url: "https://livebench.ai/",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "gpt-6-astra", "claude-fable-5.1", "gemini-4-carbon", "claude-opus-5.5"],
+  },
+  {
+    id: "aa-endpoint-accuracy-v1-1-1109",
+    title: "AA's provider accuracy check finds 24 of 103 open-model endpoints below the reference",
+    blurb:
+      "Artificial Analysis released Endpoint Accuracy Index v1.1 on 9 November. It runs three tests (BFCL-500 for tool calling, HLE-250 for reasoning and AA-LCR-25 for long-context recall) against each serverless endpoint and against AA's own deployment of the official weights, and reports each endpoint as a share of that reference. v1.1 fixes two answer keys in AA-LCR-25 and runs it 25 times per question instead of 10, so raw scores do not compare with v1.0. GLM-5.3 Flash and Muse Spark Open join, and DeepSeek V4.1 Flash 1017 replaces DeepSeek V4 Pro. Of 103 endpoints, 79 were in line with the reference and 24 fell below it. All 22 DeepSeek V4.1 Flash 1017 endpoints held up. GLM-5.3 had 10 of 26 below, and one endpoint's 16,384-token output cap took its HLE-250 score to 7.6% against 63.6% for the reference. AA blames output caps, endpoints that reason less, broken tool-call handling and request timeouts. The results were measured from 8 October to 4 November. Not a Ridge board.",
+    date: "2026-11-09",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/articles/endpoint-accuracy-index-v1-1",
+    beat: "ranking",
+    models: ["deepseek-v4.1-flash", "glm-5.3", "muse-spark-open", "kimi-k3"],
+  },
+  {
+    id: "anthropic-ipo-price-range-1110",
+    title: "Anthropic sets its IPO range at $70 to $78 a share",
+    blurb:
+      "Anthropic launched its IPO roadshow on 10 November. It is offering 825 million Class A shares, 801,351,354 from the company and 23,648,646 from existing holders, at $70 to $78 each, and expects to give underwriters an option on 123.75 million more. It has applied to list on Nasdaq as ANT. CNBC, citing people familiar with the plan, reports pricing on 18 November, trading on 19 November and about 20% of shares set aside for retail buyers. At the top of the range CNBC puts the fully diluted value at up to $1.405 trillion and net proceeds at up to $64.35 billion. CNBC also reports that the amended filing adds a $26 billion private placement at the IPO price with AMD, Broadcom, Google, Micron, Microsoft, Nvidia and TSMC, and gives run-rate revenue of about $81 billion at the end of October. No scores change.",
+    date: "2026-11-10",
+    outlet: "Anthropic / CNBC",
+    url: "https://www.anthropic.com/news/roadshow-launch",
+    beat: "industry",
+    models: [],
+  },
+  {
+    id: "xai-grok-4-8-soft-rollout-1110",
+    title: "Musk says Grok 4.8 is in RL, trails Opus 5.5, and gets a soft rollout this week",
+    blurb:
+      "Elon Musk wrote on X on 10 November that xAI had dropped JAX and SGLang and rewritten its whole RL and inference stack in C and C++, which took extra time. He said Grok 4.8's pre-training is done, the SFT data needed a lot of cleanup, the model is now in RL with evals starting to climb, and xAI will do a soft rollout \"to Bot users later this week\". He said 4.8 will bear no resemblance to 4.7 and is not yet incredible. Asked in the same thread how it compares with Claude Opus 5.5, he replied: \"Not as good. Opus 5.5 is a masterpiece.\" He added that Grok 5 should exceed Opus 5.5, maybe in two or three months. xAI has published no model page, price or benchmark for Grok 4.8, and as of 12 November Ridge could not confirm the rollout from xAI itself. Grok 4.7 stays xAI's newest row.",
+    date: "2026-11-10",
+    outlet: "Elon Musk / X",
+    url: "https://x.com/elonmusk/status/2120088070443655190",
+    beat: "rumor",
+    models: ["grok-4.7", "claude-opus-5.5"],
+  },
+  {
+    id: "openai-yang-mills-lean-release-1110",
+    title: "Gross panel releases OpenAI's Yang-Mills Lean proof and backs the existence result",
+    blurb:
+      "The committee chaired by Nobel laureate David Gross at KITP published the Lean code OpenAI submitted on 28 October for its AI-generated Yang-Mills proof on 10 November, with an assessment of how it works. The committee's 9 November statement says the submission proves the existence of pure Yang-Mills theory according to the problem statements that are standard in physics and mathematics. That is the first part of the Clay Millennium Prize problem. The mass gap, the harder part, remains open. The committee wrote that it used OpenAI's Astra model to help digest the Lean code and does not claim to fully understand the proof yet. NYU mathematician Scott Armstrong told Scientific American that this kind of review could be done faster in the open. No scores change.",
+    date: "2026-11-10",
+    outlet: "KITP / Scientific American",
+    url: "https://www.scientificamerican.com/article/openais-shepherds-affirm-blockbuster-physics-result/",
+    beat: "labs",
+    models: ["gpt-6-astra"],
+  },
+  {
     id: "alibaba-qwen4-max-preview-1111",
     title: "Alibaba opens a two-week preview of Qwen4-Max, then retires it",
     blurb:

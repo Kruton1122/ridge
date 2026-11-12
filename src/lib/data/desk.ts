@@ -2,7 +2,7 @@ import type { NewsItem } from "./types";
 
 export const DESK_FRESH_DAYS = 7;
 
-export function isFresh(date: string, asOf = "2026-11-11"): boolean {
+export function isFresh(date: string, asOf = "2026-11-12"): boolean {
   const a = Date.parse(`${date}T00:00:00Z`);
   const b = Date.parse(`${asOf}T00:00:00Z`);
   if (Number.isNaN(a) || Number.isNaN(b)) return false;
@@ -10,6 +10,25 @@ export function isFresh(date: string, asOf = "2026-11-11"): boolean {
 }
 
 export const NEWS: NewsItem[] = [
+  {
+    id: "halfweek-opinion-1112",
+    kind: "ranking",
+    title: "Half-week opinion: Fable 5.2 wins the demos, Opus 5.5 keeps the day job, and Carbon gets its first rating",
+    dek: "Public posts on X from 9 to 12 November. Fable 5.2 and Gemini 4 Carbon get their first stars. Opus 5.5 holds at 5.",
+    pull: "\"Opus 5.5 will still remain my workhorse, and I’ll use Fable 5.2 sparingly as an orchestrator.\"",
+    summary: "Claude Fable 5.2 enters at 4: praised for visual polish and long research jobs, knocked for cost, speed and how fast it uses up plan limits. Gemini 4 Carbon enters at 3: liked for the price, called slow. Opus 5.5 holds at 5, and its note now says heavy users are keeping it as their workhorse. Every other rating holds.",
+    date: "2026-11-12",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/rohit3a/status/2120623488864264564",
+    models: ["claude-fable-5.2", "claude-opus-5.5", "gemini-4-carbon", "claude-sonnet-5.5", "claude-haiku-5.5", "gpt-6-astra", "gpt-6.1-sol", "grok-4.7", "deepseek-v4.1-flash"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Claude Fable 5.2 gets its first rating, 4 stars. It was the most discussed model of the week, and the posts people liked most were demos: an animated launch video it made on high effort (about 210 likes), a small 3D world built around a rigged robot, and an iceberg scene run at four effort levels that cost $24 on high and $642 on Ultra. One user wrote that it is much stronger than Opus 5.5 and Fable 5.1 at long research jobs. The complaints were just as steady. A widely viewed post (about 150 likes) said it burns 30 to 50 percent more tokens than Opus 5.5, others called it painfully slow, and several warned that it eats plan limits fast. Launch posts from partners such as Zapier and Shortcut are vendor claims, so they did not count.",
+      "Claude Opus 5.5 holds at 5. A lot of the Fable talk was really about Opus, because people who ran Fable for a day or two kept going back. One wrote that after two days and two limit resets he will keep Opus 5.5 for most tasks because Fable overthinks. Another, liked 27 times, called Fable an iterative bump he would not notice most of the time. Asked how Grok 4.8 compares, Elon Musk called Opus 5.5 \"a masterpiece.\" Copy-paste posts about Anthropic's advisor setup, where Sonnet or Haiku does the work and Opus is on call, spread widely but say little about quality, so Sonnet 5.5 and Haiku 5.5 hold at 3.",
+      "Gemini 4 Carbon gets its first rating, 3 stars, now that any paying developer can use it. Value is the main praise. One side-by-side (about 110 likes) ran the same voxel prompt on Carbon and Opus 5.5 for about $0.95 against about $12, and another tester said it reached about 80 percent of Fable and Astra on a Three.js scene. Every asked seven people to try it, and six said they would use it at least sometimes. Speed is the main complaint. A post liked about 150 times called it super slow, and a team that ran Carbon and Fable on the same four prompts said Fable finished all four on the first try and Carbon one, taking almost twice as long. The $2 and $10 intro price doubles on 1 December, which could change the value case.",
+      "OpenAI's models hold. The talk was still mostly GPT-6.2 rumors, and nothing has shipped. Grok 4.7 holds, since Grok posts were about Musk's 4.8 update and Grok Bot usage limits rather than 4.7 itself. Kimi K3.1 Pro and DeepSeek V4.1 Flash hold. Chinese-model posts were mostly about the Qwen4-Max and ERNIE previews, and one tester who ran more than 100 tasks said DeepSeek V4.1 Flash still holds up against far larger models. Our view: Fable 5.2 is the model people show off, and Opus 5.5 is still the one they use every day.",
+    ],
+  },
   {
     id: "qwen4-ernie-previews-1111",
     kind: "release",
