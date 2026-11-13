@@ -1,5 +1,18 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-13",
+    title: "Inkling 2 Small open weights; AA Cyber Hy4; Vals Financial Coaching Bench; Decider v1.3; DeepSeek API tools",
+    items: [
+      "Inkling 2 Small row flipped from proprietary to open-weight after Apache 2.0 checkpoints landed on Hugging Face on 12 November (thinkingmachines/Inkling-2-Small, plus an MXFP8 variant; public, ungated; 594B total / 17B active). AA Intelligence Index v5.0 31 was already on the row and is unchanged; Arena+ 1493 and Vals Terminal-Bench 4.0 12.63 were already filled. Best open weights stays Kimi K3.1 Pro (46). Sources: https://thinkingmachines.ai/news/inkling-2-small/ https://huggingface.co/thinkingmachines/Inkling-2-Small https://artificialanalysis.ai/models/inkling-2-small",
+      "Wire: Inkling 2 Small weights. Code Arena WebDev 1647 (#1 US open, #4 open globally, #23 overall) and Agent Arena (#1 US open, #2 open overall, #22 overall, +2.9% net across 11.5k sessions) are in the wire only; not Ridge boards. Sources: https://x.com/thinkymachines/status/2120982625582195011 https://x.com/arena/status/2121018024610455580 https://x.com/arena/status/2121041107220037972",
+      "Wire: AA Cyber Index update. Official AA scrape on 13 November: Kimi K3.1 Pro 64, Hy4 58, DeepSeek V4.1 Flash 1017 (max) 57. Those rounded scores were already on the board. Hy4 has no row (weights, params and license unpublished). Fable 5.2 is not on the index, so its Cyber cell stays blank. No other blank Cyber cell on an existing row could be filled. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+      "Wire: Vals Financial Coaching Bench (13 November, 28 models, 256 scenarios, with NextLadder). Claude Opus 5.5 76.16%, Muse Spark 1.2 75.74%, Claude Fable 5.1 75.71%. Not a Ridge board. Source: https://www.vals.ai/benchmarks/financial-coaching-bench",
+      "Wire: Perplexity Decider v1.3 and Decider Flash v1.3, Apache 2.0 open-weight decision models, announced 12 November (HF repos created 9 November). Locate span extraction is new. API $0.02 and $0.01 per 1M input tokens, output free. Vendor scores only; no row. Sources: https://docs.perplexity.ai/docs/decisions/quickstart https://huggingface.co/perplexity-ai/pplx-decider-v1.3",
+      "Wire: DeepSeek API, 13 November. App features (search, files, links, safety, voice) and standalone OCR, ASR and TTS APIs. Platform update, not a new model. Source: https://api-docs.deepseek.com/news/news261113/",
+      "Daily scrape 13 November was dates only. It had rewritten the five original AA-Robotics notes as #1-#5 of 5 because AA's article table still omits Fable 5.2; those notes are restored to #2-#6 of 6, and apply-briefing-staging now unions the table with catalog-only robotics scores so the stale table cannot shrink the denominator again.",
+    ],
+  },
+  {
     date: "2026-11-12",
     title: "Gemini 4 Hydrogen added; Fable 5.2 leads AA-Robotics",
     items: [

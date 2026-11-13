@@ -11,6 +11,61 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "thinking-machines-inkling-2-small-weights-1112",
+    title: "Thinking Machines releases Inkling 2 Small weights under Apache 2.0",
+    blurb:
+      "Thinking Machines published Inkling 2 Small's weights on 12 November, under Apache 2.0. The lab posted the news at about 3:50 PM Eastern, and the checkpoints are public and ungated on Hugging Face as thinkingmachines/Inkling-2-Small, plus an MXFP8 variant. It is a mixture-of-experts model with 594 billion parameters in total and 17 billion active, text and image in, text out, and a 1 million token context. The native NVFP4 checkpoint needs about 500GB of GPU memory (for example 2x NVIDIA B300 or 4x H200). The MXFP8 checkpoint needs about 800GB. The lab recommends NVFP4 and says MXFP8's gain of 1 to 2 points on its evals is not meaningful for practical use; that comparison is the lab's. The model stays on Tinker, and is also integrated with SGLang, vLLM, TokenSpeed and Unsloth, and hosted by NVIDIA, Fireworks, Together, Baseten, Nebius, Modal and Cloudflare. Ridge already had a row, scored 31 on Artificial Analysis Intelligence Index v5, with Arena+ 1493 and Vals Terminal-Bench 4.0 12.63 (Mini-SWE-agent, #44 of 64). The row is now marked open-weight. At 31 it does not take Best open weights from Kimi K3.1 Pro, which remains first at 46. On Arena's Code Arena WebDev board, which Ridge does not carry, Arena posted Inkling 2 Small at 1647, first among US open models, fourth among open models globally and 23rd overall. On Agent Arena, also not a Ridge board, Arena posted it as the first US open model, second among all open models and 22nd overall, at +2.9% net across 11,500 sessions.",
+    date: "2026-11-12",
+    outlet: "Thinking Machines",
+    url: "https://thinkingmachines.ai/news/inkling-2-small/",
+    beat: "release",
+    models: ["inkling-2-small", "kimi-k3.1-pro"],
+  },
+  {
+    id: "aa-cyber-hy4-1113",
+    title: "Tencent Hy4 scores 58 on AA's Cyber Index, third overall and second among public models",
+    blurb:
+      "Artificial Analysis posted on 13 November that Tencent's Hy4 scores 58 on the Artificial Analysis Cyber Index and leads CWE-Bench-AA at 76. AA's own page, scraped the same day, gives the unrounded scores as 57.98 for Hy4, 64.07 for Kimi K3.1 Pro, and 56.81 for DeepSeek V4.1 Flash 1017 (max), which Ridge already carries as 64, 58 and 57 after half-up rounding. AA ranks Hy4 third because it still lists the trusted-access GPT-6 Sol (Daybreak Blue, max) at 69; Ridge does not put that version on the public board. Among publicly available models, Hy4 is second after Kimi K3.1 Pro. Hy4 still has no Ridge row: its weights, parameter count and license have not been published. Claude Fable 5.2 is not on the Cyber Index, so that cell stays blank. No other existing Ridge row had a blank Cyber cell that AA lists today. GLM-5.3-Flash is at 50, but Ridge has no Flash row, and the GLM-5.3 row already holds the max score of 36.",
+    date: "2026-11-13",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index",
+    beat: "ranking",
+    models: ["kimi-k3.1-pro", "deepseek-v4.1-flash", "gpt-6-sol", "glm-5.3", "claude-fable-5.2"],
+  },
+  {
+    id: "vals-financial-coaching-bench-1113",
+    title: "Vals launches Financial Coaching Bench; Claude Opus 5.5 leads a tight pack of 28",
+    blurb:
+      "Vals AI opened Financial Coaching Bench on 13 November, built with NextLadder Ventures and advised by the Financial Health Network. It tests 28 models on 256 simulated household money problems, from collections notices to rent increases and defaulted loans. The model acts as the coach, can ask questions and search the web, and is scored against a practitioner-written checklist. Claude Opus 5.5 leads at 76.16%, just ahead of Muse Spark 1.2 at 75.74% and Claude Fable 5.1 at 75.71%. The top twelve models are within 2.4 points of each other. Vals notes that popular free chatbots sit near the bottom, including GPT-6 Luna at 65.24% (25th) and Gemini 3.5 Flash Lite at 57.47% (28th). This is not a Ridge board.",
+    date: "2026-11-13",
+    outlet: "Vals AI",
+    url: "https://www.vals.ai/benchmarks/financial-coaching-bench",
+    beat: "ranking",
+    models: ["claude-opus-5.5", "claude-fable-5.1", "gpt-6-luna"],
+  },
+  {
+    id: "perplexity-decider-v1.3-1112",
+    title: "Perplexity ships Decider v1.3 and Decider Flash, with a new Locate extraction feature",
+    blurb:
+      "Perplexity announced Decider v1.3 and Decider Flash v1.3 on 12 November, open-weight decision models under Apache 2.0. The Hugging Face repos (perplexity-ai/pplx-decider-v1.3 and pplx-decider-flash-v1.3) were created on 9 November and are public and ungated. v1.3 is built on Qwen3.8-27B. Flash is a 4B model on Qwen3.5-4B, distilled from the 27B. Both classify, score and answer yes/no questions from text or images, and v1.3 adds Locate, which extracts verbatim text spans with character offsets. Perplexity's Decisions API prices them at $0.02 and $0.01 per million input tokens, with output free. The scores on Perplexity's blog are the vendor's. There is no independent score on a Ridge board, so there is no row.",
+    date: "2026-11-12",
+    outlet: "Perplexity",
+    url: "https://docs.perplexity.ai/docs/decisions/quickstart",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "deepseek-api-app-features-1113",
+    title: "DeepSeek opens the app's search, files, links, safety and voice tools through its API",
+    blurb:
+      "DeepSeek said on 13 November that the DeepSeek App's conversation features are now available through the API. V4.1-Flash (deepseek-flash) can run web search, deep thinking search, file input, URL reading and safety checks across the Messages, Responses and Chat Completions APIs, with tool calls handled on the server. Search, fetch, OCR, speech-to-text and text-to-speech are also offered as standalone APIs. This is a platform update, not a new model. Tool use is billed on top of ordinary token charges. A demo client and its source are posted with the announcement.",
+    date: "2026-11-13",
+    outlet: "DeepSeek API Docs",
+    url: "https://api-docs.deepseek.com/news/news261113/",
+    beat: "release",
+    models: ["deepseek-v4.1-flash"],
+  },
+  {
     id: "gemini-4-hydrogen-1112",
     title: "Google ships Gemini 4 Hydrogen, a fast Gemini 4 tier at $1.50 / $7.50",
     blurb:

@@ -849,7 +849,7 @@ export const MODELS: Model[] = [
     released: "2026-11-05",
     contextTokens: 1_000_000,
     pricing: { inputPerM: 0.3, outputPerM: 1 },
-    license: "proprietary",
+    license: "open-weight",
     aliases: [
       "inkling-2-small",
       "inkling 2 small",
@@ -857,7 +857,7 @@ export const MODELS: Model[] = [
       "inkling2-small",
     ],
     summary:
-      "Thinking Machines' second generation, released 5 November 2026 on Tinker and Tinker Playground with closed weights. A mixture-of-experts with 594B total and 17B active parameters, text and image in, text out, variable effort and a 1M token context. The lab says Apache 2.0 weights are planned for the following week after outside safety tests; until those ship it is not an open-weight row and it does not count toward Best open weights. AA lists $0.30 / $1.00 per 1M tokens ($0.03 cached). Independent score: AA Intelligence Index v5.0 31. No AA Cyber, Arena+, Vals Terminal-Bench, CursorBench or Harvey LAB-AA score yet.",
+      "Thinking Machines' second generation, a mixture-of-experts with 594B total and 17B active parameters, text and image in, text out, variable effort and a 1M token context. Released 5 November 2026 on Tinker; Apache 2.0 weights shipped 12 November on Hugging Face (thinkingmachines/Inkling-2-Small), with an MXFP8 variant. The native NVFP4 checkpoint needs about 500GB of GPU memory. Still on Tinker, and also via NVIDIA, Fireworks, Together, Baseten, Nebius, Modal and Cloudflare. AA lists $0.30 / $1.00 per 1M tokens ($0.03 cached). Independent scores: AA Intelligence Index v5.0 31, Arena+ 1493, Vals Terminal-Bench 4.0 12.63 (Mini-SWE-agent, #44 of 64). No AA Cyber, CursorBench or Harvey LAB-AA score yet. At 31 it does not take Best open weights from Kimi K3.1 Pro (46).",
   }),
   m({
     id: "muse-ember",
