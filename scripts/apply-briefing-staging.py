@@ -536,6 +536,66 @@ def safety_delta_limit(benchmark_id):
         return ROBO_DELTA_MAX
     return None
 
+
+def enrich_aa_robotics(rows, existing_scores, models):
+    """Recompute AA-Robotics rank notes over the article table plus catalog-only rows.
+
+    The article table is the scrape's only source, but it has lagged behind
+    scores AA published elsewhere. Catalog rows not in the table stay on the
+    board; they just participate in the denominator and the rank order.
+    """
+    if not rows:
+        return rows
+    matched = []
+    pull_ids = set()
+    pull_vals = []
+    for row in rows:
+        name = row.get("name") or ""
+        found = match_model(name, models, row.get("fullName") or name)
+        mid = None
+        if found and not found.get("ambiguous"):
+            mid = found["model"]["id"]
+            pull_ids.add(mid)
+        try:
+            val = float(row.get("score"))
+        except (TypeError, ValueError):
+            val = None
+        matched.append((row, mid, val))
+        if val is not None:
+            pull_vals.append(val)
+    extra_vals = []
+    for score in existing_scores:
+        if score.get("benchmarkId") != "aa-robotics":
+            continue
+        if score.get("modelId") in pull_ids:
+            continue
+        try:
+            extra_vals.append(float(score["value"]))
+        except (TypeError, ValueError, KeyError):
+            continue
+    all_vals = pull_vals + extra_vals
+    total = len(all_vals)
+    if total == 0:
+        return list(rows)
+    enriched = []
+    for row, mid, val in matched:
+        new = dict(row)
+        if val is not None:
+            rank = 1 + sum(1 for other in all_vals if other > val)
+            effort = None
+            note = row.get("note") or ""
+            m = re.search(r"\b(\w+ effort)\b", note, re.I)
+            if m:
+                effort = m.group(1)
+            bits = [effort] if effort else []
+            bits.append(f"#{rank} of {total}")
+            new["note"] = "; ".join(bits)
+            new["rank"] = rank
+            new["total"] = total
+        enriched.append(new)
+    return enriched
+
+
 def main():
     if not PULL_PATH.exists():
         die(f"missing {PULL_PATH} — run briefing.py first")
@@ -792,8 +852,13 @@ def main():
         "name": r["name"], "value": r.get("score"), "note": r.get("note"),
         "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
     })
-    # AA-Robotics v0.1: scores copied as AA displays them (one decimal); rank note from AA's table.
-    apply_bucket("aa-robotics", pull.get("aa_robotics") or [], lambda r: {
+    # AA-Robotics v0.1: scores copied as AA displays them (one decimal).
+    # AA's article table can lag behind scores AA posted later (Fable 5.2 is
+    # still missing from that table). Rank notes use the union of the table and
+    # robotics scores already in the catalog, so a stale 5-row table cannot
+    # rewrite "#2 of 6" back to "#1 of 5".
+    robo_rows = enrich_aa_robotics(pull.get("aa_robotics") or [], existing_scores, models)
+    apply_bucket("aa-robotics", robo_rows, lambda r: {
         "name": r["name"], "value": r.get("score"), "note": r.get("note"),
         "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
     })

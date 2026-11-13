@@ -500,7 +500,9 @@ def parse_aa_robotics(src: str):
 
     Values are copied as AA displays them (one decimal). Rank is by score among the
     models in that table; effort comes from AA's 'all at the X effort setting' footnote
-    and is left out of the note if the footnote moves.
+    and is left out of the note if the footnote moves. The apply step unions these
+    rows with catalog robotics scores missing from the table (see enrich_aa_robotics)
+    so a stale table cannot shrink the denominator.
     """
     cl = lambda x: re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", x))).strip()
     models, scores = None, None
