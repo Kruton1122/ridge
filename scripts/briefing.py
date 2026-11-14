@@ -264,23 +264,47 @@ def parse_aa_index(src: str):
             for tr in re.findall(r"<tr[^>]*>.*?</tr>", src, re.S)
             if "<td" in tr and ("Claude" in tr or "GPT" in tr or "Grok" in tr)
         ]
+    # Find the Index column from the header instead of a fixed position. AA
+    # dropped its Creator column on 2026-11-13, which moved the Index from the
+    # 4th cell to the 2nd; the fixed index read Time per Task as the score.
+    ths = [clean(h) for h in re.findall(r"<th[^>]*>(.*?)</th>", src, re.S)]
+    idx_col = 3
+    if "Model" in ths:
+        mi = ths.index("Model")
+        hits = [i for i, h in enumerate(ths) if i > mi and h.startswith("Artificial Analysis Intelligence Index")]
+        if hits:
+            idx_col = hits[0] - mi
+        else:
+            raise RuntimeError("artificialanalysis.ai: Intelligence Index header not found")
     best: dict[str, dict] = {}
+    matched_dec = 0
+    seen_rows = 0
     for tr in trs:
         tds = re.findall(r"<td[^>]*>(.*?)</td>", tr, re.S)
-        if len(tds) < 4:
+        if len(tds) <= idx_col:
             continue
         cells = [clean(c) for c in tds]
         full = cells[0]
+        # AA now shows the effort as a grey span ("Max, Default Fallback")
+        # instead of "(max)". Rebuild the page-data shortName form.
+        vm = re.search(r'<span[^>]*text-neutral-500[^>]*>(.*?)</span>', tds[0], re.S)
+        if vm:
+            vtxt = clean(vm.group(1))
+            base_txt = clean(tds[0][: vm.start()])
+            if base_txt and vtxt:
+                full = f"{base_txt} ({vtxt.split(',')[0].strip().lower()})"
         if not full or full.lower() in {"model", "creator"}:
             continue
-        display = num(cells[3])
+        display = num(cells[idx_col])
         if display is None:
             continue
         # AA Index on v4.2 is ~30–60; reject absurd parses
         if display < 1 or display > 100:
             continue
         dec = pick_decimal(decimals.get(full), display)
+        seen_rows += 1
         if dec is not None:
+            matched_dec += 1
             score = float(round_half_up(dec))
             if score != display:
                 print(
@@ -319,6 +343,13 @@ def parse_aa_index(src: str):
     )
     if len(entries) < 10:
         raise RuntimeError(f"artificialanalysis.ai: only parsed {len(entries)} models, expected 50+")
+    # If most table rows no longer line up with AA's page-data decimals, the
+    # table layout has moved under us. Fail the AA bucket rather than write
+    # another column's numbers onto the board (2026-11-14 incident).
+    if seen_rows and matched_dec / seen_rows < 0.8:
+        raise RuntimeError(
+            f"artificialanalysis.ai: only {matched_dec} of {seen_rows} table rows match page-data decimals; layout changed?"
+        )
     return entries
 
 
