@@ -669,3 +669,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Skipped as off-lane: Microsoft MAI-Transcribe-2, Runway Praxis-1, inclusionAI Duo, World Labs Atlas, Baidu ERNIE Wizshot / Light Deep Thinking and the Token Exchange marketplace.
 - No desk piece. Standing check:data warnings unchanged (cursor-bench asOf, trump-ai-guardrails-0914 source URL).
 
+## 2026-11-14: AA scrape column fix; Coding Agent Index v2.1, Decision Index v2.1, Nex-N2.6, Edge0 wires
+
+- Daily scrape (7:30 AM ET) wrote wrong AA Intelligence Index values to 14 rows (for example Muse Ember 36 to 3.3, Gemini 4 Carbon 60 to 31.3, Qwen3.8 Max 34 to 48.6) and reshuffled the llms.txt AA top list. Cause: AA removed the Creator column from https://artificialanalysis.ai/leaderboards/models, so parse_aa_index's fixed cells[3] became Time per Task. Effort labels also moved from "(max)" to a grey span ("Max, Default Fallback"), so no row matched the page-data decimals and the bad display numbers went straight through. Nothing was committed.
+- Fix in scripts/briefing.py: the Index column is found by the "Artificial Analysis Intelligence Index" header, the "(effort)" shortName is rebuilt from the span, and the AA bucket raises if fewer than 80% of table rows match page-data decimals. Re-ran scrape and apply: 163 dates updated, 0 value changes. AA-Robotics notes still #N of 6.
+- Wire aa-coding-agent-index-v2.1-1113: verified on https://artificialanalysis.ai/agents/coding-agents and the methodology page. Harness, per-part and cost figures are in prose only. Kimi Code CLI TB 4.1 uses AA's page value 67 (lead said 68). No TB4 cell touched.
+- Wire aa-decision-index-v2.1-1113: verified on AA's Decider v1.3 page (70, #6 of 22) and AA posts 2121396191024071088 and 2121595922090230033. Decider Flash v1.3 64 (#10). SubQ Snap 1.2 73, tied with Drex Max v1.1 and GLiDE v1.2. The 12 Nov Decider release wire is left as is.
+- Wire nex-agi-nex-n2.6-1110: HF API confirms nex-agi/Nex-N2.6 public, ungated, apache-2.0, created 2026-11-10 (lead said 14 Nov). Vendor claims labelled. No row: no tracked-board score, no GLM-5.3-Flash row.
+- Wire edge0-145b-120b-1111: HF confirms Edge0/Edge0-145B and -120B in q3k and NVFP4, created 2026-11-11, license "other" (Edge0 Community Model License 1.0 plus Qwen Community License), base Qwen/Qwen3.8-Flash-Next. GitHub Edge0-AI/edge0 news line dated 13 Nov. Vendor claims labelled. No row.
+- Skipped: Speechify Simba 3.5 (TTS, off-lane). No desk piece: no sourced X reactions worth quoting.

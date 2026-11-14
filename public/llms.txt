@@ -17,6 +17,10 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-13): AA Coding Agent Index v2.1 (FrontierCode-AA 2.0, Terminal-Bench 4.1, SWE-Atlas-QnA-AA). Claude Code with Fable 5.2 or Opus 5.5 at 58, Sonnet 5.5 56, Codex with GPT-6 Astra 53, Kimi Code CLI with Kimi K3.1 Pro 49. Not a Ridge board; Terminal-Bench 4.0 cells unchanged. Source: https://artificialanalysis.ai/agents/coding-agents
+News (2026-11-13): AA Decision Index v2.1. SubQ Snap 1.2 73, tied first with Drex Max v1.1 and GLiDE v1.2; Perplexity Decider v1.3 70; Decider Flash v1.3 64. Not a Ridge board. Source: https://artificialanalysis.ai/decision-models/pplx-decider-v1-3
+News (2026-11-11): Edge0-145B and Edge0-120B open weights on Qwen3.8-Flash-Next (Edge0 Community Model License 1.0 plus Qwen Community License). Vendor scores only; no row. Source: https://huggingface.co/Edge0/Edge0-145B-NVFP4
+News (2026-11-10): Nex-AGI Nex-N2.6, Apache 2.0, about 321B FP8, on GLM-5.3-Flash. Vendor scores only; no row. Source: https://huggingface.co/nex-agi/Nex-N2.6
 News (2026-11-13): Artificial Analysis Cyber Index: Kimi K3.1 Pro 64, Tencent Hy4 58, DeepSeek V4.1 Flash 1017 (max) 57. Those rounded scores were already on Ridge. Hy4 has no row (weights, params and license unpublished). Fable 5.2 is not on the index. Source: https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index
 News (2026-11-13): Vals AI Financial Coaching Bench, 28 models on 256 household money scenarios, with NextLadder. Claude Opus 5.5 76.16%, Muse Spark 1.2 75.74%, Claude Fable 5.1 75.71%. Not a Ridge board. Source: https://www.vals.ai/benchmarks/financial-coaching-bench
 News (2026-11-13): DeepSeek API now exposes the app's search, files, links, safety and voice features, plus standalone OCR, ASR and TTS. Platform update, not a new model. Source: https://api-docs.deepseek.com/news/news261113/

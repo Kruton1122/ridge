@@ -11,6 +11,50 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "aa-coding-agent-index-v2.1-1113",
+    title: "AA Coding Agent Index v2.1: Claude Code with Fable 5.2 or Opus 5.5 ties at 58 as FrontierCode-AA 2.0 pulls scores down",
+    blurb:
+      "Artificial Analysis released version 2.1 of its Coding Agent Index on 13 November, at about 7 PM Eastern. It scores agent and model pairs as an equal-weight average of FrontierCode-AA 2.0 (132 tasks), Terminal-Bench 4.1 (66 tasks, with updated verifiers) and SWE-Atlas-QnA-AA (124 tasks). On AA's page, Claude Code with Claude Fable 5.2 scores 58 at xhigh (49, 64 and 62 on the three parts, $15.47 per task) and 58 at high ($7.51 per task). Claude Code with Claude Opus 5.5 at max also scores 58 (44, 65 and 66, $12.61 per task). AA's post says Devin Fusion CLI, pairing Opus 5.5 max with GPT-6 Luna High, reaches 58 too. Claude Code with Claude Sonnet 5.5 at max scores 56 ($11.40 per task), and AA's post puts Gemini 4 Carbon (high) in Antigravity CLI at 55. In Codex, GPT-6 Astra (max) scores 53 ($7.63 per task), GPT-6.1 Sol (max) 52 ($1.51) and GPT-6.1 Terra (max) 49 ($1.53). Kimi Code CLI with Kimi K3.1 Pro scores 49, with 67 on Terminal-Bench 4.1 and $2.94 per task. AA says scores fell by about 5 points on average from v2.0, mostly because FrontierCode-AA 2.0 is harder, and Terra was the only setup that did not drop. On v2.0, Opus 5.5 led at 61.7. Ridge does not carry a Coding Agent board, so these figures stay in the wire. AA's Terminal-Bench 4.1 run is not Vals Terminal-Bench 4.0, so no Ridge TB cell changes.",
+    date: "2026-11-13",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/agents/coding-agents",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "claude-opus-5.5", "claude-sonnet-5.5", "gemini-4-carbon", "gpt-6-astra", "gpt-6.1-sol", "gpt-6.1-terra", "kimi-k3.1-pro"],
+  },
+  {
+    id: "aa-decision-index-v2.1-1113",
+    title: "AA Decision Index v2.1: SubQ Snap 1.2 joins a three-way tie at 73; Decider v1.3 scores 70",
+    blurb:
+      "Artificial Analysis moved its Decision Index to version 2.1 on 13 November, with AA-Symmetry updated to v1.1. SubQ Snap 1.2 scores 73, up from 68 on its previous version, and AA treats it as tied for first with Drex Max v1.1 and GLiDE v1.2, which also score 73; AA puts all three within about a tenth of a point. SubQ Snap 1.2's all-pass rate on AA-Paperclip rose from 46% to 62%. It is priced at $0.04 per million input tokens with a 384K context. Perplexity's Decider v1.3 scores 70 and is sixth of 22, at $68 per million tasks; it is fourth on AA-Paperclip at 69 and third on EvalSafe-O*NET-AA at 89. Decider Flash v1.3 scores 64, tenth, up 4 points, at $34 per million tasks. Decision models are a separate category from the chat models on Ridge's board, and Ridge does not carry the Decision Index, so there is no row or cell change.",
+    date: "2026-11-13",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/decision-models/pplx-decider-v1-3",
+    beat: "ranking",
+    models: [],
+  },
+  {
+    id: "nex-agi-nex-n2.6-1110",
+    title: "Nex-AGI releases Nex-N2.6, an Apache 2.0 agentic model built on GLM-5.3-Flash",
+    blurb:
+      "Nex-AGI published Nex-N2.6 on Hugging Face on 10 November as nex-agi/Nex-N2.6, public, ungated and under Apache 2.0. The card describes a multimodal agentic model of about 321 billion parameters in FP8, fine-tuned from GLM-5.3-Flash, and it is also served on OpenRouter. All scores on the card are Nex-AGI's own claims: OSWorld 83.0 against 78.0 for the base model, Terminal-Bench 2.1 84.1 against 84.3 for the base, AutomationBench 45.7, and reasoning repetition cut from 16.0% to 1.6%. No tracked board has scored Nex-N2.6 yet, and Ridge has no GLM-5.3-Flash row, so there is no row.",
+    date: "2026-11-10",
+    outlet: "Hugging Face",
+    url: "https://huggingface.co/nex-agi/Nex-N2.6",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "edge0-145b-120b-1111",
+    title: "Edge0 posts 145B and 120B open-weight models on Qwen3.8-Flash-Next, sized for a single 24GB GPU",
+    blurb:
+      "Edge0 published four checkpoints on Hugging Face on 11 November: Edge0-145B and Edge0-120B, each in Q3_K and NVFP4 builds. They are public and ungated, but not Apache: the license is the Edge0 Community Model License 1.0 together with the Qwen Community License. Both are built on Qwen3.8-Flash-Next. Per the model cards, the 145B has 10.12 billion active parameters and a 256K context, with a 40.81 GiB Q3_K file and a 47.79 GiB NVFP4 file, and the 120B has 8.64 billion active. Edge0's GitHub announced the release on 13 November. The figures that follow are Edge0's claims: Terminal-Bench 2.1 86.5 for the 145B and 75.3 for the 120B, and 121.2 tokens per second for the 145B on a single RTX 5090 D 24GB. Hugging Face's size label reads 5B, which does not match the card. No tracked board has scored either model, so there is no row.",
+    date: "2026-11-11",
+    outlet: "Hugging Face",
+    url: "https://huggingface.co/Edge0/Edge0-145B-NVFP4",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "thinking-machines-inkling-2-small-weights-1112",
     title: "Thinking Machines releases Inkling 2 Small weights under Apache 2.0",
     blurb:

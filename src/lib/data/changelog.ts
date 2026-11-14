@@ -1,5 +1,16 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-14",
+    title: "AA Coding Agent Index v2.1; AA Decision Index v2.1; Nex-N2.6; Edge0; AA scrape fix",
+    items: [
+      "Wire: AA Coding Agent Index v2.1 (13 November). Equal-weight FrontierCode-AA 2.0, Terminal-Bench 4.1 and SWE-Atlas-QnA-AA. Claude Code with Fable 5.2 (xhigh or high) and with Opus 5.5 (max) at 58; Devin Fusion CLI 58 per AA's post; Sonnet 5.5 max 56; Gemini 4 Carbon high in Antigravity CLI 55 per AA's post; Codex with Astra 53, Sol 52, Terra 49; Kimi Code CLI with Kimi K3.1 Pro 49. Scores about 5 points lower than v2.0 on average. Not a Ridge board; Terminal-Bench 4.0 cells unchanged. Sources: https://artificialanalysis.ai/agents/coding-agents https://x.com/ArtificialAnlys/status/2121393821955334328",
+      "Wire: AA Decision Index v2.1 (13 November; AA-Symmetry v1.1). SubQ Snap 1.2 73 (from 68), tied first with Drex Max v1.1 and GLiDE v1.2; Perplexity Decider v1.3 70 (#6 of 22); Decider Flash v1.3 64 (#10, up 4). Not a Ridge board. Sources: https://artificialanalysis.ai/decision-models/pplx-decider-v1-3 https://x.com/ArtificialAnlys/status/2121396191024071088 https://x.com/ArtificialAnlys/status/2121595922090230033",
+      "Wire: Nex-AGI Nex-N2.6 (Hugging Face, 10 November, Apache 2.0, about 321B FP8, on GLM-5.3-Flash). Card scores are vendor claims. No tracked-board score, so no row. Source: https://huggingface.co/nex-agi/Nex-N2.6",
+      "Wire: Edge0-145B and Edge0-120B (Hugging Face, 11 November; Q3_K and NVFP4; Edge0 Community Model License 1.0 plus Qwen Community License; on Qwen3.8-Flash-Next). Terminal-Bench 2.1 and speed figures are vendor claims. No tracked-board score, so no row. Sources: https://huggingface.co/Edge0/Edge0-145B-NVFP4 https://huggingface.co/Edge0/Edge0-120B-NVFP4",
+      "Daily scrape 14 November was dates only after a parser fix. AA dropped the Creator column from its models leaderboard, and the scraper's fixed cell index read Time per Task as the Intelligence Index for 14 rows. Those values were never committed. briefing.py now finds the Index column by its header, and stops the AA bucket if most rows no longer match AA's page data.",
+    ],
+  },
+  {
     date: "2026-11-13",
     title: "Inkling 2 Small open weights; AA Cyber Hy4; Vals Financial Coaching Bench; Decider v1.3; DeepSeek API tools",
     items: [
