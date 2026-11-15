@@ -1,5 +1,14 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-15",
+    title: "openPangu-2.1-Pro on Huawei Cloud; DeepSeek tool prices",
+    items: [
+      "Wire: Huawei openPangu-2.1-Pro on Huawei Cloud MaaS (15 November, Southwest-Guiyang1 only, model ID openpangu-2.1-pro). 512K context, 384K max output. 0.8 / 3.2 yuan per 1M input / output tokens, 0.016 cached. Capability claims are Huawei's; no benchmark numbers published. No weights on Hugging Face, ModelScope or GitCode yet. No tracked-board score, so no row. Sources: https://support.huaweicloud.com/bestpractice-maas/bestpractice_maas_0021_03.html https://support.huaweicloud.com/model-list-maas/model_list_0001.html https://support.huaweicloud.com/price-maas/price-maas-0002.html",
+      "Wire updated: DeepSeek API app features (deepseek-api-app-features-1113) now carries the tool names, the safety-check rule for public apps, and DeepSeek's tool prices (search and fetch $0.75 per 1,000, OCR $0.225 per 1,000 pages, TTS $0.45 per 10,000 characters, ASR $0.116 per audio hour, speech at 50% off for now). Source: https://api-docs.deepseek.com/quick_start/pricing",
+      "Daily scrape 15 November was dates only. The new AA parser matched page-data decimals on 54 of 58 rows, with no AA value changes, and AA-Robotics notes still read #1 to #6 of 6.",
+    ],
+  },
+  {
     date: "2026-11-14",
     title: "AA Coding Agent Index v2.1; AA Decision Index v2.1; Nex-N2.6; Edge0; AA scrape fix",
     items: [

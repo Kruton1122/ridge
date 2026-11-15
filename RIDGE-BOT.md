@@ -678,3 +678,10 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - Wire nex-agi-nex-n2.6-1110: HF API confirms nex-agi/Nex-N2.6 public, ungated, apache-2.0, created 2026-11-10 (lead said 14 Nov). Vendor claims labelled. No row: no tracked-board score, no GLM-5.3-Flash row.
 - Wire edge0-145b-120b-1111: HF confirms Edge0/Edge0-145B and -120B in q3k and NVFP4, created 2026-11-11, license "other" (Edge0 Community Model License 1.0 plus Qwen Community License), base Qwen/Qwen3.8-Flash-Next. GitHub Edge0-AI/edge0 news line dated 13 Nov. Vendor claims labelled. No row.
 - Skipped: Speechify Simba 3.5 (TTS, off-lane). No desk piece: no sourced X reactions worth quoting.
+
+## 2026-11-15: openPangu-2.1-Pro wire; DeepSeek tool prices
+
+- Scrape sanity (7:30 AM ET run): apply reported 163 dates and 0 value changes. The AA parser matched page-data decimals on 54 of 58 rows, with Fable 5.2 65 and Carbon 60. AA-Robotics notes are #1 to #6 of 6. Committed as its own commit, dates only.
+- Wire huawei-openpangu-2.1-pro-1115: confirmed on Huawei Cloud's MaaS quick-start (dated 2026-11-15, Southwest-Guiyang1 only), model list (512K context, 500K input, 384K output, 256K reasoning) and price list (price-maas-0002: 0.016 cached / 0.8 input / 3.2 output yuan per 1M). No weights: no HF or ModelScope repo for 2.1, and the GitCode org lists 2.0 only (GitCode blocks curl, so this comes from search). Capability claims are labelled as Huawei's. No row.
+- Wire deepseek-api-app-features-1113 updated, not duplicated. It adds the tool parameter names, the safety-check rule for public apps, and the tool prices from https://api-docs.deepseek.com/quick_start/pricing.
+- Skipped: Tencent Hy Realtime. It is not on AA's Speech to Speech board (checked https://artificialanalysis.ai/speech-to-speech), the only source is an IT Times repost on Tencent News, and there is no public API yet. Gemini 4 Oxygen: anonymous Arena sightings, unconfirmed. No desk piece.

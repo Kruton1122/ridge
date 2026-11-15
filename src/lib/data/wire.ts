@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "huawei-openpangu-2.1-pro-1115",
+    title: "Huawei puts openPangu-2.1-Pro on its cloud, API only for now",
+    blurb:
+      "Huawei Cloud made openPangu-2.1-Pro available on its MaaS platform on 15 November, as the newest model in its openPangu open-source line. For now it runs only in the Southwest-Guiyang1 region, under the model ID openpangu-2.1-pro, through an OpenAI-compatible API. Huawei's model list gives it a 512K context, up to 500K input, 384K output and 256K of reasoning, with switchable thinking, function calling, prefix completion and prefix caching. Huawei's price list has it at 0.8 yuan per million input tokens, 3.2 yuan per million output tokens and 0.016 yuan per million cached input tokens. Huawei says the model is better than openPangu-2.0 at agent work, tool selection and calling, HarmonyOS ArkTS app code and Ascend operator code, and that it serves with much higher throughput. Those are Huawei's claims, and it has published no benchmark numbers. No weights are out yet: there is no openPangu-2.1-Pro repo on Hugging Face or ModelScope, and the openPangu organisation on GitCode shows the 2.0 models only. No tracked board has scored it, so there is no row.",
+    date: "2026-11-15",
+    outlet: "Huawei Cloud",
+    url: "https://support.huaweicloud.com/bestpractice-maas/bestpractice_maas_0021_03.html",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "aa-coding-agent-index-v2.1-1113",
     title: "AA Coding Agent Index v2.1: Claude Code with Fable 5.2 or Opus 5.5 ties at 58 as FrontierCode-AA 2.0 pulls scores down",
     blurb:
@@ -102,7 +113,7 @@ export const WIRE: WireItem[] = [
     id: "deepseek-api-app-features-1113",
     title: "DeepSeek opens the app's search, files, links, safety and voice tools through its API",
     blurb:
-      "DeepSeek said on 13 November that the DeepSeek App's conversation features are now available through the API. V4.1-Flash (deepseek-flash) can run web search, deep thinking search, file input, URL reading and safety checks across the Messages, Responses and Chat Completions APIs, with tool calls handled on the server. Search, fetch, OCR, speech-to-text and text-to-speech are also offered as standalone APIs. This is a platform update, not a new model. Tool use is billed on top of ordinary token charges. A demo client and its source are posted with the announcement.",
+      "DeepSeek said on 13 November that the DeepSeek App's conversation features are now available through the API. V4.1-Flash (deepseek-flash) can run web search, deep thinking search, file input, URL reading and safety checks across the Messages, Responses and Chat Completions APIs, with tool calls handled on the server. Search, fetch, OCR, speech-to-text and text-to-speech are also offered as standalone APIs. Search is turned on with the deepseek_web_search tool and URL reading with deepseek_read_url, and DeepSeek requires public-facing apps to switch on the safety checks. This is a platform update, not a new model. Tool use is billed on top of ordinary token charges. DeepSeek's pricing page lists search (text or image) and web fetch at $0.75 per 1,000 calls each, file parsing and OCR at $0.225 per 1,000 pages, text-to-speech at $0.45 per 10,000 characters and speech-to-text at $0.116 per hour of audio, with both speech prices half off for a limited time. A demo client and its source are posted with the announcement.",
     date: "2026-11-13",
     outlet: "DeepSeek API Docs",
     url: "https://api-docs.deepseek.com/news/news261113/",
