@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-16"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-opinion-1116",
+    kind: "ranking",
+    title: "Half-week opinion: the Opus chant, Fable effort fatigue, and Carbon wins on math",
+    dek: "Public posts on X from 12 to 16 November. No star changes. Opus 5.5 holds at 5, Fable 5.2 at 4 and Gemini 4 Carbon at 3.",
+    pull: "\"Opus 5.5 >>> Fable 5.2. I can say this a million times.\"",
+    summary: "Every rating holds. Opus 5.5 got the most-liked post of the week, a chant that it beats Fable 5.2. Fable 5.2 still wins many demos, but users keep warning that max effort costs far more for little gain. Gemini 4 Carbon took first on MathArena and still reads as slow. Qwen4-Max is too new to rate.",
+    date: "2026-11-16",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/pcshipp/status/2121905679044923580",
+    models: ["claude-opus-5.5", "claude-fable-5.2", "gemini-4-carbon", "gpt-6-astra", "grok-4.7", "qwen-4-max"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "Claude Opus 5.5 holds at 5, and the week's loudest post was about it. A copy-paste chant that Opus 5.5 beats Fable 5.2 drew about 1,300 likes and 66,000 views, and copies of it spread. Side-by-side posts were closer than the chant suggests. One tester ran the same island scene on both at extra high effort and picked Fable, at $78 against $55 for Opus. Another put Opus against GPT-6 Astra at almost the same cost and said Opus won on detail.",
+      "Claude Fable 5.2 holds at 4. It still wins plenty of demos, and a city-above-the-clouds comparison against Opus, Astra and Gemini 4 Hydrogen was among the most viewed model posts of the week. The steady complaint is effort settings. A seaplane film made on medium looked as good as the max run for a fraction of the price, and posts telling people not to use max effort got traction. An X summary of the week called the reaction mixed on cost and power.",
+      "Gemini 4 Carbon holds at 3. The praise moved from price to results: MathArena put it first on 13 November, and Antigravity users cheered on 16 November when the Gemini 4 context limit there doubled. Side-by-sides still show it slow. In one ice-cathedral test Carbon took 2 hours 39 minutes and $8.83, against 54 minutes and $3.11 for GPT-6.1 Sol and $4.27 for Hydrogen. Its intro price doubles on 1 December.",
+      "Everything else holds. GPT-6 Astra posts were thin and mixed: one tester found it 15 times as costly as Fable on a short build, and Deepnote's new benchmark put it first. Grok talk was about Musk saying Grok 4.8 will not match Opus 5.5 and Grok 5 should pass it in two or three months, not about Grok 4.7. Qwen4-Max is too new to rate; early posts are mostly launch notes and one 3D test that said it did well but missed the reference. Our view: people argue about Fable but keep paying for Opus.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1112",
     kind: "ranking",
     title: "Half-week opinion: Fable 5.2 wins the demos, Opus 5.5 keeps the day job, and Carbon gets its first rating",

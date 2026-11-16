@@ -59,6 +59,7 @@ BOARD_WATCH = (
     "claude-fable-5.2",    # Anthropic, 2026-11-09; AA v5 65 max, Arena+ 1538, CursorBench 60.0 max, Harvey 7.2, TB4 65.15, AA-Robotics 75; blank Cyber
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
     "gemini-4-carbon",     # GA 2026-11-10; AA 60 high, Arena+ 1528, TB4 63.13, CursorBench 60.4 high; blank Cyber/Harvey/Robotics
+    "qwen-4-max",          # Alibaba, GA 2026-11-16; AA v5 43, Harvey 9.4, TB4 48.49; blank Arena+/CursorBench/Cyber/Robotics
     "gemini-4-hydrogen",   # GA 2026-11-12; AA 54 xhigh, TB4 54.04, CursorBench 54.3 high; blank Arena+/Harvey/Robotics/Cyber
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
     "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
@@ -872,6 +873,9 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "kimi k3",
         "qwen3.8-max",
         "qwen 3.8 max",
+        "qwen4-max",
+        "qwen4 max",
+        "qwen 4 max",
         "mistral large 4",
         "mistral-large-4",
         "mistral large 4 preview",

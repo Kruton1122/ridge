@@ -11,6 +11,50 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "alibaba-qwen4-max-1116",
+    title: "Alibaba ships Qwen4-Max at $1.50 / $4.50, and AA scores it 43",
+    blurb:
+      "Alibaba released Qwen4-Max on 16 November, five days after a Token Plan only preview. The model id is qwen4-max. Alibaba says it is a 2.4 trillion parameter mixture-of-experts model that uses 71 billion parameters per token, 25% fewer than Qwen3.8-Max. It reads text, images and video and has a 1M token context. The international list price is $1.50 per million input tokens and $4.50 per million output tokens, down from $2 and $6 on Qwen3.8-Max, with cache reads at $0.075. It is on Alibaba Cloud Model Studio, QwenCloud, QwenWork and QwenStudio. Independent boards already have it. Artificial Analysis gives it 43 on the Intelligence Index v5.0, behind Kimi K3.1 Pro's 46 and ahead of Qwen3.8-Max. On Harvey LAB-AA it scores 9.4, fourth of 34. Vals has it at 48.49 on Terminal-Bench 4.0, 15th of 65. Alibaba also says it ranks sixth on Code Arena and cuts the cost per task by about 60% on its own Work360 test; those are Alibaba's claims. Smaller open-weight Qwen4 models are promised soon. It gets a Ridge row.",
+    date: "2026-11-16",
+    outlet: "Alibaba Cloud",
+    url: "https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783",
+    beat: "release",
+    models: ["qwen-4-max",  "qwen-3.8-max"],
+  },
+  {
+    id: "tencent-hy4-flash-1116",
+    title: "Tencent's Hy4 flash cuts the price to $0.07 / $0.28 per million tokens",
+    blurb:
+      "Tencent released Hy4 flash on 16 November as its cheapest Hy model. Tencent says it has 224 billion parameters, including 64 billion Engram memory parameters, with 12 billion active per token, a 1M token context and multimodal input. API list prices are $0.07 per million input tokens, $0.281 per million output tokens and $0.003 for cached input, against $0.834 and $2.501 for Hy4. It is on Tencent Cloud TokenHub, WorkBuddy, Yuanbao, WeCom, QQ, ima and Marvis, free in WorkBuddy and half price on TokenHub through 30 November, with OpenRouter and open weights promised later. Tencent's evidence is its own: an internal WorkIndex test where it costs a twentieth of Hy4 per task, and a blind test of 85 WorkBuddy staff who rated it close to Claude Haiku 5.5. Tencent recommends Hy4, not flash, for long software engineering work. No independent board has scored it yet, so there is no row.",
+    date: "2026-11-16",
+    outlet: "Tencent Hy",
+    url: "https://hy.tencent.ai/research/hy4-flash",
+    beat: "release",
+    models: ["claude-haiku-5.5"],
+  },
+  {
+    id: "matharena-gemini-4-carbon-1113",
+    title: "Gemini 4 Carbon takes first on MathArena, ending OpenAI's long run",
+    blurb:
+      "MathArena added Gemini 4 Carbon and Claude Fable 5.2 on 13 November. Carbon at high effort is now first overall with 85.4% expected performance (plus or minus 3.0), ahead of Fable 5.2 at max on 82.8% (plus or minus 5.3) and GPT-6.1 Sol at max on 80.6%, which had led. The intervals for Carbon and Fable overlap almost entirely, so the order between them is not settled. Cost per problem is the big gap: about $15.70 for Carbon and $40.20 for Fable against $1.07 for Sol. The best open model is Kimi K3.1 Pro at 54.3%. MathArena is built from fresh competition and arXiv research problems. It is not a Ridge board.",
+    date: "2026-11-13",
+    outlet: "MathArena",
+    url: "https://matharena.ai/models/gemini_gemini_4_carbon",
+    beat: "ranking",
+    models: ["gemini-4-carbon",  "claude-fable-5.2",  "gpt-6.1-sol",  "kimi-k3.1-pro"],
+  },
+  {
+    id: "deepnote-agent-initiative-benchmark-1113",
+    title: "Deepnote's new agent test puts GPT-6 Astra first and Grok 4.7 last",
+    blurb:
+      "Deepnote published the Agent Initiative Benchmark on 13 November. It drops an agent into the Slack of PageMantle, a made-up software company with six years of records across 11 services, and asks it to decide when to step in and when to stay quiet, across 50 situations. Two LLM judges score each run from 0 to 10. GPT-6 Astra leads at 8.97, then GPT-6.1 Sol at 8.65 and Claude Fable 5.2 at 8.17, with Opus 5.5 at 7.84. Gemini 4 Argon (5.60) and Grok 4.7 (4.51) finish last. Astra and Sol overlap within their 95% intervals. Sol cost $0.11 per task against $1.87 for Fable 5.2. Most models struggled to stay silent when nothing was needed. The data and code are open on GitHub and Hugging Face. It is not a Ridge board.",
+    date: "2026-11-13",
+    outlet: "Deepnote",
+    url: "https://deepnote.com/research/benchmark",
+    beat: "ranking",
+    models: ["gpt-6-astra",  "gpt-6.1-sol",  "claude-fable-5.2",  "claude-opus-5.5",  "gemini-4-argon",  "grok-4.7"],
+  },
+  {
     id: "huawei-openpangu-2.1-pro-1115",
     title: "Huawei puts openPangu-2.1-Pro on its cloud, API only for now",
     blurb:

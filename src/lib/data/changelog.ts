@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-16",
+    title: "Qwen4-Max added; Hy4 flash, MathArena and Deepnote wires; half-week opinion",
+    items: [
+      "New row: Qwen4-Max (Alibaba, released 16 November, qwen4-max, generally available, closed weights). Filled: AA Intelligence Index v5.0 43, Harvey LAB-AA 9.4 (#4 of 34), Vals Terminal-Bench 4.0 48.49 (#15 of 65). Blank: Arena+, CursorBench, AA Cyber, AA-Robotics. List $1.50 / $4.50 per 1M tokens, cache reads $0.075, 1M context. Parameter counts and Code Arena #6 are Alibaba's claims. Sources: https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783 https://www.alibabacloud.com/help/en/model-studio/qwen4-max https://artificialanalysis.ai/models/qwen4-max https://artificialanalysis.ai/evaluations/harvey-lab-aa https://www.vals.ai/benchmarks/terminal-bench-4",
+      "Wires: Qwen4-Max release; Tencent Hy4 flash (vendor claims, no row; https://hy.tencent.ai/research/hy4-flash); Gemini 4 Carbon first on MathArena (https://matharena.ai/models/gemini_gemini_4_carbon); Deepnote Agent Initiative Benchmark (https://deepnote.com/research/benchmark). MathArena and Deepnote are not Ridge boards.",
+      "Desk: half-week opinion for 12 to 16 November. No star changes. Notes refreshed for Opus 5.5, Fable 5.2 and Gemini 4 Carbon from public X posts (logs/news-pass-x-20261116.txt). Qwen4-Max has no rating yet.",
+      "Daily scrape 16 November was dates only. Vals Terminal-Bench 4.0 now ranks 65 models, so rank notes moved by one where Qwen 4 Max entered at #15.",
+    ],
+  },
+  {
     date: "2026-11-15",
     title: "openPangu-2.1-Pro on Huawei Cloud; DeepSeek tool prices",
     items: [

@@ -71,8 +71,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 22 September 2026: first Claude 5.5 family model. Anthropic says Fable 5.1-level on most work at ~40% less cost than Opus 5 on typical workloads. List $4 / $20 (cache reads $0.20). API id claude-opus-5-5. AA Intelligence Index v4.3.2 58 (max with fallback), #1 on the board as of 28 Sept. CursorBench 4.0 57.8 (max, cursor.com), also #1. Arena+ Elo 1528, also #1. Terminal-Bench 2.1 87.64 (Vals, high, #1 on Vals). No SWE-bench score yet.",
     publicOpinionStars: 5,
-    publicOpinionNote: "Still the everyday favorite. Several heavy users tried Fable 5.2 and said they will keep Opus as their workhorse, and Elon Musk called it a masterpiece.",
-    publicOpinionAsOf: "2026-11-12",
+    publicOpinionNote: "Still the everyday favorite. A chant that Opus 5.5 beats Fable 5.2 drew about 1,300 likes, and side-by-sides often put it close to Fable for less money.",
+    publicOpinionAsOf: "2026-11-16",
   }),
   m({
     id: "claude-sonnet-5.5",
@@ -443,8 +443,8 @@ export const MODELS: Model[] = [
     summary:
       "Generally available on 10 November 2026, announced 28 October. Paid Gemini API in AI Studio and Android Studio. Gemini for business offers it through the API, the model drop-down, Antigravity and CodeMender. AI Ultra subscribers get it in Antigravity, the Gemini app and AI Mode in Search. Carbon for cyber stays in the Fairwind Program. No free tier. List price $4 / $20 per 1M tokens, the same sticker as Argon. Introductory price $2 / $10 through 30 November 2026, then $4 / $20 from 1 December. Cached input is $0.10, then $0.20, and Google says caching is implicit only. Batch is $1 / $5, then $2 / $10. Google says those prices apply only to the public Carbon model. 1M token context. AA Intelligence Index v5.0 60 (high), #2. Arena+ 1528, #2. Vals Terminal-Bench 4.0 63.13, #5 of 64. CursorBench 60.4 (high), #1. The cell is Cursor's number. Google's blog also says Carbon is first on CursorBench, which is Google's claim. Google's SEC-bench Pro 88.2%, ExploitGym 54.8% and CWE-bench 71.0% are its claims and not Ridge boards. No AA Cyber, Harvey LAB-AA or AA-Robotics score yet.",
     publicOpinionStars: 3,
-    publicOpinionNote: "Liked for the price: testers say it comes close to Fable 5.2 or Opus 5.5 on one-shot builds for a fraction of the cost. Often called slow, and some coding tests found it well behind Fable.",
-    publicOpinionAsOf: "2026-11-12",
+    publicOpinionNote: "Praise moved from price to results: it now leads MathArena, and Antigravity users cheered a larger context window. Side-by-sides still show it slower and costlier per run than Hydrogen or GPT-6.1 Sol.",
+    publicOpinionAsOf: "2026-11-16",
   }),
   m({
     id: "gemini-4-hydrogen",
@@ -525,6 +525,21 @@ export const MODELS: Model[] = [
     license: "proprietary",
     aliases: ["qwen 3.8 max", "qwen3.8-max", "qwen3.8 max", "Qwen3.8-Max", "Qwen3.8 Max"],
     summary: "Alibaba Max, the hosted API model. AA Index 45 (0902 checkpoint, as of 27 Sept). Artificial Analysis flags this hosted Max as not open weights; Alibaba's open release is a separate checkpoint, Qwen3.8-2.4T-A95B, which AA scores separately at 40 and Ridge does not track.",
+  }),
+  m({
+    id: "qwen-4-max",
+    name: "Qwen4-Max",
+    shortName: "Qwen4-Max",
+    lab: "alibaba",
+    labName: "Alibaba",
+    released: "2026-11-16",
+    contextTokens: 1_000_000,
+    pricing: { inputPerM: 1.5, outputPerM: 4.5 },
+    license: "proprietary",
+    status: "ga",
+    aliases: ["qwen4-max", "qwen4 max", "qwen 4 max", "qwen-4-max", "Qwen4 Max", "Qwen 4 Max", "alibaba/qwen4-max"],
+    summary:
+      "Released 16 November 2026 as qwen4-max, after a Token Plan only preview (qwen4-max-preview) that opened on 11 November. Alibaba's new flagship and the first full Qwen4 model. Closed weights. Alibaba says it is a 2.4T total parameter mixture-of-experts model with 71B active per token, 25% fewer active than Qwen3.8-Max. Reads text, images and video, writes text. 1M context; up to 131,072 output tokens without thinking and 262,144 for thinking plus answer. Effort levels low, high (the default) and xhigh. International list price $1.50 / $4.50 per 1M tokens, down from $2 / $6 on Qwen3.8-Max, with cache reads at $0.075. On Alibaba Cloud Model Studio, QwenCloud, QwenWork and QwenStudio. Independent scores: AA Intelligence Index v5.0 43. Harvey LAB-AA 9.4, #4 of 34. Vals Terminal-Bench 4.0 48.49, #15 of 65. Not yet on Arena+, CursorBench, AA Cyber or AA-Robotics. Alibaba's Code Arena #6 and its Work360 cost and token savings are Alibaba's claims. Alibaba says smaller open-weight Qwen4 models are coming soon.",
   }),
   m({
     id: "gpt-5.6-terra",
@@ -903,8 +918,8 @@ export const MODELS: Model[] = [
     summary:
       "Shipped 9 November 2026. Generally available as claude-fable-5-2. Claude Mythos 5.2 is the same model for organizations in Anthropic's Life Sciences and Cyber Verification Programs, not a separate release. List $8 / $40 per 1M tokens, down from $10 / $50 on Fable 5.1. Cache reads $0.20. Five-minute cache writes are $10, one-hour cache writes $16, and batch is $4 / $20. Fast mode (speed set to fast, no beta header) is up to 2.5x output speed at $16 / $80. 1M context, 128K max output, adaptive thinking always on. Closed weights, parameter count not disclosed. Fable blocks most cyber tasks and can fall back to another Claude model. AA Intelligence Index v5.0 65 (max, #1). Arena+ 1538, #1. CursorBench 60.0 (max). Harvey LAB-AA 7.2, #6 of 33. Vals Terminal-Bench 4.0 65.15, tied #1 of 64 with Opus 5.5. AA-Robotics v0.1 75, #1 of 6. AA Cyber is blank. On the Claude API, Claude Platform on AWS, Amazon Bedrock (id anthropic.claude-fable-5-2), Google Cloud (Anthropic-managed and Google-managed), Microsoft Foundry, and paid Claude plans.",
     publicOpinionStars: 4,
-    publicOpinionNote: "Praised for visual polish, 3D and animation one-shots, and long research jobs. The main complaints are cost, speed and how fast it uses up plan limits, and several heavy users say they will keep Opus 5.5 for everyday work.",
-    publicOpinionAsOf: "2026-11-12",
+    publicOpinionNote: "Still winning many side-by-side demos on detail, but the most-liked post of the week was a copy-paste chant that Opus 5.5 is better, and effort tests keep finding max costs far more without looking better than medium or high.",
+    publicOpinionAsOf: "2026-11-16",
   }),
 ];
 
@@ -1063,6 +1078,7 @@ export const SCORES: Score[] = [
   s("muse-wonder-full", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best effort/variant: max"),
   s("claude-fable-5.1", "aa-intelligence", 50, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-09", "best effort/variant: xhigh"),
   s("kimi-k3.1-pro", "aa-intelligence", 46, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best listed row"),
+  s("qwen-4-max", "aa-intelligence", 43, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best listed row"),
   s("muse-wonder", "aa-intelligence", 44, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best effort/variant: max"),
   s("claude-haiku-5.5", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best effort/variant: max"),
   s("muse-ember", "aa-intelligence", 36, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-16", "best effort/variant: max"),
@@ -1250,6 +1266,7 @@ export const SCORES: Score[] = [
   s("gemini-4-argon", "terminal-bench-4", 57.58, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #9 of 65"),
   s("gemini-4-carbon", "terminal-bench-4", 63.13, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #5 of 65"),
   s("gemini-4-hydrogen", "terminal-bench-4", 54.04, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #11 of 65"),
+  s("qwen-4-max", "terminal-bench-4", 48.49, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Vals lists it as Qwen 4 Max; Mini-SWE-agent; #15 of 65; Vals raw 48.485"),
   s("gpt-6.1-terra", "terminal-bench-4", 49.5, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #13 of 65; Vals displays 49.49 (raw 49.495)"),
   s("gpt-6.1-sol", "terminal-bench-4", 55.05, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #10 of 65"),
   s("claude-opus-5", "terminal-bench-4", 53.54, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #12 of 65; 1 of 198 attempts served by Opus 4.8 fallback, 53.03 counting those as failures; Vals displays 53.53 (raw 53.535)"),
@@ -1287,6 +1304,7 @@ export const SCORES: Score[] = [
   s("muse-ember", "terminal-bench-4", 39.39, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-16", "Mini-SWE-agent; #18 of 65"),
 
   s("grok-4.7", "harvey-lab-aa", 9.4, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-16", "variant: xhigh; #3 of 34; 0.74 material hallucinations per task; 16.7% before the hallucination gate"),
+  s("qwen-4-max", "harvey-lab-aa", 9.4, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-16", "listed as Qwen4 Max; #4 of 34; 0.36 material hallucinations per task; 15.0% before the hallucination gate"),
   s("muse-spark-1.3-max", "harvey-lab-aa", 8.9, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-16", "variant: max; #5 of 34; 1.68 material hallucinations per task; 26.7% before the hallucination gate"),
   s("gpt-6-astra", "harvey-lab-aa", 8.6, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-16", "variant: max; #6 of 34; 0.03 material hallucinations per task; 8.9% before the hallucination gate"),
   s("gpt-6.1-sol", "harvey-lab-aa", 6.9, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-16", "variant: max; #8 of 34; 0.09 material hallucinations per task; 7.5% before the hallucination gate"),

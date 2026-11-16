@@ -17,6 +17,11 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-16): Alibaba released Qwen4-Max (qwen4-max). $1.50 / $4.50 per 1M tokens, 1M context, closed weights. AA Intelligence Index v5.0 43, Harvey LAB-AA 9.4 (#4 of 34), Vals Terminal-Bench 4.0 48.49 (#15 of 65). Sources: https://www.alibabacloud.com/blog/alibaba-unveils-qwen4-max-new-ai-teammate-for-work-creativity-and-discovery_603783 https://artificialanalysis.ai/models/qwen4-max
+New model (2026-11-16): Qwen4-Max (Alibaba, proprietary, qwen4-max, 1M context, $1.50 / $4.50 per 1M tokens). AA v5.0 43, Harvey LAB-AA 9.4, Vals TB4 48.49. Arena+, CursorBench, AA Cyber and AA-Robotics blank. Source: https://www.alibabacloud.com/help/en/model-studio/qwen4-max
+News (2026-11-16): Tencent Hy4 flash, 224B total / 12B active (Tencent's figures), $0.07 / $0.281 per 1M tokens, 1M context. Vendor claims only; no row. Source: https://hy.tencent.ai/research/hy4-flash
+News (2026-11-13): Gemini 4 Carbon (high) first on MathArena at 85.4%, ahead of Fable 5.2 (max) 82.8% and GPT-6.1 Sol (max) 80.6%. Not a Ridge board. Source: https://matharena.ai/models/gemini_gemini_4_carbon
+News (2026-11-13): Deepnote Agent Initiative Benchmark: GPT-6 Astra 8.97, GPT-6.1 Sol 8.65, Fable 5.2 8.17, Opus 5.5 7.84; Grok 4.7 last at 4.51. Not a Ridge board. Source: https://deepnote.com/research/benchmark
 News (2026-11-15): Huawei openPangu-2.1-Pro on Huawei Cloud MaaS, Guiyang region only, API only (no weights yet). 512K context; 0.8 / 3.2 yuan per 1M input / output tokens. Vendor claims only; no row. Source: https://support.huaweicloud.com/bestpractice-maas/bestpractice_maas_0021_03.html
 News (2026-11-13): AA Coding Agent Index v2.1 (FrontierCode-AA 2.0, Terminal-Bench 4.1, SWE-Atlas-QnA-AA). Claude Code with Fable 5.2 or Opus 5.5 at 58, Sonnet 5.5 56, Codex with GPT-6 Astra 53, Kimi Code CLI with Kimi K3.1 Pro 49. Not a Ridge board; Terminal-Bench 4.0 cells unchanged. Source: https://artificialanalysis.ai/agents/coding-agents
 News (2026-11-13): AA Decision Index v2.1. SubQ Snap 1.2 73, tied first with Drex Max v1.1 and GLiDE v1.2; Perplexity Decider v1.3 70; Decider Flash v1.3 64. Not a Ridge board. Source: https://artificialanalysis.ai/decision-models/pplx-decider-v1-3
