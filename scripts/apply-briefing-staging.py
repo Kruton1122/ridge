@@ -70,6 +70,13 @@ SNAPSHOT_GATES = {
         "label": "Carbon",
         "labelNote": False,
     },
+    # GPT-6.2 Astra / Sol (17 Nov 2026) share stems with GPT-6 Astra, GPT-6 Sol and
+    # GPT-6.1 Sol. A "6.2" row may only land on a 6.2 row, and never on the older ones.
+    "gpt-6.2-astra": {"pattern": r"6[.\-]2", "stale": "row not labelled 6.2", "label": "GPT-6.2", "labelNote": False},
+    "gpt-6.2-sol": {"pattern": r"6[.\-]2", "stale": "row not labelled 6.2", "label": "GPT-6.2", "labelNote": False},
+    "gpt-6-astra": {"pattern": r"^(?!.*6[.\-]2)", "stale": "GPT-6.2 row", "label": "not 6.2", "labelNote": False},
+    "gpt-6-sol": {"pattern": r"^(?!.*6[.\-][12])", "stale": "GPT-6.1/6.2 row", "label": "not 6.1/6.2", "labelNote": False},
+    "gpt-6.1-sol": {"pattern": r"^(?!.*6[.\-]2)", "stale": "GPT-6.2 row", "label": "not 6.2", "labelNote": False},
 }
 
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
@@ -537,6 +544,9 @@ def safety_delta_limit(benchmark_id):
     return None
 
 
+ROBO_UNION = {"vals": [], "pull_ids": set()}
+
+
 def enrich_aa_robotics(rows, existing_scores, models):
     """Recompute AA-Robotics rank notes over the article table plus catalog-only rows.
 
@@ -575,6 +585,8 @@ def enrich_aa_robotics(rows, existing_scores, models):
             continue
     all_vals = pull_vals + extra_vals
     total = len(all_vals)
+    ROBO_UNION["vals"] = all_vals
+    ROBO_UNION["pull_ids"] = set(pull_ids)
     if total == 0:
         return list(rows)
     enriched = []
@@ -862,6 +874,33 @@ def main():
         "name": r["name"], "value": r.get("score"), "note": r.get("note"),
         "variantHint": r.get("fullName"), "decimal": r.get("scoreDecimal"),
     })
+    # Rows that exist only in the catalog (AA posted them; the article table lags)
+    # count in the denominator above, so refresh their own "#N of M" too. Value,
+    # source and date stay as they were: the scrape did not re-read them.
+    if robo_rows and "aa-robotics" not in archived_boards(catalog_src):
+        u_vals = ROBO_UNION["vals"]
+        u_total = len(u_vals)
+        for sc in existing_scores:
+            if sc["benchmarkId"] != "aa-robotics" or sc["modelId"] in ROBO_UNION["pull_ids"]:
+                continue
+            try:
+                v = float(sc["value"])
+            except (TypeError, ValueError):
+                continue
+            rank = 1 + sum(1 for o in u_vals if o > v)
+            old = sc.get("note") or ""
+            tag = f"#{rank} of {u_total}"
+            new = re.sub(r"#\d+ of \d+", tag, old, count=1) if re.search(r"#\d+ of \d+", old) else (f"{tag}; {old}" if old else tag)
+            if new == old:
+                continue
+            nxt = {"modelId": sc["modelId"], "benchmarkId": "aa-robotics", "value": v,
+                   "sourceName": sc["sourceName"], "sourceUrl": sc["sourceUrl"], "asOf": sc["asOf"], "note": new}
+            catalog_src = replace_score_call(catalog_src, sc, nxt)
+            note_part = f', "{new}"'
+            sc.update({"note": new, "raw": f's("{sc["modelId"]}", "aa-robotics", {fmt_score(v, "aa-robotics")}, "{sc["sourceName"]}", "{sc["sourceUrl"]}", "{sc["asOf"]}"{note_part})'})
+            logs.append(f"aa-robotics catalog-only rank: {sc['modelId']} {old!r} -> {new!r}")
+            updates.append({"benchmarkId": "aa-robotics", "modelId": sc["modelId"], "name": sc["modelId"],
+                            "from": v, "to": v, "changedVal": False, "matchWhy": "catalog-only rank", "note": new, "scrapedName": None})
 
     material = [u for u in updates if u["changedVal"]]
     current_snap_m = re.search(r'SNAPSHOT_DATE = "([^"]+)"', CATALOG_PATH.read_text())

@@ -58,6 +58,8 @@ BOARD_WATCH = (
     "muse-ember",          # Meta, 2026-11-09; AA v5 36 at max; Vals TB4 39.39; other boards blank
     "claude-fable-5.2",    # Anthropic, 2026-11-09; AA v5 65 max, Arena+ 1538, CursorBench 60.0 max, Harvey 7.2, TB4 65.15, AA-Robotics 75; blank Cyber
     "gpt-6.1-sol",         # launched 2026-09-29; blank SWE/TB/CursorBench
+    "gpt-6.2-astra",       # OpenAI, 2026-11-17; AA v5 62 max, Harvey 15.0 max, AA-Robotics 79 (post); gated to "6.2" names
+    "gpt-6.2-sol",         # OpenAI, 2026-11-17; AA v5 57 max, Harvey 11.1 max, AA-Robotics 78 (post); gated to "6.2" names
     "gemini-4-carbon",     # GA 2026-11-10; AA 60 high, Arena+ 1528, TB4 63.13, CursorBench 60.4 high; blank Cyber/Harvey/Robotics
     "qwen-4-max",          # Alibaba, GA 2026-11-16; AA v5 43, Harvey 9.4, TB4 48.49; blank Arena+/CursorBench/Cyber/Robotics
     "gemini-4-hydrogen",   # GA 2026-11-12; AA 54 xhigh, TB4 54.04, CursorBench 54.3 high; blank Arena+/Harvey/Robotics/Cyber
@@ -860,6 +862,12 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gpt-6.1 sol",
         "gpt 6.1 sol",
         "gpt-6.1-sol",
+        "gpt-6.2 astra",
+        "gpt 6.2 astra",
+        "gpt-6.2-astra",
+        "gpt-6.2 sol",
+        "gpt 6.2 sol",
+        "gpt-6.2-sol",
         "gemini 4 argon",
         "gemini 4 carbon",
         "gemini-4-carbon",
