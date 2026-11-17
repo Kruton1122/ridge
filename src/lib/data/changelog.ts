@@ -1,5 +1,19 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-17",
+    title: "GPT-6.2 Astra and Sol added; MAI Code 2 wire; AA-Robotics now ranks 10",
+    items: [
+      "New rows: GPT-6.2 Astra (gpt-6.2-astra, $8 / $40, cached $0.40) and GPT-6.2 Sol (gpt-6.2-sol, $2 / $10, cached $0.10), OpenAI, released 17 November, generally available, 1.05M context. Filled: AA Intelligence Index v5.0 62 and 57 (max); Harvey LAB-AA 15.0 (#1 of 44) and 11.1 (#5); Vals Terminal-Bench 4.0 63.13 (#5 of 68) and 60.61 (#7); AA Cyber 41 (medium) and 38 (max), mostly refusals; AA-Robotics 79 and 78 from AA's post. Blank: Arena+, CursorBench. Sources: https://openai.com/index/introducing-gpt-6-2-astra-sol https://developers.openai.com/api/docs/pricing https://artificialanalysis.ai/leaderboards/models https://artificialanalysis.ai/evaluations/harvey-lab-aa https://www.vals.ai/benchmarks/terminal-bench-4 https://x.com/ArtificialAnlys/status/2122750634210529569",
+      "AA-Robotics now ranks 10 models. Gemini 4 Hydrogen 58 and Gemini 4 Carbon 43 are new, read from AA's 17 November chart (https://x.com/ArtificialAnlys/status/2122750643597385968); AA's article table still lists five. Every robotics note is re-ranked out of 10, and Fable 5.2 moves from #1 to #3. Robot arm Best for now names GPT-6.2 Astra.",
+      "Best for: Legal agent moves to GPT-6.2 Astra at 15.0 (was Muse Wonder Full at 13.1). Robot arm moves to GPT-6.2 Astra at 79 (was Fable 5.2 at 75). Longest memory is now a three-way tie at 1,050,000 tokens (GPT-6.2 Astra, GPT-6.2 Sol, GPT-6 Astra). Smartest, Agents, Cyber, People's pick, Open weights, Value and Coding in an editor are unchanged.",
+      "Wire: OpenAI GPT-6.2 Astra and Sol release. Coding Agent Index, hallucination rate, AA-3D, Terminal-Bench-Science, CritPt, Agent Arena (scores pending) and Astra for Law 6.2 (20.8% on Harvey LAB-AA, a configuration with no row) are in prose only.",
+      "Wire: Microsoft MAI Code 2, MAI Code 2 Flash and MAI Cyber 2 Flash (Ignite). Coding and cyber numbers are Microsoft's claims; no tracked board lists them, so no rows. Image, transcription and voice models are off-lane. Source: https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/ https://microsoft.ai/news/introducing-mai-cyber-2-flash/",
+      "Desk: GPT-6.2's first hour, from public X posts (Matt Shumer, Theo, Dan Shipper, Ethan Mollick, Derya Unutmaz, Peter Gostev, Mercor). No ratings yet.",
+      "Arena+: Qwen4-Max is now listed at 1511. Source: https://openlm.ai/chatbot-arena/",
+      "Scrape: the matcher now keeps GPT-6.2 rows apart from GPT-6 Astra and GPT-6.1 Sol, and the robotics step re-ranks rows that only exist in the catalog.",
+    ],
+  },
+  {
     date: "2026-11-16",
     title: "Qwen4-Max added; Hy4 flash, MathArena and Deepnote wires; half-week opinion",
     items: [

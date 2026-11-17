@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-17"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "gpt-6.2-first-hour-1117",
+    kind: "release",
+    title: "GPT-6.2's first hour: the boards like Astra, the early testers mostly do not",
+    dek: "Public posts on X in the hour after OpenAI's 12:54 PM ET launch. Astra is second on AA and first on Harvey LAB-AA, but most well-known early testers panned it. Too new to rate.",
+    pull: "\"I think this is the worst model OpenAI has ever released.\"",
+    summary: "GPT-6.2 Astra and Sol scored well on day one, with Astra second on the AA Intelligence Index and first on Harvey LAB-AA. Several people who tested them before launch said the opposite: Matt Shumer called them unusable, Theo called Astra OpenAI's worst model, and Every and Ethan Mollick found Astra hard to steer. Derya Unutmaz and Peter Gostev were positive, Gostev mainly about Sol on Ultrafast. No ratings yet.",
+    date: "2026-11-17",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/mattshumer_/status/2122752192226406421",
+    models: ["gpt-6.2-astra", "gpt-6.2-sol", "claude-fable-5.2", "claude-opus-5.5", "gpt-6-astra"],
+    tags: ["opinion", "release"],
+    body: [
+      "The boards were kind to GPT-6.2 on day one. Astra is second on the AA Intelligence Index at 62, first on Harvey LAB-AA and fifth on Vals Terminal-Bench 4.0, and Sol matches GPT-6 Astra on AA at a fifth of its list price. The people who had used the models before launch were much less kind, and they said so within minutes of OpenAI's post at 12:54 PM ET.",
+      "Matt Shumer posted at 1:02 PM ET: \"I will not be writing a full review of GPT-6.2 Astra / Sol. I had a terrible experience testing them. They were essentially unusable.\" It drew about 870 likes. In replies he said both are worse than Opus 5.5 \"and massively worse than Fable 5.2,\" that \"they don't follow instructions,\" and that when he used Astra as a sub-agent, Opus and Fable \"ended up redoing all the work themselves.\" Theo, who had also been testing, wrote at 1:23 PM ET: \"I think this is the worst model OpenAI has ever released.\" That post passed 1,100 likes, and he followed it with an article titled \"Why I hate GPT-6.2 Astra.\"",
+      "Dan Shipper said Every had tested both for weeks and found \"a disappointing release compared to Fable 5.2.\" His notes: Astra 6.2 writes worse than Astra 6 because it is so concise it is hard to understand, it matches Astra 6 on Every's coding benchmarks but \"seemed to stop too early frequently\" on real builds, and its designs have \"a noticeable house style.\" Ethan Mollick found Astra \"very uneven & weird\" and harder to steer than other models, though it built him a space elevator ride from scratch in Blender and Unity. He added: \"This is the first time since GPT 4.5 that a frontier release from OpenAi is not a clear step forward.\"",
+      "Not everyone agreed. Derya Unutmaz, who also had early access, called both models \"absolutely amazing\" and told Shumer his experience was \"exactly opposite.\" Peter Gostev said GPT-6.2 Sol on Ultrafast is his favourite release and called the pair \"a solid iterative release, not AGI yet.\" Mercor, which tested both before launch, put Astra first on its own OpenWorldEngineer benchmark at 67.2% against 54.6% for Fable 5.2; that is Mercor's test, not a Ridge board. Our view: the numbers say Astra is a cheaper, stronger GPT-6 Astra, and the first users say it is hard to work with. Neither model gets a rating until people have used them for longer than an hour.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1116",
     kind: "ranking",
     title: "Half-week opinion: the Opus chant, Fable effort fatigue, and Carbon wins on math",

@@ -11,6 +11,28 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "openai-gpt-6.2-astra-sol-1117",
+    title: "OpenAI ships GPT-6.2 Astra and Sol; Astra is second on AA at 62 and first on Harvey LAB-AA",
+    blurb:
+      "OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on 17 November, in ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu users and in the API as gpt-6.2-astra and gpt-6.2-sol. Pro 500 gets Ultrafast on both, and Pro 200 gets it on Sol. Both read text and images, with a 1,050,000 token context, 922,000 max input and 128,000 max output. Astra lists at $8 / $40 per million tokens, 20% below GPT-6 Astra, with cached input down to $0.40 from $1. Sol stays at $2 / $10 with $0.10 cached. Prompts over 272K tokens cost more on both. On Ridge boards, Astra scores 62 on the AA Intelligence Index v5.0 at max, second behind Claude Fable 5.2's 65, and Sol scores 57, level with GPT-6 Astra. On Harvey LAB-AA, Astra is first of 44 at 15.0 and Sol fifth at 11.1. Vals has Astra at 63.13 on Terminal-Bench 4.0, fifth of 68 and level with Gemini 4 Carbon, and Sol at 60.61, seventh. AA's post puts them first and second on AA-Robotics at 79 and 78, ahead of Fable 5.2's 75. Their AA Cyber scores are low, 41 and 38, because both decline about a third of tasks. Arena+ and CursorBench have not listed them yet. Outside Ridge boards, AA says Astra is flat on its Coding Agent Index and Sol is down 3 points, mostly from a 14-point drop on SWE-Atlas-QnA-AA. AA's hallucination rate at max is 59% for Astra and 55% for Sol. On AA-3D Astra leads at 1318, ahead of Fable 5.2 at 1271 and Sol at 1259. AA also says Astra leads Terminal-Bench-Science and is second to Fable 5.2 on CritPt. Arena added both to Agent Arena with scores still to come. OpenAI's Astra for Law 6.2, a legal setup of Astra for ChatGPT Enterprise and the API through its Trusted Access Program, scores 20.8% on Harvey LAB-AA per AA. It is a configuration of Astra, so it has no row.",
+    date: "2026-11-17",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+    beat: "release",
+    models: ["gpt-6.2-astra", "gpt-6.2-sol", "gpt-6-astra", "gpt-6.1-sol"],
+  },
+  {
+    id: "microsoft-mai-code-2-cyber-2-flash-1117",
+    title: "Microsoft ships MAI Code 2, Code 2 Flash and Cyber 2 Flash at Ignite, with no independent scores yet",
+    blurb:
+      "Microsoft AI released MAI Code 2 and MAI Code 2 Flash on 17 November at Ignite. It says both are built for everyday enterprise coding, not science research or very long agentic jobs. Both read text and images, with a 1,050,000 token context (922,000 input, 128,000 output) and five reasoning efforts. Microsoft's model card puts MAI Code 2 at 77 billion active and about 2.8 trillion total parameters, and Flash at 12 billion active and about 398 billion total. Both are in GitHub Copilot now, Flash is in limited preview on Microsoft Foundry, and Microsoft says OpenRouter, Vercel and others come soon. Weights are not public; Microsoft offers licensed weights to companies that deploy them on Azure. Microsoft's claims: averaged over DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas and FrontierCode v1.1, MAI Code 2 gets 98% of GPT-6.1 Sol's score at 40% of the cost and 96% of Claude Opus 5.5's at 5%, and Code 2 Flash is comparable to GPT-6 Luna and Claude Haiku 5.5 at 65% and 20% of the cost. Those costs use a 50% promotional price, and three of the four tests ran on Microsoft's own eval platform. MAI Cyber 2 Flash is a security model with a 1M context, listed at $0.10 / $0.50 per million tokens, and it is coming only inside Microsoft security products such as Codename MDASH from mid-December. Microsoft says it scores 92.3% on CyberGym-E2E against 91.5% for GPT-6 Astra at under 2% of the cost per task, after dropping 92 of the 905 tasks that overlap its training data, and 40.4% against 38.4% for GPT-5.6 Cyber on WebExploitBench. Its product page shows 83.2% on CyberGym-E2E, so Microsoft's own figures do not agree. All of these are Microsoft's numbers. AA, Arena+, Vals and CursorBench do not list any of the three, so there are no rows. Microsoft also launched MAI Image 2.7 and new transcription and voice models, which are off-lane here.",
+    date: "2026-11-17",
+    outlet: "Microsoft AI",
+    url: "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "aa-decision-index-liquid-d1.2-1116",
     title: "Liquid AI's d1.2-ultra takes first on AA's Decision Index at 75",
     blurb:
