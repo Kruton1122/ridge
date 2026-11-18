@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-18",
+    title: "Small-model board at /small; daily scrape dates",
+    items: [
+      "New board: Small models at /small. Open-weight models at or under about 20 billion total parameters, ranked on Artificial Analysis Intelligence Index v5, with points per billion parameters, the exact license, and a plain VRAM-fit estimate. Nine models qualify. Leader: K2 Horizon 7B at 10.56 (official weights 8.999B). Best score per billion: LFM3-1.7B at 3.46 (5.99 / 1.729B). Official totals are Hugging Face safetensors counts from the model cards, confirmed 18 November; AA's rounded sizes are not the denominator. The board is kept off the text ledger, like /voice, and is wired into the daily scrape. Sources: https://artificialanalysis.ai/leaderboards/models https://huggingface.co/IFM/K2-Horizon-7B https://huggingface.co/IFM/K2-Horizon-3.7B https://huggingface.co/IFM/K2-Horizon-0.9B https://huggingface.co/LiquidAI/LFM3-1.7B https://huggingface.co/LiquidAI/LFM3-VL-2B https://huggingface.co/ibm-granite/granite-4.2-8b https://huggingface.co/ibm-granite/granite-4.2-3b https://huggingface.co/google/gemma-4-E4B-it https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+      "Daily scrape 18 November was dates only on the text ledger. Voice dropped Grok Voice 2.0, 1.0 and Fast 1.0 (no longer on AA's Speech to Speech table) and added Ming-3.0-audio-flash (no Index score yet).",
+    ],
+  },
+  {
     date: "2026-11-17",
     title: "GPT-6.2 Astra and Sol added; MAI Code 2 wire; AA-Robotics now ranks 10",
     items: [

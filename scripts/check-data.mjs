@@ -4,7 +4,7 @@
  *
  *   node scripts/check-data.mjs          (or: npm run check:data)
  *
- * Loads src/lib/data/{catalog,ledger,desk,wire,changelog,voice}.ts and fails
+ * Loads src/lib/data/{catalog,ledger,desk,wire,changelog,voice,small}.ts and fails
  * (exit 1) on structural mistakes: duplicate ids, malformed scores, scores or
  * models pointing at a missing board / model / lab, duplicate or undated
  * wire / desk / changelog items, and a few repeat mistakes (a trusted-access
@@ -23,7 +23,7 @@ import ts from "typescript";
 import { isMainModule } from "./with-app-env.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const DATA_FILES = ["types", "catalog", "desk", "wire", "changelog", "voice", "ledger"];
+const DATA_FILES = ["types", "catalog", "desk", "wire", "changelog", "voice", "small", "ledger"];
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const NEWS_KINDS = new Set(["release", "ranking", "rumor", "policy", "controversy"]);
@@ -47,8 +47,8 @@ export async function loadData(root = ROOT) {
       writeFileSync(join(out, `${name}.mjs`), js.replace(/(from\s+["'])(\.\/[\w-]+)(["'])/g, "$1$2.mjs$3"));
     }
     const load = (name) => import(pathToFileURL(join(out, `${name}.mjs`)).href);
-    const [catalog, desk, wire, changelog, voice, ledger] = await Promise.all(
-      ["catalog", "desk", "wire", "changelog", "voice", "ledger"].map(load),
+    const [catalog, desk, wire, changelog, voice, small, ledger] = await Promise.all(
+      ["catalog", "desk", "wire", "changelog", "voice", "small", "ledger"].map(load),
     );
     return {
       MODELS: catalog.MODELS,
@@ -61,6 +61,9 @@ export async function loadData(root = ROOT) {
       CHANGELOG: changelog.CHANGELOG,
       VOICE_ROWS: voice.VOICE_ROWS,
       VOICE_AS_OF: voice.VOICE_AS_OF,
+      SMALL_ROWS: small.SMALL_ROWS,
+      SMALL_AS_OF: small.SMALL_AS_OF,
+      SMALL_MAX_PARAMS_B: small.SMALL_MAX_PARAMS_B,
       buildLedger: ledger.buildLedger,
       ledgerCsv: ledger.ledgerCsv,
     };
@@ -273,6 +276,24 @@ export function checkData(data, { now = new Date(), noteGuards = NOTE_GUARDS, te
     if (r.ttfa !== null && !/^\d+(\.\d{1,2})?$/.test(r.ttfa)) err(`${where}: ttfa ${JSON.stringify(r.ttfa)} is not a number of seconds`);
   }
 
+  // ---- small-model board (separate from the text ledger)
+  const SMALL_ROWS = data.SMALL_ROWS ?? [];
+  if (data.SMALL_AS_OF !== undefined) checkDate("small SMALL_AS_OF", data.SMALL_AS_OF);
+  const smallIds = SMALL_ROWS.map((r) => r.id);
+  for (const k of duplicates(smallIds)) err(`small: duplicate id ${k}`);
+  const maxB = typeof data.SMALL_MAX_PARAMS_B === "number" ? data.SMALL_MAX_PARAMS_B : 20;
+  for (const r of SMALL_ROWS) {
+    const where = `small ${r.id || r.name || "row"}`;
+    if (!r.id || !r.name || !r.lab) err(`${where}: id, name and lab are required`);
+    if (r.index == null || !/^\d{1,3}(\.\d{1,2})?$/.test(String(r.index))) err(`${where}: index ${JSON.stringify(r.index)} is not a plain number with at most 2 decimals`);
+    if (!Number.isInteger(r.officialParams) || r.officialParams <= 0) err(`${where}: officialParams must be a positive integer (safetensors count)`);
+    else if (r.officialParams / 1e9 > maxB) err(`${where}: official total ${(r.officialParams / 1e9).toFixed(3)}B exceeds the ${maxB}B cutoff`);
+    if (!r.license) err(`${where}: license is required`);
+    if (!r.licenseUrl || !String(r.licenseUrl).startsWith("https://")) err(`${where}: licenseUrl must be an https URL`);
+    if (!r.weightsUrl || !String(r.weightsUrl).startsWith("https://")) err(`${where}: weightsUrl must be an https URL`);
+    if (r.cardNote != null && typeof r.cardNote !== "string") err(`${where}: cardNote must be a string or null`);
+  }
+
   // ---- derived ledger must build
   if (typeof data.buildLedger === "function") {
     try {
@@ -298,7 +319,7 @@ async function main() {
   for (const e of errors) console.error(`ERROR ${e}`);
   console.log(
     `check-data: ${data.MODELS.length} models, ${data.SCORES.length} scores, ${data.BENCHMARKS.length} boards, ` +
-      `${data.WIRE.length} wire, ${data.NEWS.length} desk, ${data.CHANGELOG.length} changelog, ${data.VOICE_ROWS.length} voice rows: ` +
+      `${data.WIRE.length} wire, ${data.NEWS.length} desk, ${data.CHANGELOG.length} changelog, ${data.VOICE_ROWS.length} voice rows, ${data.SMALL_ROWS.length} small rows: ` +
       `${errors.length} error(s), ${warnings.length} warning(s)`,
   );
   process.exit(errors.length ? 1 : 0);

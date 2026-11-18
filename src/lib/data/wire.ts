@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "ridge-small-model-board-1118",
+    title: "Ridge opens a small-model board for open weights at or under 20B",
+    blurb:
+      "A new Ridge board at /small lists open-weight models at or under about 20 billion total parameters that have a published Artificial Analysis Intelligence Index v5 score. It is kept apart from the text ledger, like /voice. Nine models qualify as of 18 November. K2 Horizon 7B leads at 10.56 (8.999B official weights; the card calls it 7B-core). Next are K2 Horizon 3.7B 8.02 (5.058B; card: 3.7B-core), LFM3-1.7B 5.99 (1.729B), Granite 4.2 8B 5.10 (8.792B), Gemma 4 E4B (Reasoning) 4.78 (7.996B; official card 4.5B effective / 8B with embeddings), Granite 4.2 3B 4.72 (3.660B), K2 Horizon 0.9B 2.72 (1.078B), NVIDIA Nemotron 3 Nano 4B 1.82 (3.974B) and LFM3-VL-2B 1.71 (1.918B). Points per billion uses those official totals; LFM3-1.7B leads at 3.46. Licenses are the exact card names (Apache 2.0, LFM Open License v1.0, or NVIDIA Nemotron Open Model License). A VRAM column is a plain estimate, not a measured run. Param counts were confirmed on official Hugging Face cards (safetensors totals) and AA model pages. Models such as North Mini Code (30B total) and Qwen3.8 27B are scored on v5 but over the cutoff.",
+    date: "2026-11-18",
+    outlet: "Ridge",
+    url: "https://ridgebench.com/small",
+    beat: "ranking",
+    models: [],
+  },
+  {
     id: "openai-gpt-6.2-astra-sol-1117",
     title: "OpenAI ships GPT-6.2 Astra and Sol; Astra is second on AA at 62 and first on Harvey LAB-AA",
     blurb:

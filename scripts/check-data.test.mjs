@@ -32,6 +32,9 @@ function good() {
     ],
     VOICE_ROWS: [{ provider: "P", model: "M", index: "86.9", reasoning: "99%", dynamics: null, agentic: null, arenaElo: "1070", taskSuccess: "94.8%", ttfa: "0.81" }],
     VOICE_AS_OF: "2026-10-16",
+    SMALL_ROWS: [{ id: "s-1", lab: "Acme", name: "S 1", index: "5.10", officialParams: 8791592960, cardNote: null, license: "Apache 2.0", licenseUrl: "https://www.apache.org/licenses/LICENSE-2.0", weightsUrl: "https://huggingface.co/example/s-1" }],
+    SMALL_AS_OF: "2026-10-16",
+    SMALL_MAX_PARAMS_B: 20,
   };
 }
 
@@ -120,6 +123,14 @@ test("soft findings warn without failing", () => {
 test("voice rows need unique, plain-number cells", () => {
   assert.ok(has(run((d) => d.VOICE_ROWS.push({ ...d.VOICE_ROWS[0] })), /voice: duplicate row/));
   assert.ok(has(run((d) => (d.VOICE_ROWS[0].index = "86.9%")), /index.*plain number/));
+});
+
+test("small-model rows need unique ids, official totals at or under 20B, and a license", () => {
+  assert.ok(has(run((d) => d.SMALL_ROWS.push({ ...d.SMALL_ROWS[0] })), /small: duplicate id s-1/));
+  assert.ok(has(run((d) => (d.SMALL_ROWS[0].index = "5.103")), /more than 2 decimals|plain number/));
+  assert.ok(has(run((d) => (d.SMALL_ROWS[0].officialParams = 25_000_000_000)), /exceeds the 20B cutoff/));
+  assert.ok(has(run((d) => (d.SMALL_ROWS[0].license = "")), /license is required/));
+  assert.deepEqual(run((d) => (d.SMALL_ROWS[0].index = "10.56")).errors, []);
 });
 
 test("the real data passes (warnings allowed)", async () => {

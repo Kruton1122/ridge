@@ -56,6 +56,11 @@ if [[ $RC -eq 0 && -n "$MSG" ]]; then
   VOICE_RC=$?
   echo "[$(ts)] voice rc=$VOICE_RC: $VOICE_OUT" >> "$LOG_FILE"
   if [[ $VOICE_RC -eq 0 ]]; then APPLY_MSG="${APPLY_MSG} | ${VOICE_OUT}"; else APPLY_MSG="${APPLY_MSG} | voice ERROR: ${VOICE_OUT}"; fi
+  # Small-model board (separate from the text ledger): refresh src/lib/data/small.ts from AA v5 + official param registry.
+  SMALL_OUT="$(python3 "$REPO/scripts/small-models.py" 2>&1)"
+  SMALL_RC=$?
+  echo "[$(ts)] small-models rc=$SMALL_RC: $SMALL_OUT" >> "$LOG_FILE"
+  if [[ $SMALL_RC -eq 0 ]]; then APPLY_MSG="${APPLY_MSG} | ${SMALL_OUT}"; else APPLY_MSG="${APPLY_MSG} | small-models ERROR: ${SMALL_OUT}"; fi
   # Data sanity check (read-only). Only a failure is added to the notify line; it never blocks the run.
   if command -v node >/dev/null 2>&1; then
     CHECK_OUT="$(cd "$REPO" && node scripts/check-data.mjs 2>&1)"

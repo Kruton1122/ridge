@@ -22,6 +22,7 @@ import { Route as SiteBestRouteImport } from './routes/_site/best'
 import { Route as SiteChangelogRouteImport } from './routes/_site/changelog'
 import { Route as SiteCompareRouteImport } from './routes/_site/compare'
 import { Route as SiteMethodologyRouteImport } from './routes/_site/methodology'
+import { Route as SiteSmallRouteImport } from './routes/_site/small'
 import { Route as SiteVoiceRouteImport } from './routes/_site/voice'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminLoginRouteImport } from './routes/admin/login'
@@ -126,6 +127,11 @@ const SiteCompareRoute = SiteCompareRouteImport.update({
 const SiteMethodologyRoute = SiteMethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
+  getParentRoute: () => SiteRouteRoute,
+} as any)
+const SiteSmallRoute = SiteSmallRouteImport.update({
+  id: '/small',
+  path: '/small',
   getParentRoute: () => SiteRouteRoute,
 } as any)
 const SiteVoiceRoute = SiteVoiceRouteImport.update({
@@ -347,6 +353,7 @@ export interface FileRoutesByFullPath {
   '/changelog': typeof SiteChangelogRoute
   '/compare': typeof SiteCompareRoute
   '/methodology': typeof SiteMethodologyRoute
+  '/small': typeof SiteSmallRoute
   '/voice': typeof SiteVoiceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
@@ -396,6 +403,7 @@ export interface FileRoutesByTo {
   '/changelog': typeof SiteChangelogRoute
   '/compare': typeof SiteCompareRoute
   '/methodology': typeof SiteMethodologyRoute
+  '/small': typeof SiteSmallRoute
   '/voice': typeof SiteVoiceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
@@ -453,6 +461,7 @@ export interface FileRoutesById {
   '/_site/changelog': typeof SiteChangelogRoute
   '/_site/compare': typeof SiteCompareRoute
   '/_site/methodology': typeof SiteMethodologyRoute
+  '/_site/small': typeof SiteSmallRoute
   '/_site/voice': typeof SiteVoiceRoute
   '/admin/login': typeof AdminLoginRoute
   '/api/ledger': typeof ApiLedgerRoute
@@ -511,6 +520,7 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/compare'
     | '/methodology'
+    | '/small'
     | '/voice'
     | '/admin/login'
     | '/api/ledger'
@@ -560,6 +570,7 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/compare'
     | '/methodology'
+    | '/small'
     | '/voice'
     | '/admin/login'
     | '/api/ledger'
@@ -616,6 +627,7 @@ export interface FileRouteTypes {
     | '/_site/changelog'
     | '/_site/compare'
     | '/_site/methodology'
+    | '/_site/small'
     | '/_site/voice'
     | '/admin/login'
     | '/api/ledger'
@@ -770,6 +782,13 @@ declare module '@tanstack/react-router' {
       path: '/methodology'
       fullPath: '/methodology'
       preLoaderRoute: typeof SiteMethodologyRouteImport
+      parentRoute: typeof SiteRouteRoute
+    }
+    '/_site/small': {
+      id: '/_site/small'
+      path: '/small'
+      fullPath: '/small'
+      preLoaderRoute: typeof SiteSmallRouteImport
       parentRoute: typeof SiteRouteRoute
     }
     '/_site/voice': {
@@ -1068,6 +1087,7 @@ interface SiteRouteRouteChildren {
   SiteChangelogRoute: typeof SiteChangelogRoute
   SiteCompareRoute: typeof SiteCompareRoute
   SiteMethodologyRoute: typeof SiteMethodologyRoute
+  SiteSmallRoute: typeof SiteSmallRoute
   SiteVoiceRoute: typeof SiteVoiceRoute
   SiteIndexRoute: typeof SiteIndexRoute
   SiteBenchmarksIdRoute: typeof SiteBenchmarksIdRoute
@@ -1086,6 +1106,7 @@ const SiteRouteRouteChildren: SiteRouteRouteChildren = {
   SiteChangelogRoute: SiteChangelogRoute,
   SiteCompareRoute: SiteCompareRoute,
   SiteMethodologyRoute: SiteMethodologyRoute,
+  SiteSmallRoute: SiteSmallRoute,
   SiteVoiceRoute: SiteVoiceRoute,
   SiteIndexRoute: SiteIndexRoute,
   SiteBenchmarksIdRoute: SiteBenchmarksIdRoute,
