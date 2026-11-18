@@ -251,7 +251,7 @@ export const MODELS: Model[] = [
     status: "ga",
     aliases: ["gpt-6.2 astra", "gpt 6.2 astra", "gpt-6.2-astra", "gpt-6-2-astra", "gpt6.2 astra", "astra 6.2", "openai/gpt-6.2-astra"],
     summary:
-      "Released 17 November 2026 as gpt-6.2-astra, OpenAI's new top model, replacing GPT-6 Astra. Text and image in, text out. 1,050,000 token context, 922,000 max input, 128,000 max output. List $8 / $40 per 1M tokens, 20% below GPT-6 Astra, with cached input at $0.40 (was $1). Requests over 272K input tokens pay double for input and 1.5x for output. Independent scores: AA Intelligence Index v5.0 62 at max, second behind Claude Fable 5.2 and 5 points above GPT-6 Astra. Harvey LAB-AA 15.0 at max. AA-Robotics 79, first, from AA's post. OpenAI's Astra for Law 6.2 configuration scores 20.8 on Harvey LAB-AA per AA, but it is a legal setup of this model with its own search index, not a separate row. Vals Terminal-Bench 4.0 63.13, #5 of 68, level with Gemini 4 Carbon. AA Cyber 41 (medium; max scores 37), low mainly because it declines about a third of tasks on safety grounds. Not yet on Arena+ or CursorBench.",
+      "Released 17 November 2026 as gpt-6.2-astra, OpenAI's new top model, replacing GPT-6 Astra. Text and image in, text out. 1,050,000 token context, 922,000 max input, 128,000 max output. List $8 / $40 per 1M tokens, 20% below GPT-6 Astra, with cached input at $0.40 (was $1). Requests over 272K input tokens pay double for input and 1.5x for output. Independent scores: AA Intelligence Index v5.0 62 at max, second behind Claude Fable 5.2 and 5 points above GPT-6 Astra. Harvey LAB-AA 15.0 at max. AA-Robotics 79, first, from AA's post. OpenAI's Astra for Law 6.2 configuration scores 20.8 on Harvey LAB-AA per AA, but it is a legal setup of this model with its own search index, not a separate row. Vals Terminal-Bench 4.0 63.13, #5 of 68, level with Gemini 4 Carbon. AA Cyber 41 (medium; max scores 37), low mainly because it declines about a third of tasks on safety grounds. Arena+ 1532. Not yet on CursorBench.",
   }),
   m({
     id: "gpt-6.2-sol",
@@ -266,7 +266,7 @@ export const MODELS: Model[] = [
     status: "ga",
     aliases: ["gpt-6.2 sol", "gpt 6.2 sol", "gpt-6.2-sol", "gpt-6-2-sol", "gpt6.2 sol", "sol 6.2", "openai/gpt-6.2-sol"],
     summary:
-      "Released 17 November 2026 as gpt-6.2-sol, the cheaper partner to GPT-6.2 Astra and the successor to GPT-6.1 Sol. Text and image in, text out. 1,050,000 token context, 922,000 max input, 128,000 max output. List $2 / $10 per 1M tokens with cached input at $0.10, unchanged from GPT-6.1 Sol. Independent scores: AA Intelligence Index v5.0 57 at max, 2 points above GPT-6.1 Sol. Harvey LAB-AA 11.1 at max. AA-Robotics 78, second, from AA's post. Vals Terminal-Bench 4.0 60.61, #7 of 68. AA Cyber 38 (max), low mainly because it declines about a third of tasks on safety grounds. Not yet on Arena+ or CursorBench.",
+      "Released 17 November 2026 as gpt-6.2-sol, the cheaper partner to GPT-6.2 Astra and the successor to GPT-6.1 Sol. Text and image in, text out. 1,050,000 token context, 922,000 max input, 128,000 max output. List $2 / $10 per 1M tokens with cached input at $0.10, unchanged from GPT-6.1 Sol. Independent scores: AA Intelligence Index v5.0 57 at max, 2 points above GPT-6.1 Sol. Harvey LAB-AA 11.1 at max. AA-Robotics 78, second, from AA's post. Vals Terminal-Bench 4.0 60.61, #7 of 68. AA Cyber 38 (max), low mainly because it declines about a third of tasks on safety grounds. Arena+ 1524. Not yet on CursorBench.",
   }),
   m({
     id: "gpt-6-astra",

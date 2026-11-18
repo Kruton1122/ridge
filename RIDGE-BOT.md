@@ -723,3 +723,12 @@ Two new labs (`stepfun`, `xiaomi`) and two rows (`step-5-preview`, `mimo-v2.6-pr
 - check-data and its tests cover small rows (unique ids, ≤20B official totals, https license and weights URLs, at most two decimals on the Index).
 - Wire ridge-small-model-board-1118; changelog and llms.txt updated. Leader K2 Horizon 7B 10.56; best pts/B LFM3-1.7B 3.46.
 
+## 2026-11-18: Hy4 flash weights, Decision 1.1, Ming voice wire, GPT-6.2 Arena+ catch-up
+
+- ModelWatch leads, verified against primary sources, then shipped under standing approval.
+- Wire tencent-hy4-flash-weights-1117: Hy4 flash, FP8 and base weights on Hugging Face and GitHub, late 17 November ET. Param counts and 1,048,576 context from the official cards (220B total / ~12B active; HF marks base at 219B). Tencent's post still says 224B / 12B. License is the Tencent Hy License (Apache 2.0 based, with extra MaaS terms). No AA Intelligence Index (or other tracked-board) score for flash, so no catalog row. Full Hy4 remains a separate model; AA has scored that one, not flash.
+- Wire microsoft-decision-1.1-1117: 68 on AA Decision Index v2.1, 11th of 25 on AA's live page (the 17 November AA post said 8th), $0.042/M input, 123 ms, 33k context. Wire-only. The existing MAI Code 2 / Cyber 2 Flash wire does not cover this model.
+- Wire ant-ming-3.0-audio-flash-1118: AA's Speech to Speech page confirms 99.8% Speech Reasoning, first of 42, TTFA 1.12s, no Index. Already on /voice from the 18 November scrape.
+- Folded into openai-gpt-6.2-astra-sol-1117 (prose only except Arena+, which the scrape had already filled): Code Arena WebDev 1781 / 1757; Epoch ECI 174; Vals Vibe Code Bench 1-100 55.16% / 40.94%; Perplexity's own WANDR 0.783 / 0.746. Catalog summaries now mention Arena+ 1532 / 1524. CursorBench still blank. Robotics notes still say of 10. Harvey ranks in the wire now match the catalog notes (#2 / #6 of 45, with Astra for Law at 20.8 and no row).
+- Changelog 18 November scrape line corrected: it was not dates-only on every text-ledger cell; it filled the GPT-6.2 Arena+ scores.
+- Skipped: Google DeepMind Genie 4 (world model, off-lane). MAI Realtime 1 (Microsoft price claim; not on AA's Speech to Speech board). Arena Muse Ember (Max) vs GPT-6 Luna and Claude Haiku 5.5 (Agent Arena marketing comparison, no new tracked-board score). Reddit AMA detail from the lead (not in Tencent's weights announcement).

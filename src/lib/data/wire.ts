@@ -11,6 +11,17 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "ant-ming-3.0-audio-flash-1118",
+    title: "Ant Group's Ming-3.0-audio-flash leads AA Speech Reasoning at 99.8%",
+    blurb:
+      "Artificial Analysis now lists Ant Group's Ming-3.0-audio-flash on its Speech to Speech board. It scores 99.8% on Speech Reasoning (Big Bench Audio), the highest of the 42 models AA shows, with a time to first audio of 1.12 seconds. It has no Speech to Speech Index score yet, and AA has not published conversational dynamics, agentic, Arena or price figures for it. The model is on Ridge's Voice board. Ant Ling's post also called it first on this test; the 99.8% figure is AA's.",
+    date: "2026-11-18",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/speech-to-speech",
+    beat: "ranking",
+    models: [],
+  },
+  {
     id: "ridge-small-model-board-1118",
     title: "Ridge opens a small-model board for open weights at or under 20B",
     blurb:
@@ -22,10 +33,32 @@ export const WIRE: WireItem[] = [
     models: [],
   },
   {
-    id: "openai-gpt-6.2-astra-sol-1117",
-    title: "OpenAI ships GPT-6.2 Astra and Sol; Astra is second on AA at 62 and first on Harvey LAB-AA",
+    id: "tencent-hy4-flash-weights-1117",
+    title: "Tencent releases Hy4 flash weights under the Tencent Hy License",
     blurb:
-      "OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on 17 November, in ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu users and in the API as gpt-6.2-astra and gpt-6.2-sol. Pro 500 gets Ultrafast on both, and Pro 200 gets it on Sol. Both read text and images, with a 1,050,000 token context, 922,000 max input and 128,000 max output. Astra lists at $8 / $40 per million tokens, 20% below GPT-6 Astra, with cached input down to $0.40 from $1. Sol stays at $2 / $10 with $0.10 cached. Prompts over 272K tokens cost more on both. On Ridge boards, Astra scores 62 on the AA Intelligence Index v5.0 at max, second behind Claude Fable 5.2's 65, and Sol scores 57, level with GPT-6 Astra. On Harvey LAB-AA, Astra is first of 44 at 15.0 and Sol fifth at 11.1. Vals has Astra at 63.13 on Terminal-Bench 4.0, fifth of 68 and level with Gemini 4 Carbon, and Sol at 60.61, seventh. AA's post puts them first and second on AA-Robotics at 79 and 78, ahead of Fable 5.2's 75. Their AA Cyber scores are low, 41 and 38, because both decline about a third of tasks. Arena+ and CursorBench have not listed them yet. Outside Ridge boards, AA says Astra is flat on its Coding Agent Index and Sol is down 3 points, mostly from a 14-point drop on SWE-Atlas-QnA-AA. AA's hallucination rate at max is 59% for Astra and 55% for Sol. On AA-3D Astra leads at 1318, ahead of Fable 5.2 at 1271 and Sol at 1259. AA also says Astra leads Terminal-Bench-Science and is second to Fable 5.2 on CritPt. Arena added both to Agent Arena with scores still to come. OpenAI's Astra for Law 6.2, a legal setup of Astra for ChatGPT Enterprise and the API through its Trusted Access Program, scores 20.8% on Harvey LAB-AA per AA. It is a configuration of Astra, so it has no row.",
+      "Tencent published the weights of Hy4 flash on 17 November, late in the evening Eastern time, on Hugging Face as tencent/Hy4-flash, plus Hy4 flash-FP8 and Hy4 flash-base, and on GitHub at Tencent-Hunyuan/Hy4-flash. The official cards list 220 billion total parameters, including 63.5 billion Engram parameters, a 0.43 billion vision encoder and a 0.85 billion DFly2 drafter, with 11.3 billion text parameters active per token plus 0.43 billion for vision, and a context of 1,048,576 tokens. Hugging Face marks the instruction and FP8 repos at 220B and the base repo at 219B. Tencent's announcement still rounds the total to 224 billion with 12 billion active. The model takes text and image input and writes text. The license is the Tencent Hy License, Version 1.0, which is based on Apache 2.0 but is not Apache 2.0: large model-as-a-service businesses need a separate written license from Tencent if their yearly revenue is above $50 million or if a product has more than 100 million monthly active users. Tencent says the full Hy4 is coming next. No board Ridge tracks has scored Hy4 flash yet, so there is no row.",
+    date: "2026-11-17",
+    outlet: "Tencent Hy",
+    url: "https://huggingface.co/tencent/Hy4-flash",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "microsoft-decision-1.1-1117",
+    title: "Microsoft-Decision-1.1 scores 68 on AA's Decision Index",
+    blurb:
+      "Microsoft-Decision-1.1 scores 68 on Artificial Analysis's Decision Index v2.1, 6 points above Microsoft-Decision-1, and ranks 11th of 25 on AA's page. It is priced at $0.042 per million input tokens, the same as the earlier model, and AA measures 123 milliseconds per task, with a 33k token context. The Decision Index is not a Ridge board, so there is no row.",
+    date: "2026-11-17",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/decision-models/microsoft-decision-1-1",
+    beat: "ranking",
+    models: [],
+  },
+  {
+    id: "openai-gpt-6.2-astra-sol-1117",
+    title: "OpenAI ships GPT-6.2 Astra and Sol; Astra is second on AA at 62",
+    blurb:
+      "OpenAI released GPT-6.2 Astra and GPT-6.2 Sol on 17 November, in ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu users and in the API as gpt-6.2-astra and gpt-6.2-sol. Pro 500 gets Ultrafast on both, and Pro 200 gets it on Sol. Both read text and images, with a 1,050,000 token context, 922,000 max input and 128,000 max output. Astra lists at $8 / $40 per million tokens, 20% below GPT-6 Astra, with cached input down to $0.40 from $1. Sol stays at $2 / $10 with $0.10 cached. Prompts over 272K tokens cost more on both. On Ridge boards, Astra scores 62 on the AA Intelligence Index v5.0 at max, second behind Claude Fable 5.2's 65, and Sol scores 57, level with GPT-6 Astra. On Harvey LAB-AA, Astra scores 15.0 at max, second of 45 after OpenAI's Astra for Law 6.2 configuration at 20.8, and Sol is sixth at 11.1. Vals has Astra at 63.13 on Terminal-Bench 4.0, fifth of 68 and level with Gemini 4 Carbon, and Sol at 60.61, seventh. AA's post puts them first and second on AA-Robotics at 79 and 78, ahead of Fable 5.2's 75, on a board of 10. Astra's AA Cyber score is 41 at medium and 37 at max, the figure on the Ridge row; Sol is 38 at max. Both are low mainly because they decline many tasks on safety grounds. Arena+ now lists Astra at 1532 and Sol at 1524, confirmed on OpenLM on 18 November. CursorBench has not listed them yet. Outside Ridge boards, AA says Astra is flat on its Coding Agent Index and Sol is down 3 points, mostly from a 14-point drop on SWE-Atlas-QnA-AA. AA's hallucination rate at max is 59% for Astra and 55% for Sol. On AA-3D Astra leads at 1318, ahead of Fable 5.2 at 1271 and Sol at 1259. AA also says Astra leads Terminal-Bench-Science and is second to Fable 5.2 on CritPt. On Arena's Code Arena WebDev board, which Ridge does not carry, Astra (Max) is third at 1781 and Sol (Max) is seventh at 1757 as of 18 November. Epoch AI's Capabilities Index, also not a Ridge board, puts Astra at 174, tied for first with Claude Fable 5.2. On Vals' Vibe Code Bench 1-100 v1.1, Astra is first at 55.16% and Sol is third at 40.94%. Perplexity, which has added both models to Search and Computer, reports its own WANDR scores of 0.783 for Astra at about $12.54 a task and 0.746 for Sol at about $2.65. OpenAI's Astra for Law 6.2, a legal setup of Astra for ChatGPT Enterprise and the API through its Trusted Access Program, scores 20.8% on Harvey LAB-AA per AA. It is a configuration of Astra, so it has no row.",
     date: "2026-11-17",
     outlet: "OpenAI",
     url: "https://openai.com/index/introducing-gpt-6-2-astra-sol",
