@@ -16,7 +16,7 @@ export interface VoiceRow {
   ttfa: string | null;
 }
 
-export const VOICE_AS_OF = "2026-11-17";
+export const VOICE_AS_OF = "2026-11-18";
 export const VOICE_SOURCE = { name: "Artificial Analysis", url: "https://artificialanalysis.ai/speech-to-speech" };
 
 export const VOICE_ROWS: VoiceRow[] = [
@@ -24,12 +24,10 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "SpaceXAI", model: "Grok Voice 3.0", index: "86.9", reasoning: "98.5%", dynamics: "97.0%", agentic: "71.6%", arenaElo: "1059", taskSuccess: "94.8%", ttfa: "0.81" },
   { provider: "OpenAI", model: "GPT-Live-1 (Astra, medium)", index: "83.2", reasoning: "90.1%", dynamics: "94.9%", agentic: "74.5%", arenaElo: "1027", taskSuccess: "87.4%", ttfa: "1.34" },
   { provider: "Google", model: "Gemini 3.8 Live Extended Thinking (High)", index: "82.6", reasoning: "97.7%", dynamics: "91.9%", agentic: "68.6%", arenaElo: "966", taskSuccess: "89.1%", ttfa: "1.35" },
-  { provider: "SpaceXAI", model: "Grok Voice 2.0", index: "81.3", reasoning: "97.2%", dynamics: "95.1%", agentic: "56.5%", arenaElo: "991", taskSuccess: "94.6%", ttfa: "0.70" },
   { provider: "OpenAI", model: "GPT-Live-1 (Sol, low)", index: "80.1", reasoning: "89.0%", dynamics: "97.3%", agentic: "59.3%", arenaElo: "1037", taskSuccess: "90.9%", ttfa: "1.24" },
   { provider: "ElevenLabs", model: "Eleven Realtime v1 Max", index: "77.3", reasoning: "98.8%", dynamics: "94.1%", agentic: "47.6%", arenaElo: "990", taskSuccess: "87.1%", ttfa: "0.57" },
   { provider: "OpenAI", model: "GPT-Realtime-2.1 High", index: "75.2", reasoning: "95.8%", dynamics: "95.7%", agentic: "45.7%", arenaElo: "931", taskSuccess: "91.5%", ttfa: "1.21" },
   { provider: "Google", model: "Gemini 3.8 Live", index: "74.5", reasoning: "91.7%", dynamics: "96.1%", agentic: "30.1%", arenaElo: "1074", taskSuccess: "93.2%", ttfa: "1.18" },
-  { provider: "SpaceXAI", model: "Grok Voice 1.0", index: "73.7", reasoning: "97.1%", dynamics: "77.8%", agentic: "52.1%", arenaElo: "903", taskSuccess: "80.7%", ttfa: "1.25" },
   { provider: "OpenAI", model: "GPT-Realtime-2 (High)", index: "73.6", reasoning: "96.6%", dynamics: "95.3%", agentic: "39.8%", arenaElo: "920", taskSuccess: "89.8%", ttfa: "1.14" },
   { provider: "Google", model: "Gemini 3.1 Flash Live High", index: "72.0", reasoning: "96.6%", dynamics: "74.3%", agentic: "37.7%", arenaElo: "1062", taskSuccess: "71.8%", ttfa: "2.99" },
   { provider: "OpenAI", model: "GPT-Realtime-2.1 Minimal", index: "70.7", reasoning: "86.8%", dynamics: "92.7%", agentic: "38.0%", arenaElo: "933", taskSuccess: "89.4%", ttfa: "0.97" },
@@ -47,6 +45,7 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "Alibaba Cloud", model: "Qwen3.5 Omni Flash Realtime", index: null, reasoning: "59.0%", dynamics: null, agentic: null, arenaElo: "832", taskSuccess: "29.1%", ttfa: "0.79" },
   { provider: "Alibaba Cloud", model: "Qwen3.5 Omni Plus Realtime", index: null, reasoning: "98.7%", dynamics: null, agentic: null, arenaElo: "843", taskSuccess: "62.0%", ttfa: "2.64" },
   { provider: "Amazon Bedrock", model: "Nova 2.0 Sonic (Mar 2026)", index: null, reasoning: "88.1%", dynamics: null, agentic: null, arenaElo: "964", taskSuccess: "57.1%", ttfa: "1.14" },
+  { provider: "Ant Group", model: "Ming-3.0-audio-flash", index: null, reasoning: "99.8%", dynamics: null, agentic: null, arenaElo: null, taskSuccess: null, ttfa: "1.12" },
   { provider: "Boson AI", model: "Higgs Realtime", index: null, reasoning: "68.6%", dynamics: "92.8%", agentic: "18.6%", arenaElo: null, taskSuccess: null, ttfa: "1.47" },
   { provider: "Cofe AI", model: "FLM-Audio", index: null, reasoning: "16.0%", dynamics: "62.0%", agentic: null, arenaElo: null, taskSuccess: null, ttfa: null },
   { provider: "Deepslate", model: "Deepslate Opal", index: null, reasoning: "85.0%", dynamics: "85.7%", agentic: "17.5%", arenaElo: null, taskSuccess: null, ttfa: "0.44" },
@@ -63,7 +62,6 @@ export const VOICE_ROWS: VoiceRow[] = [
   { provider: "OpenAI", model: "GPT-4o mini Realtime (Dec 2024)", index: null, reasoning: "68.9%", dynamics: null, agentic: null, arenaElo: null, taskSuccess: null, ttfa: "1.27" },
   { provider: "OpenAI", model: "GPT-Realtime-2 (Medium)", index: null, reasoning: "93.3%", dynamics: "95.2%", agentic: "37.4%", arenaElo: null, taskSuccess: null, ttfa: "1.22" },
   { provider: "OpenAI", model: "GPT-Realtime-2.1 Mini High", index: null, reasoning: "74.7%", dynamics: "91.7%", agentic: "29.4%", arenaElo: null, taskSuccess: null, ttfa: "4.28" },
-  { provider: "SpaceXAI", model: "Grok Voice Fast 1.0", index: null, reasoning: "93.3%", dynamics: "71.6%", agentic: "27.4%", arenaElo: null, taskSuccess: null, ttfa: "0.78" },
   { provider: "StepFun", model: "Step-Audio R1.1 (Realtime)", index: null, reasoning: "97.6%", dynamics: null, agentic: null, arenaElo: null, taskSuccess: null, ttfa: "1.53" },
   { provider: "StepFun", model: "StepAudio 3 Realtime", index: null, reasoning: "99.7%", dynamics: "98.9%", agentic: null, arenaElo: null, taskSuccess: null, ttfa: "8.83" },
   { provider: "VITA", model: "Freeze-Omni", index: null, reasoning: "33.4%", dynamics: "58.7%", agentic: null, arenaElo: null, taskSuccess: null, ttfa: null },
