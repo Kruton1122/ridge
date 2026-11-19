@@ -15,7 +15,7 @@ export const LEDGER_SOURCES = [
   { name: "Artificial Analysis", url: "https://artificialanalysis.ai/leaderboards/models" },
   { name: "LMArena / OpenLM", url: "https://openlm.ai/chatbot-arena/" },
   { name: "Vals AI", url: "https://vals.ai/benchmarks/swebench" },
-  { name: "Cursor (CursorBench 4.0)", url: "https://cursor.com/cursorbench" },
+  { name: "Cursor (CursorBench 4.1)", url: "https://cursor.com/cursorbench" },
   { name: "Artificial Analysis Cyber Index", url: "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index" },
   { name: "Vals AI (Terminal-Bench 4.0)", url: "https://www.vals.ai/benchmarks/terminal-bench-4" },
   { name: "Artificial Analysis (Harvey LAB-AA v1.1)", url: "https://artificialanalysis.ai/evaluations/harvey-lab-aa" },

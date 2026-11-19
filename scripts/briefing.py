@@ -62,6 +62,7 @@ BOARD_WATCH = (
     "gpt-6.2-sol",         # OpenAI, 2026-11-17; AA v5 57 max, Harvey 11.1 max, AA-Robotics 78 (post); gated to "6.2" names
     "gemini-4-carbon",     # GA 2026-11-10; AA 60 high, Arena+ 1528, TB4 63.13, CursorBench 60.4 high; blank Cyber/Harvey/Robotics
     "qwen-4-max",          # Alibaba, GA 2026-11-16; AA v5 43, Harvey 9.4, TB4 48.49; blank Arena+/CursorBench/Cyber/Robotics
+    "gemini-4-neon",       # GA 2026-11-18; AA 61 xhigh, TB4 61.62, CursorBench 4.1 65.4 xhigh; blank Arena+/Harvey/Robotics/Cyber
     "gemini-4-hydrogen",   # GA 2026-11-12; AA 54 xhigh, TB4 54.04, CursorBench 54.3 high; blank Arena+/Harvey/Robotics/Cyber
     "gemini-4-argon",      # announced 2026-09-30; limited preview; blank SWE/TB/CursorBench
     "mistral-large-4",     # preview 2026-10-06; AA calls it "Mistral Large 4 Preview"; blank Arena/CursorBench/TB/SWE
@@ -875,6 +876,9 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gemini-4-hydrogen",
         "gemini-4 hydrogen",
         "gemini 4 hydrogen",
+        "gemini-4-neon",
+        "gemini-4 neon",
+        "gemini 4 neon",
         "gemini-4-argon",
         "gemini-4 argon",
         "kimi-k3",

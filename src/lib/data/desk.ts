@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-19"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-opinion-1119",
+    kind: "ranking",
+    title: "Half-week opinion: Astra 6.2 gets called lazy, Neon gets a warm start",
+    dek: "Public posts on X from 16 to 19 November. GPT-6.2 Astra opens at 2 stars and GPT-6.2 Sol at 3. Gemini 4 Neon is too new to rate. Every other rating holds.",
+    pull: "\"Astra 6.2: laziest model I've ever used\"",
+    summary: "GPT-6.2 Astra gets its first rating at 2: two days in, most hands-on posts call it lazy and worse than Opus 5.5 or Fable 5.2, even though the most viewed demo of the week praised it. GPT-6.2 Sol opens at 3 as the cheap worker. Gemini 4 Neon had a warm first day but is too new to rate. Opus 5.5, Fable 5.2 and Carbon hold.",
+    date: "2026-11-19",
+    sourceName: "Ridge / public posts on X",
+    sourceUrl: "https://x.com/maxt3chno/status/2123366160993308952",
+    models: ["gpt-6.2-astra", "gpt-6.2-sol", "gemini-4-neon", "claude-opus-5.5", "claude-fable-5.2", "gemini-4-carbon"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "GPT-6.2 Astra opens at 2. Two days after launch, the hands-on posts mostly agree with the testers who panned it in the first hour. One user who defended it on day one now says Astra 6.2 is the \"laziest model I've ever used\" and regrets renewing a ChatGPT plan. Another wrote after two days of testing that the pair are not a good fit for most of their work, except code review and research. Others said it needed more prompting than GPT-6 Astra for the same result, or showed no gain over it. The praise is real but narrower. The most viewed model comparison of the week, about 177,000 views, called Astra \"insane\" on a plane scene at a fraction of Fable 5.2's cost, and one user said it cracked a problem GPT-6 Astra had been stuck on for a week. Artificial Analysis also found both 6.2 models give shorter answers and admit uncertainty less often than the releases before them.",
+      "GPT-6.2 Sol opens at 3. It draws some of the same \"lazy\" complaints, and one user called it disappointing. But it is the model people reach for on cost: in side-by-sides a Sol run cost $1.47 to $2.65 against $8.11 to $11.49 for Astra, one user running an Astra lead with three Sol workers called the pair a killer combination, and a 3D test with about 7,000 views put Sol ahead of Astra.",
+      "Gemini 4 Neon is too new to rate. Most launch-day posts were news and partner listings. The early hands-on posts are warm: one user called it a blast to use and on Opus 5.5's level, and another preferred its chase-scene video to Opus 5.5's at about $2.50 against $6. The main complaint so far is the lineup itself. Four Gemini 4 models in seven weeks, with a middle tier priced above Carbon's intro price, struck several posters as confusing.",
+      "Claude Opus 5.5 holds at 5 and Claude Fable 5.2 at 4. The Fable or Opus argument went on: one post asked whether anyone needs Fable 5.2 when Opus 5.5 on medium does the job, while side-by-sides still often gave Fable the best result at many times the cost, such as $84 against $22 for Opus on one drawing test. Pro plans also lost their included week of Fable on 16 November, when Anthropic's launch offer ended. Gemini 4 Carbon holds at 3; much of its talk moved to Neon. Other ratings hold on thin signal. Our view: OpenAI won the price argument and lost the first impression.",
+    ],
+  },
+  {
     id: "gpt-6.2-first-hour-1117",
     kind: "release",
     title: "GPT-6.2's first hour: the boards like Astra, the early testers mostly do not",

@@ -1,5 +1,20 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-19",
+    title: "Gemini 4 Neon added; CursorBench moves to 4.1; Agent Arena Index; Anthropic IPO priced; half-week opinion",
+    items: [
+      "New row: Gemini 4 Neon (Google DeepMind, released 18 November, gemini-4-neon, generally available on the paid API tier). Filled: AA Intelligence Index v5.0 61 (xhigh), #3. Vals Terminal-Bench 4.0 61.62 (#7 of 69, Mini-SWE-agent). CursorBench 4.1 65.4 (Extra High), #1. Blank: Arena+, Harvey LAB-AA, AA Cyber, AA-Robotics. List $3 / $15 per 1M tokens, cached input $0.15, 1M context. Sources: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/ https://aistudio.google.com/docs/whats-new-gemini-4-neon https://artificialanalysis.ai/models/gemini-4-neon https://www.vals.ai/benchmarks/terminal-bench-4 https://cursor.com/cursorbench",
+      "CursorBench column moves to 4.1 (Cursor, 18 November: changed instruction-following tasks, longer agent time limit). The 4.0 numbers move to an archived board, CursorBench 4.0 (archived), frozen at 12 November. New 4.1 cells, best published setting: Neon 65.4, Carbon 61.5, Hydrogen 61.4, Fable 5.2 61.3, Opus 5.5 58.1, Argon 56.5, Sonnet 5.5 54.4, Grok 4.7 48.6, Haiku 5.5 48.4, Grok 4.6 44.3, Muse Spark 1.3 max 41.9, GPT-5.6 Sol 40.9, Muse Spark 1.3 xhigh 34.6. Models not on 4.1 are blank on the live column. Source: https://cursor.com/cursorbench",
+      "Best for: Coding in an editor now names Gemini 4 Neon at 65.4 on CursorBench 4.1.",
+      "Wire: Gemini 4 Neon release. AA Coding Agent Index 59 for Neon in Antigravity CLI and Arena's Agent Arena Index #2 at 1336 are in the wire only; neither is a Ridge board.",
+      "Wire: Arena's Agent Arena Index (18 November). Fable 5.2 (Max) 1463, Neon (High) 1336, Carbon (High) 1303, GPT-6.2 Astra (Max) 1291, GPT-6.2 Sol (Max) 1241. Not a Ridge board. Source: https://x.com/arena/status/2123126646983332177",
+      "Wire: Anthropic priced its IPO at $83 a share, 980 million shares, Nasdaq ANT from 19 November. Source: https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+      "Wire (rumor): Elon Musk says Grok 4.8 is several variants in beta, with general release a week or two out. No row. Sources: https://x.com/elonmusk/status/2122758986483269956 https://x.com/elonmusk/status/2123226994246828250",
+      "Opinion stars from public X posts, 16 to 19 November: GPT-6.2 Astra opens at 2 and GPT-6.2 Sol at 3. Gemini 4 Neon is unrated (launched 18 November). All other ratings hold. Desk: halfweek-opinion-1119.",
+      "Daily scrape 19 November was dates only, plus Terminal-Bench 4.0 rank notes redone out of 69 after Gemini 4 Neon entered at #7.",
+    ],
+  },
+  {
     date: "2026-11-18",
     title: "Hy4 flash weights; Decision 1.1; Ming-3.0-audio-flash; GPT-6.2 Arena+ fills",
     items: [

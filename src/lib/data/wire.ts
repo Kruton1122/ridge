@@ -11,6 +11,61 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "google-gemini-4-neon-1118",
+    title: "Google ships Gemini 4 Neon: third on AA at 61, first on CursorBench 4.1",
+    blurb:
+      "Google DeepMind released Gemini 4 Neon on 18 November as gemini-4-neon, its fourth Gemini 4 model in seven weeks. Google places it between Hydrogen and Carbon for complex coding, knowledge work and science at a faster pace. It is on the paid Gemini API tier in AI Studio, Gemini for business, Google Antigravity for paid AI Pro and Ultra subscribers, and the Gemini app for Pro and Ultra subscribers. List price is $3 / $15 per million tokens with cached input at $0.15, a 1M token window shared by input, thinking and output, and thinking levels low, medium, high (the default) and xhigh. On Ridge boards it scores 61 on the AA Intelligence Index v5.0 at xhigh, third behind Claude Fable 5.2 (65) and GPT-6.2 Astra (62) and one point above Carbon. Vals has it at 61.62 on Terminal-Bench 4.0, seventh of 69. On Cursor's new CursorBench 4.1 it is first at 65.4 on Extra High, and 63.7 at its default High. AA says a Neon run costs $6.44 per task, about 17% less than Carbon at Carbon's full $4 / $20 price, and takes about 21 minutes against 36. Outside Ridge boards, AA puts Neon in Antigravity CLI at 59 on its Coding Agent Index, level with Claude Code running Fable 5.2 or Opus 5.5 at 58, and Arena ranks Neon (High) second on its new Agent Arena Index at 1336. Arena+, Harvey LAB-AA, AA Cyber and AA-Robotics have no Neon score yet. Google's own claims, such as its lowest fabrication rate yet in internal Antigravity testing, are not Ridge numbers.",
+    date: "2026-11-18",
+    outlet: "Google",
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+    beat: "release",
+    models: ["gemini-4-neon", "gemini-4-carbon", "gemini-4-hydrogen", "claude-fable-5.2", "gpt-6.2-astra"],
+  },
+  {
+    id: "cursor-cursorbench-4.1-1118",
+    title: "Cursor moves CursorBench to 4.1; Ridge archives the 4.0 column",
+    blurb:
+      "Cursor updated its CursorBench page to version 4.1 on 18 November. Its changelog says the instruction-following problems changed and the agent time limit went up. Most scores moved, so 4.1 does not compare with 4.0. Ridge's CursorBench column now shows 4.1, and the old 4.0 numbers live on as an archived board. The 4.1 table has 53 rows across 12 models. Gemini 4 Neon leads at 65.4 on Extra High, then Neon High 63.7, Gemini 4 Carbon High 61.5, Gemini 4 Hydrogen Extra High 61.4 and Claude Fable 5.2 Max 61.3. Claude Opus 5.5 Max is 58.1, Gemini 4 Argon High 56.5 and Claude Sonnet 5.5 Max 54.4. Several models on the 4.0 board, including Claude Fable 5.1, Claude Opus 5, GPT-5.6 Terra and Gemini 3.8 Flash, are not on 4.1, so their cells are now blank. GPT-6.2 Astra and Sol have no CursorBench score on either version.",
+    date: "2026-11-18",
+    outlet: "Cursor",
+    url: "https://cursor.com/cursorbench",
+    beat: "ranking",
+    models: ["gemini-4-neon", "gemini-4-carbon", "gemini-4-hydrogen", "claude-fable-5.2", "claude-opus-5.5"],
+  },
+  {
+    id: "arena-agent-arena-index-1118",
+    title: "Arena launches the Agent Arena Index; Fable 5.2 leads and Neon enters second",
+    blurb:
+      "Arena introduced the Agent Arena Index on 18 November as its new headline measure of agent performance, built from real agent sessions and combining task completion, praise versus complaint, bash reliability and steerability. It added six narrower indexes (Agentic Work, Coding, Chat, Task Outcomes, Tool Use and Steering) alongside its Alignment Index. At launch Claude Fable 5.2 (Max) led at 1463, 134 points clear. Later that day Gemini 4 Neon (High) entered second at 1336 from about 4,200 sessions, at a median $2.82 per task, ahead of Claude Opus 5.5 (Max) third and Gemini 4 Carbon (High) fourth at 1303. GPT-6.2 Astra (Max) is sixth at 1291 and GPT-6.2 Sol (Max) eleventh at 1241. Arena moved its agent scores to this new points scale, so they do not compare with the earlier Agent Arena percentages. Not a Ridge board.",
+    date: "2026-11-18",
+    outlet: "Arena",
+    url: "https://x.com/arena/status/2123126646983332177",
+    beat: "ranking",
+    models: ["claude-fable-5.2", "gemini-4-neon", "claude-opus-5.5", "gemini-4-carbon", "gpt-6.2-astra", "gpt-6.2-sol"],
+  },
+  {
+    id: "anthropic-ipo-priced-1118",
+    title: "Anthropic prices its IPO at $83 a share; trading opens on Nasdaq as ANT",
+    blurb:
+      "Anthropic priced its initial public offering at $83 per Class A share on 18 November, above the $70 to $78 range it set on 10 November. The offering is 980 million shares: 956.35 million sold by Anthropic and 23.65 million by existing holders, about $81.3 billion in all. Trading on the Nasdaq Global Select Market under ANT was set to begin on 19 November, with closing expected on 20 November. Underwriters have a 30-day option on 147 million more shares. No board score changes.",
+    date: "2026-11-18",
+    outlet: "Anthropic",
+    url: "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+    beat: "industry",
+    models: [],
+  },
+  {
+    id: "xai-grok-4-8-beta-1118",
+    title: "Musk: Grok 4.8 is several variants in beta, wide release a week or two out",
+    blurb:
+      "Elon Musk wrote on X on 17 November that xAI \"did do a soft rollout to some Bot users, but still have another week or two of polish before general release\" of Grok 4.8. On 18 November he added that \"Grok 4.8\" is currently several different model variants in beta, and xAI is not yet sure which one will go to wide release. xAI has still published no model page, price or benchmark for Grok 4.8, so there is no row. Grok 4.7 stays xAI's newest row.",
+    date: "2026-11-18",
+    outlet: "Elon Musk / X",
+    url: "https://x.com/elonmusk/status/2123226994246828250",
+    beat: "rumor",
+    models: ["grok-4.7"],
+  },
+  {
     id: "ant-ming-3.0-audio-flash-1118",
     title: "Ant Group's Ming-3.0-audio-flash leads AA Speech Reasoning at 99.8%",
     blurb:
