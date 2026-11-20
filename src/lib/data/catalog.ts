@@ -23,6 +23,7 @@ export const LABS: Record<Model["lab"], { name: string; short: string; color: st
   inclusionai: { name: "inclusionAI (Ant Group)", short: "inclusionAI", color: "#8B5CF6" },
   nanbeige: { name: "Nanbeige (BOSS Zhipin)", short: "Nanbeige", color: "#0E7490" },
   thinkingmachines: { name: "Thinking Machines", short: "Thinking Machines", color: "#EA580C" },
+  tencent: { name: "Tencent", short: "Tencent", color: "#0052D9" },
   other: { name: "Other", short: "Other", color: "#8EA0B0" },
 };
 
@@ -530,7 +531,7 @@ export const MODELS: Model[] = [
       "google_gemini-4-neon",
     ],
     summary:
-      "Released 18 November 2026 as gemini-4-neon. Google places it between Hydrogen and Carbon, for complex coding, knowledge work and science at a faster pace. Paid Gemini API tier in AI Studio (generateContent and the Interactions API), Gemini for business, Google Antigravity for paid AI Pro and Ultra subscribers, and the Gemini app for Pro and Ultra subscribers. No free API tier. List $3 / $15 per 1M tokens, cached input $0.15. 1,048,576 token window shared by input, thinking and output; 64K synchronous output by default, up to 1M with long decode. Thinking levels low, medium, high (the default) and xhigh. Text, image, video and speech in, text out. Closed weights, parameter count not disclosed. Independent scores: AA Intelligence Index v5.0 61 (xhigh), #3 behind Claude Fable 5.2 and GPT-6.2 Astra; AA lists high 60, medium 55 and low 44. Vals Terminal-Bench 4.0 61.62 (Mini-SWE-agent, #7 of 69). CursorBench 4.1 65.4 (Extra High), #1; Cursor lists High 63.7 and Medium 57.7. Not yet on Arena+, Harvey LAB-AA, AA Cyber or AA-Robotics. Outside Ridge boards, AA puts Neon (xhigh) in Antigravity CLI at 59 on its Coding Agent Index, leads AA-Briefcase Presentation Quality at 1771 Elo, and scores 33.4% on GDP.pdf at high (28.0% at xhigh). Vals ranks Neon second on its Vals Index at 70.87%, behind Fable 5.2 at 71.31%. Arena's Agent Arena Index now has Neon (High) third at 1333.",
+      "Released 18 November 2026 as gemini-4-neon. Google places it between Hydrogen and Carbon, for complex coding, knowledge work and science at a faster pace. Paid Gemini API tier in AI Studio (generateContent and the Interactions API), Gemini for business, Google Antigravity for paid AI Pro and Ultra subscribers, and the Gemini app for Pro and Ultra subscribers. No free API tier. List $3 / $15 per 1M tokens, cached input $0.15. 1,048,576 token window shared by input, thinking and output; 64K synchronous output by default, up to 1M with long decode. Thinking levels low, medium, high (the default) and xhigh. Text, image, video and speech in, text out. Closed weights, parameter count not disclosed. Independent scores: AA Intelligence Index v5.0 61 (xhigh), #3 behind Claude Fable 5.2 and GPT-6.2 Astra; AA lists high 60, medium 55 and low 44. Vals Terminal-Bench 4.0 61.62 (Mini-SWE-agent, #7 of 69). CursorBench 4.1 65.4 (Extra High), #1; Cursor lists High 63.7 and Medium 57.7. Arena+ 1530. Not yet on Harvey LAB-AA, AA Cyber or AA-Robotics. Outside Ridge boards, AA puts Neon (xhigh) in Antigravity CLI at 59 on its Coding Agent Index, leads AA-Briefcase Presentation Quality at 1771 Elo, and scores 33.4% on GDP.pdf at high (28.0% at xhigh). Vals ranks Neon second on its Vals Index at 70.87%, behind Fable 5.2 at 71.31%. Arena's Agent Arena Index now has Neon (High) third at 1333.",
   }),
   m({
     id: "gemini-4-argon",
@@ -936,6 +937,27 @@ export const MODELS: Model[] = [
       "Thinking Machines' second generation, a mixture-of-experts with 594B total and 17B active parameters, text and image in, text out, variable effort and a 1M token context. Released 5 November 2026 on Tinker; Apache 2.0 weights shipped 12 November on Hugging Face (thinkingmachines/Inkling-2-Small), with an MXFP8 variant. The native NVFP4 checkpoint needs about 500GB of GPU memory. Still on Tinker, and also via NVIDIA, Fireworks, Together, Baseten, Nebius, Modal and Cloudflare. AA lists $0.30 / $1.00 per 1M tokens ($0.03 cached). Independent scores: AA Intelligence Index v5.0 31, Arena+ 1493, Vals Terminal-Bench 4.0 12.63 (Mini-SWE-agent, #44 of 64). No AA Cyber, CursorBench or Harvey LAB-AA score yet. At 31 it does not take Best open weights from Kimi K3.1 Pro (46).",
   }),
   m({
+    id: "hy4",
+    name: "Hy4",
+    shortName: "Hy4",
+    lab: "tencent",
+    labName: "Tencent",
+    released: "2026-11-04",
+    contextTokens: 1_048_576,
+    pricing: { inputPerM: 0.834, outputPerM: 2.501 },
+    license: "open-weight",
+    aliases: [
+      "hy4",
+      "tencent hy4",
+      "tencent-hy4",
+      "hunyuan-hy4",
+      "hunyuan hy4",
+    ],
+    summary:
+      "Tencent's flagship Hy model, released on 4 November 2026 in Tencent's apps and on APIs, with open weights published on 19 November on Hugging Face (tencent/Hy4, plus Hy4-FP8 and the pretrained Hy4 base), ModelScope and GitCode. The official model card lists a language backbone of 770 billion total parameters and 49 billion active per token, excluding a 1.23 billion vision encoder and a 3.3 billion DFly2 drafter; Hugging Face's file size figure is 774 billion when those are counted. Context is 1,048,576 tokens. It takes text, image and video input and writes text. The license is the Tencent Hy License, Version 1.0, which is based on Apache 2.0 but is not Apache 2.0: large model-as-a-service businesses need a separate written license from Tencent if their yearly revenue is above $50 million or if a product has more than 100 million monthly active users. Official list price is $0.834 / $2.501 per 1M tokens, with cached input $0.042, as listed on Tencent Cloud. Also served on Together AI as tencent/Hy4. Independent scores: AA Intelligence Index v5.0 35, Arena+ 1505 (listed there as Hunyuan-Hy4), Vals Terminal-Bench 4.0 39.39 (Mini-SWE-agent, #22 of 69), AA Cyber Index 58 with no tasks declined. Not yet on CursorBench, Harvey LAB-AA or AA-Robotics. A system card with safety evaluations shipped with the weights.",
+    status: "ga",
+  }),
+  m({
     id: "muse-ember",
     name: "Muse Ember",
     shortName: "Ember",
@@ -1177,6 +1199,7 @@ export const SCORES: Score[] = [
   s("claude-fable-5.2", "aa-intelligence", 65, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-20", "best effort/variant: max"),
   s("gpt-6.2-astra", "aa-intelligence", 62, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-20", "best effort/variant: max"),
   s("gpt-6.2-sol", "aa-intelligence", 57, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-20", "best effort/variant: max"),
+  s("hy4", "aa-intelligence", 35, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-20", "best listed row"),
   // AA Intelligence Index v4.3.2, archived 28 Oct 2026 when AA moved to v5.0. Frozen; never rescraped.
   s("claude-opus-5.5", "aa-intelligence-v4", 58, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-27", "best effort/variant: max with fallback"),
   s("claude-sonnet-5.5", "aa-intelligence-v4", 56, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-27", "best effort/variant: max with fallback; AA tested a pre-release build with a structured-outputs bug since fixed and plans to re-run affected evals"),
@@ -1260,6 +1283,7 @@ export const SCORES: Score[] = [
   s("gpt-6.2-astra", "arena-elo", 1532, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-11-20"),
   s("gpt-6.2-sol", "arena-elo", 1524, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-11-20"),
   s("gemini-4-neon", "arena-elo", 1530, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-11-20"),
+  s("hy4", "arena-elo", 1505, "Arena+", "https://openlm.ai/chatbot-arena/", "2026-11-20"),
 
   s("claude-opus-5", "swe-bench", 97, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-11-20", "Lead is out of date: Vals stopped adding new models on 1 September 2026, so newer models were never run"),
   s("deepseek-v4-pro", "swe-bench", 96.4, "Vals AI", "https://vals.ai/benchmarks/swebench", "2026-11-20"),
@@ -1353,6 +1377,7 @@ export const SCORES: Score[] = [
   s("claude-fable-5.1", "aa-cyber", 25, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-20", "variant: max. Declines about a third of tasks on safety grounds; refuses nearly all CyberGym tasks."),
   s("gpt-6.2-astra", "aa-cyber", 37, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-20", "variant: max. Declines about half of tasks on safety grounds; refuses every CyberGym task."),
   s("gpt-6.2-sol", "aa-cyber", 38, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-20", "variant: max. Declines about a third of tasks on safety grounds; refuses every CyberGym task."),
+  s("hy4", "aa-cyber", 58, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index", "2026-11-20", "No tasks declined."),
 
   s("claude-fable-5.2", "terminal-bench-4", 65.15, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; effort high; tied #1 of 69 with Opus 5.5; 17 of 198 attempts (8.59%) served by Opus 5 or Opus 4.8 fallback"),
   s("claude-opus-5.5", "terminal-bench-4", 65.15, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; #2 of 69 in Vals table order, same 65.15 as Fable 5.2, so tied for first; 22 of 198 attempts served by Opus 5 or Opus 4.8 fallback, 58.08 counting those as failures"),
@@ -1401,6 +1426,7 @@ export const SCORES: Score[] = [
   s("muse-ember", "terminal-bench-4", 39.39, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; #21 of 69"),
   s("gpt-6.2-astra", "terminal-bench-4", 63.13, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; #5 of 69"),
   s("gpt-6.2-sol", "terminal-bench-4", 60.61, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; #8 of 69"),
+  s("hy4", "terminal-bench-4", 39.39, "Vals AI", "https://www.vals.ai/benchmarks/terminal-bench-4", "2026-11-20", "Mini-SWE-agent; #22 of 69"),
 
   s("grok-4.7", "harvey-lab-aa", 9.4, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-20", "variant: xhigh; #8 of 45; 0.74 material hallucinations per task; 16.7% before the hallucination gate"),
   s("qwen-4-max", "harvey-lab-aa", 9.4, "Artificial Analysis", "https://artificialanalysis.ai/evaluations/harvey-lab-aa", "2026-11-20", "listed as Qwen4 Max; #9 of 45; 0.36 material hallucinations per task; 15.0% before the hallucination gate"),

@@ -1,5 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-20",
+    title: "Hy4 open-weight row; GPT-Live-1.1 wire; Gemini 4 Neon Arena+ 1530",
+    items: [
+      "New row: Hy4 (Tencent, API 4 November, open weights 19 November on Hugging Face as tencent/Hy4, plus Hy4-FP8 and Hy4 base, also on ModelScope, GitCode and Together AI). Official card: 770B total / 49B active language backbone, 1,048,576 token context, Tencent Hy License (not Apache 2.0). List $0.834 / $2.501 per 1M tokens, cached input $0.042. Filled: AA Intelligence Index v5.0 35, Arena+ 1505 (listed as Hunyuan-Hy4), Vals Terminal-Bench 4.0 39.39 (Mini-SWE-agent, #22 of 69), AA Cyber Index 58 with no tasks declined. Blank: CursorBench, Harvey LAB-AA, AA-Robotics. Sources: https://huggingface.co/tencent/Hy4 https://huggingface.co/tencent/Hy4/blob/main/LICENSE https://x.com/TencentHunyuan/status/2123625549147070538 https://artificialanalysis.ai/leaderboards/models https://openlm.ai/chatbot-arena/ https://www.vals.ai/benchmarks/terminal-bench-4 https://artificialanalysis.ai/evaluations/artificial-analysis-cyber-index https://www.tencentcloud.com/document/product/1300/78937?lang=en https://www.together.ai/blog/tencent-hy4",
+      "Wire: Tencent Hy4 weights (tencent-hy4-weights-1119). Cross-references tencent-hy4-flash-weights-1117. The daily scrape matcher covers Hy4 as Tencent Hy4 / Hunyuan-Hy4 and excludes Hy4 flash and Hy4 preview names.",
+      "Wire: OpenAI GPT-Live-1.1 in the Live API (openai-gpt-live-1.1-1119). Model id gpt-live-1.1, $0.05/min active and $0.02/min standby. Artificial Analysis has not listed it on the Speech to Speech board, so /voice is unchanged. Sources: https://developers.openai.com/api/docs/models/gpt-live-1.1 https://developers.openai.com/api/docs/changelog https://artificialanalysis.ai/speech-to-speech",
+      "Daily scrape 20 November: dates, plus Gemini 4 Neon Arena+ 1530. The AA v5 headline drops Muse Wonder Full from the tied 12th slot (Argon and Wonder Full both 50; Argon remains). Neon catalog summary and release wire updated for the Arena+ fill. Source: https://openlm.ai/chatbot-arena/",
+    ],
+  },
+  {
     date: "2026-11-19",
     title: "Gemini 4 Neon added; CursorBench moves to 4.1; Agent Arena Index; Anthropic IPO priced; half-week opinion",
     items: [

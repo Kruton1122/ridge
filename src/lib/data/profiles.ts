@@ -277,6 +277,7 @@ export const LAB_THEME: Record<LabId, { motif: string }> = {
   xiaomi: { motif: "Xiaomi pink #FF4FA3, chosen because Xiaomi's own orange is taken by Alibaba and Mistral. Phone and EV maker; MIT open weights." },
   nanbeige: { motif: "Teal #0E7490. Nanbeige LLM Lab at BOSS Zhipin; Apache 2.0 open weights." },
   thinkingmachines: { motif: "Orange #EA580C. San Francisco lab behind Tinker; Inkling weights promised, not yet public." },
+  tencent: { motif: "Tencent blue #0052D9. Hy team; Hy4 open weights under the Tencent Hy License." },
   other: { motif: "Neutral slate." },
 };
 

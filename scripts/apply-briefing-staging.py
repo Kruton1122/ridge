@@ -85,6 +85,8 @@ NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").
 # tag happens to be present. Ling-3.2-flash is not Ling-3.1-flash-1019.
 NAME_EXCLUDES = {
     "ling-3.1-flash-1019": r"(?i)3\s*[.]\s*2",
+    # Full Hy4 must never take Hy4 flash or Hy4 preview board rows.
+    "hy4": r"(?i)\b(flash|preview)\b",
 }
 
 

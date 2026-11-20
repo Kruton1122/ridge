@@ -73,6 +73,7 @@ BOARD_WATCH = (
     "gpt-6.1-terra",       # OpenAI, 2026-10-26; AA Index + Vals TB4; blank Arena+/CursorBench/Cyber/Harvey
     "ling-3.1-flash-1019", # inclusionAI, MIT weights 2026-10-27; AA Index only; plain Ling-3.1-flash is NOT this row; Ling-3.2-flash is a different model
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
+    "hy4",                 # full Hy4; must not collide with Hy4 flash or Hy4 preview
     "nanbeige-4.3-33b",    # Nanbeige / BOSS Zhipin, Apache 2.0; AA v5 20; other boards blank
     "inkling-2-small",     # Thinking Machines, API-only until weights ship; AA v5 31; not Inkling Small
 )

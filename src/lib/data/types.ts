@@ -16,6 +16,7 @@ export type LabId =
   | "inclusionai"
   | "nanbeige"
   | "thinkingmachines"
+  | "tencent"
   | "other";
 
 export type License = "proprietary" | "open-weight";

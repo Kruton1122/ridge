@@ -18,6 +18,7 @@ export const LAB_COLORS: Record<LabId, string> = {
   inclusionai: "#8B5CF6",
   nanbeige: "#0E7490",
   thinkingmachines: "#EA580C",
+  tencent: "#0052D9",
   other: "#8EA0B0",
 };
 
