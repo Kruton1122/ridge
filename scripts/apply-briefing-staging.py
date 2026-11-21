@@ -55,11 +55,19 @@ SNAPSHOT_GATES = {
         "stale": "earlier Ling-3.1-flash checkpoint",
         "label": "1019 snapshot",
     },
-    # Inkling 2 Small vs the earlier Inkling Small (no Ridge row, but boards may list it).
+    # Inkling 2 Small vs Inkling 2 Mini and vs earlier Inkling Small (no Ridge row).
     "inkling-2-small": {
-        "pattern": r"(?i)inkling\s*[-_]?2",
-        "stale": "Inkling Small, the previous generation",
+        "pattern": r"(?i)inkling\s*[-_]?2\s*[-_]?small",
+        "stale": "row not labelled Inkling 2 Small",
         "label": "Inkling 2 Small",
+        "labelNote": False,
+    },
+    # Inkling 2 Mini must not take Inkling 2 Small, earlier Inkling/Inkling Small,
+    # or the variable-loop research variant shipped alongside it.
+    "inkling-2-mini": {
+        "pattern": r"(?i)inkling\s*[-_]?2\s*[-_]?mini",
+        "stale": "row not labelled Inkling 2 Mini",
+        "label": "Inkling 2 Mini",
         "labelNote": False,
     },
     # Gemini 4 Carbon and Argon share the "gemini 4" stem; only rows that say
@@ -87,6 +95,9 @@ NAME_EXCLUDES = {
     "ling-3.1-flash-1019": r"(?i)3\s*[.]\s*2",
     # Full Hy4 must never take Hy4 flash or Hy4 preview board rows.
     "hy4": r"(?i)\b(flash|preview)\b",
+    # Inkling 2 Mini / Small must never take each other or the variable-loop research variant.
+    "inkling-2-mini": r"(?i)(\bsmall\b|varloop|variable[-_ ]?loop|tml-d24)",
+    "inkling-2-small": r"(?i)(\bmini\b|varloop|variable[-_ ]?loop|tml-d24)",
 }
 
 

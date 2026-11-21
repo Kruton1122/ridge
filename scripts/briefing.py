@@ -75,7 +75,8 @@ BOARD_WATCH = (
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
     "hy4",                 # full Hy4; must not collide with Hy4 flash or Hy4 preview
     "nanbeige-4.3-33b",    # Nanbeige / BOSS Zhipin, Apache 2.0; AA v5 20; other boards blank
-    "inkling-2-small",     # Thinking Machines, API-only until weights ship; AA v5 31; not Inkling Small
+    "inkling-2-small",     # Thinking Machines, Apache 2.0 weights; AA v5 31, Arena+ 1493, TB4 12.63; not Inkling 2 Mini or Inkling Small
+    "inkling-2-mini",      # Thinking Machines, 20 Nov 2026; AA v5 20, Vals TB4 6.57; blank Arena+/CursorBench/Cyber/Harvey/Robotics; not the variable-loop variant
 )
 
 
@@ -913,6 +914,8 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "nanbeige 4.3 33b",
         "inkling-2-small",
         "inkling 2 small",
+        "inkling-2-mini",
+        "inkling 2 mini",
     }
     known = seed_known | known_extra
     frontier_markers = (

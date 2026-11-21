@@ -11,6 +11,39 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "thinkingmachines-inkling-2-mini-1120",
+    title: "Thinking Machines releases Inkling 2 Mini, a 26.4B looped model with an AA score of 20",
+    blurb:
+      "Thinking Machines Lab released Inkling 2 Mini on 20 November, with Apache 2.0 weights on Hugging Face as thinkingmachines/Inkling-2-Mini. It is a looped-transformer mixture of experts: 26.4 billion total parameters on the official card, matching the Hugging Face safetensors total of 26,388,646,440, and 3.4 billion unique weights active per token. The middle 12 of its 24 layers run three times, so about 5.4 billion weight activations per token. It takes text and image input, writes text, and has a 1M token context. The mixed NVFP4 and MXFP8 checkpoint is about 20GB. Official Tinker pricing is $0.15 / $0.50 per 1M tokens, with cached input $0.015. It is also available on vLLM, SGLang, Ollama and llama.cpp. A research variable-loop variant shipped at the same time; that checkpoint is not this row. Artificial Analysis puts it at 20 on Intelligence Index v5.0, matching Qwen3.8 27B at xhigh, and lists it on the Pareto frontier for intelligence versus active parameters. Vals Terminal-Bench 4.0, the Ridge TB column, is 6.57 with Mini-SWE-agent, 57th of 70. Vals also lists it at 46.46% on Vals Index v2.2, 38th of 43; the lab rounded that to 46.5% and called it the best open model under 100B on that index. The lab's own DeepSWE v1.1 figure is 48.2%, a vendor claim, not a Ridge board. Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics are still blank. The /small board is only for open-weight models at or under 20 billion official total parameters, so Mini is not on it.",
+    date: "2026-11-20",
+    outlet: "Thinking Machines Lab",
+    url: "https://thinkingmachines.ai/news/inkling-2-mini/",
+    beat: "release",
+    models: ["inkling-2-mini"],
+  },
+  {
+    id: "metr-q4-2026-capability-update-1120",
+    title: "METR's Q4 update: time horizons are still doubling about every 3.6 months",
+    blurb:
+      "METR published its Q4 2026 capability update on 20 November, covering public models up to Claude Opus 5.5 and GPT-6 Astra. On the combined TH1.1 and TH2 suite, it finds that 50% time horizons are doubling roughly every 3.61 months (95% CI 2.08 to 4.94), or about 110 days, close to the earlier TH1.1-only trend of 105 days. This is a new estimate on the combined suite, not a revision of the roughly seven-month doubling time from METR's 2025 paper. A faster 1.65-month doubling on the verifiable subset of TH2 (95% CI 0.79 to 3.99) could look like an acceleration, but METR does not treat that as settled: similar fast doubling already showed up on MirrorCode in late 2025, and narrower task families may simply move quicker. METR also says models usually match or beat the skilled humans it can recruit on its coding and optimization tasks, and that judgment still lags on work without clear empirical feedback. It argues that public evidence is not enough to rule out drastic AI R&D acceleration in the next couple of years. No Ridge scores change.",
+    date: "2026-11-20",
+    outlet: "METR",
+    url: "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+    beat: "labs",
+    models: ["claude-opus-5.5", "gpt-6-astra"],
+  },
+  {
+    id: "openai-medchembench-1120",
+    title: "OpenAI introduces MedChemBench, a 99-problem medicinal chemistry test",
+    blurb:
+      "OpenAI published MedChemBench on 20 November, a 99-problem benchmark drawn from 117 papers and patents, covering 761 molecular structures. It asks models to reconstruct molecules, explain experimental evidence, rank or select compounds, and predict properties from the context a chemist would have had at a chosen point in a research program. Later results are held back for grading. OpenAI's own figures, which are vendor claims and not a Ridge board, put GPT-6.2 Astra at 84.5% of available credit at xhigh, GPT-6 Astra at 83.3%, GPT-6.1 Sol at 82.0%, and GPT-5.6 Sol at 58.2%. OpenAI says models were strongest at reconstructing structures and explaining evidence, and weaker at selecting compounds and predicting numerical properties. The post notes that prior exposure to the published sources cannot be ruled out, and that each response was a single attempt without tools or new experiments. Not a Ridge board, and no catalog scores change.",
+    date: "2026-11-20",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/introducing-medchembench/",
+    beat: "labs",
+    models: [],
+  },
+  {
     id: "tencent-hy4-weights-1119",
     title: "Tencent releases Hy4 weights under the Tencent Hy License",
     blurb:

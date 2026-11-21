@@ -1,5 +1,17 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-21",
+    title: "Inkling 2 Mini row; METR Q4 and MedChemBench wires",
+    items: [
+      "New row: Inkling 2 Mini (Thinking Machines, released 20 November, Apache 2.0 weights on Hugging Face as thinkingmachines/Inkling-2-Mini). Official card and Hugging Face safetensors total: 26.4B parameters (26,388,646,440), 3.4B unique active, about 5.4B weight activations per token with three loops, 1M context, text and image in. Official Tinker list $0.15 / $0.50 per 1M tokens, cached input $0.015. Filled: AA Intelligence Index v5.0 20 (best listed row), Vals Terminal-Bench 4.0 6.57 (Mini-SWE-agent, #57 of 70). Blank: Arena+, CursorBench, AA Cyber, Harvey LAB-AA, AA-Robotics. Not on /small (official total is above the 20B cutoff). The research variable-loop variant is not a row. Sources: https://thinkingmachines.ai/news/inkling-2-mini/ https://huggingface.co/thinkingmachines/Inkling-2-Mini https://artificialanalysis.ai/models/inkling-2-mini https://artificialanalysis.ai/articles/inkling-2-mini https://www.vals.ai/benchmarks/terminal-bench-4 https://thinkingmachines.ai/tinker/pricing/",
+      "Wire: Inkling 2 Mini release (thinkingmachines-inkling-2-mini-1120). Vals Index v2.2 46.46% (#38 of 43) is confirmed on Vals and stated in prose only; the lab rounded it to 46.5%. The lab's DeepSWE v1.1 48.2% is labelled as a vendor claim. The daily scrape matcher now keeps Inkling 2 Mini distinct from Inkling 2 Small and excludes the variable-loop research variant.",
+      "Wire: METR Q4 2026 capability update (metr-q4-2026-capability-update-1120). Combined TH1.1 and TH2 time horizons doubling every 3.61 months (95% CI 2.08 to 4.94), covering models up to Opus 5.5 and GPT-6 Astra. No score changes. Source: https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
+      "Wire: OpenAI MedChemBench (openai-medchembench-1120), a 99-problem medicinal chemistry benchmark. OpenAI's own scores are labelled as vendor claims. Not a Ridge board. Source: https://openai.com/index/introducing-medchembench/",
+      "Daily scrape 21 November: dates only. No score values changed.",
+      "Skipped: RadixArk DaisyRose-27B (Apache 2.0 RL post-train of Qwen3.8-27B, verified at https://www.radixark.com/blog/daisyrose-27b). Scores are vendor-only, including a Terminal-Bench 4.1 figure that is not Vals TB4, so there is no independent tracked-board score and no row. Not enough independently confirmed news for a wire.",
+    ],
+  },
+  {
     date: "2026-11-20",
     title: "Hy4 open-weight row; GPT-Live-1.1 wire; Gemini 4 Neon Arena+ 1530",
     items: [
