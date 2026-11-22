@@ -18,7 +18,7 @@ export interface SmallRow {
   weightsUrl: string;
 }
 
-export const SMALL_AS_OF = "2026-11-21";
+export const SMALL_AS_OF = "2026-11-22";
 export const SMALL_SOURCE = { name: "Artificial Analysis", url: "https://artificialanalysis.ai/leaderboards/models" };
 /** Inclusive cutoff for official total parameters, in billions. */
 export const SMALL_MAX_PARAMS_B = 20;

@@ -1,6 +1,15 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-22",
+    title: "LingSante-3.1-flash wire; daily scrape dates",
+    items: [
+      "Wire: inclusionAI LingSante-3.1-flash (inclusionai-lingsante-3.1-flash-1122). Official card: MIT, 560B total / 25B active, 1M context, hybrid-linear MoE (63 KDA + 9 Gated MLA), built on Ling-3.1-flash; Hugging Face safetensors total 572,120,680,768. Companion LingSante-3.1-air-VL (124B / 5.5B, 256K context, also MIT) is folded into the same wire. Vendor HealthBench Professional 65.72, HLE (text-only, with tools) 72.22 and BrowseComp (with context) 94.10 appear on the card's charts and are labelled as Ant's claims. Artificial Analysis has a placeholder page with no Intelligence Index score; Vals, Arena+ and CursorBench have not listed it. No independent tracked-board score, so no row. Sources: https://huggingface.co/inclusionAI/LingSante-3.1-flash https://huggingface.co/inclusionAI/LingSante-3.1-air-VL https://huggingface.co/inclusionAI/LingSante-3.1-flash-MXFP4 https://x.com/AntLingAGI/status/2124523916819648945",
+      "Daily scrape 22 November: dates only. No score values changed.",
+    ],
+  },
+  {
     date: "2026-11-21",
+
     title: "Inkling 2 Mini row; METR Q4 and MedChemBench wires",
     items: [
       "New row: Inkling 2 Mini (Thinking Machines, released 20 November, Apache 2.0 weights on Hugging Face as thinkingmachines/Inkling-2-Mini). Official card and Hugging Face safetensors total: 26.4B parameters (26,388,646,440), 3.4B unique active, about 5.4B weight activations per token with three loops, 1M context, text and image in. Official Tinker list $0.15 / $0.50 per 1M tokens, cached input $0.015. Filled: AA Intelligence Index v5.0 20 (best listed row), Vals Terminal-Bench 4.0 6.57 (Mini-SWE-agent, #57 of 70). Blank: Arena+, CursorBench, AA Cyber, Harvey LAB-AA, AA-Robotics. Not on /small (official total is above the 20B cutoff). The research variable-loop variant is not a row. Sources: https://thinkingmachines.ai/news/inkling-2-mini/ https://huggingface.co/thinkingmachines/Inkling-2-Mini https://artificialanalysis.ai/models/inkling-2-mini https://artificialanalysis.ai/articles/inkling-2-mini https://www.vals.ai/benchmarks/terminal-bench-4 https://thinkingmachines.ai/tinker/pricing/",

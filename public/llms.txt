@@ -2,7 +2,7 @@
 
 Frontier model benchmark ledger. Cite source URL and as-of date.
 
-- Snapshot: 2026-11-21
+- Snapshot: 2026-11-22
 - Index: Artificial Analysis Intelligence Index v5.0 (current AA version since 28 Oct 2026; new scale, so not comparable with v4.3.2, which is kept as an archived board. Models AA has not run on v5.0 are blank. Source: https://artificialanalysis.ai/methodology/intelligence-benchmarking)
 - SWE-bench Verified: Vals stopped running new models on 1 Sept 2026, so its leader is out of date and newer models are blank.
 - Terminal-Bench 2.1: Vals moved its index to Terminal-Bench 4.0 on 25 Sept 2026 and archived 2.1, so models released since late September are blank. Source: https://www.vals.ai/benchmarks/terminal-bench-2-1
@@ -19,6 +19,7 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-22): inclusionAI released LingSante-3.1-flash, an open-weight medical MoE built on Ling-3.1-flash (inclusionAI/LingSante-3.1-flash, MIT, official card 560B total / 25B active, 1M context; Hugging Face safetensors total 572,120,680,768). A companion multimodal model, LingSante-3.1-air-VL (124B / 5.5B, 256K context, also MIT), shipped with it. Ant's own card charts claim HealthBench Professional 65.72, HLE (text-only, with tools) 72.22 and BrowseComp (with context) 94.10. Those are vendor claims. No independent tracked-board score, so no row. Sources: https://huggingface.co/inclusionAI/LingSante-3.1-flash https://huggingface.co/inclusionAI/LingSante-3.1-air-VL https://x.com/AntLingAGI/status/2124523916819648945
 New model (2026-11-20): Inkling 2 Mini (Thinking Machines, Apache 2.0, thinkingmachines/Inkling-2-Mini, 26.4B total / 3.4B unique active, about 5.4B weight activations per token with three loops, 1M context, text and image in, Tinker list $0.15 / $0.50, cached $0.015). AA Intelligence Index v5.0 20, Vals Terminal-Bench 4.0 6.57 (#57 of 70). Arena+, CursorBench, AA Cyber, Harvey LAB-AA and AA-Robotics blank. Not on /small (above the 20B official-total cutoff). Vals Index v2.2 46.46% is confirmed on Vals and stated in the wire only. Sources: https://thinkingmachines.ai/news/inkling-2-mini/ https://huggingface.co/thinkingmachines/Inkling-2-Mini https://artificialanalysis.ai/models/inkling-2-mini https://www.vals.ai/benchmarks/terminal-bench-4
 News (2026-11-20): METR Q4 2026 capability update. On the combined TH1.1 and TH2 suite, 50% time horizons are doubling roughly every 3.61 months (95% CI 2.08 to 4.94), covering models up to Opus 5.5 and GPT-6 Astra. No Ridge scores change. Source: https://metr.org/blog/2026-11-20-q4-2026-capability-update/
 News (2026-11-20): OpenAI introduced MedChemBench, a 99-problem medicinal chemistry benchmark from 117 papers and patents. OpenAI's own figures (GPT-6.2 Astra 84.5% at xhigh, GPT-6 Astra 83.3%, GPT-6.1 Sol 82.0%, GPT-5.6 Sol 58.2%) are vendor claims. Not a Ridge board. Source: https://openai.com/index/introducing-medchembench/
