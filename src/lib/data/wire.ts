@@ -11,6 +11,28 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "alephalpha-kolibri-1.1-1123",
+    title: "Aleph Alpha releases Kolibri 1.1, an open English-German model, under Apache 2.0",
+    blurb:
+      "Aleph Alpha released Kolibri 1.1 on 23 November, an update to its open-weight English-German mixture of experts. The Hugging Face card lists 75 billion total parameters and 3.44 billion active, a native context of 262,144 tokens and support up to 1,048,576, and an Apache 2.0 license (Aleph-Alpha/Kolibri-1.1). Aleph Alpha says a new sparse-attention architecture and more efficient reasoning cut GPU time per task by 3.4 times versus Kolibri 1.0 while raising its overall score, as defined on the model card, and that on that score Kolibri 1.1 is the strongest model in the 3 to 4 billion active class in English and German, ahead of the larger GPT-OSS 120B, Mistral Small 4 and Nemotron 3 Super. Those figures are Aleph Alpha's. Artificial Analysis, Vals and Arena+ have not published a score, so Ridge is not adding a row.",
+    date: "2026-11-23",
+    outlet: "Aleph Alpha",
+    url: "https://aleph-alpha.com/en/blog/kolibri-1-1/",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "phonic-1.1-s2s-1123",
+    title: "Phonic 1.1 takes first place on the Voice board",
+    blurb:
+      "Phonic 1.1 (High) is first on the Artificial Analysis Speech to Speech Index at 89.1, two points ahead of Phonic 1 (High) at 87.1, which now sits second, just ahead of Grok Voice 3.0 at 86.9. AA lists Speech Reasoning at 99.5%, Agentic Performance at 82.8%, Arena Preference Elo at 1053, Task Success Rate at 92.9%, and 0.80 seconds to first audio. Input audio is $4.20 per hour. The Ridge Voice board uses those figures.",
+    date: "2026-11-23",
+    outlet: "Artificial Analysis",
+    url: "https://artificialanalysis.ai/speech-to-speech",
+    beat: "ranking",
+    models: [],
+  },
+  {
     id: "alpoge-claude-riemann-lean-1121",
     title: "Anthropic mathematician says he proved the Riemann Hypothesis with Claude, and Lean's checkers accept the formal proof",
     blurb:

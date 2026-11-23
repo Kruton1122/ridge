@@ -19,6 +19,8 @@ Frontier model benchmark ledger. Cite source URL and as-of date.
 
 Cite the source URL and the as-of date.
 
+News (2026-11-23): Aleph Alpha released Kolibri 1.1 (Apache 2.0, 75B / 3.44B active, up to 1M context, Aleph-Alpha/Kolibri-1.1). Efficiency and score claims are Aleph Alpha's. No tracked-board score, so no row. Sources: https://aleph-alpha.com/en/blog/kolibri-1-1/ https://huggingface.co/Aleph-Alpha/Kolibri-1.1
+News (2026-11-23): Voice board: Phonic 1.1 (High) is #1 on the AA Speech to Speech Index at 89.1, ahead of Phonic 1 (High) at 87.1; $4.20 per hour of input audio. Source: https://artificialanalysis.ai/speech-to-speech
 News (2026-11-23): Z.ai showed GLM-5.4, a loop transformer built from the GLM-5 base at 750B scale. API coming soon, weights after safety hardening, no price or tracked-board score, so no row. Source: https://z.ai/blog/glm-5.4
 News (2026-11-22): OpenAI chief scientist Jakub Pachocki proposed perplexity as a shared metric for industry limits and published OpenAI's internal log-perplexity figures (GPT-4 about 0.91, recent models below 0.8). Not a Ridge board. Source: https://openai.com/index/perplexity-and-intelligence/
 News (2026-11-22): Sarvam AI released Sarvam-105B-1711 (Apache 2.0, 105B / 10.3B active, sarvamai/sarvam-105b-1711-bf16). Vendor scores only; no tracked-board score, so no row. Source: https://www.sarvam.ai/blogs/sarvam-105b-1711

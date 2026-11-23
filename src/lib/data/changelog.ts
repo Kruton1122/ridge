@@ -1,8 +1,10 @@
 export const CHANGELOG = [
   {
     date: "2026-11-23",
-    title: "Riemann proof, perplexity limits, distillation, GLM-5.4 and Sarvam wires; half-week note",
+    title: "Riemann proof, perplexity limits, distillation, GLM-5.4, Sarvam and Kolibri 1.1 wires; Phonic 1.1 on Voice; half-week note",
     items: [
+      "Wire: Aleph Alpha Kolibri 1.1 (alephalpha-kolibri-1.1-1123), Apache 2.0, 75B / 3.44B active, up to 1M context. Efficiency and score claims are Aleph Alpha's. No tracked-board score, so no row. Sources: https://aleph-alpha.com/en/blog/kolibri-1-1/ https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+      "Voice board: Phonic 1.1 (High) enters first at 89.1 on the AA Speech to Speech Index, ahead of Phonic 1 (High) at 87.1. Input audio $4.20 per hour. Wire: phonic-1.1-s2s-1123. Source: https://artificialanalysis.ai/speech-to-speech",
       "Wire: Levent Alpöge's Claude-assisted Riemann Hypothesis proof (alpoge-claude-riemann-lean-1121). The Lean FRO and Mathlib Initiative certified the formal proof on 21 November; Artificial Analysis's AA-Millennium tally (20 November) is folded in. Not a Ridge board. Sources: https://leanprover-community.github.io/blog/posts/riemann-hypothesis/ https://math.mit.edu/~drew/grh/ https://www.nature.com/articles/d41586-026-03812-7 https://x.com/ArtificialAnlys/status/2123855432443957525",
       "Wire: OpenAI \"Perplexity and Intelligence\" (openai-perplexity-and-intelligence-1122), Jakub Pachocki's proposal for perplexity-based industry limits. Source: https://openai.com/index/perplexity-and-intelligence/",
       "Wire: OpenAI \"Combatting adversarial distillation\" (openai-adversarial-distillation-1120). OpenAI's own red-team figures: protected-reasoning extraction 54.0% on GPT-6 Astra vs 0.2% on GPT-6.2 Astra. Source: https://openai.com/index/combatting-adversarial-distillation/",

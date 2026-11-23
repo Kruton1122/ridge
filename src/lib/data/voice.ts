@@ -20,6 +20,7 @@ export const VOICE_AS_OF = "2026-11-23";
 export const VOICE_SOURCE = { name: "Artificial Analysis", url: "https://artificialanalysis.ai/speech-to-speech" };
 
 export const VOICE_ROWS: VoiceRow[] = [
+  { provider: "Phonic", model: "Phonic 1.1 (High)", index: "89.1", reasoning: "99.5%", dynamics: null, agentic: "82.8%", arenaElo: "1053", taskSuccess: "92.9%", ttfa: "0.80" },
   { provider: "Phonic", model: "Phonic 1 (High)", index: "87.1", reasoning: "98.9%", dynamics: null, agentic: "79.9%", arenaElo: "1010", taskSuccess: "92.3%", ttfa: "0.61" },
   { provider: "SpaceXAI", model: "Grok Voice 3.0", index: "86.9", reasoning: "98.5%", dynamics: "97.0%", agentic: "71.6%", arenaElo: "1053", taskSuccess: "94.8%", ttfa: "0.81" },
   { provider: "OpenAI", model: "GPT-Live-1 (Astra, medium)", index: "83.2", reasoning: "90.1%", dynamics: "94.9%", agentic: "74.5%", arenaElo: "1013", taskSuccess: "87.4%", ttfa: "1.34" },
