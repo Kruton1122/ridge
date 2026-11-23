@@ -11,6 +11,61 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "alpoge-claude-riemann-lean-1121",
+    title: "Anthropic mathematician says he proved the Riemann Hypothesis with Claude, and Lean's checkers accept the formal proof",
+    blurb:
+      "Levent Alpöge, a mathematician at Anthropic, posted on 20 November that he believes he has, working with Claude, found a proof of the Riemann Hypothesis. He released it as a Lean library of about 17 million lines, with a short write-up at alpo.ge/remark.pdf. He did not say which Claude model he used, and Anthropic had not commented when The Verge and Nature reported it. On 21 November the Lean FRO and the Mathlib Initiative said in a joint statement that the library compiles, that it proves exactly Mathlib's statement of the hypothesis, and that several independent proof checkers accept it, and that they have full confidence the proof is correct. Andrew Sutherland's verification page at MIT reports the same checks passing, with Lean's own kernel run on the full export still going as of 22 November. What has been checked is the formal proof, not a paper people can read. Alpöge's write-up is four pages, Andrew Granville told Nature it is garbled, and James Maynard said he expects the proof to hold but that it will take mathematicians a long time to digest. Clay's prize rules need publication and two years of scrutiny. Hours later, Ravi Vakil posted a separate, all-human preprint by Alessandro Maria Masullo that also claims a proof. Artificial Analysis launched AA-Millennium the same day, a tally of the seven Millennium Prize Problems, and provisionally scores humans, OpenAI (its September Navier-Stokes claim) and Anthropic at one each while the AI claims await review. None of this is a Ridge board.",
+    date: "2026-11-21",
+    outlet: "Lean FRO and Mathlib Initiative",
+    url: "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+    beat: "labs",
+    models: [],
+  },
+  {
+    id: "openai-perplexity-and-intelligence-1122",
+    title: "OpenAI's chief scientist proposes perplexity as the shared yardstick for industry limits",
+    blurb:
+      "Jakub Pachocki, OpenAI's chief scientist, published \"Perplexity and Intelligence\" on 22 November. He argues that labs should track pretraining progress with perplexity, the loss on held-out data, and use it to set common limits that developers agree not to cross until they can better understand and monitor model behavior, for example with a successor to chain-of-thought monitors. OpenAI published its own internal figures for the first time, measured on a held-out set from its internal codebase: GPT-3.5 at a log-perplexity of about 0.99, GPT-4 at about 0.91, recent models below 0.8, and the model that started producing new math results at about 0.76. He expects more big jumps in capability around 0.68 to 0.7, and says AI-driven pretraining research could speed things up as soon as 2027. The post also lists the problems: labs use different datasets, perplexity misses gains from reasoning at inference time, and nobody knows where its floor is. TechCrunch reported that Sam Altman called it the most important thing OpenAI has published in a while. These are not benchmark scores and do not appear on Ridge's boards.",
+    date: "2026-11-22",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/perplexity-and-intelligence/",
+    beat: "policy",
+    models: [],
+  },
+  {
+    id: "openai-adversarial-distillation-1120",
+    title: "OpenAI says GPT-6.2 cuts reasoning-extraction attacks from 54% to 0.2%",
+    blurb:
+      "OpenAI published \"Combatting adversarial distillation\" on 20 November, on how it tries to stop others from training copies of its models on their outputs. In an internal adaptive red-team test across six attacker models, the success rate for pulling protected reasoning out of an earlier request fell from 54.0% on GPT-6 Astra with its original safeguards to 0.2% on GPT-6.2 Astra, and from 22.9% to 0.9% for the current request. OpenAI says GPT-6.2 Astra and Sol tie protected reasoning to the conversation that produced it, drop it if an earlier message is rewritten, and stop older model families from reading it. Some of the fixes are coming to GPT-6 Astra. In an internal study, a student model trained on exact reasoning traces from Astra-level teachers on coding and defensive cyber tasks generally beat one trained on summaries after fine-tuning, and kept the lead at the largest inference budget after reinforcement learning. OpenAI says its weekly enforcement against distillation campaigns has ranged from thousands to tens of thousands of accounts, repeats its September attribution of one campaign to people tied to Moonshot AI, and backs the Chip Security Act, the AI OVERWATCH Act and the MATCH Act. All figures are from OpenAI's own tests.",
+    date: "2026-11-20",
+    outlet: "OpenAI",
+    url: "https://openai.com/index/combatting-adversarial-distillation/",
+    beat: "labs",
+    models: ["gpt-6.2-astra", "gpt-6.2-sol", "gpt-6-astra"],
+  },
+  {
+    id: "zai-glm-5.4-1123",
+    title: "Z.ai unveils GLM-5.4, a loop transformer at 750B scale, with the API and weights still to come",
+    blurb:
+      "Z.ai published GLM-5.4 on 23 November, its first flagship built as a loop transformer. It runs 28 layers of the GLM-5 base model twice with shared weights, converted by continued training rather than trained from scratch, at what Z.ai calls the 750B scale. Z.ai says it reaches intelligence comparable to models with 2T to 3T parameters, and admits it can get stuck in overly long \"marathon thinking\". The changes include per-token gates on each loop pass, a hybrid KV cache so the second pass costs one sliding window instead of a full cache, and reuse of the first pass's sparse attention indices. Z.ai quotes up to 200 tokens per second off-peak and 70 to 80 at peak. It is live in the GLM Coding Plan, ZCode and Z.ai Chat. The API is marked coming soon, and Z.ai plans to release the weights after safety hardening, with no date or license given. There is no list price and no score yet from Artificial Analysis, Vals, Arena+ or CursorBench, so Ridge is not adding a row. GLM-5.3 stays on the board.",
+    date: "2026-11-23",
+    outlet: "Z.ai",
+    url: "https://z.ai/blog/glm-5.4",
+    beat: "release",
+    models: ["glm-5.3"],
+  },
+  {
+    id: "sarvam-105b-1711-1122",
+    title: "Sarvam releases Sarvam-105B-1711, a cheaper Apache 2.0 checkpoint for enterprise agents",
+    blurb:
+      "Sarvam AI released Sarvam-105B-1711 on 22 November, a new post-trained checkpoint of its February Sarvam 105B. It is the same mixture of experts, 105 billion parameters with 10.3 billion active, tuned for customer support, voice agents, tool calls and Indian languages. The weights are on Hugging Face under Apache 2.0, in BF16 (sarvamai/sarvam-105b-1711-bf16, 106.0 billion parameters in the safetensors metadata) and a 65 GB NVFP4 build that Sarvam says fits on one RTX PRO 6000 Blackwell. Sarvam cut its blended price from $0.44 to $0.15 per million tokens and says the model averages 73.9 across eight conversational agent benchmarks, up from 42.6, including 82.5 on IFBench and 85.5 on tau2-Bench. All of those are Sarvam's own runs, and its Indic suite is internal and judged by Gemini 3.1 Pro. Artificial Analysis has not published an Intelligence Index score for this checkpoint, and Vals and Arena+ have not listed it, so Ridge is not adding a row.",
+    date: "2026-11-22",
+    outlet: "Sarvam AI",
+    url: "https://www.sarvam.ai/blogs/sarvam-105b-1711",
+    beat: "release",
+    models: [],
+  },
+  {
     id: "inclusionai-lingsante-3.1-flash-1122",
     title: "inclusionAI releases LingSante-3.1-flash, an open 560B medical model, under MIT",
     blurb:

@@ -1,5 +1,18 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-23",
+    title: "Riemann proof, perplexity limits, distillation, GLM-5.4 and Sarvam wires; half-week note",
+    items: [
+      "Wire: Levent Alpöge's Claude-assisted Riemann Hypothesis proof (alpoge-claude-riemann-lean-1121). The Lean FRO and Mathlib Initiative certified the formal proof on 21 November; Artificial Analysis's AA-Millennium tally (20 November) is folded in. Not a Ridge board. Sources: https://leanprover-community.github.io/blog/posts/riemann-hypothesis/ https://math.mit.edu/~drew/grh/ https://www.nature.com/articles/d41586-026-03812-7 https://x.com/ArtificialAnlys/status/2123855432443957525",
+      "Wire: OpenAI \"Perplexity and Intelligence\" (openai-perplexity-and-intelligence-1122), Jakub Pachocki's proposal for perplexity-based industry limits. Source: https://openai.com/index/perplexity-and-intelligence/",
+      "Wire: OpenAI \"Combatting adversarial distillation\" (openai-adversarial-distillation-1120). OpenAI's own red-team figures: protected-reasoning extraction 54.0% on GPT-6 Astra vs 0.2% on GPT-6.2 Astra. Source: https://openai.com/index/combatting-adversarial-distillation/",
+      "Wire: Z.ai GLM-5.4 (zai-glm-5.4-1123), a loop transformer at 750B scale. API coming soon, weights later, no tracked-board score, so no row. Source: https://z.ai/blog/glm-5.4",
+      "Wire: Sarvam-105B-1711 (sarvam-105b-1711-1122), Apache 2.0, 105B / 10.3B active. Vendor scores only, so no row. Sources: https://www.sarvam.ai/blogs/sarvam-105b-1711 https://huggingface.co/sarvamai/sarvam-105b-1711-bf16",
+      "Desk: half-week note for 20 to 23 November. Public-opinion ratings unchanged.",
+      "Daily scrape 23 November: dates on the text ledger, no score values changed. /voice Arena Elo values refreshed from AA.",
+    ],
+  },
+  {
     date: "2026-11-22",
     title: "LingSante-3.1-flash wire; daily scrape dates",
     items: [

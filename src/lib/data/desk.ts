@@ -11,6 +11,25 @@ export function isFresh(date: string, asOf = "2026-11-23"): boolean {
 
 export const NEWS: NewsItem[] = [
   {
+    id: "halfweek-1123",
+    kind: "ranking",
+    title: "Half-week: a machine-checked Riemann proof, a proposed speed limit, and a quiet board",
+    dek: "20 to 23 November. No new model reached Ridge's boards. A Claude-assisted Riemann proof passed Lean's checkers, OpenAI's chief scientist proposed perplexity caps, and GLM-5.4 arrived without an API. Every rating holds.",
+    pull: "\"I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis.\"",
+    summary: "The board did not move: Fable 5.2 still leads AA at 65, ahead of GPT-6.2 Astra at 62 and Gemini 4 Neon at 61. The news was elsewhere. Levent Alpöge's Claude-assisted Riemann proof passed the Lean community's checks, OpenAI proposed perplexity as a shared limit for frontier labs, and Z.ai showed GLM-5.4. Ratings hold.",
+    date: "2026-11-23",
+    sourceName: "Ridge",
+    sourceUrl: "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/",
+    models: ["claude-fable-5.2", "gpt-6.2-astra", "gemini-4-neon", "glm-5.3"],
+    tags: ["opinion", "ranking"],
+    body: [
+      "The ranked boards held still. On Artificial Analysis Intelligence Index v5, Claude Fable 5.2 leads at 65, GPT-6.2 Astra is second at 62 and Gemini 4 Neon third at 61, the same order as on 19 November. No model released since then has an independent score on AA, Vals or Arena+, so Ridge added no rows.",
+      "The biggest story was not a release. On 20 November Levent Alpöge, a mathematician at Anthropic, said he had found a proof of the Riemann Hypothesis working with Claude, and posted it as a Lean library of about 17 million lines. A day later the Lean FRO and the Mathlib Initiative said they had full confidence the formal proof is correct: it compiles, proves Mathlib's exact statement, and passes several independent checkers. Mathematicians quoted by Nature still want a readable proof, and Clay's rules need two years of scrutiny. Artificial Analysis started a Millennium Prize tally the same day and gave OpenAI and Anthropic one provisional point each.",
+      "OpenAI spent the week on limits. On 20 November it said GPT-6.2 Astra resisted reasoning-extraction attacks far better than GPT-6 Astra in its own tests, 0.2% against 54.0%. On 22 November chief scientist Jakub Pachocki proposed perplexity, the loss on held-out data, as a shared measure that labs could agree not to push past until monitoring catches up, and published OpenAI's own figures. Z.ai showed GLM-5.4, a looped version of its GLM-5 base, with no API or weights yet. Sarvam put out a cheaper Apache 2.0 checkpoint of Sarvam 105B.",
+      "No new public-opinion read this pass, so every rating holds. Our view: the most important AI result of the week was checked by proof software, not by a leaderboard.",
+    ],
+  },
+  {
     id: "halfweek-opinion-1119",
     kind: "ranking",
     title: "Half-week opinion: Astra 6.2 gets called lazy, Neon gets a warm start",
