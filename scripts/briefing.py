@@ -72,6 +72,7 @@ BOARD_WATCH = (
     "minimax-m3.1-flash",  # MiniMax, 2026-10-19; proprietary until weights ship; AA Index only; a later M3.1 Pro is NOT this row
     "gpt-6.1-terra",       # OpenAI, 2026-10-26; AA Index + Vals TB4; blank Arena+/CursorBench/Cyber/Harvey
     "ling-3.1-flash-1019", # inclusionAI, MIT weights 2026-10-27; AA Index only; plain Ling-3.1-flash is NOT this row; Ling-3.2-flash is a different model
+    "ling-3.2-air",        # inclusionAI, MIT weights 2026-11-23; AA v5 23; blank other boards; not Ling-3.2-flash, Ling-3.1-flash or LingSante-3.1-air-VL
     "claude-haiku-5.5",    # launched 2026-10-07; blank AA Cyber; Vals runs no TB 2.1/SWE for new models
     "hy4",                 # full Hy4; must not collide with Hy4 flash or Hy4 preview
     "nanbeige-4.3-33b",    # Nanbeige / BOSS Zhipin, Apache 2.0; AA v5 20; other boards blank
@@ -910,6 +911,8 @@ def frontier_new_in_top10(aa_top10, arena_top10, swe_top10):
         "gpt 6.1 terra",
         "ling-3.1-flash-1019",
         "ling 3.1 flash 1019",
+        "ling-3.2-air",
+        "ling 3.2 air",
         "nanbeige-4.3-33b",
         "nanbeige 4.3 33b",
         "inkling-2-small",

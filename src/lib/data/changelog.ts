@@ -1,5 +1,13 @@
 export const CHANGELOG = [
   {
+    date: "2026-11-24",
+    title: "ERNIE 5.5 Flash Preview weights wire; Ling-3.2-air row at AA 23",
+    items: [
+      "Wire: Baidu ERNIE 5.5 Flash Preview weights (baidu-ernie-5.5-flash-weights-1124), Apache 2.0, public 24 November (Hugging Face repo created 23 November). Official card: 280B / 14B active, 1,048,576-token context, FP8+FP4 default plus FP8 and BF16 builds. Base remains under its own license. Vendor scores in the wire only, labelled as Baidu's. No independent tracked-board score, so no row. Sources: https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview https://ernie.baidu.com/release/ernie-5-5-flash-preview/",
+      "New model: inclusionAI Ling-3.2-air (inclusionai-ling-3.2-air-1123). Official card: MIT, 124B total / 5.5B active, image and video input, same architecture as Ling-3.0-flash-VL; Hugging Face safetensors total 127,920,654,544, FP8. Official card does not state context length; config and recommended serve are 262,144 / 256K tokens. Artificial Analysis lists 1M context, which the official card does not confirm, and scores 23 on Intelligence Index v5.0.1. Card citations of AutomationBench-AA 61%, AA-Briefcase v1.1 Elo 1,340 and Terminal-Bench 4.0 27% are Ant's and are in the wire only. No other tracked-board score. Not on /small (over 20B). Sources: https://huggingface.co/inclusionAI/Ling-3.2-air https://artificialanalysis.ai/models/ling-3-2-air",
+    ],
+  },
+  {
     date: "2026-11-23",
     title: "Riemann proof, perplexity limits, distillation, GLM-5.4, Sarvam and Kolibri 1.1 wires; Phonic 1.1 on Voice; half-week note",
     items: [

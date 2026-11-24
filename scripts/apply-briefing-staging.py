@@ -85,6 +85,14 @@ SNAPSHOT_GATES = {
     "gpt-6-astra": {"pattern": r"^(?!.*6[.\-]2)", "stale": "GPT-6.2 row", "label": "not 6.2", "labelNote": False},
     "gpt-6-sol": {"pattern": r"^(?!.*6[.\-][12])", "stale": "GPT-6.1/6.2 row", "label": "not 6.1/6.2", "labelNote": False},
     "gpt-6.1-sol": {"pattern": r"^(?!.*6[.\-]2)", "stale": "GPT-6.2 row", "label": "not 6.2", "labelNote": False},
+    # Ling-3.2-air must not take Ling-3.2-flash, Ling-3.1-flash, Ling-3.0-flash-VL
+    # or LingSante-3.1-air-VL (same 124B / 5.5B class, also "air").
+    "ling-3.2-air": {
+        "pattern": r"(?i)ling\s*[-_]?3\s*[.]\s*2\s*[-_]?air",
+        "stale": "row not labelled Ling-3.2-air",
+        "label": "Ling-3.2-air",
+        "labelNote": False,
+    },
 }
 
 NOTE_GUARDS = json.loads((Path(__file__).resolve().parent / "note-guards.json").read_text())
@@ -98,6 +106,8 @@ NAME_EXCLUDES = {
     # Inkling 2 Mini / Small must never take each other or the variable-loop research variant.
     "inkling-2-mini": r"(?i)(\bsmall\b|varloop|variable[-_ ]?loop|tml-d24)",
     "inkling-2-small": r"(?i)(\bmini\b|varloop|variable[-_ ]?loop|tml-d24)",
+    # Ling-3.2-air is not LingSante, not Ling-3.2-flash, and not the 3.1 / 3.0 Ling lines.
+    "ling-3.2-air": r"(?i)(sante|flash|\b3\s*[.]\s*1\b|\b3\s*[.]\s*0\b)",
 }
 
 

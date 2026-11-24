@@ -11,6 +11,28 @@ export interface WireItem {
 
 export const WIRE: WireItem[] = [
   {
+    id: "baidu-ernie-5.5-flash-weights-1124",
+    title: "Baidu publishes ERNIE 5.5 Flash Preview weights under Apache 2.0",
+    blurb:
+      "Baidu published the ERNIE 5.5 Flash Preview weights under Apache 2.0, public on 24 November, as baidu/ERNIE-5.5-Flash-Preview on Hugging Face. The repository was created on 23 November at about 4:00 AM Eastern. The official card lists a mixture of experts with 280 billion total parameters, 14 billion active per token, and a 1,048,576-token context. The default repository is blockwise FP8 with routed experts in MXFP4. Baidu also published an all-FP8 build at baidu/ERNIE-5.5-Flash-Preview-FP8 and a BF16 build at baidu/ERNIE-5.5-Flash-Preview-BF16. The Apache 2.0 license covers these Preview weights only. ERNIE 5.5 Flash Base stays under its own license, the ERNIE 5.5 Flash Base Model License Agreement v1.0. The card posts Baidu's own benchmark figures, including Terminal-Bench 4.0 at 46.5; those are vendor scores, not Ridge boards. Artificial Analysis, Vals and Arena+ have not published a score, so Ridge is not adding a row.",
+    date: "2026-11-24",
+    outlet: "Baidu ERNIE",
+    url: "https://huggingface.co/baidu/ERNIE-5.5-Flash-Preview",
+    beat: "release",
+    models: [],
+  },
+  {
+    id: "inclusionai-ling-3.2-air-1123",
+    title: "inclusionAI releases Ling-3.2-air, an open 124B multimodal model, under MIT",
+    blurb:
+      "inclusionAI, Ant Group's AI team, released Ling-3.2-air with MIT weights on Hugging Face as inclusionAI/Ling-3.2-air. The official card describes a native multimodal mixture of experts that shares its architecture with Ling-3.0-flash-VL: 124 billion total parameters, 5.5 billion active per token, and image and video input. Hugging Face's safetensors metadata counts 127,920,654,544 parameters (127.9 billion) and marks the build as FP8. The card metadata marks the license as MIT. The official card does not state a context length. The checked-in config sets max_position_embeddings at 262,144 tokens, and the recommended SGLang recipe uses a 256K context. Artificial Analysis lists a 1M-token context on its model page, which the official card does not confirm. Artificial Analysis dates the release to 23 November; the Hugging Face repo was created on 22 November at about 10:55 PM Eastern. Artificial Analysis scores it at 23 on Intelligence Index v5.0.1. The card also cites AutomationBench-AA at 61%, AA-Briefcase v1.1 at 1,340 Elo, and Terminal-Bench 4.0 at 27%. Those figures are Ant's citations, not Ridge's Vals Terminal-Bench column. Ridge is adding a row for the Artificial Analysis Intelligence Index score only. At 124 billion total parameters it is above the 20 billion cutoff for the /small board.",
+    date: "2026-11-23",
+    outlet: "inclusionAI",
+    url: "https://huggingface.co/inclusionAI/Ling-3.2-air",
+    beat: "release",
+    models: ["ling-3.2-air"],
+  },
+  {
     id: "alephalpha-kolibri-1.1-1123",
     title: "Aleph Alpha releases Kolibri 1.1, an open English-German model, under Apache 2.0",
     blurb:

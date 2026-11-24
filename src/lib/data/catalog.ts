@@ -1023,6 +1023,25 @@ export const MODELS: Model[] = [
     publicOpinionNote: "Still winning many side-by-side demos on detail, but the most-liked post of the week was a copy-paste chant that Opus 5.5 is better, and effort tests keep finding max costs far more without looking better than medium or high.",
     publicOpinionAsOf: "2026-11-16",
   }),
+  m({
+    id: "ling-3.2-air",
+    name: "Ling-3.2-air",
+    shortName: "Ling 3.2 Air",
+    lab: "inclusionai",
+    labName: "inclusionAI (Ant Group)",
+    released: "2026-11-23",
+    contextTokens: 262_144,
+    pricing: null,
+    license: "open-weight",
+    aliases: [
+      "ling-3.2-air",
+      "ling 3.2 air",
+      "ling-3-2-air",
+      "ling 3.2-air",
+    ],
+    summary:
+      "Open-weight native multimodal mixture of experts from inclusionAI, Ant Group's AI team, released with MIT weights on Hugging Face (inclusionAI/Ling-3.2-air). The official card lists 124 billion total parameters and 5.5 billion active per token, with text, image and video input, and says it shares its architecture with Ling-3.0-flash-VL. Hugging Face's safetensors metadata counts 127,920,654,544 parameters (127.9 billion) and marks the build as FP8. The official card does not state a context length; the checked-in config sets 262,144 tokens, and the recommended SGLang recipe uses a 256K context. Artificial Analysis's model page lists 1M tokens, which the official card does not confirm. AA lists no public API. Independent score: AA Intelligence Index v5.0 23. No Arena+, Vals Terminal-Bench, CursorBench, AA Cyber or Harvey LAB-AA score yet. The card's AutomationBench-AA 61%, AA-Briefcase v1.1 Elo 1,340 and Terminal-Bench 4.0 27% are Ant's citations and not Ridge boards. At 124B total it is above the 20B cutoff for the /small board.",
+  }),
 ];
 
 export const BENCHMARKS: Benchmark[] = [
@@ -1220,6 +1239,7 @@ export const SCORES: Score[] = [
   s("gpt-6.2-astra", "aa-intelligence", 62, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-23", "best effort/variant: max"),
   s("gpt-6.2-sol", "aa-intelligence", 57, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-23", "best effort/variant: max"),
   s("hy4", "aa-intelligence", 35, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-23", "best listed row"),
+  s("ling-3.2-air", "aa-intelligence", 23, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-11-23", "best listed row"),
   // AA Intelligence Index v4.3.2, archived 28 Oct 2026 when AA moved to v5.0. Frozen; never rescraped.
   s("claude-opus-5.5", "aa-intelligence-v4", 58, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-27", "best effort/variant: max with fallback"),
   s("claude-sonnet-5.5", "aa-intelligence-v4", 56, "Artificial Analysis", "https://artificialanalysis.ai/leaderboards/models", "2026-10-27", "best effort/variant: max with fallback; AA tested a pre-release build with a structured-outputs bug since fixed and plans to re-run affected evals"),
